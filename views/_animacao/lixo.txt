@@ -1,0 +1,77 @@
+// desenha o ponto do aquecedor
+function drawAquecedor(ctx,line){
+    let x=line.start.x
+    let y=line.start.y
+    console.log('vr de x e y',x,y)
+    const imageData = ctx.createImageData(40,50);
+    imageData.fillStyle="black";
+    for (let i = 0; i < imageData.data.length; i += 4) {
+         // Modify pixel data
+         imageData.data[i + 0] = 190; // R value
+         imageData.data[i + 1] = 220; // G value
+         imageData.data[i + 2] = 110; // B value
+         imageData.data[i + 3] = 255; // A value
+    }
+    imageData.data="black";
+    console.log('0-0-0-0')
+    ctx.putImageData(imageData, x,y);
+    //ctx.fillStyle = "green";
+   // ctx.fillRect(x, y, 20,60);
+    //line.start.x=0;
+    //line.start.y=0;
+    //ctx.font = "20px serif";
+    //ctx.fillStyle = "red";
+    //ctx.fillText("Aquecedor", x,y+5);
+}
+
+
+function PushAquecedor(){
+   positionDraw=1
+   document.getElementById('btnCaixaBox').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnAquecedor').style.backgroundColor="red";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+}
+
+{{!-- <div id="barraAquecedor" class="barraElements_">
+    <button id="btnAquecedor" class="btnBarraElements" onclick="PushAquecedor()">local do aquecedor</button>
+</div> --}}
+
+
+else if(positionDraw==2)
+   console.log('dentro de X = 2')
+   drawPonto(line)
+
+function drawPonto(line){
+  console.log('-----------------------')
+  console.log('&&&&&')
+   console.log('1',line.start.x)
+   console.log('2',line.start.y)
+   let x=line.start.x
+   let y=line.start.y
+   ctx.beginPath()
+   ctx.arc(x,y,10,0,2 * Math.PI);
+   ctx.lineWidth=3
+   ctx.strokeStyle="red"
+   ctx.stroke();
+}
+
+function PontosAtender(){
+   positionDraw=2
+   document.getElementById('btnCaixaBox').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="red";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+}
+
+function TracaLine(){
+   positionDraw=3
+   document.getElementById('btnCaixaBox').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="red";
+   document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+   document.getElementById("idPincel").style.display="block";
+}

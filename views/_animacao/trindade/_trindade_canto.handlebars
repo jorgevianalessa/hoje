@@ -1,0 +1,882 @@
+<style>
+  body{
+    margin: 0px;
+  }
+
+  .corpo{
+    background-color: #ffffff;width: 98vw;height: 90vh;margin: auto;display: flex;flex-direction:column;justify-content:center;margin-top: -1%;
+  }
+
+  .mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #033986;
+      background-position: center;
+      z-index: 1000;
+      position: absolute;left: 0;top: 0;
+      display: none;
+  }
+
+  /* Divisão dos componentes*/
+  .componentes{
+     width: 40%;height: 50vh;margin: auto;
+     top:150px;
+     z-index: 1000;
+     display: none;
+     background-color: #ffffff;
+     padding: 1px;
+     left: 300px;
+  }
+
+  
+  .componentes-div{
+     height:50vh;margin: auto;
+     display: flex;flex-direction: column;
+     padding: 20px;
+     background-color: #b8b2b2;
+  }
+
+  .ampliarImg{
+     width: 35%;height: 60vh;margin-left:40px;
+     top:300px;
+     position: absolute;
+     z-index: 1400;
+     background-color: #ebe2e2;
+     padding: 1px;
+     left: -10;
+     padding-top: 0.4vh;
+  }
+
+  .gaveta{
+    display: flex;flex-direction: row;justify-content:space-between;background-color:#ffffff;height: 8vh;margin-bottom: 5px;border-bottom: 1px gray solid;
+  }
+
+  .gavetaLabel{
+      background-color:#ffffff;padding: 10px;width: 30%;justify-content: flex-end;
+  }
+
+  .gavetaLabel_{
+      margin-right: 5px;background-color:#ffffff;text-align: right;padding-right: 5px;width: 100%;
+  }
+
+  .gavetaImg{
+      background-color:transparent;text-align: left;width: 50%;display: flex;flex-direction: column;justify-content: center;
+  }
+
+  .tituloObject{
+    color:transparent;text-align: left;margin-top: 1vh;height: 4vh;background-color:#ffffff;margin-right: 20px;width: 100%;color: #0b0bc9;
+  }
+
+
+  /* Divisões principáis*/
+
+  .sideLeft{
+     width: 20vw;height: 85vh;margin: auto;float: left;
+     display: flex;flex-direction: column;justify-items: center;
+     background-color: #ffffff;
+     border: #ffffff 2px solid;width: 15%;
+  }
+
+  .sideMiddle{
+     width: 60vw;height: 85vh;margin: auto;float: left;
+     display: flex;flex-direction: column;justify-content: center;
+     background-color:#ffffff;
+  }
+
+  .sideRight{
+     width: 20vw;height: 85vh;margin: auto;
+     display: flex;flex-direction: column;justify-content: center;
+     background-color: #ffffff;
+     border: #ffffff 2px solid;text-align: center;
+  }
+  
+  .barraElements{
+    width: 90%;height: 5vh;margin: auto;
+     display: flex;flex-direction: row;justify-content: space-between;justify-items: center;
+    background-color:transparent;
+  }
+
+  .barraElements_{
+     width: 62vw;height: 4vh;padding-top: 0.5vh;background-color:transparent;text-align: center;font-size: small;
+  }
+
+
+  .btnBarraElements{
+     width: 140px;height: 3vh;margin: auto;background-color: #0362d6;border-radius: 5px ;color:#ffffff;font-size:smaller;
+  }
+
+  
+
+  
+</style>
+<div class="d-flex corpo" id="corpo">
+      <div id="idPincel"  style="position: absolute;left: 600px;   top:300px;z-index: 1000;width: 40%;height: 30vh;margin: auto;background-color: #820b0b;padding: 15px;display: none;border: 1px gray solid;">
+          <div style="width: 80%;height: 25vh;margin: auto;display: flex;flex-direction:column;justify-content: space-around; margin-top: 2vh;background-color: #ffffff;text-align: center;">
+            <div style="width: 80%;height: 5vh;margin: auto;text-align: center;background-color: #ffffff;color:#0362d6;padding: 15px;">
+                <label>Escolha a cor do pincel !</label>
+            </div>
+            <div style="width: 90%;height: 18vh;display: flex;flex-direction: row;justify-content:space-between;justify-items: center;background-color: #ffffff;margin-top: 1vh;padding-top: 6vh;text-align: center;margin: auto;">
+               {{!-- <input id="mostracor" type="color" style="margin-left: 12px;height: 3vh;width: 120px;"> --}}
+                <div style="margin-left:6px ;">
+                  <label style="font-size:smaller;">marron</label>
+                  <input id="pegaCorFria" type="button" onclick="pegacor('#8a7048')" style="width: 110px;height: 3vh;border-radius: 6px;background-color: #8a7048;"  >
+               </div>
+               <div style="">
+                  <label style="font-size:small;">A fria</label>
+                  <input id="pegaCorFria" type="button" onclick="pegacor('#0362d6')" style="width: 110px;height: 3vh;border-radius: 6px;background-color: #0362d6;"  >
+               </div>
+               <div style="">
+                  <label style="font-size:small;">A quente</label>
+                  <input id="pegaCorQuente" type="button" onclick="pegacor('#f24e4e')" style="width: 110px;height: 3vh;border-radius: 6px;background-color: #f24e4e;"  >
+               </div>
+               <div style="margin-right: 6px;">
+                  <label style="font-size:small;">retorno</label>
+                  <input id="pegaCorRetorno" type="button" onclick="pegacor('#f0b208')" style="width: 110px;height: 3vh;border-radius: 6px;background-color: #f0b208;"  >
+               </div>
+             </div>
+          </div>   
+      </div> 
+      <div id="idAmpliar" style="display: none;" class="ampliarImg">
+      <div style="width: 98%;height:59vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-content:center ; ">
+           <button onclick="restaurar()"><img id="imgDistr" src="https://amelia.nyc3.digitaloceanspaces.com/d622da72674628695dad_plantaLimpa%20com%201%20sistema.png" width="100%" height="auto"></button> 
+        </div>
+      </div>
+      <div id="idComponentes" class="componentes">
+          <div class="componentes-div">
+            {{!-- ////////////////////////////////////////////////////////////// --}}
+            <div id="gavetaBox" class="gaveta" style="">
+                <div id="gavetaBox_label" class="gavetaLabel" >
+                    <div style="margin-right:5px;background-color:#ffffff;text-align: right;padding-right: 5px;width: 100%;color: #ffffff;">
+                      <label for="vehicle1" class="tituloObject" style="font-size: 1vw;font-weight: 100;height: 1vh;">reg. retorno :</label><br>
+                    </div>
+                </div>
+                <div id="gavetaBox_img" style="background-color:#ffffff;text-align: left;width: 50%;display: flex;flex-direction: column;justify-content: center;">
+                    <div>
+                      <img style="margin-left: 10px;margin-bottom: 5px;" src="https://amelia.nyc3.digitaloceanspaces.com/cc178da923515512c839_reg_gaveta_right_50.png" >
+                    </div>
+                </div>
+                <div id="gavetaBox_button" style="width: 20%;padding-top: 2vh;margin-left: 3px;">
+                    <button style="width: 90%;height: 3vh;background-color:#0362d6 ;color: #ffffff;font-weight: 400;font-size: .6vw;border-radius: 6px;" onclick="FixaFigura(1)">add</button>
+                </div>
+            </div>
+            {{!-- ////////////////////////////////////////////////////////////// --}}
+            <div id="gavetaAquecedor" class="gaveta" style="">
+                <div id="gavetaAquecedor_label" class="gavetaLabel" >
+                    <div class="gavetaLabel_">
+                        <label for="vehicle1" class="tituloObject" style="font-size: 1vw;font-weight: 100;height: 1.5vh;">reg. água fria:</label><br>
+                    </div>
+                </div>
+                <div id="gavetaAquecedor-img" class="gavetaImg">
+                    <div>
+                       <img style="margin-left: 10px;margin-bottom: 5px;"src="https://amelia.nyc3.digitaloceanspaces.com/cc178da923515512c839_reg_gaveta_right_50.png">
+                    </div>
+                </div>
+                <div id="gavetaAquecedor-button" style="width: 20%;padding-top: 2vh;margin-left: 3px;">
+                    <button style="width: 90%;height: 3vh;background-color:#0362d6 ;color: #ffffff;font-weight: 400;font-size: .6vw;border-radius: 6px;" onclick="FixaFigura(2)">add</button>
+                </div>
+            </div>
+            <div id="gavetaAQuente" class="gaveta" style="">
+                <div id="gavetaAQuente_label" class="gavetaLabel">
+                    <div class="gavetaLabel_" style="height: 2vh;">
+                        <label for="vehicle1" class="tituloObject" style="font-size: 1vw;font-weight: 100;height: 1.5vh;">reg. água quente :</label><br>
+                    </div>
+                </div>
+                <div id="gavetaAQuente-img" style="background-color:#ffffff;text-align: left;width: 50%;display: flex;flex-direction: column;justify-content: center;">
+                    <div>
+                       <img style="margin-left: 10px;margin-bottom: 5px;"src="https://amelia.nyc3.digitaloceanspaces.com/cc178da923515512c839_reg_gaveta_right_50.png">
+                    </div>
+                </div>
+                <div style="width: 20%;padding-top: 2vh;margin-left: 3px;">
+                    <button style="width: 90%;height: 3vh;background-color:#0362d6 ;color: #ffffff;font-weight: 400;font-size:.6vw;border-radius: 6px;" onclick="FixaFigura(3)">add</button>
+                </div>
+            </div>
+            {{!-- ////////////////////////////////////////////////////////////// --}}
+            <div id="BoxLateral" style="display: flex;flex-direction: row;justify-content: space-around;background-color: #ffffff;height: 21vh;padding-top: 6px;border-bottom: 1px gray solid;">
+                <div id="Label3" style="width: 30%;background-color: #ffffff;padding: 10px;" >
+                    <div style="margin-right:5px;background-color:transparent ;text-align: right;padding-right: 5px;width: 100%;height: 3vh;">
+                        <label for="vehicle1" class="tituloObject" style="font-size: 1vw;font-weight: 100;">caixa box lateral:</label><br>
+                    </div>
+                </div>
+                <div style="background-color: #ffffff;text-align: left;width: 50%;padding-left:20px;">
+                    <div>
+                    <img style="margin-left: -8px;margin-top: -5px;" src="https://amelia.nyc3.digitaloceanspaces.com/16d2b01edfdf2475fd48_caixaBox_extra.jpg" alt="box lateral gaveta" width="50px" height="auto">
+                    </div>
+                </div>
+                 <div style="width: 20%;padding-top: 2vh;margin-left: 3px;display: flex;flex-direction: column;justify-content: space-between;">
+                    <div>
+                    <button style="width: 90%;height: 3vh;background-color:#0362d6 ;color: #ffffff;font-weight: 400;font-size:.6vw;border-radius: 6px;" onclick="FixaFigura(4)">lateral</button>
+                    </div>
+                    {{!-- <div>
+                    <button style="width: 90%;height: 3vh;background-color:#0362d6 ;color: #ffffff;font-weight: 400;font-size: .6vw;border-radius: 6px;" onclick="FixaFigura(5)">em baixo</button>
+                    </div> --}}
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+   
+    <div id="barraTitulo" style="width: 100%;height: 5vh;margin: auto;background-color: #0b0b0b;color: #ffffff;text-align: center;margin-top:0.95vh;padding-top: 0.5vh;display: flex;flex-direction: row;justify-items: center;justify-content: space-between;">
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1vw;margin-left: 3vw;">Inscreva-se no canal</h3>
+        
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1vw;">Caixa box direita</h3>
+         <div style="display: flex;flex-direction: row;justify-content:space-around space-between;justify-items: center;background-color: #f24e4e;margin-bottom: 0.5vh;width: 15%;">
+            <div style="background-color: #0b0bc9;width: 80%;text-align: right;">
+              <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1vw;margin-right:0.4vw;padding-right: 6px;">deixe seu like<span style="background-color: #f0b208;width: 10vw;height: 4vh;"></span></h3>
+            </div>
+            <div style="background-color: #0b0bc9;width: 20%;">
+              <img src="https://amelia.nyc3.digitaloceanspaces.com/5e79abd1bec281324aab_LikeBtn.png" width="40px" height="auto">
+           </div>
+         </div>
+    </div>
+    <div id="main" style="display: flex;flex-direction: row;justify-content:space-between;">
+        <div id="sideLeft" class="sideLeft" style="visibility: visible;">
+            <div id="SelectClient" style="width: 80%;height: 15vh;margin: auto;background-color: #fffff;display: flex;flex-direction: column;justify-items:center ;padding: 12px;text-align: center;visibility: hidden;">
+            </div>  
+            <div style="width: 100%;height: 6vh;margin: auto;">
+               <button onclick="ampliar()"><img id="imgDistr" src="https://amelia.nyc3.digitaloceanspaces.com/bd18cf4024f057b72f3d_Canto_convert_B.png" width="100%" height="auto"></button> 
+            </div>
+            <div id="SelectPlanta" style="width: 80%;height: 15vh;margin: auto;background-color: #8f8a91;display: flex;flex-direction: column;justify-items:center ;padding: 12px;text-align: center;visibility: hidden;">
+            </div>  
+            <div  id="SelectEtapa"    style="width: 80%;height: 15vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-items:center ;padding: 12px;text-align: center;visibility:visible;">
+                <label style="color: red;font-size: 1.5vw;">Caixa Box Right</label>
+            </div>
+        </div>
+        <div id="x20" style="position: relative;left: 120px;top:10px;z-index: 300;">
+           
+        </div>
+        <div id="sideMiddle" class="sideMiddle" style="background-color: #ffffff;border: #ffffff solid 2px;width: 64%;">
+            <div id="canvas" style="display: block;overflow: hidden;">
+                <div id="canvas_" style="width: 90%;height: 75vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;justify-items: center;">
+                    <canvas id="pranchaA" width="1000px" height="700px" class="canvaX" style="display: no-repeat;background-size: cover;margin:auto;border:#ffffff 2px solid;width: 250;background-color: #fffffff;border: 1px solid gray;overflow: hidden;">
+                    </canvas>
+                </div>
+            </div>
+            <div id="barraElements" class="barraElements">
+                <div id="barraAquecedor" class="barraElements_">
+                    <button id="btnCaixaBox" class="btnBarraElements" onclick="PushCaixaBox()" style="font-size: .7vw;font-weight: 100;" >caixa box</button>
+                </div>
+                <div class="barraElements_">
+                    <button id="btnLine" class="btnBarraElements" onclick="TracaLine()" style="font-size: 0.7vw;font-weight: 100;" >traçando as linhas</button>
+                </div>
+            </div>    
+        </div>
+        <div id="sideRight" class="sideRight" style="visibility: visible;background-color: #ffffff;">
+            <div style="width: 90%;height: 25vh;margin: auto;background-color: #ffffff;padding-top: 15px;visibility:hidden;">
+            </div>
+            <div style="width: 15vw;height: 20vh;margin: auto;background-color: #ffffff;">
+                {{!-- <img src="https://amelia.nyc3.digitaloceanspaces.com/d1ecd891c10726f59fb6_conexaoRetornoAFria.png" alt="" width="100" height="150" style="object-fit: contain;"> --}}
+            </div>
+            <div style="width: 90%;height: 25vh;margin: auto;background-color: #ffffff;padding-top: 15px;margin-top: 4vh;visibility:visible;">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Declara as variáveis
+    let positionDraw=0; 
+    let Arr=[];
+    let numberPoint=0;
+    let corpincel="";
+    let nFigura=0;
+    let isPressed = false;
+    let mouseDownPos = null;
+    let Ative;
+    let controlLineA=0;
+    let controlLineV=0;
+    let controlLineR=0;
+    let controlLineM=0;
+
+    // Canvas para desenhar o projeto.
+    const canvas = document.getElementById('pranchaA');
+    const ctx = canvas.getContext('2d')
+
+
+//Desenha o aquecdo no fundo da página
+function imgAquecedor(){
+   //https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png
+   //https://amelia.nyc3.digitaloceanspaces.com/7daeeab070ffeb581fbe_aquecedor_36lts_80.png
+   const canvas = document.getElementById('pranchaA');
+   const ctx = canvas.getContext('2d')
+
+   var background=new Image();
+   background.src='https://amelia.nyc3.digitaloceanspaces.com/8837c5e21929a729ef16_Aquecedor_chamin%C3%A9__.png'
+   background.width=250;
+   background.height=350;
+   let a=canvas.width
+   console.log('a',a)
+   a=a/2-125
+   let b=150
+   background.onload=function(){
+        ctx.drawImage(background,a,0)
+        let z=background.width;
+        background.left=(a - z/2)
+        console.log('______________________________________')
+   }
+}
+
+// desenha a grade do fundo
+function grade(){
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 100)
+    ctx.lineTo(1000,100)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(100,0)
+    ctx.lineTo(100,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 200)
+    ctx.lineTo(1000,200)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(200,0)
+    ctx.lineTo(200,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 300)
+    ctx.lineTo(1000,300)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(300,0)
+    ctx.lineTo(300,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 390)
+    ctx.lineTo(1000,390)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(400,0)
+    ctx.lineTo(400,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 500)
+    ctx.lineTo(1000,500)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(500,0)
+    ctx.lineTo(500,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 600)
+    ctx.lineTo(1000,600)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(600,0)
+    ctx.lineTo(600,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+     ctx.beginPath()
+    ctx.moveTo(0, 650)
+    ctx.lineTo(1000,650)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal [ 5 ]
+    ctx.beginPath()
+    ctx.moveTo(0, 700)
+    ctx.lineTo(1000,700)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+   
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(700,0)
+    ctx.lineTo(700,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Horizontal [ 6 ]
+    ctx.beginPath()
+    ctx.moveTo(0, 800)
+    ctx.lineTo(1000,800)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+    // Vertical [ 8 ]
+    ctx.beginPath()
+    ctx.moveTo(800,0)
+    ctx.lineTo(800,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+
+   
+ 
+    // Vertical [ 9 ]
+    ctx.beginPath()
+    ctx.moveTo(900,0)
+    ctx.lineTo(900,900)
+    ctx.lineWidth =0.5
+    ctx.strokeStyle = "gray"
+    ctx.stroke()
+}
+
+// dá partida para desenhar a grade 
+grade();
+
+function linhabancada(){
+     x1=0
+     y1=460
+     x2=1000
+     y2=460
+     ctx.beginPath()
+     ctx.moveTo(x1,y1)
+     ctx.lineTo(x2,y2)
+     ctx.lineWidth = 4
+     ctx.strokeStyle = 'gray'
+     ctx.stroke()
+
+     const canvas = document.getElementById('pranchaA');
+     var cxBox=new Image();
+     cxBox.src="https://amelia.nyc3.digitaloceanspaces.com/f5a6e15537f53fb42206_linhaBancada.png";
+     a=800;
+     b=420;
+
+     cxBox.onload=function(){
+            ctx.width=30;
+            ctx.height=30;
+            ctx.drawImage(cxBox,a,b)
+            let z=cxBox.width;
+
+           // console.log('z : ',z)
+            cxBox.left=(a - z/2)
+            console.log(a)
+            console.log(b)
+            console.log('_______________________________________________')
+        }
+}
+
+linhabancada();
+
+function ampliar(){
+   var h=document.getElementById("idAmpliar");
+   h.style.display="block";
+}
+
+function restaurar(){
+   var h=document.getElementById("idAmpliar");
+   h.style.display="none";
+}
+
+// ouvindo o Mouse em canvas
+canvas.addEventListener('mousedown', function(e) {
+    
+    isPressed = true
+    mouseDownPos = {
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop
+    }
+
+    
+    /////////////////////////////////////////////////
+    // define os pontos onde foi clicado o mouse
+    const line = {
+        start: mouseDownPos,
+        end: mouseDownPos,
+    }
+
+    canvas.style.cursor.backgroundColor='red' 
+    // Conforme o BTN clicado desenha ou importa algo.
+    if(positionDraw==4){
+        if(nFigura>0){
+          // importa as figuras para composição do systema
+          ImageCbox(line,nFigura);
+        }
+    }else if(positionDraw==3){
+        drawLine(ctx, line)
+    }else{
+      alert('favor definir o desenho !')
+    }
+})
+
+// libera o Mouse
+canvas.addEventListener('mouseup', function() {
+   isPressed = false
+})
+
+// Desenhando a linha
+function drawLine(ctx, line) {
+    const {
+        start,
+        end,
+        lineWidth = 6,
+        lineCap = 'round', 
+        strokeStyle = 'gray',
+    } = line
+
+    if(!start || !end) {
+        throw new Error('Start or end of line not defined.')
+    }
+
+    /////////////////////////////////////////////
+    // Cria um array para guardar o x e o ponto y
+    montaCombo(start.x, start.y,end.x, end.y)
+}
+
+// monta um combo com start,end => o 1º e 2º ponto
+function montaCombo(startx,starty,endx, endy){
+   // console.log('---> ',Arr)
+    numberPoint++;
+    ponto={
+        startx:startx,
+        starty:starty,
+        point:numberPoint
+    }
+    
+    // Se existe dois pontos então vamos traçar a linha
+    Arr.push(ponto)
+    if (Arr.length>1){
+       traçaLinha(Arr)
+    }
+}
+
+// Com os dois pontos e a cor definido traçamos a linha
+function traçaLinha(){
+    
+   let x1=Arr[0].startx;
+   let y1=Arr[0].starty;
+   ///////////////////////////////////////////////////////
+   let x2=Arr[1].startx;  // recebe o mesmo do primeiro ponto
+   let y2=Arr[1].starty;
+   if (Ative=="Azul"){
+      traçaLinhaFria()
+   }else if( Ative=="Vermelho"){
+      console.log('Ative ',Ative)
+      traçaLinhaQuente()
+   }else if(Ative=="Ocre"){
+      traçaLinhaRetorno()
+   }else if(Ative=="Marron"){
+      traçaLinhaMarron()
+   }
+
+   function traçaLinhaRetorno(){
+      if(controlLineR==0){
+            x1=698
+            y1=0
+            x2=698
+            y2=125
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+            controlLineR=1;
+      }else if (controlLineR==1){
+            x1=698;
+            y1=225;
+            x2=698;
+            y2=380;
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+
+            controlLineR=2;
+      }else if(controlLineR==2){
+            x1=698;
+            y1=380;
+            x2=500;
+            y2=380;
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+
+            controlLineR=3;
+      }else if(controlLineR==3){
+            x1=500
+            y1=430
+            x2=500
+            y2=380
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+
+            controlLineR=4;
+      }else{
+            console.log('666 FURADO! ')
+      }
+   }     
+
+   function traçaLinhaQuente(){
+      if(controlLineV==0){
+            x1=299
+            y1=380
+            x2=450
+            y2=380
+           
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+            controlLineV=1;
+      }else if (controlLineV==1){
+            x1=299
+            y1=380
+            x2=299
+            y2=1
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+
+            controlLineV=2;
+            Ative='white'
+      }else{
+          console.log('Error : ',controlLineV)
+      }
+   }
+
+   function traçaLinhaFria(){
+      if(controlLineA==0){
+            x1=600
+            y1=110
+            x2=600
+            y2=380
+           
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle = corpincel
+            ctx.stroke()
+            controlLineA=1;
+      }else if (controlLineA==1){
+            x1=500
+            y1=380
+            x2=600
+            y2=380
+      
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle =corpincel                //corpincel
+            ctx.stroke()
+            Ative='nulo'
+      }else{
+            console.log(' Error : ',controlLineA)
+      }
+   }
+
+   function traçaLinhaMarron(){
+      console.log('FFFF')
+            x1=600
+            y1=0
+            x2=600
+            y2=85
+            ctx.beginPath()
+            ctx.moveTo(x1,y1)
+            ctx.lineTo(x2,y2)
+            ctx.lineWidth = 5
+            ctx.strokeStyle =corpincel
+            ctx.stroke()
+   }
+   
+   Arr.length=0;
+   ponto={
+        startx:x2,
+        starty:y2,
+        point:numberPoint,
+        corpincel:corpincel
+   }
+   Arr.push(ponto)
+   console.log(Arr)
+   positionDraw=0
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+}
+
+// Define o button para importar  imagens registro e caixaBox
+function PushCaixaBox(){
+   positionDraw=4
+   
+   document.getElementById('btnCaixaBox').style.backgroundColor="red";
+   let C=canvas.width;
+   let component=document.getElementById('idComponentes');
+   component.left=500 + 'px';
+   console.log('1',C)
+   console.log('2',component.left)
+   component.style.backgroundColor="black"
+   component.left=500 + 'px'
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+   document.getElementById("idComponentes").style.display="block";
+   component.style.position="absolute"
+}
+
+// Define o button para traçar a linha a partir de dois pontos  
+function TracaLine(){
+   positionDraw=3
+   Arr.length=0
+   document.getElementById('btnCaixaBox').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="red";
+   document.getElementById("idPincel").style.display="block";
+}
+
+// Esse button limpa a array de pontos  e torna nulo positionDraw
+function limpaPonto(){
+   // limpa o ponto 
+   positionDraw=0 
+   document.getElementById('btnCaixaBox').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+   // limpa o array
+   Arr.length=0;
+}
+
+function limpaLastLine(){
+    positionDraw=0 
+    document.getElementById('btnCaixaBox').style.backgroundColor="#0b0bc9";
+    document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+    document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+    document.getElementById('btnLimpaPonto').style.backgroundColor="#0b0bc9";
+    document.getElementById('btnLimpaLastLine').style.backgroundColor="#0b0bc9";
+    console.log(Arr)
+    Arr.length=0;
+}
+
+// função para desenhar o fundo da canvas
+imgAquecedor();
+
+
+function ImageCbox(line,nFigura){
+       
+        let a=line.start.x;
+        let b=line.start.y;
+        const canvas = document.getElementById('pranchaA');
+        const ctx = canvas.getContext('2d')
+        var cxBox=new Image();
+        //https://amelia.nyc3.digitaloceanspaces.com/16d2b01edfdf2475fd48_caixaBox_extra.jpg'
+        //'https://amelia.nyc3.digitaloceanspaces.com/d1b90eae76c59748b799_reg_gaveta_left.png'
+        //https://amelia.nyc3.digitaloceanspaces.com/e005961ec3341a799d98_reg_gaveta_left_50.png
+        //https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png --}}
+        //https://amelia.nyc3.digitaloceanspaces.com/24d303f9388c7e74f9dc_aquecedor_.png --}}
+        if (nFigura==1){
+            // Coloca o registro de gaveta a esquerda
+            cxBox.src="https://amelia.nyc3.digitaloceanspaces.com/cc178da923515512c839_reg_gaveta_right_50.png";
+            a=696;
+            b=82;
+            console.log('posições rg retornoleft',a,b) 
+        }else if(nFigura==2){
+            cxBox.src='https://amelia.nyc3.digitaloceanspaces.com/cc178da923515512c839_reg_gaveta_right_50.png';
+            a=598
+            b=82
+            console.log('posições rg right',a,b) 
+        }else if(nFigura==3){
+            cxBox.src='https://amelia.nyc3.digitaloceanspaces.com/e005961ec3341a799d98_reg_gaveta_left_50.png';
+            a=255
+            b=82
+        }else if(nFigura==4){
+            cxBox.src="https://amelia.nyc3.digitaloceanspaces.com/3d62a3bc734dc4196f66_caixaBox_80.jpg";
+            a=674;
+            b=115;
+        }
+        
+        cxBox.onload=function(){
+            ctx.width=30;
+            ctx.height=30;
+            ctx.drawImage(cxBox,a,b)
+            let z=cxBox.width;
+            cxBox.left=(a - z/2)
+            console.log('_______________________________________________')
+        }
+
+        Arr.length=0
+        positionDraw=0
+        document.getElementById("btnCaixaBox").style.backgroundColor="#0b0bc9"
+}
+
+function pegacor(n){
+   corpincel=n;
+   document.getElementById("idPincel").style.display="none";
+   if (n=='#0362d6'){
+     controlLineA
+     Ative="Azul"
+   }else if (n=='#f24e4e'){
+     Ative="Vermelho"
+     controlLineV
+   }else if (n=='#f0b208'){
+     Ative="Ocre"
+     controlLineR
+   }else if (n=='#8a7048'){
+     Ative="Marron"
+     controlLineM
+   }
+}
+
+function FixaFigura(n){
+   nFigura=n;
+   document.getElementById("idComponentes").style.display="none"
+}
+
+
+</script>

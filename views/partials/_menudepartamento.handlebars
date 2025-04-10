@@ -1,0 +1,63 @@
+ <script>
+  function myJanela(){
+      var x=window.innerWidth;
+      var y=window.innerHeight;
+
+      var largura=document.getElementById("largura");
+      var altura=document.getElementById("altura");
+
+      largura.innerText=x + '  plus';
+      //largura.innerText=((y/9)*16);
+      altura.innerText=((x/16)*9);
+}
+</script>
+<div id="painelFixo" class="painelFixo" style="background-color: aqua;">
+     <div class="titulo-main">
+        <div class="tituloMain">
+            <h1 style="color:#ffffff;font-size:2rem;">Seja bem-vindoas compras!</h1>
+             {{!-- <div style="width: 40%;margin: auto;background-color: #c1e208;display: none;"> --}}
+                  {{!-- <div id="largura"  style="width: 150px;color:red;margin-left: 12px;float: left;background-color: #ffffff;">3</div>
+                  <div id="altura"   style="width: 150px;color:red;margin-left: 12px;float:right;background-color: #ffffff;">4</div> --}}
+            {{!-- </div> --}}
+        </div>
+        <div class="titulo-seccao tituloSeccao">
+            <div style="width: 50%;margin: auto;background-color: #ffffff;height: 4vh;">
+                  <h1 style="color:#032c82;font-weight: 200;">Departamento de :{{titulo}}</h1>
+            </div>
+           
+        </div>
+        <div id="pesquisaCidadeBairro" class="idPesquisa"  style="background-color: #032c82;">
+            <div id="tituloSelected" class="idSetore">
+                  <div id="tituloSelected" class="selectedsecao" style="background-color:#032c82;color:#ffffff;">
+                        <input id="labelSelected" class="idSetor" style="background-color: #ffffff;height: 4vh;width: 60%;"  value="">
+                  </div>     
+                  <div id="SelectCidade" class="selectcidade" style="background-color: #032c82;">
+                        
+                        <h5 style="font-size: small;margin-left:10px;float:left;margin-right: 6px;margin-top: 10px;color:#031475">Cidades <span style="margin-left: 10px;">:</span></h5>
+                        <select id="SelectedCidade" style="width:60%;height: 3vh;margin-top:4px;">
+                              <option>todos</option>
+                              <option>Cariacica</option>
+                              <option>Guarapari</option>
+                              <option>Serra</option>
+                              <option>Viana</option>
+                              <option>Vila Velha</option>
+                              <option>Vitória</option>
+                        </select>
+                  </div>
+                  <div id="SelectBairro" class="selectbairro" style="background-color: #032c82;" >
+                        <h5 style="font-size: small;margin-left:10px;float:left;margin-right: 6px;margin-top: 10px;color:#ffffff">Bairro<span style="margin-left: 10px;">:</span></h5>
+                        <select id="SelectedBairro" style="width:60%;height: 3vh;margin-top:4px;">
+                              <option>todos</option>
+                              <option>Jardim da Penha</option>
+                              <option>Praia do Canto</option>
+                              <option>Praia do Suá</option>
+                              <option>São Pedro</option>
+                        </select>
+                  </div>    
+                  <div id="buttonBuscar" class="buttonBuscar" style="background-color: #032c82;">
+                        <button id="buscarLojas" class="buscarLojas" onclick="buscarLojas()">buscar</button>
+                  </div>
+            </div>
+         </div>
+     </div>
+</div>

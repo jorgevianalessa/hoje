@@ -1,0 +1,286 @@
+<style>
+   
+
+
+
+  
+  
+  
+
+   
+   
+   
+</style>
+<div class="d-flex dflex" style="">
+   {{!-- Título e Sub-Título => FIXED --}}
+   <form id="formSite" method="POST" action="/site/mostraSite/" enctype="application/x-www-form-urlencoded" style="display:none">
+               <input type="text" id="mostraSite" name="mostraSite">
+               <input type="submit" id="dispara">
+   </form>
+   <div id="corpoMain" class="idBody" style="" >
+      <div id="corpoRow" style="width:100%;height: 136vh;background-color:#1ced38;padding-bottom: 10px;margin-top: .3vh;">
+         <div id="corpoCentral" class="" >
+            
+            </div>
+            {{!-- Recebe a lista de lojas do segmento --}}
+            <div id="listaLojas" class="Loja" style="width: 98%;height: 200vh;background-color: #ffffff;overflow-y: scroll;margin-top: 18vh;font-size:2vw ;">
+               <div id="controlLoja" style="background-color: #cccccc;width: 100%;">
+                  <div id="boxLojaLeft" class="boxLojaLeft" style="width: 50%;height:150vh;float: left;padding:3px;margin-bottom: 3px;" >
+                  </div>   
+                  <div id="boxLojaRight" class="boxLojaRight" style="width: 50%;height:150vh;float: left;padding:3px;margin-bottom: 3px;" >
+                  </div> 
+               </div>
+            </div>
+         </div>
+      </div>
+      {{!-- 01 - Lateral Direita / PAINEL DE PUBLICIDADE--}}
+      <div id="painelPublicidade" class="idPublicidade" style="background-color: #ffffff;" >
+          <div id="primeiraPublicidade" class="idPublicidadeGomo" >
+               <h1 style="font-size:1vw;color:red">Publicidade</h1>
+          </div>
+          <div id="segundaPublicidade" class="idPublicidadeGomo" >
+               <h1 style="font-size:1vw;">Publicidade</h1>
+          </div>
+          <div id="terceiraPublicidade" class="idPublicidadeGomo" >
+               <h1 style="font-size:1vw;">Publicidade</h1>
+          </div>
+      </div>
+   </div>  
+   {{!--------------- RODAPÉ --------------------}}
+</div>
+
+<script>
+   // Variáveis globais
+   let baseApiUrl=window.location.hostname;
+   if (baseApiUrl=='localhost'){
+         baseApiUrl='http://localhost:3000'
+   }else{
+         baseApiUrl='https://www.rotaes.com.br'
+   } 
+   var control=1;
+   var n=1;
+   //    Busca o bairro para selecçã0
+   var b=0;
+   var y=0  
+   var w=0;
+   var p=0;
+////////////////////////////////////////////////
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+function mostraloja(h){
+         // Essa rotina dispara o button submit pra id=formSite
+         // busca o site da loja acionada
+         console.log(h)
+         document.getElementById("mostraSite").value=h;
+         document.getElementById("dispara").click();
+    }
+
+function buscaSecao(value){
+     // let referencia=document.getElementById("");
+      let label=document.getElementById("labelSelected");
+      let botao=document.getElementById("buscarLojas");
+      
+      botao.style.display='block';
+      label.value=value;
+      console.log('gool')
+      buscarLojas()
+}
+
+function buscarLojas(value){
+      let departamento=document.getElementById("labelSelected").value;
+      console.log(departamento)
+      //////////////////////////////////////////////////////////
+      limpapainel()
+      //////////////////////////////////////////////////////////
+      
+      let cidade=document.getElementById("SelectedCidade").value;
+      let bairro=document.getElementById("SelectedBairro").value;
+      let transfere=[]
+    //  console.log(67676)
+      transfere=[
+         depto=departamento,
+         cidade=cidade,
+         bairro=bairro
+      ]
+
+      //transfere={transfere};
+      //console.log('vr de transfere',transfere)
+      try{
+          fetch(`${baseApiUrl}` + `/site/lojista-segmentado/${transfere}`,
+                        {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                        })
+                        .then(response =>{
+                            if(response.ok){
+                                return response.json()
+                            }   
+                            throw error
+                        }) 
+                        .then((json) => {
+                            let c=json.length;
+                         //   console.log('quantidade de lojas ?:',c)
+                            let rz=Object.values(json[1])
+                            rz=rz[1];
+                            let x=0; // dividor para ahar o número par
+                            let idloja=1000;
+                            //.................................................
+                            for(let z=0;z<c;z++){
+                                     let loja=Object.values(json[z])
+                                  //   console.log('valor da loja',loja)
+                                     idloja++;
+                             //        console.log('dados da loja',idloja,loja[1])
+                                     //Essa divisão receber os demais  elementos
+                                     const node3 =document.createElement("div");
+                                     node3.setAttribute("onclick","mostraloja(" + "'" + loja[0] + "'" + ")");
+                                     let q=x%2;
+                                 //    console.log('vr de q',q)
+                                     if (q==0){
+                                         // console.log('dados ??da loja Z',idloja,loja[z])
+                                          node3.setAttribute("class","divLojaFundo");
+                                          node3.setAttribute("id",idloja);
+                                          document.getElementById('boxLojaRight').appendChild(node3); 
+                                          /* -- ---------------------------------------- */
+                                          const node20=document.createElement("div")
+                                          const textnode3=document.createTextNode(loja[1]);
+                                          node20.appendChild(textnode3) 
+                                          node20.setAttribute("class","divLoja");
+                                          node20.setAttribute("id",idloja)
+                                       //   console.log('1174 - vr de idloja',idloja)
+                                          let f=document.getElementById(idloja)
+                                          f.appendChild(node20) 
+                                          /*-- ---------------------------------------- --}}*/
+                                          const node22 =document.createElement("p");
+                                          let c1=loja[2]
+                                          const textnode22=document.createTextNode(c1);
+                                          node22.appendChild(textnode22);
+                                          node22.setAttribute("class","celularNumber")
+                                          node22.setAttribute("id","pnel-j-" + y + "'");
+                                         // console.log(35)
+                                          let g=document.getElementById(idloja);
+                                          g.appendChild(node22);
+                                          /*-------------------------------------------------*/
+                                       //   console.log(3535)
+                                          const node23 =document.createElement("p");
+                                          let c2=loja[3]
+                                          const textnode23=document.createTextNode(c2);
+                                          node23.appendChild(textnode23);
+                                          node23.setAttribute("class","cidadeName")
+                                          node23.setAttribute("id","pnel-j-" + y + "'");
+                                      //    console.log(35)
+                                          let h=document.getElementById(idloja);
+                                          h.appendChild(node23);
+                                          /*-------------------------------------------------*/
+                                     //     console.log(3535)
+                                          const node24 =document.createElement("p");
+                                          let c3=loja[4]
+                                     //     console.log(c3)
+                                          const textnode24=document.createTextNode(c3);
+                                          node24.appendChild(textnode24);
+                                          node24.setAttribute("class","bairroName")
+                                          node24.setAttribute("id","pnel-j-" + y + "'");
+                                    //      console.log(35)
+                                          let m=document.getElementById(idloja);
+                                          m.appendChild(node24);
+                                     }else{
+                                        //  console.log('976 - vr de idloja',idloja,loja)
+                                          node3.setAttribute("class","divLojaFundo")
+                                       //   console.log('888888')
+                                          node3.setAttribute("id",idloja);
+                                          document.getElementById('boxLojaLeft').appendChild(node3); 
+                                          ////////////////////////////////////////////////////////
+                                        //  console.log(112233)
+                                          const node20=document.createElement("div")
+                                          const textnode3=document.createTextNode(loja[1]);
+                                          node20.appendChild(textnode3) 
+                                          node20.setAttribute("class","divLoja");
+                                          node20.setAttribute("id",idloja)
+                                          // idloja--;
+                                       //   console.log('988 - vr de idloja',idloja)
+                                          let f=document.getElementById(idloja)
+                                          f.appendChild(node20) 
+                                          /*-- ---------------------------------------- -- */
+                                          const node22 =document.createElement("p");
+                                          let c1=loja[2]
+                                          const textnode22=document.createTextNode(c1);
+                                          node22.appendChild(textnode22);
+                                          node22.setAttribute("class","celularNumber")
+                                          node22.setAttribute("id","pnel-j-" + y + "'");
+                                  //        console.log(35)
+                                          let g=document.getElementById(idloja);
+                                          g.appendChild(node22);
+                                          /*-------------------------------------------------*/
+                                    //      console.log(3535)
+                                          const node23 =document.createElement("p");
+                                          let c2=loja[3]
+                                          const textnode23=document.createTextNode(c2);
+                                          node23.appendChild(textnode23);
+                                          node23.setAttribute("class","cidadeName")
+                                          node23.setAttribute("id","pnel-j-" + y + "'");
+                                        //  console.log(35)
+                                          let h=document.getElementById(idloja);
+                                          h.appendChild(node23);
+                                          /*-------------------------------------------------*/
+                                        //  console.log(3535)
+                                          const node24 =document.createElement("p");
+                                          let c3=loja[4]
+                               //           console.log(c3)
+                                          const textnode24=document.createTextNode(c3);
+                                          node24.appendChild(textnode24);
+                                          node24.setAttribute("class","bairroName")
+                                          node24.setAttribute("id","pnel-j-" + y + "'");
+                                   //       console.log(35)
+                                          let m=document.getElementById(idloja);
+                                          m.appendChild(node24);
+                                          };
+                                 //         console.log('1164 - vr de idloja',idloja)
+                                //          console.log('vr de q',q)
+                                          idloja--;
+                                       //   console.log('--------------- FINAL -------------------------------')
+                                          x++;
+                                          idloja++;
+                           }
+                           //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                        })
+                        .catch((err)=>{
+
+                        })
+      }catch(e){
+         console.log('errado!')
+      }               
+    }
+
+function limpapainel(){
+    //  console.log('almoço')
+      const listLeft=document.getElementById("boxLojaLeft")
+      
+      let bLeft;
+      bLeft=listLeft.childElementCount;
+   //   console.log('vr do nó',bLeft)
+    //  b=b.length;
+     // console.log('valor de ...................B',b)
+      if(bLeft>0){
+          //  console.log('passei',1)
+            for(let j=0;j<bLeft;j++){
+             //  console.log('passei',2)
+               listLeft.removeChild(listLeft.firstElementChild);
+            }
+         }  
+      /////////////////////////////////////////////////////////
+      const listRight=document.getElementById("boxLojaRight")
+      
+      let bRight;
+      bRight=listRight.childElementCount;
+    //  console.log('vr do nó',b)
+    //  b=b.length;
+     // console.log('valor de ...................B',b)
+      if(bRight>0){
+           // console.log('passei',1)
+            for(let j=0;j<bRight;j++){
+             //  console.log('passei',2)
+               listRight.removeChild(listRight.firstElementChild);
+            }
+         }  
+
+}
+
+
+</script>

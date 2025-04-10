@@ -1,0 +1,17 @@
+
+          
+          
+          1 - cadastrar o cooperado.
+          2 - providenciar imagem logo marca.
+          3 - providenciar imagem titulo da página. 
+          4 - cadastrar os fornecedores do cooperado.
+          5 - importar lista de produtos.
+          6 - providenciar imagens dos produtos.
+              a - colocar na frente do títulos da imagem o código do produto.   
+          7 - listar os produtos a partir da seleção do setor e do fornecedor.
+          8 - editar o produto.
+          9 - vincular as imagens aos produtos
+
+       
+         10 - montar as páginas do site                                      
+          

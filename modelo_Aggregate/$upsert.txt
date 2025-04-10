@@ -1,0 +1,23 @@
+//::::::::::::::::::::::::::::::::::::::::::::::::::::
+A consulta atualiza o price do produto id=6
+//.....................................................
+db.products.updateMany(
+    {_id: 6 },
+    { $set: {price: 999} }
+)
+// Porém a produto não existe
+// Mas se colocarmos { upsert:true }
+//......................................................
+db.products.updateMany(
+    { _id: 6 },
+    { $set: {price: 999} },
+    { upsert: true}
+)
+
+consulta :
+db.products.find({_id:6})
+
+saída:
+[ { _id: 6, price: 999 } ]
+
+

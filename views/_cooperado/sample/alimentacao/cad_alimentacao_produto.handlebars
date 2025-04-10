@@ -1,0 +1,919 @@
+<style>
+ /* formata o corpo da pagina 10-02-2024*/
+.forma{
+    width: 98%;height: 90vh;margin: auto;
+    background-color:#ffffff;padding: 6px;
+    display: flex;flex-direction: column;
+}
+
+.listaEspelho{
+    width: 90%;height: 65vh;margin: auto;justify-content: center;color:#ffffff;background-color: #000000;overflow: auto;
+}
+
+.ladoLabel{
+    width: 30%;height: 37vh;margin: auto;background-color:#033986;padding: 3px;padding-right: 1px;
+}
+
+.ladoInput{
+    width: 70%;height: 37vh;margin: auto;background-color:#ffffff;padding: 3px;padding-left: 0px;"
+}
+
+.rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     padding-top: .15vh;
+     color:#ffffff;
+     text-align: right;
+     padding-left: 6px;
+  }
+
+.rowImpar label{
+    width: 90%;
+    margin: auto;
+    padding-top: .2vh;
+    padding-right:.8vw;
+    background-color:#033986;
+    height: 3.2vh;
+  }
+
+.rowImpar input{
+    padding-top: .3vh;
+    background-color: #cad6cd;
+    color:#000000;
+    width: 98%;
+    float: left;
+    text-align: center;
+    height: 3.2vh;
+  }
+
+.rowImpar select{
+    width: 60%;
+    height: 3vh;
+    float: left;
+    background-color:#ffffff;
+  }
+
+.rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     padding-top: .15vh;
+     color:#ffffff;
+     text-align: right;
+     padding-left: 6px;
+  }
+
+.rowPar label{
+     color:#ffffff;
+     padding-right:.8vw;
+     background-color: #033986;
+     height: 3.2vh;
+  }
+
+.rowPar input{
+    padding-top: .3vh;
+    color:#ffffff;
+    width: 98%;
+    float: left;
+    text-align: center;
+    height: 3.2vh;
+  }
+
+.rowPar select{
+    background-color: #cad6cd;
+  }
+  /**/
+
+/* botão do formulário 10-02-2024*/
+.btn_gravar{
+    width: 6vw;
+    height: 3vh;
+    border-radius: 6px;
+    background-color: #035384;color:#ffffff;
+    margin-top:0.3vh;
+    display: none;
+  }
+
+/* botõe da tabela 'Delete,Editar,Foto,Visualizar 10-02-2024*/
+.bnt_linea{
+     width: 100%;height: 3vh;border-radius: 6px;background-color: #035384;color: #ffffff;font-size: small;
+  }
+
+/* Formatação dos botões acima 10-02/2024 */
+.labeltablelin{
+     width: 100%;height: 2vh;border-radius: 6px;background-color:transparent;color: #ffffff;font-size: larger;padding: 4px;text-align: center;justify-items:center;font-weight: 600;
+  }
+
+/* Botões para cadastrar pratos e bebidas 10-02-2024*/
+.cadastro_btn{
+      width: 30%;height: 4vh;margin: auto;background-color: #035384;color:#ffffff;border-radius: 5px;
+  }
+
+/* formata o formulário 10-02-20224*/
+.mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #033986;
+      background-position: center;
+      z-index: 1000;
+      position: absolute;left: 0;top: 0;
+      display: none;
+  }
+
+/* é a barra que fecha o formulário 10-02-2024*/
+.barra{
+      width: 100%;height: 3.5vh;margin: auto;background-color: #033986
+  }
+
+/* é a close que fecha o formulário 10-02-2024*/
+.barra button{
+    float: right;background-color: #033986;color: #ffffff;width: 40px;height: 3.5vh;
+  }
+
+/* clasifica a largura da coluna 10-02-2024 */
+.linColTitulo{
+    height: 2.5vh;
+    background-color: #ffffff;
+  }
+
+/* linha que recebe os valores dos produtos 10-02-2024*/
+.linetd{
+    width: 12%;background-color: #d4d4dd;color:#121212;height: 3vh;font-weight: 600;
+  }
+
+/* que implementa os botões nas linhas da table 10-02-2024*/
+.linebtn{
+     width: 100%;background-color: #ffffff;color:#ffffff;height: 3vh;
+  }
+
+/*determina a cor do fundo select "Artigo" 10-02-2024*/
+.containerMsg{
+     background-color: #000000;
+     color:#ffffff;
+ }
+
+/* formata o container que recebe a imagem*/
+ .container-img{
+      max-width:80%;
+      max-height:60%;
+      width: auto;
+      height: auto;
+      background-size: cover;
+  }
+
+  @media only screen and (max-width: 1600px) {
+    body {
+      background-color: lightblue;
+    }
+
+    .listaEspelho{
+        background-color: lightblue;
+    }
+
+    .list_Espelho_titulo{
+        background-color:transparent;
+    }
+
+    .labelTitulo{
+        font-size: small;
+    }
+
+    .rowPar{
+        height: 3.5vh;margin-bottom: 5px;
+    }
+
+    .rowImpar{
+        height: 3.5vh;
+        margin-bottom: 5px;
+    }
+
+    .ladoLabel{
+       width: 40%;height: 42vh;margin: auto;padding: 3px;padding-right: 1px;padding-top: 6px;
+    }
+
+    .ladoInput{
+       width: 90%;height: 40vh;margin: auto;background-color:#ffffff;padding: 3px;padding-left: 1px;
+    }
+}
+</style>
+<script>
+  //busca a largura e altura da page para ajustar a tela  
+  function larguraAltura(){
+    var x=document.getElementById("dflex").clientHeight;
+    console.log('height : ',x)
+    var d=document.getElementById('pegaHeight');
+    d.innerHTML='h :' + x;
+    d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+   var x1=document.getElementById("myHeader").clientWidth;
+    console.log('width : ',x1)
+    var d1=document.getElementById('pegaWidth');
+    d1.innerHTML='w :' + x1;
+    d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+   x.innerHTML=(x1/1.77)
+
+    var q=document.getElementById('dflex');
+     q.addEventListener("resize",function(){
+        console.log('alô!')
+     })
+
+    }
+</script>
+<div id="dflex" class="d-flex forma">
+    <div id="formulario" class="mostraform" >
+        <div class="barra">
+             <button onclick="closeCad()">X</button>
+        </div>
+        <div id="formulario_" style="width:70%;height: 65vh;margin: auto;background-color:#033986;margin-top: 20vh;text-align:center;display: flex;flex-direction: row;">
+            <div id="dados" style="width: 50%;height: 60vh;margin: auto;background-color: #ffffff;justify-items: center;display: flex;flex-direction: column;">
+
+                <div id="dados_" style="width: 90%;height: 52vh;margin: auto;display:block;background-color: #ffffff;">
+                <h1 style="color:#090709;font-size: small;background-color: #ffffff;">Cadastre o prato</h1>
+                    <div id="form_elem" style="width: 100%;height: 50vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;">
+                
+                        <div style="width:98%;height: 47vh;margin: auto;display: flex;flex-direction: row;">
+                           
+                                <div id="ladoLabel" class="ladoLabel" >
+                                    <div class="rowImpar"  >
+                                        <label class="labelTitulo">_id :</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label class="labelTitulo">Foto  :</label>
+                                    </div> 
+                                    <div class="rowImpar" style="display: none;">
+                                        <label>Marca  :</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label class="labelTitulo">Código  :</label>
+                                    </div>        
+                                    <div class="rowImpar">
+                                        <label class="labelTitulo">Prato :</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label class="labelTitulo">Acompanhamento :</label>
+                                    </div>  
+                                    <div class="rowImpar">
+                                        <label class="labelTitulo">Número pessoas  :</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label class="labelTitulo" style="font-size: small;">Preço : </label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label class="labelTitulo">Segmento :</label>
+                                    </div>
+                                    <div class="rowImpar">
+                                        <label class="labelTitulo">Especialidade :</label>
+                                    </div>  
+                                    <div class="rowPar" style="font-size:medium;">
+                                        <label class="labelTitulo">Marca do Produto :</label>
+                                    </div>  
+                                </div> 
+                                <div id="ladoInput" class="ladoInput" style="background-color:transparent;" >
+                                        <div class="rowImpar" style="display: block;">
+                                            <input id="lojaid"  value="{{lojista._id}}" >
+                                        </div>
+                                        <div class="rowPar" >
+                                            <input id="NomeFoto" style="color:black"  value="">
+                                        </div>
+                                        <div class="rowImpar" style="display: none;">
+                                            <input id="lojaMarca"   value="{{lojista.marca}}">
+                                        </div>
+                                        <div class="rowPar"  >
+                                            <input id="codigo_Id"  >
+                                        </div>
+                                        <div class="rowImpar" >
+                                            <input id="prato_Id"   value="">
+                                        </div>
+                                        <div class="rowPar" >
+                                            <input id="acompanhamento_Id"   value="">
+                                        </div>
+                                        <div class="rowImpar" >
+                                            {{!-- <input   value=""> --}}
+                                            <select id="numeropessoas_Id" style="height: 3.2vh;margin-bottom: 3px;" >
+                                                <option>1 pessoas</option>
+                                                <option>2 pessoas</option>
+                                                <option>4 pessoas</option>
+                                            </select>
+                                        </div>
+                                        <div class="rowPar" >
+                                            <input id="preco_Id"  value="">
+                                        </div>
+                                        <div class="rowPar">
+                                            <select id="selectSetor" style="width: 60%; height: 3.2vh;background-color:#ffffff;float: left;margin-bottom: 3px;">
+
+                                            </select> 
+                                            <input id="setor_Id"  style="display: none;">
+                                        </div>
+                                        <div class="rowImpar" >
+                                            <select id="selectArtigo" style="width: 60%; height: 3.2vh;background-color:#ffffff;float: left;margin-bottom: 3px;">
+
+                                            </select> 
+                                            {{!-- <input id="artigo_Id" name="nameArtigo" style="display: none;" > --}}
+                                        </div>
+                                        <div class="rowPar" >
+                                            <input id="input_dispara" name="" style="display: block;" >
+                                            <button id="btn_dispara"  style="width: 60%;border-radius: 5px;background-color: #035384;color:#ffffff;float: left;margin-left: 2px;display: none;"  value="" >gravar</button>
+                                        </div>
+                                </div> 
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div id="imagem" style="width: 50%;height: 60vh;margin: auto;background-color:#ffffff;justify-items: center;display: flex;flex-direction: column;border:2px solid #cccccc">
+                {{!-- <div id="form_espaco" style="width: 100%;height: 10vh;margin: auto;background-color:#0b0bc9;margin-top: 2vh;"></div> --}}
+                <div id="form_escolheFicheiro" style="width: 90%;height: 48vh;margin: auto;display:block;background-color: #b1aeae;margin-top: 4vh;">
+                    <form action="/controle/upload" id="idfile" method="post" enctype="multipart/form-data" class="" style="background-color: #b1aeae;">
+                        <div id="tituloSelectFoto" style="display: flex;flex-direction: row;justify-content: center;">
+                            <div style="width: 100%;height: 3.5vh;margin: auto;background-color: #transparent;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                                <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                            </div>
+                        </div>  
+                        <div id="tituloEscolheFicheiro" style="background-color:transparent;">
+                            <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                            <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="5"> {{!--idLocalImagem=t--}}
+                            <input type="text" id="idNomeImagem" name="NameNomeImg" style="display:none;color:red;background-color: #0b0bc9;" value="">   {{!--idPosicaoImg=side --}}
+                            <input type="text" id="idProdutoDefault" name="nameLoja_id" value="{{lojista._id}}" style="display:none;background-color: #06eb1d;color:#ffffff;">
+                            <input id="lojaid" name="nameLojaMarca" value="{{lojista.marca}}" style="background-color: hotpink;display:none;">
+                            <input id="_Idcodigo" name="nameCodigo" style="background-color: #8d0cb1;color: #ffffff;display:none;" value="">
+                            <input id="_Idprato" name="namePrato" value="" style="display:none;">
+                            <input id="_Idacompanhamento" name="nameAcompanhamento" value="" style="display:none;">
+                            <input id="_Idnumeropessoas" name="nameNumeropessoas" value="" style="display:none;">
+                            <input id="_Idpreco" name="namePreco" value="" style="display:none;">
+                            <input id="_Idsetor" name="nameSetor" style="display: none;" value="">
+                            <input id="_Idartigo" name="nameArtigo" style="display: none;" value="" >
+                            <input id="_Idmarca" name="nameMarcaItem" value="" style="display:none;" >
+                        </div>      
+               
+                        <div id="form_imagem" style="width: 90%;height:41vh;margin: auto;align-items: center ;z-index: 10;margin-top: 5px;padding: 10px;display: flex;flex-direction: column;background-color: #ffffff;">
+                        
+                                {{!-- <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color:#035384;padding: 10px;"> --}}
+                                <img id="imgPreviewA" src="" alt="" class="container-img" width="100%" height="" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;height: 37vh;"/>
+                                {{!-- </div> --}}
+                                {{!-- <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                                <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                                </div> --}}
+                        </div>  
+                        <div id="form_btn" style="width: 100%;height: 3vh;margin: auto;background-color:#b1aeae;">
+                                <button id="btnId" class="btn_gravar" type="text"  >Gravar</button>
+                        </div>   
+                
+                </form>
+            </div>
+        </div>   
+    </div>
+     </div>
+    <div id="listaProduto" style="display: flex;flex-direction: column;height: 90vh;background-color: #ffffff;width: 100%;">
+         <div style="width: 100%;margin: auto;height: 2vh;background-color:#b8b4b4;margin-top: 2px;">
+            <h1 style="font-size: smaller;color:#8d8a8a;">_cooperado/sample/cadastro_produto</h1>
+         </div>
+         <div id="tituloPage" style="width: 100%;margin: auto;height: 6.2vh;background-color: #ffffff;display: flex;flex-direction: row;padding: 3px;margin-top: 2px;">
+              {{!-- <div > --}}
+               <div id="tituloPageLabel" style="width: 10%;height: 2.5vh;background-color:transparent;padding-left: 1vw;display: flex;flex-direction:column;">
+                            <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 100%;text-align: right;padding-right: 5%;">razão social :</label>
+                            <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 100%;text-align: right;padding-right: 5%;"> marca :</label>
+                    </div>
+              {{!-- </div> --}}
+              <div id="tituloPageInput" style="width: 30%;height: 4.5vh;background-color: #ffffff;padding-left: 0.2vw;display: flex;flex-direction: column;">
+                   <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 70%;text-align: left;float: left;padding-left: 4px;">{{lojista.razao}}</label>
+                   <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 70%;text-align: left;padding-left: 4px;">{{lojista.marca}}</label>
+                   <input id="number" style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 70%;text-align: left;display: none;" value="{{lojista._id}}">
+              </div>
+              <div style="width: 60%;display: flex;flex-direction: row;background-color: #ffffff;text-align: right;justify-content: end;justify-items:center;padding-top: 1.5vh;">
+                 <select style="width: 20%;height:3vh;margin-right: 20px;float: right;">
+                    <option>café</option>
+                 </select>
+              </div>
+              {{!-- <div style="width: 60%;height: 2.5vh;background-color: #ffffff;padding-left: 1vw;display: flex;flex-direction: column;"></div> --}}
+         </div>
+         <div id="listaEspelho" class="listaEspelho" >
+                <div id="listEspelhotitulo" class="list_Espelho_titulo">
+                   <h1 style="font-size: medium;font-weight: 400;">Cadastro de Produtos</h1>
+                </div>  
+                {{!-- ////////////////////////////////////////////////////////////// --}}
+                <table class="table table-striped table-hover table-bordered" style="background-color: #07e007;margin-bottom: 1px;height: 62vh;">
+                            <thead style="height:1.4vh;background-color: #797777;font-size: medium;color:#ffffff;">
+                                <tr >
+                                    <th style="display: none;">ID</th>
+                                    <th class="d-none d-sm-table-cell linColTitulo" style="width: 50px;" >item</th>
+                                    <th class="d-none d-sm-table-cell linColTitulo" style="width: 60px;"  >código</th>
+                                    <th class="d-none d-sm-table-cell linColTitulo" >prato</th>
+                                    <th class="d-none d-sm-table-cell linColTitulo" >acompanhamento</th>
+                                    <th class="d-none d-lg-table-cell linColTitulo">número pessoas</th>
+                                    <th class="d-none d-lg-table-cell linColTitulo">vista</th>
+                                    <th class="d-none d-lg-table-cell linColTitulo">artigo</th>
+                                    <th class="d-none d-lg-table-cell linColTitulo" style="width: 12px;">url</th>
+                                    <th class="d-none d-lg-table-cell linColTitulo"><label class="labeltablelin" style="text-align: center;">Delete</label></th>
+                                    <th class="d-none d-lg-table-cell linColTitulo"><label class="labeltablelin">Editar</label></th>
+                                    <th class="d-none d-lg-table-cell linColTitulo"><label class="labeltablelin">Foto</label></th>
+                                    <th class="d-none d-lg-table-cell linColTitulo"><label class="labeltablelin">Visualizar</label></th>
+                                </tr>
+                            </thead>
+                            {{!-- --------------------------------------------------- --}}
+                            <tbody id="x-9" style="height: 37vh;margin: auto;width: 60%;background-color:#ffffff;">
+                                {{#each result }}
+                                    <tr style="font-size: small;color: #8f0545;font-weight: 100;height: 3vh;padding: 3px;">
+                                            <td style='width: 12%;background-color: #0b0bc9;color:#ffffff;display:none;' >{{lojista._id}}</td>
+                                            <td style='width:50px;background-color: #0b0bc9;color:#ffffff;text-align: center;' >{{@index}}</td>
+                                            <td style='width: 60px;background-color: #8f0545;color:#ffffff;height: 3vh;text-align: center;font-weight: 400;' >{{this.codigo}}</td>
+                                            <td class="linetd" >{{this.prato}}</td>
+                                            <td class="linetd" >{{this.acompanhamento}}</td>
+                                            <td class="linetd" >{{this.numeropessoas}}</td>
+                                            <td class="linetd" >{{this.preco}}</td>
+                                            <td class="linetd" >{{this.page}}</td>
+                                            <td class="linetd" style="font-weight: 600;">{{this.pageok}}</td>
+                                            <td><a href="/controle/deleteproduto/{{this._id}}" class="linebtn"><button class="bnt_linea" style="background-color: red;">Delete</button></a></td>
+                                            <td><a href="/controle/editaproduto/{{this._id}}" class="linebtn" ><button class="bnt_linea">Editar</button></a></td>
+                                            <td><a href="/controle/inserefoto/{{this._id}}" class="linebtn" ><button class="bnt_linea">Foto</button></a></td>
+                                            <td><a href="/controle/visualizar/{{this._id}}" class="linebtn" > <button class="bnt_linea">Visualizar</button></a></td>
+                                            
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                </table>
+                
+         </div>
+         <div style="width: 100%;height: 1.5vh;margin: auto;background-color: #b8b8bc;"></div>
+         <div id="btnCadastro" style="width: 80%;height: 12vh; margin: auto;background-color:transparent;display:flex;flex-direction: row;justify-content:space-between center;justify-items:center;ju">
+              <button id="cadastroBtn" class="cadastro_btn" onclick="bebidas()">cadastrar bebidas </button>
+              <button id="cadastroBtn" class="cadastro_btn" onclick="pratos()">cadastrar pratos </button>
+        </div>
+    </div>
+   
+</div>
+
+<script>
+ let d1=document.getElementById("NomeFoto");
+
+ let x1=document.getElementById("codigo_Id");
+ let e2=document.getElementById("_Idcodigo");
+
+ let f1=document.getElementById("prato_Id");
+ let f2=document.getElementById("_Idprato");
+
+ let g1=document.getElementById("acompanhamento_Id");
+ let g2=document.getElementById("_Idacompanhamento");
+
+ // Numero pessoas
+ let h1=document.getElementById("numeropessoas_Id");
+ let h2=document.getElementById("_Idnumeropessoas");
+
+ let i1=document.getElementById("preco_Id");
+ let i2=document.getElementById("_Idpreco");
+
+ let l1=document.getElementById("input_dispara");
+ let l2=document.getElementById("btn_dispara");
+
+ // Segmento
+ let r1=document.getElementById("selectSetor");
+ let r2=document.getElementById("_Idsetor");
+
+// Especialidades
+ let s1=document.getElementById("selectArtigo");
+ let s2=document.getElementById("_Idartigo");
+ let s3=document.getElementById("_idartigoS3");
+ 
+ 
+
+
+//Código
+x1.addEventListener("keydown",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+           //....................................
+           let a1=x1.value;
+           if(a1==""){
+              alert("Coloque o valor do código")
+           }else{
+              x1.style.backgroundColor="red";
+              x1.style.color="white";
+              //......................................
+              console.log('test')
+              f2.value=f1.value;
+              f2.style.backgroundColor="red";
+              e2.value=x1.value;
+              f1.focus()
+           }
+           
+       }else if(key==8){
+          // deixa passar
+       }
+})
+
+
+// Prato
+f1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=f1.value;
+           if(a1==""){
+              alert("Coloque o valor da descrição")
+           }else{
+              f1.style.backgroundColor="red";
+              f1.style.color="white";
+              //......................................
+              console.log('test')
+              f2.value=f1.value;
+              f2.style.backgroundColor="red";
+              g1.focus()
+           }
+           
+       }else if(key==8){
+           // deixa passar
+       }
+})
+
+// Acompanhamento
+g1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=g1.value;
+           g1.style.backgroundColor="red";
+           g1.style.color="white";
+           //.................................
+           g2.value=g1.value;
+           g2.style.backgroundColor="red";
+           h1.focus();
+      }else if(key==8){
+           // deixa passar
+       }
+})
+
+// Acompanhamento
+g1.addEventListener("focusin",function(event){
+      console.log('valor de foco ',g1.value);
+      if (g1.value==0){
+         g1.value="";
+         g1.style.backgroundColor="red";
+         g1.style.color="white";
+         g1.focus()
+      }
+})
+
+// Numero de pessoa
+h1.addEventListener("click",function(event){
+    //  let key=event.which;
+    //  if(key==13){
+           //....................................
+    //       h1.style.color="red";
+    //       h1.style.color="white";
+    //       h2.value=h1.value;
+    //       h2.style.backgroundColor="red";
+    //       i1.focus()  
+    //    }else if(key==8){
+           // deixa passar
+    //   }
+    event.stopPropagation();
+    let h=r1.selectedIndex;
+    let y=r1.options;
+    console.log('');
+    let palavra=y[h].text;
+    console.log('valor da palavra',palavra) 
+    document.getElementById('setor_Id').value=palavra;
+    console.log('VALOR DE R@_10',h1.value)
+    h2.value=h1.value;
+    i1.style.backgroundColor="red";
+    //buscarArtigo(palavra)
+    i1.focus();
+})
+
+// Numero pessoas
+h1.addEventListener("focusin",function(event){
+      console.log('valor de foco vista : ',h1.value);
+      if (h1.value==0){
+         console.log('dentro')
+         h1.value="";
+         h1.style.backgroundColor="red";
+         h1.style.color="white";
+         h1.focus()
+      }
+})
+
+// Vista
+i1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           i1.style.backgroundColor="red";
+             i1.style.color="white";
+            //......................................
+            let num=i1.value.toString();
+            // let x=formataValor(num)
+            // if(x==='1n1'){
+            //   alert("corrija o valor !")
+            //   return
+            //  }
+           //.......................................................
+           //.............................................................
+           i2.value=i1.value
+           i2.style.backgroundColor="red";
+           r1.focus();
+       }else if(key==8){
+          // deixa passar
+       }
+})
+
+// Vista
+i1.addEventListener("focusin",function(event){
+      console.log(i1.value);
+      if (i1.value==0 || i1.value==""){
+        i1.value="";
+        i1.style.backgroundColor="red";
+        i1.style.color="white";
+        i1.focus()
+      }
+})
+
+// Segmento
+r1.addEventListener("click",function(event){
+    event.stopPropagation();
+    let h=r1.selectedIndex;
+    let y=r1.options;
+    console.log('');
+    let palavra=y[h].text;
+    console.log('valor da palavra',palavra) 
+    document.getElementById('setor_Id').value=palavra;
+    console.log('VALOR DE R@',r1.value)
+    r2.value=r1.value;
+    r2.style.backgroundColor="red";
+    buscarArtigo(palavra)
+})
+
+// Setor Artigo
+//s1.addEventListener("focusin",function(event){
+//      console.log('artigo');
+//      let letra=document.getElementById("setor_Id").value;
+//      if (letra==''){
+//         //alert('favor selecionar o setor')
+//      }else{
+//            if (s1.value==0){
+//                s1.value="";
+//                s1.style.backgroundColor="red";
+//                s1.style.color="white";
+//                s1.focus()
+//            }
+//      }
+//})
+
+// Especialidades
+s1.addEventListener("click",function(event){
+    event.stopPropagation();
+    //event.preventDefault()
+    console.log('DENTRO DE SELECT ARTIGO')
+    let z=s1.selectedIndex;
+    let y=s1.options;
+    console.log('');
+    let c2=y[z].text;
+    if (c2==""){
+
+    }else{
+        console.log('==============> ',c2)
+        let palavra=y[z].text;
+        console.log('valor do ARTIGO',palavra) 
+        s1.value=palavra;
+        console.log('_____',s1.value)
+        //document.getElementById('artigo_Id').value=palavra;
+        s2.value=s1.value;
+        s2.style.backgroundColor="red";
+        console.log(2300);
+        ultimoFoco()
+        
+    }    
+})
+
+function ultimoFoco(){
+   console.log(3434);
+   document.getElementById("input_dispara").style.display="none";
+   document.getElementById("btn_dispara").style.display='block';
+   l2.style.backgroundColor="green"
+   l2.focus();
+}
+
+// Button Gravar
+l2.addEventListener("click",function(event){
+    console.log(4000);
+    let key=event.which;
+    //if(key==13){
+        //....................................
+        //event.stopPropagation();
+        console.log(122)
+        let n=0
+        //validacao(n);
+        //if (n==1){
+        //    return
+       // }
+        l2.style.backgroundColor="red";
+        l2.style.color="white";
+        //......................................
+       // document.getElementById("btnId").disabled=false;
+        let btn=document.getElementById("btnId");
+        //l2.value=l1.value;
+        l2.style.backgroundColor="green";
+        btn.click()
+
+        //event.stopPropagation(); 
+       // document.getElementById('escolheFicheiro').style.display="block";
+    //}else if(key==8){
+        // deixa passar
+    //}
+})
+
+function pratos(){
+    document.getElementById("formulario").style.display="block";
+    document.getElementById("codigo_Id").style.backgroundColor="#7c807c;";
+    document.getElementById("codigo_Id").style.color="brown";
+}
+
+function bebidas(){
+    document.getElementById("formulario").style.display="block";
+    document.getElementById("codigo_Id").style.backgroundColor="#7c807c;";
+    document.getElementById("codigo_Id").style.color="brown";
+}
+
+function closeCad(){
+    document.getElementById("formulario").style.display="none";
+}
+
+</script>
+<script>
+    
+    let fileImgA=document.querySelector('#fileA');
+    //.............................................
+    const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        const selecledFile=event.target.files[0];
+        document.getElementById("NomeFoto").value=selecledFile.name;
+        document.getElementById("idNomeImagem").value=selecledFile.name;
+        document.getElementById("codigo_Id").focus();
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        //console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+        }
+        reader.readAsDataURL(selecledFile);
+    });
+
+function setor(){
+    let n=document.getElementById("number");
+    n=n.value;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    //.....................................
+    console.log('valores : ',n)
+    //......................................
+            try{
+                fetch(`${baseApiUrl}` + `/controle/buscar_setores/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('');
+                        console.log('_______________________________________');
+                       // console.log(json)
+                        console.log('');
+                        console.log('_______________________________________');
+                        const  oblist=Object.values(json)
+                        //console.log(oblist[0].segmento_01);
+                      
+                        let l=oblist.length;
+                       // return
+                        for(let i=0;i<l;i++){
+                            if (i==0){
+                               let vazio="" ;
+                                colaSetor(vazio,i) 
+                            }
+                            let titulo=oblist[i].titulo;
+                            colaSetor(titulo,i)    
+                        }
+
+                        function colaSetor(n,h){
+                            const node0 = document.createElement("option");
+                            node0.setAttribute("id",'op' + h);
+                            const textNode0=document.createTextNode(n);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","container_msg");
+                            document.getElementById("selectSetor").appendChild(node0);
+                        }
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            }catch(e){
+                console.log(e);
+            }        
+ }
+
+
+function buscarArtigo(n){
+    console.log('passando primeiro nível');
+    ////////////////////////////////////////////////////////////////////////
+    limpaCaixa();
+    function limpaCaixa(){
+        let corpos;
+        corpos=document.getElementById("selectArtigo").children;
+        let c=corpos.length;
+    // console.log(' [ 843 ] limpa as cores' ,corpos)
+        for (i=c-1;i>-1;i--){
+           console.log(corpos[i])
+          corpos[i].remove();
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    segmento(n)
+    function segmento(n){
+            console.log('passando segundo nível')
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+            console.log('valores : ',n)
+            //......................................
+            try{
+                fetch(`${baseApiUrl}` + `/controle/buscar_subseg/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('');
+                        console.log('_______________________________________');
+                       // console.log(json)
+                        console.log('');
+                        console.log('_______________________________________');
+                        const  Sub=Object.values(json)
+                        console.log('10',Sub)
+                        console.log('');
+                        let d1=Sub[0].segmento_01;
+                        console.log('20',d1)
+                        let l=d1.length;
+                        for(let i=0;i<l;i++){
+                            if (i==0){
+                               let vazio="" ;
+                                colaSetor(vazio,i) 
+                            }
+                            let titulo=d1[i];
+                            colaSetor(titulo,i)    
+                        }
+
+                        function colaSetor(n,h){
+                            
+                            const node0 = document.createElement("option");
+                            node0.setAttribute("id",'opartigo' + h);
+                            const textNode0=document.createTextNode(n);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","containerMsg");
+                            document.getElementById("selectArtigo").appendChild(node0);
+                        }
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            }catch(e){
+                console.log(e);
+            }        
+    }
+}
+
+
+
+function artigo(n){
+    
+ }
+
+function AddArtigo(){
+    console.log('12121212')
+    document.getElementById('selectArtigo').style.display="none";
+    document.getElementById('artigo_Id').style.display="block";
+    document.getElementById('artigo_Id').style.backgroundColor="red";
+    document.getElementById('artigo_Id').focus()
+}
+ setor();
+ larguraAltura()
+ //artigo()
+</script>
+
+<script>
+
+</script>
+<script>
+    
+    
+
+</script>

@@ -1,0 +1,1069 @@
+<style>
+ .container_cor{
+      width: 100%;height: 10vh;margin: auto;
+      display: flex;flex-direction: row;
+      margin-bottom: 2px;
+   }
+
+  .container_msg{
+      width: 100%;height: 10vh;margin: auto;
+      display: flex;flex-direction: row;
+      background-color: #00ff2f;
+      color:red;
+      margin-bottom: 2px;
+      justify-content: center;
+   }
+
+   .container_msg button{
+      background-color: transparent;
+      color: #ffffff;
+      font-size: 3rem;
+      border: 0px;
+   }
+
+
+   .container_Amarela{
+      width: 10%;height: 10vh;
+      background-color: #fae605;
+      color: #ffffff;
+      margin-left: 0px;
+      margin-top: 0px
+   }
+
+   .container_Amarela button{
+        width: 99%;height: 10vh;margin: auto;
+        background-color: #053bed;
+        color:#ffffff;
+        text-align: center;
+   }
+
+   .container_Azul{
+      width: 40%;height: 9vh;
+      background-color:transparent;
+      color: #ffffff;
+      margin-left: 0px;
+      margin-top: 0px;
+      padding-top: 6px;
+   }
+
+   .container_Roxa{
+      width: 50%;height: 10vh;
+      background-color: black;
+      color: #ffffff;
+      margin-right: 0px;
+      margin-top: 0px;
+      padding-top: 6px;
+      float: right;
+      display: flex;flex-direction: row;
+   }
+
+   .container_Branca{
+      width: 90%;height: 2.5vh;margin: auto;
+      background-color: transparent;
+      margin-top: 2px;
+      display: flex;
+      flex-direction: row;
+   }
+
+   .container_oculto{
+      width: 45%;height: 2.5vh;margin: auto;
+      background-color: orangered;
+      color:#ffffff;
+      text-align: center;
+      display: block;
+      font-size:small ;
+      border: 0px;
+      border-radius: 2px;
+   }
+
+   .container_label{
+      width: 12%;height: 2.5vh;margin: auto;
+      background-color: #000;
+      color:#ffffff;
+      text-align:center;
+      /*border: .5px solid #ffffff;*/
+      font-size:small ;
+      margin-left: 2px;
+   }
+
+   .container_preco{
+      width: 15%;height: 2.5vh;margin: auto;
+      background-color: #000;
+      color:#ffffff;
+      text-align: right;
+      margin-left: 5px;
+      font-size:small ;
+      padding-right: 4px;
+   }
+
+   .container_Url{
+        width: 100%;height: 9vh;margin: auto;
+        background-color: #053bed;
+        color:#ffffff;
+        text-align: center;
+        margin-left: 0.8%;
+   }
+
+</style>
+<style>
+    .mainTable{
+        width: 98%;height: 105vh;display: flex;flex-direction: column;justify-content: space-around;
+        margin: auto;padding: 5px;background-color: cornflowerblue;margin-top: 2px;
+    }
+
+    .Row_Header{
+        width: 100%;height: 4vh;margin: auto;
+        display: flex;flex-direction: row;justify-content:space-between;
+        background-color: #8b0000;
+    }
+
+    .RowHeader_1{
+        width: 100%;background-color: #0c0c0c;padding: 0.5vh;display: flex;flex-direction: row;justify-content: center;justify-items: center;
+    }
+
+
+    .RowHeader_1 button{
+        width: 100%;height: 3vh;border-radius: 6px;font-size:smaller;background-color: #053bed;color: #ffffff;text-align: center;border: 0px;
+    }
+
+    .rowpainel_cores{
+        width: 98%;height: 25vh;margin: auto;
+        display: flex;flex-direction: column;
+        margin-top: 3px;
+        overflow: auto;
+        background-color: #cccccc;
+    }
+
+    .row_button{
+         width: 50%;height: 3vh;margin: auto;
+         margin-top: 5px;
+         font-size: medium;
+         background-color: #8b0000;
+         color: #054ba7;
+         border: 0px;
+         border-radius: 6px;
+    }
+
+    /*contém a divisão que vai receber as linhas do itens do produto*/
+    .row_divisao{
+        width: 98%;height: 20vh;margin: auto;
+        display: flex;flex-direction: row;
+        overflow: auto;
+        /*border: 2px #054ba7 solid;*/
+    }
+
+    .oculto{
+        text-align: center;
+        background-color: #000000;
+        color:#00ffff;
+        display: block;
+    }
+
+    /* atualizado 26-07-23*/
+    .UpDownImage_{
+        width: 20%;height: 45vh;background-color:#000000;display: none;border:2px solid black;position: absolute;right: 10px;top: 120px;
+    }
+
+    .divProdutDetalheBtnDelete_{
+        width: 98%;height: 4vh;background-color:transparent;display: block;border:0px;text-align:center;padding-top: 3px;
+    }
+
+    .divProdutDetalheBtnDelete_ button{
+        width: 70%;height: 3.5vh;margin: auto;background-color: #ff0000;color:#ffffff;font-size: small;border-radius: 7px;border:0px;
+    }
+
+    .painel_produto{
+        width: 45%; height: 98vh;margin: auto;
+        display: flex;flex-direction: column;justify-content: space-around;
+        padding: 2px;padding-top: .3vh;
+        background-color:#f5f4f4;overflow: auto;
+        margin-top: 2px;
+    }
+
+    .EdicaoProduto_{
+        width: 95%;height: 34vh;margin: auto;
+        background-color: #0000ff;
+        padding: 10px 10px 10px 10px;
+        margin-top: 1px;border-radius: 6px;
+    }
+
+    .btnADD{
+        width: 40%;height: 2vh;margin: auto;
+        background-color: #0627ac;
+        color:#ffffff;
+        font-size: smaller;
+        border-radius: 7px;
+        margin-top: 10px;
+    }
+
+    .MainTableCores{
+        width:100%;height: 90vh;margin: auto;
+        padding-bottom: 20px;
+        margin-top: .5vh;
+        overflow: auto;
+        background-color:#ffffff;
+    }
+
+    .btndivGvaNvSize{
+        display: block;
+        margin: auto;
+        margin-bottom: 20px;
+        border-radius: 7px;border:0;
+        background-color: #003cff;
+        color:#ffffff;
+    }
+
+    .inputbtn{
+        width: 2vw;
+        border-radius: 6px;
+        background-color: #003cff;
+        color: #ffffff;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: xx-small;
+    }
+   
+</style>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<style>
+    .rowProduto{
+        width: 100%;height: 3.5vh;margin: auto;margin-top: .5vh;background-color: #ffffff;
+    }
+
+    .rowProduto-div{
+       width: 100%;display: flex;flex-direction: row;justify-content:space-between ;
+    }
+
+
+    .rowButton{
+        width:30%;height: 3.5vh;margin: auto;background-color:transparent;padding-right: 2px;
+    }
+
+    .rowButton-button{
+        background-color:white;width: 100%;height: 3.5vh;font-size: 0.8vw;border: 0px;border-radius: 6px;
+    }
+
+    .rowInput{
+       width: 70%;height: 3.5vh;margin: auto; 
+    }
+
+    .rowInput-input{
+        background-color: #0440a7;color:#ffffff;width: 100%;height: 3.5vh;border: 0px;
+    }
+
+    .rowInput-input-plus{
+        height: 3.5vh;
+        padding: .1vh;
+        border: 2px #ffffff solid;
+    }
+
+    .focoInput{
+        cursor:none;
+        background-color: #008000;
+    }
+</style>
+<div id="nucleo" style="width: 98%;height: 110vh;margin: auto;margin-top:9.1vh;background-color: #ffffff;color:#a39d9d">
+     {{!-- ...................Título da page........................................ --}}
+     <input id="h3" type="text" style="display: none;">
+     <div id="tituloPage" style="width: 100%;height: 2vh;margin: auto;background-color: #f5f0f4;text-align: center;padding: 0.1vh;margin-top: 0vh;display: flex;flex-direction: row;">
+              <label id="labelControl" style="color:#cccccc;font-size: larger;font-weight: bold;padding: 0px 10px 0px 10px;visibility: hidden;">1</label>
+              <label style="color:#325c81;font-size: xx-small;font-weight: bold;">Descrição do produto :_cooperado/lojista/roupa/roupa_visualizar.handlebars</label>
+     </div>
+     {{!-- ......................................................................... --}}
+     {{!-- Está Ok em 25/01/2024 => Inserir novo tamanho a uma cor selecionada --}}
+     {{!-- ======================================================================== --}}
+     <div id="produto_editando_vitrine" style="background-color: #00ff2f;display: none;">
+         <form action="/roupa/editandoVitrine-novo" method="POST"  enctype="application/x-www-form-urlencoded" style="display: block;">
+              <input id="idproduto" name="idproduto" value="{{vitrine._id}}" style="background-color: #003cff;">
+              <input id="idDescricao" name="nameDescricao" >
+              <input id="idDetalhe" name="nameDetalhe" >
+              <input id="idTecido" name="nameTecido" >
+              <input id="idArtigo" name="nameArtigo" >
+              <button id="btn_produto_editando" type="submit"></button>
+         </form>
+     </div>
+      {{!-- Está Ok em 25/01/2024 => Inserir novo tamanho a uma cor selecionada --}}
+     {{!-- ======================================================================== --}}
+     <div id="produto_adcionar_size" style="width: 20%;height: 12vh;background-color:#000000;display:none;border:2px solid #c1bdbd;position: absolute;left: 10px;top:  90px;padding: 1vh;">
+        <div style="width: 90%;height: 10vh;margin: auto;background-color: yellow;display: flex;flex-direction: column;">
+          <div>
+            <form action="/roupa/buscando_adicionar_size" method="POST"  enctype="application/x-www-form-urlencoded" style="display: block;background-color: #305050;margin: auto;padding: 1.5vh;">
+                <input id="idproduto" name="nameidproduto" value="{{vitrine._id}}" style="background-color: #003cff;">
+                <input id="idCores" name="nameidcores" value="" style="background-color: #003cff;color:#ff0000">
+                <button id="btn_roupa_adcionar-size" type="submit"></button>
+            </form>
+         </div>  
+        </div> 
+     </div>
+     {{!-- Ok, 25/01/2024 --}}
+     <div id="edita-especificacao" style="background-color: #eb07b6;display:none;position: relative;top:600;left:100;width:18vw;height: 15vh;z-index: 1000;padding: 5px;">
+         <form action="/roupa/edita-especificacao" method="POST"  enctype="application/x-www-form-urlencoded" style="display:block;margin: auto;">
+              <input id="idcodigo_Produtor" name="name_codigoProduto" value="{{vitrine._id}}"  style="background-color: #003cff;width: 90%;margin: auto;color: #ffffff;">
+              <input id="idcodigo_Cor" name="name_codigoCor"  style="background-color: #05c23e;width: 90%;margin: auto;color: #ffffff;">
+              <input id="idcodigo_Tamanho" name="name_codigoTamanho"  style="background-color: #0805c2;width: 90%;margin: auto;color: #ffffff;">
+              <button id="btn_roupa_editando_cor" type="submit" style="height: 4vh;width: 80%;margin: auto;border-radius: 5%;">Ok</button>
+         </form>
+     </div>
+     {{!-- Ok, 25/01/2024 --}}
+     {{!-- // Apertando o botão Inserir Cores --}}
+     <div id="novas_cores" style="width: 12%;height: 10vh;background-color: #e20c0c;display:none;justify-items: center;justify-content: center;margin-top: 6vh;text-align: center;">
+         <form action="/roupa/nova-cor"  method="POST" enctype="application/x-www-form-urlencoded" style="background-color:transparent;width: 100%;border-radius: 6px;margin: auto;">
+              <input id="codigo-produto" name="codigo"  value="{{vitrine._id}}" style="background-color: #00ff40;display: block;"  >
+              <input id="idproduto-corback_" name="cor" value="10"  style="display: block;background-color:#00ff2f">   
+              <button id="novas-cores"  style="width: 50%;height: 4vh;margin: auto;border-radius: 50px;background-color: #008b8b;color:#ffffff;" type="submit"></button>
+         </form>
+     </div>
+     {{!-- ///////////////////////////////////////////////////////////////////////// --}}
+     <div id="DadosProduto" style="width: 99%;height: 105vh;margin: auto;display: flex;flex-direction: row;background-color: #ffffff;margin-top: 0px;padding: 5px;">
+          {{!-- [[ Divisão que contém dados do produto; detalhes do produto e detalhes default]] --}}
+         <div id="idFromProdut" class="painel_produto">
+               <div class="" style="color:#ffffff;">
+                    <h6 style="font-size: medium;">dados do produto</h6>
+               </div>
+               <div id="id-Vitrine" style="width: 95%;height: 60vh; margin: auto;padding: 12px;background-color: #ffffff;display: flex;flex-direction: column;justify-items: auto;">
+                    <div id="id_id" class="rowProduto" style="border-bottom: 2px solid #e0dcdc;margin-top: 3px;">
+                        <div id="rowProduto-div" class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;">
+                            <div class="rowButton" style="text-align: center;">
+                                <label class="rowButton-button"  >_Id ?:</label>
+                            </div>
+                            <div class="rowInput" >
+                                <input id="produto_id" class="rowInput-input focoInput" value="{{vitrine._id}}"  disabled >
+                            </div>
+                        </div>  
+                    </div>
+                    <div id="codigo" class="rowProduto" style="margin-top: 20px;background-color:transparent;">
+                            <div class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;">
+                                <div class="rowButton" style="text-align: center;">
+                                    <label class="rowButton-button">Código :</label>
+                                </div>
+                                <div class="rowInput">
+                                    <input id="produto_codigo" class="rowInput-input focoInput" value="{{vitrine.codigo}}"  disabled>
+                                </div>
+                            </div>  
+                    </div>
+                    {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                    <div id="id_descricao" class="rowProduto" style="background-color:transparent;" >
+                        <div class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;" >
+                            <div class="rowButton" style="text-align: center;">
+                                <label class="rowButton-button" >descrição :</label>
+                            </div>
+                            <div class="rowInput" disabled>
+                                <input id="produto_descricao" class="rowInput-input focoInput" style="cursor-color:red;font-weight: bold;" value="{{vitrine.descricao}}"   disabled>
+                            </div>
+                        </div>       
+                    </div>
+                    <div id="id_detalhe" class="rowProduto" style="background-color:transparent;" >
+                        <div class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;" >
+                            <div class="rowButton" style="text-align: center;">
+                                <label class="rowButton-button">detalhe :</label>
+                            </div>
+                            <div class="rowInput">
+                                <input id="produto_detalhe" class="rowInput-input focoInput" value="{{vitrine.complete}}" disabled  >
+                            </div>
+                        </div>       
+                    </div>
+                    <div id="id_tecido" class="rowProduto" style="background-color:transparent;" >
+                        <div class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;">
+                            <div class="rowButton" style="text-align: center;">
+                                <label class="rowButton-button" >tecido :</label>
+                            </div>
+                            <div class="rowInput">
+                                <input  id="produto_tecido" class="rowInput-input focoInput" value="{{vitrine.tecido}}"  disabled >
+                            </div>
+                        </div>       
+                    </div>
+                    <div id="id_artigo" class="rowProduto" style="background-color:transparent;" >
+                        <div class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;" >
+                            <div class="rowButton" style="text-align: center;">
+                                <label class="rowButton-button" onclick="">artigo ?:</label>
+                            </div>
+                            <div class="rowInput">
+                                <input id="produto_artigo"  class="rowInput-input focoInput" value="{{vitrine.artigo}}" disabled >
+                            </div>
+                        </div>       
+                    </div>
+                    <div id="id_artigo" class="rowProduto" style="background-color:transparent;" >
+                        <div class="rowProduto-div" style="border-bottom: 2px #cccccc solid;margin-bottom: 2px;" >
+                            <div class="rowButton" style="text-align: center;">
+                                <label class="rowButton-button" onclick="">artigo :</label>
+                            </div>
+                            <div class="rowInput">
+                                <select id="SeletedArtigo" style="width: 100px;background-color: #305050;color:#ffffff;">
+                                    {{#fornec}}
+                                     <option value={{this._id}}{{razao._id}}>{{this.marca}}</option>
+                                    {{/fornec}} 
+                                </select>
+                            </div>
+                        </div>       
+                    </div>
+                    <div id="twobnt" style="width: 100%;height: 5vh;margin: auto;text-align: center;padding: 5px;display: flex;flex-direction: row;justify-content: space-around;margin-top: 20px;background-color: transparent;">
+                        <button id="idEditProduto" style="width:46%;height: 3vh;margin: auto;background-color:#03a869 ;border-radius: 6px;color:#ffffff;font-size:smaller;border:0px" onclick="Editar_Vitrine()">Editar Vitrine</button>
+                    </div>
+               </div>
+               {{!-- [[ Divisão que contém o button Delete ]] --}}
+               <div id="divProdutoDetalheBtn" style="width:80%;height:5vh;margin: auto; margin-top:4px;background-color:transparent;padding:5px;display: flex;
+                                                  flex-direction: row;justify-content: center;visibility: visible;border: 0px;">
+                <div id="divProdutDetalheBtnDelete" class="divProdutDetalheBtnDelete_">
+                    <button >Delete Produto</button>
+                </div>   
+                 <div id="divProdutDetalheBtnDelete" class="divProdutDetalheBtnDelete_">
+                    
+                    <form action="/roupa/delete-image" id="id" method="post" enctype="application/x-www-form-urlencoded" >
+
+                      <button type="submit" style="background-color: #008000;width: 120px;border-radius: 6px;color:#ffffff;border:0px">Delete Image</button>
+                    </form>
+                </div>   
+               </div> 
+               <div id="" style="width:80%;height:5vh;margin: auto; margin-top:4px;background-color:transparent;padding:5px;display: flex;"></div>
+         </div>
+         {{!-- Formulário adicional de detalhes --}}
+         <div id="idEdicaoAddModel" style="width: 100%;height: 104vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-items: auto;overflow: auto;visibility: visible;">
+            <div id="MainTable" class="mainTable">
+                <div id="RowHeader" class="Row_Header">
+                    <div class="RowHeader_1" >
+                        <button onclick="addnovas_cores()">Inserir Cores</button>
+                    </div>
+                    <div class="RowHeader_1" >
+                        <button onclick="busca_Cores()">Ver as Cores</button>
+                    </div>
+                </div>
+                {{!-- <div style="background-color: #8b0000;">
+
+                </div> --}}
+                <div id="containerCores" class="MainTableCores" >
+                  {{!-- <button id="idClick" type="button" onclick="carregar()" style="display: none;" >Carregar</button> --}}
+                </div>    
+            </div>                       
+         </div> 
+     </div>
+     {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+</div>
+<script>
+
+//........................................................
+let a=document.getElementById("produto_descricao");
+let b=document.getElementById("produto_detalhe");
+let c=document.getElementById("produto_tecido");
+let d=document.getElementById("produto_artigo");
+
+let e=document.getElementById("idDescricao");
+let f=document.getElementById("idDetalhe");
+let g=document.getElementById("idTecido");
+let h=document.getElementById("idArtigo");
+// Esssa rotina foca o input do campo da 'descrição' => 'Dados do produto'
+// Descrição
+a.addEventListener("keydown",function(event){
+      //.............................................
+      let key=event.which;
+      if(key==13){
+           //......................................
+           a.style.backgroundColor="#1805c0";
+           a.style.color="yellow";
+           console.log('vr de a',a.value)
+           console.log('vr de e',e.value)
+           e.value=a.value;
+           b.disabled=false;
+           b.style.backgroundColor="yellow";
+           b.style.color="blue";
+           b.focus();
+      }else if(key===8){
+           a.value="";
+      }
+})
+
+a.addEventListener('focusin',function(){
+    //let h=document.getElementById("h3");
+    
+    let cor1=a.style.backgroundColor;
+    if (cor1!='yellow'){
+        a.disabled=true;
+        a.style.cursor='none';
+        alert('Para editar click no botão ' + 'Editar Vitrine' + 'abaixo!');
+    
+        //h.focus();
+    }
+})
+
+// Detalhe 
+b.addEventListener("keydown",function(event){
+      let key=event.which;
+      //let cor=a.style.backgroundColor;
+      let cor1=b.style.backgroundColor;
+      if(cor1=='yellow'){
+        if(key==13){
+            b.style.backgroundColor="#1805c0";
+            b.style.color="yellow";
+            f.value=b.value;
+            c.disabled=false;
+            c.style.backgroundColor="yellow";
+            c.style.color="blue";
+            c.focus();
+        }else if(key==8){
+            b.value="";
+        }
+      }
+})
+
+// Tecido
+c.addEventListener("keydown",function(event){
+      let key=event.which;
+      let cor=c.style.backgroundColor;
+      if(cor=='yellow'){
+        if(key==13){
+            g.value=c.value;
+            //
+            c.style.backgroundColor="#1805c0";
+            c.style.color="yellow";
+            //
+            d.disabled=false;
+            d.style.backgroundColor="yellow";
+            d.style.color="blue";
+            d.focus()
+        }else if (key==8){
+            //c.value="";
+        }
+     }   
+})
+
+// Artigo
+d.addEventListener("keydown",function(event){
+      let key=event.which;
+      let cor=d.style.backgroundColor;
+      if(cor=='yellow'){
+        if(key==13){
+            d.style.backgroundColor="#1805c0";
+            d.style.color="yellow";
+            h.value=d.value;
+            document.getElementById("btn_produto_editando").click();
+        }else if (key==8){
+            d.value="";
+        }
+      }else{
+        c.focus()
+      }  
+})
+
+// Artigo
+d.addEventListener('focusin',function(){
+    let cor1=d.style.backgroundColor;
+    if (cor1!='yellow'){
+        d.disabled=true;
+        d.style.cursor='none';
+    }
+})
+
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+</script>
+
+<script >
+// atualizada 25/01/2024
+// Tem a função de fechar o aviso 
+function OcultaImg(){
+    document.getElementById("MostraImageDetalheProduto").style.display="none"
+}
+
+// atualizado em 02/10/23
+// Prepara o campo de descriçõa para reebr o foco afim de edição da vitrine
+function Editar_Vitrine(){
+    let b1=document.getElementById("produto_descricao");
+    b1.disabled=false;
+    b1.style.backgroundColor="yellow";
+    b1.style.color="blue";
+    b1.style.display="block";
+    b1.focus();
+}
+
+// atualizada 25/01/2024
+// limpa a cores para nova seleçãp se houver edição ou inseção de cor, tamanho,....
+function limpa_Cores(){
+    /////////////////////////////////////////////// 
+    let corpos;
+    corpos=document.getElementById("containerCores").children;
+    let c=corpos.length;
+   // console.log(' [ 843 ] limpa as cores' ,corpos)
+    for (i=c-1;i>-1;i--){
+        console.log(corpos[i])
+        corpos[i].remove();
+    }
+}
+
+// Criado em 27-09-23
+function busca_Cores(){
+    console.log('');
+    console.log(' busca_Cores');
+    console.log('');
+    ///////////////////////////////////////////////////////
+    limpa_Cores()
+    //////////////////////////////////////////////////////
+    let N=document.getElementById("produto_id").value;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //////////////////////////////////////////////////////////////////
+    //console.log('[ 752 ] código produto',N)
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/roupa-especificacao/${N}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    ///////////////////////////////
+                    console.log('valores cores',json);
+                    let l=json.length;
+                    let cores=json;
+                    console.log('l => ',l)
+                    if (l==1){
+                        let f=cores[0].fase;
+                        console.log('vr de f',f)
+                        if (f==0){
+                          criaMsg()
+                          return
+                        }else{
+                           seguecor(); 
+                        }  
+                    }else{
+                          seguecor();       
+                          ////////////////////////////////////////
+                    }  
+                    function seguecor() {
+                                    let especificacao;
+                                    for (let h=0;h<l;h++){
+                                        ////////////////////////////////////////////////
+                                        // console.log(' H ...',h);
+                                        cores=json[h];
+                                        console.log('valore das cores',cores)
+                                        /////////////////////////////////////////////////
+                                        tipocor=cores.corinput;
+                                        //console.log('[776 corinput ]',tipocor)
+                                        let number_cor=cores._id;
+                                        console.log('[645 => number_cor ]',number_cor)
+                                        /////////////////////////////////////////////
+                                        let front=cores.urlfront;
+                                        let left=cores.urlleft;
+                                        let back=cores.urlback;
+                                        let right=cores.urlright;
+                                        ///////////////////////////////////////////
+                                        let c=cores;
+                                        console.log('');
+                                        console.log('letra c : ',c)
+                                        console.log('');
+                                        console.log('__________________________');
+                                        console.log('');
+                                        especificacao=cores.especificacao;
+                                        console.log('__________________________');
+                                        console.log('especificacao : ',especificacao);
+                                        console.log('');
+                                        console.log('__________________________');
+                                        console.log('');
+                                        ////////////////////////////////////////////////
+                                        let tamanho=especificacao.tamanho;
+                                        let sizeQte=especificacao.qte;
+                                        let pcusto=especificacao.pcusto;
+                                        let f=h;
+                                        let pvista=especificacao.precovista;
+                                        let pprazo=especificacao.precoprazo;
+                                        let idCor=especificacao._id
+                                        ////////////////////////////////////////////
+                                        criarPainel(tipocor,h,number_cor)
+                                        alocaUrls(front,left,back,right,tipocor,h);
+                                        //alocaEspecificacao(tamanho,sizeQte,tipocor,pcusto,pvista,pprazo,idCor,f);
+                                        console.log('especial',especificacao)
+                                        alocaEspecificacao(especificacao,tipocor,f,number_cor);
+                                    }
+                           }  
+                    ///////////////////////////////////////////////////////
+                    function criaMsg(){
+                           console.log('dentro')
+                           let codigo='div-msg'
+                           const node0 = document.createElement("div");
+                           node0.setAttribute("id",codigo);
+                           node0.setAttribute("class","container_msg");
+                           document.getElementById("containerCores").appendChild(node0);
+
+                           const node2 = document.createElement("button");
+                           node2.setAttribute("id",'div-' + b);
+                           const textNode2=document.createTextNode('não há cores registradas!');
+                           node2.appendChild(textNode2);
+                           document.getElementById(codigo).appendChild(node2); 
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }catch(e){
+            console.log(e)
+        }
+
+
+
+        function criarPainel(a,b,number){
+            console.log('[   829  ] ',a,b,number)
+           // Cria o painel de cada cor 
+           //................................................... 
+           // cria uma divisao para cada cor
+           const node0 = document.createElement("div");
+           node0.setAttribute("id",a);
+           node0.setAttribute("class","container_cor");
+           node0.setAttribute("value",a);
+           document.getElementById("containerCores").appendChild(node0);
+           //...........................................................
+           document.getElementById(a).style.backgroundColor=a;
+
+           // CRIA A PRIMEIRA SUB_DIVISÃO DA COR => ( + Size ) DENTRO DA DIVISÃO COR            
+           const node1 = document.createElement("div");
+           node1.setAttribute("id",'divSizeplus-' + b);
+           node1.setAttribute("class","container_Amarela");
+           document.getElementById(a).appendChild(node1);    
+
+           // CRIA O BOTÃO DENTRO DA PRIMEIRA SUB-DIVISÃO
+           const node2 = document.createElement("button");
+           node2.setAttribute("id",'div-' + b);
+           const textNode2=document.createTextNode('+ Size');
+           node2.setAttribute("onclick","plusSize(" + "'" + number + "'" + ")");
+           node2.appendChild(textNode2);
+           node2.setAttribute("value","plus");
+           document.getElementById('divSizeplus-' + b).appendChild(node2); 
+           
+
+           // CRIA A SEGUNDA SUB-DIVISÃO DENTRO DA DIVISÃO COR => TAMANHO E QTE
+           const node3 = document.createElement("div");
+           node3.setAttribute("id",'divAzul-' + a);
+           node3.setAttribute("class","container_Azul");
+           document.getElementById(a).appendChild(node3);    
+
+           //
+           const node4 = document.createElement("div");
+           node4.setAttribute("id",'divRoxa-' + a);
+           node4.setAttribute("class","container_Roxa");
+           document.getElementById(a).appendChild(node4);    
+        }
+
+        function alocaEspecificacao(especificacao,tipocor,f,number_cor){
+            // Em cada painel coloca-se a qte correspondenta
+            //tamanho,sizeQte,tipocor,pcusto,pvista,pprazo,idCor,f
+            //return
+            console.log('');
+            console.log('__________________________________________________');
+            console.log(especificacao);
+            console.log('');
+            console.log('--------------------- A ------------------------------');
+            let z=especificacao.length;
+            //...................................................
+            //.....................................................
+            for (let i=0;i<z;i++){
+                let b=especificacao[i];
+                console.log('[877]',b)
+                //..................................................
+                // Cria a divisao que contém o tamanho,quantidade,preço custo,preço vista,preço prazo
+                // Criar a divisao  Branca
+                let idCor=b._id;
+                
+                const node1 = document.createElement("div");
+                node1.setAttribute("id",'divbranca-' + f + i);
+                node1.setAttribute("class","container_Branca");
+                node1.setAttribute("value","branca");
+                document.getElementById('divAzul-' + tipocor).appendChild(node1);
+
+                // Cria a label que contém o idOculto/ violet/
+                const node2 = document.createElement("button");
+                const textNode2=document.createTextNode(idCor);
+                node2.appendChild(textNode2);
+                node2.setAttribute("id",'idoculto_' + f + i);
+                node2.setAttribute("class","container_oculto");
+                console.log('PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP')
+                node2.setAttribute("onclick","editaSize(" + "'" + idCor + number_cor +  "'"  + ")");
+                document.getElementById('divbranca-' + f + i).appendChild(node2);
+                document.getElementById('idoculto_'  + f + i).innerHTML=b._id + ':' + number_cor;
+                console.log('PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP')
+
+                // Cria a label que contém o tamanho/ preto/
+                const node3 = document.createElement("label");
+                const textNode3=document.createTextNode(b.tamanho);
+                node3.appendChild(textNode3);
+                node3.setAttribute("id",'size_' + b.tamanho);
+                node3.setAttribute("class","container_label");
+                document.getElementById('divbranca-' + f + i).appendChild(node3);
+                document.getElementById('size_' + b.tamanho).innerHTML=b.tamanho; 
+
+                // Cria a label que contém o qte
+                const node4 = document.createElement("label");
+                const textNode4=document.createTextNode(b.qte);
+                node4.appendChild(textNode4);
+                node4.setAttribute("id",'qte_' + b.qte );
+                node4.setAttribute("class","container_label");
+                document.getElementById('divbranca-' + f + i).appendChild(node4);
+                document.getElementById('qte_' + b.qte).innerHTML=b.qte ; 
+
+                // Cria a label que contém o qte
+                const node50 = document.createElement("label");
+                const textNode50=document.createTextNode(number_cor);
+                node50.appendChild(textNode50);
+                node50.setAttribute("id",'numbercor_' + + f + i );
+                node50.setAttribute("class","container_label");
+                document.getElementById('divbranca-' + f + i).appendChild(node50);
+               // document.getElementById('numbercor_' + number_cor).innerHTML=number_cor; 
+
+                console.log('');
+                console.log('_______________________________');
+                console.log('919',b);
+                console.log('________________________________');
+                console.log('');
+                const node5 = document.createElement("label");
+                const textNode5=document.createTextNode(b.precovista);
+                node5.appendChild(textNode5);
+                node5.setAttribute("id",'pvista_' + b.precovista);
+                node5.setAttribute("class","container_preco");
+                document.getElementById('divbranca-' + f + i).appendChild(node5);
+                //let B=b.precovista;
+                //console.log('valor de B',Object.values(B))
+                //B=Object.values(B)
+                document.getElementById('pvista_' + b.precovista).innerHTML=b.precovista;
+
+                const node6 = document.createElement("label");
+                const textNode6=document.createTextNode(b.precoprazo);
+                node6.appendChild(textNode6);
+                node6.setAttribute("id",'pprazo_' + b.precoprazo);
+                node6.setAttribute("class","container_preco");
+                document.getElementById('divbranca-' + f + i).appendChild(node6);
+               // let P=b.precoprazo;
+               // console.log('valor de B',Object.values(P))
+               // P=Object.values(P)
+                document.getElementById('pprazo_' + b.precoprazo).innerHTML=b.precoprazo;
+            }
+            
+        }
+ 
+        function alocaUrls(front,left,back,right,tipocor,f){
+            //////////////////////////////////////////////////////////////////////////
+            console.log('');
+            p1=0;
+             console.log(' [ 936 ] ',front)   
+            //........................................................................    
+            p1++;
+                const node8 = document.createElement("img");
+                node8.setAttribute("id",'divbranca-' + f + p1);
+                node8.setAttribute("class","container_Url");
+                document.getElementById('divRoxa-' + tipocor).appendChild(node8);
+                document.getElementById('divbranca-' + f + p1).src=front;
+            //........................................................................    
+            p1++; 
+                const node9 = document.createElement("img");
+                node9.setAttribute("id",'divbranca-' + f + p1);
+                node9.setAttribute("class","container_Url");
+                document.getElementById('divRoxa-' + tipocor).appendChild(node9);
+                document.getElementById('divbranca-' + f + p1).src=left;
+            //.......................................................................    
+            p1++;
+                const node10 = document.createElement("img");
+                node10.setAttribute("id",'divbranca-' + f + p1);
+                node10.setAttribute("class","container_Url");
+                document.getElementById('divRoxa-' + tipocor).appendChild(node10);
+                document.getElementById('divbranca-' + f + p1).src=back;
+
+            p1++;  
+                const node7 = document.createElement("img");
+                node7.setAttribute("id",'divbranca-' + f + p1);
+                node7.setAttribute("class","container_Url");
+                document.getElementById('divRoxa-' + tipocor).appendChild(node7);
+                document.getElementById('divbranca-' + f + p1).src=right;
+                document.getElementById('divbranca-' + f + p1).style.backgroundColor="red";    
+        }       
+}
+
+
+// Ao clicar sobre o número da especificação
+// Vamos editar o tamanho
+function editaSize(n){
+    console.log('[981 <><><><><><><:]');
+    console.log(n);
+    let number_especificacao=n.substr(0,24);
+    let number_cor=n.substr(24,48)
+    console.log('_________________________________________');
+    let w1=document.getElementById("idcodigo_Cor");
+    w1.value=number_cor;
+    document.getElementById("idcodigo_Tamanho").value=number_especificacao;
+    console.log('_________________________________________');
+    document.getElementById("btn_roupa_editando_cor").click()
+}
+
+
+// atualizada em 25/01/2024
+// Ao clicar sobre o botão '+Size' pega-se o número do produto e número da cor para emissão de novo tamanho
+function plusSize(n){
+    console.log( ' [ 1027 ] vr de size',n)
+    document.getElementById("idCores").value=n;
+    document.getElementById("btn_roupa_adcionar-size").click();
+    
+   
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/incluir_size/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    //console.log(json);
+                    let cores=json.cores;
+                    console.log(cores)
+                    document.getElementById("idcores").value=n;
+                })
+                .catch((er)=>{
+                    console.log(er)
+                })
+    }catch(e){
+        console.log(e)
+    }
+}
+
+// atualizada 25/01/2024
+// Adicionar nova cor
+function addnovas_cores(){
+   // Vem do botão " Inserir Cores
+   let palavra=document.getElementById("produto_artigo").value;
+   if(palavra=="anotar"){
+     alert("Definir  o artigo");
+     document.getElementById("idEditProduto").click();
+   }else{
+     document.getElementById("novas-cores").click();
+   }
+}
+
+// atualizada 25/01/2024
+// Preenche a tabela com as cores vigentes
+busca_Cores()
+function lixo(){
+
+function colaImg(n){
+    function procuraBase16(cor){
+        let nomeCor;
+        console.log('1235555')
+        cor=cor.trim();
+        console.log('palavra',cor); //Ok
+        cor=cor.substr(4);
+        cor=cor.trim()
+        //.................................... 
+        let pos=cor.search(",");
+        let r=cor.substring(0,pos);
+        //....................................
+        cor=cor.trim();
+        cor=cor.substr(pos+1);
+        //........................................
+        pos=cor.search(',');
+        let g=cor.substring(0,pos);
+        //.......................................
+        cor=cor.substr(pos+1);
+        let l=cor.length;
+        let b=cor.substring(0,(l-1));
+        cor=cor.search('')
+        
+        let N=parseInt(r.toString(16))
+        let M=parseInt(g.toString(16))
+        let P=parseInt(b.toString(16))
+        nomeCor="#" + N.toString(16) + M.toString(16) + P.toString(16)
+         return nomeCor  
+}
+
+    //Essa function trabalha com mousedown para mostrar a img
+    let palavra=n;
+    document.getElementById("MostraImageDetalheProduto").style.display="block";
+    document.getElementById("ImgDone").src=n;
+}
+
+function descolaImg(){
+    //Essa função trabalha com mouse_uo para limpar a img
+    //document.getElementById("UpDownImage").style.display="none";
+    document.getElementById("MostraImageDetalheProduto").style.display="none";
+    document.getElementById("ImgDone").src="";
+}
+    // Atualizado 280923
+//function editarSize(n){
+    //.........................................................
+//    console.log(n)
+//    document.getElementById("idCores").value=n;
+//    document.getElementById("btn_roupa_editando-size").click();
+    //...........................................................
+//}
+//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+//clicando()
+//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+        //function pegaImage(n){
+        //Essa rotina open o divisão para fazer o Upload da Image
+        //    let palavra=n;
+        //    let pos=palavra.search('=:');
+        //    let numero;
+        //    numero=palavra.substring(0,pos);
+            //..............................................
+        //    palavra=palavra.substr((pos+2));
+        //    palavra=palavra.substr(4);
+        //    pos=palavra.search("=:");
+        //    let url=palavra.substring(0,pos)
+            //.......................................................
+        //    palavra=palavra.substring((pos+2),palavra.lenght);
+        //    let id=palavra.substring(0,7);
+        //    palavra=id + '-label0-0'
+        //    let id_detalhe=document.getElementById(palavra);
+        //    id_detalhe=id_detalhe.value;
+        //    console.log('--- : ',id_detalhe)
+        //    let r=document.getElementById('idDetalheFoto');
+        //    console.log(r)
+        //    r.value=id_detalhe
+            //......................................................
+        //    document.getElementById('idSpan').innerHTML=url;
+            //........................................
+            // idLocalImagem indica se a foto é principal ou complemento
+        //    document.getElementById("idLocalImagem").value=2;
+        //    document.getElementById("idLocalImagem").style.backgroundColor='white';
+            // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+        //    document.getElementById("idPosicaoImg").value=url;
+            //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+        //    document.getElementById("escolheFicheiro").style.display="block";
+            //................................................................
+        //}
+
+
+}
+</script>
+
+

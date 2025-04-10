@@ -1,0 +1,1152 @@
+<style>
+ body{
+   width: 100vw;
+ }
+
+.d-flex{
+   width: 95.5vw;
+   height: 91vh;
+   margin: auto;
+   margin-top: 0.2vh;
+   background-color: #ffffff;
+}
+
+
+.titulo-seccao{
+   width: 100%;
+   height: 4.5vh;
+   background-color:#ffffff;
+   border-bottom: #ccc solid;
+   margin-top:.7vh;
+   border-right: #cccccc 2px solid;
+}
+
+.titulo-seccao h1{
+   color:#031475;
+   font-size:1.5rem;
+   font-weight: 300;
+}
+
+img.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 200px;
+}
+
+/*Título Fixo*/
+.titulo-main{
+    width:99vw;
+    height:10vh;
+    margin:auto ;
+    background-color:#032c82 ;
+    float:left ;
+    text-align: center;
+    padding:12px 0px 12px;
+    position: fixed;
+    margin-top:-3px;
+    margin-bottom: 10px;
+ }
+
+ 
+.sidebar{
+    width: 15vw;
+    height:93vh;margin: auto;
+    padding:2px;
+    display: flex;flex-direction: column;justify-items: center;align-content: center;
+    background-color: #ffffff;color:#074ba4;
+}
+
+.sidebar_div{
+   background-color: #ffffff;
+}
+
+.list_segmento{
+   width: 100%;
+   height: 75vh;
+   display: block;
+   margin-top: 5vh;
+   text-align: center;
+   background-color:#ffffff;
+}
+
+.list_segmento_div{
+   width: 11.8vw;height: 6vh;margin: auto;
+   padding-top: 2vh;text-align: center;
+   background-color:#023fc4;
+   margin-left: 0px;
+}
+
+/*
+.ul_list{
+   width: 100%;height: 69vh;margin: auto;
+   font-size: larger;list-style-type: none;
+   
+   margin: 0;padding: 0;
+   background-color: #0760dd;
+   color: #ffffff;
+}
+
+.ul_list li{
+   margin: 6px;
+   text-align: left;
+   font-size: 1.2vw;
+   color:#ffffff;
+   font-weight: 100;
+}*/
+
+.SegmentoLoja{
+    width: 12vw;height: 60vh;
+    padding: 6px;padding-bottom: 10px 2px;
+    background-color: #ffffff;
+}
+
+/*
+.SegmentoServico{
+    width: 12vw;height: 82vh;
+    display:flex;
+    flex-direction: column;
+    padding-left: 4px;
+    margin-top: 1vh;
+    padding-top: 10px;
+    background-color:#ffffff;
+}*/
+
+.corpoMain_{
+   width: 100%;
+   height: 89vh;
+   margin: auto;
+   background-color: #cac6c6;
+   margin-top: 1.5vh;
+}
+
+.menuLateral_{
+   width: 10vw;height:88vh;float: left;padding:3px;margin-bottom: 3px;background-color: #ffffff;
+}
+
+.divMenuLateral_{
+   display: flex;flex-direction: column;background-color: #e2dddd;height: 87vh;
+}
+
+.controlLoja_{
+    width: 95.2vw;height: 89vh;margin: auto;
+    display: flex;flex-direction: row;align-items: start;padding: .5vh;align-content:center;
+    margin-top: 0.2vh;  
+    background-color: #ffffff;
+ }
+
+.boxLojaLeft_ {
+    width: 30vw;
+    height:87vh;
+    display: flex;flex-direction:column;justify-items:start;
+    margin-bottom: 10px;color:#555252;padding: 5px;border: solid #f6f2f2 2px;
+    float: left;padding:3px;margin-bottom: 3px;background-color:#ffffff;margin-top: 0.4vh;
+ }
+
+ .painel_{
+   display: flex;flex-direction: column;width:10vw;height: 85vh;background-color: #d1cbcb;
+ }
+
+.boxLojaRight_ {
+    width: 54vw;height:87vh;display: flex;flex-direction:column;justify-items:start;
+    margin-bottom: 10px;padding: 5px;border: solid #ccc 2px;margin-left: 20px;
+    background-color:#ffffff;
+    color: #000;
+    overflow: auto;
+ }
+
+
+
+.divLoja{
+    width:100%;
+    height: 19vh;
+    background-color: #191970;
+    border: #e8e2e2 .5px solid;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: #ffffff solid 5px;
+    padding: 4px;
+}
+
+
+/*monitor lateral*/
+
+.btncidade{
+   width: 90%;height: 4.5vh;margin: auto;
+   background-color: #023c83;color:#ffffff;
+   border-radius: 4px;
+   font-size:small;
+   margin-top: 3px;
+}
+
+.btnbairro{
+   width: 90%;height: 3vh;
+   background-color: #023fc4;color:#ffffff;
+   border-radius: 4px;
+   font-size:small;
+   margin: auto;
+}
+
+/*.licidade{
+   width: 100%;height: 4vh;margin: auto;background-color: #494a49;float: left;
+}*/
+</style>
+<style>
+ .imgframe{
+   max-width: 100%;
+   height: auto;
+ }
+
+ .center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+ }  
+
+ .modalPesquisa{
+    width: 85vw;height: 80vh;margin: auto;
+    position:absolute;top:12vh;left:12vw;z-index: 100;
+    display: flex;flex-direction: column;justify-content:space-around ;justify-items: auto;
+    margin-left: 1.4vw;
+    background-color:#e5e8e8;
+ }
+
+ .titulo-secao{
+     width: 60%;height: 7vh;margin: auto;
+     display: none;
+     padding-top: 1.5vh;
+     text-align: center;
+     background-color: #ffffff;
+ }
+
+ .titulo-secao h1{
+   font-size: 1.2vw;
+   color:#023fc4 ;
+ }
+
+ .titulo-cidade{
+     width: 60%;height: 7vh;margin: auto;
+     display: none;
+     padding-top: 1.5vh;
+     text-align: center;
+     background-color: #ffffff;
+ }
+
+ .titulo-cidade h4{
+   font-size: 1.6vw;
+   color:#023fc4 ;
+ }
+
+ .titulo-bairro{
+   width: 60%;height: 7vh;margin: auto;
+   display: none;
+   padding-top: 1.5vh;
+   text-align: center;
+   background-color: #ffffff;
+ }
+
+ .titulo-bairro h3{
+   font-size: 1.6vw;
+   color:#023fc4 ;
+ }
+
+ .titulo-consulta{
+   width: 60%;height:20vh;margin: auto;
+   visibility: hidden;
+   display: flex;flex-direction: row;justify-items: center;justify-content: center;
+   padding-top: 1vh;
+   text-align: center;
+   background-color: transparent;
+}
+
+.titulo-consulta button{
+   width: 30vw;
+   height: 6vh;
+   border: 0px;
+   border-radius: 6px;
+   font-size: 1.6vw;
+   background-color: #11d611;
+   color:#ffffff;
+}
+
+.btnConsulta-click{
+   width: 30vw;height: 4vh;margin-top: 0.5vh;
+   border-radius: 8px;
+   background-color: #c402a7;color: #ffffff;
+   display:none;
+   text-align: center;
+   font-size: 1.4vw;
+ }
+
+.titulo-bairro button{
+   font-size: 1.6vw;
+   color:#023fc4 ;
+ }
+
+ .div-btncidade{
+   width: 40vw;height:32vh;margin: auto;background-color: #ffffff;text-align: center;padding: 10px;
+   display: none;
+   background-color: yellow;
+ }
+
+ .div-btncidade div{
+    width: 35vw;height:29vh;margin: auto;
+    display: flex;flex-direction: column;justify-content: space-around;
+    background-color:#02c412;padding: 3vh;
+    text-align: center;
+ }
+
+ .btnRelcidades{
+   width: 32vw;
+   height: 5vh;
+   background-color: #023fc4;
+   border-radius: 6px;
+   color:#ffffff;
+   margin-bottom: 4px;
+   font-size: 1.6vw;
+   font-weight: 100;
+ }
+
+ .select-bairro{
+    width: 50vw;
+    height: 42vh;
+    margin: auto;text-align: center;
+    background-color: transparent;
+    padding: 10px;
+    display: none;
+    padding-top: 1.5vh;
+ }
+
+ .select-bairro h1{
+     font-size: 1vw;
+     font-weight: 100;
+     color: #ffffff;
+ }
+
+ .form-bairros{
+     width: 40vw;text-align: center;margin: auto;"
+ }
+
+ .div-BairroSelect{
+    width: 10vw;
+    height: 3vh;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 20px;
+ }
+
+ .selOption{
+    color:#04308f;
+ }
+
+ 
+ 
+</style>
+<style>
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: rgb(30, 255, 101);
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+</style>
+<style>
+   .divLojaZero{
+      width: 25%;
+      height: 12vh;
+      margin: auto;
+      background-color: #ffffff;
+      float: left;
+      display: flex;
+      flex-direction: column;
+     
+   }
+
+   .divLojaHum{
+      width: 75%;
+      height: 12vh;
+      margin: auto;
+      background-color: #dcdfdd;
+      float: left;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2px;
+   }
+
+   .formatrazao{
+     background-color: #020303;
+     color:#ffffff;
+     font-size: medium;
+  }
+ 
+  .celularNumber{
+      width:100%;
+      height:2vh;float: left;
+      background-color:#db1515 ;font-size:1.6vh;
+      margin-top:-3px;line-height: 1.6;color:#325b80;font-weight:500;
+      text-align: center;
+      background-color: #ffffff;
+      font-weight: 400;
+  }
+
+ 
+ .cidadeName{
+   
+    width:100%;
+    height:2vh;
+    float: left;
+    background-color:#db1515 ;
+    font-size:small;
+    border-bottom:2px;
+    line-height: 1.6;
+    color:#325b80;
+    font-weight:500;
+    text-align: center;
+    background-color: #ffffff;
+    font-weight: 400;
+    
+ }
+
+ .template{
+    width:100%;height:2.5vh;float: left;
+    background-color:#02406a;font-size:0.7vw;
+    border-bottom:2px;margin-top:-10px;line-height: 1.6;color:325b80;font-weight: 500;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 6px;
+    border:0px;
+    color:#ffffff;
+    margin-bottom: 6px
+}
+
+   
+   .div-label{
+       width: 35%;
+       height: 4.5vh;margin: auto;
+       position: absolute;letf:500px;top:150px;z-index: 2000;
+       background-color: #090909;
+       display: none;
+       padding: 1vh;
+       text-align: center;
+   }
+
+   .labelBairros{
+      font-size:medium;color:#020303;font-weight: 600;
+   }
+   
+  .avisolabel{
+      width: 100%;height: 4vh;
+      display:none ;
+      font-size: medium;background-color: #fffff;color:#F000000;
+  }
+
+
+  .panelDirection{
+      width: 8.6vw;height: 10.6vh;margin: ;padding-top: 0.4vh;background-color:#ffffff;margin-left: 3px;margin-top: 8px;text-align: center;
+  }
+
+  .panelDirection h1{
+    font-size: small;font-weight: 400;
+  }
+
+  .containerImg{
+      max-width:200px;
+      max-height:80px;
+      width: auto;
+      height: auto;
+      background-size: cover;
+  }
+
+  .lineempresa{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 5px;
+    border-bottom: 4px solid white;
+  }
+
+  .lineempresa_{
+     width: 17.5vw;height: 8vh;margin: auto;background-color: #e61414;margin-left: 5px;
+  }
+</style>
+
+<style>
+   /*monitor do tamanho de um notebook=> 31cm x 17.5 => x 37.11 = 1150pixels*/
+@media screen and (max-width:1600px) {
+   .mudaImg{
+      max-width: 5vw;
+      height: auto;
+   }
+
+   .cidadeName{
+      font-size:1.1vw;
+      border-bottom:2px;
+      line-height: 1.6;
+      font-weight:500;
+      padding: 0.3px;
+      margin-top:-20px;
+      font-weight: bolder;
+      text-align: center;
+      color:#325b80;
+   }
+
+   .btncidade{
+         width: 90%;height: 4.5vh;margin: auto;
+         background-color: #013286;color:#ffffff;
+         border-radius: 4px;
+         font-size:small;
+         
+         margin-top: 3px;
+   }
+
+   .btnbairro{
+     width: 90%;height: 3vh;  margin: auto;
+     background-color: #013286;color:#ffffff;
+     border-radius: 4px;
+     font-size:small;
+}
+
+   body {
+     background-color: lightblue;
+   }
+
+    .painel_{
+      display: flex;flex-direction: column;width:10vw;height: 85vh;background-color: #d1cbcb;
+ }
+
+   .panelDirection{
+      width: 9.6vw;height: 11vh;margin: ;padding-top: 0.4vh;background-color:#240292;margin-left: 3px;margin-top: 6px;text-align: center;
+      color:#032c82;margin-bottom: 0.5vh;
+   }
+
+   .panelDirection h1{
+      font-size: x-small;font-weight: 400;color:#ffffff;margin-top: 0.8vh;
+   }
+
+   .containerImg{
+      max-width:150px;
+      max-height:60px;
+      width: auto;
+      height: auto;
+      background-size: cover;
+  }
+  
+
+}
+@media only screen and(max-width: 1500px) {
+
+body {
+     background-color: lightblue;
+   }
+
+.btncidade{
+      width: 90%;height: 4.5vh;margin: auto;
+      background-color: #023fc4;color:#ffffff;
+      border-radius: 4px;
+      font-size:small;
+      margin-top: 3px;
+}
+
+.btnbairro{
+     width: 90%;height: 3vh; margin: auto;
+     background-color: #014385;color:#ffffff;
+     border-radius: 4px;
+     font-size:small;
+}
+
+.panelDirection{
+      width: 9.6vw;height: 12vh;margin: ;padding-top: 0.4vh;background-color:#d37705;margin-left: 3px;margin-top: 6px;text-align: center;
+      color:#032c82;margin-bottom: 0.5vh;
+   }
+
+   .panelDirection h1{
+    font-size: x-small;font-weight: 400;color: #ffffff;margin-top: 0.8vh;
+   }
+
+   .painel_{
+         display: flex;flex-direction: column;width:10vw;height: 85vh;background-color: #d1cbcb;
+   }
+
+   .containerImg{
+      max-width:150px;
+      max-height:60px;
+      width: auto;
+      height: auto;
+      background-size: cover;
+  }
+
+  .boxLojaRight_{
+     background-color: #ffffff;
+  }
+
+
+}
+
+@media only screen and (max-width: 1400px) {
+
+.btncidade{
+      width: 90%;height: 4.5vh;margin: auto;
+      background-color: #023fc4;color:#ffffff;
+      border-radius: 4px;
+      font-size:small;
+      margin-top: 3px;
+}
+
+   .btnbairro{
+     width: 90%;height: 3vh; margin: auto;
+     background-color: #01308f;color:#ffffff;
+     border-radius: 4px;
+     font-size:small;
+}
+
+   .panelDirection{
+      width: 9.6vw;height: 12vh;margin: ;padding-top: 0.4vh;background-color:#130201;margin-left: 3px;margin-top: 3px;text-align: center;
+     
+   }
+
+   .boxLojaLeft_{
+      margin-top: 0vh;
+   }
+
+   .labelBairros{
+      font-size:small;color:#020303;font-weight: 600;
+   }
+
+   .panelDirection h1{
+      font-size: x-small;font-weight: 400; color: #ffffff;margin-top: 0.8vh;
+   }
+
+   .painel_{
+         display: flex;flex-direction: column;width:10vw;height: 88vh;background-color: #d1cbcb;
+   }
+    .containerImg{
+      max-width:135px;
+      max-height:56px;
+      width: auto;
+      height: auto;
+      background-size: cover;
+  }
+
+  .boxLojaRight_{
+     width: 54vw;
+     height: 87vh;
+     padding: 1vw;
+     background-color: #ffffff;
+  }
+
+
+  .lineempresa_{
+      width: 16vw;
+  }
+
+  .col1{
+      background-color: #02317e;
+  }
+
+  .col2{
+      background-color: #7e027c;
+  }
+
+  .col3{
+      background-color: #79be02;
+  }
+
+}
+
+@media only screen and (max-width: 1300px) {
+   .btncidade{
+         width: 90%;height: 4.5vh;margin: auto;
+         background-color: #013286;color:#ffffff;
+         border-radius: 4px;
+         font-size:small;
+         margin-top: 3px;
+  }
+
+   .btnbairro{
+     width: 100px;height: 3vh;
+     background-color: #023690;color:#ffffff;
+     border-radius: 4px;
+     font-size:small;
+     margin: auto;
+}
+
+  .panelDirection{
+      width: 9.6vw;height: 11.4vh;margin: ;padding-top: 0.4vh;background-color:#ffffff;margin-left: 3px;margin-top: 3px;text-align: center;color: #02317e;
+   }
+
+   .panelDirection h1{
+      font-size: x-small;font-weight: 400;color: #000;margin-top: 0.8vh;
+   }
+
+    .boxLojaRight_{
+     width: 54vw;
+     height: 87vh;
+     padding: 1vw;
+     background-color: #ffffff;
+  }
+}
+</style>
+    <script>
+  //busca a largura e altura da page para ajustar a tela  
+  function larguraAltura(){
+    var x=document.getElementById("corpo").clientHeight;
+    console.log('height : ',x)
+    var d=document.getElementById('pegaHeight');
+    d.innerHTML='h :' + x;
+    d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+   var x1=document.getElementById("corpo").clientWidth;
+    console.log('width : ',x1)
+    var d1=document.getElementById('pegaWidth');
+    d1.innerHTML='w :' + x1;
+    d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+   x.innerHTML=(x1/1.77)
+
+    var q=document.getElementById('corpo');
+     q.addEventListener("resize",function(){
+        console.log('alô!')
+     })
+
+    }
+</script>
+
+ 
+{{!-- Mostra a lista de produtos segmentados para serem selecionados na cidade e nos bairros  --}}
+<div id="corpo" class="d-flex" >
+   {{!-- Dispara o site ou page do catálogo --}}
+   <form id="formSite" method="POST" action="/site/mostrasite/" enctype="application/x-www-form-urlencoded" style="display:none;background-color: #04308f;">
+               <input type="text" id="mostraSite" name="mostraSite">
+               <input type="submit" id="dispara">
+   </form>
+   {{!-- //////////////////////////////////////////////////////////////// --}}
+    {{!-- Esse modal é antigo  --}}
+  
+  
+   <div id="corpoMain" class="corpoMain_"  >
+      {{!-- Recebe a lista de lojas do segmento --}}
+      <div id="listaLojas" class="Loja_" >
+         <div id="controlLoja" class="controlLoja_" >
+            {{!-- ///////////////////////////////////////////////////// --}}
+            <div id="menuLateral" class="menuLateral_">
+                  
+                 <div id="divMenuLateral" class="divMenuLateral_">
+                     <div id="TituloSetor" style="margin-top: 10px;margin-bottom: 10px;text-align: center;">
+                        <button id="idSetor" style="margin-top: 10vh;color:#ff0000;margin-top: 8.5vh;background-color: transparent;border:0px;font-size:large;" onmousemove="mostraLabel()" onmouseout="ocultaLabel()">{{setor}}</button>
+                     </div>
+                     <h1 id="idSegmento" style="font-size:medium;color:#020303;margin-left: 5%;font-weight: 600">{{segmento}}</h1>
+                     <input id="idCidade" style="display: none;">
+                     <button style="width: 100%;height: 4vh;margin: auto;background-color: #023fc4;border-radius: 4px;font-size: medium;color: #ffffff;">Limpar consulta</button>
+                   
+                     <div id="ListaCidades" style="width: 100%;display: flex;flex-direction: column;justify-items: auto;background-color: #074ba4;">
+                           <div id="label_cidade" style="width: 80%;height: 4vh;margin: auto;background-color: #d7d4d4;margin-top: 6px;margin-bottom: 6px;padding: .5vh;display: flex;flex-direction: column;justify-items: center;">
+                               <div style="background-color:transparent;text-align: center;vertical-align: middle;height: 3.5vh;">
+                                  <h6 style="font-size:medium;color:#020303;font-weight: 600;margin-bottom: 10px;">cidades</h6>
+                               </div> 
+                           </div>
+                           <div id="div_cbocidade" style="width: 100%;background-color: #c0bfbc;display: flex;flex-direction: column;height: 30vh">
+                              <button onclick="OnCidade('todos')" class="btncidade">todos</button>
+                              <button onclick="OnCidade('Cariacica')" class="btncidade">Cariacica</button>
+                              <button onclick="OnCidade('Guarapari')" class="btncidade">Guarapari</button>
+                              <button onclick="OnCidade('Serra')" class="btncidade">Serra</button>
+                              <button onclick="OnCidade('Vitória')" class="btncidade">Vitória</button>
+                              <button onclick="OnCidade('Vila Velha')" class="btncidade">Vila Velha</button>
+                           </div>
+                     </div>
+                     <div id="div_cbobairro" style="width: 100%;background-color:#c9cfca;display: flex;flex-direction: column;margin-top: .5vh;height: 25vh;overflow: auto;">
+                           <div id="label_bairro" style="width: 100%;height: 4vh;margin: auto;background-color:#d7d4d4;padding: 4px;text-align: center;">
+                              <h6 class="labelBairros" >bairros</h6>
+                           </div>
+                           <div id="cbobairro" style="width: 90%;height: 45vh;margin: auto;overflow: auto;display: flex;flex-direction: column;justify-content: center;justify-items:flex-start;background-color: #c9cfca;">
+                              <button id="BairroAll" class="btnbairro" style="display: block;">todos</button>
+                           
+                           </div>
+                     </div>
+                 </div>  
+            </div>
+            <div id="boxLojaLeft" class="boxLojaLeft_"  >
+               <div id="div-avisolabel" class="div-label">
+                  <label id="avisoLabel" class="avisolabel" >click sobre o botão para buscar novos segmentos!</label>
+               
+               </div>
+               <div id="paineisSetores" style="display: flex;flex-direction: row;justify-content: flex-start;">
+                    <div id="painel_1" class="painel_" >
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/açai.png" height="100px" width="100%">
+                          <h1 >açai</h1>
+                       </div>
+                       <div class="panelDirection" >
+                          <img class="containerImg" src="/img_alimentação/cafés_chás.png" height="100px" width="100%">
+                          <h1>cafés & chás</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/churrasco.png" height="100px" width="100%">
+                          <h1>churrascos</h1>
+                       </div>
+                      <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culinária_arabe.png" height="100px" width="100%">
+                          <h1>culinária Árabe</h1>
+                       </div>
+                      <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culinária_capixaba.png" height="100px" width="100%">
+                          <h1>culinária Capixaba</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culinária_francesa.png" height="100px" width="100%">
+                          <h1>culinária Francesa</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culinária_italiana.png" height="100px" width="100%">
+                          <h1>culinária Italiana</h1>
+                       </div>
+                    {{!-- //////////////////////////////////////////////////////////////  --}}
+                    </div>
+                    <div id="painel_2" class="painel_" >
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culinária_japonesa.png" height="100px" width="100%">
+                          <h1>culinária Japonesa</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culinária_mineira.png" height="100px" width="100%">
+                          <h1>culinária Mineira</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culunária_chinesa.png" height="100px" width="100%">
+                          <h1>culinária Chinesa</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/culunária_nordestina.png" height="100px" width="100%">
+                          <h1>culinária Nordestina</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/hamburgueria.png" height="100px" width="100%">
+                          <h1>hamburguerias</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/pizzaria.png" height="100px" width="100%">
+                          <h1>pizzaria</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/padarias.png" height="100px" width="100%">
+                          <h1>Padarias</h1>
+                       </div>
+                        
+                    </div>
+                    <div id="painel_3" class="painel_" >
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/seft-service.png" height="100px" width="100%">
+                          <h1>seft-services</h1>
+                       </div> 
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/sorveterias.png" height="100px" width="100%">
+                          <h1>sorveteria</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/açougue.png" height="100px" width="100%">
+                          <h1>açougue</h1>
+                       </div>
+                       <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/peixarias.png" height="100px" width="100%">
+                          <h1>peixaria</h1>
+                       </div>
+                        <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/feirasLivres.png" height="100px" width="100%">
+                          <h1>feira livre</h1>
+                       </div>
+                        <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/mercearias.png" height="100px" width="100%">
+                          <h1>mercearias</h1>
+                       </div>
+                        <div class="panelDirection">
+                          <img class="containerImg" src="/img_alimentação/hortfruit.png" height="100px" width="100%">
+                          <h1>hort fruit</h1>
+                       </div>
+                    </div>
+               </div>
+            </div>   
+            {{!-- //////////////////////////////////////////////// --}}
+            <div id="boxLojaRight" class="boxLojaRight_"  >
+                <div class="lineempresa" >
+                  <div class="lineempresa_ col1">
+                               <h6>1</h6>
+                  </div>
+                  <div class="lineempresa_ col2" style="background-color: red;">
+                           <h6>2</h6>
+                  </div>
+                  <div class="lineempresa_ col1">
+                           <h6>3</h6>
+                  </div>
+                </div>  
+                <div class="lineempresa" >
+                  <div class="lineempresa_ col3" >
+
+                  </div>
+                  <div class="lineempresa_ col1" style="background-color: #07af26;" >
+
+                  </div>
+                  <div class="lineempresa_ col3"  >
+
+                  </div>
+                </div>  
+                <div class="lineempresa" >
+                  <div class="lineempresa_" style="background-color: #e0920c;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #e0920c;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #e0920c;">
+
+                  </div>
+                </div> 
+                <div class="lineempresa" >
+                  <div  class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                </div> 
+                <div class="lineempresa" >
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                </div>   
+                <div class="lineempresa" >
+                  <div class="lineempresa_" style="background-color: #e0920c;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #e0920c;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #e0920c;">
+
+                  </div>
+                </div> 
+                <div class="lineempresa" >
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                </div> 
+                <div class="lineempresa" >
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                </div>
+                <div  class="lineempresa">
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #02317e;">
+
+                  </div>
+                </div>
+                <div class="lineempresa" >
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                  <div class="lineempresa_" style="background-color: #07af26;">
+
+                  </div>
+                </div> 
+            </div> 
+         </div>
+      </div>
+   </div>
+</div>
+
+<script>
+   // Variáveis globais
+   let baseApiUrl=window.location.hostname;
+   if (baseApiUrl=='localhost'){
+         baseApiUrl='http://localhost:3000'
+   }else{
+         baseApiUrl='https://www.rotaes.com.br'
+   } 
+   var control=1;
+   var n=1;
+   //.............................
+   var b=0;
+   var y=0  
+   var w=0;
+   var p=0;
+////////////////////////////////////////////////
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+function mostraloja(h){
+         // Essa rotina dispara o button submit pra id=formSite
+         // busca o site da loja acionada
+         console.log('mostraLoja [ 63 ] : ',h)
+         document.getElementById("mostraSite").value=h;
+         document.getElementById("dispara").click();
+    }
+
+function buscaSecao(value){
+      //.................................
+      // esconde o nome da cidade
+      document.getElementById("idTituloCidade").style.display="none";
+      document.getElementById("idCidadeH4").style.display="block";
+      document.getElementById("idTituloH1").innerHTML=value;
+      //
+      // esconde o nome do bairro
+      document.getElementById("idTituloBairro").style.display="none";
+      //.........................................................
+      document.getElementById("idTituloSecao").style.display="block";
+      document.getElementById("idRel-Cidades").style.display="block";
+      //..........................................................
+      // esconde o frame do button => "confirma a consulta ?""
+      document.getElementById("div-consulta").style.visibility="hidden";
+      console.log('vr do loja',value)
+}
+
+
+
+function limpapainel(){
+    //  console.log('almoço')
+      const listLeft=document.getElementById("boxLojaLeft")
+      
+      let bLeft;
+      bLeft=listLeft.childElementCount;
+   //   console.log('vr do nó',bLeft)
+    //  b=b.length;
+     // console.log('valor de ...................B',b)
+      if(bLeft>0){
+          //  console.log('passei',1)
+            for(let j=0;j<bLeft;j++){
+             //  console.log('passei',2)
+               listLeft.removeChild(listLeft.firstElementChild);
+            }
+         }  
+      /////////////////////////////////////////////////////////
+      const listRight=document.getElementById("boxLojaRight")
+      
+      let bRight;
+      bRight=listRight.childElementCount;
+    //  console.log('vr do nó',b)
+    //  b=b.length;
+     // console.log('valor de ...................B',b)
+      if(bRight>0){
+           // console.log('passei',1)
+            for(let j=0;j<bRight;j++){
+             //  console.log('passei',2)
+               listRight.removeChild(listRight.firstElementChild);
+            }
+         }  
+
+}
+
+
+
+// Se clicar na selção de bairros
+//let r1=document.getElementById("idSelbairros");
+//r1.addEventListener("click",function(e){
+//      e.stopPropagation();
+      // busca o nome do bairro selecionado
+//      let r2=document.getElementById("idSelbairros").selectedIndex;
+//      let r3=document.getElementById("idSelbairros").options;
+//      let r4=r3[r2].text;
+      // Se o nome é diferente de vazio então,
+//      if(r4!=''){
+//         console.log('valor de r4',r4);
+         //.............................................................
+         // mostra o frame onde será coloacdo o nome do bairro selecionado.
+//         document.getElementById("idTituloBairro").style.display="block";
+         // coloca o nome do bairro
+//         document.getElementById("idBairroH3").innerHTML=r4;
+         // mostra o btn para confirmar a consulta:
+//         document.getElementById("div-consulta").style.visibility="visible";
+//         document.getElementById("idRel-Bairros").style.display="none";
+//         document.getElementById("idbtnConsulta").click()
+         //....................................................
+//      }else{
+//         console.log('vazio');
+//      }   
+//   })
+
+</script>
+
+
+

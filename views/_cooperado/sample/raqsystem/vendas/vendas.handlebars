@@ -1,0 +1,401 @@
+<style>
+    .row{
+        height: 4vh;
+        font-size: medium;
+        background-color: transparent;
+        border-bottom: solid #ffffff 2px;
+        margin-top: 2px;
+        width: 95%;
+        margin: auto;
+    }   
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }   
+
+    
+    .col-15{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-20{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-25{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: #ffffff;
+       color: #000;
+    }
+
+    .col-26{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-45{
+       float: left;
+       width: 45%;
+       margin-top: 6px;
+    }
+
+    .col-70{
+       float: left;
+       width: 70%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    .btnLista{
+        width: 7vw;height: 4vh;margin: auto;border-radius: 7px;text-align: center;margin-top: 1vh;
+    }                                  
+</style>
+<style>
+    .linhaTitulo{
+    height: 2.5vh;
+    background-color: #ffffff;
+  }
+
+  .linhatable{
+     width: 12%;background-color: #0b0bc9;color:#b1b5b2;height: 3vh;
+  }
+
+  .bntlinha{
+     width: 100%;height: 3vh;border-radius: 6px;background-color: #035384;color: #e40808;font-size: small;
+  }
+  
+   .labellinha{
+     width: 100%;height: 2vh;border-radius: 6px;background-color:transparent;color: #f41616;font-size: larger;padding: 4px;text-align: center;justify-items:center;font-weight: 600;
+  }
+
+  .linetd{
+    width: 12%;background-color: #d4d4dd;color:#121212;height: 3vh;font-weight: 600;
+  }
+
+  
+  .linebtn{
+     width: 100%;background-color: #ffffff;color:#ffffff;height: 3vh;
+  }
+
+  .cadastro_btn{
+      width: 60%;height: 4vh;margin: auto;background-color: #035384;color:#ffffff;border-radius: 5px;
+  }
+
+  .linhaCheia{
+     background-color: #696567;
+  }
+
+  .linhaAmarela{
+     background-color:#ffffff;
+  }
+
+  .linhaDados{
+    width: 36vw;height: 4vh;margin: auto;background-color:#ffffff;margin-left: 1vw;display: flex;flex-direction: row;justify-items:center;
+  }
+
+  .parteNome{
+    width: 6vw;height: 4vh;padding-top: 0.5vh; background-color:#035384 ;color: #f9f507;text-align: right;padding-right: 1vw;
+  }
+
+  .dadosRaq{
+     color:#080808;margin-left: .7vw;padding-top: 0.5vh;font-size: 1vw;
+  }
+</style>
+<div class="d-flex" style="width: 100%;height: 95vh;margin-top:3.2rem;border-color: #ab0707 1px;background-color: aqua;">
+     <div style="width: 100%;height: 94vh;display: flex;flex-direction: row;justify-content: space-between;background-color: blueviolet;">
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+            <form class="modal-content" action="">
+                <div class="container">
+                        <h1 style="color:transparent;margin-top:-15px ;">Atenção!</h1>
+                        <p>Confirma os dados do lojista</p>
+                        
+                        <div class="clearfix" style="text-align:center;margin-top:-15px ;">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" style="width:100px ;" class="">Cancel</button>
+                            <button type="button" onclick="document.getElementById('OkGravar').click()" style="width:100px ;" class="">Ok</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+        <div id="lateralLeft" style="width: 12vw;height: 94vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;">
+             <div style="width: 10vw;height: 40vh;margin: auto;display:flex ;flex-direction: column;justify-items: center;justify-content: space-between;background-color:#0b2f83;">
+                <h3 style="font-size: 1vw;color: #ffffff;margin-top: 2vh;padding-left: 0.5vw;">escolha a sua opção</h3>
+                <ul style="width: 10vw;height: 28vh;background-color: #0b2f83;padding-top: 3vh;list-style: none;">
+                    <li style="color:#0b0a0a;font-size: 1vw;font-weight: 500;visibility: hidden;">
+                        <button style="width: 7vw;height: 4vh;margin: auto;border-radius: 7px;text-align: center;" onclick="muda(1)">
+                         
+                        </button>
+                    </li>
+                    <li style="color:#0b0a0a;font-size: 1vw;font-weight: 500;">
+                        <button class="btnLista" onclick="muda(2)">
+                             lista
+                        </button>    
+                    </li>
+                </ul>
+             </div> 
+        </div>
+         <div id='central' style="width: 87vw;height: 94vh;margin: auto;background-color: #07169b;display: flex;flex-direction: column;justify-content: center;padding-left: 1.5vw;">
+           
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function limpaCxLoja(){
+
+    }
+ 
+</script>
+<script>
+    const $campoCep=document.querySelector('[name="inputCep"]');
+    const $campoComplemento=document.querySelector('[name="inputNumero"]');
+    const $campoEstado=document.querySelector('[name="inputEstado"]');
+    const $campoCidade=document.querySelector('[name="inputCidade"]');
+    const $campoBairro=document.querySelector('[name="inputBairro"]');
+    const $campoRua=document.querySelector('[name="inputAvenida"]');
+  
+// Busca dados do CEP
+function buscOsregistros(){
+        return
+        const $campoCep=document.querySelector('[name="inputCep"]');
+        const $campoComplemento=document.querySelector('[name="inputNumero"]');
+        const $campoEstado=document.querySelector('[name="inputEstado"]');
+        const $campoCidade=document.querySelector('[name="inputCidade"]');
+        const $campoBairro=document.querySelector('[name="inputBairro"]');
+        const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+        console.log($campoBairro.value)
+        const E=$campoEstado.value;
+        const C=$campoCidade.value;
+        const R=$campoRua.value;
+        
+        if (E){
+            return;
+        }
+        const cep=document.getElementById("inputCep").value;     
+            if (cep==null || cep==""){
+                return false
+            }
+            console.log(cep);
+            
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(respostaDoServer=>{
+                return respostaDoServer.json();
+            })
+            .then(dadosDoCep => {
+                
+                console.log(' [ 1047 ] ',dadosDoCep);
+                //$campoComplemento.value=dadosDoCep.complemento;
+                    if (dadosDoCep!=[]){
+                        $campoEstado.value=dadosDoCep.uf;
+                        $campoCidade.value=dadosDoCep.localidade;
+                        $campoBairro.value=dadosDoCep.bairro;
+                        $campoRua.value=dadosDoCep.logradouro;
+
+                        console.log($campoBairro.value)
+                        document.getElementById("inputAvenida").style.background="white";
+                        document.getElementById("inputNumero").style.background="white";
+                        document.getElementById("inputCidade").style.background="white";
+                        document.getElementById("inputBairro").style.background="yellow";
+                        document.getElementById("inputEstado").style.background="white";
+                        document.getElementById("inputNumero").style.focus;
+                    }else{
+                        console.log("FORA!")
+                    }
+            })
+            .catch((e)=>{
+               console.log(e)
+            })
+        
+        }
+</script>
+<script>
+
+function muda(n){
+      if(n==1){
+        document.getElementById("CadastroId").style.display='block';
+        document.getElementById("ListaId").style.display='none';
+      }else if (n==2){
+        document.getElementById("CadastroId").style.display='none';
+        document.getElementById("ListaId").style.display='block';
+        //buscaLista()
+      }
+
+}
+
+
+function buscaLista(){
+        console.log('consultando a lista')
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+    //-------------------------------------------------------------------------
+    fetch(`${baseApiUrl}` + `/template3/lista-cliente`, {method: "GET",
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+            .then(response => response.json())
+            .then((json) => {
+                console.log('_______________________________________')
+                console.log(json)
+                //return
+                let l=json.length;
+                const M= json;
+                let k;
+                //----------------------------------------------------------------
+                for(i=0;i<l;i++){
+                    // console.log(M[i].razao)
+                    const node=document.createElement('tr');
+                    node.setAttribute("id","linha" + '-' + i);
+                    node.setAttribute("class","linhaCheia");
+                    document.getElementById("x-9").appendChild(node)
+                   
+                    const node0=document.createElement('td');
+                    const textNode0=document.createTextNode(i+1);
+                    node0.appendChild(textNode0);
+                    node0.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                    const node21=document.createElement('td');
+                    const textNode21=document.createTextNode(M[i]._id);
+                    let indx=M[i].email;
+                    console.log(indx)
+                    console.log('______________________________________')
+                    node21.appendChild(textNode21);
+                    node21.setAttribute("onclick","buscDados('" + indx  + "')");
+                    node21.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node21);
+
+                    const node1=document.createElement('td');
+                    const textNode1=document.createTextNode(M[i].razao);
+                    node1.appendChild(textNode1);
+                    node1.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                    const node2=document.createElement('td');
+                    const textNode2=document.createTextNode(M[i].email);
+                    node2.appendChild(textNode2);
+                    node2.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node2);
+                    //////////////////////////////////////////////////////////////
+                    ///////////   DELETE          ////////////////////////////////////////
+                    const node3=document.createElement('td');
+                    node3.setAttribute("id","linhaA" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                    const node4=document.createElement('a');
+                    node4.setAttribute("class","linhaAmarela");
+                   
+                    node4.setAttribute("id","linhaB" + '-' + i);
+                    node4.setAttribute("href","/controle/deleteproduto/{{this._id}}");
+                    document.getElementById('linhaA' + '-' + i ).appendChild(node4);
+
+                    const node5=document.createElement('button');
+                    node5.setAttribute("class","bntlinha");
+                    const textNode5=document.createTextNode('Delete');
+                    node5.appendChild(textNode5);
+                    node5.setAttribute("innerHTML","Delete");
+                    document.getElementById('linhaB' + '-' + i ).appendChild(node5);
+                    ///////////////////////////////////////////////////////////////
+                    ///////     EDITAR ///////////////////////////////////////
+                    const node6=document.createElement('td');
+                    node6.setAttribute("id","linhaC" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node6);
+
+                    const node7=document.createElement('a');
+                    node7.setAttribute("class","linebtn");
+                   
+                    node7.setAttribute("id","linhaD" + '-' + i);
+                    node7.setAttribute("href","/controle/editarfoto/{{this._id}}");
+                    document.getElementById('linhaC' + '-' + i ).appendChild(node7);
+
+                    const node8=document.createElement('button');
+                    node8.setAttribute("class","bntlinha");
+                    const textNode8=document.createTextNode('Editar');
+                    node8.appendChild(textNode8);
+                    document.getElementById('linhaD' + '-' + i ).appendChild(node8);
+                    ///////////////////////////////////////////////////////////////
+                    ////////////////       VISUALIZAR    /////////////////////////
+                    const node9=document.createElement('td');
+                    node9.setAttribute("id","linhaE" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node9);
+
+                    const node10=document.createElement('a');
+                    node10.setAttribute("class","linhaAmarela");
+                   
+                    node10.setAttribute("id","linhaF" + '-' + i);
+                    node10.setAttribute("href","/controle/visualizar/{{this._id}}");
+                    document.getElementById('linhaE' + '-' + i ).appendChild(node10);
+
+                    const node11=document.createElement('button');
+                    node11.setAttribute("class","bntlinha");
+                    const textNode11=document.createTextNode('Visualizar');
+                    node11.appendChild(textNode11);
+                    document.getElementById('linhaF' + '-' + i ).appendChild(node11);
+                       // <a href="/controle/deleteproduto/{{this._id}}" class="">
+                       //   <button class="" style="background-color: red;"></button>
+                       // </a>
+                    
+                    //<td><a href="/controle/editaproduto/{{this._id}}" class="linebtn" ><button class="bntlinha">Editar</button></a></td>
+                    //<td><a href="/" class="linebtn" ><button class="bntlinha">Foto</button></a></td>
+                    //<td><a href="" class="linebtn" > <button class="bntlinha">Visualizar</button></a></td>
+                }
+            })
+            .catch((e)=>{
+                console.log(e);
+            })                      
+}
+
+function buscDados(n){
+     console.log(' [ 483 ]  ',n)
+      let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+    //-------------------------------------------------------------------------
+    fetch(`${baseApiUrl}` + `/template3/BuscaDados-cliente/${n}`, {method: "GET",
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+            .then(response => response.json())
+            .then((json) => {
+               console.log(' [ 480 ]',json)
+               let local=json.edificio;
+               console.log(local[0]._id)
+               document.getElementById("nameId").innerHTML=local[0]._id;
+               document.getElementById("nameCpf").innerHTML=local[0].chave;
+               document.getElementById("nameEdificio").innerHTML=local[0].nome;
+               document.getElementById("nameBloco").innerHTML=local[0].bloco;
+               document.getElementById("nameApto").innerHTML=local[0].apto;
+               document.getElementById("nameQte").innerHTML=local[0].qte;
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+}
+buscaLista();
+</script>

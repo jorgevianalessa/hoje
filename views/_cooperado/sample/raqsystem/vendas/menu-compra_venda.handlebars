@@ -1,0 +1,1204 @@
+<style>
+    .row{
+        height: 4vh;
+        font-size: medium;
+        background-color: transparent;
+        border-bottom: solid #ffffff 2px;
+        margin-top: 2px;
+        width: 95%;
+        margin: auto;
+    }   
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }   
+
+     .col-15{
+       float: left;
+       width: 10%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-15{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-20{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-25{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: #ffffff;
+       color: #000;
+    }
+
+    .col-26{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-45{
+       float: left;
+       width: 45%;
+       margin-top: 6px;
+    }
+
+    .col-70{
+       float: left;
+       width: 70%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    .btnLista{
+        width: 7vw;height: 4vh;margin: auto;border-radius: 7px;text-align: center;margin-top: 1vh;
+    }                                  
+</style>
+<style>
+    .linhaTitulo{
+    height: 2.5vh;
+    background-color: #ffffff;
+  }
+
+  .linhatable{
+     width: 12%;background-color: #0b0bc9;color:#b1b5b2;height: 3vh;
+  }
+
+  .bntlinha{
+     width: 100%;height: 3vh;border-radius: 6px;background-color: #035384;color: #e40808;font-size: small;
+  }
+  
+   .labellinha{
+     width: 100%;height: 2vh;border-radius: 6px;background-color:transparent;color: #f41616;font-size: larger;padding: 4px;text-align: center;justify-items:center;font-weight: 600;
+  }
+
+  .linetd{
+    width: 12%;background-color: #d4d4dd;color:#121212;height: 3vh;font-weight: 600;
+  }
+
+  
+  .linebtn{
+     width: 100%;background-color: #ffffff;color:#ffffff;height: 3vh;
+  }
+
+  .cadastro_btn{
+      width: 60%;height: 4vh;margin: auto;background-color: #035384;color:#ffffff;border-radius: 5px;
+  }
+
+  .linhaCheia{
+     background-color: #ffffff;height:3vh;
+  }
+
+  .linhaAmarela{
+     background-color:#03b166;height: 3vh;
+  }
+
+  .linhaU{
+    color:#0b0a0a;font-size: 1vw;font-weight: 500;background-color: #ffffff;width: 9vw;margin-left: 3px;
+  }
+
+  .linhaU button{
+    width: 9vw;height: 4vh;margin: auto;border-radius: 7px;text-align: center;margin-top: 2vh;
+  }
+
+  .clienteCadastro{
+    width: 75vw;height: 74vh;display: flex;flex-direction: column;background-color: #ffffff;justify-content: space-around;margin-left: 5vw;
+  }
+
+  .clienteCadastro form{
+    width: 80%;height: 72vh;background-color:#ffffff;margin:auto;margin-top:5px;padding-top: 2vh;
+  }
+
+  .spaceModo{
+    display:none;width: 86vw;height: 88vh;margin: auto;background-color: #ffffff;padding-top: 0.5vh;overflow: auto;
+  }
+
+  .linhaMenu{
+    width: 9.5vw;margin-top: 6vh;
+    font-size: 1vw;color:#ffffff;
+    background-color:transparent;
+    text-decoration: none;list-style: none;
+    margin-left: -1.8vw;
+  }
+
+  .linhaMaster{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 0.2vh;
+    width: 99%;
+    height: 4vh;
+    margin: auto;
+  }
+
+  .linhaMaster_label{
+    width: 100%;text-align: right;background-color: #ffffff;height: 3.6vh;padding-top: 0.3vh;
+  }
+
+  .linhaMaster_input{
+     width: 98%;text-align:left;background-color: #ffffff;height: 3.8vh;padding-top: 0.3vh;
+  }
+
+  .rowLabel{
+     width:30%;background-color: #ffffff;text-align: right;height: 4vh;
+  }
+
+  .rowLabel_{
+     width:50%;background-color: #ffffff;text-align: right;height: 4vh;
+  }
+
+  .rowInput{
+     width: 70%;background-color: #ffffff;text-align: left;height: 4vh;
+  }
+
+  .rowInput_{
+    width: 50%;background-color: #ffffff;text-align: left;height: 4vh;
+  }
+
+  .linhaMaster_label label{
+    padding-right: 0.5vw
+  }
+
+.btnMenuCompras{
+    background-color: #0b2f83;color: #ffffff;margin-left: -1.5vw;width:9.5vw;margin-bottom: 10px;text-align: left;padding-left: 1vw;
+}
+</style>
+<div class="d-flex" style="width: 100%;height: 95vh;margin-top:3.2rem;border-color: #ab0707 1px;background-color: aqua;">
+     <div id="Main" style="width: 100%;height: 94vh;display: flex;flex-direction: row;justify-content: space-between;background-color: blueviolet;">
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+            <form class="modal-content" action="">
+                <div class="container">
+                        <h1 style="color:transparent;margin-top:-15px ;">Atenção!</h1>
+                        <p>Confirma os dados do lojista</p>
+                        
+                        <div class="clearfix" style="text-align:center;margin-top:-15px ;">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" style="width:100px ;" class="">Cancel</button>
+                            <button type="button" onclick="document.getElementById('OkGravar').click()" style="width:100px ;" class="">Ok</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+        <div id="lateralLeft" style="width: 12vw;height: 94vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;">
+            <label id="IdcodigoEmpresa" style="width: 400px;height: 3.5vh;margin: auto;background-color: #000;color:#03b166">{{codigo}}</label>
+             <div style="width: 10vw;height: 70vh;margin: auto;display:flex ;flex-direction: column;justify-items:left;justify-content: space-between;background-color:#ffffff;">
+                <h3 style="font-size: 1vw;color: #ffffff;margin-top: 2vh;padding-left: 0.5vw;color: #000;">Escolha a sua opção</h3>
+                
+                <ul style="width: 10vw;height: 60vh;background-color: #ffffff;padding-top: 3vh;list-style: none;padding-left: 2px;text-align: center;">
+                    {{!-- cliente cadastro --}}
+                    <li class="linhaU">
+                        <button onclick="Clientes_cadastro()" >
+                            Clientes cadastro 
+                        </button>
+                    </li>
+                    {{!-- cliente lista --}}
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Clientes_lista()">
+                            Cliente lista 
+                        </button>    
+                    </li>
+                    {{!-- cliente pesquisa --}}
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Clientes_pesquisa()">
+                            Cliente pesquisa 
+                        </button>    
+                    </li>
+                    {{!-- compras --}}
+                    <li class="linhaU">
+                         {{!-- <li style="color:#0b0a0a;font-size: 1vw;font-weight: 500;"></li> --}}
+                        <button class="btnLista" onclick="Compras_()">
+                             Compras
+                        </button>    
+                    </li>
+                    {{!-- estoque --}}
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Estoques()">
+                            Estoque
+                        </button>    
+                    </li>
+                    {{!-- produtos --}}
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Produtos()">
+                             Produtos
+                        </button>    
+                    </li>
+                     <li class="linhaU">
+                       {{!-- // <a href="/raqvendas/vendas/{{codigo}}"> --}}
+                        <button class="btnLista" onclick="Vendas()">
+                            Vendas
+                        </button>    
+                        {{!-- </a> --}}
+                    </li>
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Videos_aulas()">
+                             Vídeos aulas
+                        </button>    
+                    </li>
+                    <li class="linhaU">
+                         <a href="/raqvendas/voltaHome/{{codigo}}">
+                        <button class="btnLista" onclick="home()" style="background-color: red;">
+                             
+                        </button>    
+                        </a>
+                    </li>
+                </ul>
+             </div> 
+        </div>
+        <div id='central' style="width: 87vw;height: 94vh;margin: auto;background-color: #02413194;display: flex;flex-direction: column;justify-content: space-around;text-align: center;">
+                <div id="Cliente-cadastro" style="display:none;">
+                    <div  id="divDados" class="clienteCadastro">
+                        <div id="formCadastro">
+                            <form action="/raqvendas/grava-cadastro-cliente" class="cadastroCliente_fomr" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                                {{!-- ------------------------------------------------------------ --}}
+                                                <div class="linhaMaster">
+                                                   <div id="Rwrazao" class="rowLabel" >
+                                                        <div class="linhaMaster_label" >
+                                                            <label for="rzsocial" >Razão/Nome :</label>
+                                                        </div>
+                                                    </div> 
+                                                    <div id="Rwrazao" class="rowInput" >
+                                                        <div class="linhaMaster_input" >
+                                                            <input type="text" id="rzsocial" name="rzsocialNome" placeholder="razão ..." tabindex="0" style="padding-right: .6vw;width: 60%;" required>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                                {{!-- ----------------------------------------------------------- --}}
+                                                <div class="linhaMaster">
+                                                    <div id="Rwcpf" class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="cpf1">CPF/CNPJ :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div   class="rowInput" >
+                                                         <div class="linhaMaster_input">
+                                                            <input type="text" id="cpf1" name="cpfCnpj" placeholder="" tabindex="1" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="linhaMaster">
+                                                    <div id="Rwcpf" class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="cpf1">Pessoa :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div   class="rowInput" >
+                                                         <div class="linhaMaster_input" style="display: flex;flex-direction: row;">
+                                                            <select id="PJURPFIS" type="text"   placeholder="" tabindex="2" style="height: 3vh;" required>
+                                                                <option></option>
+                                                                <option>Pessoa Física</option>
+                                                                <option>Pessoa Jurídica</option>
+                                                            </select>
+                                                            <input id="SelectPessoa" name="SelectPessoa" style="display: block;background-color: #0b0bc9;color: #ffffff;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- ----------------------------------------------------------- --}}
+                                                <div id="Rwinscricao" class="linhaMaster">
+                                                    <div class="rowLabel">
+                                                        <div class="linhaMaster_label">
+                                                           <label  for="inscricao">INSCRIÇÃO :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="inscricao" name="inscricao" placeholder="" tabindex="3" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="Rwsite" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="inputSite" >Site :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="nomeSite" name="inputSite" placeholder=""  tabindex="4" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="Rwsite" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="inputcelular" >Celular :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="inputcelular" name="celular" placeholder=""  tabindex="5" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="Rwsite" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="telefixo" >Tel Fixo :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                          <input type="text" id="nomeTelFixo" name="telefixo" placeholder=""  tabindex="6" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="Rwsite" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="nomeEmail" >Email :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="nomeEmail" name="boxEmail" placeholder=""  tabindex="7" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="Rwsite" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="inputCep" >Cep :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="inputCep" name="inputCep" placeholder=""  tabindex="8" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- ----------------------------------------------------------- --}}
+                                                
+                                                {{!-- ----------------------------------------------------------- --}}
+                                                <div id="Rwsite" class="linhaMaster">
+                                                    <div style="background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-between;width: 80%;">
+                                                        <div  class="rowLabel_" style="width: 40%;" >
+                                                            <div class="linhaMaster_label">
+                                                                <label class="" for="inputAvenida" >Avenida/rua :</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rowInput_" style="width: 67%;">
+                                                            <div class="linhaMaster_input">
+                                                              <input type="text" id="inputAvenida" name="inputAvenida" placeholder=""  tabindex="9" style="width: 100%;" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div style="background-color: #ef0796;width: 20%;display: flex;flex-direction: row;justify-content: space-between;">
+                                                         <div  class="rowLabel_" >
+                                                            <div class="linhaMaster_label" style="width:100%;">
+                                                                <label class="" for="inputNumero" > Nº/rua :</label>
+                                                            </div>
+                                                        </div>
+                                                         <div class="rowInput_">
+                                                            <div class="linhaMaster_input" >
+                                                               <input type="text" id="inputNumero" name="inputNumero" placeholder=""  tabindex="10" style="width: 100%;" required>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <div id="Rwsite" class="linhaMaster" style="margin-top: .8vh;display: flex;flex-direction: row;justify-content: space-between;">
+                                                        <div style="width: 70%;height: 4vh;margin: auto;background-color: #f9f5f8;display: flex;flex-direction: row;">
+                                                                <div  class="rowLabel_" style="width: 42.6%;" >
+                                                                    <div class="linhaMaster_label">
+                                                                        <label class="" for="inputEdificio" >Edifício :</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rowInput_" style="width: 58%;background-color: #efebeb;">
+                                                                    <div class="linhaMaster_input">
+                                                                       <input type="text" id="inputEdificio" name="inputNomeEdificio" placeholder=""  tabindex="11" style="width: 100%;" required>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                         <div style="width: 15%;height: 4vh;margin: auto;background-color: #f1edef;display: flex;flex-direction: row;">
+                                                                 <div  class="rowLabel_" style="width: 42.6%;" >
+                                                                    <div class="linhaMaster_label">
+                                                                        <label class="" for="inputBloco" >Bloco :</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rowInput_" style="width: 58%;background-color: #e7e7ed;">
+                                                                    <div class="linhaMaster_input">
+                                                                       <input type="text" id="inputBloco" name="inputNumberBloco" placeholder=""  tabindex="12" style="width: 100%;" required>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                         <div style="width: 15%;height: 4vh;margin: auto;background-color: #f4f00b;display: flex;flex-direction: row;">
+                                                                  <div  class="rowLabel_" style="width: 42.6%;" >
+                                                                    <div class="linhaMaster_label">
+                                                                        <label class="" for="inputApto" >Apto :</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rowInput_" style="width: 58%;background-color: #ededef;">
+                                                                    <div class="linhaMaster_input">
+                                                                       <input type="text" id="inputApto" name="inputNumberApto" placeholder=""  tabindex="13" style="width: 100%;" required>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div id="RwCidade" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label" style="width: 100%;">
+                                                            <label class="" for="inputCidade" >Cidade :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="inputCidade" name="inputCidade" placeholder=""  tabindex="14" style="width: 57%;" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="RwBairro" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="inputBairro" >Bairro :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="inputBairro" name="inputBairro" placeholder=""  tabindex="15" style="width: 57%;" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                 <div id="RwBairro" class="linhaMaster">
+                                                    <div  class="rowLabel" >
+                                                        <div class="linhaMaster_label">
+                                                            <label class="" for="inputEstado" >Estado :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rowInput">
+                                                        <div class="linhaMaster_input">
+                                                        <input type="text" id="inputEstado" name="inputEstado" placeholder=""  tabindex="16" style="width: 26%;" value="ES" required>
+                                                        </div>
+                                                        <input id="NumeroLoja" name="IdLoja" style="display: block;" value="{{codigo}}">
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="background-color:#716d6d;height: 4vh;margin-top: 2vh;text-align: center;">
+                                                    <div class="col-20" style="text-align: center;">
+                                                       <button style="" tabindex="25" onclick="document.getElementById('OkGravar').click()">gravar</button>
+                                                    </div>
+                                                     <input type="submit" id="OkGravar" style="display: none;" >  
+                                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="Cliente-lista" style="display: none;background-color: yellow;height: 40vh;padding-top: 1vh;">
+                    <div  id="Tabela" style="width: 75vw;height: 25vh;display: flex;flex-direction: column;background-color: #6495ed;justify-content: space-around;margin-left: 5vw;">
+                        <table id="tableProduct" class="table table-striped table-hover table-bordered" style="background-color: #ffffff;margin-bottom: 1px;height: 40vh;">
+                                    <thead style="height:1.4vh;background-color: #797777;font-size: medium;color:#ffffff;">
+                                        <tr >
+                                            <th style="display: none;">ID</th>
+                                            <th class="d-none d-sm-table-cell linhaTitulo labellinha" style="width: 2vw;" >item</th>
+                                            <th class="d-none d-sm-table-cell linhaTitulo labellinha"   ><button onclick="sortTable(2)" style="background-color:transparent;width: 20vw;height:2.7vh;margin: auto;border: none;color: #ffffff;">Cliente</button></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo labellinha" style="width: 25vw;">e-mail</th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha" style="text-align: center;">Delete</label></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Editar</label></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Visualizar</label></th>
+                                        </tr>
+                                    </thead>
+                                    {{!-- --------------------------------------------------- --}}
+                                    <tbody id="x-9" style="height: 30vh;margin: auto;width: 60%;background-color:#ffffff;">
+                                       
+                                    </tbody>
+                        </table>
+                    </div>
+                </div>  
+                <div id="Cliente-pesquisa" style="display: block;width: 60vw;height: 88vh;margin: auto;background-color: #000;padding-top: 1.5vh;">
+                    <div id="listaId" style="width: 50vw;height: 40vh;margin: auto;background-color: #038437;overflow: auto;text-align: center;">
+                            <div style="width: 100%;height: 5vh;margin: auto;background-color: #0b2f83;color:#ffffff;display: flex;flex-direction:row ;justify-content: space-around;padding-top: 1vh">
+                            <label style="margin-left: 6px;background-color: #038437;">Item</label>
+                            <label style="background-color: yellow;color: #000;">Cliente</label>
+                            <label>E-mail</label>
+                            <label>Delete</label>
+                            <label>Editar</label>
+                            <label>Visualizar</label>
+                            </div>
+                            <div  id="Tabela" style="width: 48vw;height: 20vh;display: flex;flex-direction: column;background-color: #6495ed;margin-left: .5vw;margin-top: 2vh;">
+                            <table id="tableProduct" class="table table-striped table-hover table-bordered" style="background-color: #ffffff;margin-bottom: 1px;height: 65vh;">
+                                        {{!-- --------------------------------------------------- --}}
+                                        <tbody id="x-10" style="height: 37vh;margin: auto;width: 60%;background-color:#f10e0e;">
+                                            
+                                        </tbody>
+                            </table>
+                        </div> 
+                   </div>
+                   <div id="dadosClienteId" style="width: 50vw;height: 40vh;margin: auto;background-color: #840377;overflow: auto;margin-top: 2vh;padding: 1vw;">
+                        <div style="width: 45w;height: 36vh;margin: auto;background-color: #696567;display: flex;flex-direction: column;justify-items:left;justify-content: left;text-align: left;">
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label >Id</label>
+                                </div>
+                                <label class="dadosRaq" id="nameId"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Proprietário</label>
+                                </div>
+                                <label class="dadosRaq" id="nameProprietario"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Cpf</label>
+                                </div>
+                                <label class="dadosRaq" id="nameCpf" ></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Edifício</label>
+                                </div>
+                                <label id="nameEdificio" class="dadosRaq"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Bloco</label>
+                                </div>
+                                <label id="nameBloco" class="dadosRaq"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Apto</label>
+                                </div>
+                                <label id="nameApto" class="dadosRaq"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Qte</label>
+                                </div>
+                                <label id="nameQte" class="dadosRaq"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Compras" class="spaceModo">
+                    <div style="display: flex;flex-direction:column;background-color: #0b2f83;width: 85vw;height: 125vh;margin: auto;">
+                        {{!-- Título da placa --}}
+                        <div style="background-color: #038437;width: 85vw;height: 4vh;text-align: center;">
+                             <h1 style="font-size: 1.2vw;color:#ffffff;padding-top: 1vh;">Compras</h1>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;margin-left: 0vw;display: flex;flex-direction: row;">
+                            <div style="width: 12.5vw;height: 86vh;margin-left:4px;background-color: #121212;display: flex;flex-direction: column;">
+                                <div id="venda_corpo_menuLateral" style="width: 12.5vw;height: 86vh;margin-left:4px;background-color: #121212;display: flex;flex-direction:row;">
+                                  <ul style="background-color: #03b166;width: 11vw;height: 40vh;list-style: none;margin: auto;display: inline-block;padding-top: 10vh;">
+                                    <li class="btnMenuCompras">Cadastro fornecedores</li>
+                                    <li class="btnMenuCompras">Comras mês</li>
+                                    <li class="btnMenuCompras">Compras do ano</li>
+                                    <li class="btnMenuCompras">Estatísticas</li>
+                                    <li class="btnMenuCompras">
+                                        <button><a href="/raqcompras/compras/{{codigo}}" >Emissão pedido</a></button></li>
+                                  </ul>    
+                                </div>
+                            </div>
+                            <div>
+                                <div id="ListaFornec" style="width: 68vw;height: 30vh;margin-left:4px;background-color: #f42b08;display: flex;flex-direction: column;">
+                                    <div>
+                                       <h2 style="font-size: 1vw;color:#ffffff">Lista de fornecedor :</h2>
+                                        <table style="width: 80%;height: 25vh;margin: auto;background-color: #000;">
+                                            <thead>
+                                                <td style="color:#ffffff">Number</td>
+                                                <td style="color:#ffffff">Cliente</td>
+                                                <td style="color:#ffffff">Cel:</td>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Lúcifer</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div id="ListaProduto" style="width: 68vw;height: 30vh;margin-left:4px;background-color: #f42b08;display: flex;flex-direction: column;">
+                                    <div>
+                                        <h2 style="font-size: 1vw;color:#ffffff">Produtos :</h2>
+                                
+                                    <table style="width: 80%;height: 25vh;margin: auto;background-color: #000;">
+                                        <thead>
+                                            <td style="color:#ffffff">Number</td>
+                                            <td style="color:#ffffff">Cliente</td>
+                                            <td style="color:#ffffff">Cel:</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lúcifer</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                <div id="Pedido" style="width: 68vw;height: 45vh;margin-left:4px;background-color: #f42b08;display: flex;flex-direction: column;margin-top: 5px;">
+                                    <div>
+                                        <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                                        <label style="font-size: 1vw;color:#ffffff">Pedido :{{loja_if}}</label>
+                                        <div>
+                                        <label>fornecedor</label>
+                                        <input value="Eplax Produtos"></input>
+                                        </div>
+                                        </div>
+                                    <table style="width: 80%;height: 30vh;margin: auto;background-color: #000;">
+                                        <thead>
+                                            <td style="color:#ffffff">Number</td>
+                                            <td style="color:#ffffff">Cliente</td>
+                                            <td style="color:#ffffff">Cel:</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lúcifer</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                <div id="Fechamento" style="width: 68vw;height: 10vh;margin: auto;background-color: yellow;">
+                                    <label>condição de pagamento :</label>
+                                    <label style="margin-left: 6vw;">entrega :</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Estoque" class="spaceModo">
+                    <div style="display: flex;flex-direction: column;background-color: #0b2f83;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="background-color: #038437;width: 85vw;height: 4vh;text-align: center;">
+                             <h1 style="font-size: 1.2vw;color:#ffffff;padding-top: 1vh;">Estoque</h1>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;">
+
+                        </div>
+                    </div>
+                </div>
+                <div id="Produto" class="spaceModo">
+                    <div style="display: flex;flex-direction: row;background-color: #ffffff;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div id="menuProduto" style="width: 10vw;height: 85vh;margin: auto;background-color:#ffffff;">
+                                <ul style="background-color: #969090;width: 9.7vw;margin-top: 1vh;text-align: left;">
+                                    <li class="linhaMenu" >
+                                        <form action="/raqvendas/cadfornec/{{codigo}}" class="cadastroCliente_fomr" method="GET" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                            <input type="text">
+                                            <button type="submit">Cadastro fornecedor</button>
+                                        </form>
+    {{!--                           </button> --}}
+                                    </li>
+                                    <li class="linhaMenu">Lista fornecedor</li>
+                                    <li class="linhaMenu" >
+                                        <a href="/raqprodutos/produto/{{codigo}}">Produto</a>
+                                    </li>
+                                    <li class="linhaMenu">
+                                        <a href="/raqprodutos/listaProduto/{{codigo}}">Lista produto??</a>
+                                    </li>
+                                </ul>
+                        </div>
+                        <div id="conteudoProduto" style="display: flex;flex-direction: column;background-color: #cc0769;width:73vw;height: 86.5vh;margin: auto;">
+                            <div id="conteudoProdutoTituloo" style="background-color: #ffffff;width: 73vw;height: 4vh;text-align: center;">
+                                <h1 style="font-size: 1.2vw;color:#070505;padding-top: 1vh;">Produto</h1>
+                            </div>
+                            <div style="background-color: #06899a;width: 73vw;height: 86vh;padding: 1vw;">
+                                 {{!-- <div style="width: 70vw;height: 70vh;margin: auto;background-color: #05477c;color:#ffffff;padding: 6px;">
+                                    <form>
+                                        <div style="display: flex;flex-direction: row;justify-content: space-between;background-color: #9a0666;width: 60vw;">
+                                            <label style="color: #ffffff;width: 30vw;">descrição</label>
+                                            <input style="width: 40vw;">
+                                        </div>
+                                          <div style="display: flex;flex-direction: row;justify-content: space-between;background-color: #9a0666;width: 60vw;">
+                                            <label style="color: #ffffff;width: 30vw;">referencia</label>
+                                            <input style="width: 40vw;">
+                                        </div>
+                                    </form>
+
+                                 </div> --}}
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div id="Venda" class="spaceModo">
+                    <div id="venda_" style="display: flex;flex-direction: column;background-color: #e5e9f3;width: 82vw;height: 105vh;margin: auto;padding: 10px;">
+                        <div id="venda_titulo" style="background-color: #f30c0c;width: 80vw;height: 4vh;text-align: center;">
+                             <h5 style="font-size: 1.2vw;color:#070505;padding-top: 1vh;">Movimento de vendas</h5>
+                        </div>
+                        <div id="venda_space" style="background-color: #f0ec10;width: 80vw;height: 1vh;">
+
+                        </div>
+                        <div id="venda_corpo" style="background-color: #06899a;width: 80vw;height: 86vh;margin-left: 0vw;display: flex;flex-direction: row;">
+                            <div id="venda_corpo_menuLateral" style="width: 12vw;height: 86vh;margin-left:4px;background-color: #121212;display: flex;flex-direction:row;">
+                                  <ul style="background-color: #03b166;width: 11vw;height: 40vh;list-style: none;margin: auto;display: inline-block;padding-top: 10vh;">
+                                    <li style="background-color: #0b2f83;color: #ffffff;margin-left: -1.5vw;width:9vw;margin-bottom: 10px;text-align: left;padding-left: 1vw;">Cadastrar clientes</li>
+                                    <li style="background-color: #0b2f83;color: #ffffff;margin-left: -1.5vw;width:9vw;margin-bottom: 10px;text-align: left;padding-left: 1vw;">Vendas mês</li>
+                                    <li style="background-color: #0b2f83;color: #ffffff;margin-left: -1.5vw;width:9vw;margin-bottom: 10px;text-align: left;padding-left: 1vw;">Vendas do ano</li>
+                                    <li style="background-color: #0b2f83;color: #ffffff;margin-left: -1.5vw;width:9vw;margin-bottom: 10px;text-align: left;padding-left: 1vw;">Estatísticas</li>
+                                    <li style="background-color: #0b2f83;color: #ffffff;margin-left: -1.5vw;width:9vw;margin-bottom: 10px;text-align: left;padding-left: 1vw;">
+                                        <button><a href="/raqvendas/vendas/{{codigo}}">Emissão nota</a></button></li>
+                                  </ul>    
+                            </div>
+                            <div id="venda_corpo_tables">
+                                <div id="ListaProdutos" style="width: 68vw;height: 30vh;margin-left:4px;background-color: #f42b08;display: flex;flex-direction: column;">
+                                    <div>
+                                        <h2 style="font-size: 1vw;color:#ffffff">Lista de produos :</h2>
+                                
+                                    <table id="table" style="width: 80%;height: 25vh;margin: auto;background-color: #000;">
+                                        <thead>
+                                            <td style="color:#ffffff">Itens</td>
+                                            <td style="color:#ffffff">Códigos:</td>
+                                            <td style="color:#ffffff">Especificação</td>
+                                            <td style="color:#ffffff">Qte:</td>
+                                            <td style="color:#ffffff">Valor:</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Caixa box completa</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                <div id="ListaProduto" style="width: 68vw;height: 30vh;margin-left:4px;background-color: #f42b08;display: flex;flex-direction: column;">
+                                    <div>
+                                        <h2 style="font-size: 1vw;color:#ffffff">Produtos :</h2>
+                                
+                                    <table style="width: 80%;height: 25vh;margin: auto;background-color: #000;">
+                                        <thead>
+                                            <td style="color:#ffffff">Number</td>
+                                            <td style="color:#ffffff">Cliente</td>
+                                            <td style="color:#ffffff">Cel:</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lúcifer</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                <div id="Emissão do Pedido" style="width: 68vw;height: 45vh;margin-left:4px;background-color: #f42b08;display: flex;flex-direction: column;margin-top: 5px;">
+                                    <div>
+                                        <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                                        <label style="font-size: 1vw;color:#ffffff">Pedido :{{loja_if}}</label>
+                                        <div>
+                                        <label>fornecedor</label>
+                                        <input style="color:#130505;font-size: 1,5vw;" value="Eplax Produtos"></input>
+                                        </div>
+                                        </div>
+                                    <table style="width: 80%;height: 30vh;margin: auto;background-color: #000;">
+                                        <thead>
+                                            <td style="color:#ffffff">Number</td>
+                                            <td style="color:#ffffff">Cliente</td>
+                                            <td style="color:#ffffff">Cel:</td>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Lúcifer</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                                <div id="Fechamento" style="width: 68vw;height: 10vh;margin: auto;background-color: yellow;">
+                                    <label>condição de pagamento :</label>
+                                    <label style="margin-left: 6vw;">entrega :</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div id="Videos" class="spaceModo">
+                   <div style="display: flex;flex-direction: column;background-color: #0b2f83;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="background-color: #038437;width: 85vw;height: 4vh;text-align: center;">
+                             <h1 style="font-size: 1.2vw;color:#ffffff;padding-top: 1vh;">Vídeos</h1>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;">
+
+                        </div>
+                    </div>
+                {{!-- </div> --}}
+        </div>
+    </div>
+</div>
+<script>
+function limpaCxLoja(n){
+   console.log(' [ 585 ]  ',n) 
+   ///////////////////////////////////////////////////////////////////////
+   if(n==1){
+      let d=document.getElementById("x-9").childElementCount;
+      console.log('[ valor de d ]',d)
+      limpareta(d,n);
+   }else if (n==2){ 
+      let d=document.getElementById("x-10").childElementCount;
+      console.log('[ valor de d ]',d)
+      const myNodelist = document.querySelectorAll("tr");
+      limpareta(d,n);
+   }
+   ///////////////////////////////////////////////
+   function  limpareta(d,n){
+        //reta=myNodelist.length;
+        console.log('valor da reta',n)
+        let h=d;
+        let s=0;
+        let s1=0;
+        if (n==1){
+          s=document.getElementById("x-9")
+          if(h>1){ 
+            for(j=h;j>0;j--){
+                console.log('valor de j',j)
+                if(j>0){
+                  console.log('vr de J',j)
+                  s.deleteRow(j-1);
+                  console.log('deletou a de nº',j)
+                }
+            }
+          }
+        }else if (n==2){
+           s1=document.getElementById("x-10")
+           if(h>1){ 
+            //if (n==1)
+                for(j=h;j>0;j--){
+                    console.log('valor de j',j)
+                    if(j>0){
+                    console.log('vr de J',j)
+                    s1.deleteRow(j-1);
+                    console.log('deletou a de nº',j)
+                    }
+                }
+           }
+        }
+    }      
+}
+
+</script>
+{{!--Busca o endereço a partir do CEP --}}
+<script>
+    const $campoCep=document.querySelector('[name="inputCep"]');
+    const $campoComplemento=document.querySelector('[name="inputNumero"]');
+    const $campoEstado=document.querySelector('[name="inputEstado"]');
+    const $campoCidade=document.querySelector('[name="inputCidade"]');
+    const $campoBairro=document.querySelector('[name="inputBairro"]');
+    const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+
+    var inputCep = document.getElementById("inputCep");
+    inputCep.addEventListener("keydown", function(event) {
+        console.log(56)
+        // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Cancel the default action, if needed
+                document.getElementById("inputNumero").value="";
+                document.getElementById("inputEstado").value="";
+                document.getElementById("inputCidade").value="";
+                document.getElementById("inputBairro").value="";
+                document.getElementById("inputAvenida").value="";
+                event.preventDefault();
+                buscOsregistros()
+            }
+    });
+// Busca dados do CEP
+function buscOsregistros(){
+        const $campoCep=document.querySelector('[name="inputCep"]');
+        const $campoComplemento=document.querySelector('[name="inputNumero"]');
+        const $campoEstado=document.querySelector('[name="inputEstado"]');
+        const $campoCidade=document.querySelector('[name="inputCidade"]');
+        const $campoBairro=document.querySelector('[name="inputBairro"]');
+        const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+        console.log($campoBairro)
+        const E=$campoEstado.value;
+        const C=$campoCidade.value;
+        const R=$campoRua.value;
+        
+        if (E){
+            return;
+        }
+        const cep=document.getElementById("inputCep").value;     
+            if (cep==null || cep==""){
+                return false
+            }
+            console.log(cep);
+            
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(respostaDoServer=>{
+                return respostaDoServer.json();
+            })
+            .then(dadosDoCep => {
+                
+                console.log(' [ 1047 ] ',dadosDoCep);
+                //$campoComplemento.value=dadosDoCep.complemento;
+                    if (dadosDoCep!=[]){
+                        $campoEstado.value=dadosDoCep.uf;
+                        $campoCidade.value=dadosDoCep.localidade;
+                        $campoBairro.value=dadosDoCep.bairro;
+                        $campoRua.value=dadosDoCep.logradouro;
+
+                        console.log($campoBairro.value)
+                        document.getElementById("inputAvenida").style.background="white";
+                        document.getElementById("inputNumero").style.background="white";
+                        document.getElementById("inputCidade").style.background="white";
+                        document.getElementById("inputBairro").style.background="yellow";
+                        document.getElementById("inputEstado").style.background="white";
+                        document.getElementById("inputNumero").style.backgroundColor="yellow";
+                        document.getElementById("inputNumero").focus();
+                    }else{
+                        console.log("FORA!")
+                    }
+            })
+            .catch((e)=>{
+               console.log(e)
+            })
+        
+        }
+</script>
+<script>
+function Clientes_cadastro(){
+  document.getElementById("Cliente-cadastro").style.display="block";
+  document.getElementById("Cliente-lista").style.display="none";
+  document.getElementById("Cliente-pesquisa").style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Clientes_lista(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="block";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+  buscaLista('1')
+}
+
+function Clientes_pesquisa(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="block";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+  buscaLista('2')
+}
+
+function Compras_(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="block";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Estoques(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="block";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Produtos(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="block";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Vendas(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="block";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Videos_aulas(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  console.log(1234)
+  document.getElementById('Videos').style.display="block";
+}
+
+function buscaLista(n){
+    limpaCxLoja(n);
+    console.log('__________________________________________')
+    console.log(' [ 814 ] debtro buscaLista')
+    console.log('')
+    console.log('consultando a lista')
+    console.log('__________________________________________')
+    console.log('')
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    //-------------------------------------------------------------------------
+    fetch(`${baseApiUrl}` + `/raqvendas/lista-cliente`, {method: "GET",
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+            .then(response => response.json())
+            .then((json) => {
+                console.log('_______________________________________')
+                console.log('[ 832 ] ', json)
+                console.log('determina o form =>',n)
+                //----------------------------------------------------------------
+                PreencheLista(n,json)
+            })
+            .catch((e)=>{
+                console.log(e);
+            })  
+
+
+            function PreencheLista(n,json){
+                console.log('')
+                let f=json.length;
+                console.log('------------------ f => ',f)
+                const M= json;
+                let k;
+                //f=2;
+                /////////////////////////////////////////////////////
+                for(i=0;i<f;i++){
+                    console.log(M[i].razaoNome)
+                    const node=document.createElement('tr');
+                    node.setAttribute("id","linha" + '-' + i);
+                    node.setAttribute("class","linhaCheia")
+                    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
+                    console.log('  ')
+                    if (n==1){
+                        console.log(' => 1 ')
+                        document.getElementById("x-9").appendChild(node)
+                    }else if(n==2){
+                        document.getElementById("x-10").appendChild(node)
+                        console.log(' => 2 ')
+                        console.log(document.getElementById("x-10"))
+                    }    
+                   
+                    const node0=document.createElement('td');
+                    const textNode0=document.createTextNode(i+1);
+                    node0.appendChild(textNode0);
+                    node0.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node0);
+                    console.log('passou aqui 817','linha' + '-' + i)
+
+                    const node1=document.createElement('td');
+                    const textNode1=document.createTextNode(M[i].razaoNome);
+                    node1.appendChild(textNode1);
+                    node1.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                    const node2=document.createElement('td');
+                    const textNode2=document.createTextNode(M[i].email);
+                    node2.appendChild(textNode2);
+                    node2.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node2);
+                    //////////////////////////////////////////////////////////////
+                    ///////////   DELETE          ////////////////////////////////////////
+                    const node3=document.createElement('td');
+                    node3.setAttribute("id","linhaA" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                    const node4=document.createElement('a');
+                    node4.setAttribute("class","linhaAmarela");
+                   
+                    node4.setAttribute("id","linhaB" + '-' + i);
+                    node4.setAttribute("href","/controle/deleteproduto/{{this._id}}");
+                    document.getElementById('linhaA' + '-' + i ).appendChild(node4);
+
+                    const node5=document.createElement('button');
+                    node5.setAttribute("class","bntlinha");
+                    const textNode5=document.createTextNode('Delete');
+                    node5.appendChild(textNode5);
+                    node5.setAttribute("innerHTML","Delete");
+                    document.getElementById('linhaB' + '-' + i ).appendChild(node5);
+                    ///////////////////////////////////////////////////////////////
+                    ///////     EDITAR ///////////////////////////////////////
+                    const node6=document.createElement('td');
+                    node6.setAttribute("id","linhaC" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node6);
+
+                    const node7=document.createElement('a');
+                    node7.setAttribute("class","linebtn");
+                   
+                    node7.setAttribute("id","linhaD" + '-' + i);
+                    node7.setAttribute("href","/controle/editarfoto/{{this._id}}");
+                    document.getElementById('linhaC' + '-' + i ).appendChild(node7);
+
+                    const node8=document.createElement('button');
+                    node8.setAttribute("class","bntlinha");
+                    const textNode8=document.createTextNode('Editar');
+                    node8.appendChild(textNode8);
+                    document.getElementById('linhaD' + '-' + i ).appendChild(node8);
+                    ///////////////////////////////////////////////////////////////
+                    ////////////////       VISUALIZAR    /////////////////////////
+                    const node9=document.createElement('td');
+                    node9.setAttribute("id","linhaE" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node9);
+
+                    const node10=document.createElement('a');
+                    node10.setAttribute("class","linhaAmarela");
+                   
+                    node10.setAttribute("id","linhaF" + '-' + i);
+                    node10.setAttribute("href","/controle/visualizar/{{this._id}}");
+                    document.getElementById('linhaE' + '-' + i ).appendChild(node10);
+
+                    const node11=document.createElement('button');
+                    node11.setAttribute("class","bntlinha");
+                    const textNode11=document.createTextNode('Visualizar');
+                    node11.appendChild(textNode11);
+                    document.getElementById('linhaF' + '-' + i ).appendChild(node11);
+                }
+            }     
+    }
+
+function home(){
+    console.log('logue')
+    let r=document.getElementById('IdcodigoEmpresa').innerText;
+    //res.render("_cooperado/admin/raq-system",{ layout:'lojista/admin-loja.handlebars',cooperado:r,segmento:Seg})  
+}
+let p=document.getElementById("PJURPFIS");
+p.addEventListener('click',function(event){
+   event.stopPropagation();
+   let z=p.selectedIndex;
+   let y=p.options;
+   let condicaopag=y[z].text;
+   console.log(y[z].value)
+   document.getElementById("SelectPessoa").value=y[z].value;
+})
+</script>

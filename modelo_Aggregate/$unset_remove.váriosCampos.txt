@@ -1,0 +1,26 @@
+// Remove vários campos dentro de um document
+products.updateMany({},
+                    {
+                        $unset : {
+                            releaseDate:"",
+                            spec:""
+                        } 
+                    }
+
+consulta:
+ db.products.find({}, {
+    name: 1,
+    storage: 1,
+    releaseDate: 1,
+    spec: 1
+})
+
+Saída:
+    [
+    { _id: 1, name: 'xPhone', storage: [ null, 128, 256 ] },
+    { _id: 2, name: 'xTablet', storage: [ null, 256, 512 ] },
+    { _id: 3, name: 'SmartTablet', storage: [ null, 64, 128 ] },
+    { _id: 4, name: 'SmartPad', storage: [ null, 256, 1024 ] },
+    { _id: 5, name: 'SmartPhone', storage: [ null, 256 ] }
+    ]
+ Os campos 'releaseDate' e 'spec' foram eliminados    

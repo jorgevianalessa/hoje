@@ -1,0 +1,130 @@
+<style>
+  .formestoque{
+    width: 80%;height: 15vh;background-color:transparent;margin:auto;margin-top:5px;padding-top: 15px;padding: 3%;
+  }  
+</style>
+<div class="content p-1" style="margin-top:3.2rem;border-color: #eb0909 1px;">
+        <div class="list-group-item">
+            <div class="d-flex">
+                <div class="mr-auto p-2">
+                    <h2 id="idxLoja" class="display-4 titulo" style="">Visualização fornecedor :{{idx}}</h2>
+                   
+                </div>
+                <div class="p-2">
+                    
+                </div>
+            </div><hr>
+            <div style="width: 100%;height: 4.8vh;background-color: #ec0d0d;display: flex;flex-direction: row;justify-content:center;">
+                <div style="width: 50%;height: 4.5vh;background-color: green;display: flex;flex-direction: row;justify-items:center;align-content: center;">
+                    <form action="/lojista/transfer-estoque/"  method="POST" class="formestoque"  enctype="application/x-www-form-urlencoded" autocomplete="off" style="display: none;">
+                        <input type="text" name="caju" id="caju" style="display: none;" value="{{idx}}">
+                        <input type="text" name="pera" id="pera" style="display: none;" value="{{fornc}}">
+                        <button type="submit"  style="width: 80%;height: 3vh;background: cadetblue;border-radius: 6px;color:#ffffff;border: #fbf5f5 1px solid;">Transferir estoque</button>
+                    </form>
+                </div> 
+                {{!-- <div style="width: 33%;height: 4.5vh;background-color: aqua;">
+
+                </div>   --}}
+            </div>
+            {{!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
+            <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered" style="background-color: #fbf5f5;">
+                            <thead>
+                                <tr>
+                                    <th style="display: none;">ID</th>
+                                    <th>código</th>
+                                    <th class="d-none d-sm-table-cell">descritivo</th>
+                                    <th class="d-none d-sm-table-cell">detalhe</th>
+                                    <th class="d-none d-sm-table-cell">artigo</th>
+                                    <th class="d-none d-lg-table-cell">tecido</th>
+                                    <th class="d-none d-lg-table-cell">cor</th>
+                                    <th class="d-none d-lg-table-cell">tamanho</th>
+                                    <th class="d-none d-lg-table-cell">qte</th>
+                                    <th class="d-none d-lg-table-cell">preço</th>
+                                    <th class="">Visualizar</th>
+                                </tr>
+                            </thead>
+                            {{!-- --------------------------------------------------- --}}
+                            <tbody id="linhaIndex">
+                                {{!-- <tr style="width: 80%;height: 32vh;margin: auto;padding: 1vh;">
+                                    <td style="margin: auto;">
+                                        
+                                    </td>
+                                </tr> --}}
+                            </tbody>   
+                        </table>    
+                        {{!-- <nav aria-label="paginacao">
+                            <ul class="pagination pagination-sm justify-content-center">
+                                {{#if contatos.hasPrevPage}}
+                                     <li class="page-item">
+                                        <a class="page-link" href="/contato/list-contato" tabindex="-1">Primeira</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.prevPage}}">{{contatos.prevPage}}</a></li>
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Primeira</a>
+                                    </li>
+                                {{/if}}
+                                                               
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">{{contatos.page}}</a>
+                                </li>
+                                {{#if contatos.hasNextPage}}
+                                    <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.nextPage}}">{{contatos.nextPage}}</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/contato/list-contato?page={{contatos.totalPages}}" tabindex="-1">Última</a>
+                                    </li>
+
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Última</a>
+                                    </li>
+                                {{/if}}
+                            </ul>
+                        </nav> --}}
+                        <div style="width: 80%;height: 30vh;margin: auto;display: flex;flex-direction: row;background-color: #ec0d0d;justify-content:center ;text-align: center;">
+                            <h1 style="color:#ffffff;font-size: larger;font-weight: 400;margin-top: 15vh;">Não há registro!</h1>
+                        </div>
+                    </div>    
+        </div>
+</div>
+<script>
+function buscaLinha(){
+    var linha=document.getElementById("linhaIndex");
+    linha.addEventListener("click",function(event){
+         //...................................
+    })
+}
+
+function transferTemp(){
+    //let objetoId=document.getElementById("idxLoja");
+    //objetoId=objetoId.innerHTML 
+    //console.log('vr do objectoId',objetoId)
+    //let baseApiUrl=window.location.hostname;
+    //if (baseApiUrl=='localhost'){
+    //    baseApiUrl='http://localhost:3000'
+    //}else{
+    //    baseApiUrl='https://www.rotaes.com.br'
+    //}   
+    //////////////////////////////////////////////////////////////////
+    //try{
+    //    fetch(`${baseApiUrl}` + `/lojista/transfer-temp/${objetoId}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+    //    .then(response =>{
+    //        if( response.ok ){
+    //            return response.json()
+    //            }  
+    //            throw response;
+    //    })
+    //    .then((json)=>{
+    //        loadImagens(json)
+    //    })
+    //    .catch((err)=>{
+    //        console.log(err)
+    //    })
+    //}catch(e){
+    //    console.log(e)
+    //}
+}
+
+
+</script>

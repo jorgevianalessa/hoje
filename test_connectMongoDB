@@ -1,0 +1,27 @@
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+// anexar depois -({URL_ENDPOINT})
+
+// Database
+const uri = `mongodb+srv://${process.env.MONGOUSER}:${process.env.MONGOPASS}@main-03xkr.mongodb.net/main`;
+const localURI = 'mongodb://localhost:27017/main';
+
+var Project = require('./models/project');
+
+mongoose.connect(uri, { useNewUrlParser: true });
+const db = mongoose.connection;
+
+db.once('open', () => console.log('Successfully connected to MongoDB'));
+db.on('error', (e) => console.log(e));
+
+// Routes
+app.get('/', (req, res) => {
+  Project.find({}, (e, projects) => {
+    if (e) console.log(e);
+
+    res.render('home.ejs', {
+      projects: projects
+    });
+  });
+});

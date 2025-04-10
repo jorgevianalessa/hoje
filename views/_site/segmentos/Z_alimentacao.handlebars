@@ -1,0 +1,637 @@
+<style>
+  .body-main{
+     background:rgb(6, 35, 80);
+     width:99%;height:100vh ;
+     margin:auto;
+     margin-top:.3vh;
+     padding 0px 0px;
+     border:2px solid green;
+     display: flex;
+     flex-direction:row;
+     justify-content: center;
+  }
+
+   /*Essas tres rotinas abaixo  */
+  .segmento{
+      width:98%;height:6.5vh;margin:auto;margin-top: 10px;border-bottom:2px solid #f6f5f6;border-radius: 5px;
+  }
+
+  .seg-div-foto{
+      width: 25%;height: 6vh;float:left;padding: 3px 6px;
+  }
+
+  .seg-div-titulo{
+      width: 70%;height: 6vh;float:left;margin-left:3%;padding: 1.8vh 10px;
+  }
+</style>
+
+<style>
+  .mlinha{
+    background-color: #deb70a;
+    border-bottom: 2px solid #ffffff;
+    margin-bottom: 2px;
+    font-size: small;
+    line-height:180%;
+    margin-left: 10px;
+    list-style-position: outside;
+    border-radius: 2px;
+    padding-left: 10px;
+    display: block;
+    width: 95%;
+    z-index: 1000;
+  }
+</style>
+
+<style>
+  .fundo-listproduct{
+    margin-top:5px;
+    overflow: auto;
+    background-color: #f6f1f1;
+    height:98vh;
+    border-left: 6px solid #ffffff;" 
+  }
+
+  .linhaProd{
+    width: 100%;height: 6.5vh;margin: auto;
+    margin-top:2px;margin-left:-25px;
+    padding:1px;
+    list-style: none;
+    background-color:#ffffff;
+    margin-bottom: 2px solid #535252;
+  }
+  
+  .prod-foto{
+    width: 5vw;
+    height: 6vh;
+    margin:auto;
+    margin-bottom:1px;
+    margin-left: 2px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    font-size: small;
+    float:left ;
+    background-size: cover;
+    color: navajowhite;
+  }
+
+  .container-img{
+      max-width:106px;
+      max-height:80px;
+      width: auto;
+      height: auto;
+      background-size: cover;
+  }
+
+   .prod-codigo{
+    width: 8%;
+    height: 6vh;
+    margin:auto;
+    margin-bottom:2px;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    font-size:medium small;
+    float:left ;
+    text-align: center;
+    color:#ec0606;
+ }
+
+  .prod-descricao{
+    width: 70.3%;
+    height: 6vh;
+    margin:auto;
+    margin-bottom:1px solid #ffffff;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #054487;
+    font-size: small;
+    float: left;
+    text-align: left;
+    border-left:none;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .prod-detalhe{
+    width: 10%;
+    height: 6vh;
+    margin:auto;
+    margin-bottom:2px;
+    margin-left: 15px;
+    padding: 10px;
+    padding-left:6px ;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #ec0606;
+    font-size: small;
+    float: left;
+    text-align: center;
+  }
+
+   .prod-lojista{
+      width: 91%;
+      height: 12vh;
+      display:none;
+      padding: 5px;
+      margin-left: 6%;
+      background-color: #0d0e0e;
+      color: #ffffff;
+      margin-bottom: 2px;
+ }
+
+   .color-lojista{
+      position: relative;
+      top:12px;
+      left:5px;
+      background-color: #efe8ef;
+      margin-top:5px;
+      border-bottom:solid #ec0606 1px;
+      z-index: 100;
+      height: 4vh;
+      padding-left: 12px;
+   }
+
+   .color-lojistalong{
+      height: 4vh;
+      color: #48c32c;
+      background-color: #ffffff;
+   }
+
+  /*{{!-- .prod-lojistalong{
+     background-color: #d5d1d1;
+     margin-top: 1px;
+     padding: 5px;
+     border-bottom:solid #ec0606 1px;
+     z-index: 100;
+     height: 16vh;
+     color: #ffffff
+  } --}}*/
+
+  .accordion{
+     width: 65%;
+     height: 6vh;
+     margin:auto;
+     margin-bottom:2px;
+     margin-left: 15px;
+     padding: 10px;
+     padding-left:60px ;
+     overflow: auto;
+     border-radius: 3px;
+     background-color: dimgray;
+     color: #ffffff;
+   }
+
+   .active, .accordion:hover {
+     background-color: #ccc; 
+   }
+
+   .menu-color{
+    font-weight: 100;color:#ffffff;font-size:small;
+  }
+ 
+</style>
+<div class="d-flex" style="width: 100%;height: 110vh;margin: auto;background-color: #ec0606;">
+<div class="body-main">
+       
+        <div id="sub-segmento" style="width:18%;height:100vh;margin-left:-5px;background-color:transparente;overflow:auto;float:left;">
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/aquecedores.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none;"><span id="aquecedor" onclick="myDepto('Aquecedores')" >Aquecedores</span>
+                    </a>
+                </div>
+            </div>
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento" >
+                <div class="seg-div-foto">
+                    <img src="../../img-home/banheira.jpg" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="banheiro" onclick="myDepto('Cozinhas & Banheiros')" >Banheiro</span>
+                    </a>
+                </div>
+            </div>
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/hidraulica.jpg" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="cozinha" onclick="myDepto('Cozinhas & Banheiros')" >Cozinhas</span>
+                    </a>
+                </div>
+            </div>
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/elétrica.jpg" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="eletrica" onclick="myDepto('Elétrica')" >Elétrica</span>
+                    </a>
+                </div>
+            </div>  
+              {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/maqjardim.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="ferramenta" onclick="myDepto('Ferramentas')" >Ferramentas</span>
+                    </a>
+                </div>
+            </div>  
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/forro.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="forro" onclick="myDepto('Forro & Telhado')" >Forro & Telhado</span>
+                    </a>
+                </div>
+            </div>  
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/piscina.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a class="menu-color"  href="#" style="text-decoration:none ;"><span id="jardim" onclick="myDepto('Jardim & Piscina')" >Jardim & Piscina</span>
+                    </a>
+                </div> 
+            </div>
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/hidraulico.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a href="#" style="text-decoration:none ;" >
+                        <span  class="menu-color" id="hidro"  ><p onclick="myDepto('Hidráulica')">Hidráulica</p></span>
+                    </a>
+                </div> 
+            </div>
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/loucasanitaria.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a href="#" style="text-decoration:none;">
+                        <span  class="menu-color" id="louca" onclick="#" ><p onclick="myDepto('Louças Sanitárias')">Louças Sanitárias</p></span>
+                    </a>
+                </div> 
+            </div>
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/bruto.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a class="menu-color" href="#" style="text-decoration:none ;"><span id="bruto" onclick="myDepto('Material Bruto')" >Material Bruto</span>
+                    </a>
+                </div> 
+            </div>    
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/poltronas.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="moveis" onclick="myDepto('Móveis & Decoração')" >Móveis & Decoração</span>
+                    </a>
+                </div>   
+            </div>      
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/esquadrias-madeiras.jpg" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="porta" onclick="myDepto('Portas & Janelas')" >Portas e Janelas</span>
+                    </a>
+                </div>  
+            </div>    
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/porcelanato.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="piso" onclick="myDepto('Acabamento')" >Piso & Revestimentos</span>
+                    </a>
+                </div>  
+            </div>   
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/tinta.png" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="tinta" onclick="myDepto('Tintas')" >Tintas</span>
+                    </a>
+                </div>  
+            </div>  
+            {{!-- ---------------------------------------------------------------------- --}}
+            <div class="segmento">
+                <div class="seg-div-foto">
+                    <img src="../../img-home/mão-obra.jpg" alt="materiais hidráulicos"  width="40" height="40" style="100%">
+                </div>
+                <div class="seg-div-titulo">
+                    <a  class="menu-color" href="#" style="text-decoration:none ;"><span id="mao" onclick="myDepto('Mão de Obra')" >Mão de Obra</span>
+                    </a>
+                </div>  
+            </div>  
+            {{!-- ---------------------------------------------------------------------- --}}
+        </div>
+        <div id="painelCentral" style="width:60%;height:120vh;background-color:pink;float:left;margin-top:1px;margin-left:2px;">
+              <div id="tituloFiltro" style="width:100%;height:12vh;margin: auto;background-color:#033986;display: flex;flex-direction:column;justify-content: center;">
+                   <div style="text-align: center;">
+                   <h1 style="color:#ffffff;font-size:small;">filtro</h1>
+                   </div>
+                   <div id="cidades" style="display: flex;flex-direction: row;justify-content: center;">
+                       <button>Cariacica</button><button>Guarapari</button><button>Serra</button><button>Vila Velha</button><button>Vitória</button>
+                   </div>
+                   <div style="text-align: center;">
+                       <select>
+                          <option>Centro</option>
+                          <option>Praia do Canto</option>
+                          <option>Enseada</option>
+                          <option>Jardim da Penha</option>
+                          <option>Jardim Camburi</option>
+                          <option>São Pedro</option>
+                       </select>
+                   </div>
+              </div> 
+              <div id="lista" class="fundo-listproduct" >
+                  <ul id="list-produto">
+
+                  </ul>
+              </div>
+        </div>
+        <div style="width:18%;height:99vh;margin:auto;background-color:#f6f5f6 ;">
+
+        </div>
+</div>
+</div>
+<script>
+   
+    var acc = document.getElementsByClassName("linhaProd_descrição");
+    var i;
+    console.log('vr de acc ?',acc.length)
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            console.log(6)
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+               panel.style.display = "block";
+            }
+        });
+    }
+
+
+function myDepto(value){
+    buscProduto(value)
+}
+
+function buscProduto(val){
+    console.log('valor de val',val)
+    let l=document.getElementsByName("panel").childElementCount;
+    console.log(' [ 456 ]- buscProduto(panel)',l);
+        try{
+            fetch(`http://localhost:3000/site/busca-segmentos_02/${val}`,{method: "GET",
+                                headers: {"Content-type": "application/json; charset=UTF-8"}
+                                })
+                                .then(response => response.json())
+                                .then((json) => {
+                                    const Object=json;
+                                    //console.log(' [ 464 ]',Object)
+                                    let f=Object.length
+                                    for (i=0;i<f;i++){
+                                        // CREATE ROW
+                                        let Produto=Object[i];
+                                        console.log('');
+                                        console.log(' [ 405 ]',Produto);
+                                        console.log('');
+                                        criaLinha()
+
+                                        function criaLinha(){
+                                            const node = document.createElement("li");
+                                            node.setAttribute('class',"linhaProd")
+                                            node.setAttribute('id',"idrow" + i)
+                                            document.getElementById("list-produto").appendChild(node);
+                                        }
+
+                                        let idfoto="idfoto" + i;
+                                         let caminho=Produto.pageurl
+                                        criaContainerImg(idfoto);
+                                        
+                                        function criaContainerImg(idfoto){
+                                            const node1 = document.createElement("div");
+                                            node1.setAttribute('class',"prod-foto")
+                                            console.log(idfoto)
+                                            node1.setAttribute('id',idfoto)
+                                            document.getElementById("idrow" + i).appendChild(node1);
+
+                                            const node100 = document.createElement("img");
+                                            node100.setAttribute('src',caminho)
+                                            node100.setAttribute('class',"container-img")
+                                            document.getElementById(idfoto).appendChild(node100);
+                                        }
+
+                                         let codigo=Produto.codigo;
+                                        criaContainerCodigo()
+
+                                        function criaContainerCodigo(){
+                                            let idcodigo="idcod" + i
+                                            const node2 = document.createElement("div");
+                                            const textnode2 = document.createTextNode(codigo);
+                                            node2.appendChild(textnode2);
+                                            node2.setAttribute('class',"prod-codigo")
+                                            node2.setAttribute('id',idcodigo)
+                                            node2.setAttribute('value',codigo)
+                                            document.getElementById("idrow" + i).appendChild(node2);
+                                        }
+
+                                        let descritivo=Produto.descricao;
+                                        let iddescr="iddescr" +i;
+                                        let index="idrow" + i;
+                                        criaContainerDescritivo()
+
+                                        function criaContainerDescritivo(){
+                                            console.log('[ 439]',descritivo)
+                                            const node3 = document.createElement("button");
+                                            const textnode3 = document.createTextNode(descritivo);
+
+                                            node3.appendChild(textnode3);
+                                            node3.setAttribute('class',"prod-descricao")
+                                            node3.setAttribute('id',iddescr)
+                                            node3.setAttribute('value',descritivo)
+                                        
+                                            node3.setAttribute("onclick","buscLojista("+ "'" + codigo + "'" + ")" );
+                                            document.getElementById(index).appendChild(node3);
+                                        }
+                                       // return
+
+                                        
+                                       
+
+                                        
+                                       
+                                       
+                                       // const textnode1 = document.createTextNode(codigo);
+                                       // node1.appendChild(textnode1);
+                                       
+                                       // node1.setAttribute('value',codigo)
+                                        //node1.setAttribute("onclick","myValor("+ "'" + codigo + "'" + ")" );
+                                        
+
+                                       
+
+
+
+                                       
+                                      //  node2.setAttribute("onclick","myValor("+ "'" + codigo + "'" + ")" );
+                                        
+
+                                        // Pega o descritivo
+                                      
+                                      //  console.log('[ 438]')
+                                       
+                                        
+                                        
+                                        // Pega detalhe
+                                     //   let iddestal="iddestal" +i
+                                     //   const node4 = document.createElement("p");
+                                     //   const textnode4 = document.createTextNode('detalhe');
+                                     //   node4.appendChild(textnode4);
+                                     //   node4.setAttribute('class',"prod-detalhe")
+                                     //   node4.setAttribute('id',iddestal)
+                                     //   node4.setAttribute('value',codigo)
+                                        //node4.setAttribute("onclick","myValor("+ "'" + codigo + "'" + ")" );
+                                     //   document.getElementById(index).appendChild(node4);
+                                        // Termina a create NODE
+
+                                        // Prepara acordeon
+                                     ///   let idlojista="idlojista" + i;
+                                     //   const node5 = document.createElement("div");
+                                     //   const textnode5 = document.createTextNode('lojistas');
+
+                                     //   node5.appendChild(textnode5);
+                                     //   node5.setAttribute('class',"prod-lojista")
+                                     //   node5.setAttribute('id',idlojista)
+                                     //   node5.setAttribute('value',codigo)
+                                        
+                                       // node5.setAttribute("onclick","myValor("+ "'" + codigo + "'" + ")" );
+                                     //   document.getElementById(index).appendChild(node5);
+                                        
+                                      //  const node6 = document.createElement("li");
+                                      //  node6.setAttribute('class',"prod-lojista")
+                                      //  node6.setAttribute('id',"idlojista" + i)
+                                      //  document.getElementById("list-produto").appendChild(node6);
+                                        //.....................................................................
+                                      
+                                        //..........................................................
+                                    }
+                                })                      
+                    }catch(err){
+                        console.log(err)
+                    } 
+         }
+
+ function buscLojista(val){
+    console.log('vr de val',val)
+    var x = event.target.id;
+    console.log('vr do id acionado',x)
+    document.getElementById(x).style.backgroundColor='yellow';
+    let palavra=x;
+    let result=palavra.replace('iddescr','idlojista')
+    console.log('vr modificado',result)
+    document.getElementById(result).style.display='block';
+    document.getElementById(result).style.zIndex=1000;
+    
+    var acc=document.getElementsByClassName("panel");
+    console.log(acc.length)
+    //::::::::::::::::::::::::::::::::::::::::::::
+     {{!-- for (i = 0; i <acc.length i++) {
+        acc[i].addEventListener("click", function() {
+            console.log(6)
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            panel.style.backgroundColor='red';
+            console.log(panel.style.display)
+            if (panel.style.display = "block") {
+                console.log(4)
+                panel.style.display ="none";
+            } else {
+                console.log(9)
+               panel.style.display = "block";
+            }
+        });
+    } --}}
+    //::::::::::::::::::::::::::::::::::::::::::::::::::
+    console.log('vr de val',val)
+    try{
+        fetch(`http://localhost:8085/produto/lojista-segdois/${val}`,{method: "GET",
+                                                                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                                                                })
+                                        .then(response => response.json())
+                                        .then((json) => {
+                                            let f=json.length;
+                                            console.log('491',json)
+                                            if(f>3){
+
+                                            }else{
+
+                                            }
+                                            for (i=0;i<f;i++){
+                                               let rz=json[i].rzaoloja;
+                                               let cb=json[i].cbarra;
+                                               let pr=json[i].preco;
+                                               console.log('linha 590',cb)
+                                               const node1 = document.createElement("div");
+                                               const textnode1 = document.createTextNode(rz + cb);
+                                               node1.appendChild(textnode1);
+                                               //node1.setAttribute('type',"checkbox")
+                                               node1.setAttribute('class',"color-lojista")
+                                               if(i>2){
+                                                    
+                                                    document.getElementById(result).style.height='18vh';
+                                                    document.getElementById(result).style.backgroundColor='red';
+                                               }else{
+                                                  
+                                               }
+                                              
+                                               node1.setAttribute('id', i)
+                                               node1.setAttribute('value',rz)
+                                               node1.setAttribute("onclick","buscLojista(" + "'" + rz +  ")" );
+                                               document.getElementById(x).appendChild(node1);
+                                             
+                                               //document.getElementById(x).style.backgroundColor='green';
+                                            }    
+                                        })
+                                        .catch((e)=>{
+
+                                        })
+    }catch(err){
+        console.log('linha 494',err)
+    }
+
+ }
+
+   function buscmenu(){
+      console.log(88)
+   }
+</script>
+
+ 

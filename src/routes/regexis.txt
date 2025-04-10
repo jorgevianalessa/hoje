@@ -1,0 +1,28 @@
+
+
+// ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// // BUSCA SITE SEARCH = Com o nome parcial busca uma lista de provavel produto
+// router.post('/busca_produto/:id',(req,res)=>{
+//       console.log('--------------------------------------')  
+//       console.log('(99) --> post/_lojista/produto/busca_produto/:id')
+//       let f=req.body;
+//       console.log(f)
+//       let g=Object.values(f)
+//       g=g[0]
+//       if (g.length=2){
+//             let w={};
+//             Produto.find({"descritivo":{"$regex": `${g}`, "$options": "i"}})
+//                     .then((produtos)=>{
+//                         let n=0;
+//                         for (const prod of produtos) {
+//                             w[n] =prod.descritivo  
+//                             n++;
+//                         }
+//                         console.log('valor de w',w)
+//                         res.send(valor=w)
+//                     })
+//                     .catch((e)=>{
+//                         console.log('-----',e)
+//                     })
+//       }          
+// })

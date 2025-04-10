@@ -1,0 +1,61 @@
+<style>
+    .wattapp{
+        position: fixed;
+        margin-top: 5px;
+        margin-right: 5px;
+        z-index: 9999;
+    }
+</style>
+<div id="myHeader" class="tituloFixo" style="width: 95.5vw;background-color: #080b10;height: 11.5vh;margin: auto;" >
+    {{!-- <div class="" style="background-color:#1f0ced;padding-top:0px;height: 19vh;width: 100%;"> --}}
+        <div class="" id="idTitulo" style="display: flex;flex-direction: row;background-color: #ffffff;width: 95.5vw;" >
+            <div id="logamarca" style="width: 23.5vw;background-color:#ffffff;color:#2c2727;
+                                    text-align: left;padding-top: 7px;display: flex;flex-direction: row;height: 9vh;">
+                <div style="width: 20%;height: 7.8vh;background-color:transparent;margin-left: 30px;margin-top: 12px;">
+                    <img id="imgXY"  src="" alt="logomarca" class="responsivo responsive" width="100%" height="50" >
+                </div>
+            </div>
+            <div id="tituloMain" class="" style="width: 23.5vw;background-color:#ffffff;text-align: center;color:#325b80;height: 9vh;padding: 0.5vh;padding-top:1.5vh;">
+                <img id="tituloPageXY" alt="logomarca" titulo="logomarca" style="margin-bottom: 25px;">
+                <input id="idLoja" value="{{loja._id}}" style="display:none;">
+                <input id="assinante" value="{{loja.assinante}}" style="display:none;color:#ffffff;font-size: xx-small;">
+            </div>
+            <div id="dimesao"   style="width: 23.5vw;text-align: center;background-color:#ffffff;color:#e43333;padding-top: 10px;display: flex;flex-direction: row;justify-content:center;height: 7vh;align-items: center;margin-right: 20px;">
+                    <div style="width: 50%;height: 4vh;background-color: #39e753;color:#ffffff;font-size: 1.5rem;padding: 0.5vh;visibility:visible;display: flex;flex-direction: row;justify-content: space-between;">
+                        <label id="pegaWidth"   style="background-color: #080b10;color:#ffffff;width: 100px;text-align: center;height: 3.5vh;" ></label>
+                        <label id="pegaHeight"  style="background-color: #038020;color:#ffffff;width: 100px;text-align: center;height: 3.5vh;" ></label>
+                    </div> 
+                </div>
+            <div id="Voltar"   style="width:23.5vw;text-align: left;background-color: #ffffff;color:#ffffff;padding-top: 3px;display: flex;flex-direction: row;justify-content:end;height: 9vh;align-items: center;">
+                <div style="width: 55%;height: 7.4vh;background-color: #ffffff;color:#ffffff;font-size: 1.5rem;float: letf;padding-top: 1px;display: flex;flex-direction: column;justify-items: flex-start;">
+                    <label id="idFone"   style="background-color: #ffffff;color:#706f6f;width: 200px;text-align: center;display: block;height: 2.5vh;font-size:small ;margin-top: -3px;" >zero</label>
+                    <label id="idBairro"  style="background-color: #ffffff;color:#706f6f;width: 200px;text-align: center;display: block;height: 2.5vh;font-size:small;font-weight: 200;" >dez</label>
+                    <label id="idCidade"  style="background-color: #ffffff;color:#706f6f;width: 200px;text-align: center;display: block;height: 2.5vh;font-size:small;font-weight: 100;" >50</label>
+                </div> 
+                <div style="width: 45%;height: 7vh;background-color:#ffffff;color:#ffffff;font-size: 1.5rem;float: letf;padding-top: 1px;">
+                    <div style="display: flex;flex-direction: row;justify-content: flex-end;">
+                        <div class="wattapp" style="display: none;">
+                            <a href="https://wa.me/5527999953261?text=obrigado por nos consulta! Alfredo's agradece! " target="_blank">
+                              <img src="/wattsappLogo.png" width="50" alt="Fale pelo wattsApp" title="Fale pelo wattsApp" style="border: #07df07 1px solid;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{!-- /////////////////////////////////////////////////////////////////////// --}}
+        <div class="topnav" id="myTopnav" style="background-color: #f5f0ec;height: 2vh;color:black;width: 95.5vw;">
+                <a href="#" class="" style="color:#325b80;margin-left: 1vw;margin-right: 2vw;">Volta para Seções</a>
+                <a href="#" class="" style="color:#325b80;margin-left: 6vw;margin-right: 2vw;text-decoration: none;">Loja Anterior</a>
+                <a href="#" class="" style="color:#325b80;margin-left: 6vw;margin-right: 2vw;text-decoration: none;">Próxima Loja</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()" style="display: none;">
+                    <i class="fa fa-bars"></i>
+                </a>
+        </div>
+        <div style="width: 100vw;height: .4vh;background-color: #d8d0d0;width: 95.5vw;"></div>
+    {{!-- </div> --}}
+</div> 
+
+
+
+

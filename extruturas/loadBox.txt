@@ -1,0 +1,136 @@
+//function lodaBox(){
+//         let n;
+//         let p=document.getElementById('control');
+//         p=p.innerText;
+//         console.log(p)
+//         n=p;
+//         n++;
+         // Monta o quadro matriz ,um containe que irá receber o elementos de ADD
+//         const node =document.createElement("div");
+//         node.setAttribute("class","quadroMatriz");
+//         node.setAttribute("id",'matriz-' + p);  // zero
+//         document.getElementById('quadroMatriz').appendChild(node); 
+         /////////////////////////////////////////////////////////////////////////////
+         // 1º Linha corresponde ao tópico COR
+//         const node1 =document.createElement("div");
+//         node1.setAttribute("id",'linha-cor-' + p);
+//         node1.setAttribute("class","cor-class");
+//         document.getElementById('matriz-' + p).appendChild(node1); 
+               // .................................................................
+               //  1ª linha => SPACE LEFT    ORANGE
+//               const node2 =document.createElement("div");
+//               node2.setAttribute("id",'linha-cor-space-' + p);
+//               node2.setAttribute("class","linha-cor-space-class");
+//               document.getElementById('linha-cor-' + p).appendChild(node2); 
+               //...............................................................
+               // 1ª linha => CONTAINER => LABEL + INPUT   VERDE
+//               const node3 =document.createElement("div");
+//               node3.setAttribute("id",'linha-cor-container-' + p);
+//               node3.setAttribute("class","linha-cor-container-class");
+//               document.getElementById('linha-cor-' + p).appendChild(node3); 
+                     //.......................................................
+                     // Determina o label da "COR" 
+//                     const node5 =document.createElement("label");
+//                     node5.setAttribute("id",'linha-cor-label-' + p);
+//                     node5.setAttribute("class","linha-cor-container-label-class");
+//                     document.getElementById('linha-cor-container-' + p).appendChild(node5);
+
+//                     document.getElementById('linha-cor-label-' + p).innerHTML="Cor : "
+                         //.......................................................
+                         //  Divisaõ que contém o <input>  determina o label da "COR" 
+//                         const node6 =document.createElement("div");
+//                         node6.setAttribute("id",'linha-cor-input-' + p);
+//                         node6.setAttribute("class","linha-cor-container-input-class");
+//                         document.getElementById('linha-cor-container-' + p).appendChild(node6); 
+                         //.......................................................
+                         // Input que recebe o valor da cor
+//                         const node7 =document.createElement("input");
+//                         node7.setAttribute("class","linha-cor-input-class");
+//                         node7.setAttribute("id",'corSpace-' + p);
+//                         document.getElementById('linha-cor-input-' + p).appendChild(node7);
+         ////////////////////////////////////////////////////////////////////////////
+         /////////////////////////////////////////////////////////////////////////////
+         // 2º linha que contém o valor de tamanho
+//         const node8 =document.createElement("div");
+//         node8.setAttribute("id",'linha-tamanho-' + p);
+//         node8.setAttribute("class","tamanho-class");
+//         document.getElementById('matriz-' + p).appendChild(node8);
+                // ......................................................
+                // Divisão que forma o espaço na linha que recebe Tamanho  BLACK
+//                  const node9 =document.createElement("div");
+//                  node9.setAttribute("id",'linha-tamanho-space-' + p);
+//                  node9.setAttribute("class","linha-tamanho-space-class");
+//                  document.getElementById('linha-tamanho-' + p).appendChild(node9); 
+             
+//                  const node10 =document.createElement("div");
+//                  node10.setAttribute("id",'linha-tamanho-container-' + p);
+//                 node10.setAttribute("class","linha-tamanho-container-class");
+//                  document.getElementById('linha-tamanho-' + p).appendChild(node10); 
+                  //.......................................................
+//                  const node11 =document.createElement("label");
+//                  node11.setAttribute("id",'linha-tamanho-label-' + p);
+//                  node11.setAttribute("class","linha-tamanho-container-label-class");
+//                  document.getElementById('linha-tamanho-container-' + p).appendChild(node11);
+
+//                  document.getElementById('linha-tamanho-label-' + p).innerHTML="Tamanho : "
+
+//                  const node12 =document.createElement("div");
+//                  node12.setAttribute("id",'linha-tamanho-input-' + p);
+//                  node12.setAttribute("class","linha-tamanho-container-input-class");
+//                  document.getElementById('linha-tamanho-container-' + p).appendChild(node12); 
+
+//                  const node13 =document.createElement("input");
+//                  node13.setAttribute("class","linha-tamanho-input-class");
+//                  node13.setAttribute("id",'linha-tamanho-input-' + p);
+//                  document.getElementById('linha-tamanho-input-' + p).appendChild(node13);
+              
+         /////////////////////////////////////////////////////////////////////////////
+         //////////////////////////////////////////////////////////////////////////////
+         // Monta o quadro dentro da matriz faixa Pink que recebe o valor da QUANTIDADE
+         //p++; 
+//         console.log('vr de p', p)
+         // 3ª linha 
+//         const node14 =document.createElement("div");
+//         node14.setAttribute("id",'linha-qte-' + p);
+//         node14.setAttribute("class","quantidade-class");
+//         document.getElementById('matriz-' + p).appendChild(node14);
+                  //..........................................................
+
+//                  const node15 =document.createElement("div");
+//                  node15.setAttribute("id",'linha-quantidade-space-' + p);
+//                  node15.setAttribute("class","linha-quantidade-space-class");
+//                  document.getElementById('linha-qte-' + p).appendChild(node15); 
+             
+//                  const node16 =document.createElement("div");
+//                  node16.setAttribute("id",'linha-quantidade-container-' + p);
+//                  node16.setAttribute("class","linha-quantidade-container-class");
+//                  document.getElementById('linha-qte-' + p).appendChild(node16); 
+           
+//                  const node17 =document.createElement("label");
+//                  node17.setAttribute("id",'linha-quantidade-label-' + p);
+//                  node17.setAttribute("class","linha-quantidade-container-label-class");
+//                  document.getElementById('linha-quantidade-container-' + p).appendChild(node17);
+
+//                  document.getElementById('linha-quantidade-label-' + p).innerHTML="Quantidade : "
+
+//                  const node18 =document.createElement("div");
+//                  node18.setAttribute("id",'linha-quantidade-input-' + p);
+//                  node18.setAttribute("class","linha-quantidade-container-input-class");
+//                  document.getElementById('linha-quantidade-container-' + p).appendChild(node18); 
+
+//                  const node19 =document.createElement("input");
+//                  node19.setAttribute("class","linha-quantidade-input-class");
+//                  node19.setAttribute("id",'linha-quantidade-input-' + p);
+//                  document.getElementById('linha-quantidade-input-' + p).appendChild(node19);/
+
+//         document.getElementById('control').innerText=n;
+//         let foco=document.getElementById('linha-tamanho-input-' + p);
+//         foco.style.backgroundColor="yellow";
+//         console.log('test')
+//}
+
+//let obj=document.getElementById("tamanho-input");
+
+//obj.addEventListener('onkeydown',function(){
+//          console.log(234)
+//})

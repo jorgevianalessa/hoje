@@ -1,0 +1,929 @@
+<style>
+  .titulo_page{
+      width: 100%;height: 2vh;margin: auto;
+      background-color: transparent;text-align: center;
+      padding: 0.1vh;margin-top: 2vh;
+      display: flex;flex-direction: row;"
+  }
+
+  .label_control{
+     color:#cccccc;font-size: larger;font-weight: bold;padding: 0px 10px 0px 10px;visibility: hidden;
+  } 
+
+  .handlebars{
+    color:#080808;font-size: xx-small;font-weight: 400;
+  }
+
+  .form_modal{
+      width: 20%;height: 50vh;margin: auto;
+      position:absolute;
+      top: 100px;;
+      right:100px;
+      z-index: 100;
+      background-color: rgba(114, 3, 92, 0.5);
+      
+  }
+
+  .form_action{
+     width: 80%;height: 49.5vh;margin: auto;
+     padding: 2em;margin-top: 2vh;
+     background-color: rgb(0, 0, 255,0.3);
+  }
+
+  .rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color: #008b8b;
+  }
+
+  .rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color:  #05d639;
+  }
+
+  .btn_gravar{
+    width: 6vw;
+    height: 3vh;
+    border-radius: 6px;
+    background-color: #035384;color:#ffffff;
+    margin-top:0.3vh;
+  }
+
+  .linha-produto{
+     width: 80%;height: 3.5vh;margin: auto;
+     margin-top: .5vh;
+     display: flex;flex-direction: row;
+     margin-top: 3px;
+     background-color:transparent;
+  }
+
+  .linha-produto_div{
+    width: 90%;
+    height: 3.5vh;margin: auto;
+    display: flex;flex-direction: row;justify-content:center;
+    background-color:#b20787;
+  }
+
+  .linha-produto_label{
+    width: 20%;
+    text-align: center;
+    background-color: #008000;
+    color: #ffffff;
+    padding: 0.5vh;
+  }
+
+  .linha-produto_input{
+    width: 80%;
+  }
+
+  .linha-produto_input input{
+    width: 100%;height:3.5vh;
+    background-color: #ffffff;color:#0000ff;
+  }
+
+  .btn_label{
+    width: 6vw;
+    margin-left: 6px;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .btn_buscImg{
+    width: 5vw;
+    margin-left: 1px;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+    font-size: medium;
+    border:0px;
+  }
+
+  .btn_input{
+    width: 6vw;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .formataImg{
+    max-width: 50vw;
+    max-height: 30vh;
+    width: auto;
+    height: auto;
+    background-color: #959292;
+    padding: 3px;
+  }
+  
+  .dados_produto{
+     width: 85%;height: 85vh;margin: auto;
+     display: flex;flex-direction:row;
+     background-color: #ffffff;
+     padding: 2px 5px 2px 5px;"
+  }
+
+  .dados_itens{
+    width: 50%;height: 80vh;margin: auto;
+    background-color: #ffffff;
+  }
+
+  .dados_imagens{
+    width: 50%;height: 80vh;margin: auto;
+    background-color: #ffffff;"
+  }
+
+  .escolheficheiro_{
+        width: 95%;height: 52vh;margin: auto;
+        background-color: #cacecb;
+        margin-top: 6px;
+        padding: 10px;
+    }
+
+</style>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<style>
+    .avisoAlerta_{
+        width: 80%;
+        font-size: larger;
+        font-weight: 100;
+        margin-top: 14px;
+        border:1px solid cornsilk;
+        text-align: center;margin-top: 6px;
+        text-align: center;
+        margin-left: 10%;
+    }
+
+    .ativaModalResposta_{
+        width: 80%;height: 7vh;margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 1.5vh;
+    }
+    .buttonAlerta_{
+        width: 10vw;
+        border-radius: 6px;
+        background-color: #04bb32;
+        color:#ffffff;margin: auto;
+    }
+</style>
+<style>
+     /*TABELA DE CORES */    
+   .tabelaEdit{
+        position:absolute;
+        right:10px;
+        margin-top: 1vh;
+        width: 20%;
+        height: 85vh;
+        border:solid #cccccc 2px;display: none;
+        background-color: #f20404;
+        padding: 6px;
+    }
+
+    .CoresRow{
+       width: 80%;height: 3vh;margin: auto;background-color: #ffffff;padding: 0px;
+       margin-top: 5px;display: flex;flex-direction: row;border: 0px #ffffff;
+    }
+
+    .rowCoresCodigo{
+      width: 40%;height: 2.8vh;margin: auto;background-color: #ffffff;text-align: center;
+    }
+
+    .rowCoresCodigo input{
+        padding-left: 3px;padding-right: 3px;border: 0px;
+    }
+
+    /* atualizado 24-07-2003 */
+    .row_CoresCor{
+       width: 60%;height: 2.8vh;margin: auto;background-color: #ffffff;border: 0px;
+    }
+
+    /* atualizado 24-07-2003 */
+    .row_CoresCor button {
+        width: 100%;height: 2.8vh;margin: auto;background-color: transparent;
+    }
+
+    /* atualizado 24-07-2003 */
+    .rowCores input{
+       text-align: center;width: 100%;height:2.8vh;
+    }
+
+    .row_line{
+        width: 100%;height: 5px;margin: auto;background-color: #8d8a8a;margin: 10px 0px 5px 0px;
+    }
+
+    .msgSpan{
+        width: 50%;height: 15vh;margin: auto;
+        position: absolute;
+        z-index: 1000;
+        top: 50;
+        left:25%;
+        display: none;
+        text-align: center;
+        padding-top: 0.5vh;
+        border: #035384 2px solid;
+        background-color: #bcb7b7;
+    }
+
+    .id_span{
+        color:#ffffff;font-weight: 100;margin:10px 0px 0px 20px;padding: 10px;font-size: medium;
+    }
+    
+</style>
+
+<div id="nucleo" style="width: 98%;height: 90vh;margin: auto;margin-top:9.1vh;background-color: #ffffff;color:#a39d9d">
+    {{!-- ...................Título da page........................................ --}}
+    <div id="tituloPage" class="titulo_page">
+            <label id="labelControl" class="label_control" >1</label>
+            <label id="titulo_Handlebars" class="handlebars" >Descrição do produto :"roupa_insere-foto,{ layout:'lojista/roupa-coloca-foto.handlebars',produto:r7,dados:dados,especie:especie}"</label>
+    </div>
+    <div id="escolheFicheiro" style="width: 30%;height: 55vh;margin: auto;display:none;float: left;position: absolute;top:2vh;right: 10px; z-index: 2000;background-color: #ffffff;">
+            <form action="/roupa/upload" id="idfile" method="post" enctype="multipart/form-data" class="escolheficheiro_">
+                <div style="display: flex;flex-direction: row;justify-content: center;">
+                    <div style="width: 90%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+                    <div style="width: 10%;height: 4vh;margin: auto;background-color: #008000;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;color: #ffffff;">
+                         <button type="button" style="background-color: #008000;color:#ffffff;font-size: larger;font-weight: 200;border: 0px;" onclick="EscondeImg()">X</button>
+                    </div>
+                </div>     
+                <div >
+                    <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                    <input type="text" id="idProdutoDefault" name="idProduto" value="{{vitrine._id}}" style="display:none;background-color: #06eb1d;color:#ffffff;">
+                    <input type="text" id="idCorFoto" name="nameLoja_id" style="display:none;background-color: #f35906;color:#ffffff;font-weight: 100;" value="{{vitrine.loja_id}}">
+                    <input type="text" id="idCorFoto" name="idCorFoto" style="display:none;background-color: #f35906;color:#ffffff;font-weight: 100;" value="{{cores._id}}">
+                    <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#ff7300;background-color: #0f0202;" value="{{ponto}}">
+                    <input type="text" id="idPosicaoImg" name="PosicaoImg" style="display:none;color:red;background-color: #0b0bc9;" value="">
+                </div>
+                <div style="display: flex;flex-direction: column;background-color: #ffffff;width: 90%;height:42vh;margin: auto;align-items: center ;z-index: 10;margin-top: 15px;padding: 10px;">
+                   
+                        <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color: #ffffff;padding: 10px;">
+                           <img id="imgPreviewA" src="" alt="" class="" width="100%" height="" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;height: 37vh;"/>
+                        </div>
+                        <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                           <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                        </div>
+                </div> 
+            </form>
+     </div>
+    {{!-- ...................Dados do produto...................................... --}}
+    {{!-- {{vitrine}} --}}
+    <div id="DadosProduto" class="dados_produto" >
+        <div id="DadosProduto_Itens" class="dados_itens" >
+                <div class="" style="width: 72%;height: 2.8vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                    <h6 style="font-size: medium;">produto </h6>
+                </div>
+                <input id="IDnumberCor" value="" style="background-color: #ff00dd;display: none;">
+                <div id="id_id" class="linha-produto" >
+                    <div class="linha-produto_div">
+                        <div class="linha-produto_label" >
+                            <label class="btn_label" >_Id :</label>
+                        </div>
+                        <div class="linha-produto_input" >
+                            <input id="idprodut_id" value="{{vitrine._id}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>  
+                </div>
+                <div id="codigo" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">Código :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_codigo" value="{{vitrine.codigo}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>  
+                </div>
+                <div id="id_descricao" class="linha-produto" >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">descrição :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_descricao" value="{{vitrine.descricao}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_detalhe" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">detalhe :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_detalhe" value="{{vitrine.complete}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_tecido" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">tecido :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_tecido" value="{{vitrine.tecido}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_artigo" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">artigo :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_artigo" value="{{vitrine.artigo}}" style="background-color: #b20787;color:#ffffff;"  disabled>
+                        </div>
+                    </div>       
+                </div>
+                <div id="separador_1" style="width: 72%;height: 3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                          <h6>imagens do produto</h6>
+                </div>
+                <div id="idImgMain" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <button  class="btn_buscImg" onclick="buscImg('front')" >img front ::</button>
+                        </div>
+                        <div class="linha-produto_input" >
+                            <input id="idproduto_urlfront" value="{{cores.urlfront}}" style="background-color: #2307b2;color:#ffffff;">
+                        </div>
+                    </div>       
+                </div>
+                <div id="urlleft" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <button  class="btn_label" onclick="buscImg('left')" >img left</button>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_urlleft" value="{{cores.urlleft}}" style="background-color: #b20787;color:#ffffff;">
+                            </div>
+                        </div>       
+                    </div>
+                <div id="urlback" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label" >
+                                <button  class="btn_label" onclick="buscImg('back')" >img back</button>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_urlback"  value="{{cores.urlback}}" style="background-color: #b20787;color:#ffffff;">
+                            </div>
+                        </div>       
+                    </div>
+                    {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                    <div id="urlright" class="linha-produto" style="" >
+                        <div class="linha-produto_div" style="" >
+                            <div class="linha-produto_label">
+                                <button class="btn_label" onclick="buscImg('right')" >img right</button>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_urlright" value="{{cores.urlright}}" style="background-color: #b20787;color:#ffffff;" >
+                            </div> 
+                        </div>       
+                    </div>
+                {{!-- <div style="width: 72%;height: 6px;margin: auto;background-color: #0505f1;"></div> --}}
+                <div id="separador_2" style="width: 72%;height: 3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                    <h6>define a cor </h6>
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="corBack" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            {{!-- <label  class="btn_label" style="color: red;width: 90%;">cor front:</label> --}}
+                            <button  class="btn_buscImg" onclick="buscCor()" >cor front ::</button>
+                        </div>
+                        <div id="dividCores" class="linha-produto_input" style="display: block;">
+                            <input  value="{{cores.corback}}">
+                        </div>
+                    </div>
+                    
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div style="width: 72%;height: 14vh;margin: auto;background-color: #dfdfe2;display: none;">
+                       <div style="width: 50%;height: 12vh;margin: auto;background-color: #035384;margin-top: 4vh;padding: 10px;">
+                        <form action="/roupa/tabelacores"  method="POST" enctype="application/x-www-form-urlencoded" style="background-color:yellowgreen;width: 100%;border-radius: 6px;display: block;height: 10vh;">
+                                    <input id="codigo-produto" name="codigo"  value="{{vitrine._id}}" style="background-color: #00ff40;display:block;"  >
+                                    <input id="idproduto-corback" name="cor" value="{{cores.corback}}"  style="background-color:#00ff40">
+                                    <button id="idbtn-tabelacor" type="submit" style="width: 120px;height: 4vh;background-color: #00ff40;">tabela cores</button>
+                        </form>
+                     </div>     
+                </div>
+        </div>
+        <div id="DadosProduto_Imagens" class="dados_imagens" >
+            <div class="idFromProdut_div_" style="margin-bottom: 1.5vh;text-align: center;color: #00ff40;margin-bottom: 5vh;" >
+                <h6 style="font-size: medium;color: #026e1d;">imagens do produto</h6>
+            </div>
+            <div style="width: 100%;height: 35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;">
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;">
+                      <img  id="imgfront" class="formataImg" src="{{cores.urlfront}}">
+                 </div>
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;">
+                     <img id="imgleft" class="formataImg" src="{{cores.urlleft}}">
+                 </div>
+            </div>
+            <div style="width: 75%;height: 6px;margin: auto;background-color: #c4c4c7;"></div>
+            <div style="width: 100%;height: 35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;">
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;">
+                    <img id="imgback" class="formataImg" src="{{cores.urlback}}">
+                 </div>
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;">
+                    <img id="imgright" class="formataImg" src="{{cores.urlright}}">
+                 </div>
+            </div>
+            <div id="divBtn" style="width: 100%;height: 30vh;margin: auto;background-color:black;display:flex;flex-direction: row;justify-content: center;margin-top: 3vh;display: none;">
+                {{!-- <form action="/roupa/buscando_editando_size" method="POST"  enctype="application/x-www-form-urlencoded" style="display: block;"></form> --}}
+                <form action="/roupa/visualizar-result"  method="POST" enctype="application/x-www-form-urlencoded" style="background-color:transparent;width: 100%;border-radius: 6px;">
+                       <input id="idProduto" name="NamevalorId" value="{{vitrine._id}}" style="display: none;">
+                       {{vitrine._id}}
+                       <button id="idBtnVisualizar" type="submit" style="display: none;background-color: #024378;color: #ffffff;border-radius: 6px;width: 100%;border:0px">Visualizar </button>
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>
+
+
+<script>
+
+// Torna o field descrição com fundo roxo e focado   
+function primefoco(){
+    // Vai buscar os elementos que compoem as core primária
+    buscarElement_cores()
+    // Verifica se todas as imagens foram inseridas para posterior mostragem do botão visualizar
+    let X;
+    //...................................................
+    let n1=document.getElementById("idproduto_urlfront");
+    X=n1.value;
+    X=X.substring(0,7);
+    if(X=='http://'){
+       n1.style.backgroundColor='#1805c0';
+       n1.style.color="#ffffff";
+       n1.focus();
+       return     
+    }
+    //.......................................................
+    
+    //.......................................................
+    return
+    let n3=document.getElementById("idproduto_urlback");
+
+    if(n3.value!=null){
+        X=n3.value;
+        X=X.substring(0,7);
+        if(X=='http://'){
+        n3.style.backgroundColor='#1805c0';
+        n3.style.color="#ffffff";
+        n3.focus();     
+        return
+        }
+    }    
+    //.......................................................
+    //idproduto_right
+    let n4=document.getElementById("idproduto_urlright");
+    if(n4.value!='null'){
+        X=n4.value;
+        X=X.substring(0,7);
+        if(X=='http://'){
+        n4.style.backgroundColor='#1805c0';
+        n4.style.color="#ffffff";
+        n4.focus();     
+        return
+        }
+    }    
+    //.......................................................
+    document.getElementById("idBtnVisualizar").style.display="block";
+}
+</script>
+
+<script>
+
+
+
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+
+// Essa rotina recebe as alterações para EDITA DETALHE DO PRODUTO 
+// Essa rotina muda o ponteiro para o input seguindo que se queira alterar o detalhe do produto MAIN 
+function focaInput(n){
+    return
+    console.log('vr de foca',n)
+    //................................................
+    // Se não é o final então pula para o seguinte e muda o fundo para a amarelo
+    if (n!=="final"){
+        document.getElementById(n).style.backgroundColor="yellow"
+        document.getElementById(n).focus();
+    }else{
+        // Se chegou ao final então chama o model para confirmar e alterar o registro
+        let a=document.getElementById("iddetalhe-tamanho").value;
+        //.............................................................
+        document.getElementById("numberTamanho").value=a;
+        let b=document.getElementById("iddetalhe-qte").value;
+        //............................................................
+        document.getElementById("numberQte").value=b;
+        let c=document.getElementById("iddetalhe-pcusto").value;
+        console.log('vr de c',c)
+        //...............................................................
+        document.getElementById("EditaDetalhe").style.display="block";
+        let x=document.getElementById("zero");
+        //x.click()
+    }
+ }
+
+//Essa rotina
+
+
+// Essa rotina esconde a FORM " Selecione a fotografia " que contém o FILEA
+function EscondeImg(){
+    document.getElementById("escolheFicheiro").style.display="none" ;
+ }
+
+</script>
+
+<script >
+//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+function OcultaImg(){
+    document.getElementById("MostraImageDetalheProduto").style.display="none"
+}
+
+let fileImgA=document.querySelector('#fileA');
+//.............................................
+const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        console.log('linha 398')
+        document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+            console.log('linha 405')
+            document.getElementById("ladoLoadImage").style.display="block";
+            document.getElementById("menu-modal").style.display="block";
+            document.getElementById("Up01").style.visibility="visible";
+          }
+          reader.readAsDataURL(selecledFile);
+    });
+
+//function loadImage(n){
+//    try{
+//        console.log(4)
+//        document.getElementById("escolheFicheiro").style.display="block";
+//        console.log(4)
+      //  document.getElementById("idPosicaoImg").value=n;
+//        console.log(4)
+       // document.getElementById("idSpan").innerHTML=n;
+//        console.log(4)
+//    }catch(e){
+//        console.log(e)
+//    }
+//}
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+function gravarCores(){
+    return
+    let g=document.querySelectorAll('.rowCoresCodigo');
+    console.log('dentro !!!!')
+    let n1=g.length;
+    //console.log(' [ 5138 ] ',n1)
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+
+    for(let i=0;i<n1;i++){
+        let b= g[i]
+        let nomecor=b.firstElementChild;
+        let codigocor=b.lastElementChild;
+        console.log(nomecor.value);
+        console.log(codigocor.value);
+        let r3=nomecor.value;
+        let r4=codigocor.value;
+        //////////////////////////////////////////////////////////////////
+        let N=r3 + ':' + r4;
+        console.log('');
+        console.log(N);
+        console.log('');
+        try{
+            fetch(`${baseApiUrl}` + `/roupa/tablecor-gravar/${N}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response =>{
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                    console.log(json)
+                    })
+                    .catch((error)=>{
+                    console.log(error);
+                    })
+        }catch(e){
+            console.log(e);
+        }
+    }
+}
+
+
+function buscarElement_cores(){
+   let w1=document.getElementById("IDnumberCor").value;
+   console.log(w1);
+   let e=w1.length;
+   //................................................
+   // Se não numbercor ainda precisa definir uma cor
+   if (e!=24){
+      let f=document.getElementById("codigo-produto");
+      f.style.backgroundColor="yellow";
+      f.focus(); 
+   }else{
+      buscarDados(w1)  
+   }
+
+   function  buscarDados(n){
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        try{
+            fetch(`${baseApiUrl}` + `/roupa/buscarCores-elements/${n}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response =>{
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                       console.log('[960]',json)
+                       let H=json;
+                       let a=document.getElementById('idproduto-corback');
+                       a.value=H.corback;
+                       a.style.backgroundColor=H.corback;
+
+                       let b=document.getElementById("idproduto_corinput");
+                       b.value=H.corinput;
+                       b.style.backgroundColor=H.corinput;
+
+                       let c=document.getElementById("idproduto_tamanho");
+                       let E=H.especificacao;
+                       console.log('[972] qte',E[0].qte)
+                       console.log('[973] vr tamanho :',E[0].tamanho)
+                       c.value=E[0].tamanho;
+                       //c.style.backgroundColor=H.especificacao.tamanho;
+
+                       let d=document.getElementById("idproduto_qte");
+                       d.value=E[0].qte;
+                       //d.style.backgroundColor=H.especificacao.qte;
+
+                    })
+                    .catch((error)=>{
+                       console.log(error);
+                    })
+        }catch(e){
+            console.log(e);
+        }
+
+   }
+    
+}
+
+function buscCor(){
+    console.log('bravo!')
+    let r=document.getElementById("idbtn-tabelacor");
+    r.click();
+}
+
+function buscImg(n){
+                // Essa rotina abre o Ficheiro para gravar uma imagem do produto ou do detalhes do produto
+                //......................................................
+                document.getElementById('idSpan').innerHTML=n;
+                // idLocalImagem indica se a foto é principal ou complemento
+                //document.getElementById("idLocalImagem").value=2;
+                // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+                document.getElementById("idPosicaoImg").value=n;
+                //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+                document.getElementById("escolheFicheiro").style.display="block";
+                //...............................................................
+            }
+
+primefoco()
+
+function lixo(){
+        //function closeQte(){
+        //   document.getElementById("msgQte").style.display="none";
+        //   document.getElementById("idproduto_qte").style.backgroundColor="red";
+        //   document.getElementById("idproduto_qte").style.color='white';
+        //   document.getElementById("idproduto_qte").value="";
+        //   document.getElementById("idproduto_qte").focus();
+        //}
+
+        function digoSimCusto(n){
+            console.log("ordem 1" )
+            // pega o valor de SIM
+            let valor =document.getElementById("idspan1").innerHTML;
+            document.getElementById("idspan1").value="";
+            // repassa para custo, muda a cor e avança para preco a vista
+            document.getElementById("idproduto_custo").value=valor;
+            document.getElementById("custoId").value=valor;
+            //....................................................................
+            document.getElementById("idproduto_custo").style.backgroundColor='#1805c0';
+            document.getElementById("idproduto_custo").style.color="white";
+            document.getElementById("msgSpan1").style.display="none";
+            
+            document.getElementById("idproduto_vista").focus();
+        }
+
+        function digoSimVista(n){
+            // pega o valor de SIM
+            let valor =document.getElementById("idspan2").innerHTML;
+            document.getElementById("idspan2").value="";
+            // repassa para custo, muda a cor e avança para preco a vista
+            document.getElementById("idproduto_vista").value=valor;
+            document.getElementById("vistaId").value=valor;
+            document.getElementById("idproduto_vista").style.backgroundColor='#1805c0';
+            document.getElementById("idproduto_vista").style.color="white";
+            document.getElementById("msgSpan2").style.display="none";
+            document.getElementById("idproduto_prazo").focus();
+        }
+
+        function digoSimPrazo(n){
+            // pega o valor de SIM
+            console.log(88)
+            let valor =document.getElementById("idspan3").innerHTML;
+            document.getElementById("idspan3").value="";
+            // repassa para custo, muda a cor e avança para preco a vista
+            document.getElementById("idproduto_prazo").value=valor;
+            document.getElementById("prazoId").value=valor;
+            document.getElementById("idproduto_prazo").style.backgroundColor='#1805c0';
+            document.getElementById("idproduto_prazo").style.color="white";
+            document.getElementById("msgSpan3").style.display="none"
+            document.getElementById("idproduto_page").focus();
+        }
+
+        function closeAnotar(){
+        document.getElementById("msgAnotar").style.display="none";
+        document.getElementById("idproduto_artigo").style.backgroundColor="red";
+        document.getElementById("idproduto_artigo").style.color='white';
+        document.getElementById("idproduto_artigo").value="";
+        document.getElementById("idproduto_artigo").focus();
+        }
+
+        function closeTamanho(){
+        document.getElementById("msgTamanho").style.display="none";
+        document.getElementById("idproduto_tamanho").style.backgroundColor="red";
+        document.getElementById("idproduto_tamanho").style.color='white';
+        document.getElementById("idproduto_tamanho").value="";
+        document.getElementById("idproduto_tamanho").focus();
+        }
+
+        function colaImg(n){
+            //Essa function trabalha com mousedown para mostrar a img
+            let palavra=n;
+            document.getElementById("MostraImageDetalheProduto").style.display="block";
+
+            document.getElementById("ImgDone").src=n;
+        }
+
+        function descolaImg(){
+            //Essa função trabalha com mouse_uo para limpar a img
+            console.log("1840")
+            //document.getElementById("UpDownImage").style.display="none";
+            document.getElementById("MostraImageDetalheProduto").style.display="none";
+            document.getElementById("ImgDone").src="";
+        }
+       //<><><><><><><><><><><><><><><><><>
+     //  function pegaImage(n){
+     //           //Essa rotina open o divisão para fazer o Upload da Image
+     //           console.log(66666)
+     //           let palavra=n;
+     //           let pos=palavra.search('=:');
+     //           //let pos;
+     //           let numero;
+     //           numero=palavra.substring(0,pos);
+                //..............................................
+     //           palavra=palavra.substr((pos+2));
+     //           palavra=palavra.substr(4);
+     //           pos=palavra.search("=:");
+     //           let url=palavra.substring(0,pos)
+                //.......................................................
+     //           palavra=palavra.substring((pos+2),palavra.lenght);
+     //           let id=palavra.substring(0,7);
+     //           palavra=id + '-label0-0'
+     //           let id_detalhe=document.getElementById(palavra);
+     //           id_detalhe=id_detalhe.value;
+     //          console.log('--- : ',id_detalhe)
+     //           let r=document.getElementById('idDetalheFoto');
+     //           console.log(r)
+     //           r.value=id_detalhe
+                //......................................................
+     //           document.getElementById('idSpan').innerHTML=url;
+                //........................................
+                // idLocalImagem indica se a foto é principal ou complemento
+     //           document.getElementById("idLocalImagem").value=2;
+     //           document.getElementById("idLocalImagem").style.backgroundColor='white';
+                // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+     //           document.getElementById("idPosicaoImg").value=url;
+                //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+     //           document.getElementById("escolheFicheiro").style.display="block";
+                //................................................................
+     //  }
+
+       function pegaImageX(n){
+                        //Essa rotina open o divisão para fazer o Upload da Image
+                        let palavra=n;
+                        let pos=palavra.search('=:');
+                        let numero;
+                        numero=palavra.substring(0,pos);
+                        //..............................................
+                        palavra=palavra.substr((pos+2));
+                        palavra=palavra.substr(4);
+                        pos=palavra.search("=:");
+                        let url=palavra.substring(0,pos)
+                        //.......................................................
+                        palavra=palavra.substring((pos+2),palavra.lenght);
+                        let id=palavra.substring(0,7);
+                        palavra=id + '-label0-0'
+                        let id_detalhe=document.getElementById(palavra);
+                        id_detalhe=id_detalhe.value;
+                        console.log('--- : ',id_detalhe)
+                        let r=document.getElementById('idDetalheFoto');
+                        console.log(r)
+                        r.value=id_detalhe
+                        //......................................................
+                        document.getElementById('idSpan').innerHTML=url;
+                        //........................................
+                        // idLocalImagem indica se a foto é principal ou complemento
+                        document.getElementById("idLocalImagem").value=2;
+                        document.getElementById("idLocalImagem").style.backgroundColor='white';
+                        
+                        document.getElementById("idPosicaoImg").value=url;
+                        
+                        document.getElementById("escolheFicheiro").style.display="block";
+                        //................................................................
+        }
+
+    //    function GravaImagem(n){
+    //            // Essa rotina grava imagem do detalhes
+    //            console.log('vr de N',n)  
+    //            let id_detalhe=document.getElementById("idNvSizeIdDetalhe").value;
+    //            console.log('vr de : ??', id_detalhe)
+    ///            let b=id_detalhe;
+    ///            let q=document.getElementById("idDetalheFoto");
+    //            console.log ('vr de q',q)
+    //            q.value=b;
+    //            let x=document.getElementById("modalContent");
+    //            console.log(x)
+    //            let z=x.style; 
+    //            console.log('vr de z',z)
+    //            let r=400;
+    //            document.getElementById('idSpan').innerHTML=n;
+    //            document.getElementById("idLocalImagem").value=2;
+    //            document.getElementById("idPosicaoImg").value=n;
+    //            document.getElementById("modalContent").style.width=2*r;
+    //          document.getElementById("escolheFicheiro").style.display="block" ;       
+    //     }
+
+
+
+         
+
+}
+
+</script>
+
+
+
+
+
+
+
+     
+

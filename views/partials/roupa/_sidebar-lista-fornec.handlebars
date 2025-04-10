@@ -1,0 +1,24 @@
+ <div id="menu-lateral" style="width: 8%;margin: auto;background-color: chartreuse;height: 100vh;float: left;">
+    <div style="display: flex;flex-direction: column;justify-content: space-around;justify-items: center;">
+        <div style="width:100%;height: 50vh;margin: auto;background-color: #b30909;display: flex;flex-direction: column;padding-bottom: 10vh;">
+            <div id="SelectFornec" style="width: 80%;height: 10vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-content: center;">
+                <label style="color: #ffffff;margin-top: 3vh;margin: auto;">Selecione um fornecedor</label>
+                <select id="select_fornec" style="width: 100%;margin: auto;background-color: #ffffff;font-size: medium;height: 3vh;">
+                    {{#fornec}}
+                        <option class="linhabranco"></option>
+                        <option value={{this._id}}>{{this.marca}}</option>
+                    {{/fornec}}
+                </select>
+            </div>  
+        </div>
+        <div style="width:100%;height: 50vh;margin: auto;background-color: #000000;">
+                                            <div style="width: 80%;height: 10vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-content: center;">
+                <label style="color: #ffffff;margin-top: 3vh;margin: auto;">Escolha o artigo :</label>
+                
+                <select style="width: 100%;margin: auto;background-color: #ffffff;font-size: medium;height: 3vh;">
+                    <option value=""></option>
+                </select>
+            </div>  
+        </div>
+    </div>
+</div>

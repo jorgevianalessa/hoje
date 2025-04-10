@@ -1,0 +1,415 @@
+{{!-- <div style="background-color: #31015d;width:99%;height:100vh;margin:auto;text-align: center;margin-top:-20px;">
+     <div style="margin-top:20px;">
+        <h1 style="color:#ffffff ;">Informática</h1>
+     </div>
+      <div style="width:100%;height:1vh;background-color:#ffffff ;"></div>
+     <div style="margin-top:60px;">
+        <h1 style="color:#ffffff ;">Em implantação</h1>
+     </div>
+     <div style="margin-top:60px;">
+        <h1 style="color:#ffffff ;">Informações e Sugestões: (27) 99942-6272</h1>
+     </div>
+</div> --}}
+<style>
+   ._main{
+       background-color: #0454bd;width:99%;height:175vh;margin:auto;text-align: center;margin-top:-20px;
+   }
+
+   .titulo-main{
+      width:100%;height:8vh;margin:auto ;background-color:#0454bd ;float:left ;text-align: center;padding:12px;
+   }
+
+   .titulo-seccao{
+      width:100%;height:5vh;margin:auto ;background-color:#f4f5f7 ;float:left ;text-align: center;padding:6px;
+   }
+
+   .titulo-seccao h1{
+      color:#031475;font-size:1.5rem;
+   }
+
+   .lateral-left{
+      width:15%;height:160vh;margin:auto ;background-color:transparente;float:left ;border-right: solid 3px #ffffff;padding-top: 12px;
+   }
+
+   .lateral-left-tituloSecao{
+      widht:100%;height:5vh;background-color:#5341ee;text-align:center;padding-top: 1vh;color: #ffffff;
+   }
+
+   .lateral-left-menu{
+      width:100%;height:35vh;margin: auto;background: transparente;overflow: auto;color:#ffffff;margin-top: 3vh;
+   }
+
+   .lateral-left-serviços{
+      widht:100%;height:3vh;background-color:transparente;text-align: center;margin-top: 2vh;
+   }
+
+   .lateral-left-menu ul{
+      background-color:#20b010 ;width:90%;margin: auto;padding-top:2vh;text-align:start;overflow: auto;
+   }
+
+   .lateral-left-menu li{
+      margin-left:-10px;list-style: none;background-color: transparente;margin-top: 0.5vh;border-bottom: 2px solid #ffffff;
+   }
+
+   .lateral-right{
+      width:20%;height:160vh;margin:auto ;background-color:transparente;float:left;border-left: solid 3px #ffffff;
+   }
+
+   .central{
+      width:65%;height:160vh;margin:auto ;background-color:transparente;float:left;display: flex;flex-direction: column;
+   }
+
+   .painelPubli{
+      width:100%;height:55vh;margin:auto ;background-color:#0454bd ;
+      float:left ;text-align: center;padding:2%;margin-bottom: 10px;margin-top: 10px;
+   }
+
+   .publi-caixa{
+      width:100%;height:50vh;margin:auto;background-color: #ffffff;display:flex ;flex-direction: row;justify-content: space-between;padding: 2px;
+   }
+
+   .publi-caixa-setaLeft{
+      width:4%;height:50vh;background-color:transparente;color:#ffffff;
+   }
+
+   .publi-caixa-setaCentro{
+      width:90%;height:50vh;background-color:transparente;
+   }
+
+   .quadros{
+      width:99%;height:50vh;margin:auto;background-color:#11057a;display:none;
+   }
+
+   .publi-caixa-setaRight{
+      width:4%;height:50vh;background-color:transparente;color:#ffffff;
+   }
+
+   .painelFiltro{
+      width:100%;height:10vh;background-color:transparente ;margin-top:20px ;border: #2ec813 2px solid;
+   }
+
+   .painelLoja{
+      width:100%;height:90vh;background-color:#d2b80c;margin-top:1vh;display: inline;color:#ffffff;overflow: auto;margin-bottom:2vh ;
+   }
+
+   .footer{
+      width:100%;height:6vh;margin:auto;background-color:#d405a4;text-align:start;padding:5%;color:#ffffff;margin-top: 165vh;clear: both;
+   }
+</style>
+<div class="_main">
+   <div class="titulo-main">
+            <h1 style="color:#ffffff;font-size:2rem;">Seja bem-vindo as compras!</h1>
+   </div>
+    <div class="titulo-seccao">
+            <h1 >Seção de : {{seg}}</h1>
+    </div>
+   <div class="lateral-left">
+        <div class="lateral-left-tituloSecao">
+                      <h6>secções</h6>
+        </div>
+       <div class="lateral-left-menu">
+            <ul id="listMenu">
+             
+            </ul>
+       </div>
+
+        <div style="width:100%;height:40vh;margin: auto;background: transparente;overflow: auto;color:#ffffff;padding-top: 3vh;">
+            <div class="lateral-left-tituloSecao">
+                      <h6>Serviços</h6>
+            </div>
+            <div class="lateral-left-serviços" >
+               <ul style="background-color:#04633a ;width:90%;margin: auto;padding-top:2vh;text-align:start;overflow: auto;height:40vh ;">
+                  <li style="margin-left:6px;list-style: none;">Costureiras</li>
+                  <li style="margin-left:6px;list-style: none;">Alfaiate</li>
+                  <li style="margin-left:6px;list-style: none;">Sapateiro</li>
+                  <li style="margin-left:6px;list-style: none;">Sapataria</li>
+                  <li style="margin-left:6px;list-style: none;">Lavanderia</li>
+                  <li style="margin-left:6px;list-style: none;">Fotografos</li>
+                  <li style="margin-left:6px;list-style: none;">Aluguel roupa</li>
+                  <li style="margin-left:6px;list-style: none;">Outros</li>
+               </ul>
+            </div>
+       </div>
+   </div>
+   <div class="central">
+      <div class="painelPubli">
+          <input type="text" id="refer" value="{{seg}}" style="display:none;">
+          <div class="publi-caixa">
+              <div class="publi-caixa-setaLeft">
+                 <a class="prev" style="text-decoration: none;cursor:pointer;"  onclick="SlidesLeft(-1)">
+                  <div style="margin-top:22Vh;height:3vh;width:100%;background-color: hotpink;">
+                      ❮
+                  </div>
+                  </a>
+              </div>
+              <div class="publi-caixa-setaCentro">
+                  <div id="quadro1" class="quadros" style="background-color:#0e0f0d;display: block;">
+                          <h1 style="color:#ffffff ;">1</h1>
+                  </div>
+                  <div id="quadro2" class="quadros" style="background-color:#cc9a03;">
+                                 <h1 style="color:#ffffff ;">2</h1>
+                  </div>
+                  <div id="quadro3" class="quadros" style="background-color:#20b010;">
+                                 <h1 style="color:#ffffff ;">3</h1>
+                  </div>
+                  <div id="quadro4" class="quadros" style="background-color:#b01088;">
+                                 <h1 style="color:#ffffff ;">4</h1>
+                  </div>
+              </div>
+               
+              <div class="publi-caixa-setaRight">
+                 <a class="prev" style="text-decoration: none;cursor:pointer" onclick="SlidesRight(1)" >
+                     <div style="margin-top:22Vh;height:3vh;width:100%;background-color: hotpink;">
+                     ❯
+                     </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div class="painelFiltro">
+             <h5>Cidades</h5>
+      </div>
+      <div class="painelLoja">
+           <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 3338-4336
+               </address>
+           </div>   
+             <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>   
+           <div style="width:50%;height:10vh;background-color:#2ec813 ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;color:red">
+                  loja:Móveis Madevime<br>
+                  end:Avenida Vitória 3498 - Bento Ferreira<br>
+                  tel: 27 000000
+               </address>
+           </div> 
+            <div style="width:50%;height:10vh;background-color:#0e0f0d ;margin-top:2px ;float:left;">
+               <address style="float:left;margin-left:10px ;text-align: left;padding-top: 3px;">
+                  loja:Móveis Danúbio<br>
+                  end:Avenida Fernando Ferrari 4567 - Goiabeiras<br>
+                  tel: 27 3345-0987
+               </address>
+           </div>    
+      </div>
+   </div>
+   <div class="lateral-right">
+
+   </div>  
+   <div class="footer">
+          <h1 style="background-color:#5341ee ;">Contatos:</h1>
+   </div>
+</div>
+
+<script>
+  var control=1;
+  var n=1;
+  function buscmenu(){
+      let g=document.getElementById("refer").value;
+      fetch(`http://localhost:8085/site/segmento_01/${g}`,{method: "GET",
+                                headers: {"Content-type": "application/json; charset=UTF-8"}
+                                })
+                                .then(response => response.json())
+                                    
+                                .then((json) => {
+                                    const n=json
+                                    console.log(n)
+                                    let y=Object.values(n).length;
+                                    //console.log(y)
+                                    for(i=0;i<y;i++){
+                                      let A=json[i]
+                                      console.log(A)
+                                      const node = document.createElement("li");
+                                      const textnode = document.createTextNode(A);
+                                      node.appendChild(textnode)
+                                      node.setAttribute("onclick","buscaRoupa(" + "'" + A + "'" + ")")
+                                      document.getElementById("listMenu").appendChild(node);
+                                    }
+                                })
+  } 
+
+  function SlidesLeft(){
+     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     if(n==2){
+         document.getElementById("quadro1").style.display='block';
+         document.getElementById("quadro2").style.display='none';
+         document.getElementById("quadro3").style.display='none';
+         document.getElementById("quadro4").style.display='none';
+         n=1;
+     }else if(n==3){
+         document.getElementById("quadro1").style.display='none';
+         document.getElementById("quadro2").style.display='block';
+         document.getElementById("quadro3").style.display='none';
+         document.getElementById("quadro4").style.display='none'; 
+         n=2;
+     }else if(n==4){
+         document.getElementById("quadro1").style.display='none';
+         document.getElementById("quadro2").style.display='none';
+         document.getElementById("quadro3").style.display='block';
+         document.getElementById("quadro4").style.display='none';  
+         n=3;
+      }
+  }
+
+  function SlidesRight(){
+     if(n==1){
+         document.getElementById("quadro1").style.display='none';
+         document.getElementById("quadro2").style.display='block';
+         document.getElementById("quadro3").style.display='none';
+         document.getElementById("quadro4").style.display='none';
+         n=2;
+     }else if(n==2){
+         document.getElementById("quadro1").style.display='none';
+         document.getElementById("quadro2").style.display='none';
+         document.getElementById("quadro3").style.display='block';
+         document.getElementById("quadro4").style.display='none'; 
+         document.getElementById("quadro3").value=n;
+         document.getElementById("quadro3").style.backgroundColor='red'
+         n=3;
+     }else if(n==3){
+         document.getElementById("quadro1").style.display='none';
+         document.getElementById("quadro2").style.display='none';
+         document.getElementById("quadro3").style.display='none';
+         document.getElementById("quadro4").style.display='block';  
+         n=4
+     }
+  }
+
+  function buscaRoupa(h){
+     console.log(h)
+
+  }
+</script>

@@ -1,0 +1,177 @@
+ <nav class="navbar  fixed-top">
+    <div class="" style="width: 110%;margin: auto;background-color: #045ed4;padding: 2px;height:3.3rem;border-radius: 6px;" >
+               
+                <div class="btn-group" style="width:98wv;height:3rem;display: grid;grid-auto-columns: 1fr 1.5fr 1fr 2.5fr 1fr;margin-top: 1.5px;background-color: #045ed4;">
+                    <div style="grid-column:1;grid-row:1;height:2.8rem;background-color: transparent;padding:3px;">
+                        <a href="/">
+                            <img src="/images/Rotaes.png" class="logo" style="border-radius: 6px;width:100%;">
+                        </a>
+                    </div>
+                    <div id="" style="grid-column: 2;grid-row: 1;height:3rem;background-color: #055fd4;border-radius: 6px;margin-right: 2px;">
+                        <div style="display: flex;justify-content: center;align-items: center;padding: 5px;">
+                         <a href="/_site/participe/cadastro">
+                          <p style="font-size:small;color:#ffffff">Participe! , Cadastra-se! É gratis!</p>
+                         </a>    
+                        </div>
+                    </div>
+                    <div id="segmento" style="grid-column: 3;grid-row: 1;height:3rem;background-color: #045ed4;color:#ffffff;border-radius: 6px;margin-right: 2px;">
+                        <div style="display:flex;justify-content: center;align-items: center;margin-left:2px;margin-right:2px;">
+                            <h4>Segmentos</h4>  
+                        </div>
+                    </div>
+                    <div style="height:3rem;background-color: #ffffff;grid-column: 4;grid-row: 1;border-radius: 6px;margin-right: 2px;">
+                        <div style="display: flex;justify-content:center;align-items: center;background-color:#045ed4;">
+                          <div style="display: flex;align-items:flex-start;padding: 5px;float: left;background-color: #045ed4;">
+                            <label style="margin-right: 10px;color:green;" >Busca</label>  
+                          </div>  
+                          <input type="text" widht=600; placeholder="buscar item" style="float: right;"><i class="fa fa-search" style="height: 2.3rem;width: 2.3rem;color:white;border:solid black 1px;padding:2px;background-color: black;"></i>
+                        </div>
+                       
+                        
+                    </div>
+                    <div id="admin" style="grid-column: 5;grid-row: 1;height:3rem;background-color:transparent;margin-left:2px" >
+                         <div style="height:3rem;display: flex;justify-content:center;align-items: center;padding: 5px;background-color:#045ed4;border-radius:6px;color:#ffffff;">
+                             <img src="/images/admin.png" class="logo" style="border-radius: 6px;width:50%;">
+                         </div>  
+                    </div>
+                   
+                </div>
+    </div>
+    
+</nav>
+<div style="background-color: #0b59eb;margin-left:0px;height: 90vh;width: 240px;z-index:1000;float:left;display:none;" id = "menuSeg">
+       <ul style="color:#ffffff;line-height: 400%;list-style-type: none;background-color: transparente;margin-top:30px;">
+           <li>
+                <a function="on">
+                   <i class="fas fa-times" style="float: right;margin-right: 15px;"></i>
+                </a>
+                <a></a>
+           </li>
+           <li >
+               <form class="form-signin" id="formProduto" method="POST" action="#" enctype="application/x-www-form-urlencoded">
+               <i class="fas fa-hamburger" ></i>
+               <a style="color:#ffffff;margin-left:10px;"  href="/usuario/login">
+                <button id="construcao" type="button" onclick="" style="background-color: transparent;border: 0px;color:#ffffff;margin-left: 6px;">
+                        Alimentação
+                </button>
+               </a> 
+               </form>
+           </li>
+             <li >
+               <i class="fas fa-car-side" ></i>
+               <a style="color:#ffffff;margin-left:10px;"  href="/usuario/login">Automovel</a> 
+           </li>
+           <li>
+               {{!-- onclick="mostrapanel()" --}}
+               <form class="form-signin" id="formProduto" method="POST" action="/mnproduto/construcao" enctype="application/x-www-form-urlencoded">
+                <i class='fas fa-hammer'></i>  
+                 <button id="construcao" type="submit" onclick="" style="background-color: transparent;border: 0px;color:#ffffff;margin-left: 6px;">
+                     Construção civil
+                 </button> 
+               </form>
+           </li>
+            <li >
+             
+              {{!-- <a style="color:#ffffff;margin-left:10px;" href="#" >Educação</a>  --}}
+               <form class="form-signin" id="formProduto" method="POST" action="#" enctype="application/x-www-form-urlencoded">
+               <i class='fas fa-user-graduate' style='font-size:24px'></i>  
+                 <button id="construcao" type="submit" onclick="" style="background-color: transparent;border: 0px;color:#ffffff;margin-left: 6px;">
+                    Educação
+                 </button> 
+               </form>
+           </li>
+            <li >
+                <i class='fas fa-desktop'></i>
+               <a style="color:#ffffff;margin-left:10px;" href="#">Informática</a> 
+           </li>
+           <li >
+               <i class="fas fa-couch"></i>
+               <a style="color:#ffffff;margin-left:10px;" href="#">Móveis & Decoração</a> 
+           </li>
+             <li >
+               <i class="fas fa-cat"></i>
+               <a style="color:#ffffff;margin-left:10px;" href="#">Pets</a> 
+           </li>
+           <li >
+               <i class="fas fa-tshirt"></i>
+               <a style="color:#ffffff;margin-left:10px;" href="#">  Roupas</a> 
+           </li>
+           <li >
+               <i class="fas fa-ambulance"></i>
+               <a style="color:#ffffff;margin-left:10px;" href="#">Médicos</a> 
+           </li>
+           <li >
+               <i class="fa fa-fw fa-wrench"></i>
+               <a style="color:#ffffff" href="#"> Services</a>
+           </li>
+            <li >
+               <i class="fas fa-bed"></i>
+               <a style="color:#ffffff" href="#"> Turismo</a>
+           </li>
+       </ul>
+</div>
+
+<div style="background-color: #045ed4;margin-right:0px;height: 50vh;width: 240px;z-index:1000;float:right;display:none;" id = "menuadmin">
+       <ul style="color:#ffffff;line-height: 400%;list-style-type: none;background-color:transparente;margin-top:30px;">
+           <li>
+                <a function="on">
+                    <i class="fas fa-times" style="float: right;margin-right: 15px;"></i>
+                </a>
+                <a></a>
+           </li>
+           <li >
+               <i class="fas fa-umbrella" ></i>
+               <a style="color:#ffffff;margin-left:10px;"  href="/usuario/login">Administração</a> 
+           </li>
+           <li >
+               <i class="fab fa-product-hunt" ></i>
+               <a style="color:#ffffff;margin-left:10px;"  href="/usuario/loginloja">Cooperados</a> 
+           </li>
+        </ul>
+</div>
+<script>
+      document.getElementById("segmento").addEventListener("click", function(){
+            document.getElementById("menuSeg").style.display='block';
+            document.getElementById('promocao').style.display='block'
+      })
+
+      document.getElementById("admin").addEventListener("click", function(){
+            document.getElementById("menuadmin").style.display='block';
+      })
+
+      document.getElementById("menuSeg").addEventListener("mouseleave", function(){
+            console.log(888)
+            document.getElementById("menuSeg").style.display='none';
+      })
+
+       document.getElementById("menuadmin").addEventListener("mouseleave", function(){
+            console.log(888)
+            document.getElementById("menuadmin").style.display='none';
+      })
+</script>
+<script>
+
+    function mostrapanel(){
+     //document.getElementById("construcao").addEventListener("click", function(){
+           console.log(56)
+       
+            if(document.getElementById("promocao").style.display='block'){
+               console.log(1)
+               document.getElementById("promocao").style.display='none';
+               document.getElementById("paineis").style.display='block';
+
+               document.getElementById("menuSeg").style.display='none';
+            }else if (document.getElementById("paineis").style.display='block'){
+
+                console.log(2) 
+               document.getElementById("promocao").style.display='block';
+               document.getElementById("paineis").style.display='none';
+
+            }   
+      //})
+    }
+
+        
+     
+     
+</script>

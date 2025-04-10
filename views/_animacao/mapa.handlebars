@@ -1,0 +1,97 @@
+<style>
+    .ponto1{
+        margin-left: 30px;margin-top: 0px;
+    }
+
+    .ponto2{
+        margin-left: 30px;margin-top: 0px;
+    }
+
+    .ponto{
+        background-color: #f83939;
+        margin-top: 300px;
+        margin-left: 200px;
+        height: 200px;
+        z-index: 400;
+    }
+
+   
+    .btnCircle{
+        width: 60px;height: 4vh;margin: auto;background-color: #4af575;color:#ffffff;text-align: center;border-radius: 6px;
+    }
+</style>
+<div class="d-flex" style="padding: 10px;margin-top: 5.5vh;background-color: #ffffff;" >
+ <div style="position: absolute;z-index: 400;width: 300px;height: 300px;margin: auto;background-color: #f83939;bottom:50px;right:50px;display: flex;flex-direction:column;justify-content: space-around;">
+    <div style="display: flex;flex-direction:row;justify-content: space-around;">
+      <input style="width: 60px;height: 4vh;margin: auto;background-color: #bbb1bb;color:#ffffff;text-align: center;" value="10">
+      <input style="width: 60px;height: 4vh;margin: auto;background-color: #bbb1b1;color:#ffffff;text-align: center;" value="20">
+    </div>
+
+    <div style="display: flex;flex-direction:row;justify-content: space-around;">
+      <button style="width: 60px;height: 4vh;margin: auto;background-color: #4af575;color:#ffffff;text-align: center;border-radius: 6px;" value="10">10</button>
+      <button  class="btnCircle" onclick="Createcircle()" value="20">20</button>
+    </div>
+    <div>
+    <input type="color" name="" id="">
+  </div>
+ </div>
+  <div id="image_planta" style="width: 100vw;height: 100vh;margin: auto;background-color: blueviolet;background-image:url('https://amelia.nyc3.digitaloceanspaces.com/441204576f30d47cdd7e_doisbanheiros.png');background-repeat: no-repeat;background-size: cover; ;">
+        <svg id="pontohum" width="30" height="30" class="ponto1">
+            <circle  cx="15" cy="15" r="10" stroke="green" stroke-width="4" fill="white" />
+        </svg>
+  </div>
+  
+</div>
+
+<script>
+  let g=document.getElementById("image_planta")
+  
+
+  //console.log(g)
+
+  //console.log(g.offsetLeft)
+
+ g.addEventListener('click',function(e){
+
+    let l= e.clientX
+
+    let t= e.clientY
+    console.log(' ponto novo -> ',l,t) 
+    let j=document.getElementById('pontohum')
+    j.style.marginLeft=l
+    j.style.marginTop=t
+    //console.log('12',j)
+ })
+
+ 
+
+ j=document.addEventListener('mousedown',function(e){
+
+     // console.log('g ->',g.style.left)
+     // console.log('j ->',g.style.top)
+ })
+</script>
+<script>
+    function Createcircle(){
+        
+        console.log(1000)
+        const node0 = document.createElement("svg");
+        node0.setAttribute("id",'ponto2');
+        node0.setAttribute("widht",'30');
+        node0.setAttribute("height",'30');
+        node0.setAttribute("style",'margin-left:800px;margin-top:500px;height:300px;background-color:"red"');
+       // node0.setAttribute("class","ponto");
+        document.getElementById("image_planta").appendChild(node0);
+
+        const node1 = document.createElement("circle");
+        node1.setAttribute("id",'circle2');
+        node1.setAttribute("cx",'15');
+        node1.setAttribute("cy",'15');
+        node1.setAttribute("r",'10');
+        node1.setAttribute("stroke",'green');
+        node1.setAttribute("stroke-width",'4');
+        node1.setAttribute("fill",'red');
+       // node1.setAttribute("class","circle");
+        document.getElementById("ponto2").appendChild(node1);
+    }
+</script>

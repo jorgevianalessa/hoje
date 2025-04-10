@@ -1,0 +1,69 @@
+{{!Esse form cadastra os segementos}}
+<div style="background-color: #ffffff;width: 100%;height: 92.6vh;margin-top:0.5vh;">
+     {{>_msg}}
+    <div style="width: 100%;height: 4.5vh;margin: auto;background-color: #ffffff;text-align:left;margin-left: 60px;padding: 1vh;">
+        <button style="color: #df1010;">menu principal</button>
+    </div> 
+    <div id="TítuloSegmento" style="width: 100%;height: 1.8vh;text-align: center;padding: 4px;background-color: transparente;">
+         <p style="font-size: medium;color: #14dc50;">Segmentos</p>
+         <p style="text-align: center;color:#df1010;background-color:transparente;margin-top: -15px;font-size: xx-small;">_admin/admin/segmentos</p>
+    </div><br>
+    <div style="display: flex;flex-direction: row;">
+        <div id="sideA" class="sideA_" style="width: 14%;height:89vh ;margin: auto;background-color: #012a82;">
+
+        </div>
+        <div id="sideC" class="sideC_" style="width: 71.5%;height:89vh ;margin: auto;background-color: #012a82;">
+                <div id="InputCadastro" style="width: 80%;height: 22vh;margin: auto;background-color:#012a82;padding: 10px;margin-top: 3px;display: flex;flex-direction: column;justify-items: center;">
+                    <div style="background-color:#012a82;height: 18vh;">
+                                <form class="" method="post" action="/centralseg/cadastro-segmentos" style="width: 80%;height: 12vh;margin: auto;background-color: #ffffff;padding-bottom: 15px;" enctype="application/x-www-form-urlencoded">
+                                    <div style="width: 45%;background-color: #ffffff;color:#e70606;margin:auto;border-radius: 6px;margin-top: 2vh;height: 10vh;padding-top: 20px;">
+                                        <div class="">
+                                            <label class="" style="color:green" for="descritivo">Cadastro de segmento:</label>
+                                            <div class="" >
+                                              <input id="titulosegmento" name="nametitulosegmento" style="background-color: #ddd8d8;height: 3vh;margin: auto;"   keypress="gravarSegmento()">
+                                            </div>
+                                            <div class="">
+                                            <div class="" style="margin-top: 2px;height: 4vh;background-color: #df1010;height: 5vh;display: none;">
+                                                <button id="dispara" type="submit" class="btn btn-default" style="border-radius: 5px;border:1px solid #012a82;background: #ffffff;color:#ffffff;margin-top: 10px;margin-bottom: 10px;display: none;">Gravar</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div> 
+                                </form>
+                    </div>
+                    <div class="" style="margin-top: 2px;margin: auto;background-color: #ffffff;text-align: center;height: 8vh;width: 80%;">
+                        <button type="text" class="btn btn-default" style="background-color: #012a82;color:#ffffff;border-radius: 5px;" onclick="gravarSegmento()">Gravar</button>
+                    </div>
+                </div>
+                <div id="ListaSegmento" style="display:flex;flex-direction:row;justify-content: center ;background-color:transparente ;padding: 10px;height: 64vh;">
+                    <div style="width: 29%;height: 58vh;margin: auto;padding-top: 10px;padding-left: 10px;background-color:transparent;margin-top: 1vh;overflow-x: auto;">
+                        <p style="color:#ffffff;font-size: 1vw;margin-left: 1vw;">lista de segmentos</p>
+                        <div>
+                        <ul style="width: 90%;height:54vh;background-color: dodgerblue;color:#ffffff;overflow-x: auto;text-align: right;list-style: none;padding-right:30px;margin: auto;padding-top: 30px;">
+                            {{#each segmentos}}
+                                <li>{{segmento}}</li>
+                            {{/each}}
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        <div id="sideB" class="sideB_" style="width: 14%;height:89vh ;margin: auto;background-color: #012a82;">
+
+        </div>
+    </div> 
+</div>
+<script>
+ async   function gravarSegmento(){
+
+        document.getElementById('titulosegmento').style.backgroundColor="yellow";
+        let e1=document.getElementById("titulosegmento").value;
+        console.log(e1)
+        if(e1==""){
+            alert('Coloque o nome do segmento !')
+        }else{
+            document.getElementById("dispara").click();
+        }
+
+    }
+</script>

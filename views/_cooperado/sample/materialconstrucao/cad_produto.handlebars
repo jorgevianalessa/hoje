@@ -1,0 +1,1179 @@
+<style>
+.forma{
+    width: 98%;height: 90vh;margin: auto;
+    background-color:#ffffff;padding: 6px;
+    display: flex;flex-direction: column;
+}
+
+.linha{
+    display: flex;flex-direction: row;margin-bottom: 4px;background-color: #ffffff;height: 3vh;padding-top: 5px;
+}
+
+.linha label{
+    width: 100%;padding-left: 20px;font-size: small;background-color: #c410e0;height: 2.9vh;
+}
+
+.linha input{
+    width: 100%;
+}
+
+/*
+  
+*/
+
+  .rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     padding-top: .15vh;
+     background-color:#80868b;
+     color:#000000;
+  }
+
+  .rowImpar label{
+    padding-top: .2vh;
+    color:#ffffff;
+  }
+
+  .rowImpar input{
+    padding-top: .3vh;
+    background-color: #cad6cd;
+    color:#000000;
+  }
+
+  .rowImpar select{
+    background-color: #cad6cd;
+  }
+
+  .rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color:#80868b;
+     padding-top: .15vh;
+     color:#ffffff;
+ }
+
+  .rowPar label{
+     color:#ffffff;
+  }
+
+  .rowPar input{
+    padding-top: .3vh;
+    color:#ffffff;
+    margin-left: 3px;
+  }
+
+  .rowPar select{
+    background-color: #cad6cd;
+  }
+
+  
+
+  .btn_gravar{
+    width: 6vw;
+    height: 3vh;
+    border-radius: 6px;
+    background-color: #035384;color:#ffffff;
+    margin-top:0.3vh;
+    display: none;
+  }
+
+  
+
+  
+
+  .mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #033986;
+      background-position: center;
+      z-index: 1000;
+      position: absolute;left: 0;top: 0;
+  }
+
+  .barra{
+      width: 100%;height: 3.5vh;margin: auto;background-color: #033986
+  }
+
+  .barra button{
+    float: right;background-color: #033986;color: #ffffff;width: 40px;height: 3.5vh;
+  }
+
+  
+
+/**/
+
+.containerMsg{
+     background-color: #000000;
+     color:#ffffff;
+}
+
+@media only screen and (max-width: 1600px) {
+    body {
+      background-color: lightblue;
+    }
+
+    .listaEspelho{
+        background-color: lightblue;
+    }
+
+    .list_Espelho_titulo{
+        background-color:transparent;
+    }
+
+    .labelTitulo{
+        font-size: small;
+    }
+
+    .rowPar{
+        height: 3.5vh;margin-bottom: 5px;
+    }
+
+    .rowImpar{
+        height: 3.5vh;
+        margin-bottom: 5px;
+    }
+
+    .ladoLabel{
+       width: 40%;height: 42vh;margin: auto;padding: 3px;padding-right: 1px;padding-top: 6px;color:#ffffff;
+    }
+
+    .ladoInput{
+       width: 90%;height: 40vh;margin: auto;background-color:#ffffff;padding: 3px;padding-left: 1px;
+    }
+}
+</style>
+<script>
+  //busca a largura e altura da page para ajustar a tela  
+  function larguraAltura(){
+   // var x=document.getElementById("dflex").clientHeight;
+   // console.log('height : ',x)
+   // var d=document.getElementById('pegaHeight');
+   // d.innerHTML='h :' + x;
+   // d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+  // var x1=document.getElementById("myHeader").clientWidth;
+  //  console.log('width : ',x1)
+  //  var d1=document.getElementById('pegaWidth');
+  //  d1.innerHTML='w :' + x1;
+  //  d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+  // x.innerHTML=(x1/1.77)
+
+ //   var q=document.getElementById('dflex');
+ //    q.addEventListener("resize",function(){
+ //       console.log('alô!')
+ //    })
+
+}
+</script>
+<div class="d-flex forma">
+    {{!-- // Divisão do formulário para gravar produto --}}
+    <div id="formulario" class="mostraform" >
+        {{!-- <div class="barra">
+             <button onclick="closeCad()">X</button>
+        </div> --}}
+        <div id="formulario_" style="width:70%;height: 80vh;margin: auto;background-color:#ffffff;margin-top: 20vh;text-align:center;display: flex;flex-direction: row;">
+            {{!-- controla os dados  do produto a ser cadastrado --}}
+            <div id="dados" style="width: 50%;height: 78vh;margin: auto;background-color: #ffffff;justify-items: center;display: flex;flex-direction: column;">
+                <div id="dados_" style="width: 98%;height: 75vh;margin: auto;display:block;background-color: #ffffff;padding-top: 1vh;">
+                <h1 style="color:#ec07ec;font-size: small;">Cadastro de Produto</h1>
+                 <label style="font-size: large;color: #000000;">{{fornec.razao}}</label> 
+                    <div id="form_elem" style="width: 95%;height: 70vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-content: center;">
+                        <div style="width:98%;height: 68vh;margin: auto;display: flex;flex-direction: row;background-color:#ffffff;">
+                                <div id="ladoLabel" style="width: 30%;height: 60vh;margin: auto;background-color:#ffffff;padding: 3px;padding-right: 1px;">
+                                    <div class="rowPar" style="border: 2px solid  gray;">
+                                        <label >_id  :</label>
+                                    </div>  
+                                    <div class="rowImpar" style="display: block;">
+                                        <label>Marca  :</label>
+                                    </div> 
+                                    <div class="rowImpar" style="display: block;aço ">
+                                        <label>Cidade  :</label>
+                                    </div> 
+                                    <div class="rowImpar" style="display: block;">
+                                        <label>Bairro  :</label>
+                                    </div> 
+                                    <div class="rowImpar">
+                                        <label>Foto  :</label>
+                                    </div>
+                                    <div class="rowPar">
+                                        <label>Fornecedor  :</label>
+                                    </div>    
+                                    <div class="rowPar">
+                                        <label>Código  :</label>
+                                    </div>        
+                                    <div class="rowImpar">
+                                        <label>Descrição :</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label>Complemento</label>
+                                    </div>  
+                                    <div class="rowImpar">
+                                        <label>Material</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label style="font-size: small;">Custo</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label style="font-size: small;">Venda vista</label>
+                                    </div>  
+                                    <div class="rowImpar">
+                                        <label style="">Venda Prazo</label>
+                                    </div>  
+                                     <div class="rowImpar">
+                                        <label>Segmento</label>
+                                    </div>  
+                                    <div class="rowPar">
+                                        <label>Setor</label>
+                                    </div>
+                                    <div class="rowImpar">
+                                        <label>Secao</label>
+                                    </div>  
+                                    {{!-- <div class="rowPar" style="height: 3.5vh;font-size:medium ;">
+                                        <label></label>
+                                    </div>   --}}
+                                </div> 
+                                <div id="ladoInput" style="width: 65%;height: 60vh;margin: auto;background-color: #ffffffc42222;padding: 3px;padding-left: 0px;">
+                                        <div class="rowPar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;">
+                                            <input id="lojaid"  value="{{lojista._id}}" style="background-color:#656765;width: 95%;text-align: center;margin-left: 4px;color:#ffffff">
+                                        </div>
+                                        <div class="rowImpar" style="display: block;margin-left: 4px;background-color: #ffffff;">
+                                            <input id="lojaMarca"  style="background-color: #656765;color:#ffffff;display: block;" value="{{lojista.marca}}" disabled>
+                                        </div>
+                                        <div class="rowImpar" style="display: block;margin-left: 4px;background-color: #ffffff;">
+                                            <input id="lojaCidade"  style="background-color: #656765;color:#ffffff;display: block;" value="{{lojista.cidade}}" disabled>
+                                        </div>
+                                        <div class="rowImpar" style="display: block;margin-left: 4px;background-color:#ffffff;">
+                                            <input id="lojaBairro"  style="background-color: #656765;color:#ffffff;display: block;" value="{{lojista.bairro}}" disabled>
+                                        </div>
+                                            
+                                        <div class="rowImpar" style="display: flex;flex-direction: row;justify-content: flex-start;height: 3.5vh;background-color: #ffffff;" >
+                                            <input id="NomeFoto"  style="background-color: #ffffff;margin-left: 4px;" >
+                                        </div>
+                                        <div class="rowImpar" style="display: flex;flex-direction: row;justify-content: flex-start;height: 3.5vh;background-color: #ffffff;">
+                                            <select id="selectFornec_Id" style="width: 10.5vw; height: 3.2vh;margin-left: 4px;background-color:#ef0606;color:#111111;">
+                                             
+                                            </select> 
+                                            <input id="cbofornec_Id" name="nameFornec" style="display:none;margin-left: 4px;background-color: yellow;" value="cboFornecTeste">
+                                        </div>
+                                       <div class="rowPar" style="float: left;background-color: #ffffff;height: 3.5vh;display: flex;flex-direction: row;justify-content: flex-start;" >
+                                            <input id="codigo_Id"  style="color: #000000;margin-left: 4px;">
+                                        </div>
+                                        {{!-- ////////////////////////////////////////////////////////////////////////////////////// --}}
+                                        <div class="rowImpar" style="background-color: #ffffff;width: 98%;height: 3.5vh;">
+                                            <input id="" style="background-color: #ffffff;display: none;" >
+                                        </div>
+                                        {{!-- ///////////////////////////////////////////////////////////////////////////////// --}}
+                                        <div class="rowImpar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;">
+                                            <input id="descr_Id" style="background-color: #ffffff;width: 90%;margin-left: 4px;" >
+                                        </div>
+                                        <div class="rowPar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;">
+                                            <input id="complemento_Id" style="background-color: #ffffff;width: 90%;" >
+                                        </div>
+                                        <div class="rowImpar"  style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff";>
+                                            <input id="material_Id" style="margin-left: 4px;background-color: #ffffff;">
+                                        </div>
+                                        <div class="rowPar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;">
+                                            <input id="custo_Id"  style="margin-left: 4px;color:#0000ff">
+                                        </div>
+                                        <div class="rowPar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;">
+                                            <input id="vista_Id"  style="margin-left: 4px;background-color: #ffffff;">
+                                        </div>
+                                        <div class="rowImpar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;">
+                                            <input id="prazo_Id"  style="margin-left: 4px;background-color: #ffffff;">
+                                        </div>
+                                        {{!-- Segmento --}}
+                                        <div class="rowImpar" style="display: flex;flex-direction: row;justify-content: flex-start;height: 3.5vh;background-color: #ffffff;">
+                                            <select id="selectSegmento_Id" style="width: 10.5vw; height: 3.2vh;background-color:#ffffff;margin-left: 4px;">
+                                                 <option></option>
+                                                 {{#each segmento }}
+                                                     <option>{{this.titulo}}</option>
+                                                 {{/each}}
+                                            </select> 
+                                            <input id="segmento_Id"  style="display:block;margin-left: 4px;">
+                                        </div>
+                                        {{!-- Setor --}}
+                                        <div class="rowImpar" style="display: flex;flex-direction: row;justify-content: flex-start;height: 3.5vh;background-color: #ffffff;">
+                                            <select id="selectSetor_Id" style="width: 10.5vw; height: 3.2vh;background-color:#ffffff;margin-left: 4px;">
+                                                  
+                                            </select> 
+                                            <input id="setor_Id"  style="display:none;margin-left: 4px;">
+                                        </div>
+                                        {{!-- Seção --}}
+                                        <div class="rowPar" style="display: flex;flex-direction: row;justify-content: flex-start;height: 3.5vh;background-color: #ffffff;">
+                                            <select id="selectSecao_Id" style="width: 10.5vw; height: 3.2vh;margin-left: 4px;background-color:#ffffff;color:#111111;">
+
+                                            </select> 
+                                            <input id="secao_Id" name="nameArtigo" style="display: none;margin-left: 4px;" >
+                                        </div>
+                                       
+                                </div> 
+                        </div>
+                        
+                    </div> 
+                    
+                </div>
+                <div class="rowPar" style="display: flex;flex-direction: row;justify-content: flex-start;background-color: #ffffff;text-align: center;" >
+                    <div style="display: flex;flex-direction: row;justify-content:center;width: 100%;">
+                        {{!-- <div> --}}
+                          <input id="marca_Id" name="nameMarcaItem" style="margin-left: 4px;visibility:hidden;height: 3vh;width: 5vw;background-color: #0000ff;">
+                       {{!-- </div> --}}
+                       <button id="btn_Id" style="display: block;width: 50%;border-radius: 6px;background-color: #033986;color:#ffffff;" onclick="disparaForm()">gravar</button>
+                    </div>   
+                </div>
+            </div>
+             {{!-- seleciona a imagem do produto --}}
+            <div id="imagem" style="width: 50%;height: 75vh;margin: auto;background-color:#ffffff;justify-items: center;display: flex;flex-direction: column;border:.2px solid #cccccc">
+                {{!-- <div id="form_espaco" style="width: 100%;height: 10vh;margin: auto;background-color:#0b0bc9;margin-top: 2vh;"></div> --}}
+                <div id="form_escolheFicheiro" style="width: 90%;height: 70vh;margin: auto;display:block;background-color: #b1aeae;margin-top: 4vh;">
+                    <form action="/controle/upload" id="idfile" method="post" enctype="multipart/form-data" class="" style="background-color: #b1aeae;">
+                        <div id="tituloSelectFoto" style="display: flex;flex-direction: row;justify-content: center;">
+                        <div style="width: 100%;height: 3.5vh;margin: auto;background-color: #transparent;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                                <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                            </div>
+                        </div>  
+                        <div id="tituloEscolheFicheiro" style="background-color:#a9a9ad;">
+                            <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                            <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="5"> {{!--idLocalImagem=t--}}
+                            <input type="text" id="idNomeImagem" name="NameNomeImg" style="display:none;color:red;background-color: #0b0bc9;" value="">   {{!--idPosicaoImg=side --}}
+                            {{!-- <input type="text" id="idProdutoDefault" name="nameLoja_id" value="{{lojista._id}}" style="display:none;background-color: #06eb1d;color:#ffffff;"> --}}
+                            <input id="lojaid" name="nameLoja_id" value="{{lojista._id}}" style="background-color: hotpink;display:none;">
+                            <input id="lojaMarca" name="nameLojaMarca" style="background-color: #035384;display:none;" value="{{lojista.marca}}">
+                            <input id="lojaCidade" name="nameCidade" style="background-color: #035384;display:none;" value="{{lojista.cidade}}">
+                            <input id="lojaBairro" name="nameBairro" style="background-color: #035384;display:none;" value="{{lojista.bairro}}">
+                            <input id="_Idcodigo" name="nameCodigo" style="background-color: #8d0cb1;color: #ffffff;display:none;" >
+                            <input id="_Idcbofornec" name="nameFornec"  style="display:none;background-color: #000000;" value="Eplax">
+                            <input id="_Iddescricao" name="nameDescricao" style="display:none;background-color:orangered;">
+                            <input id="_Idcomplemento" name="nameComplemento" style="display:none;background-color: violet;">
+                            <input id="_Idmaterial" name="nameMaterial" style="display:none;">
+                            <input id="_Idcusto" name="nameCusto"  style="display:none;">
+                            <input id="_Idvista" name="nameVista"  style="display:none;">
+                            <input id="_Idprazo" name="namePrazo"  style="display:none;">
+                            <input id="_Idsegmento" name="nameSegmento" style="display:block;" >
+                            <input id="_Idsetor" name="nameSetor" style="display: none;" >
+                            <input id="_Idsecao" name="nameSecao" style="display: none;"  >
+                            {{!-- <input id="_Idmarca" name="nameMarcaItem" value="" style="display:block;" > --}}
+                        </div>      
+               
+                        <div id="form_imagem" style="width: 90%;height:55vh;margin: auto;align-items: center ;z-index: 10;margin-top: 5px;padding: 10px;display: flex;flex-direction: column;background-color: #ffffff;">
+                        
+                           <img id="imgPreviewA" src="" alt="" class="" width="100%" height="" style="background-size: cover;height: 25vh;width: 100%;margin: auto;background-color: #e80606; "/>    
+                                
+                               
+                        </div>  
+                        <button type="submit" id="disparaFormId" style="height: 5vh;visibility: hidden;"></button> 
+                
+                    </form>
+                    <div id="form_btn" style="width: 100%;height: 2vh;margin: auto;background-color:transpareente;">
+                        <button id="btnId" class="btn_gravar" type="text" onclick="disparaForm()"  >Gravar</button>
+                     </div>
+                </div>
+        </div>   
+        </div>
+    </div>
+</div>
+
+<script>
+ let d1=document.getElementById("NomeFoto");
+
+ let cbofornec1=document.getElementById('selectFornec_Id')
+ let cbofornec2=document.getElementById('_Idcbofornec')
+
+ let x1=document.getElementById("codigo_Id");
+ let x2=document.getElementById("_Idcodigo");
+ 
+ let descr1=document.getElementById("descr_Id");
+ let descr2=document.getElementById("_Iddescricao");
+
+ let complet1=document.getElementById("complemento_Id");
+ let complet2=document.getElementById("_Idcomplemento");
+
+ let material1=document.getElementById("material_Id");
+ let material2=document.getElementById("_Idmaterial");
+
+ let custo1=document.getElementById("custo_Id");
+ let custo2=document.getElementById("_Idcusto");
+
+ let vista1=document.getElementById("vista_Id");
+ let vista2=document.getElementById("_Idvista");
+
+ let prazo1=document.getElementById("prazo_Id");
+ let prazo2=document.getElementById("_Idprazo");
+
+ let selectSegmento1=document.getElementById("selectSegmento_Id");
+ let selectSegmento2=document.getElementById("_Idsegmento");//_Idsegmento
+ let selectSegmento3=document.getElementById("segmento_Id");
+
+ let selecSetor1=document.getElementById("selectSetor_Id");
+ let selecSetor2=document.getElementById("_Idsetor");
+ let selecSetor3=document.getElementById("setor_Id");
+
+ let selecSecao1=document.getElementById("selectSecao_Id");
+ let selecSecao2=document.getElementById("_Idsecao");
+ let selecSecao3=document.getElementById("secao_Id");
+
+ //let z3=document.getElementById("SelectSecao_Id");
+ 
+ cbofornec1.addEventListener("click",function(event){
+    event.stopPropagation();
+    //event.preventDefault()
+    let z=cbofornec1.selectedIndex;
+    let y=cbofornec1.options;
+    //console.log('');
+    let c2=y[z].text;
+    if (c2==""){
+
+    }else{
+        console.log(' [ 425] ==> ',c2)
+        let palavra=y[z].text;
+        //console.log('valor do ARTIGO',palavra) 
+        cbofornec1.value=palavra;
+        document.getElementById('cbofornec_Id').value=palavra;
+        cbofornec2.value=cbofornec1.value;
+        cbofornec1.style.backgroundColor="white";
+       // document.getElementById("marca_Id").style.display="none";
+     
+        x1.style.backgroundColor="green" 
+        x1.focus();
+    }    
+})
+
+// Código do produto será digitado pelo usuário
+x1.addEventListener("keydown",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+           //....................................
+           let a1=x1.value;
+           if(a1==""){
+              alert("Coloque o valor do código [ 451 ]")
+           }else{
+              x1.style.backgroundColor="red";
+              x1.style.color="white";
+              //......................................
+              document.getElementById("_Idcodigo").value=x1.value;
+              document.getElementById("_Idcodigo").style.backgroundColor="brown"
+              descr1.style.backgroundColor="red";
+              document.getElementById("descr_Id").style.backgroundColor="black";
+              document.getElementById("descr_Id").style.color="green";
+              document.getElementById("descr_Id").focus();
+           }
+           
+       }else if(key==8){
+          // deixa passar
+       }
+})
+
+// Descrição focusin
+descr1.addEventListener("focusin",function(event){
+    descr1.style.backgroundColor="green";
+    descr1.style.color="white"
+    
+    descr1.focus();
+})
+
+// Descrição Keydown
+descr1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=descr1.value;
+           if(a1==""){
+              alert("Coloque o valor da descrição")
+              descr1.style.backgroundColor="yellow";
+           }else{
+              descr1.style.backgroundColor="red";
+              descr1.style.color="white";
+              //......................................
+              _Iddescricao.value=descr1.value;
+              complet1.style.backgroundColor="green";
+              complet1.focus()
+           }
+           
+       }else if(key==8){
+           // deixa passar
+       }
+})
+
+// Complemento
+complet1.addEventListener("focusin",function(event){
+      //console.log('valor de foco ',complet1.value);
+      if (complet1.value==0){
+         complet1.value="";
+         complet1.style.backgroundColor="green";
+         complet1.style.color="white";
+         complet1.focus()
+      }
+})
+
+// Complemento
+complet1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let vr=document.getElementById("complemento_Id").value;
+           if (vr==""){
+               alert('favor colocar a complemento!')
+               document.getElementById("complemento_Id").focus();
+           }else{
+               let a1=complet1.value;
+               complet1.style.backgroundColor="red";
+               complet1.style.color="white";
+               //.................................
+               complet2.value=complet1.value;
+               material1.style.backgroundColor="green";
+               material1.focus();
+           }
+      }else if(key==8){
+           // deixa passar
+       }
+})
+
+// Material
+material1.addEventListener("focusin",function(event){
+      //console.log('valor de foco vista : ',material1.value);
+     // if (h1.value==0){
+     //    console.log('dentro')
+     //    h1.value="";
+     //    h1.style.backgroundColor="red";
+     //    h1.style.color="white";
+     //    h1.focus()
+     // }
+})
+
+// Material
+material1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           if(material1!=""){
+           material1.style.color="red";
+           material1.style.color="black";
+           material2.value=material1.value;
+           custo1.style.backgroundColor="green";
+           custo1.focus()  
+           }
+        }else if(key==8){
+           // deixa passar
+       }
+})
+
+// Custo
+custo1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+            let q1=document.getElementById("material_Id").value;
+            if(q1==""){
+               alert("favor colocar o material!");
+               q1.focus();  
+            }else if(q1==NaN){
+               alert("favor colocar o valor certo!") 
+               q1.focus(); 
+            }else{
+               custo1.style.backgroundColor="red";
+               custo1.style.color="white";
+               //......................................
+               let num=custo1.value.toString();
+               // let x=formataValor(num)
+               // if(x==='1n1'){
+               //   alert("corrija o valor !")
+               //   return
+               //  }
+               //.......................................................
+               //.............................................................
+               custo2.value=custo1.value
+               custo1.style.backgroundColor="red";
+               vista1.focus();
+            }
+       }else if(key==8){
+          // deixa passar
+       }
+})
+
+// Vista
+vista1.addEventListener("focusin",function(event){
+      console.log(vista1.value);
+      vista1.style.color="black";
+      vista1.style.backgroundColor="yellow"
+     // if (i1.value==0 || i1.value==""){
+     //   i1.value="";
+     //   i1.style.backgroundColor="red";
+     //   i1.style.color="white";
+     //   i1.focus()
+     // }
+})
+
+// Vista
+vista1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+            let q1=document.getElementById("material_Id").value;
+            if(q1==""){
+               alert("favor colocar o material!");
+               q1.focus();  
+            }else if(q1==NaN){
+               alert("favor colocar o valor certo!") 
+               q1.focus(); 
+            }else{
+               vista1.style.backgroundColor="red";
+               vista1.style.color="white";
+               //......................................
+               let num=vista1.value.toString();
+               // let x=formataValor(num)
+               // if(x==='1n1'){
+               //   alert("corrija o valor !")
+               //   return
+               //  }
+               //.......................................................
+               //.............................................................
+               vista2.value=vista1.value
+               prazo1.style.backgroundColor="green";
+               prazo1.focus();
+            }
+       }else if(key==8){
+          // deixa passar
+       }
+})
+
+// Prazo
+prazo1.addEventListener("keydown",function(event){
+    let key=event.which;
+    if(key==13){
+        //....................................
+        let q1=document.getElementById("vista_Id").value;
+        let q2=document.getElementById("prazo_Id").value;
+         if(q2==""){
+              alert("favor colocar o material!")  
+              q2.focus();
+            }else if(q2==NaN){
+                 alert("favor colocar o valor certo!") ;
+                 q2.focus();
+            }else if(q2<q1){
+                 alert('O valor a vista está menor do que o valor a prazo!')
+                 q2.focus();
+            }else{
+               // console.log(12)
+                let n=0
+                //validacao(n);
+                //if (n==1){
+                //    return
+                // }
+                prazo1.style.backgroundColor="red";
+                prazo1.style.color="white";
+                //......................................
+                prazo2.value=prazo1.value;
+                prazo2.style.backgroundColor="red";
+                
+                event.preventDefault();
+                selectSegmento1.style.backgroundColor="green"
+                selectSegmento1.focus()
+            } 
+        //}       
+    }else if(key==8){
+        // deixa passar
+    }
+})
+
+// Select Setor
+selectSegmento1.addEventListener("click",function(event){
+    event.stopPropagation();
+    
+    
+    let h=selectSegmento1.selectedIndex;
+    if(h>0){
+        let y=selectSegmento1.options;
+        let palavra=y[h].text;
+        console.log('valor da palavra 686 ',palavra) 
+        selectSegmento2.value=palavra;
+        selectSegmento3.value=palavra;
+        selectSegmento1.value=selectSegmento1.value;
+        selectSegmento1.style.backgroundColor="red";
+
+        if (palavra==""){
+        alert('favor selecionar o segmento!')
+        }else{
+           buscarSetor(palavra)
+        }
+    }
+})
+
+// Setor
+selecSetor1.addEventListener("click",function(event){
+    event.stopPropagation();
+    //event.preventDefault()
+    let z=selecSetor1.selectedIndex;
+    let y=selecSetor1.options;
+    //console.log('');
+    let c2=y[z].text;
+    if (c2==""){
+
+    }else{
+        //console.log(' [788] ==> ',c2)
+        let palavra=y[z].text;
+        //console.log('valor do ARTIGO',palavra) 
+        selecSetor1.value=palavra;
+        document.getElementById('secao_Id').value=palavra;
+        selecSetor2.value=selecSetor1.value;
+        selecSetor3.value=selecSetor1.value;
+        selecSetor1.style.backgroundColor="white";
+        document.getElementById("marca_Id").style.display="none";
+       // verificaField()
+        buscaSecoes(c2)    
+    }    
+})
+
+// Seção
+selecSecao1.addEventListener("click",function(event){
+    event.stopPropagation();
+    //event.preventDefault()
+    let z=selecSecao1.selectedIndex;
+    let y=selecSecao1.options;
+    console.log(' [ 646 ]',z);
+    let c2=y[z].text;
+    console.log(c2)
+    console.log('');
+    if (c2==""){
+
+    }else{
+        let palavra=y[z].text;
+        document.getElementById('secao_Id').value=palavra;
+        console.log(' valor da palavra',palavra)
+        selecSecao2.value=palavra;
+        selecSecao3.value=palavra;
+        selecSecao1.style.backgroundColor="white";
+        selecSecao1.style.color="green";
+        document.getElementById("marca_Id").style.display="none";
+        verificaField()
+    }    
+})
+
+function verificaField(){
+    //console.log('BB')
+    let palavra;
+    let n=0;
+     /////////////////////////////////////////////////
+    palavra=document.getElementById("cbofornec_Id").value;
+    //console.log('n',n)
+    if(palavra==""){
+        alert('favor selecionar o fornecedor!');
+        n=1;
+    }else{
+        document.getElementById("_Idcodigo").value=palavra;
+    }
+
+    palavra=document.getElementById("codigo_Id").value;
+    //console.log('n',n)
+    if(palavra==""){
+        alert('favor verificar o código!');
+        n=1;
+    }else{
+        document.getElementById("_Idcodigo").value=palavra;
+    }
+    //////////////////////////////////////////////////
+    palavra=document.getElementById("descr_Id").value;
+    if(palavra==""){
+        alert('favor ver a descrição!');
+        n=1;
+    }else{
+        document.getElementById("_Iddescricao").value=palavra;
+    }
+    //////////////////////////////////////////////////
+    palavra=document.getElementById("complemento_Id").value;
+    if(palavra==""){
+        alert('favor verificar o complemento!');
+        n=1;
+    }else{
+        document.getElementById("_Idcomplemento").value=palavra
+    }
+    //////////////////////////////////////////////////
+    palavra=document.getElementById("material_Id").value;
+    if(palavra==""){
+        alert('favor verificar o material!');
+        n=1;
+    }else{
+        document.getElementById("_Idmaterial").value=palavra
+    }
+    ////////////////////////////////////////////////////////////////
+     palavra=document.getElementById("custo_Id").value;
+    if(palavra==""){
+        alert('favor verificar o preço de custo!');
+        n=1;
+    }else{
+        document.getElementById("_Idcusto").value=palavra
+    }
+    //////////////////////////////////////////////////////////
+    palavra=document.getElementById("vista_Id").value;
+    if(palavra==""){
+        alert('favor verificar o preço à vista!');
+        n=1;
+    }else{
+        document.getElementById("_Idvista").value=palavra
+    }
+    ////////////////////////////////////////////////////////////////
+    palavra=document.getElementById("prazo_Id").value;
+    if(palavra==""){
+        alert('favor verificar o preço a prazo!');
+        n=1;
+    }else{
+        document.getElementById("_Idprazo").value=palavra
+    }
+    ////////////////////////////////////////////////////////////////
+    palavra=document.getElementById("segmento_Id").value;
+    if(palavra==""){
+        alert('favor selecionar o segmento!');
+    }else{
+        document.getElementById("_Idsegmento").value=palavra
+    }
+    ////////////////////////////////////////////////////////////////
+    palavra=document.getElementById("setor_Id").value;
+    if(palavra==""){
+        alert('favor verificar o setor do produto!');
+    }else{
+        document.getElementById("_Idsetor").value=palavra
+    }
+    ////////////////////////////////////////////////////////////////
+
+    palavra=document.getElementById("secao_Id").value;
+    if(palavra==""){
+        alert('favor verificar qual a seção!');
+    }else{
+        document.getElementById("_Idsecao").value=palavra
+    }
+    ////////////////////////////////////////////////////////////////
+    console.log('n4',n)
+    if (n==0){
+       console.log(88) 
+       document.getElementById("btn_Id").style.display="block";
+    }else{
+        console.log('n6',n)
+        alert("Não pode ser gravado!")
+    }   
+}
+
+function closeCad(){
+    document.getElementById("formulario").style.display="none";
+}
+
+function disparaForm(){
+    console.log(1000)
+    let btn=document.getElementById("disparaFormId");
+    btn.click();
+}
+</script>
+<script>
+    
+    let fileImgA=document.querySelector('#fileA');
+    //.............................................
+    const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        //document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        document.getElementById("NomeFoto").value=selecledFile.name;
+        document.getElementById("idNomeImagem").value=selecledFile.name;
+        document.getElementById("cbofornec_Id").style.backgroundColor="green";
+        document.getElementById("cbofornec_Id").focus();
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        //console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+        }
+        reader.readAsDataURL(selecledFile);
+    });
+
+
+//...................................................................
+//setores();
+//Seleciona os setores desse lojista
+function setores(){
+            return
+            let n=document.getElementById("number");
+            n=n.value;
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+            console.log('valores : ',n)
+            //......................................
+                    try{
+                        fetch(`${baseApiUrl}` + `/raq/buscarSetor-CadProduct/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                            .then(response => {
+                                if( response.ok ){
+                                    return response.json()
+                                    }  
+                                    throw response;
+                            })
+                            .then((json)=>{
+                                console.log('');
+                                console.log('_______________________________________');
+                                console.log(json)
+                                console.log('');
+                                console.log('_______________________________________');
+                                const  oblist=Object.values(json)
+                                console.log(oblist[0].titulo);
+                            
+                                let l=oblist.length;
+                                console.log(l)
+                                for(let i=0;i<l;i++){
+                                    if (i==0){
+                                    let vazio="" ;
+                                        colaSetor(vazio,i) 
+                                    }
+                                    let titulo=oblist[i].titulo;
+                                    colaSetor(titulo,i)    
+                                }
+
+                                function colaSetor(n,h){
+                                    const node0 = document.createElement("option");
+                                    node0.setAttribute("id",'op' + h);
+                                    const textNode0=document.createTextNode(n);
+                                    node0.appendChild(textNode0);
+                                    node0.setAttribute("class","container_msg");
+                                    document.getElementById("selectSetor").appendChild(node0);
+                                    document.getElementById("selectSetor").style.backgroundColor="green";
+                                }
+                            })
+                            .catch((e)=>{
+                                console.log(e);
+                            })
+                    }catch(e){
+                        console.log(e);
+                    }  
+}
+
+// Vai buscar os segmentos que existem para esse lojista   
+function buscarSetor(n){
+    //console.log('passando primeiro nível',n);
+    ////////////////////////////////////////////////////////////////////////
+    limpaCaixa();
+    function limpaCaixa(){
+        let corpos;
+        corpos=document.getElementById("selectSecao_Id").children;
+        let c=corpos.length;
+    // console.log(' [ 843 ] limpa as cores' ,corpos)
+        for (i=c-1;i>-1;i--){
+          console.log(corpos[i])
+          corpos[i].remove();
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    setor(n)
+    function setor(n){
+            //console.log('passando segundo nível')
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+           // console.log('valores : ',n)
+            //......................................
+            try{
+                fetch(`${baseApiUrl}` + `/raq/buscarSetor-CadProduct/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('');
+                      //  console.log('_______________________________________');
+                      //  console.log(json)
+                        let l=json.length;
+                        for(let i=0;i<l;i++){
+                     
+                          //  console.log(json[i])
+                            if (i==0){
+                               let vazio="" ;
+                               colaSetor(vazio,i) 
+                               let titulo=json[i];
+                               colaSetor(titulo,i)  
+                            }else{
+                               let titulo=json[i];
+                               colaSetor(titulo,i)    
+                            }
+                        }
+
+                        function colaSetor(n,h){
+                            //  console.log('[ 876 ]',n)
+                              if(n==""){
+                                const node1 = document.createElement("option");
+                                const textNode1=document.createTextNode("");
+                               // console.log(textNode1)
+                                node1.appendChild(textNode1);
+                                node1.setAttribute("class","containerMsg");
+                                document.getElementById("selectSetor_Id").appendChild(node1);
+                              }else{
+                            //  console.log('__________________________________');
+                            //  console.log('__________________________________');
+                              h=n.name;
+                         
+                              let index=h
+                             // console.log('______________________')
+                              const node0 = document.createElement("option");
+                              node0.setAttribute("id",'opartigo' + index);
+                              const textNode0=document.createTextNode(n);
+                             // console.log(textNode0)
+                              node0.appendChild(textNode0);
+                              node0.setAttribute("class","containerMsg");
+                              document.getElementById("selectSetor_Id").appendChild(node0);
+                            }
+                        }
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+             }catch(e){
+                 console.log(e);
+             }        
+    }
+}
+ 
+function buscaSecoes(n){
+   // console.log(' => bravo!', n)
+    let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //.....................................
+    //    console.log('valores : ',n)
+        //......................................
+        try{
+            fetch(`${baseApiUrl}` + `/raq/buscaSecoes-CadProduct/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    let obj=json.secao;
+                    let l=obj.length;
+                    for(let i=0;i<l;i++){
+                        console.log(obj[i])
+                        if (i==0){
+                            let vazio="" ;
+                            colaSecao(vazio,i) 
+                            let titulo=obj[i];
+                            colaSecao(titulo,i)  
+                        }else{
+                            let titulo=obj[i];
+                            colaSecao(titulo,i)    
+                        }
+                    }
+
+                    function colaSecao(n,h){
+                        if(n==""){
+                            const node1 = document.createElement("option");
+                            const textNode1=document.createTextNode("");
+                            node1.appendChild(textNode1);
+                            node1.setAttribute("class","containerMsg");
+                            document.getElementById("selectSecao_Id").appendChild(node1);
+                         }else{
+                            h=n.name;
+                            let index=h
+                            const node0 = document.createElement("option");
+                            node0.setAttribute("id",'opartigo' + index);
+                            const textNode0=document.createTextNode(n);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","containerMsg");
+                            document.getElementById("selectSecao_Id").appendChild(node0);
+                            }
+                    }
+                })
+                .catch((e)=>{
+                    console.log(e)
+                })
+        }catch(er){
+            console.log(er)
+        }    
+ }
+ //https://amelia.nyc3.digitaloceanspaces.com/d970020e00d874f6e6f5_Img_dimensao.png
+ function buscFornec(){
+    let n=document.getElementById("lojaid").value;
+    console.log('[ 1022 ]',n)
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    //.....................................
+     console.log('valores : ',n)
+    //......................................
+    try{
+        fetch(`${baseApiUrl}` + `/raq/buscarfornec-CadProduct/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json)
+                let l=json.length;
+                console.log('l', l)
+                console.log(' 1035 ')
+                let obj=json
+                console.log(obj)
+               
+               
+                for(let i=0;i<l;i++){
+                    console.log(obj[i].razao)
+                    let g=obj[i].razao
+                    if (i==0){
+                        let vazio="" ;
+                        colaSecao(vazio,i) 
+                        let titulo=g;
+                        colaSecao(titulo,i)  
+                    }else{
+                        let titulo=g;
+                        colaSecao(titulo,i)    
+                    }
+                }
+
+                function colaSecao(n,h){
+                    if(n==""){
+                        const node1 = document.createElement("option");
+                        const textNode1=document.createTextNode("");
+                        node1.appendChild(textNode1);
+                        node1.setAttribute("class","containerMsg");
+                        document.getElementById("selectFornec_Id").appendChild(node1);
+                        }else{
+                        h=n.name;
+                        let index=h
+                        const node0 = document.createElement("option");
+                        node0.setAttribute("id",'opartigo' + index);
+                        const textNode0=document.createTextNode(n);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("class","containerMsg");
+                        document.getElementById("selectFornec_Id").appendChild(node0);
+                        document.getElementById("selectFornec_Id").style.backgroundColor="green";
+                        }
+                }
+            })
+            .catch((e)=>{
+                console.log(e)
+            })
+    }catch(e){
+        console.log(e)
+    }
+ }          
+
+ buscFornec()
+</script>
+
+
+
+

@@ -1,0 +1,208 @@
+<script>
+	//const inputRef = React.useRef();
+
+	//const triggerFileSelectPopup = () => inputRef.current.click();
+
+	//const setStateSnackbarContext = React.useContext(SnackbarContext);
+
+	//const [image, setImage] = React.useState(null);
+	//const [croppedArea, setCroppedArea] = React.useState(null);
+	//const [crop, setCrop] = React.useState({ x: 0, y: 0 });
+	//const [zoom, setZoom] = React.useState(1);
+
+//	const onCropComplete = (croppedAreaPercentage, croppedAreaPixels) => {
+//		setCroppedArea(croppedAreaPixels);
+//	};
+
+	const onSelectFile = (event) => {
+		if (event.target.files && event.target.files.length > 0) {
+			const reader = new FileReader();
+			reader.readAsDataURL(event.target.files[0]);
+			reader.addEventListener("load", () => {
+				setImage(reader.result);
+			});
+		}
+	};
+
+	const onDownload = () => {
+		if (!image)
+			return setStateSnackbarContext(
+				true,
+				"Please select an image!",
+				"warning"
+			);
+
+		generateDownload(image, croppedArea);
+	};
+
+	const onClear = () => {
+		if (!image)
+			return setStateSnackbarContext(
+				true,
+				"Please select an image!",
+				"warning"
+			);
+
+		setImage(null);
+	};
+
+	
+
+</script>
+<div className='container' style="background-color: #f4eded;height: 90vh;width: auto;width: 100vw;">
+		
+			<div className='container-cropper' style="background-color: #f4f6f3;height: 75vh;float: left;width: 100%;padding: 60px;margin: auto;">
+                    
+                   <div id="choose" style="width:100%;height:10vh;display: none;padding: 25px;background-color: #224456;">
+					   <form method="post" action="/service-aws/"   enctype="multipart/form-data" style="background-color: #04AA6D;width: 250px;height: 250px;" >
+							<input
+								type='file'
+								id="file"
+								name="file"
+								accept='image/*'
+							    style="display:flex;background-color: aquamarine;
+										flex-direction: row;justify-content: center;width: 1000px;"
+								
+							/>
+							{{!-- <img src="" aria-placeholder=";;;;"> --}}
+							<button type="submit" style="btn btn-role">Transferir?</button>
+                       </form>
+                      
+		        	</div>
+            </div>
+			<div class="slidecontainer"  >
+				<div class="slider" style="background-color:#0404d3;">
+					<input type="range" min="1" max="100" value="50"  >
+				</div>	
+			</div>
+			<div className='container-buttons' style="margin-top: 50px;padd;background-color: #efeff6;text-align: center;height: 5vh;">
+                       <button
+                            onClick="onClear()"
+                            variant='contained'
+                            style="margin-right:10px;color:#ffffff;background-color: darkgoldenrod;"
+							class="w3-btn w3-round">
+						 Clear</button>
+                        <button
+                            variant='contained'
+                            style="margin-right:10px;color:#ffffff;background-color:crimson;"
+							class="w3-btn w3-round"
+							onClick=""
+                        >
+                            Choose
+                        </button>
+                        <button
+                            variant='contained'
+                            onClick="onDownload()"
+                            style="margin-right:10px;color:#ffffff;background-color: darkgreen;"
+							class="w3-btn w3-round"
+                        >
+                            Download
+                        </button>
+                        <button variant='contained' onClick="mostraBusca()" class="w3-btn w3-round" style="color:#ffffff;background-color: mediumblue;">
+                            Upload
+						</button>
+                    </div>
+
+					<form>
+                    
+
+					</form>
+</div>
+
+<script>
+	function mostraBusca(){
+		if (document.getElementById("choose").style.display="none"){
+           console.log(23)
+           document.getElementById("choose").style.display="block";
+		}else if(document.getElementById("choose").style.display="block"){
+			console.log(78)
+			document.getElementById("choose").style.display="none";
+		}
+	}
+
+
+
+	const x=window.URL.createObjectURL(blob)
+
+	let anchor = document.createElement("a");
+	anchor.download ="image.jpeg";
+	anchor.href=URL.createObjectURL(blob)
+	anchor.click();
+	
+
+	window.URL.revokeObjectURL(x)
+</script>
+
+<style>
+
+.container {
+    	height:100vh;
+	    width:100vw;
+	    position:relative;
+	    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container-cropper {
+	height: 90%;
+	padding: 10px;
+}
+
+.cropper {
+	height: 90%;
+	position: relative;
+}
+
+.slider {
+	height: 10%;
+	display: flex;
+	align-items: center;
+	margin: auto;
+	width: 60%;
+}
+
+.container-buttons {
+	border: 1px solid #f5f5f5;
+	height: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+}
+
+.slidecontainer {
+   width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+</style>
+

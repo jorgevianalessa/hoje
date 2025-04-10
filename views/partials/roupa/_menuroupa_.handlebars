@@ -1,0 +1,89 @@
+<style>
+.pagination{
+    display: inline-block;
+}    
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+   border: 1px solid #ddd;
+   margin: 0 4px;
+}
+
+a.active {
+  background-color: rgb(207, 210, 214);
+  color: white;
+  border: 1px solid #6e6f6e;
+}
+
+a:hover:not(.active) {background-color: #ddd;}
+</style>
+<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+
+<div id="myHeader" class="tituloFixo" style="background-color: #182fc1;" >
+    <div class="titulo-main" style="background-color:#ffffff;padding-top:0px;height: 8.9vh;border-bottom: 1px solid #cccccc;">
+        <div class="" id="idTitulo" style="display: flex;flex-direction: row;background-color: #ffffff;height: 5vh;border-bottom: 1px solid #cccccc;" >
+            <div id="logamarca" style="width: 33%;background-color:transparent;color: #b2acac;
+                                    text-align: left;padding-top: 0.5px;display: flex;flex-direction: row;height: 5vh;">
+                <div style="width: 3wh;height: 3vh;background-color:#325b80;margin-left: 30px;">
+                   
+                       <img  src="{{produto.urlmain}}" alt="logo_Look ? Belle" class="" width="40" height="40" style="" >
+                        
+                </div>
+            </div>
+            <div id="tituloMain" class="" style="width: 34%;background-color:transparent ;text-align: center;color:#325b80;height: 5vh;padding: 0.5vh;padding-top:0.5vh;">
+                <h1 style="font-size: medium;font-weight: lighter;color:#e41515;"><span>número do lojista : </span>{{produto.produto.lojaid}}</h1>
+                <input id="n_lojista" style="display: none;" value="{{produto.produto.lojaid}}" >
+            </div>
+        </div>
+        {{!-- {{vitrine._id}} --}}
+        {{!-- /////////////////////////////////////////////////////////////////////// --}}
+        <div style="display: flex;flex-direction: row;justify-content: space-between;background-color: #325b80;">
+            <div id="navegacao" class="topnav" id="myTopnav" style="background-color: #ffffff;height: 3.5vh;color:black;border-bottom: 3px solid #ffffff;">
+                    <a href="/roupa/adminloja/{{vitrine._id}}" style="color:#325b80;padding: 5px 12.5px;text-align: center;display: inline;float:left;margin-left:0.5vw;">Admin</a>
+                    <a href="/roupa/listatemporaria/{{vitrine._id}}{{vitrine.produto.lojaid}}" class="" style="color:#325b80;padding: 5px 12.5px;text-align: center;display: inline;float:left;">Lista</a>
+                    <a href="/roupa/visualizar/{{vitrine._id}}" style="color:#325b80;padding: 5px 12.5px;text-align: center;display: inline;float:left;text-decoration: none;">Vitrine</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+            </div>
+            <div class="pagination" style="float:right;margin-right:3vw;">
+                <a href="/roupa/busca_previous/{{vitrine._id}}" class="previous">&laquo; Previous</a>
+                <a href="/roupa/busca_next/{{vitrine._id}}" class="next">Next &raquo;</a>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+

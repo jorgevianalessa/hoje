@@ -1,0 +1,151 @@
+<style>
+    .btnArtigo{
+        width: 8vw;height: 3vh;margin: auto;margin-top:0.8vh;text-align: center;border-radius: 6px;
+        background-color: #ffffff;color: #5ab302;font-weight: bold;border: 0px;border-bottom: 1.5px solid #a4a1a1;
+    }
+</style>
+
+<script>
+ 
+function  buscarFormImagens(n){
+    //...............................................
+    let p=document.getElementById("gravaImagem");
+    p.style.display='block';
+    //................................
+    let q1=document.getElementById("idProdutoDefault");
+    q1.value=n;
+    //.................................................
+    let q2=document.getElementById("idLocalImagem");
+    let d='1';
+    q2.value=d;
+}
+
+ // busca as imagens correspondente ao artigo referenciado
+ // busca em lojista/img_space_ para buscar a img
+ // depois vai para loadImagensArtigo(json)
+ function imgLoadArtigo(n){
+    //.......................................................
+    let r=document.getElementById('idLojista');
+    console.log('idLojista',r)
+    r=r.value;
+    console.log('cod do lojista : imgLoadArtigo busca [ 441 ]',r)
+    let idlojista=r.value;
+    let artigo=n;
+    console.log('artigo',artigo)
+    let chave;
+    chave=r + "&&&" + artigo ;
+     //let codigo=document.getElementById("idLojista").value;
+    
+    //........................................................
+    let obsize=chave;
+    //.........................................................
+    r=obsize.length;
+    //if(r=24){
+        //....................................................   
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+                fetch(`${baseApiUrl}` + `/lojista/img_space_/${obsize}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    loadImagensArtigo(json)
+                    // ..................................
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }catch(e){
+            console.log(e)
+        }
+    //}
+} 
+
+ // Aqui temos a response da Space-Digital sobre os arquivos de imagens,  
+ function loadImagensArtigo(n){
+    // Agora que temos as imagens relacionadas ao artigo vamos carrega-la
+    const blok=n;
+    let b=blok.length;
+    let col=1;
+    let x=1;
+    let cod;
+    let urlPath;
+    let posicao;
+    let pos;
+    for (i=0;i<b;i++){
+            let palavra= blok[i]
+            //  console.log('------------------------------------');
+            //palavra=j;
+          
+            //................................................................
+            pos=palavra.search(" &-& ");
+         //   console.log(' [ 594 ] primeira pos "-" : ',pos)
+            //........................................
+            cod=palavra.slice(0,pos)
+         //   console.log('codigo --> Ok: ',cod)
+            //..............................
+            let l=palavra.length;           
+            palavra=palavra.slice((pos+5),l);
+         //   console.log('restante ??',palavra)
+            //...................................................
+            pos=palavra.search(" &-& ");
+            urlPath=palavra.substring(0,pos);
+         //   console.log(' url --> Ok: ',urlPath);
+            //..................................................
+            l=palavra.length;           
+            palavra=palavra.slice((pos+5),l);
+         //   console.log('restante ??',palavra)
+            //...................................................
+            pos=palavra.search(" &-& ");
+            posicao=palavra.substring(0,pos);
+         //   console.log(' posição --> Ok: ',posicao);
+
+          //  return
+            //.................................
+           // console.log(' [ 603 ] :',palavra);
+            //palavra=palavra.slice((pos+1),c);
+           // console.log('restante ',palavra)
+           // pos=palavra.search("-");
+            //console.log('',pos)
+            //col=palavra.slice(0,pos)
+           // console.log('col --> Ok:',col)
+           // let titulo=palavra.slice((pos+1),c);
+          //  console.log('titulo -->  Ok: ',titulo)
+            transformaArtigo(cod,urlPath,posicao)
+            col++;
+            if(col=4){
+                col=1;
+            };
+    }
+
+    function transformaArtigo(cod,urlPath,posicao){
+      //  console.log(' -> codigo',cod)
+      //  console.log(' -> url',urlPath)
+      //  console.log(' -> posição',posicao)
+       // console.log(' -> c',c)
+        //document.getElementById("artigoSelect").innerHTML='home';
+        //document.getElementById("nome_Artigo").value=home;
+        //.........................................
+        let imgDone=urlPath;
+      //  console.log('url da image',imgDone)
+     //   console.log('-----------------------------------')
+        let trilha='main-' + posicao
+      //  console.log('valor da trilha ',trilha)
+        trilha=trilha.trim();
+        var str = trilha.replace(/\s/g, '');
+      //  console.log('valor do id que receberá a img STR',str)
+        let imgStr=document.getElementById(`${str}`);
+        imgStr.src=imgDone
+    }
+}
+
+</script>

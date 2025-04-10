@@ -1,0 +1,18 @@
+// Deleta em todos os docs o campo 'ram' dentro de 'spec'
+Lojista.updateMany({_id:w},
+                    {
+                        $unset : {
+                            spec.ram:""
+                        } 
+
+                    }
+
+  Saída:
+                    
+  [
+  { _id: 1, spec: { screen: 6.5, cpu: 2.66 } },
+  { _id: 2, spec: { screen: 9.5, cpu: 3.66 } },
+  { _id: 3, spec: { screen: 9.7, cpu: 3.66 } },
+  { _id: 4, spec: { screen: 9.7, cpu: 1.66 } },
+  { _id: 5, spec: { screen: 5.7, cpu: 1.66 } }
+]

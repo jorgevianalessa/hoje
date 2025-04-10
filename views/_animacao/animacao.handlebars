@@ -1,0 +1,242 @@
+<style>
+  .corpo{
+    background-color: #e50b0b;width: 95%;height: 90vh;margin: auto;margin-top: 6.5vh;display: flex;flex-direction: row;justify-content:center ;
+  }
+
+  .mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #033986;
+      background-position: center;
+      z-index: 1000;
+      position: absolute;left: 0;top: 0;
+      display: none;
+  }
+
+  .sideLeft{
+     width: 15%;height: 90vh;margin: auto;background-color: white;float: left;
+  }
+
+  .sideMiddle{
+     width: 69%;height: 90vh;margin: auto;background-color:#ffffff;float: left;display: flex;flex-direction: column;justify-content: center;
+  }
+
+  
+
+  .sideRight{
+    width: 15%;height: 90vh;margin: auto;background-color: white;float: left;
+  }
+
+  .btndraw{
+    width: 120px;height: 5vh;margin: auto;background-color: #0b0bc9;border-radius: 5px ;color:#ffffff;
+  }
+
+  
+
+  
+</style>
+<div class="d-flex corpo" >
+    <div id="sideLeft" class="sideLeft">
+
+    </div>
+    <div id="sideMiddle" class="sideMiddle">
+          <canvas id="prancha" style="width: 100%;height: 72vh;background-image:url('https://amelia.nyc3.digitaloceanspaces.com/441204576f30d47cdd7e_doisbanheiros.png');background-repeat: no-repeat;background-size: cover;margin-top: 5vh;margin-bottom: 2vh;">
+                
+          </canvas>
+              
+          <div id="btnDraw" style="width: 100%;height: 10vh;margin: auto;background-color: black;display: flex;flex-direction:row;justify-content: center;">
+                <button class="btndraw">banheiros</button>
+                <button class="btndraw">distribuição</button>
+                <button id="btnRetorno" class="btndraw">retorno</button>
+          </div>
+           
+    </div>
+    
+    <div id="sideRight" class="sideRight">
+        <div style="width: 95%;height: 10vh;margin: auto;background-color: #e50b0b;text-align: center;padding-top: 4vh;">
+            <button>Upload</button>
+        </div>
+        <div style="text-align: center;margin-top: 1vh;">
+            <input id="input-1" type="text" style="width: 100px;height: 36px;background-color: #e50b0b;color#ffffff;">
+        </div>
+        <div style="text-align: center;margin-top: 1vh;">
+            <input id="input-2" type="text" style="width: 100px;height: 36px;background-color: #e50b0b;color#ffffff;">
+        </div>
+    {{!-- ////////////////////////////////////////////////////////////// --}}
+    <div id="form_escolheFicheiro" style="width: 90%;height: 48vh;margin: auto;display:block;background-color: #b1aeae;margin-top: 4vh;display: none;">
+            <form action="/controle/upload" id="idfile" method="post" enctype="multipart/form-data" class="" style="background-color: #b1aeae;">
+                            <div id="tituloSelectFoto" style="display: flex;flex-direction: row;justify-content: center;">
+                            <div style="width: 100%;height: 3.5vh;margin: auto;background-color: #transparent;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                                    <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                                </div>
+                            </div>  
+                            <div id="tituloEscolheFicheiro" style="background-color:#a9a9ad;">
+                                <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                                <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="5"> {{!--idLocalImagem=t--}}
+                                <input type="text" id="idNomeImagem" name="NameNomeImg" style="display:none;color:red;background-color: #0b0bc9;" value="">   {{!--idPosicaoImg=side --}}
+                                <input id="plantaid" name="namePlanta_id" value="{{lojista._id}}" style="background-color: hotpink;display:none;">
+                            </div>      
+                
+                            <div id="form_imagem" style="width: 90%;height:41vh;margin: auto;align-items: center ;z-index: 10;margin-top: 5px;padding: 10px;display: flex;flex-direction: column;background-color: #ffffff;">
+                            
+                                    {{!-- <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color:#035384;padding: 10px;"> --}}
+                                   
+                                      <img id="imgPreviewA" src="" alt="" class="" width="100%" height="" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;height: 37vh;"/>
+                                   
+                                    {{!-- </div> --}}
+                                    {{!-- <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                                    <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                                    </div> --}}
+                            </div>  
+                            <div id="form_btn" style="width: 100%;height: 3vh;margin: auto;background-color:#b1aeae;">
+                                    <button id="btnId" class="btn_gravar" type="text"  >Gravar</button>
+                            </div>   
+                    
+            </form>
+    </div>
+    
+</div>
+<script>
+    
+    let fileImgA=document.querySelector('#fileA');
+    //.............................................
+    const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        //document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        //document.getElementById("NomeFoto").value=selecledFile.name;//
+        // document.getElementById("idNomeImagem").value=selecledFile.name;
+        //document.getElementById("codigo_Id").focus();
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+        }
+        reader.readAsDataURL(selecledFile);
+    });
+</script>
+<script>
+
+     const planta=document.getElementById("prancha");
+     const ctx=planta.getContext("2d");
+
+     let size=1;
+     let isPressed=false;
+     let color="red";
+     let x=undefined;
+     let y=undefined;
+     
+
+
+     planta.addEventListener("click",(e)=>{
+        console.log('dentro!')
+        isPressed=true;
+        x=e.offsetX;
+        y=e.offsetY;
+        console.log(x,y)
+        //document.getElementById("input-1").value=x;
+        // document.getElementById("input-2").value=y;
+        if(isPressed){
+             const x2=e.offsetX;
+             const y2=e.offsetY
+              console.log('oi')
+             //drawLine(x,y,x2,y2)
+             drawCircle(x,y)
+             x=x2;
+             y=y2;
+        }
+     })
+
+     planta.addEventListener("mouseup",(e)=>{
+        isPressed=false;
+        x=e.offsetX;
+        y=e.offsetY;
+     })
+
+     planta.addEventListener("mousemove",(e)=>{
+        //   if(isPressed){
+        //     const x2=e.offsetX;
+        //     const y2=e.offsetY
+        //     drawLine(x,y,x2,y2)
+        //     x=x2;
+        //     y=y2;
+        //   }
+     })
+
+     function drawLine(x1,y1,x2,y2){
+         ctx.beginPath();
+         ctx.moveTo(x1,y1);
+         ctx.lineTo(x2,y2);
+
+         ctx.strokeStyle=color;
+         ctx.lineWidth=size;
+         ctx.stroke();
+
+     }
+
+     
+     let bt=document.getElementById("btnRetorno");
+     let c=document.getElementById("sideMiddle");
+     let n=c.style.marginTop;
+    
+
+     bt.addEventListener("click",(e)=>{
+
+     })
+
+
+     // Desenha a casinha e i círculo pequeno
+     function drawCircle(x,y){
+        const planta=document.getElementById("prancha");
+        const ctx=planta.getContext("2d");
+
+        // desenha o círculo
+        ctx.strokeStyle='red';
+        ctx.lineWidth=0,50;
+        ctx.beginPath();
+        ctx.arc(5, 4, 4, 0, Math.PI*2);
+        ctx.stroke();
+
+        //////////////////////////////////////////
+        document.getElementById("input-1").value=x;
+        document.getElementById("input-2").value=y;
+        
+        //////////////////////////////////////////////////
+        // desenha a linha
+        //ctx.strokeStyle='violet';
+        //ctx.beginPath(); // Start a new path
+        //ctx.moveTo(3, 5); // Move the pen to (30, 50)
+        //ctx.lineTo(250, 3); // Draw a line to (150, 100)
+        //ctx.stroke(); // Render the path
+        ///////////////////////////////////
+        // Wall
+        //ctx.strokeRect(35, 70, 75, 55);
+
+        // Door
+        //ctx.fillStyle=color;
+        //ctx.fillRect(65, 95, 20, 30);
+
+        // Roof
+        //ctx.beginPath();
+        //ctx.moveTo(25, 70);
+        //ctx.lineTo(75, 30);
+        //ctx.lineTo(125, 70);
+        //ctx.closePath();
+        //ctx.stroke();
+     }
+
+     const line={
+           start:{
+             x:100
+             y:100
+           },
+           end:{
+             x:100
+             y:200
+           },
+           lineWidth:50
+           strokeStyle:'blue'
+     }
+
+     drawLine(ctx,line)
+     
+</script>

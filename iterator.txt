@@ -1,0 +1,41 @@
+-------------------------------------------------------------------------------------------------------
+--------------------------------------- ITERATOR ------------------------------------------------------
+Lista Lojista => busca /img_space para publicar as imags no site
+--------------------------------------------------------------------------------------------------------
+then((imgs)=>{
+       console.log('')
+       const iterator=imgs.values();
+       let p=0;
+       for (const value of iterator){
+          let objeto=value.loja.posicao
+          let quadroImg=objeto.detalhes
+          console.log('');
+          console.log('-------------------------------');
+          console.log('');
+          objetoImg = quadroImg.pos + "-" + quadroImg.url
+          ArrayImg.push(objetoImg)
+          p++;
+       }
+       pacoteImg={
+            imgUrl:ArrayImg,
+       }
+       res.send(ArrayImg);
+    })
+
+    -------------------------------------------------------------------------------------------
+                                  var map=new Map(Object.entries(H))
+    --------------------------------------------------------------------------------------------  
+    Home=> compras => Segmento => /_site/rotinas/ => SegmentoMenu             
+    --------------------------------------------------------------------------------------------              
+     let [H]=resp;
+                       var R=Object.values(H.segmento_01);
+                       c=resp.length;
+                       var map=new Map(Object.entries(H))
+                        // .............................
+                        for (let [key,value] of Object.entries(R)){
+                         let l=value;
+                         l=l.trim();
+                         O.push({seg:l})
+                      }
+                      // ...........................................
+                      res.render("_site/roupa-lista", {layout:'roupa_lista.handlebars',seg:O,titulo:segmento}) 

@@ -1,0 +1,37 @@
+Uma barra invertida que preceda um caractere não especial significa que o caractere seguinte é 
+especial e não deve ser interpretado de forma literal. Por exemplo, o caractere 'b' quando não
+precedido de uma barra invertida significará uma ocorrência do próprio caractere 'b' minúsculo,
+porém se precedido da barra invertida '\b' ele passará a significar a ocorrência do caractere 
+especial [fronteira do caractere](#special-word-boundary).
+
+Quando a barra invertida preceder um caractere especial isso significará que o próximo caractere 
+deve ser interpretado de forma literal. Por exemplo o padrão /a*/, que selecionará a ocorrência 
+de zero ou mais caracteres 'a' quando utilizado sem a \ para escape. Por outro lado no 
+padrão /a\*/ o asterisco deixa de ter seu significado especial, pois a '\' de escape fará com que 
+o '*' seja interpretado de forma literal, passando o padrão a selecionar o caractere 'a' seguido 
+do caractere '*'.
+
+Quando utilizar o construtor RegExp("padrao"), não se esqueça de fazer o escape do caractere \, 
+já que esse caractere é também utilizado como caractere de escape em strings.
+
+Corresponde ao início do texto. Se a flag multilinhas é setada para true, também se aplica imediatamente após um 
+caractere de quebra de linha.
+
+Por exemplo, /^A/ não corresponde ao 'A' em "Um Alvo", mas corresponde ao 'A' em "Alvo Encontrado".
+
+Este caractere tem um significado diferente quando aparece como o primeiro caractere em um conjunto padrão de caracteres.
+Veja conjunto de caracteres negados ou complementados para detalhes e mais exemplos.
+
+
+Corresponde ao final do texto. Se a flag multilinhas é setada para true, também se aplica imediatamente antes de um 
+caractere de quebra de linha.
+
+Por exemplo, /r$/ não corresponde ao 'r' em "corre", mas acha correspondência em "correr".
+
+Corresponde a expressão que o precede repetida 0 ou mais vezes. Equivalente a {0,}
+
+Por exemplo, /bo*/ acha uma correspondência para 'boo' em "boolean" e 'b' em "A bird warbled", mas nenhuma em "A goat 
+grunted".
+
+
+

@@ -1,0 +1,10 @@
+  // ::::::::::: ADCIONA O CAMPO TÍTULO => OK ::::::::::::::::::::::
+  Lojista.updateOne({_id:w},
+                    {
+                        $addToSet:{
+                            segmento:{
+                                titulo:p,
+                            }
+                        }
+                    },
+// ::::::::::: ::::::::::: ::::::::::::::::::::::

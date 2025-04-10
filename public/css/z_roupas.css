@@ -1,0 +1,427 @@
+body{
+  margin: 0;
+  padding: 25px 15px;
+  border:3px solid #d4d2d2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.MyHeader{
+    background-color: aqua; 
+    z-index: 1000;
+}
+
+.responsive {
+  width: auto;
+  height: auto;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #325b80;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: #325b80;
+}
+
+.topnav a.active {
+  background-color: #023d62;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.sidebar{
+    margin-top: 0.4vh;height:240vh;padding:2px;background-color: #04f218;
+}
+
+.sidebarDiv{
+  width: 20%;height: 2vh;border: #325b40 solid 2px;margin-bottom: 10px;
+}
+ 
+.header {
+  padding: 10px 16px;
+  background: #02c0ef;
+  color: #f1f1f1;
+}
+ /*Controla as divisão mestres*/
+.dflex{
+    width: 100%;height: 140vh;padding:2px 20px;
+    margin-top:.4vh;background-color:#9403e2;
+    display: flex;flex-direction: column;align-items: start;padding: .5%;align-content:center;
+}
+
+/* largura */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* borda */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #dec8df; 
+  border-radius: 10px;
+}
+
+/*cor da barra*/
+::-webkit-scrollbar-thumb {
+  background: #716267; 
+  border-radius: 4px;
+}
+
+/* Efeito sob mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #ab8787; 
+}
+
+.lateral{
+    width: 100%;height: 60vh;margin: auto;background-color: #b71a1a;text-align: center;padding-top: 40px;
+}
+
+.lateral h1{
+    color:#ffffff;
+    font-size: larger;
+    font-weight: 400;
+    border-bottom: #084071 solid 2px;
+    margin-bottom: 50px;
+    background-color: #6c757d;
+}
+
+.lateral ul{
+  text-decoration: none;margin-top: 4vh;list-style: none;margin: 0;padding: 0;
+}
+
+.lateral ul li{
+  padding-left:35px;color:#325b40;text-align: justify;
+}
+
+.idBody{
+    width: 100%;height: 240vh;margin: auto;margin-top:.4vh;background-color: #ffffff;
+    display: flex;flex-direction: column;align-items: start;padding: .5%;align-content:center;
+    -ms-flex: 1;  /* IE 10 */  
+    flex: 1;
+}
+
+.idCards{
+    width: 100%;height:240vh;background-color: #ffffff;
+    display: flex;flex-direction: column;align-items: stretch;padding: .5%;align-content:center;
+    -ms-flex: 1;  /* IE 10 */  
+    flex: 1;
+}
+
+
+.polaroid{
+   color:3ffffff;
+    width: 24%;
+    margin-left: 0.8%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+    height: 46vh;
+    margin-top: 90px;
+}
+
+.col{
+    display: table-cell;
+    padding: 16px;
+    background-color: #ffffff;
+}
+
+.coltext{
+    display: table-cell;
+    padding: 16px;
+    background-color: #ffffff;
+    /*height: auto;*/
+}
+
+div.container{
+  text-align: center;
+  padding: 10px 20px;
+  background-color: blueviolet;
+}
+
+.col-container {
+    display: table;
+    width: 100%;
+}
+
+.dimensaoimg{
+  width: 215px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 3px;
+  background-color: #04e234;
+  padding: 6px;
+  margin-top:12vh;
+}
+/*////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////*/
+/*marcação de todaos as divisões pela ordem */
+/* 1920px => 51 cm */
+/* 1600px => 43 cm */ 
+@media screen and (max-width:2200px) {
+  .linha{
+      width: 100%;
+      height: 48vh;
+      background-color: rgb(107, 65, 10);
+      padding: 15px;
+      margin: 6px;
+      display:flex;flex-direction: row;align-content:space-between;align-items: center;
+  }
+}
+
+@media screen and (max-width:2100px) {
+  .linha{
+      width: 100%;
+      height: 48vh;
+      background-color: burlywood;
+      padding: 15px;
+      margin: 6px;
+      display:flex;flex-direction: row;align-content:space-between;align-items: center;
+  }
+}
+
+@media screen and (max-width:2000px) {
+    .dflex{
+       height: 339vh;
+       background-color: #ffffff;
+    }
+
+    .idBody{
+      height: 335vh;
+      background-color: #ffffff;
+    }
+    .idCards{
+      height: 335vh;
+       background-color: #ffffff;
+       
+    }
+
+    .sidebar{
+       height: 240Vh;
+       background-color: #980b0b;
+    }
+
+    .linha{
+        width: 100%;
+        height: 60vh;
+        background-color: #ffffff;
+        padding: 4px;
+        margin: 6px;
+        display:flex;flex-direction: row;align-content:start;align-items: start;
+    }
+
+    .polaroid{
+      height: 59vh;
+      background-color: #ffffff;
+      margin-top: 1px;
+      display: flex;
+      flex-direction: column;
+      justify-items: stretch;
+      align-content: space-around;
+    }
+
+    .polaroidImg{
+         background-color: #ffffff;
+         margin-top: -15px; 
+         height: 46vh;
+    }
+
+    .dimensaoimg{
+       height: auto;
+       margin-top: 6px;
+       background-color: #ffffff;
+    }
+
+}
+
+@media screen and (max-width:1900px) {
+  .linha{
+      width: 100%;
+      height: 48vh;
+      background-color: #ffffff;
+      padding: 15px;
+      margin: 6px;
+      display:flex;flex-direction: row;align-content:space-between;align-items: center;
+  }
+}
+
+@media screen and (max-width:1800px) {
+  .linha{
+      width: 100%;
+      height: 60vh;
+      background-color: #ffffff;
+      padding: 15px;
+      margin: 6px;
+      display:flex;flex-direction: row;align-content:space-between;align-items: center;
+  }
+
+  .polaroid{
+    background-color: #0505d4;
+  }
+}
+
+@media screen and (max-width:1700px) {
+  .linha{
+      width: 100%;
+      height: 48vh;
+      background-color: #ffffff;
+      padding: 15px;
+      margin: 6px;
+      display:flex;flex-direction: row;align-content:space-between;align-items: center;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+    .linha{
+        height: 300px;
+        background-color: #ffffff;
+    }
+
+    .polaroid{
+      height: 58vh;
+      background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+  .linha{
+      height: 58vh;
+      background-color: #ffffff;
+  }
+
+  .polaroid{
+    height: 56vh;
+    background-color: #ffffff;
+  }
+}
+
+/* 1400px => 38.4 cm */ 
+@media screen and (max-width: 1400px) {
+    .linha{
+        height: 46.7vh;
+        background-color: black;
+        padding: 6px;
+    }
+
+    .polaroid{
+      margin-top: 30px;
+      height: 46vh;
+      background-color: #ffffff;
+    }
+}
+
+/* 1400px => 38.4 cm */ 
+@media screen and (max-width: 1300px) {
+    .linha{
+        height: 46.7vh;
+        background-color: #ffffff;
+        padding: 6px;
+    }
+
+    .polaroid{
+      margin-top: 30px;
+      height: 46vh;
+      background-color: #ffffff;
+    }
+
+}
+
+/* 1400px => 32.8 cm */ 
+@media screen and (max-width: 1200px) {
+   
+     .idBody{
+       height: 200vh;
+     }
+
+     .idCards{
+       height: 190vh;
+     }
+
+     .linha{
+        height: 40vh;
+        background-color: #ffffff;
+    }
+
+    .dimensaoimg{
+        width: 160px;
+        height: auto;
+        object-fit: contain;
+        margin-top: -20px;
+    }
+
+    .idpreco{
+      font-size: 0.2rem;
+      color: #325b80;
+      margin-top: -40px;
+    }
+
+    .idvezes{
+       color:#000;
+    }
+
+    .iddescritivo{
+      font-size: 3%;
+      color: #cccccc;
+      margin-top: -20px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+  .linha{
+    background-color: #04e234;
+  }
+
+  .dimensaoimg{
+     width: 160px;
+     height: auto;
+     object-fit: contain;
+   }
+
+   .polaroid{
+     height: calc(100%/2);
+   }
+ }
+
+/* 1000px => 27.4 cm */ 
+@media screen and (max-width: 1000px) {
+   .linha{
+     background-color: #04e234;
+   }
+
+   .dimensaoimg{
+      width: 160px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .polaroid{
+      height: calc(100%/2);
+    }
+  }
+
+  
+@media only screen and (max-height: 1000px) {
+  .linha{
+      height: 40vh;
+  }
+}
+
+
+  
+
+ 
+  

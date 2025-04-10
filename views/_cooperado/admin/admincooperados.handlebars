@@ -1,0 +1,815 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.dadEstatistico{
+   display: block;
+}
+
+.dadCadastrais{
+    display: none;
+}
+
+.dadMenuproduto{
+    display: none;
+}
+
+.painel_conta{
+    display: none;
+}
+
+li a {
+  display: block;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+  text-decoration: none;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+</style>
+<style>
+    a:link, a:visited {
+    color: (red);
+    text-decoration: underline;
+    cursor: auto;
+    }
+
+    a:link:active, a:visited:active {
+    color: (yellow);
+    }
+
+    .grid-container {
+        width: 60vw;
+        margin: auto;  
+        display: grid;
+        grid-template-columns:1fr 90% 1fr;
+        background-color: white;
+        padding: 2px;
+    }
+
+    .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+    padding: 2px;
+    font-size: small;
+    text-align: left;
+    color:black;
+    margin-top:4px;
+    padding:3px;
+    }
+
+    .semborda{
+        background-color: transparent;border:none;
+    }
+</style>
+<style>
+    .container {
+       border-radius: 5px;
+       background-color: #f2f2f2;
+       padding: 20px;
+    }
+    
+    .row{
+         background-color: #114847;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    .col-0{
+       float: left;
+       width: 0%;
+       margin-top: 6px;
+    }
+
+    .col-15{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-20{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-25{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       background-color:transparent;
+       text-align: end;
+    }
+
+    .col-26{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-30{
+       float: left;
+       width: 30%;
+       margin-top: 6px;
+    }
+
+    .col-45{
+       float: left;
+       width: 45%;
+       margin-top: 6px;
+    }
+
+    .col-70{
+       float: left;
+       width: 70%;
+       margin-top: 6px;
+     /*   height: 3.1vh;
+       padding-right:2%;
+       background-color: #b00202;*/
+    }
+
+
+
+    .col-75{
+       float: left;
+       width: 75%;
+       margin-top: 6px;
+     /*  padding-right: 10px;*/
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+        height: 2.8vh;
+        font-size: medium;
+        color:#020903
+    }
+
+    label {
+       padding: 12px 12px 12px 0;
+       display: inline-block;
+       background-color:transparent;
+       color:#ffffff;
+  }
+
+
+</style>
+<script>
+    function myFunction(n){
+        console.log(n)
+    }
+</script>
+{{!-- MODELO TEMPLATE ===> 1 --}}
+<div id="divContanier" class="content" style="width:99%;margin: auto;margin-top:7.7vh;border: none;height: 100vh;background-color: #ffffff;">
+    {{!-- Essa divisão é o CABEÇALHO --}}
+    <div id="divCabeçalho"  style="background-color:#8a1e03;height: 8vh;margin-top:.2vh;padding-left: 2%;">
+        <div  style="background-color:transparent;width: 100%;padding-bottom: 10px;padding-left: 15px;">
+            <input id="codigoClient" value="{{cooperado._id}}" style="display: flex;visibility: hidden;">
+            <div style="display: flex;flex-direction: row;justify-content: space-between">
+                <h2  style="color:#ffffff;">Cooperado :<span style="color: #ffffff;font-bold:true ;margin-left:30px">{{cooperado.razao}}</span></h2>
+                <h6><label style="color: #ffffff;" >_cooperados/admin/admincooperados.handlebars</label></h6>
+                <div style="margin-left: 2vw;">
+                  <h6><label style="color: #ffffff;font-size: .8vw;padding-right: 1vw;" >template =>1</label></h6>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+    </div>
+    {{!-- ESSA DIVISÂO É O CORPO --}}
+    <div id="divCorpo"  style="background-color:#ffffff;">
+        <div id="divEnvio" style="display:block;">
+            {{!-- //////////////////////////////////////////////////////////////////////  --}}
+            <form id="listaproduto" method="get" action="/roupa/produt_listaproduto/{{cooperado._id}}" style="width: 80%;height: 5vh;margin: auto;background-color:#00ff11;margin-top: 5px;display: none;" enctype="application/x-www-form-urlencoded">
+                <input id="teste3" name="test3" >
+                <button id="disparalistaproduto"  type="submit"></button>
+            </form>
+            {{!-- //////////////////////////////////////////////////////////////////////  --}}
+            <form id="produto_temp" method="Post" action="/roupa/buscar-fornecedores/" style="width: 80%;height: 5vh;margin: auto;background-color: green;margin-top: 5px;display:none;" enctype="application/x-www-form-urlencoded">
+                <input id="idlistaTemporario" name="idlistaTemporario" value="{{cooperado._id}}">
+                <button id="disparaprodutotemp"  type="submit"></button>
+            </form>
+            {{!-- //////////////////////////////////////////////////////////////////////  --}}
+
+            {{!-- ////////////////////////////////////////////////////////////////////////// --}}
+            <form id="importproduto" method="post" action="/lojista/produt_import-produto-lojista" style="width: 80%;height: 5vh;margin: auto;background-color:green;margin-top: 5px;display:none;margin-left:25vw;" enctype="application/x-www-form-urlencoded">
+                <input id="segmento" name="segmento" value="{{segmento}}">
+                <input id="idd" name="idd" value="{{cooperado._id}}" >
+                <input id="rz" name="rz" value="{{cooperado.razao}}" > 
+                <input id="cnpj" name="cnpj" value="{{cooperado.cnpj}}" >
+                <input id="marca" name="marca" value="{{cooperado.marca}}">
+                <button id="disparaimportproduto" type="submit" style="height: 3vh;width: 20%;background-color: #00ff11;" ></button>
+            </form>
+            {{!-- ////////////////////////////////////////////////////////////////////////// --}}
+            <form id="cadastroproduto" method="post" action="/lojista/cadastroproduto" style="width: 80%;height: 5vh;margin: auto;background-color:green;margin-top: 5px;display:none;margin-left:25vw;" enctype="application/x-www-form-urlencoded">
+                <input id="segmento" name="segmento" value="{{segmento}}">
+                <input id="idd" name="idd" value="{{cooperado._id}}" >
+                <input id="rz" name="rz" value="{{cooperado.razao}}" > 
+                <input id="cnpj" name="cnpj" value="{{cooperado.cnpj}}" >
+                <input id="marca" name="marca" value="{{cooperado.marca}}">
+                <button id="disparacadastroproduto" type="submit" style="height: 3vh;width: 20%;background-color: #00ff11;" ></button>
+            </form>
+            {{!-- //////////////////////////////////////////////////////////////////////////// --}}
+            <form id="cadfornec" method="post" action="/roupa/cad_fornecedor" style="width: 80%;height: 5vh;margin: auto;background-color: transparent;margin-top: 5px;display: none;" enctype="application/x-www-form-urlencoded">
+                <input id="idloja" name="idloja" value="{{cooperado._id}}" >
+                <input id="razaoloja" name="razaoloja" value="{{cooperado.razao}}" > 
+                <input id="segmentoloja" name="segmento" value="{{segmento}}" >
+                <button id="disparacadfornec"  type="submit"></button>
+            </form>
+        </div>
+        <div id="divLateralEsquerda"  style="width:25%;height:90vh;float: left; background-color:#ffffff;padding: 10px;">
+            {{!-- Divisão menu lateral fundo verde --}}
+            <div id="menuLateral" class="card text-white" style="height: 88vh;background-color:gray;padding: 2px;padding: 1.5px;">
+                <div id="menuLateralLinks" class="card-body" style="background-color:blue;display: flex;flex-direction: column;justify-content: space-around;">
+                    <ul style="list-style-type: none;font-size: 1.5rem;" >
+                        {{cooperado._id}}
+                        <li style="margin: 30px 0px;">
+                            <i class="fas fa-chart-line"></i>
+                            <button onclick="buscEstatistica()" style="border:0px;border-radius:5px;background: transparent;color:#ffffff;">Estatísticas</button>
+                        </li> 
+                        <li style="margin: 30px 0px;">
+                            <i class="far fa-id-card fa-1x"></i>
+                            <button onclick="buscCadastrais()" style="border:0px;border-radius:5px;background: transparent;color:#ffffff;">Dados Cadastrais</button>
+                        </li>   
+                        <li style="margin-bottom: 20px;">
+                            <i class="fas fa-dolly fa-1x" style="margin-left: 2px;"></i>
+                            <button onclick="buscMenuProduto()" id="flexa" type="submit" style="background-color: transparent;border: 0px;color:#ffffff" >Produto</button>
+                        </li>
+                        <li style="margin-bottom: 20px;">
+                            {{!-- <i class="glyphicon glyphicon-envelope"></i> --}}
+                                <i class='fas fa-calculator' style="margin-left: 3px;"></i>
+                                <button onclick="buscContas()" id="flexa" type="submit" style="background-color: transparent;border: 0px;color:#ffffff" >Contas</button>
+                        </li>
+                        <li id="VisualPage" style="margin-bottom: 20px;">
+                        
+                            <i class="fas fa-sd-card" style="margin-left: 2px;"></i>
+                            <button onclick="buscMenuPage()" id="flexa" type="" style="background-color: transparent;border: 0px;color:#ffffff" >Página</button>
+                        
+                        </li>
+                        <li id="menuSite" style="margin-bottom: 20px;">
+                            <i class="fas fa-undo-alt"></i>
+                            <button onclick="#" id="flexa" type="submit" style="background-color: transparent;border: 0px;color:#ffffff;margin-left: -18px;" >
+                                <a href="/" style="text-decoration: none;">Home</a>
+
+                            </button>
+                        </li>
+                        <li style="margin-bottom: 20px;">
+                            <i class="fas fa-exclamation-triangle fa-1x" style="margin-left: 2px;"></i>
+                            <button onclick="#" id="flexa" type="submit" style="background-color: transparent;border: 0px;color:#ffffff" >Ajuda</button>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+        <div id="divCentral" style="width: 75%;height: 88vh;float: left;background-color: #0ace38;padding: 10px;
+                                    display: flex;flex-direction: row;justify-content: center;align-items: center;margin-top: 1vh;">
+            <div id="dados-estatisticos" class="col-lg-12 col-sm-12 dadEstatistico" style="width: 100%;height: 65vh; background-color:#ffffff;" >
+                    <div class="text-white" style="height: 60vh;border: 1px solid gray;margin-top:2vh ;">
+                        <div class="card-body">
+                            <div style="width:100%;display:flex ;flex-direction:row;justify-content:flex-start;background-color:#919291;padding: 4px 0px 0px 4px;">
+                                <i class="fas fa-file fa-3x" style="float: left;margin-right: 10px;background: #b00202;"></i>
+                                <label>Estatística</label>
+                            </div>
+                            <div style="width:100%;height:.5vh;margin:auto;background-color:#ffffff;margin-top:.4vh ;"></div>
+                            <div style="width: 95%;height: 48vh;margin:auto;background-color: green;border; solid #ffffff .5px;margin-top:20px;
+                                        float: right;margin-top: 1px;margin-left: 10px;
+                                        padding: 15px;">
+                                <div style="width:100%;height:5vh;margin:auto;background-color:transparente;float: left;display: flex;flex-direction: row;justify-items: baseline;">
+                                    <div style="width:30%;height:4vh;margin:auto;background-color: #929191;padding:3px;margin-left:10px ;border-radius: 6px;">
+                                            <label>Acesso totais</label>
+                                    </div>
+                                    <div style="width:65%;height:4vh;margin:auto;background-color: #929191;border-radius: 6px;">
+                                            <input type="text" style="width:50%;border-radius:6px;text-align: center " disabled value="0">
+                                    </div>
+                                </div>        
+                                <div style="width:100%;height:5vh;margin:auto;background-color:transparente;float: left;display: flex;flex-direction: row;justify-items: baseline;">
+                                    <div style="width:30%;height:4vh;margin:auto;background-color: #929191;padding:3px;margin-left:10px ;border-radius: 6px;">
+                                            <label>Click miniatura</label>
+                                    </div>
+                                    <div style="width:65%;height:4vh;margin:auto;background-color: #929191;border-radius: 6px;">
+                                            <input type="text" style="width:50%;border-radius:6px;text-align: center " disabled value="0">
+                                    </div>
+                                </div>    
+                                <div style="width:100%;height:5vh;margin:auto;background-color:transparente;float: left;display: flex;flex-direction: row;justify-items: baseline;">
+                                    <div style="width:30%;height:4vh;margin:auto;background-color: #605d5d;padding:3px;margin-left:10px ;border-radius: 6px;">
+                                            <label>Investimentos</label>
+                                    </div>
+                                    <div style="width:65%;height:4vh;margin:auto;background-color: #929191;border-radius: 6px;">
+                                            <input type="text" style="width:50%;border-radius:6px;text-align: center " disabled value="0">
+                                    </div>
+                                </div>    
+                                    <div style="width:100%;height:5vh;margin:auto;background-color:transparente;float: left;display: flex;flex-direction: row;justify-items: baseline;">
+                                    <div style="width:30%;height:4vh;margin:auto;background-color: #605d5d;padding:3px;margin-left:10px ;border-radius: 6px;float: right;">
+                                            <label >Banderola:</label>
+                                    </div>
+                                    <div style="width:65%;height:4vh;margin:auto;background-color: #929191;border-radius: 6px;">
+                                            <input type="text" style="width:50%;border-radius:6px;text-align: center " disabled value="0">
+                                    </div>
+                                </div>    
+                                <div style="width:100%;height:5vh;margin:auto;background-color:transparente;float: left;display: flex;flex-direction: row;justify-items: baseline;">
+                                    <div style="width:30%;height:4vh;margin:auto;background-color: #605d5d;padding:3px;margin-left:10px ;border-radius: 6px;">
+                                            <label>Janela:</label>
+                                    </div>
+                                    <div style="width:65%;height:4vh;margin:auto;background-color: #929191;border-radius: 6px;">
+                                            <input type="text" style="width:50%;border-radius:6px;text-align: center " disabled value="0">
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>           
+                    </div>         
+            </div>
+            {{!-- Form relativo a ficha do cooperado para confer~encia e edição --}}
+            <div id="dados-cadastrais" class="col-lg-9 col-sm-12 dadCadastrais " style="width:98%;height: 85vh;margin:auto;background-color:#ffffff;overflow-y: scroll;padding: 4px;margin-top: 2px;" >
+                <form action="/central/cadastro-lojista" style="width: 90%;height: 78vh;margin:auto;margin-top:5px;font-size: smaller;padding: 0.2%;background-color:transparent;" method="POST" action="" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                        {{!-- Essa divisão é espaçamento ---------------------- --}}
+                        <div class="row" style="margin-top: .8vh;">
+                            <div class="col-25">
+                                    <labe></labe>
+                            </div>
+                            <div class="col-70">
+                                    <label></label>
+                            </div>
+                        </div>
+                        <div id="Rwrazao" class="row" style="">
+                            <div class="col-25" >
+                                <label for="rzsocial" style="">Razão Social :</label>
+                            </div>
+                            <div class="col-70" >
+                                <input id="rzSocial" type="text"  style="" name="rzsocial" placeholder="razão ..." tabindex="0" required value="{{cooperado.razao}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="Rwrespd" class="row">
+                            <div class="col-25">
+                                <label for="resp1">Responsável :</label>
+                            </div>
+                            <div class="col-70">
+                                <input id="resp1" type="text" style="" name="resp1" placeholder="" tabindex="1" required value="{{cooperado.responsavelHum}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="Rwcpf" class="row">
+                            <div class="col-25">
+                                <label class="" for="cpf1">CPF :</label>
+                            </div>
+                            <div class="col-70">
+                                <input id="cpf1" type="text"  style="border-radius: 5px;height: 2.8vh;" name="cpf1" placeholder="" tabindex="2" required value="{{cooperado.cpfHum}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="Rwcnpj" class="row">
+                            <div class="col-25">
+                                <label class="" for="cnpj">CNPJ :</label>
+                            </div>
+                            <div class="col-70">
+                                <input id="cnpj" type="text" style="border-radius: 5px;height: 2.8vh;" name="cnpj" placeholder="" tabindex="3" required value="{{cooperado.cnpj}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="Rwinscricao" class="row">
+                            <div class="col-25">
+                                <label  for="inscricao">INSCRIÇÃO :</label>
+                            </div>
+                            <div class="col-70">
+                                <input type="text" id="inscricao" style="border-radius: 5px;height: 2.8vh;" name="inscricao" placeholder="" tabindex="4" required value="{{cooperado.inscricao}}">
+                            </div>
+                        </div>
+                        <div id="Rwsite" class="row" >
+                            <div class="col-25">
+                                <label class="" for="nomeSite" >Site :</label>
+                            </div>
+                            <div class="col-70">
+                                <input type="text" id="nomeSite" name="nomeSite" style="border-radius: 5px;height: 2.8vh;" placeholder=""  tabindex="5" required value="{{cooperado.site}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="Rwmarca" class="row" >
+                            <div class="col-25" >
+                                <label class="" for="marca">Marca :</label>
+                            </div>
+                            <div class="col-26">
+                                <input type="text" id="marca" name="marca" placeholder="" tabindex="7" required value="{{cooperado.marca}}">
+                            </div>
+                        </div>    
+                        <div id="Rwfone" class="row" style="margin-top:3px ;">
+                            <div class="col-25" >
+                                <label class="" for="celular" style="text-align:center;">Celular :</label>
+                            </div>
+                            <div class="col-26" >
+                                <input  id="celular"  type="text" name="celular" style="height: 2.8vh;" placeholder="" tabindex="8" required value="{{cooperado.celular}}">
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div class="col-25" style="background-color:transparent;width:18%;">
+                                <label class="" for="telefixo">Tel Fixo :</label>
+                            </div>
+                            <div class="col-26" style="">
+                                <input type="text" id="telefixo" name="telefixo" placeholder="" tabindex="9" required value="{{cooperado.telefone}}">
+                            </div>
+                        </div>        
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="Rwemail" class="row" style="background-color: green;padding:2px ;">
+                            <div class="col-25" >
+                                <label class="label" for="">E-mail :</label>
+                            </div>
+                                <div class="col-70" > 
+                                <input type="text" style="height:2.8vh;" id="boxEmail" name="boxEmail"   tabindex="10" autocomplete="on"  required value="{{cooperado.email}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        {{!-- <div id="RwSenha" class="row" style="background-color: green;padding:2px ;" >
+                                <div class="col-25" style="background-color: transparent;" >
+                                <label  for="inputSenha">Senha :</label>
+                                </div>
+                                <div class="col-70">
+                                <input  type="text" style="height: 2.8vh;margin-top:0.6vh;" id="inputSenha"  name="inputSenha"  autocomplete="off||on" tabindex="13" required>
+                                </div>
+                        </div> --}}
+                        {{!-- <div id="RwComfirmSenha" class="row" style="background-color: green;padding:2px ;">
+                                <div class="col-25" style="background-color: transparent;" >
+                                <label class=""   for="confirmeCodigo">Confirma senha:</label>
+                                </div>
+                                <div class="col-70"  >
+                                <input type="text" style="height: 2.8vh;" id="confirmeSenha" name="confirmeSenha" placeholder="" autocomplete="off||on" tabindex="14" required>
+                                </div> 
+                        </div> --}}
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="RwCep" class="row" style="margin-bottom: 3px;margin-top:3px;background-color: green;padding:2px ;" >
+                            <div class="col-25" style="background-color: transparent;" >
+                                <label class="" for="labelcep" >Cep :</label>
+                            </div>
+                            <div class="col-26" >
+                                <input type="text" id="inputCep" name="inputCep"  tabindex="15" required value="{{cooperado.cep}}">
+                            </div>
+                        </div>         
+                        <div id="RwAvenida"  class="row" style="margin-top:3px;background-color: green;padding:2px;">
+                            <div class="col-25" style="background-color: transparent;" >
+                                <label class=""  for="inputAvenida">Avenida/rua :</label>
+                            </div>
+                            <div class="col-45" >
+                                <input style="" type="text" id="inputAvenida" name="inputAvenida" tabindex="16" required value="{{cooperado.logradouro}}">
+                            </div>
+                            <div class="col-20" style="width:12%;height: 4vh;">
+                                <label class="" for="inputNumero">Nº :</label>
+                            </div>
+                            <div class="col-15" style="float:left;background-color:#ffffff;width:15%;margin-top:5px;">
+                                <input type="text" style="width:55%;" id="inputNumero" name="inputNumero" tabindex="17"  required value="{{cooperado.numero}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="RwComplemento" class="row" >
+                                <div class="col-25" >
+                                <label class="" for="Complemento">Complemento :</label>
+                            </div>
+                            <div class="col-45" >
+                                <input type="text" id="inputComplemento" name="inputComplemento"  tabindex="18" required value="Pedra">
+                            </div> 
+                        </div>
+                        <div id="RwCidade" class="row" >
+                            <div class="col-25" >
+                                <label  for="inputAvenida">Cidade :</label>
+                            </div>
+                            <div class="col-45" >
+                                <input type="text"  id="inputCidade" name="inputCidade" tabindex="19" required value="{{cooperado.cidade}}">
+                            </div>
+                            </div>
+                        <div id="RwBairro" class="row">
+                            <div class="col-25" >
+                                <label  for="inputBairro">Bairro:</label>
+                            </div>
+                            <div class="col-15" >
+                                <input type="text"  id="inputBairro" name="inputBairro"  tabindex="20" required value="{{cooperado.bairro}}">
+                            </div>
+                        </div>
+                        <div id="Rwestato" class="row">
+                                <div class="col-25"  >
+                                <label class=""  for="inputEstado">Estado :</label>
+                            </div>
+                            <div class="col-20" >
+                                <input type="text"   id="inputEstado" name="inputEstado" value="ES" tabindex="21" required value="{{cooperado.estado}}">
+                            </div>
+                        </div>
+                        {{!-- ----------------------------------------------------------- --}}
+                        <div id="RwSegmento" class="row" >
+                            <div class="col-25" >
+                                <label for="inputAvenida" >Segmento:</label>
+                            </div>
+                            <div class="col-45" >
+                                    {{!-- <select name="SelectSeg" id="SelectSeg" class=""  value="" tabindex="22" required>
+                                            {{#each segmento}}
+                                                <option onclick="buscabairro({{this}})">{{this.s}}</option>
+                                            {{/each}}
+                                    </select> --}}
+                                    <input type="text"   id="inputsegmento" name="inputEstado"  tabindex="21" required value="{{segmento.titulo}}">
+                            </div>
+                        </div>
+                        <div id="RwSubSegmento" class="row">
+                                <div class="col-25">
+                                <label for="inputAvenida">Sub-Segmento:</label>
+                            </div>
+                            <div class="col-45" >
+                                {{!-- <select name="SelectSubSeg" id="SelectSubSeg" onchange="myFunctionB()" class=""   value="" tabindex="23" required>
+                                                <option></option>
+                                </select> --}}
+                                    <input type="text"   id="inputsegmento" name="inputEstado"  tabindex="21" required value="{{segmento.sub_titulo}}">
+                            </div>
+                        </div>
+                            <div class="row" style="">
+                            <div class="col-25">
+                                    <labe></labe>
+                            </div>
+                            <div class="col-70">
+                                    <label></label>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:3vh ;background-color:transparent;">
+                            <div class="col-25">
+                                <input  id="confirmacao" onchange="gravar()" value="" style="display:none ;" tabindex="24">
+                            </div>
+                            <div class="col-45" style="padding:4px ;height:5vh;">
+                                <input type="button" id="gravando" value="Gravando lojista" style="background-color:#057c17 ;
+                                    height:4vh;color:#ffffff;border-radius:5px;width:80% ;border:2px solid #00ff11 ;display:none ;"
+                                    onclick="document.getElementById('id01').style.display='block'">
+                                <input type="submit" id="OkGravar" style="display:none ;" tabindex="25">  
+                            </div>
+                        </div>
+                        <div style="grid-column: 4;grid-row:1/span 10;background-color:#4e04b6;">
+                    </div>
+                </form>
+            </div>
+            {{!-- Parte do coteudo: cadastro de produto,upload ,ajuda --}}
+            <div id="produto" class="col-lg-12 col-sm-12 dadMenuproduto" style="background-color:#024f87;" >
+                <div id="dados-menuproduto-flex" class="text-white" style="height: 70vh;border: 1px solid ffffff;margin-top:.8vh ;">
+                    <div id="dados-menuproduto-titulo-page" class="card-body" style="background-color: transparente;">
+                        <div style="width:100%;display:flex ;flex-direction:row;justify-content:flex-start;background-color:transparent;padding: 4px 0px 0px 4px;">
+                            <i class="fas fa-file fa-3x" style="float: left;margin-right: 10px;"></i>
+                            <label>Produto</label>
+                        </div>
+                        <div style="width:100%;height:.5vh;margin:auto;background-color:#ffffff;margin-top:.4vh ;"></div>
+                    
+                    </div>    
+                    <div id="dados-menuproduto-list-menu" style="width: 100%;height: 48vh;margin:auto;background-color: transparent;
+                                                                float: right;margin-top: 1px;margin-left: 10px;padding: 15px;">
+                        <div style="width:40%;height:50vh;margin:auto;background-color:transparent;float:left;padding:4vh ;display: flex;flex-direction: column;
+                                    justify-content: center;align-items:flex-start;">
+                            <ul style="background-color:transparent;margin-top:1h;width:100%;height:40vh;margin:auto;list-style: none;overflow: auto;
+                                    text-decoration: none;border:2px solid #ffffff;padding-top: 40px;">
+                                {{!-- <li style="margin-top:-5px;margin-bottom: 20px;">
+                                    <button type="button"  data-toggle="collapse" 
+                                            style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="listaProdct()">
+                                    <i class="fas fa-file"></i><span style="margin-left:15px;">Lista produtos</span>
+                                    </button>
+                                </li> --}}
+                                   <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;"></li>
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="importProdct()" >
+                                    <i class="fas fa-download" ></i><span style="margin-left:15px;">Importar ? produtos </span>
+                                    </button>
+                                </li>
+                                {{!-- <li style="margin-top:-5px;margin-bottom: 20px;">
+                                    <button type="button"  data-toggle="collapse" 
+                                            style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="listaProdctTemp()">
+                                    <i class="fas fa-file-alt"></i><span style="margin-left:15px;">Listar temporário</span>
+                                    </button>
+                                </li> --}}
+                               
+                                {{!-- <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;">
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="cadProdut()" >
+                                    <i class="fas fa-camera"></i><span style="margin-left:15px;">Cadastrar produto</span>
+                                    </button>
+                                </li> --}}
+                               
+                            </ul>
+                        </div>        
+                    </div>       
+                </div>         
+            </div>
+             <div id="contas" class="col-lg-12 col-sm-12 painel_conta" style="background-color:#0bb021;width: 100vw;height: 80vh;margin: auto;color:#ffffff">
+                <div id="dados-menuproduto-titulo-page" class="card-body" style="background-color: transparente;">
+                        <div style="width:100%;display:flex ;flex-direction:row;justify-content:flex-start;background-color:transparent;padding: 4px 0px 0px 4px;">
+                            <i class="fas fa-file fa-3x" style="float: left;margin-right: 10px;color:white;"></i>
+                            <label>Contas</label>
+                        </div>
+                        <div style="width:100%;height:.5vh;margin:auto;background-color:#ffffff;margin-top:.4vh ;"></div>
+                         <div style="width:40%;height:50vh;margin:auto;background-color:transparent;float:left;padding:4vh ;display: flex;flex-direction: column;
+                                    justify-content: center;align-items:flex-start;">
+                            <ul style="background-color:transparent;margin-top:1h;width:100%;height:40vh;margin:auto;list-style: none;overflow: auto;
+                                    text-decoration: none;border:2px solid #ffffff;padding-top: 40px;">
+                                <li style="margin-top:-5px;margin-bottom: 20px;">
+                                    <button type="button"  data-toggle="collapse" 
+                                            style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="fluxo()">
+                                    <i class="fas fa-file"></i><span style="margin-left:15px;">Assistência Técnica</span>
+                                    </button>
+                                </li>
+                                <li style="margin-top:-5px;margin-bottom: 20px;">
+                                    <button type="button"  data-toggle="collapse" 
+                                            style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="planoCta()">
+                                    <i class="fas fa-file-alt"></i><span style="margin-left:15px;">Compras</span>
+                                    </button>
+                                </li>
+                                <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;">
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="ativo()" >
+                                    <i class="fas fa-download" ></i><span style="margin-left:15px;">Contabilidade</span>
+                                    </button>
+                                </li>
+                                <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;">
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="passivo()" >
+                                    <i class="fas fa-camera"></i><span style="margin-left:15px;">Vendas</span>
+                                    </button>
+                                </li>
+                                {{!-- <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;">
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="()" >
+                                    <i class="fas fa-briefcase" ></i><span style="margin-left:15px;">Despesas</span>
+                                    </button>
+                                </li>
+                                <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;">
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="()" >
+                                    <i class="fas fa-briefcase" ></i><span style="margin-left:15px;">Receitas</span>
+                                    </button>
+                                </li>
+                                <li style="margin-top:-5px;margin-left: 0px;margin-bottom: 20px;">
+                                    <button type="button" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                                                color:#ffffff;" onclick="()" >
+                                    <i class="fas fa-briefcase" ></i><span style="margin-left:15px;">???</span>
+                                    </button>
+                                </li> --}}
+                            </ul>
+                        </div>        
+                </div>    
+            </div>
+            <div id="home" class="col-lg-12 col-sm-12 dadMenuproduto" style="background-color:transparent;" >
+                <div id="home-flex" class="text-white" style="height: 70vh;border: 1px solid ffffff;margin-top:.8vh ;">
+                    <div id="home-titulo-page" class="card-body" style="background-color: #0386be;">
+                        <div style="width:100%;display:flex ;flex-direction:row;justify-content:flex-start;background-color:transparent;">
+                            <i class="fas fa-file fa-3x" style="float: left;margin-right: 10px;"></i>
+                            <label>Composição da página </label>
+                        </div>
+                        <div style="width:100%;height:.5vh;margin:auto;background-color:#ffffff;margin-top:.4vh ;"></div>
+                    
+                    </div>    
+                    <div id="home-list-menu" style="width: 100%;height: 45vh;margin:auto;background-color: #0386be;
+                                                                float: right;margin-top: 1px;margin-left: 10px;padding: 15px;">
+                        <div style="width:40%;height:40vh;margin:auto;background-color:transparente;float:left;padding:4vh ;display: flex;flex-direction: column;
+                                    justify-content: center;align-items:flex-start;">
+                            <ul style="background-color:#0386be ;margin-top:3vh;width:100%;height:35vh;margin:auto;list-style: none;
+                                    overflow: auto;text-decoration: none;border:2px solid #ffffff">
+                                    {{cooperado._id}}
+                                <li style="text-decoration:none;margin-top:40px;"><a href="/roupa/page_visual-page/{{cooperado._id}}"><i class="fas fa-house-damage" style="margin-left: 2px;text-decoration:none;"></i><span style="margin-left:15px;font-size: large;"></span>Criar página</a></li>
+                                <li style="margin-top:40px;"><a href="/roupa/cria_header-page/{{cooperado._id}}" ><i class="fas fa-chart-line"  style="margin-left: 2px;"></i><span style="margin-left:15px;font-size: large;"></span>Criar Cabeçalho</a></li>
+                                <li style="text-decoration:none;margin-top:40px"><a href="/roupa/page_visual-page/{{cooperado._id}}"><i class="far fa-eye fa-1x" style="margin-left: 2px;"></i><span style="margin-left:15px;font-size: large;"></span>Visualizar Página</a></li>
+                            </ul>
+                        </div>        
+                    </div>       
+                </div>         
+            </div>
+            <div id="ajuda" class="col-lg-9 col-sm-12" style="display: none;" >
+                <div class="card bg-danger text-white" style="height: 60vh;">
+                    <div class="card-body">
+                        <i class="fas fa-file fa-3x"></i>
+                        <h6 class="card-title">Artigos???????????????????????????????????</h6>
+                        <h2 class="lead">63</h2>
+                    </div>
+                </div>
+            </div>
+            
+           
+        </div>    
+    </div>
+</div>
+
+<script>
+function limpaCxLoja(){
+
+}
+
+function buscEstatistica(){
+         document.getElementById("dados-estatisticos").style.display="block";
+         document.getElementById("dados-cadastrais").style.display="none"
+         document.getElementById("produto").style.display="none";
+         document.getElementById("home").style.display="none";
+         document.getElementById("contas").style.display="none";
+         document.getElementById("contabilidade").style.display="none";
+}
+
+function buscCadastrais(){
+         document.getElementById("dados-estatisticos").style.display="none";
+         document.getElementById("dados-cadastrais").style.display="block";
+         document.getElementById("produto").style.display="none";
+         document.getElementById("home").style.display="none";
+         document.getElementById("contas").style.display="none";
+         document.getElementById("contabilidade").style.display="none";
+}
+
+function buscMenuProduto(){
+         document.getElementById("dados-estatisticos").style.display="none";
+         document.getElementById("dados-cadastrais").style.display="none";
+         document.getElementById("produto").style.display="block";
+         document.getElementById("home").style.display="none";
+         document.getElementById("contas").style.display="none";
+}
+
+function buscContas(){
+         document.getElementById("dados-estatisticos").style.display="none";
+         document.getElementById("dados-cadastrais").style.display="none";
+         document.getElementById("produto").style.display="none";
+         document.getElementById("home").style.display="none";
+         document.getElementById("contas").style.display="block";
+}
+
+function buscMenuPage(){
+         document.getElementById("dados-estatisticos").style.display="none";
+         document.getElementById("dados-cadastrais").style.display="none";
+         document.getElementById("produto").style.display="none";
+         document.getElementById("home").style.display="block";
+         document.getElementById("contas").style.display="none";
+}
+
+</script>
+<script>
+  
+
+function listaProdct(){
+    var n=document.getElementById("disparalistaproduto");
+    n.click();
+    ///////////////////////////////////////////////////////////////
+}
+
+function listaProdctTemp(){
+    var b=document.getElementById("disparaprodutotemp");
+    b.click();
+    ///////////////////////////////////////////////////////////////
+}
+
+function importProdct(){
+    console.log('importProdct [ 771 ]')
+    var q=document.getElementById("disparaimportproduto");
+    console.log('importProdct [ 771 ]')
+    q.click(); 
+    console.log('importProdct [ 771 ]')
+}
+
+function cadFornec(){
+    var x=document.getElementById("disparacadfornec");
+    x.click();
+}
+
+function cadProdut(){
+   var x=document.getElementById("disparacadastroproduto");
+   x.click();
+}
+
+</script>
+     

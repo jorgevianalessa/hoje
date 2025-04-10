@@ -1,0 +1,50 @@
+ {
+              lojista:[     // vários logistas podem vender esse produto
+                    { 
+                      idloja:{type:String,required:false},
+                      rzaoloja:{type:String,required:false},
+                      cnpjloja:{type:String,required:false},
+                      produto:[
+                                codigo={type:String, required:false,unique:true},
+                                codigobarra={},
+                                descrição={type:String,required:false},
+                                fornex=[
+                                    {
+                                    cnpj1:{type:String,required:false},
+                                    marca1:{type:String,required:false},
+                                    } ,
+                                ],
+                                segmento=[
+                                    {
+                                        titulo:{type:String,required:false},
+                                        subtitulo:{
+                                            titulosub:{type:String,required:false},
+                                            itens:[{type:Array,reuired:false}]
+                                        }         
+                                    }
+                                ],
+                                detalhe=[{}],
+                                tecido=[
+                                    {tipo},
+                                    cores=[{
+                                            cor:{}
+                                         },
+                                        tamanho=[{
+                                            numero:[
+                                              num:{}, 
+                                              qtd:[{},
+                                                  preco={type:String,required:false},
+                                                  foto={type:String,required:false},
+                                                  palavraChave=[{type:String,required:false}],
+                                              ],
+                                        },
+
+                                        ],
+                                    ],
+                                
+                                ],
+                            ],
+                    },
+                ],
+             
+            }

@@ -1,0 +1,146 @@
+<style>
+  .formestoque{
+    width: 80%;height: 15vh;background-color:transparent;margin:auto;margin-top:5px;padding-top: 15px;padding: 3%;
+  }  
+</style>
+<div class="content p-1" style="margin-top:3.2rem;border-color: #bcb8b8 1px;">
+        <div class="list-group-item">
+            <div class="d-flex">
+                <div class="mr-auto p-2">
+                    <h2 id="idxLoja" class="display-4 titulo" style="">Visualização fornecedor :</h2>
+                   
+                </div>
+                <div class="p-2">
+                    
+                </div>
+            </div><hr>
+             {{produto.lojaid}}
+            <div style="width: 100%;height: 4.5vh;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-between;">
+                <div style="width: 50%;background-color: transparent;align-items:end ;">
+                    <p style="color:cadetblue;">_cooperado/lojista/vis-temporario</p>
+                </div>
+                <div style="width: 50%;background-color: transparent;display: flex;flex-direction: column;align-items:center;align-content: center;padding: 0.3vh;">
+                    <form action="/lojista/transfer-estoque/"  method="POST" class="formestoque"  enctype="application/x-www-form-urlencoded" autocomplete="off">
+                        <input type="text" name="caju" id="caju" value="{{idx}}">
+                        <input type="text" name="pera" id="pera" value="{{fornc}}">
+                        <button type="submit"  style="width: 80%;height: 4vh;background: cadetblue;border-radius: 6px;color:#ffffff;border: #fbf5f5 1px solid;">Transferir estoque</button>
+                    </form>
+                </div> 
+                {{!-- <div style="width: 33%;height: 4.5vh;background-color: aqua;">
+
+                </div>   --}}
+            </div>
+            {{!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
+            <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered" style="background-color: #fbf5f5;">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>código</th>
+                                    <th class="d-none d-sm-table-cell">descritivo</th>
+                                    <th class="d-none d-lg-table-cell">detalhe</th>
+                                    <th class="d-none d-lg-table-cell">tecido</th>
+                                    <th class="d-none d-lg-table-cell">cor</th>
+                                    <th class="">Visualizar</th>
+                                </tr>
+                            </thead>
+                            {{!-- --------------------------------------------------- --}}
+                            <tbody id="linhaIndex">
+                                 {{#each produto}}
+                                <tr style="font-size: small;color: #000000;font-weight: 100;">
+                                    <td style="width: 12%;">{{_id}}</th>
+                                    <td style="width: 12%;" onclick="buscLinha('{{produto.codigo}}' + '-' + '{{produto.cnpjloja}}')">{{produto.codigo}}</td>
+                                    <td style="width: 20%;" class="d-none d-sm-table-cell" style="font-size:small ;" >{{produto.descricao}}</td>
+                                    <td style="width: 12%;" class="d-none d-lg-table-cell">{{produto.detalhe}}</td>
+                                    <td style="width: 12%;" class="d-none d-lg-table-cell">{{produto.tecido}}</td>
+                                    <td style="width: 8%;" class="d-none d-lg-table-cell">{{produto.cor}}</td>
+                                   
+                                    <td class="text-center" style="display: flex;flex-direction: row;justify-content: center;">
+                                        <span class="d-none d-md-block">
+                                            <form action="/lojista/produt_vis-produto" method="POST" enctype="application/x-www-form-urlencoded"> 
+                                                <input name="cnpjlojaInput" style="color:red;display: none;" value={{produto.cnpjloja}}> 
+                                                <input name="cnpjfornecInput" style="color:red;display: none;" value={{produto.cnpjfornec}}> 
+                                                <input name="codigoInput" style="color:red;display: none;" value={{produto.codigo}}> 
+                                                <button type="submit" class="acoes" >
+                                                              Visualizar
+                                                </button>
+                                            </form>
+                                        </span>
+                                        {{produto.cnpj}}
+                                    </td> 
+                                </tr>
+                                {{/each}}
+                             </tbody>   
+                        </table>    
+                        <nav aria-label="paginacao">
+                            <ul class="pagination pagination-sm justify-content-center">
+                                {{#if contatos.hasPrevPage}}
+                                     <li class="page-item">
+                                        <a class="page-link" href="/contato/list-contato" tabindex="-1">Primeira</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.prevPage}}">{{contatos.prevPage}}</a></li>
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Primeira</a>
+                                    </li>
+                                {{/if}}
+                                                               
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">{{contatos.page}}</a>
+                                </li>
+                                {{#if contatos.hasNextPage}}
+                                    <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.nextPage}}">{{contatos.nextPage}}</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/contato/list-contato?page={{contatos.totalPages}}" tabindex="-1">Última</a>
+                                    </li>
+
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Última</a>
+                                    </li>
+                                {{/if}}
+                            </ul>
+                        </nav>
+                    </div>    
+        </div>
+</div>
+<script>
+function buscaLinha(){
+    var linha=document.getElementById("linhaIndex");
+    linha.addEventListener("click",function(event){
+         //...................................
+    })
+}
+
+function transferTemp(){
+    //let objetoId=document.getElementById("idxLoja");
+    //objetoId=objetoId.innerHTML 
+    //console.log('vr do objectoId',objetoId)
+    //let baseApiUrl=window.location.hostname;
+    //if (baseApiUrl=='localhost'){
+    //    baseApiUrl='http://localhost:3000'
+    //}else{
+    //    baseApiUrl='https://www.rotaes.com.br'
+    //}   
+    //////////////////////////////////////////////////////////////////
+    //try{
+    //    fetch(`${baseApiUrl}` + `/lojista/transfer-temp/${objetoId}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+    //    .then(response =>{
+    //        if( response.ok ){
+    //            return response.json()
+    //            }  
+    //            throw response;
+    //    })
+    //    .then((json)=>{
+    //        loadImagens(json)
+    //    })
+    //    .catch((err)=>{
+    //        console.log(err)
+    //    })
+    //}catch(e){
+    //    console.log(e)
+    //}
+}
+
+
+</script>

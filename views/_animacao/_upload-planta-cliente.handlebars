@@ -1,0 +1,57 @@
+<div class="d-fkex" style="width: 90%;height: 90vh;margin: auto;background-color: cornflowerblue;">
+
+
+
+ <div id="form_escolheFicheiro" style="width: 90%;height: 48vh;margin: auto;display:block;background-color: #b1aeae;margin-top: 4vh;display: block;">
+            <form action="/controle/upload" id="idfile" method="post" enctype="multipart/form-data" class="" style="background-color: #b1aeae;">
+                            <div id="tituloSelectFoto" style="display: flex;flex-direction: row;justify-content: center;">
+                            <div style="width: 100%;height: 3.5vh;margin: auto;background-color: #transparent;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                                    <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                                </div>
+                            </div>  
+                            <div id="tituloEscolheFicheiro" style="background-color:#a9a9ad;">
+                                <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                                <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="5"> {{!--idLocalImagem=t--}}
+                                <input type="text" id="idNomeImagem" name="NameNomeImg" style="display:none;color:red;background-color: #0b0bc9;" value="">   {{!--idPosicaoImg=side --}}
+                                <input id="plantaid" name="namePlanta_id" value="{{lojista._id}}" style="background-color: hotpink;display:none;">
+                            </div>      
+                
+                            <div id="form_imagem" style="width: 60%;height:41vh;margin: auto;align-items: center ;z-index: 10;margin-top: 5px;padding: 10px;display: flex;flex-direction: column;background-color: #a00808;">
+                            
+                                    {{!-- <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color:#035384;padding: 10px;"> --}}
+                                   
+                                      <img id="imgPreviewA" src="" alt="" class="" width="100%" height="auto" style="background-color: #67676b;margin: auto; background-size: cover;height: 37vh;contain: content;"/>
+                                   
+                                    {{!-- </div> --}}
+                                    {{!-- <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                                    <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                                    </div> --}}
+                            </div>  
+                            <div id="form_btn" style="width: 100%;height: 3vh;margin: auto;background-color:#b1aeae;">
+                                    <button id="btnId" class="btn_gravar" type="text"  >Gravar</button>
+                            </div>   
+                    
+            </form>
+    </div>
+
+    
+
+</div>
+<script>
+      let fileImgA=document.querySelector('#fileA');
+    //.............................................
+    const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        //document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        //document.getElementById("NomeFoto").value=selecledFile.name;//
+        // document.getElementById("idNomeImagem").value=selecledFile.name;
+        //document.getElementById("codigo_Id").focus();
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+        }
+        reader.readAsDataURL(selecledFile);
+    });
+</script>

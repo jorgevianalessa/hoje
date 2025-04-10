@@ -1,0 +1,742 @@
+<style>
+  body{
+    margin: 0px;
+  }
+
+  .corpo{
+    background-color: #2bd22b;width: 95vw;height: 90vh;margin: auto;display: flex;flex-direction:column;justify-content:center;margin-top: -2vh;
+  }
+
+  
+
+  .sideLeft{
+     width: 20vw;height: 85vh;margin: auto;background-color: #ffffff;float: left;
+  }
+
+  .sideMiddle{
+     width: 68vw;height: 85vh;margin: auto;background-color:#ffffff;float: left;display: flex;flex-direction: column;justify-content: center;justify-items: auto;
+  }
+
+  .sideRight{
+     width: 15vw;height: 85vh;margin: auto;background-color: #ffffff;float: left;
+  }
+  
+  .barraElements{
+    width: 90%;height: 5vh; display: flex;flex-direction: row;margin: auto;justify-content: space-between;background-color:transparent;
+  }
+
+  .barraElements_{
+     width: 260px;height: 4vh;padding-top: 0.5vh;background-color:#ffffff;text-align: center;
+  }
+
+
+  .btnBarraElements{
+     width: 220px;height: 3vh;margin: auto;background-color: #6c0359;border-radius: 5px ;color:#faf6f6;font-size: 0.8vw;
+  }
+
+  .canvasX{
+    /* background-image: url('https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png');*/
+     /*background-image:url('https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png');*/
+     display: no-repeat;background-size: cover;margin:auto;border:gray 2px solid;background-color: aqua;
+
+  }
+</style>
+<div class="d-flex corpo" id="corpo" >
+    <div id="idPincel"  style="position: absolute;left: 600px;   top:300px;z-index: 1000;width: 40%;height: 30vh;margin: auto;background-color: #ffffff;padding: 15px;display: none;border: 1px gray solid;">
+          <div style="width: 80%;height: 25vh;margin: auto;display: flex;flex-direction:column;justify-content: space-around; margin-top: 2vh;background-color: #ffffff;text-align: center;">
+            <div style="width: 80%;height: 5vh;margin: auto;text-align: center;background-color: #ffffff;color:#0362d6;padding: 15px;">
+                <label>Escolha a cor do pincel !</label>
+            </div>
+            <div style="width: 80%;height: 18vh;display: flex;flex-direction: row;justify-content:space-around;justify-items: center;background-color: #ffffff;margin-top: 1vh;padding-top: 6vh;text-align: center;margin: auto;">
+               {{!-- <input id="mostracor" type="color" style="margin-left: 12px;height: 3vh;width: 120px;"> --}}
+               <diV>
+                  <label>ramal</label>
+                  <input id="pegaCorFria" type="button" onclick="pegacor('#046c2d')" style="width: 120px;height: 3vh;border-radius: 6px;background-color: #046c2d;"  >
+               </diV>
+               <div>
+                  <label>água quente</label>
+                  <input id="pegaCorQuente" type="button" onclick="pegacor('#f24e4e')" style="width: 120px;height: 3vh;border-radius: 6px;background-color: #f24e4e;"  >
+               </div>
+               <div>
+                  <label>retorno</label>
+                  <input id="pegaCorRetorno" type="button" onclick="pegacor('#f0b208')" style="width: 120px;height: 3vh;border-radius: 6px;background-color: #f0b208;"  >
+               </div>
+             </div>
+          </div>   
+    </div>
+     <div id="idPincelAquecedor"  style="position: absolute;left: 600px;   top:300px;z-index: 1000;width: 40%;height: 30vh;margin: auto;background-color: #ffffff;padding: 15px;display: none;border: 1px gray solid;">
+          <div style="width: 80%;height: 25vh;margin: auto;display: flex;flex-direction:column;justify-content:space-between; margin-top: 2vh;background-color: #ffffff;text-align: center;">
+            <div style="width: 80%;height: 5vh;margin: auto;text-align: center;background-color: #ffffff;color:#0362d6;padding: 15px;">
+                <label>Escolha a cor do pincel !</label>
+            </div>
+            <div style="width: 80%;height: 18vh;display: flex;flex-direction: column;justify-content:space-between;justify-items: center;background-color: #ffffff;margin-top: 1vh;padding-top: 3vh;text-align: center;margin: auto;">
+               <div style="margin-top: .5vh;background-color:transparent;margin-bottom: 1.8vh;">
+                  <label>1º aquecedor</label>
+                  <input id="pegaCorQuente" type="button" onclick="corAquecedor('#3ff009')" style="width: 120px;height: 3vh;border-radius: 6px;background-color:#3ff009;"  >
+               </div>
+               <div>
+                  <label>2º aquecedor</label>
+                  <input id="pegaCorRetorno" type="button" onclick="corAquecedor('#f507f1')" style="width: 120px;height: 3vh;border-radius: 6px;background-color:#f507f1;"  >
+               </div>
+               <div style="height: 10vh;background-color:transparent;">
+                    <label style="height: 4vh;visibility: hidden;"></label>
+               </div>
+             </div>
+          </div>   
+    </div>
+    <div id="barraTitulo" style="width: 100%;height: 5vh;margin: auto;background-color: #11c90b;color: #ffffff;text-align: center;margin-top:0.95vh;padding-top: 0.5vh;display: flex;flex-direction: row;justify-items: center;justify-content: space-between;">
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.4vw;margin-left: 3vw;">Inscreva-se no canal</h3>
+        
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.5vw;">projeto de distribuição</h3>
+         <div style="display: flex;flex-direction: row;justify-content:space-around space-between;justify-items: center;background-color:transparent;margin-bottom: 0.5vh;width: 15%;">
+            <div style="background-color: #0bc95d;width: 80%;text-align: right;">
+              <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.4vw;margin-right:0.4vw;padding-right: 6px;">deixe seu like<span style="background-color:transparent;width: 10vw;height: 4vh;"></span></h3>
+            </div>
+            <div style="background-color: #0fd805;width: 20%;">
+              <img src="https://amelia.nyc3.digitaloceanspaces.com/5e79abd1bec281324aab_LikeBtn.png" width="40px" height="auto">
+           </div>
+         </div>
+    </div>
+    <div style="display: flex;flex-direction: row;justify-content: space-around;">
+        <div id="sideLeft" class="sideLeft" style="display: flex;flex-direction: column;justify-items: center;visibility:visible;">
+            <div style="width: 100%;height: 18vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items:center ;padding: 12px;text-align: center;visibility:visible">
+                <label style="color:#25cb0c;font-size: 2vw;">RaqSystem</label><br><br>
+                <label style="color:#179304;font-size: 1vw;">email: jorgelessa@terra.com.br</label><br>
+                <label style="color:#179304;font-size: 1vw;">celular:</label>
+                <label style="color:#179304;font-size: 1vw;"> 27 99942-6272</label>
+            </div>  
+            <div style="width: 80%;height: 28vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-items:auto ;padding: 12px;text-align: center;visibility: hidden;">
+                <div style="width: 4vw;height: 7vh;margin-top: 1vh;background-color: #48f912;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/ba0449dc3a904fa116e2_setaHorizontalRed.png" width="50px" height="auto"></button>
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color:red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/341f8422fb51a1009c38_setaHorizontalOcre.png" width="50px" height="auto" ></button> 
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color: red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/15737d15ea44135373c5_setaVerticalRed.png" width="20px" height="50px" ></button> 
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color: red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/b11fe805110fc5946827_setaVerticalRedBaixo.png" width="auto" height="50px" ></button> 
+                </div>
+            </div>
+        </div>
+        <div id="sideMiddle" class="sideMiddle" style="background-color:white;">
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png
+                https://amelia.nyc3.digitaloceanspaces.com/441204576f30d47cdd7e_doisbanheiros.png --}}
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png --}}
+            <div style="width: 68vw;height: 75vh;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;">
+                    <div id="canvas-1" style="display:block;background-color: #ffffff;height: 70vh;margin: auto;width: 63vw;">
+                        <div id="canvas-1_" style="width: 100%;height: 74vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;justify-items: center;padding-bottom: 1vh;fit">
+                            <canvas id="pranchaA" width="1000" height="700" class="canvaX" style="margin:auto;border:gray 2px solid;background-image: url('https://amelia.nyc3.digitaloceanspaces.com/1d5303425b5235bce84c_30%20-%20PlantaLimpa.png');display: no-repeat;background-size: cover;object-fit: contain;">
+                            {{!-- <img style=""> --}}
+                            </canvas>
+                        </div>
+                    
+                    </div> 
+            </div>
+            <div id="barraElements" class="barraElements">
+                <div id="barraAquecedor" class="barraElements_">
+                    <button id="btnAquecedor" class="btnBarraElements" onclick="PushAquecedor()">local do aquecedor</button>
+                </div>
+                <div class="barraElements_">
+                    <button id="btnPontos" class="btnBarraElements" onclick="PontosAtender()">marque pontos para atender</button>
+                </div>
+                <div class="barraElements_">
+                    <button id="btnLine" class="btnBarraElements" onclick="TracaLine()">traçando as linhas</button>
+                </div>
+                <div class="barraElements_">
+                    <button class="btnBarraElements" onclick="LimparPonto()">Limpar tudo</button>
+                </div>
+            </div>    
+        </div>
+        <div id="sideRight" class="sideRight" style="background-color: #ffffff;display: flex;flex-direction: column;justify-items: auto">
+             <div style="width: 15vw;height: 31vh;margin: auto;padding: .5vw;background-color: #ffffff;display: flex;flex-direction: column;justify-content: center;margin-top: 1vh;padding-top: 10px;">
+                <div>
+                     <img src="https://amelia.nyc3.digitaloceanspaces.com/895ddf1fa1c19c7e6d3b_isolamento_t%C3%A9rmico.png">
+               </div>
+               <div>
+                     <label style="color:#0f9c58;font-size: 1.2vw;">Obrigatório isolamento térmico na rede aérea.</label>
+               </div>
+             </div>
+              <div style="width: 15vw;height: 15vh;margin: auto;padding: .5vw;background-color: #ffffff;display: flex;flex-direction: row;justify-content: center;">
+               <button style="background-color: #0f9c58;width: 12vw;height: 5vh;margin: auto;border-radius: 5px;color:#ffffff;" onclick="CirculaError()">Circula o erro</button>
+             </div> 
+             <div style="width: 15vw;height: 15vh;margin: auto;padding: .5vw;background-color: #ffffff;display: flex;flex-direction: row;justify-content: center;">
+               <button style="background-color: #0f9c58;width: 12vw;height: 5vh;margin: auto;border-radius: 5px;color:#ffffff;" onclick="MostraError()">Mostra o erro</button>
+             </div>  
+             <div style="width: 15vw;height: 15vh;margin: auto;padding: .5vw;background-color: #ffffff;display: flex;flex-direction: row;justify-content: center;">
+               <button style="background-color: #0f9c58;width: 12vw;height: 5vh;margin: auto;border-radius: 5px;color:#ffffff;" onclick="CircPerdido()">Area Inoperante</button>
+             </div> 
+        </div>
+    </div>
+</div>
+<script>
+// Variáveis     
+let positionDraw=0; 
+let Arr=[];
+let numberPoint=0;
+let palavra="";
+let Ative="";
+
+// figura do Mapa
+const canvas = document.getElementById('pranchaA');
+const ctx = canvas.getContext('2d')
+
+let g=document.getElementById("sideMiddle");
+console.log(g.offsetTop)
+console.log('__________________________________');
+
+// Desenhando a grade da planta
+function grade(){
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 100)
+    ctx.lineTo(1000,100)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(100,0)
+    ctx.lineTo(100,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 200)
+    ctx.lineTo(1000,200)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(200,0)
+    ctx.lineTo(200,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 300)
+    ctx.lineTo(1000,300)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(300,0)
+    ctx.lineTo(300,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 400)
+    ctx.lineTo(1000,400)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(400,0)
+    ctx.lineTo(400,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 500)
+    ctx.lineTo(1000,500)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(500,0)
+    ctx.lineTo(500,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 600)
+    ctx.lineTo(1000,600)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(600,0)
+    ctx.lineTo(600,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 700)
+    ctx.lineTo(1000,700)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(700,0)
+    ctx.lineTo(700,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal [ 6 ]
+    ctx.beginPath()
+    ctx.moveTo(0, 800)
+    ctx.lineTo(1000,800)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical [ 8 ]
+    ctx.beginPath()
+    ctx.moveTo(800,0)
+    ctx.lineTo(800,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+ 
+    // Vertical [ 9 ]
+    ctx.beginPath()
+    ctx.moveTo(900,0)
+    ctx.lineTo(900,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+}
+
+grade();
+
+// Essa função determina a cor que será do aquecedor.
+// Ela atende a cor do pincel.  
+function corAquecedor(n){
+   corpincel=n;
+   document.getElementById("idPincelAquecedor").style.display="none";
+   Ative=n;
+   positionDraw=1
+   document.getElementById('btnAquecedor').style.backgroundColor="red";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+}
+
+// Pega a cor selecionada para traçar a linha.
+// Ela atende a cor da linha a ser traçada. 
+function pegacor(n){
+   corpincel=n;
+   Arr.length=0;
+   document.getElementById("idPincel").style.display="none";
+   // Pega cor do pincel e passa para variável => Ative
+   if (n=='#046c2d'){
+      // linha verde do ramal 
+      Ative="#046c2d"
+   }else if (n=='#f24e4e'){
+     // linha vermelha  
+     Ative="#f24e4e"
+   }else if (n=='#f0b208'){
+     // linha laranja 
+     Ative="#f0b208"
+   }
+}
+
+// Variáveis sem uso.
+let isPressed = false;
+let mouseDownPos = null
+
+// determina onde o canvas foi clicado
+canvas.addEventListener('mousedown', function(e) {
+    // marcação dos pontos  left/top no camvas em relação atela.
+    isPressed = true
+    mouseDownPos = {
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop
+    }
+    /////////////////////////////////////////////////
+    
+    // formata o ponto para inicio da linha
+    const line = {
+        start: mouseDownPos,
+        end: mouseDownPos,
+    }
+
+    // Se a posição => (1) então vamos marcar onde ficará o aquecedor
+    if(positionDraw==1){
+       // desenha o retângulo lilás que representa o aquecedor.
+       console.log(positionDraw,' === ',Ative);
+       ctx.strokeStyle=Ative;
+       drawAquecedor(ctx,line,Ative);
+    }else if(positionDraw==2){
+       // desenha os círculos vermelhos ou verdes para orientação onde vai ter colunas atendidas.
+       console.log(positionDraw,' === ',Ative)
+       drawCirculoRed(line)
+    }else if(positionDraw==3){
+       // desenha as linhas de água quente, água fria e o ramal errado.
+       console.log(positionDraw,' ===? ',Ative)
+       drawLine(ctx, line)
+    }else if(positionDraw==5){
+       // fixa o círculo onde há o erro do ramal.
+       console.log(positionDraw,'<-->',Ative)
+       console.log('line ->',line)
+       CircError(line)    
+    }else if(positionDraw==4){
+       // mostra o círculo maior vermelho demonstrando o comportamento da recirculação.
+       console.log(positionDraw,'<-->',Ative)
+       console.log('line ->',line)
+       Mostra_Error(ctx, line) 
+    }else if(positionDraw==6){
+       // desenha o círculo preto mostrando onde não haverá recirculação.
+       console.log(positionDraw,'<-->',Ative)
+       console.log('line ->',line)
+       Circulo_Perdido(line)         
+    }else{
+       alert('favor definir o desenho !',positionDraw) 
+    }
+})
+
+// libera o mouse que estava ativo.
+canvas.addEventListener('mouseup', function() {
+   isPressed = false
+})
+
+// Desenha o retângulo lilás ou vere que representa o aquecedor
+function drawAquecedor(ctx,line,Ative){
+    
+    ctx.fillStyle=Ative
+    console.log(ctx.fillStyle)
+    
+    let x=line.start.x
+    let y=line.start.y
+    
+    ctx.fillRect(x,y,20,30)
+    return
+    const imageData = ctx.createImageData(20,30);
+    imageData.stroke=Ative;
+    for (let i = 0; i < imageData.data.length; i += 4) {
+         imageData.data[i + 0] = 19; // R value
+         imageData.data[i + 1] = 00; // G value
+         imageData.data[i + 2] = 110; // B value
+         imageData.data[i + 3] = 255; // A value
+    }
+    console.log('0-0-0-0')
+    ctx.putImageData(imageData, x,y);
+   }
+
+// Essa função desenha os pequenos círculos que apontam para as colunas de descida.
+function drawCirculoRed(line){
+   // desenha os círculo vermelho ou verde de acordo com o aquecedor escolhido.
+    let x=line.start.x
+   let y=line.start.y
+
+   ctx.beginPath()
+   ctx.arc(x,y,10,0,2 * Math.PI);
+   ctx.lineWidth=5
+   ctx.strokeStyle=Ative
+   ctx.stroke();
+}
+
+// Essa função  desenha as linhas que representam as redes de água quente e retorno.
+function drawLine(ctx, line) {
+  console.log('Aqui desenha o ponto (drawLine) ==> ',Ative)
+  const {
+    start,
+    end,
+    lineWidth = 6,
+    lineCap = 'round', 
+    strokeStyle = Ative,    
+  } = line
+
+  if(!start || !end) {
+    throw new Error('Start or end of line not defined.')
+  }
+
+  // Desenha o ponto na escala x,y
+  console.log('[ 474] ',Ative)
+  ctx.beginPath()
+  ctx.moveTo(start.x, start.y)
+  ctx.lineTo(end.x, end.y)
+  ctx.lineWidth = lineWidth;
+  ctx.lineCap = lineCap;
+  ctx.strokeStyle =strokeStyle;
+  ctx.stroke()
+
+  // Agora pega o ponto e armazena no ArraY => Arr
+  montaCombo(start.x, start.y,end.x, end.y)
+}
+
+// Essa função monta o Array com gravação dos pontos para desenhar a linha quando houver dois ponto dentro do Array.
+function montaCombo(startx,starty,endx, endy){
+    console.log('---> ',Arr)
+    numberPoint++;
+    ponto={
+        startx:startx,
+        starty:starty,
+        point:numberPoint
+    }
+   
+    Arr.push(ponto)
+    // Se há dois pontos então traçamos a linha.
+    if (Arr.length>1){
+       traçaLinha(Arr)
+    }
+}
+
+// Essa função traça a linha a partir de dois pontos
+function traçaLinha(){
+   console.log('_________________ [ 434 ] _________________________') 
+   console.log('....',Ative)
+   console.log('x-0 -> ',Arr[0].startx)
+   let x1=Arr[0].startx;
+   console.log('y-0 -> ',Arr[0].starty)
+   let y1=Arr[0].starty;
+   console.log('')
+   console.log('x-1 -> ',Arr[1].startx)
+   let x2=Arr[1].startx;
+   console.log('y-1 -> ',Arr[1].starty)
+   let y2=Arr[1].starty;
+   console.log('__________________________________________') 
+ 
+   ctx.beginPath()
+   ctx.moveTo(x1,y1)
+   ctx.lineTo(x2,y2)
+   ctx.lineWidth = 3
+   ctx.strokeStyle =Ative  //"white"
+   ctx.stroke()
+
+   Arr.length=0;
+
+    ponto={
+        startx:x2,
+        starty:y2,
+        point:numberPoint
+    }
+   Arr.push(ponto)
+   console.log(Arr)
+}
+
+// Perdido.
+let image=new Image();
+image.src="https://amelia.nyc3.digitaloceanspaces.com/7daeeab070ffeb581fbe_aquecedor_36lts_80.png"
+
+// Essa função torna o painel visível para escolha do aquecedor a ser fixado na planilha.
+function PushAquecedor(){
+   document.getElementById("idPincelAquecedor").style.display="block";
+}
+
+// Essa função dá a 'positionDraw=2' para marcação dos pontos que vão se atendidos pela água quente
+function PontosAtender(){
+   positionDraw=2
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="red";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+}
+
+// Essa função dá a 'positionDraw=3' para iniciar o traçado de linha.
+function TracaLine(){
+   positionDraw=3
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="red";
+   document.getElementById("idPincel").style.display="block";
+   console.log('traça Line')
+}
+
+// Limpa o ponto para desenhar a linha com nova cor.
+function LimparPonto(){
+   positionDraw=4
+   Arr.length=0;
+   console.log(Arr.length)
+}
+
+// Essa função está sem utilidade.
+function imgAquecedor(){
+   console.log('aqui 1000')
+
+   //https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png
+   const canvas = document.getElementById('prancha1');
+   const ctx = canvas.getContext('2d')
+
+   var background=new Image();
+   background.src='https://amelia.nyc3.digitaloceanspaces.com/7daeeab070ffeb581fbe_aquecedor_36lts_80.png'
+   background.width=250;
+   background.height=350;
+   console.log('23',background)
+   let a=canvas.width
+   console.log('a',a)
+   a=a/2-125
+   let b=150
+   background.onload=function(){
+      ctx.drawImage(background,a,150)
+      let z=background.width;
+      console.log('z : ',z)
+      background.left=(a - z/2)
+      console.log(a)
+      console.log(b)
+      console.log('_______________________________________________')
+   }
+}
+
+// Essa função está isolada pois é para buscar o projeto do cliente.
+// Ainda não está completa
+function passaAquecedor(){
+  console.log('aqui dentro 1000! _')
+  let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }   
+            //////////////////////////////////////////////////////////////////
+            try{
+                  fetch(`${baseApiUrl}` + `/produto/projeto-cliente`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                          .then(response =>{
+                              if( response.ok ){
+                                  return response.json()
+                                  } 
+                                  throw response;
+                          })
+                      .then((json) => {
+                          console.log('olá pessoal !')
+                      })
+                      .catch((err)=>{
+                           console.log('Error :',err)
+                      })
+   }catch(e){
+      console.log(e)
+   }                 
+}
+
+// Essa função marca o círculo pequeno onde registra o erro no ramal de recirculação.
+function MostraError(){
+  positionDraw=4
+}
+
+// Essa função dá um valor 'positionDraw=5' para que possamos mostrar o círculo vermelho onde só a
+// recirculação vai rodar..
+function CirculaError(){
+   positionDraw=5
+}
+
+// Essa função desenha o OVAL vermelho que marca a área de circulação que 
+  // será atendida com o novo ramal de retorno. 
+function Mostra_Error(){
+   try{
+    ctx.beginPath();
+    //////////////////////////////////////////
+    //           x ,  y    rH   rV
+    ctx.ellipse(630, 220, 240, 120,2* Math.PI /200, 0, 2 * Math.PI);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 6;
+    ctx.stroke();
+
+    // Draw a linha horizontal RIGHT que é o eixo da seta.
+    ctx.beginPath();
+    //ctx.strokeStyle = "#0b6507";
+    ctx.strokeStyle = "blue";
+    ctx.setLineDash([]);
+    ctx.moveTo(605, 380);
+    ctx.lineTo(650, 380);
+    ctx.stroke();
+
+    // SETA PARA RIGHT
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    ctx.lineCap = "round";
+    ctx.lineWidth = 5;
+    ctx.setLineDash([]);
+    ctx.moveTo(620, 360);
+    ctx.lineTo(650, 380);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.lineWidth = 5;
+    ctx.setLineDash([]);
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(620, 400);
+    ctx.lineTo(650, 380);
+    ctx.stroke();
+    // **************************************************** 
+    // SETA PARA LEFT na parte superior do Oval vermelho
+    ctx.beginPath();
+    ctx.strokeStyle = "#0b6507";
+    ctx.lineCap = "round";
+    ctx.lineWidth = 5;
+    ctx.setLineDash([]);
+    ctx.moveTo(600, 60);
+    ctx.lineTo(650, 60);
+    ctx.stroke();
+
+    // Aba superior
+    ctx.beginPath();
+    ctx.strokeStyle = "#0b6507";
+    ctx.lineWidth = 5;
+    ctx.setLineDash([]);
+    ctx.moveTo(600, 60);
+    ctx.lineTo(630, 38);
+    ctx.stroke();
+
+    // Aba inferior
+    ctx.beginPath();
+    ctx.strokeStyle = "#0b6507";
+    ctx.setLineDash([]);
+    ctx.moveTo(600, 60);
+    ctx.lineTo(630, 80);
+    ctx.stroke();
+
+  }catch(e){
+    console.log(e)
+  }
+}
+
+// Essa função mostra onde está localizado o erro causado pelo novo ramal.
+function CircError(line){
+   console.log('-----------------------')
+   
+   let x=line.start.x
+   let y=line.start.y
+
+   ctx.beginPath()
+   ctx.arc(x,y,20,0,2 * Math.PI);
+   ctx.lineWidth=3
+   ctx.strokeStyle="brown"
+   ctx.stroke();
+}
+
+// Essa função de cor preta marca a área que será prejudicada com o novo ramal improvisado 
+function Circulo_Perdido(){
+  try{
+    ctx.beginPath();
+    //////////////////////////////////////////
+    //           x ,  y    rH   rV
+    ctx.ellipse(250, 250, 134, 100,2* Math.PI /210, 0, 2 * Math.PI);
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 6;
+    ctx.stroke();
+  }catch(e){
+    console.log(e)
+  }
+}
+
+// Essa função dá um valor 'positionDraw=6' para que possamos desenhar o círculo preto perdido.
+function CircPerdido(){
+   positionDraw=6
+}
+</script>

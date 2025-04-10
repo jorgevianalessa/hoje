@@ -1,0 +1,910 @@
+<style>
+    .main{
+        width:99%;height:100vh;background-color: #eef0f2;margin-top:6vh;padding-top:1px;display:flex;flex-direction:row;
+        
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+       text-decoration: none;
+    }
+  
+    a:hover {
+       text-decoration: underline;
+    }
+
+    a:active {
+       text-decoration: underline;   
+    }
+
+    .botao{
+        width:100px;
+        height:25px;
+        background-color:#1fb71d;
+        border-radius:6px ;
+        color:#ffffff;
+        font-size: small;
+    }
+
+    .botao-href{
+        text-decoration: none;
+        color:#ffffff;
+    }
+
+    .col-tres{
+        width:33%;height:90vh;float:letf;background-color: #55f947;margin-left:0.5%;
+       
+    }
+
+    .botao-href:hover{
+         color:#f5d11e;
+         text-decoration: none;
+    }
+  
+
+   .uploadInput{
+        margin:auto;border-radius:6px;background-color:#5299f6;height: 25px;color: #ffffff;
+    }
+
+    .upInput{
+        width:100%;height:15vh;display: flex;flex-direction:column;
+        justify-content: center;justify-items: auto;
+        background-color:#e021bd;text-align: center;
+    }
+
+    .div-upload{
+        width:100%;height:18vh;display: flex;flex-direction:column;
+        justify-content: center;
+        background-color:#e8f313;
+        text-align: center;
+        padding-top: 6px;
+    }
+
+    .div-razao{
+        width:100%;height:4vh;display: flex;flex-direction:column;
+        justify-content: center;justify-items: auto;
+        background-color:#115eb6;text-align: center;
+    }
+
+    .div-fornec{
+         width:100%;height:6.5vh;display: flex;flex-direction:row;
+         background-color:#760505;text-align: center;
+         padding: 3px;
+        
+    }
+
+    .div-fornec-e{
+          margin-top:-25px;
+
+    }
+
+    .div-element{
+        width:25%;height:3vh;float:left;background-color: #e5e9e5;
+    }
+
+    .label-fornec{
+        font-size:small;
+    }
+    .input-fornec{
+        width:80%;font-size: xx-small;
+        height:2vh;
+    }
+
+    .col-titulo{
+        width:100%;background-color:#effb40;font-size: small;font-weight:100;
+    }
+
+    .row-table{
+      border-bottom: #0bf02a 1px solid;
+      background-color: #115eb6;
+    }
+
+     .col-linha{
+      width: 4%;
+      font-size:xx-small;
+      font-weight:100;
+      margin-left: 2px;
+    }
+   
+    .col-codigo{
+      width: 5%;
+      font-size: xx-small;font-weight:100;
+    }
+
+    .col-descritivo{
+      width: 70%;
+      font-size: xx-small;font-weight:100;
+    }
+
+    .col-qte{
+        width: 10%;
+        font-size: small;font-weight:100;
+    }
+
+    .col-preco{
+        width: 15%;
+        font-size: small;font-weight:100;
+    }
+
+    .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+    }
+
+    .active, .accordion:hover {
+        background-color: #ccc; 
+    }
+
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .produto_import-produto{
+
+    }
+</style>
+<div class="main produto_import-produto" style="background-color: #04d6ac;margin-top:8vh ;display: flex;flex-direction: column;">
+      <div style="background-color: #55f947;width: 100%; height: 4vh;margin: auto;">
+        <p style="color:#c20909;font-size: larger;">Loja Bella{{rzao}}</p>
+     </div>
+      <div style="clear: both;;"></div>
+      <div style="display: flex;flex-direction: row;">
+      
+        {{!-- Essa rotina demonstra o arquivo provisório de transição --}}
+        <div id="lateral-left" class="col-tres">
+            <div class="div-upload">
+                <div style="display:flex;flex-direction:column;justify-content:center;justify-items:center ;">
+                   <input style="margin-left:50px ;" type="file" id="myFile"  class="uploadInput">
+                   <input style="margin-left:50px;margin-top:10px;justify-content: center;background-color:#ffffff;" type="text" id="inputPasta" name="inputPasta" class="uploadInput">
+                </div>
+                <hr>
+                <div>
+                <button onclick="buscaArq()" class="botao">Importar</button>
+                </div> 
+            </div>
+            <div class="div-fornec" >
+                <div class="div-element"  style="width:40%;">
+                    <label class="label-fornec">cnpj::</label>
+                </div>
+                <div class="div-element"  style="width:80%;">
+                    <input class="input-fornec" value="{{fornec.cnpj}}">   
+                </div>
+            </div>
+            <div class="div-fornec div-fornec-e"  >
+                <div class="div-element"  style="width:40%;">
+                    <label class="label-fornec">razão????:</label>
+                </div>
+                <div class="div-element"  style="width:80%;">
+                    <input class="input-fornec" value="{{fornec.razao}}">   
+                </div>
+            </div>
+            <div class="div-fornec div-fornec-e" >
+                <div class="div-element"  style="width:40%;">
+                        <label  class="label-fornec">marca:</label>
+                </div>
+                <div class="div-element"  style="width:80%;">
+                    <input class="input-fornec" value="{{fornec.marca}}" >   
+                </div>
+            </div>
+            <div style="width:95%;height:56vh;margin:auto;background-color:#2fed2c;overflow:auto;margin-top:5px;padding-bottom: 4px;">
+                <table id="myTable" style="color:#ffffff;width:100%;background-color: #001d4a;padding:6px; padding-left:4px ;">
+                                  <thead>
+                                    <tr class="col-titulo">
+                                        <th class="col-linha" style="padding:2px ;">linha</th>
+                                        <th class="col-codigo">Código</th>
+                                        <th class="col-descritivo">Descritivo</th>
+                                        <th class="col-qte">Qte</th>
+                                        <th class="col-preco">Preço</th>
+                                    </tr>
+                                  </thead>  
+                                   <tbody  id="arqtemp">
+                                   </tbody>
+                             </table>
+            </div>
+        </div>
+        <div id="central" class="col-tres" >
+            <div class="div-razao">
+                <div style="color:#c20909">Dados do lojista</div>
+            </div>
+        <form class="form_" method="post" action="/lojista/transfeProduto"  enctype="application/x-www-form-urlencoded" style="background:black;">
+            <input id="cnpjfornec" name="cnpjfornec" style="display:none;" value="{{fornec.cnpj}}">
+            <input id="marcafornec" name="marcafornec" style="display:none;" value="{{fornec.marca}}">
+            
+            <div class="div-fornec" >
+                <div class="div-element"  style="width:40%;">
+                    <label class="label-fornec">cnpj :</label>
+                </div>
+                <div class="div-element" style="width:80%;">
+                    <input class="input-fornec"  id="inputCnpj" name="cnpjlojista"  value="27.323.484/0001-66">   
+                </div>
+            </div>
+            <div class="div-fornec div-fornec-e" >
+                <div class="div-element" style="width:40%;">
+                        <label  class="label-fornec">lojista:</label>
+                </div>
+                <div class="div-element" style="width:80%;">
+                    <input class="input-fornec" id="inptLoja" name="rzaolojista"  value="">   
+                </div>
+            </div>
+            {{!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+            <div class="div-fornec div-fornec-e" >
+                <div class="div-element" style="width:40%;">
+                        <label  class="label-fornec">palavra chaves:</label>
+                </div>
+                <div class="div-element" style="width:40%;">
+                    <input id="palavrachv1" name="palavrachv1"     class="input-fornec"  value="">   
+                </div>
+                <div class="div-element" style="width:40%;">
+                    <input id="palavrachv2" name="palavrachv2" class="input-fornec"  value="">   
+                </div>
+            </div>
+             <div class="div-fornec div-fornec-e">
+                <div class="div-element" style="width:40%;">
+                        <label  class="label-fornec"></label>
+                </div>
+                <div class="div-element" style="width:40%;">
+                    <input id="palavrachv3" name="palavrachv3" class="input-fornec"  value="">   
+                </div>
+                <div class="div-element" style="width:40%;">
+                    <input id="palavrachv4" name="palavrachv4" class="input-fornec"  value="">   
+                </div>
+            </div>
+            {{!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+            <div class="div-fornec div-fornec-e" >
+                <div class="div-element" style="width:40%;">
+                        <label  class="label-fornec">segmento:</label>
+                </div>
+                <div class="div-element" style="width:80%;">
+                    <select class="input-fornec" name="segmento" id="segmento">
+                        
+                    </select>
+                </div>
+                <p id="demo"></p>
+            </div>
+            <div class="div-fornec div-fornec-e" >
+                <div  class="div-element" style="width:40%;">
+                        <label  class="label-fornec">segmento 01:</label>
+                </div>
+                <div class="div-element" style="width:80%;">
+                      <select class="input-fornec" name="segmento01" id="segmento01">
+                       
+                    </select>
+                </div>
+            </div>
+            <div class="div-fornec div-fornec-e" >
+                <div class="div-element" style="width:40%;">
+                        <label  class="label-fornec">segmento 02:</label>
+                </div>
+                <div class="div-element" style="width:80%;">
+                      <select class="input-fornec" name="segmento02" id="segmento02">
+                       
+                    </select>  
+                </div>
+            </div>
+             <div style="display:flex;flex-direction:row;justify-content:center;justify-items: center;">
+                    <button type="submit" style="width:30%;height:30px;border-radius:5px;background-color: #1fb71d;color:#ffffff">Gravar produto</button>
+             </div>
+        </form>      
+            <div style="width:95%;height:56vh;margin:auto;background-color:#2fed2c;overflow:auto;margin-top:5px;padding-bottom: 4px;">
+                <table style="color:#ffffff;width:100%;background-color: #001d4a;padding:6px; padding-left:4px ;">
+                                    <tr class="col-titulo">
+                                    <th class="col-linha" style="padding-left:10px ;">linha</th>
+                                    <th class="col-codigo">Código</th>
+                                    <th class="col-descritivo">Descritivo</th>
+                                    <th class="col-qte">Qte</th>
+                                    <th class="col-preco">Preço</th>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                            </table>
+            </div>
+        </div>
+        <div id="lateral-right" class="col-tres" style="">
+            <div class="upInput">
+                <div style="color:#ffffff">Lista de produtos do fornecedor</div>
+            </div>
+            <div style="width:95%;height:70vh;margin:auto;background-color:#2fed2c;overflow:auto;margin-top:5px;padding-bottom: 4px;">
+                <table style="color:#ffffff;width:100%;background-color: #001d4a;padding:6px; padding-left:4px ;">
+                                    <tr class="col-titulo">
+                                    <th class="col-linha" style="padding-left:10px ;">linha</th>
+                                    <th class="col-codigo">Código</th>
+                                    <th class="col-descritivo">Descritivo</th>
+                                    <th class="col-qte">Qte</th>
+                                    <th class="col-preco">Preço</th>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                                    <tr class="row-table">
+                                    <td class="col-linha">1</td>
+                                    <td class="col-codigo">3566</td>
+                                    <td class="col-descritivo">Duto fletic 150 mm 5mts</td>
+                                    <td class="col-qte">12</td>
+                                    <td  class="col-preco">123.09</td>
+                                    </tr>
+                            </table>
+            </div>
+            <p id="demo"></p>
+        </div>
+    </div>    
+</div>
+
+<script>
+
+    function limpaCxLoja(){
+
+    }
+
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    let g;
+    let r;
+function buscaArq(){
+    var x = document.getElementById("myFile");
+    if (x===""){
+        console.log('vr de 1',1)
+    }else{
+        console.log('vr de 2',2)
+    }
+
+    if (x.length===0){
+        console.log('bingo!')
+    }else{
+        console.log('fora!',x.length)
+    }
+    console.log(x.files)
+    r=x.files[0];
+    console.log(r)
+    g=r.name;
+    let p=document.getElementById("inputPasta").value;
+    console.log(p)
+    g=r.name + ';' + p;
+    //............................................
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+       baseApiUrl='https://www.rotaes.com.br'
+    }
+    //::::::::::::::::::::::::::::::::::::::::::::::
+    fetch(`${baseApiUrl}` + `/nmfornec/gravaprodvisorio/${g}`,{method: "GET",
+                                headers: {"Content-type": "application/json; charset=UTF-8"}
+                                })
+                                .then(response => response.json())
+                                
+                                .then((json) => {
+                                    let w=json.length;
+                                    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::                                                                                                  
+                                    for(i=0;i<w;i++){
+                                    //::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                    const node = document.createElement("tr");
+                                    let att=node.setAttribute("class","row-table")
+                                    document.getElementById("arqtemp").appendChild(node);
+
+                                    const node1 = document.createElement("td");
+                                    const textnode1 = document.createTextNode(i+1);
+                                    let att1=node1.setAttribute("class","col-linha")
+                                    node1.appendChild(textnode1);
+                                    document.getElementById("arqtemp").appendChild(node1);
+
+                                    const node2 = document.createElement("td");
+                                    const textnode2 = document.createTextNode(json[i].codigo);
+                                    let att2=node2.setAttribute("class","col-codigo")
+                                    node2.appendChild(textnode2);
+                                    document.getElementById("arqtemp").appendChild(node2);
+
+                                    const node3 = document.createElement("td");
+                                    const textnode3 = document.createTextNode(json[i].descritivo);
+                                    let att3=node3.setAttribute("class","col-descritivo")
+                                    node3.appendChild(textnode3);
+                                    document.getElementById("arqtemp").appendChild(node3);
+                                    }
+                                    //let att=node.setAttribute("onclick","buscDados(" + "'" + A + "'" + ")")
+                                })
+                                .catch((e)=>{
+
+                                })
+        }                                         
+  
+
+var cnp=document.getElementById("inputCnpj")
+cnp.addEventListener("keypress", function(event){
+     if (event.key === "Enter") {
+         event.preventDefault(); 
+         buscCnpj()
+     }
+})
+
+var palavrachv=document.getElementById("palavrachv1")
+palavrachv.addEventListener("keypress",function(event){
+    if (event.key === "Enter") {
+         event.preventDefault(); 
+         document.getElementById("palavrachv1").style.backgroundColor='red';
+         document.getElementById("palavrachv2").focus()
+     }
+})
+
+var palavrachv=document.getElementById("palavrachv2")
+palavrachv.addEventListener("keypress",function(event){
+    if (event.key === "Enter") {
+         event.preventDefault(); 
+         document.getElementById("palavrachv2").style.backgroundColor='red';
+         document.getElementById("palavrachv3").focus()
+     }
+})
+
+var palavrachv=document.getElementById("palavrachv3")
+palavrachv.addEventListener("keypress",function(event){
+    if (event.key === "Enter") {
+         event.preventDefault(); 
+         document.getElementById("palavrachv3").style.backgroundColor='red';
+         document.getElementById("palavrachv4").focus()
+     }
+})
+
+var palavrachv=document.getElementById("palavrachv4")
+palavrachv.addEventListener("keypress",function(event){
+    if (event.key === "Enter") {
+         event.preventDefault(); 
+         document.getElementById("palavrachv4").style.backgroundColor='red';
+         buscSegmento()
+     }
+})
+   
+function buscCnpj(){
+    let cnpj;
+    cnpj=document.getElementById("inputCnpj").value;
+    let result = cnpj.replace(".", "A");
+    result = result.replace(".", "A");
+    result=result.replace("/","B");
+    result=result.replace("-","C")
+    
+    try{
+        fetch(`http://localhost:8085/lojista/busca_cnpj/${result}`,
+                      {method: "GET", 
+                       headers: {"Content-type": "application/json; charset=UTF-8"}
+                      })
+                      .then(response => response.json())
+                      .then((json)=>{
+                             const [g]=json;
+                             document.getElementById("inptLoja").value=g.razao;
+                             document.getElementById("palavrachv1").focus()
+                       })
+                       .catch((err)=>{
+                             console.log(err)
+                       });
+        }catch(err){
+          console.log(err)
+        }  
+   } 
+
+function buscSegmento(){
+     // :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+      try{
+        fetch(`http://localhost:8085/lojista/buscar-segmento`,
+                      {method: "GET", 
+                       headers: {"Content-type": "application/json; charset=UTF-8"}
+                      })
+                      .then(response => response.json())
+                      .then((json)=>{
+                             let n=json.length
+                             for(i=0;i<n;i++){
+                                 let q=json[i]
+                                 const node = document.createElement("option");
+                                 const textnode = document.createTextNode(q.segmento);
+                                 let att5=node.setAttribute("onclick","selecSeg(" + "'" + q.segmento + "'" + ")")
+                                 let att6=node.setAttribute('value',q.segmento)
+                                 node.appendChild(textnode);
+                                 document.getElementById("segmento").appendChild(node);
+                             }
+                           
+                       })
+                       .catch((err)=>{
+                             console.log(err)
+                       });
+        }catch(err){
+          console.log(err)
+        }
+   }
+
+var j=document.getElementById("segmento")
+j.addEventListener("click",function(event){
+        if (event.button === -1) {
+            event.preventDefault(); 
+            selecsegmento01(j.value);
+        }
+})
+
+function selecsegmento01(n){
+      let Q=n;
+      console.log(Q)
+      try{
+        fetch(`http://localhost:8085/lojista/buscar-segmento_01/${Q}`,
+                      {method: "GET", 
+                       headers: {"Content-type": "application/json; charset=UTF-8"}
+                      })
+                      .then(response => response.json())
+                      .then((json)=>{
+                          console.log(json)
+                             let n=json.length
+                             console.log(n)
+                             for(i=0;i<n;i++){
+                                 //console.log([i])
+                                 let q=json[i]
+                                 console.log(q)
+                                 const node = document.createElement("option");
+                                 const textnode = document.createTextNode(q);
+                                 let att5=node.setAttribute("onclick","selecSeg(" + "'" + q + "'" + ")")
+                                 let att6=node.setAttribute('value',q)
+                                 node.appendChild(textnode);
+                                 document.getElementById("segmento01").appendChild(node);
+                             }
+                           
+                       })
+                       .catch((err)=>{
+                             console.log(err)
+                       });
+        }catch(err){
+          console.log(err)
+        }
+   }
+
+var b=document.getElementById("segmento01")
+b.addEventListener("click",function(event){
+        console.log(b.value)
+        if (event.button === -1) {
+            event.preventDefault(); 
+            selecsegmento02(b.value);
+        }
+   })
+ 
+function selecsegmento02(n){
+      let Q=n;
+      console.log(Q)
+      try{
+        fetch(`http://localhost:8085/lojista/buscar-segmento_02/${Q}`,
+                      {method: "GET", 
+                       headers: {"Content-type": "application/json; charset=UTF-8"}
+                      })
+                      .then(response => response.json())
+                      .then((json)=>{
+                          console.log(json)
+                             let n=json.length
+                             console.log(n)
+                             for(i=0;i<n;i++){
+                                 //console.log([i])
+                                 let q=json[i]
+                                 console.log(q)
+                                 const node = document.createElement("option");
+                                 const textnode = document.createTextNode(q);
+                                 let att5=node.setAttribute("onclick","selecSeg(" + "'" + q + "'" + ")")
+                                 let att6=node.setAttribute('value',q)
+                                 node.appendChild(textnode);
+                                 document.getElementById("segmento02").appendChild(node);
+                             }
+                           
+                       })
+                       .catch((err)=>{
+                             console.log(err)
+                       });
+        }catch(err){
+          console.log(err)
+        }
+   }
+</script>

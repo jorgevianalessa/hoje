@@ -1,0 +1,32 @@
+<style>
+@media screen and (max-width: 600px) {
+  
+}
+
+</style>
+
+ <script>
+  function myJanela(){
+      var x=window.innerWidth;
+      var y=window.innerHeight;
+
+      var largura=document.getElementById("largura");
+      var altura=document.getElementById("altura");
+
+      largura.innerText=x + '  plus';
+      //largura.innerText=((y/9)*16);
+      altura.innerText=((x/16)*9);
+}
+</script>
+<div id="painelFixo" class="painelFixo" style="background-color: #032c82;height: 10.05vh;">
+     <div class="titulo-main">
+        <div class="tituloMain">
+            <h1 style="color:#ffffff;font-size:1.5vw">Seja bem-vindo as compras!</h1>
+        </div>
+        <div class="titulo-seccao tituloSeccao">
+            <div style="width: 50%;margin: auto;background-color: #ffffff;height: 4vh;">
+                  <h1 style="color:#032c82;font-weight: 200;font-size: 1.4vw;">Departamento de :{{titulo}}</h1>
+            </div>
+        </div>
+     </div>
+</div>

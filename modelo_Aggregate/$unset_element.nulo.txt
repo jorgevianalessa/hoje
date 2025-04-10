@@ -1,0 +1,22 @@
+Lojista.updateMany({_id:w},
+                    {
+                        $unset : {
+                            storage.0:""
+                        } 
+
+                    }
+
+Saída:
+
+[
+  { _id: 1, storage: [ null, 128, 256 ] },
+  { _id: 2, storage: [ null, 256, 512 ] },
+  { _id: 3, storage: [ null, 64, 128 ] },
+  { _id: 4, storage: [ null, 256, 1024 ] },
+  { _id: 5, storage: [ null, 256 ] }
+]
+
+Os elementos tiveram valores transformados em 'null'
+            spec:{
+                ram:"~~~~",
+            }

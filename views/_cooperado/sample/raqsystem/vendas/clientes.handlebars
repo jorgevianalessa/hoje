@@ -1,0 +1,907 @@
+<style>
+    .row{
+        height: 4vh;
+        font-size: medium;
+        background-color: transparent;
+        border-bottom: solid #ffffff 2px;
+        margin-top: 2px;
+        width: 95%;
+        margin: auto;
+    }   
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }   
+
+     .col-15{
+       float: left;
+       width: 10%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-15{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-20{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-25{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: #ffffff;
+       color: #000;
+    }
+
+    .col-26{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-45{
+       float: left;
+       width: 45%;
+       margin-top: 6px;
+    }
+
+    .col-70{
+       float: left;
+       width: 70%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    .btnLista{
+        width: 7vw;height: 4vh;margin: auto;border-radius: 7px;text-align: center;margin-top: 1vh;
+    }                                  
+</style>
+<style>
+    .linhaTitulo{
+    height: 2.5vh;
+    background-color: #ffffff;
+  }
+
+  .linhatable{
+     width: 12%;background-color: #0b0bc9;color:#b1b5b2;height: 3vh;
+  }
+
+  .bntlinha{
+     width: 100%;height: 3vh;border-radius: 6px;background-color: #035384;color: #e40808;font-size: small;
+  }
+  
+   .labellinha{
+     width: 100%;height: 2vh;border-radius: 6px;background-color:transparent;color: #f41616;font-size: larger;padding: 4px;text-align: center;justify-items:center;font-weight: 600;
+  }
+
+  .linetd{
+    width: 12%;background-color: #d4d4dd;color:#121212;height: 3vh;font-weight: 600;
+  }
+
+  
+  .linebtn{
+     width: 100%;background-color: #ffffff;color:#ffffff;height: 3vh;
+  }
+
+  .cadastro_btn{
+      width: 60%;height: 4vh;margin: auto;background-color: #035384;color:#ffffff;border-radius: 5px;
+  }
+
+  .linhaCheia{
+     background-color: #ffffff;height:3vh;
+  }
+
+  .linhaAmarela{
+     background-color:#03b166;height: 3vh;
+  }
+
+  .linhaU{
+    color:#0b0a0a;font-size: 1vw;font-weight: 500;background-color: #ffffff;width: 9vw;margin-left: 3px;
+  }
+
+  .linhaU button{
+    width: 9vw;height: 4vh;margin: auto;border-radius: 7px;text-align: center;margin-top: 2vh;
+  }
+
+  .clienteCadastro{
+    width: 75vw;height: 70vh;display: flex;flex-direction: column;background-color: #ffffff;justify-content: space-around;margin-left: 5vw;
+  }
+
+  .clienteCadastro form{
+    width: 80%;height: 69vh;background-color:#585454;margin:auto;margin-top:5px;padding-top: 2vh;
+  }
+
+  .spaceModo{
+    display:none;width: 86vw;height: 88vh;margin: auto;background-color: #fa0aee;padding-top: 0.5vh;
+  }
+
+  .linhaMenu{
+    width: 9.5vw;margin-top: 6vh;
+    font-size: 1vw;color:#ffffff;
+    background-color:transparent;
+    text-decoration: none;list-style: none;
+    margin-left: -1.8vw;
+  }
+</style>
+<div class="d-flex" style="width: 100%;height: 95vh;margin-top:3.2rem;border-color: #ab0707 1px;background-color: aqua;">
+     <div id="Main" style="width: 100%;height: 94vh;display: flex;flex-direction: row;justify-content: space-between;background-color: blueviolet;">
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+            <form class="modal-content" action="">
+                <div class="container">
+                        <h1 style="color:transparent;margin-top:-15px ;">Atenção!</h1>
+                        <p>Confirma os dados do lojista</p>
+                        
+                        <div class="clearfix" style="text-align:center;margin-top:-15px ;">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" style="width:100px ;" class="">Cancel</button>
+                            <button type="button" onclick="document.getElementById('OkGravar').click()" style="width:100px ;" class="">Ok</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+        <div id="lateralLeft" style="width: 12vw;height: 94vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;">
+             <div style="width: 10vw;height: 70vh;margin: auto;display:flex ;flex-direction: column;justify-items:left;justify-content: space-between;background-color:#ffffff;">
+                <h3 style="font-size: 1vw;color: #ffffff;margin-top: 2vh;padding-left: 0.5vw;color: #000;">Escolha a sua opção</h3>
+                <ul style="width: 10vw;height: 60vh;background-color: #ffffff;padding-top: 3vh;list-style: none;padding-left: 2px;text-align: center;">
+                    <li class="linhaU">
+                        <button onclick="Clientes_cadastro()" >
+                            Clientes cadastro 
+                        </button>
+                    </li>
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Clientes_lista()">
+                            Cliente lista 
+                        </button>    
+                    </li>
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Clientes_pesquisa()">
+                            Cliente pesquisa 
+                        </button>    
+                    </li>
+                    <li class="linhaU">
+                         {{!-- <li style="color:#0b0a0a;font-size: 1vw;font-weight: 500;"></li> --}}
+                        <button class="btnLista" onclick="Compras_()">
+                             Compras
+                        </button>    
+                    </li>
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Estoques()">
+                            Estoque
+                        </button>    
+                    </li>
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Produtos()">
+                             Produtos
+                        </button>    
+                    </li>
+                     <li class="linhaU">
+                        <button class="btnLista" onclick="Vendas()">
+                            Vendas
+                        </button>    
+                    </li>
+                    <li class="linhaU">
+                        <button class="btnLista" onclick="Videos_aulas()">
+                             Vídeos aulas
+                        </button>    
+                    </li>
+                </ul>
+             </div> 
+        </div>
+        <div id='central' style="width: 87vw;height: 94vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-content: space-around;text-align: center;">
+                <div id="Cliente-cadastro" style="display:none;">
+                <div  id="divDados" class="clienteCadastro">
+                    <div id="formCadastro">
+                        <form action="/_cooperado/modelos/fornecedor" class="cadastroCliente_fomr" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                            {{!-- ------------------------------------------------------------ --}}
+                                            <div id="Rwrazao" class="row">
+                                                <div class="col-25">
+                                                    <label for="rzsocial">Razão/Nome :</label>
+                                                </div>
+                                                <div class="col-70">
+                                                    <input type="text" id="rzsocial" name="rzsocialNome" placeholder="razão ..." tabindex="0" required>
+                                                </div>
+                                            </div>
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div id="Rwcpf" class="row">
+                                                <div class="col-25">
+                                                    <label class="" for="cpf1">CPF/CNPJ :</label>
+                                                </div>
+                                                <div class="col-70">
+                                                    <input type="text" id="cpf1" name="cpfCnpj" placeholder="" tabindex="2" required>
+                                                </div>
+                                            </div>
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div id="Rwinscricao" class="row">
+                                                <div class="col-25">
+                                                    <label  for="inscricao">INSCRIÇÃO :</label>
+                                                </div>
+                                                <div class="col-70">
+                                                    <input type="text" id="inscricao" name="inscricao" placeholder="" tabindex="4" required>
+                                                </div>
+                                            </div>
+                                            <div id="Rwsite" class="row" >
+                                                <div class="col-25">
+                                                    <label class="" for="nomeSite" >Site :</label>
+                                                </div>
+                                                <div class="col-70">
+                                                    <input type="text" id="nomeSite" name="nomeSite" placeholder=""  tabindex="5" required>
+                                                </div>
+                                            </div>
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div id="Rwfone" class="row" style="margin-top:3px ;">
+                                                <div class="col-25" >
+                                                    <label class="" for="celular" style="text-align:center;">Celular :</label>
+                                                </div>
+                                                <div class="col-26" >
+                                                    <input type="text" id="celular" name="celular" placeholder="" tabindex="8" required>
+                                                </div>
+                                                {{!-- ----------------------------------------------------------- --}}
+                                                <div class="col-25" style="background-color:#ffffff;width:18%;">
+                                                    <label class="" for="telefixo">Tel Fixo :</label>
+                                                </div>
+                                                <div class="col-26" style="margin-left:.3% ;">
+                                                    <input type="text" id="telefixo" name="telefixo" placeholder="" tabindex="9" required>
+                                                </div>
+                                            </div>        
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div id="Rwemail" class="row" >
+                                                <div class="col-25" >
+                                                    <label class="" for="">E-mail :</label>
+                                                </div>
+                                                <div class="col-70" > 
+                                                    <input type="text" style="height:3.2vh;" id="boxEmail" name="boxEmail"   tabindex="10" autocomplete="on" value="" required>
+                                                </div>
+                                            </div>
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div id="RwCep" class="row" >
+                                                <div class="col-25" >
+                                                    <label class="" for="labelcep" >Cep :</label>
+                                                </div>
+                                                <div class="col-26" >
+                                                    <input type="text" id="inputCep" name="inputCep"  tabindex="15" required style="background-color: #05477c;color:#ffffff;">
+                                                </div>
+                                            </div>         
+                                            <div id="RwAvenida"  class="row" style="background-color:  transparent;margin-bottom: 1vh;">
+                                                <div class="col-25" style="height:3.2vh;background-color: #ffffff;">
+                                                    <label class="" style="height:3.2vh;background-color: #ffffff;" for="inputAvenida">Avenida/rua :</label>
+                                                </div>
+                                                <div class="col-45" >
+                                                    <input  id="inputAvenida" name="inputAvenida" type="text" tabindex="16" required>
+                                                </div>
+                                                <div class="col-20" style="width:12%;height: 3.2vh;">
+                                                    <label class="" for="inputNumero" style="background-color: #ffffff;width: 3vw;">Nº :</label>
+                                                </div>
+                                                <div class="col-15" style="float:left;background-color:#ffffff;width:15%;margin-top:5px;">
+                                                    <input id="inputNumero" name="inputNumero" type="text" style="width:55%;border: none;" tabindex="17"  required>
+                                                </div>
+                                            </div>
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div id="RwComplemento" class="row" style="background-color: transparent;">
+                                                <div style="display: flex;flex-direction: row;width: 37.5%;background-color: #ffffff;justify-content: space-around;height: 4vh;">
+                                                    <div class="" style="background-color:transparent;width: 63.5%;height: 3.4vh;">
+                                                        <div class="" style="background-color:transparent;width: 100%;text-align: right;padding-top: 0.4vh;height: 3.2vh;">
+                                                            <label style="background-color:transparent;" for="Complemento">Edifício :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="" style="width: 32%;background-color:transparent;" >
+                                                        <input type="text" id="inputComplemento" name="inputNomeEdificio" style="background-color: #ffffff;color:#070707;width: 100%;height: 4vh;" tabindex="18" required>
+                                                    </div>
+                                                </div> 
+                                                <div style="display: flex;flex-direction: row;width: 30%;background-color:transparent;">
+                                                    <div style="background-color:transparent;width: 65.5%;">
+                                                        <div class="" style="background-color:transparent;width: 100%;text-align: right;padding-top: 0.2vh;" >
+                                                            <label  for="Complemento" style="background-color: #ffffff;width: 3vw;">Bloco :</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="" style="width: 32%;background-color: transparent;">
+                                                        <input type="text" id="inputComplemento" name="inputNumberBloco"  style="background-color: #efbd07;color:#ffffff;width: 100%;height: 4vh;" tabindex="18" required>
+                                                    </div> 
+                                                </div>
+                                                <div style="display: flex;flex-direction: row;width: 20%;">
+                                                    <div class="" style="background-color:transparent;width: 65.5%;">
+                                                        <div class="col-15" >
+                                                        <label class="" for="Complemento" style="background-color: #ffffff;width: 3vw;">Apto:</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="" style="width: 32%;background-color:transparent;" >
+                                                        <input type="text" id="inputComplemento" name="inputNumberApto"  tabindex="18" style="width: 8vw;" required>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            <div id="RwCidade" class="row" >
+                                                <div class="col-25" >
+                                                    <label  for="inputAvenida">Cidade :</label>
+                                                </div>
+                                                <div class="col-45" >
+                                                    <input type="text"  id="inputCidade" name="inputCidade" value="" tabindex="19" required>
+                                                </div>
+                                            </div>
+                                            <div id="RwBairro" class="row">
+                                                <div class="col-25" >
+                                                    <label  for="inputBairro">Bairro:</label>
+                                                </div>
+                                                <div class="col-15" >
+                                                    <input type="text"  id="inputBairro" name="inputBairro" value="" tabindex="20" required>
+                                                </div>
+                                            </div>
+                                            <div id="RwEstado" class="row">
+                                                <div class="col-25"  >
+                                                    <label class=""  for="inputEstado">Estado :</label>
+                                                </div>
+                                                <div class="col-20" >
+                                                    <input type="text"   id="inputEstado" name="inputEstado" value="ES" tabindex="21" required>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="background-color:#ffffff;height: 4vh;margin-top: 2vh;text-align: center;">
+                                                <div class="col-20" style="text-align: center;">
+                                                <input type="submit" id="OkGravar" style="" tabindex="25">  
+                                                </div>
+                                        </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                <div id="Cliente-lista" style="display: none;background-color: yellow;height: 40vh;padding-top: 1vh;">
+                    <div  id="Tabela" style="width: 75vw;height: 25vh;display: flex;flex-direction: column;background-color: #6495ed;justify-content: space-around;margin-left: 5vw;">
+                        <table id="tableProduct" class="table table-striped table-hover table-bordered" style="background-color: #ffffff;margin-bottom: 1px;height: 40vh;">
+                                    <thead style="height:1.4vh;background-color: #797777;font-size: medium;color:#ffffff;">
+                                        <tr >
+                                            <th style="display: none;">ID</th>
+                                            <th class="d-none d-sm-table-cell linhaTitulo labellinha" style="width: 2vw;" >item</th>
+                                            <th class="d-none d-sm-table-cell linhaTitulo labellinha"   ><button onclick="sortTable(2)" style="background-color:transparent;width: 20vw;height:2.7vh;margin: auto;border: none;color: #ffffff;">Cliente</button></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo labellinha" style="width: 25vw;">e-mail</th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha" style="text-align: center;">Delete</label></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Editar</label></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Visualizar</label></th>
+                                        </tr>
+                                    </thead>
+                                    {{!-- --------------------------------------------------- --}}
+                                    <tbody id="x-9" style="height: 30vh;margin: auto;width: 60%;background-color:#ffffff;">
+                                        {{!-- {{#each dados }} --}}
+                                            
+                                            {{!-- <tr style="font-size: small;color: #8f0545;font-weight: 100;height: 3vh;padding: 3px;">
+                                                    <td style='width: 12%;background-color: #0b0bc9;color:#ffffff;display:none;' >{{lojista._id}}</td>
+                                                    <td style='width: 5%;background-color: #0b0bc9;color:#ffffff;text-align: center;' >{{@index}}</td>
+                                                    <td id="codigo-{{this._id}}" style='width: 12%;background-color: #8f0545;color:#ffffff;height: 3vh;text-align: center;font-weight: 400;' >{{this.codigo}}</td>
+                                                    <td class="linetd" >{{this.descricao}}</td>
+                                                    <td class="linetd" >{{this.complete}}</td>
+                                                    <td class="linetd" >{{this.referencia}}</td>
+                                                    <td class="linetd" >{{this.precovista}}</td>
+                                                    <td class="linetd"  >{{this.precoprazo}}</td>
+                                                    <td class="linetd" >{{this.page}}</td>
+                                                    <td class="linetd"  >{{this.pageposicao}}</td>
+                                                    <td class="linetd" style="font-weight: 600;">{{this.pageok}}</td>
+                                                    <td id="local-{{this.codigo}}" class="linetd" style="font-weight: 600;">{{this.localizacao}}</td>
+                                                    <td><a href="/controle/deleteproduto/{{this._id}}" class="linebtn"><button class="bntlinha" style="background-color: red;">Delete</button></a></td>
+                                                    <td><a href="/controle/editaproduto/{{this._id}}" class="linebtn" ><button class="bntlinha">Editar</button></a></td>
+                                                    <td><a href="/controle/editarfoto/{{this._id}}" class="linebtn" ><button class="bntlinha">Foto</button></a></td>
+                                                    <td><a href="/controle/visualizar/{{this._id}}" class="linebtn" > <button class="bntlinha">Visualizar</button></a></td>
+                                                    
+                                            </tr> --}}
+                                        {{!-- {{/each}} --}}
+                                    </tbody>
+                        </table>
+                    </div>
+                </div>  
+                <div id="Cliente-pesquisa" style="display: block;width: 60vw;height: 88vh;margin: auto;background-color: #000;padding-top: 1.5vh;">
+                <div id="listaId" style="width: 50vw;height: 40vh;margin: auto;background-color: #038437;overflow: auto;text-align: center;">
+                        <div style="width: 100%;height: 5vh;margin: auto;background-color: #0b2f83;color:#ffffff;display: flex;flex-direction:row ;justify-content: space-around;padding-top: 1vh">
+                        <label style="margin-left: 6px;background-color: #038437;">Item</label>
+                        <label style="background-color: yellow;color: #000;">Cliente</label>
+                        <label>E-mail</label>
+                        <label>Delete</label>
+                        <label>Editar</label>
+                        <label>Visualizar</label>
+                        </div>
+                        <div  id="Tabela" style="width: 48vw;height: 20vh;display: flex;flex-direction: column;background-color: #6495ed;margin-left: .5vw;margin-top: 2vh;">
+                        <table id="tableProduct" class="table table-striped table-hover table-bordered" style="background-color: #ffffff;margin-bottom: 1px;height: 65vh;">
+                                    {{!-- <thead style="height:1.4vh;background-color: #797777;font-size: medium;color:#ffffff;"> --}}
+                                        {{!-- <tr >
+                                            <th style="display: none;">ID</th>
+                                            <th class="d-none d-sm-table-cell linhaTitulo labellinha" style="width: 2vw;" >item</th>
+                                            <th class="d-none d-sm-table-cell linhaTitulo labellinha"   ><button onclick="sortTable(2)" style="background-color:transparent;width: 20vw;height:2.7vh;margin: auto;border: none;color: #ffffff;">Cliente</button></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo labellinha" style="width: 25vw;">e-mail</th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha" style="text-align: center;">Delete</label></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Editar</label></th>
+                                            <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Visualizar</label></th>
+                                        </tr> --}}
+                                    {{!-- </thead> --}}
+                                    {{!-- --------------------------------------------------- --}}
+                                    <tbody id="x-9" style="height: 37vh;margin: auto;width: 60%;background-color:#ffffff;">
+                                        {{!-- {{#each dados }} --}}
+                                            
+                                            {{!-- <tr style="font-size: small;color: #8f0545;font-weight: 100;height: 3vh;padding: 3px;">
+                                                    <td style='width: 12%;background-color: #0b0bc9;color:#ffffff;display:none;' >{{lojista._id}}</td>
+                                                    <td style='width: 5%;background-color: #0b0bc9;color:#ffffff;text-align: center;' >{{@index}}</td>
+                                                    <td id="codigo-{{this._id}}" style='width: 12%;background-color: #8f0545;color:#ffffff;height: 3vh;text-align: center;font-weight: 400;' >{{this.codigo}}</td>
+                                                    <td class="linetd" >{{this.descricao}}</td>
+                                                    <td class="linetd" >{{this.complete}}</td>
+                                                    <td class="linetd" >{{this.referencia}}</td>
+                                                    <td class="linetd" >{{this.precovista}}</td>
+                                                    <td class="linetd"  >{{this.precoprazo}}</td>
+                                                    <td class="linetd" >{{this.page}}</td>
+                                                    <td class="linetd"  >{{this.pageposicao}}</td>
+                                                    <td class="linetd" style="font-weight: 600;">{{this.pageok}}</td>
+                                                    <td id="local-{{this.codigo}}" class="linetd" style="font-weight: 600;">{{this.localizacao}}</td>
+                                                    <td><a href="/controle/deleteproduto/{{this._id}}" class="linebtn"><button class="bntlinha" style="background-color: red;">Delete</button></a></td>
+                                                    <td><a href="/controle/editaproduto/{{this._id}}" class="linebtn" ><button class="bntlinha">Editar</button></a></td>
+                                                    <td><a href="/controle/editarfoto/{{this._id}}" class="linebtn" ><button class="bntlinha">Foto</button></a></td>
+                                                    <td><a href="/controle/visualizar/{{this._id}}" class="linebtn" > <button class="bntlinha">Visualizar</button></a></td>
+                                                    
+                                            </tr> --}}
+                                        {{!-- {{/each}} --}}
+                                    </tbody>
+                        </table>
+                    </div> 
+                </div>
+                <div id="dadosClienteId" style="width: 50vw;height: 40vh;margin: auto;background-color: #840377;overflow: auto;margin-top: 2vh;padding: 1vw;">
+                        <div style="width: 45w;height: 36vh;margin: auto;background-color: #696567;display: flex;flex-direction: column;justify-items:left;justify-content: left;text-align: left;">
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label >Id</label>
+                                </div>
+                                <label class="dadosRaq" id="nameId"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Proprietário</label>
+                                </div>
+                                <label class="dadosRaq" id="nameProprietario"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Cpf</label>
+                                </div>
+                                <label class="dadosRaq" id="nameCpf" ></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Edifício</label>
+                                </div>
+                                <label id="nameEdificio" class="dadosRaq"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Bloco</label>
+                                </div>
+                                <label id="nameBloco" class="dadosRaq"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Apto</label>
+                                </div>
+                                <label id="nameApto" class="dadosRaq"></label>
+                            </div>
+                            <div class="linhaDados">
+                                <div class="parteNome">
+                                <label>Qte</label>
+                                </div>
+                                <label id="nameQte" class="dadosRaq"></label>
+                            </div>
+                        </div>
+                </div>
+                </div>
+                <div id="Compras" class="spaceModo">
+                    <div style="display: flex;flex-direction: column;background-color: #0b2f83;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="background-color: #038437;width: 85vw;height: 4vh;text-align: center;">
+                             <h1 style="font-size: 1.2vw;color:#ffffff;padding-top: 1vh;">Compras</h1>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;">
+
+                        </div>
+                    </div>
+                </div>
+                <div id="Estoque" class="spaceModo">
+                    <div style="display: flex;flex-direction: column;background-color: #0b2f83;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="background-color: #038437;width: 85vw;height: 4vh;text-align: center;">
+                             <h1 style="font-size: 1.2vw;color:#ffffff;padding-top: 1vh;">Estoque</h1>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;">
+
+                        </div>
+                    </div>
+                </div>
+                <div id="Produto" class="spaceModo">
+                    <div style="display: flex;flex-direction: row;background-color: #ffffff;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="width: 10vw;height: 85vh;margin: auto;background-color:#ffffff;">
+                                <ul style="background-color: #969090;width: 9.7vw;margin-top: 1vh;text-align: left;">
+                                <li class="linhaMenu" >
+                                    {{!-- <a href="/../../../../_modelos/fornecedor.handlebars"></a> --}}
+                                    <form action="/template3/cadfornec" class="cadastroCliente_fomr" method="GET" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                         <input type="text">
+                                         <button type="submit">Cadastro fornecedor</button>
+
+                                     
+                                    </form>
+                                    
+                                    </button>
+                                </li>
+                                <li class="linhaMenu">Lista fornecedor</li>
+                                <li class="linhaMenu">Cadastro produto</li>
+                                <li class="linhaMenu">Lista produto</li>
+                                </ul>
+                        </div>
+                        <div style="display: flex;flex-direction: column;background-color: #cc0769;width:73vw;height: 86.5vh;margin: auto;">
+                            <div style="background-color: #ffffff;width: 73vw;height: 4vh;text-align: center;">
+                                <h1 style="font-size: 1.2vw;color:#070505;padding-top: 1vh;">Produto</h1>
+                            </div>
+                            <div style="background-color: #06899a;width: 73vw;height: 86vh;padding: 1vw;">
+                                 <div style="width: 70vw;height: 60vh;margin: auto;background-color: #05477c;color:#ffffff">
+
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Venda" class="spaceModo">
+                    <div style="display: flex;flex-direction: column;background-color: #e5e9f3;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="background-color: #f30c0c;width: 85vw;height: 4vh;text-align: center;">
+                             <h5 style="font-size: 1.2vw;color:#070505;padding-top: 1vh;">Movimento de vendas</h5>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;">
+
+                        </div>
+                    </div>
+                </div> 
+                <div id="Videos" class="spaceModo">
+                   <div style="display: flex;flex-direction: column;background-color: #0b2f83;width: 85vw;height: 86.5vh;margin: auto;">
+                        <div style="background-color: #038437;width: 85vw;height: 4vh;text-align: center;">
+                             <h1 style="font-size: 1.2vw;color:#ffffff;padding-top: 1vh;">Vídeos</h1>
+                        </div>
+                        <div style="background-color: #06899a;width: 85vw;height: 86vh;">
+
+                        </div>
+                    </div>
+                {{!-- </div> --}}
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+function limpaCxLoja(){
+   const myNodelist = document.querySelectorAll("tr");
+   let reta=myNodelist.length;
+  
+   console.log('valor da reta',reta)
+   h=reta;
+   if(reta>1){ 
+      for(j=h;j>0;j--){
+        console.log('valor de j',j)
+        if(j>1){
+          console.log('vr de J',j)
+          document.getElementById("tr").deleteRow(j-1);
+          console.log('deletou a de nº',j)
+        }
+      }
+   }
+}
+
+</script>
+<script>
+    const $campoCep=document.querySelector('[name="inputCep"]');
+    const $campoComplemento=document.querySelector('[name="inputNumero"]');
+    const $campoEstado=document.querySelector('[name="inputEstado"]');
+    const $campoCidade=document.querySelector('[name="inputCidade"]');
+    const $campoBairro=document.querySelector('[name="inputBairro"]');
+    const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+
+    var inputCep = document.getElementById("inputCep");
+    inputCep.addEventListener("keydown", function(event) {
+        console.log(56)
+        // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Cancel the default action, if needed
+                document.getElementById("inputNumero").value="";
+                document.getElementById("inputEstado").value="";
+                document.getElementById("inputCidade").value="";
+                document.getElementById("inputBairro").value="";
+                document.getElementById("inputAvenida").value="";
+                event.preventDefault();
+                buscOsregistros()
+            }
+    });
+// Busca dados do CEP
+function buscOsregistros(){
+        const $campoCep=document.querySelector('[name="inputCep"]');
+        const $campoComplemento=document.querySelector('[name="inputNumero"]');
+        const $campoEstado=document.querySelector('[name="inputEstado"]');
+        const $campoCidade=document.querySelector('[name="inputCidade"]');
+        const $campoBairro=document.querySelector('[name="inputBairro"]');
+        const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+        console.log($campoBairro.value)
+        const E=$campoEstado.value;
+        const C=$campoCidade.value;
+        const R=$campoRua.value;
+        
+        if (E){
+            return;
+        }
+        const cep=document.getElementById("inputCep").value;     
+            if (cep==null || cep==""){
+                return false
+            }
+            console.log(cep);
+            
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(respostaDoServer=>{
+                return respostaDoServer.json();
+            })
+            .then(dadosDoCep => {
+                
+                console.log(' [ 1047 ] ',dadosDoCep);
+                //$campoComplemento.value=dadosDoCep.complemento;
+                    if (dadosDoCep!=[]){
+                        $campoEstado.value=dadosDoCep.uf;
+                        $campoCidade.value=dadosDoCep.localidade;
+                        $campoBairro.value=dadosDoCep.bairro;
+                        $campoRua.value=dadosDoCep.logradouro;
+
+                        console.log($campoBairro.value)
+                        document.getElementById("inputAvenida").style.background="white";
+                        document.getElementById("inputNumero").style.background="white";
+                        document.getElementById("inputCidade").style.background="white";
+                        document.getElementById("inputBairro").style.background="yellow";
+                        document.getElementById("inputEstado").style.background="white";
+                        document.getElementById("inputNumero").style.focus;
+                        document.getElementById("inputNumero").style.backgroundColor="yellow"
+                    }else{
+                        console.log("FORA!")
+                    }
+            })
+            .catch((e)=>{
+               console.log(e)
+            })
+        
+        }
+</script>
+<script>
+
+function muda(n){
+      if(n==1){
+        document.getElementById("CadastroId").style.display='block';
+        document.getElementById("ListaId").style.display='none';
+      }else if (n==2){
+        document.getElementById("CadastroId").style.display='none';
+        document.getElementById("ListaId").style.display='block';
+        buscaLista()
+      }
+}
+
+function Clientes_cadastro(){
+  document.getElementById("Cliente-cadastro").style.display="block";
+  document.getElementById("Cliente-lista").style.display="none";
+  document.getElementById("Cliente-pesquisa").style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Clientes_lista(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="block";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Clientes_pesquisa(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="block";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Compras_(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="block";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Estoques(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="block";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Produtos(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  console.log('produto')
+  document.getElementById('Produto').style.display="block";
+  document.getElementById('Venda').style.display="none";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Vendas(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="block";
+  document.getElementById('Videos').style.display="none";
+}
+
+function Videos_aulas(){
+  document.getElementById('Cliente-cadastro').style.display="none";
+  document.getElementById('Cliente-lista').style.display="none";
+  document.getElementById('Cliente-pesquisa').style.display="none";
+  document.getElementById('Compras').style.display="none";
+  document.getElementById('Estoque').style.display="none";
+  document.getElementById('Produto').style.display="none";
+  document.getElementById('Venda').style.display="none";
+  console.log(1234)
+  document.getElementById('Videos').style.display="block";
+}
+
+function buscaLista(){
+        limpaCxLoja();
+        console.log(100)
+        console.log('consultando a lista')
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+    //-------------------------------------------------------------------------
+    fetch(`${baseApiUrl}` + `/template3/lista-cliente`, {method: "GET",
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+            .then(response => response.json())
+            .then((json) => {
+                console.log('_______________________________________')
+                console.log(json)
+                //return
+                let l=json.length;
+                const M= json;
+                let k;
+                //----------------------------------------------------------------
+                for(i=0;i<l;i++){
+                    console.log(M[i].razao)
+                    const node=document.createElement('tr');
+                    node.setAttribute("id","linha" + '-' + i);
+                    node.setAttribute("class","linhaCheia")
+                    document.getElementById("x-9").appendChild(node)
+                   
+                    const node0=document.createElement('td');
+                    const textNode0=document.createTextNode(i+1);
+                    node0.appendChild(textNode0);
+                    node0.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                    const node1=document.createElement('td');
+                    const textNode1=document.createTextNode(M[i].razaoNome);
+                    node1.appendChild(textNode1);
+                    node1.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                    const node2=document.createElement('td');
+                    const textNode2=document.createTextNode(M[i].email);
+                    node2.appendChild(textNode2);
+                    node2.setAttribute("class","linhaAmarela");
+                    document.getElementById('linha' + '-' + i ).appendChild(node2);
+                    //////////////////////////////////////////////////////////////
+                    ///////////   DELETE          ////////////////////////////////////////
+                    const node3=document.createElement('td');
+                    node3.setAttribute("id","linhaA" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                    const node4=document.createElement('a');
+                    node4.setAttribute("class","linhaAmarela");
+                   
+                    node4.setAttribute("id","linhaB" + '-' + i);
+                    node4.setAttribute("href","/controle/deleteproduto/{{this._id}}");
+                    document.getElementById('linhaA' + '-' + i ).appendChild(node4);
+
+                    const node5=document.createElement('button');
+                    node5.setAttribute("class","bntlinha");
+                    const textNode5=document.createTextNode('Delete');
+                    node5.appendChild(textNode5);
+                    node5.setAttribute("innerHTML","Delete");
+                    document.getElementById('linhaB' + '-' + i ).appendChild(node5);
+                    ///////////////////////////////////////////////////////////////
+                    ///////     EDITAR ///////////////////////////////////////
+                    const node6=document.createElement('td');
+                    node6.setAttribute("id","linhaC" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node6);
+
+                    const node7=document.createElement('a');
+                    node7.setAttribute("class","linebtn");
+                   
+                    node7.setAttribute("id","linhaD" + '-' + i);
+                    node7.setAttribute("href","/controle/editarfoto/{{this._id}}");
+                    document.getElementById('linhaC' + '-' + i ).appendChild(node7);
+
+                    const node8=document.createElement('button');
+                    node8.setAttribute("class","bntlinha");
+                    const textNode8=document.createTextNode('Editar');
+                    node8.appendChild(textNode8);
+                    document.getElementById('linhaD' + '-' + i ).appendChild(node8);
+                    ///////////////////////////////////////////////////////////////
+                    ////////////////       VISUALIZAR    /////////////////////////
+                    const node9=document.createElement('td');
+                    node9.setAttribute("id","linhaE" + '-' + i);
+                    document.getElementById('linha' + '-' + i ).appendChild(node9);
+
+                    const node10=document.createElement('a');
+                    node10.setAttribute("class","linhaAmarela");
+                   
+                    node10.setAttribute("id","linhaF" + '-' + i);
+                    node10.setAttribute("href","/controle/visualizar/{{this._id}}");
+                    document.getElementById('linhaE' + '-' + i ).appendChild(node10);
+
+                    const node11=document.createElement('button');
+                    node11.setAttribute("class","bntlinha");
+                    const textNode11=document.createTextNode('Visualizar');
+                    node11.appendChild(textNode11);
+                    document.getElementById('linhaF' + '-' + i ).appendChild(node11);
+                       // <a href="/controle/deleteproduto/{{this._id}}" class="">
+                       //   <button class="" style="background-color: red;"></button>
+                       // </a>
+                    
+                    //<td><a href="/controle/editaproduto/{{this._id}}" class="linebtn" ><button class="bntlinha">Editar</button></a></td>
+                    //<td><a href="/" class="linebtn" ><button class="bntlinha">Foto</button></a></td>
+                    //<td><a href="" class="linebtn" > <button class="bntlinha">Visualizar</button></a></td>
+                }
+            })
+            .catch((e)=>{
+                console.log(e);
+            })                      
+    
+    }
+
+
+
+
+
+//buscaLista();
+</script>

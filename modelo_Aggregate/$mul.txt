@@ -1,0 +1,83 @@
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// atualiza os valores de um produto
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    { "_id" : 5,
+      "name" : "SmartPhone",
+      "price" : 599,
+
+Usando $mul para aumentar 10% sobre valor do produto.
+db.products.updateOne(
+            { _id: 5 },
+            { $mul: { 
+                    price: 1.1
+                    } 
+            }
+           )
+
+db.products.find({
+    _id: 5
+}, {
+    name: 1,
+    price: 1
+})
+
+[ { _id: 5, 
+    name: 'SmartPhone',
+    price: 658.9000000000001
+   } 
+]
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+// multiplicar os valores dos elemntos de um array
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Dobrando os valores do campo 'storage'
+//.............................................................
+db.products.updateOne(
+    {_id: 1},
+    {
+        $mul: {
+            "storage.0": 2,
+            "storage.1": 2,
+            "storage.2": 2
+        }
+    }
+)
+
+consulta:
+ db.products.findOne(
+           { _id: 1 },
+           { name: 1, storage: 1 }
+ )
+
+ saída:
+    { _id: 1,
+      name: 'xPhone',
+      storage: [ 
+                 128,
+                 256, 
+                 512 
+                ]
+     }
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Multiplicando os valores de um campo em document incorporado
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+db.products.updateMany({}, {
+    $mul: {
+        "spec.ram": 2
+    }
+})
+
+consulta :
+  db.products.find({}, { name: 1, "spec.ram": 1 })
+
+saída :
+
+[
+  { _id: 1, name: 'xPhone', spec: { ram: 8 } },
+  { _id: 2, name: 'xTablet', spec: { ram: 32 } },
+  { _id: 3, name: 'SmartTablet', spec: { ram: 24 } },
+  { _id: 4, name: 'SmartPad', spec: { ram: 16 } },
+  { _id: 5, name: 'SmartPhone', spec: { ram: 8 } }
+]
+

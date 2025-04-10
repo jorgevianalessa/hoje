@@ -1,0 +1,214 @@
+<style>
+.corpo{
+        width: 100vw;height: 100vh;margin: auto;
+        margin-top:0.2rem;
+        display: flex;flex-direction: column;justify-content: space-around;
+        background-color: #fffcff;
+    }
+
+    
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.titulopage{
+    width: 100vw;height: 4vh;margin: auto;background-color:transparent;text-align: center;margin-top: 1vh;
+}
+
+.tituloSubpage{
+    width: 98vw;height: 3.5vh;margin: auto;background-color:transparent;text-align: center;;margin-top: 1.5vh;
+    display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.tituloSubpage_ div{
+    width: 20vw;
+    height: 3.5vh;
+    background-color:transparent;
+    display: flex;flex-direction: row;justify-items: auto;
+}
+
+.tituloSubpage_ label{
+   width: 8vw;
+   height: 3.4vh;
+   background-color:transparent; 
+   color: #033e8c;font-size: 1vw;font-weight: 100;
+}
+
+.tituloSubpage_ input{
+   width: 8vw; 
+   height: 3.4vh;
+   background-color: transparent;
+   color: #033e8c;font-size: 0.vw;font-weight: 100;text-align: center;
+}
+
+.tablefluxo{
+    width: 98vw;height: 83vh;margin: auto;
+    background-color:transparent;margin-top: 1vh;
+}
+
+.tablefluxo div{
+    width: 97vw;height: 82.5vh;margin:auto;
+    display: flex;flex-direction: column;padding-top:.5vh;
+    background-color:transparent;margin-top: .12vh;
+}
+
+.optionList{
+    margin-top:3px;
+    color: red;
+}
+</style>
+
+<div class="d-fl corpo " style="background-color:#ffffff;">
+    <div class="titulopage">
+       <h1 style="color: #03306b;font-size: 1.5vw;font-weight: 200;border-bottom: 1px solid white;padding-bottom: 0.5vh;">Orçamentos</h1>
+        <label id="IdcodigoEmpresa" style="display: none;">{{id_cooperado}}</label>
+    </div>
+    <div class="tituloSubpage" >
+       <div class="tituloSubpage_" >
+          <div>
+              <label >data:</label>
+              <input value="04/11/2024">
+          </div> 
+       </div>
+       <div class="tituloSubpage_" style="display:block;">
+            <div>
+              <label >nome banco:</label>
+              <input value="Caixa Econômica">
+          </div> 
+       </div>
+        <div class="tituloSubpage_" style="display:block;">
+            <div>
+              <label >razões:</label>
+              <select id="SelectedRazoes" value="" style="width: 6vw;">
+                <option></option>
+                <option class="optionList">fluxo</option>
+                <option class="optionList">bancos</option>
+                <option class="optionList">ativo</option>
+                <option class="optionList">passivo</option>
+                <option class="optionList">despesas</option>
+                <option class="optionList">receita</option>
+                <option class="optionList" value="{{id_cooperado}}">plano contas</option>
+                <option class="optionList" value="{{id_cooperado}}">home</option>
+              </select>
+          </div> 
+       </div>
+       <div class="tituloSubpage_" style="display:block;">
+            <div>
+              <label >operações:</label>
+              <select value="Caixa Econômica" style="width: 6vw;">
+                <option>pesquisa</option>
+                <option>adicionar</option>
+                <option>sintetizar</option>
+                <option>-</option>
+                <option>-</option>
+              </select>
+          </div> 
+       </div>
+       <div class="tituloSubpage_">
+           <div>
+              <label >ano:</label>
+              <input value="2024" >
+          </div> 
+       </div>
+    </div>
+    <div class="tablefluxo">
+          <div id="ListaCliente_" >
+                <div style="width: 96vw;height: 5vh;margin: auto;background-color:#0324a7;display: flex;flex-direction: row;justify-content: flex-start;padding-top: 0.5vh;">
+                    <div style="width: 40%;height:4vh;margin-left: 15px;background-color:transparent;display: flex;flex-direction: row;padding-left: .6vw;">
+                        <label style="color: #0c0404;font-size: o.7vw;font-weight: 200;margin-right: .5vw;">Digite :</label>
+                        <input id="Id_digiteLetras" type="text" class="digite-letras" maxlength="3" >
+                    </div> 
+                </div>
+                <div id="tableClient" style="width: 96vw;height: 77vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                    <table id="table" style="width: 100%;height: 69.5vh;margin: auto;background-color: #0324a7;margin-top: 0.6px;">
+                        <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                            <td style="color:#ffffff;padding-left: 0.1vw;width: 1vw;background-color: #615f61;">itens</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">id</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #615f61;">código</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 5vw;background-color: #615f61;">histórico</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 5vw;background-color: #615f61;">posição</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 5vw;background-color: #615f61;">débito</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 3vw;background-color: #615f61;">crédito</td>
+                            <td style="color:#ffffff;padding-left: 1vw;width: 3vw;background-color: #615f61;">saldo</td>
+                        </thead>
+                        <tbody id="X10">
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+          </div>
+    </div>
+    <div style="width: 100%;height: 14vh;margin: auto;background-color: #ed64c8;;margin-top: 1vh;text-align: center;">
+         <h6 style="font-size: 1vw;color: #023137;font-weight: 200;">rodapé</h6>
+    </div>
+    <form action="/raqcontabil/buscrazoes" id="idrazoes" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="background-color: #b1aeae;display: none;">
+         <input id="passarazao" name="passaRazao" value="">
+         <input id="codigoClient" name="id_cooperado" value="{{id_cooperado}}">
+         <button id="btnClose" type="submit">close</button>
+    </form>
+</div>
+<script>
+
+// Ao clicar selecionado o FORM passa-se o nome do form e o código do cliente para disparar 
+let a1=document.getElementById("SelectedRazoes");
+a1.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=a1.selectedIndex;
+   let y=a1.options;
+   let raz=a1[z].text;
+   if(raz===""){
+       console.log('fora')
+   }else{
+     if(raz=="orçamento"){
+       ' deixa passa' 
+     }else{
+        a1.selectedIndex=-1;
+        let w=document.getElementById('passarazao').value=raz;
+        document.getElementById("btnClose").click();
+     }
+   }
+})    
+
+//FORA DE USO TALVEZ DE PARA APROVEITAR
+function contas_modal(n){
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    console.log(' [ 185 ]',n)
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/buscrazoes/${n}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json)
+            })
+            .catch((er)=>{
+               console.log(er);
+            })
+    }catch(e){
+        console.log(e);
+    }   
+}
+</script>

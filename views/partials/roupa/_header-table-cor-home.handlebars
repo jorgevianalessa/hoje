@@ -1,0 +1,77 @@
+<div id="myHeader" class="tituloFixo" style="background-color: #df0707;" >
+    <div class="titulo-main" style="background-color:#0ceb0c;padding-top:0px;">
+        <div class="" id="idTitulo" style="display: flex;flex-direction: row;background-color: #ffffff;" >
+            <div id="logamarca" style="width: 33%;background-color: transparent;color:#df0707;
+                                    text-align: left;padding-top: 7px;display: flex;flex-direction: row;height: 6vh;">
+                <div style="width: 20%;height: 7.8vh;background-color:transparent;margin-left: 30px;">
+                    <img class="imgXY" src="" alt="..." class="responsivo" width="100%" height="80" style="" class="responsive">
+                </div>
+            </div>
+            <div id="tituloMain" class="" style="width: 34%;background-color: transparent;text-align: center;color:#325b80;height: 9vh;padding: 0.5vh;padding-top:3.5vh;">
+                {{!-- <h1 style="font-size:1.8vw;font-weight: lighter;color:#325b80;">{{loja.razao}}</h1> --}}
+                <h1 style="font-size:1.2vw;font-weight: lighter;color:#325b80;">{{vitrine.razao}}</h1>
+                <input id="idLoja" value="{{vitrine._id}}" style="display:none;">
+            </div>
+            <div id="Voltar"   style="width: 33%;text-align: left;background-color: transparent;color:#ffffff;padding-top: 10px;display: flex;flex-direction: row;justify-content:end;height: 9vh;align-items: center;">
+                <div style="width: 45%;height: 6vh;background-color: #ffffff;color:#ffffff;font-size: 1.5rem;float: letf;padding-top: 4px;padding: 1.5vh;">
+                    <label id="pegaWidth"   style="background-color: #0453c1;color:#ffffff;width: 100px;text-align: center;display: none"; >100</label>
+                    <label id="pegaHeight"  style="background-color: #07df07;color:#ffffff;width: 100px;text-align: center;display: none;" >100</label>
+                </div> 
+            </div>
+            {{!-- {{vitrine._id}} --}}
+        </div>
+        <div id="myTopnav" class="topnav"  style="background-color: #ffffff;height: 5.5vh;color:black;border-bottom: 3px solid #325b80;">
+                <a href="/roupa/adminloja/{{vitrine.loja_id}}" style="color:#918e92;padding: 5px 12.5px;text-align: center;display: inline;float:left;margin-left:0.5vw;">Admin</a>
+                <a href="/roupa/listatemporaria/{{vitrine._id}}{{vitrine.loja_id}}" class="" style="color:#918e92;padding: 5px 12.5px;text-align: center;display: inline;float:left;">Lista</a>
+                <a href="/roupa/visualizar/{{vitrine._id}}" style="color:#325b80;padding: 5px 12.5px;text-align: center;display: inline;float:left;text-decoration: none;">Vitrine</a>
+                <a href="#"></a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+        </div>
+        {{!-- {{extensao}} --}}
+        {{!-- /////////////////////////////////////////////////////////////////////// --}}
+        <div id="header" style="width: 100%;height: 16vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;border-bottom: #0453c1 2px solid;">
+            <div style="width: 33%;height:15vh;margin: auto;background-color:#ffffff ;">
+                <img src="{{cores.urlfront}}">
+            </div>
+            <div style="width: 33%;height: 15vh;margin: auto;background-color:#ffffff ;display: flex;flex-direction: row;justify-content: space-around;">
+                <div style="width: 33%;height: 15vh;background-color: #ffffff;">
+                </div> 
+                <div style="width: 33%;display: flex;flex-direction: column;padding: auto;text-align: center;margin-top: 1.5vh;justify-content: space-around;justify-items: center;">
+                    <div style="display: flex;flex-direction: row;justify-content:space-around ;">
+                       <input id="btn1" type="button" class="botao"  value="0" onclick="voltacor('btn1')">
+                       <input id="btn10" type="button" class="btn-confirmar" value="confirma" onclick="confirma('btn1')">
+                    </div>
+                    <div style="display: flex;flex-direction: row;justify-content:space-between ;">
+                       <input id="btn2" type="button" class="botao"  value="0" onclick="voltacor('btn2')">
+                       <input id="btn20"  type="button" class="btn-confirmar"  value="confirma" onclick="confirma('btn2')">
+                    </div>
+                    <div style="display: flex;flex-direction: row;justify-content:space-between ;">
+                       <input id="btn3" type="button" class="botao"  value="0" onclick="voltacor('btn3')">
+                       <input id="btn30" type="button" class="btn-confirmar" value="confirma" onclick="confirma('btn3')">
+                    </div>
+                </div>
+                <div style="width: 33%;height: 15vh;background-color: #ffffff;">
+                    
+                </div> 
+            </div>
+            <div style="width: 33%;height:15.5vh;margin: auto;background-color:#ffffff;padding: 0.8vh;">
+                <div style="width: 80%;height: 14vh;margin: auto;background-color: #325b80;padding: 2vh;">
+                    <form action="/roupa/gravando-cor-home" method="POST"  enctype="application/x-www-form-urlencoded" class="form_action" style="display: block;">
+                       <input type="text" id="IdCorselected" name="nameCorSelected" value="" style="display: none;color:red;"> 
+                       <input type="text" id="IdNameCor" name="nameIdCorSelected" value="{{cores.corback}}" style="background-color: #460fc9;color:#ffffff;display: none">
+                       <input type="text" id="IdVitrine" name="nameIdProdutoSelected" value="{{vitrine._id}}" style="background-color: yellow;display: none;">
+                       <button id="disparaGravação" type="submit" style="display: none;"></button>
+                    </form>
+                    <button id="confirmadaCor" style="width: 60%;height: 4vh;margin: auto;border-radius: 5px;background-color: #31a353;color:#ffffff;" onclick="GravarCor()"></button>
+                    <h4 style="font-size:medium ;font-weight: 200;color:#ffffff;margin-top: 3vh;">Click sobre a cor para edição ?</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+

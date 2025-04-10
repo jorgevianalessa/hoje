@@ -1,0 +1,714 @@
+<style>
+.corpo{
+        width: 100vw;height: 100vh;margin: auto;
+        margin-top:0.2rem;
+        display: flex;flex-direction: column;justify-content: space-around;
+        background-color: #ffffff;
+    }
+
+.tituloPage{
+    width: 100vw;height: 6vh;margin: auto;background-color:#012c6f;text-align: center;padding-top: 1vh;
+}
+
+.tituloPageH1{
+    font-size: 1vw;font-weight: 200;color: #012c6f;text-align: center;
+}
+
+.painel_central{
+    width: 100vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: row;justify-content: space-between;
+    background-color:#ffffff;text-align: center;
+    margin-top: 0.5vh;margin-bottom: 0.5vh;
+}
+
+.razoes{
+    background-color:transparent;text-align: left;padding-left: 10px;height: 3vh;font-size: 1.3vw;width: 12vw;margin-bottom: 2vh;
+}
+
+.titulo_razoes{
+    width: 18vw;height: 82vh;margin: auto;background-color:#012c6f;display: flex;flex-direction: column;justify-items: center;margin-left: 1.5vw;
+}
+
+.painel_space{
+    width: 18vw;height: 29vh;margin: auto;
+}
+
+.painel_ul{
+    width: 18vw;height: 32vh;
+}
+
+.painel_listUl{
+    background-color: #012c6f;color: #ffffff;list-style-type:none;height: 28vh;padding-top: 2vh;width: 16vw;
+}
+
+.vetores_btn{
+    background-color: transparent;color: #ffffff;width: 12vw;margin-bottom: 2vh;text-align: left;padding-left: 1vw;
+}
+
+.painelRazaoTitulo{
+    width: 19.5vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: center;
+    background-color:#ffffff;
+    margin-top: .5vh;
+}
+
+.painelRazaoSub{
+    width: 23.5vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: center;
+    background-color:#ffffff;
+    margin-top: .5vh;
+}
+
+.painelRazaoContas{
+    width: 33.5vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: center;
+    background-color:#ffffff;
+    margin-top: .5vh;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #847d7d;
+}
+
+/*
+.painelRazao_Subtable{
+    width: 29vw;height: 76vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}*/
+
+
+.divRazao{
+    width: 19vw;height: 65vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.divRazaoSub{
+    width: 22vw;height: 65vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.divRazaoCtas{
+    width: 33vw;height: 65vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.divTitulo{
+    width: 19.5vw;height: 6vh;margin: auto;background-color: #012c6f;text-align: center;
+}
+
+.divTituloSub{
+    width: 22vw;height: 6vh;margin: auto;background-color: #012c6f;text-align: center;
+}
+
+.divTituloCtas{
+    width: 32vw;height: 6vh;margin: auto;background-color: #6f0150;text-align: center;
+}
+
+/*
+.divBtnCtas{
+    width: 17vw;height: 15vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-items: flex-end;
+}*/
+
+.divBtnSubCtas{
+    width: 17vw;height: 15vh;margin: auto;background-color:#0bca37;display: flex;flex-direction: row;justify-items: flex-end;
+}
+/*
+.btnCtas{
+    width: 5vw;height: 5vh;margin: auto;background-color: #012c6f;color: #ffffff;
+}*/
+
+/*
+.aumenta{
+     width: 15vw;
+}*/
+/*
+.ModalTitulo_{
+    width: 19.5vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: row;justify-items: flex-start;justify-content: space-around;
+    background-color: #06899a;
+    margin-top: 8vh;
+    display: none;
+    text-align: center;
+}
+
+.Sub_ModalADD_{
+    width: 19.5vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: flex-start;justify-content: space-around;
+    background-color: #070707;
+    display: none;
+    margin-top: 8vh;
+    text-align: center;
+    margin-left: 2vw;
+    z-index: 200;
+}
+
+.Sub_ModalEditDel_{
+    width: 19.5vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: flex-start;justify-content: space-around;
+    background-color: #070707;
+    display: none;
+    margin-top: 6.5vh;
+    text-align: center;
+    margin-left: 2vw;
+    z-index: 200;
+}
+
+.Cta_Modal_{
+    width: 28vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: row;justify-items: flex-start;justify-content: space-around;
+    background-color: #06899a;
+    margin-top: 8vh;
+    display: none;
+    text-align: center;
+    margin-left: 2.5vw;
+}*/
+/*
+.frameTitulo_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameTituloEdit_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameTituloDel_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameSub_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameSubEdit_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameSubDel_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameCtas_{
+    width: 22vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-top: 0.8vh;margin-left: 3vw;
+    background-color:gold;
+}
+
+.frameCtasEdit_{
+    width: 22vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;margin-left: 3vw;
+    background-color:blueviolet;
+}
+
+.frameCtasDel_{
+    width: 22vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;margin-left: 3vw;
+    background-color:transparent;
+}*/
+
+.linhaCheia{
+     background-color:transparent;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaYellow{
+    background-color: #232aee;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaVerde{
+     background-color: #070707;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaAmarela{
+     background-color:#232aee;
+     padding-left: 1vw;
+  }
+
+
+</style>
+
+{{!-- ////////////////////////////////////////////////////////////////////////////// --}}
+
+     {{!-- ESSE FORM É O PLANO DE CONTA ,É PARA FAZER PESQUISA DE RAZÕES--}}
+
+{{!-- ////////////////////////////////////////////////////////////////////////////// --}}
+<div class="d-fl corpo " >
+    <div id="tituloPage" style="background-color: #f014c1;margin-bottom: 10px;" >
+        <h1 class="tituloPageH1" style="color:#ffffff;">Plano de Contas : {{razao}}</h1>
+        <label id="IdcodigoEmpresa" style="display: block;">{{razao}}</label>
+    </div>
+    <div id="painelcentral" class="painel_central">
+         <div id="titulo_razoes"  class="titulo_razoes">
+                <div id="painel__spaceLeft" class="painel_space">
+                    <input value="{{id_cooperado}}">
+                </div>
+                <div id="painel_ul" class="painel_ul">
+                <ul id="painel_listUl" class="painel_listUl">
+                        <li id="razaoAtivo" class="razoes">
+                            <button onclick="Vetores('ativo')" class="vetores_btn">Ativo</button>    
+                        </li>
+                        <li id="razaoPassivo" class="razoes">
+                            <button onclick="Vetores('passivo')" class="vetores_btn" >Passivo</button>      
+                        </li>
+                        <li id="razaoDespesas" class="razoes">
+                            <button onclick="Vetores('despesas')" class="vetores_btn" >Despesas</button>       
+                        </li>
+                        <li id="razaoReceitas" class="razoes">
+                            <button onclick="Vetores('receitas')" class="vetores_btn" >Receitas</button>       
+                        </li>
+                        <li id="razaoOrca" class="razoes">
+                            <button onclick="Vetores('orçamento')" class="vetores_btn">Orçamento</button>       
+                        </li>
+                </ul>
+                </div>  
+                <div id="painel__spaceRight" class="painel_space" >
+
+                </div> 
+         </div>
+         <div id="Titulo_Painel" class="painelRazaoTitulo" style="">
+                <div id="Titulo_FrameTitulo" class="divTitulo" style="display: flex;flex-direction: column;justify-content:space-around;justify-items: flex-start;">
+                    <div style="height: 3vh;">
+                       <label style="font-size: 1vw;font-weight: 150;color: #ffffff;height: 3vh;">Contas títulos</label>
+                    </div>
+                    <div style="display: flex;flex-direction:column;justify-items: center;justify-content: space-between;background-color:#8f0545;height: 3vh;padding-bottom: 1vh;">
+                        <label id="IdNomeRazao" style="background-color:transparent;color:#ffffff;font-size: 1.2vw;font-weight: 200;"></label>
+                    </div>
+                </div>
+                {{!-- ///////////////////////////////////////////////////////////////// --}}
+                <div id="Titulo_Razao" class="divRazao" style="">
+                    <div style="width: 17vw;height: 65vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items: center;">
+                        <div id="tableClient" style="width: 98%;height: 55vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                            <table id="table" style="width: 100%;height: 50vh;margin: auto;background-color: #012c6f;margin-top: 6px;">
+                                <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">Id</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 6vw;background-color: #012c6f;text-align: center;">conta</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #012c6f;text-align: center;">número</td>
+                                </thead>
+                                <tbody id="XTitulo">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div style="width: 17vw;height: 10vh;margin: auto;background-color:transparent;margin-top: 1vh;">
+
+                </div>
+         </div>
+         {{!-- ////////////////////////////////////////////////////////////////////////////////////// --}}
+         <div id="Sub_Painel" class="painelRazaoSub" style="">
+            <div id="Sub_FrameTitulo" class="divTituloSub" style="display: flex;flex-direction: column;justify-content:space-around;background-color: yellow;justify-items: flex-start;">
+                <div style="height: 3vh;background-color: black;color:red;">
+                    <label style="font-size: 1vw;font-weight: 150;color: #ffffff;">Contas títulos-sub</label>
+                </div>
+                <div style="height: 3vh;background-color: #8f0545;display: flex;flex-direction: row;">
+                    <label id="idnumCtaSubLabel" style="background-color:transparent;height: 3vh;width:6vw;color:#ffffff;text-align: right;padding-right: 0.5vw;padding-top: 0.5vh;"></label>
+                    <label id="idnomeCtaSubLabel" style="background-color:transparent;height: 3vh;width: 18vw;color: #ffffff;text-align:left;padding-left: .5vw;padding-top: 0.5vh;"></label>
+                </div>
+            </div>
+            {{!-- ///////////////////////////////////////////////////////////////// --}}
+            <div id="Sub_Razao" style="background-color:pink;" class="divRazaoSub" >
+                <div style="width: 29vw;height: 65vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items: center;">
+                    <div id="tableClient" style="width: 98%;height: 55vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                        <table id="table" style="width: 100%;height: 50vh;margin: auto;background-color: #012c6f;margin-top: 6px;">
+                            <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">Id</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 6vw;background-color: #012c6f;text-align: center;">conta</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #012c6f;text-align: center;">número</td>
+                            </thead>
+                            <tbody id="XSubTitulo">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+             <div style="width: 17vw;height: 10vh;margin: auto;background-color: transparent;margin-top: 1vh;">
+
+                </div>
+         </div>
+         {{!-- //////////////////     Contas --}}
+         <div id="Cta_Painel" class="painelRazaoContas" >
+            <div id="Cta_FrameTitulo" class="divTituloCtas" style="text-align: center;">
+                  <div style="height: 3vh;background-color: black;color:red;">
+                    <label style="font-size: 1vw;font-weight: 150;color: #ffffff;">Contas</label>
+                </div>
+                <div style="height: 3vh;background-color: #8f0545;display: flex;flex-direction: row;">
+                    <label id="idnumContasLabel" style="background-color:transparent;height: 3vh;width:9vw;color:#ffffff;text-align: right;padding-right: 0.5vw;padding-top: 0.5vh;"></label>
+                    <label id="idnomeContasLabel" style="background-color:transparent;height: 3vh;width: 22vw;color: #ffffff;text-align:left;padding-left: .5vw;padding-top: 0.5vh;"></label>
+                </div>
+            </div>
+            {{!-- ///////////////////////////////////////////////////////////////// --}}
+            <div id="Cta_Razao" class="divRazaoCtas" >
+                     <div style="width: 32vw;height: 65vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-items: center;overflow: auto;">
+                        <div id="tableClient" style="width: 98%;height: 55vh;margin: auto;background-color:transparent;color: #ffffff;overflow: auto;">
+                            <table id="table" style="width: 100%;height: 50vh;margin: auto;background-color: #012c6f;margin-top: 6px;overflow: auto;">
+                                <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">Id</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 6vw;background-color: #012c6f;text-align: center;">conta</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #012c6f;text-align: center;">número</td>
+                                </thead>
+                                <tbody id="XContas">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+            </div>
+             <div style="width: 17vw;height: 10vh;margin: auto;background-color:transparent;margin-top: 1vh;">
+
+          </div>
+            <form action="/raqcontabil/razao_conta" id="idrazoes" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="display:none;">
+            <input id="codigo-conta" name="NumConta" >
+            <input id="nome-conta" name="passaRazao"  style="background-color: #6f0150;color:#ffffff;">
+            <input id="IdcodigoLojista" name="codigoLojista"  style="background-color: #6f0150;color:#ffffff;" value="{{id_cooperado}}">
+            <button id="btnRazaoConta" type="submit" style="text-decoration: none;border:0px solid transparent;background-color: #06899a;
+                    color:#ffffff;width: 60px;height: 5vh;">Glória
+            </button>
+        </form>
+         </div>
+       
+        <div id="Orca_Painel" class="painelRazaoContas" style="background-color: #a60c30;display: none;"></div>
+        <div id="Param_Painel" class="painelRazaoContas" style="background-color: chocolate;display: none;"></div>
+    </div>
+    {{!-- //    Ródape --}}
+    <div id="rodape" style="width: 100vw;height: 12vh;margin: auto;background-color:#06899a;text-align: center;"></div>
+</div>
+
+<script>
+
+let baseApiUrl=window.location.hostname;
+
+// Em teste
+function  rotor(){
+    //////////////////////////////////////////////////////
+    console.log("AQUI")
+    baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    return baseApiUrl
+};
+
+function limpaTable_titulo(){
+    let corpos;
+    corpos=document.getElementById("XTitulo").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+        corpos[i].remove();
+    }
+}
+
+function limpaTable_sub(){
+    let corpos;
+    corpos=document.getElementById("XSubTitulo").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+      corpos[i].remove();
+    }
+  
+}
+
+function limpaTable_cta(){
+    let corpos;
+    corpos=document.getElementById("XContas").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+      corpos[i].remove();
+    }
+}
+
+// Essa rotina define no 'GRID' qual a razao irá prevalecar vísivel
+function Vetores(n){
+   document.getElementById("IdNomeRazao").innerText=n;
+   if (n=='ativo'){
+       busca_vetor('ativo');
+   }else if(n=='passivo'){
+       busca_vetor('passivo');
+   }else if(n=='despesas'){
+       busca_vetor('despesas');
+   }else if(n=='receitas'){
+       busca_vetor('receitas');
+   }else if(n=='orçamento'){
+      busca_vetor('orçamento');
+   }
+}
+
+function busca_vetor(n,baseApiUrl){
+    baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    ///////////////////////////////////////////////////////////////////
+   
+    /////////////////////////////////////////////////////////////////
+    limpaTable_titulo();
+    limpaTable_sub();
+    limpaTable_cta();
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/busca_vetor/${n}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                   let corpo=json;
+                   let l=json.length;
+                   console.log(' 491 lenght =>',l);
+                   for (let i=0;i<l;i++){
+                        let N1=corpo[i];
+                        let R=Object.values(N1);
+                        console.log('');
+                        console.log(' [ 496 ] ',N1);
+                        console.log('');
+                        let contas=N1.titulo;
+                        console.log(' contas titulo ',contas)
+                        const node=document.createElement('tr');
+                        node.setAttribute("id","linha_" + '-' + i);
+                        node.setAttribute("class","linhaCheia");
+                        document.getElementById('XTitulo').appendChild(node)
+
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=contas[0].titulo_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("onclick","Sub_busca(" + "'" + f + ":" + contas[0].titulo_nome + "'" + ")");
+                        node0.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha_' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(contas[0].titulo_nome);
+                        f=f + '=' + contas[0].titulo_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Titulo_edita(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha_' + '-' + i ).appendChild(node2);
+                  }
+                ///////////////////////////////////////
+                })
+                .catch((er)=>{
+                   console.log(e);
+                })
+             
+               
+     }catch(e){
+        console.log(e);
+     }            
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                   SUB TITULOS
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+function Sub_busca(n){
+    let palavra=n;
+    let l=palavra.length;
+    let numeroCta=palavra.substring(0,3);
+    let nomeCta=palavra.substring(4,l)
+    let baseApiUrl=window.location.hostname;
+    ///////////////////////////////////////////////////////////////////////////////////////
+     limpaTable_sub();
+     limpaTable_cta();
+    /////////////////////////////////////////////////////////////////////// 
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    try{
+    fetch(`${baseApiUrl}` + `/raqcontabil/buscaSubContaTitulo/${numeroCta}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log('______________________________')
+                console.log(json)
+                let l=json.length;
+                console.log('________________562_______________');
+                if (l==0){
+                   // coloca o número da conta para indentificação do frame Título
+                   // coloca o número da conta para indentificação do frame Título
+                   document.getElementById("idnumCtaSubLabel").innerHTML=numeroCta;
+                   document.getElementById("idnomeCtaSubLabel").innerText=nomeCta;
+                }else if(l>0){
+                   // coloca o número da conta para indentificação do frame Título
+                   document.getElementById("idnumCtaSubLabel").innerHTML=numeroCta;
+                   document.getElementById("idnomeCtaSubLabel").innerText=nomeCta;
+                   for (let i=0;i<l;i++){
+                        let N1=json[i];
+                        //let R=Object.values(N1);
+                        console.log('=======>',N1)
+                        let subtitulo=N1.subtitulo;
+                        console.log('[577]',subtitulo)
+                        /////////////////////////////////////////////////////////////////////////
+                        const node22=document.createElement('tr');
+                        node22.setAttribute("id","line" + '-' + i);
+                        node22.setAttribute("class","linhaYellow");
+                        document.getElementById("XSubTitulo").appendChild(node22)
+                        
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=subtitulo[0].subtitulo_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("onclick","Cta_busca(" + "'" + f + ":" + subtitulo[0].subtitulo_nome + "'" + ")");
+                        node0.setAttribute("class","linhaYellow");
+                        document.getElementById('line' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(subtitulo[0].subtitulo_nome);
+                        f=f + '=' + subtitulo[0].subtitulo_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Sub_edita(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaYellow");
+                        document.getElementById('line' + '-' + i ).appendChild(node2);
+                    }
+                }
+            })
+            .catch((err)=>{
+                console.log(err); 
+            })  
+    }catch(e){
+    console.log(er);
+    }          
+}
+//////////////////////////////////////////////////////////////////////////////////////////////
+//                             CTA
+/////////////////////////////////////////////////////////////////////////////////////////////
+function Cta_busca(n){
+    let palavra=n;
+    let l=palavra.length;
+    let numero_Conta=palavra.substring(0,6);
+    let nome_Conta=palavra.substring(7,l);
+    document.getElementById("idnumContasLabel").innerText=numero_Conta;
+    document.getElementById("idnomeContasLabel").innerText=nome_Conta;
+    //////////////////////////////////////////////////////////
+    limpaTable_cta();
+    /////////////////////////////////////////////////////////////////////// 
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    console.log('1287',baseApiUrl)
+    try{
+    fetch(`${baseApiUrl}` + `/raqcontabil/busca_conta/${numero_Conta}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json)
+                let l=json.length;
+                console.log('1464 => ',l)
+                if(l==0){
+                   alert("Não há conta cadastrada!") 
+                }else{
+                     for (let i=0;i<l;i++){
+                        let N1=json[i];
+                        //let R=Object.values(N1);
+                        console.log('000 ',N1)
+                        let contas=N1.contas;
+                        console.log('======>',contas)
+                        /////////////////////////////////////////////////////////////////////////
+                        const node22=document.createElement('tr');
+                        node22.setAttribute("id","line_" + '-' + i);
+                        node22.setAttribute("class","linhaVerde");
+                        document.getElementById("XContas").appendChild(node22)
+                        
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=contas.conta_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("class","linhaVerde");
+                        f=f + '=' + contas.conta_nome
+                        node0.setAttribute("onclick","Cta_razao(" + "'" + f + "'" + ")");
+                        document.getElementById('line_' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(contas.conta_nome);
+                        
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("class","linhaVerde");
+                        document.getElementById('line_' + '-' + i ).appendChild(node2);
+                    }
+                }
+            })
+            .catch((err)=>{
+               console.log(err); 
+            })
+    }catch(e){
+       console.log(e); 
+    }
+}
+
+function Cta_razao(n){
+    // Essa rotina passa o número da conta para ir buscar o razão.
+    let palavra=n;
+    console.log(palavra);
+     console.log('______________________');
+    let l=palavra.length;
+    console.log(l)
+    let num_conta=palavra.substring(0,9)
+    let pos=palavra.search("=");
+    let nome_conta=palavra.substring(10,l);
+    console.log('1 ',num_conta);
+    console.log('2 ',nome_conta);
+    let g1=document.getElementById("codigo-conta");
+    g1.value=num_conta
+
+    let g2=document.getElementById("nome-conta");
+    g2.value=nome_conta;
+    document.getElementById("btnRazaoConta").click();
+}
+
+</script>

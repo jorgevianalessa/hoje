@@ -1,0 +1,168 @@
+<style>
+  .corpo{
+    background-color: #f2db0a;width: 95%;height: 90vh;margin: auto;margin-top: 6.5vh;display: flex;flex-direction: row;justify-content:center ;
+  }
+
+  .mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #033986;
+      background-position: center;
+      z-index: 1000;
+      position: absolute;left: 0;top: 0;
+      display: none;
+  }
+
+  .sideLeft{
+     width: 15%;height: 90vh;margin: auto;background-color: white;float: left;
+  }
+
+  .sideMiddle{
+     width: 69%;height: 90vh;margin: auto;background-color:#ffffff;float: left;display: flex;flex-direction: column;justify-content: center;
+  }
+
+  
+
+  .sideRight{
+    width: 15%;height: 90vh;margin: auto;background-color: white;float: left;
+  }
+
+  .btndraw{
+    width: 120px;height: 5vh;margin: auto;background-color: #0b0bc9;border-radius: 5px ;color:#ffffff;
+  }
+</style>
+<div class="d-flex corpo" >
+    <div id="sideLeft" class="sideLeft">
+
+    </div>
+    <div id="sideMiddle" class="sideMiddle">
+          <canvas id="prancha" style="width: 100%;height: 72vh;background-image:url('https://amelia.nyc3.digitaloceanspaces.com/441204576f30d47cdd7e_doisbanheiros.png');background-repeat: no-repeat;background-size: cover;margin-top: 5vh;margin-bottom: 2vh;">
+                
+          </canvas>
+              
+          <div id="btnDraw" style="width: 100%;height: 10vh;margin: auto;background-color: black;display: flex;flex-direction:row;justify-content: center;">
+                <button class="btndraw">banheiros</button>
+                <button class="btndraw">distribuição</button>
+                <button id="btnRetorno" class="btndraw">retorno</button>
+          </div>
+           
+    </div>
+    
+    <div id="sideRight" class="sideRight" style="padding-top: 2vh;">
+        <div style="width: 95%;height: 10vh;margin: auto;background-color: #d3cfcf;text-align: center;padding-top: 4vh;border: #035384 2px solid;">
+            <button>Upload</button>
+        </div>
+        <div style="text-align: center;margin-top: 1vh;">
+            <input id="input-1" type="text" style="width: 100px;height: 36px;background-color: #d3cfcf;color#ffffff;">
+        </div>
+        <div style="text-align: center;margin-top: 1vh;">
+            <input id="input-2" type="text" style="width: 100px;height: 36px;background-color: #d3cfcf;color#ffffff;">
+        </div>
+    {{!-- ////////////////////////////////////////////////////////////// --}}
+    <div id="form_escolheFicheiro" style="width: 90%;height: 48vh;margin: auto;display:block;background-color: #b1aeae;margin-top: 4vh;display: none;">
+            <form action="/controle/upload" id="idfile" method="post" enctype="multipart/form-data" class="" style="background-color: #b1aeae;">
+                            <div id="tituloSelectFoto" style="display: flex;flex-direction: row;justify-content: center;">
+                            <div style="width: 100%;height: 3.5vh;margin: auto;background-color: #transparent;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                                    <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                                </div>
+                            </div>  
+                            <div id="tituloEscolheFicheiro" style="background-color:#a9a9ad;">
+                                <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                                <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="5"> {{!--idLocalImagem=t--}}
+                                <input type="text" id="idNomeImagem" name="NameNomeImg" style="display:none;color:red;background-color: #0b0bc9;" value="">   {{!--idPosicaoImg=side --}}
+                                <input id="plantaid" name="namePlanta_id" value="{{lojista._id}}" style="background-color: hotpink;display:none;">
+                            </div>      
+                
+                            <div id="form_imagem" style="width: 90%;height:41vh;margin: auto;align-items: center ;z-index: 10;margin-top: 5px;padding: 10px;display: flex;flex-direction: column;background-color: #ffffff;">
+                            
+                                    {{!-- <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color:#035384;padding: 10px;"> --}}
+                                   
+                                      <img id="imgPreviewA" src="" alt="" class="" width="100%" height="" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;height: 37vh;"/>
+                                   
+                                    {{!-- </div> --}}
+                                    {{!-- <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                                    <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                                    </div> --}}
+                            </div>  
+                            <div id="form_btn" style="width: 100%;height: 3vh;margin: auto;background-color:#b1aeae;">
+                                    <button id="btnId" class="btn_gravar" type="text"  >Gravar</button>
+                            </div>   
+                    
+            </form>
+    </div>
+    
+</div>
+<script>
+  const canvas=document.querySelector("canvas")
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+
+  const ctx= canvas.getContext('2d');
+
+  function drawLine(ctx,line){
+         //ctx.strokeStyle='blue',
+         ctx.beginPath();
+      
+         let n=ctx.strokeStyle;
+         console.log(n)
+         // desenha linha verde
+         ctx.moveTo(line.start.x,line.start.x);
+         ctx.lineTo(line.end.x,line.end.y);
+
+         ctx.strokeStyle=line.strokeStyle;
+         ctx.lineWidth=line.lineWidth + 20;
+         ctx.stroke();
+
+         // desnha linha branca
+         ctx.beginPath();
+         ctx.moveTo(line.start.x + 200,line.start.y + 100);
+         ctx.lineTo(line.end.x + 300 ,line.end.y + 300);
+         ctx.strokeStyle=line.strokeStyle;
+
+         // desenha outra linha  a partir do último ponto.
+         ctx.lineTo(line.start.x + 300 ,line.start.y + 400);
+         ctx.strokeStyle='red';
+         ctx.lineWidth=line.lineWidth + 36;
+         // arrendondameno dos pontos
+         ctx.lineCap=line.lineCap,
+         ctx.lineJoin='round';
+
+         ctx.stroke();
+         console.log('20',line.start.x,line.start.y)
+         console.log('30',line.end.x,line.end.y)
+      } 
+
+  //const line={
+  //    start:{
+  //      x:100,
+  //      y:100
+  //    },
+  //    end:{
+  //      x:200,
+  //      y:800
+  //    },
+  //    lineWidth:5,
+  //    strokeStyle:'blue',
+  //    lineCap:'round',
+ // }
+
+   let r=document.getElementById("prancha")
+
+   r.addEventListener("mousedown",function(e){
+       const position={
+         x:e.clientX - canvas.offsetLeft,
+         y:e.clientY - canvas.offsetTop
+       }
+
+       const line={
+          start:position,
+          end:position,
+          lineWidth:5,
+          strokeStyle:'blue',
+          lineCap:'round',
+       }
+       
+       console.log(10)
+       drawLine(ctx,line) 
+   })
+
+</script>

@@ -1,0 +1,1053 @@
+<style>
+    .mudacor a:hover {background-color: yellow;}
+    
+    .menuLi{
+        float: left;
+        margin-left: 5px;
+    }
+
+    .menuLi a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 6px;
+        text-decoration: none;
+    }
+
+    .menuLi a:hover {
+       background-color: #1d60b7;
+       color: #ffffff;
+    }
+
+     /* Pertence a tablela*/
+    .col-Marca{
+      width: 45%;
+    }
+
+    .col-Acoes{
+       width: 40%;
+    }
+
+    .row-table{
+      border-bottom: #0bf02a 1px solid;
+      width: 100%;
+      margin:auto;
+      margin-botton: 10px;
+      background-color: transparente;
+      margin-top: 10px;
+    }
+
+    .fornecedor{
+        width: 70%;
+    }
+
+    .bnt-editar{
+      width: 10%;
+      border-radius: 6px;
+      font-size: small;
+      background-color: #ff0000;
+      color:#ffffff;
+      text-align: center;
+    }
+
+    .bnt-click{
+      width: 200px;
+      border-radius: 6px;
+      font-size: small;
+      background-color: #00ff1a;
+      color:#ffffff;
+      text-align: center;
+    }
+
+    .bnt-link{
+        color: #ffffff;
+        text-align: center;
+        background-color: #ff0000;
+        border-radius: 6px;
+    }
+     /*  Pertence ao form Cadastro                  */
+    .form-fornec{
+          background-color: slategray;color:#ffffff;padding: 15px;font-size: small;border-radius: 8px;
+    }
+
+    .div-fornec{
+        float:left;display: flex;flex-direction:row;width:100% ;background-color:#44515f;color:#ffffff;padding-top:8px ;
+    }
+
+    .div-label-fornec{
+       background-color:trasparente;float: left;width:15%;margin-top:6px;
+    }
+    .label-fornec{
+      font-size:small;font-weight:100;margin-left: 6px;
+    }
+
+    .div-input-fornec{
+      background-color:trasparente;float: left;width:90%;border-radius:5px;
+    }
+
+    .div-input-fornec label{
+        background-color: #f009c2;width: 13vw;height: 2.5vh;margin: auto;margin-left: 1vw;border-radius: 6px;
+    }
+
+    .input-fornec{
+         width:75% ;border-radius: 5px;margin-left: 15px;
+    }
+
+    .ativaModal{
+        width: 100vw;height: 100vh;margin: auto;
+        position: absolute;top:7.9vh;left:0vh;
+        background-color: rgb(166, 166, 171,0.5);
+        display:none;
+    }
+
+    .ativaModal_{
+        width: 50vw;height: 40vh;margin: auto;margin-top: 6vh
+        background-color:transparent;padding: 20px;z-index: 1000;;
+    }
+
+    .avisoAlerta_{
+        width: 80%;
+        font-size: larger;
+        font-weight: 100;
+        margin-top: 14px;
+        border:1px solid cornsilk;
+        text-align: center;margin-top: 6px;
+        text-align: center;
+        margin-left: 10%;
+    }
+
+    .ativaModalResposta_{
+        width: 80%;height: 10vh;margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 2vh;
+    }
+
+    .buttonAlerta_{
+        width: 10vw;
+        border-radius: 6px;
+        background-color: #04bb32;
+        color:#ffffff;margin: auto;
+    }
+
+    .fecha{
+        color:#ffffff;font-size:2.5em;text-align: center;margin-right: 20px;
+    }
+</style>
+<script>
+  function  myFunction(){
+
+    }
+
+</script>
+  {{!-- :Esse form cadastra os fornecedores pela administração dos cooperados --}}
+  <div  id="idbody" class="" style="width:99%;height:98vh;margin:auto;background-color: #c00e0e;margin-top:8vh;
+                                    padding-top:1px;">
+          <!--Pede confirmação do dados para iniciar a gravação-->
+          <div class="ativaModal" id="myModal" >
+                <div class="ativaModal_" >
+                    <div class="" style="background-color: #ffffff;width: 100%;height: 100%;margin: auto;z-index: 2000;">
+                            <!-- Modal Header -->
+                            <div style="width: 100%;height: 4vh;margin: auto;display: flex;flex-direction:row ;background-color: #1d60b7;">
+                                <div style="width: 90%;height: 4vh;">
+
+                                </div>
+                                <div style="width: 10%;height: 4vh;text-align: center;">
+                                <button type="button" class="close fecha" onclick="fecha_modal()"   >&times;</button>
+                                </div>
+                            </div>
+                            {{!-- ::::::::::::::::::::::::::::::::::::::::::::::: --}}
+                            <div class="">
+                            <h4 class="" style="width: 100%;height: 4vh;margin: auto;text-align: center;color:#ff0000;margin-top: 2vh;">Atenção!</h4>
+                            </div>
+                            {{!-- ::::::::::::::::::::::::::::::::::::::::: --}}
+                            <div id="msgSpan" class="" style="width: 80%;height: 15vh;margin: auto;background-color: #ffffff;text-align: center;">
+                                    {{!-- <input id="avisoAlerta" class="avisoAlerta_"  value="">  --}}
+                                    <h3>Esse CNPJ : <span id="idspan" style="color:red;font-weight: 100;margin:0px 10px 0px 10px;"></span> já está vinculado!</h3>
+                                    <div class="ativaModalResposta_" >
+                                    <input id="avisoAlerta" class="avisoAlerta_"  value="">
+                                    <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+                                        <button class="buttonAlerta_" onclick="limpaFornecedor()">Ok</button> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div  id="msgSpan1" style="width: 80%;height: 15vh;margin: auto;background-color: #ffffff;text-align: center;">
+                                    {{!-- <input id="avisoAlerta" class="avisoAlerta_"  value="">  --}}
+                                    <h3>Esse CNPJ : <span id="idspan1" style="color:red;font-weight: 100;margin:0px 10px 0px 10px;"></span> está cadastrado!</h3>
+                                {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+                                <div class="ativaModalResposta_" >
+                                    <input id="avisoAlerta" class="avisoAlerta_"  value="Quer vincular a esse lojista?">
+                                    <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+                                    <button class="buttonAlerta_" onclick="vinculaFornecedor()">SIM</button> 
+                                    <button class="buttonAlerta_" onclick="limpaFornecedor()" style="background-color: #ff0000;">Não</button> 
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer" style="background-color:#44515f;margin-top: 4vh">
+                            <button type="button" class="btn btn-danger"  data-dismiss="modal">Close</button>
+                            </div>
+                    </div>
+                </div>
+          </div>
+          <div>
+           <button id="zero"  type="button" onclick="ativaAviso()" class="btn btn-primary" style="display:none ;" data-toggle="" data-target=""></button>
+          </div>
+          <div id="div-barra-menu" style="background-color:#01317d ;width:100% ;height:4vh;margin: auto;display: flex;flex-direction:row ;">
+                <a href="/lojista/" style="width: 100px;height: 3.8vh;margin-left: 50px;color: #ffffff;font-size:2em ;margin-top: .8vh;">admin</a>
+          </div>
+          <!-- barra do título principal da page-->
+          <div id="divcadfornec-barra-titulo" style="background-color:#01317d ;width:100% ;height:4vh;margin: auto;display: flex;flex-direction:row ;
+                            justify-content: center;">
+                <div id="divcadfornec-titulo" style="background-color:transparent ;width:100% ;float:left;padding:4px ;padding-left:3vw ;text-align: center;border-bottom: 2px solid #ffffff;">
+                    <h3 style="color:#ffffff;font-size:larger"> cadastro de fornecedores pela cooperado</h3>
+                    <h6 style="font-size: xx-small;margin-top: -10px;color:#ffffff;margin-left: 20px;">views/_cooperado/lojista/fornecedores</h6>
+                </div>
+          </div> 
+          {{!-- form de gravação dos dados do novo fornecedor --}}
+          <div id="form_gravafornec" style="background-color: #ffffff;width: 20%;height: 60vh;margin: auto;position: absolute;right: 300;z-index: 200;top:400;display: none;">
+                        <form class="form-signin form-fornex" id="formProduto" method="POST" action="/roupa/fornec_gravafornec/" enctype="application/x-www-form-urlencoded" style="background-color:rgb(29, 96, 183,0.8) ;
+                                                                                                    height:80vh;bottom:50px;width: 15vw;height: 48vh;margin: auto;display:block;z-index: 1000;">
+                            <div style="margin: auto;padding: 10px;">
+                                <input id="lojaidForm" name="lojaidForm" value="{{client.idloja}}">
+                                <input id="lojarazaoForm" name="lojarazaoForm" value="{{client.razaoloja}}">
+                                <input id="idlojasegmentoForm" name="namelojasegmentoForm" type="text" style="background-color: #f009c2;" value="cascudo" >
+                                <input type="text" id="raz3oForm" name="raz3oForm" class="input-fornec" autocomplete="off || on" autofocus tabindex="0">
+                                <input type="text" id="cnj3Form" name="cnj3Form" onblur="cnpjFunction(this)" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="marc3Form" name="marc3Form" style="" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="ema3lForm" name="ema3lForm" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="inputCepForm" name="inputCepForm" style="" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="inputAvenidaForm" name="inputAvenidaForm" style="" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="inputNumeroForm" name="inputNumeroForm" style="" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="inputCidadeForm" name="inputCidadeForm" style="" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="inputBairroForm" name="inputBairroForm" style="" class="input-fornec" autocomplete="off || on">
+                                <input type="text" id="inputEstadoForm" name="inputEstadoForm" style="" class="input-fornec" autocomplete="off || on">
+                                <div class="div-fornec" id="btnForm" style="background-color:transparente;height:5.5vh ;margin-top:2vh ;text-align: center;">
+                                    <button id="gravaForm" type="submit" class="btn btn-danger"   style="width:90%;height:4vh;margin: auto;">Grava</button>
+                                </div>
+                                </div>                                                                                                              
+                        </form>
+          </div>
+          <div id="corpoMain" style="display: flex;flex-direction: row;justify-content:space-between;">      
+                <div style="width: 22%;height: 87.8vh;margin: auto;background-color: #01317d;display: flex;flex-direction: column;
+                            justify-content: space-around;border: 2px solid #ffffff;margin-top: 0.2vh;">
+                      <div style="width: 60%;height:70vh;margin: auto;background-color: #00ff1a;margin: auto;text-align: center;padding-top: 20vh;">
+                         <labe style="color:#ffffff;font-size: small;margin-bottom: 5px;">Selecione o segmento :</labe>
+                         <select id="idsegVinculado" style="width: 90%;font-size: 0.8vw;">
+
+                         </select>
+                     </div>
+                </div>
+                <div id="lista-fornec" style="float:left;width:40%;height:86vh;margin:auto;background-color: #01317d;margin-left:.1%;margin-top: 0.2vh;">
+                            <div id="divdadosLoja" style="width:100%;height:85vh;margin:auto;background-color:#01317d;padding:.5px;">
+                                <div id="divClient"  style="width:100%;height: 7vh;background-color:darkslategray;color:#ffffff;
+                                                            text-align: center;padding-top: 1vh;">
+                                     <h3>Lista de fornecedores vinculados</h3>                       
+                                </div>
+                                <div style="width:100%;height:80vh;margin:auto;background-color: #01317d;border:#ffffff 1px solid;margin-top:.8vh;padding:15px ;overflow: auto;">
+                                    <div style="display: flex;flex-direction: row;width: 100%;height: 4vh;margin: auto;background-color: transparent;">
+                                        <div style="width: 60%;height: 3vh;float: left;color:#ffffff;text-align: left;padding-top: 0.5vh;">
+                                            <label style="margin-left: 3vw;">Fornecedor</label>
+                                        </div>
+                                        <div style="width: 40%;float: left;color:#ffffff;text-align:right;">
+                                            <label style="margin-right: 2vw;">Ações</label>
+                                        </div>
+                                    </div>    
+                                    <table id="x9" style="color:#ffffff;width:90%;margin: auto;margin-top: 1vh;">
+                                            <tbody id=""></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                </div>
+                <div id="cadastro-fornecedor" style="width:48%;height:87.8vh;margin:auto;background-color: #7d0135;padding: 20px;display:block;margin-left:.18%;margin-top: 0.2vh;">
+                    <div class="" style="margin-top:4px ;background-color: #01317d;width: 80%;height: 80vh; margin: auto;">
+                        <div id="formularioTrue" class="" style="display: block;background-color: #ffffff;height: 80vh;" >
+                            <!-- Modal Header -->
+                            <div class="" style="height:7vh;background-color:transparente;padding: 6px;">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="">Cadastre o fornecedor</h4>
+                                <label id="idLabel" style="font-size: larger;color:#0bf02a"></label>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="" style="background-color:transparent ;padding-top:1px;margin-top:-8px ;height:84vh;">
+                                <div style="padding: 6px;">
+                                              
+                                            <div id="divdadoslojista">
+                                                <input id="lojaid" name="lojaid" value="{{codClient}}">
+                                                <input id="idlojarazao" name="lojarazao" value="{{client.razaoloja}}">
+                                            </div>
+                                            <div class="div-fornec" style="margin-top:3px;">
+                                                <div class="div-label-fornec">
+                                                    <label for="lojasegmento" class="label-fornec">Segmento</label>
+                                                </div>
+                                                <div class="div-input-fornec" >
+                                                    <input id="idlojasegmento" name="namelojasegmento" type="text" style="background-color: #f009c2;" >
+                                                </div>
+                                            </div>
+                                            <div class="div-fornec" style="margin-top:3px;">
+                                                <div class="div-label-fornec">
+                                                    <label for="raz3o" class="label-fornec">Razao</label>
+                                                </div>
+                                                <div class="div-input-fornec" >
+                                                    <input type="text" id="raz3o" name="raz3o" class="input-fornec" autocomplete="off || on" autofocus >
+                                                </div>
+                                            </div>    
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="cnj3" class="label-fornec" >CNPJ</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="cnj3" name="cnj3" onblur="cnpjFunction(this)" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div>  
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="marc3" class="label-fornec" >Marca</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="marc3" name="marc3" style="" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div>     
+                                            <div class="div-fornec" style="background-color:#44515f ;" >
+                                                <div class="div-label-fornec" style="background-color:#44515f ;">
+                                                    <label for="ema3l" class="label-fornec">E-mail</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="ema3l" name="ema3l" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div>    
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="inputCep" class="label-fornec" >Cep:</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="inputCep" name="inputCep" style="" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div> 
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="InputAvenida" class="label-fornec" >Rua</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="inputAvenida" name="InputAvenida" style="background-color: ;" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div>      
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="inputNumero" class="label-fornec"  >Número</label>
+                                                </div>
+                                                <div class="div-input-fornec" style="width:50%;">
+                                                    <input type="text" id="inputNumero" name="inputNumero" style="" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div> 
+                                            {{!-- cidade  --}}
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="inputCidade" class="label-fornec" >Cidade</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="inputCidade" name="inputCidade" style="" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div> 
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="inputBairro" class="label-fornec" >Bairro</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="inputBairro" name="inputBairro" style="" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div> 
+                                            {{!-- estado   --}}
+                                            <div class="div-fornec">
+                                                <div class="div-label-fornec">
+                                                    <label for="inputEstado" class="label-fornec" >Estado</label>
+                                                </div>
+                                                <div class="div-input-fornec">
+                                                    <input type="text" id="inputEstado" name="inputEstado" style="" class="input-fornec" autocomplete="off || on">
+                                                </div>
+                                            </div> 
+                                            <div class="div-fornec" style="background-color:transparente;height:5.5vh ;margin-top:2vh ;text-align: center;">
+                                                <button type="text" class="btn btn-danger"  data-dismiss="" style="width:90%;height:4vh;margin: auto;">Limpar</button>
+                                            </div>
+                                </div>   
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+          </div>
+          {{!-- vincula o cooperado ao fornecedor que já foi cadastrado anteriormente --}}
+          <div id="vincula_fornec" style="width: 25%;height: 20vh;position: absolute;margin-top:0px;left:10;z-index: 600;display: none;">
+               <form method="POST" action="/lojista/addlojista_fornecedor/" enctype="application/x-www-form-urlencoded" style="display: flex;flex-direction: column;">
+                  <input id="vinculaFornecId" name="vinculaFornecId" type="text"  style="background-color: yellow;" >
+                  <input id="vinculaLojaId" name="vinculaLojaId" type="text"  style="background-color: yellow;" value="{{client.idloja}}">
+                  <input id="vinculaLojaName" name="vinculaLojaName" type="text"  style="background-color: yellow;" value="{{client.razaoloja}}">
+                  <input id="vinculaLojaSegmento" name="vinculaLojaSegmento" type="text"  style="background-color: yellow;">
+                  <button id="id_addlojista" type="submit"></button>
+               </form>
+          </div>       
+  </div>  
+
+{{!--  Busca os segmentos de atividades o quais está ligado o lojista   --}}
+<script>
+ //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  
+async  function  pegaSegmento(){
+    let r=document.getElementById('lojaid');
+    r=r.value;
+    console.log(' [ 396 ] lojaId',r)
+    //r=09876543
+    console.log('________________________________')
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    //////////////////////////////////////////////////////////////////
+    try{
+      await   fetch(`${baseApiUrl}` + `/global/pegasegmento/${r}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response =>{
+                if( response.ok ){
+                        return response.json()  
+                        }  
+                        throw response;
+            })
+            .then((json)=>{
+                 let obj=json;
+                 console.log(obj)
+                 console.log('valor do titulo',obj.titulo)
+                 let ob=obj.sub_titulo;
+                 [ob]=ob;
+                 console.log(ob.setor)
+                 let A=obj.titulo;
+                 const node10=document.createElement("option")
+                 const textnode = document.createTextNode(A);
+                 node10.appendChild(textnode);
+                 node10.setAttribute("id",'selectIndx' + 0)
+                 node10.setAttribute("value",A)
+                 document.getElementById('idsegVinculado').appendChild(node10);
+                 document.getElementById("idsegVinculado").focus()
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+    }catch(e){
+        console.log(e)
+    }
+}
+</script>
+{{!--  Valida os campos do formulário de cadastro de fornecedor;  --}}
+<script>
+function limpaCxLoja(){
+    console.log('limpaCaixa')
+}
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;  
+let rz=document.getElementById('raz3o')
+rz.addEventListener("keypress", function(event) {
+    console.log("#$%$")
+    if (event.key === "Enter") {
+        console.log('manhã')
+        event.preventDefault();
+        let ob=document.getElementById("raz3o");
+        ob=ob.value;
+        if (ob==''){
+           alert('favor preencher o campo da razão');
+        }else{
+           console.log(4000)
+           document.getElementById("cnj3").style.backgroundColor='#225644';
+           document.getElementById("cnj3").style.color='#ffffff';
+           document.getElementById("cnj3").focus()
+        }
+    }
+});
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+cn=document.getElementById('cnj3')
+cn.addEventListener("keypress", function(event) {
+        if (event.key === "Enter" || event.Mouse==="onmouseout") {
+           event.preventDefault();
+           let ob=document.getElementById("cnj3");
+           ob=ob.value;
+           if (ob==''){
+                alert('favor preencher o campo do cnpj');
+           }else{
+                document.getElementById("marc3").style.backgroundColor='#225644';
+                document.getElementById("marc3").style.color='#ffffff';
+                let n=cn.value;
+                console.log('valor de n',n)
+                cnpjFunction(n)
+                document.getElementById("marc3").focus()
+           }
+        }
+});
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+cn.addEventListener("Focusout",function(event){
+    console.log('alo^!')
+})
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+mr=document.getElementById('marc3')
+mr.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           let ob=document.getElementById("marc3");
+           ob=ob.value;
+           if (ob==''){
+               alert('favor preencher o campo da marca');
+           }else{
+              event.preventDefault();
+              document.getElementById("ema3l").style.backgroundColor='#225644';
+              document.getElementById("ema3l").style.color='#ffffff';
+              document.getElementById("ema3l").focus()  
+           }
+        }
+});
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+let emai=document.getElementById('ema3l')
+emai.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           let ob=document.getElementById("ema3l");
+           ob=ob.value;
+           console.log(ob)
+           if (ob==""){
+               alert('favor preencher o campo do email');
+           }else{
+               console.log(9999);
+               document.getElementById("inputCep").style.backgroundColor='#225644';
+               document.getElementById("inputCep").style.color='#ffffff';
+               document.getElementById("inputCep").focus(); 
+           }
+        }
+});
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+let nomeAvenida=document.getElementById('inputAvenida');
+nomeAvenida.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           console.log("55")
+           // AQUI FAREMOS A TRANSFERENCIA
+           let ob=document.getElementById("inputAvenida");
+           ob=ob.value;
+           if (ob==''){
+              alert('favor preencher o campo do "Avenida" ! ');  
+           }else{
+              console.log(56)
+              document.getElementById("inputNumero").focus();
+           }
+        }
+});
+
+let numberAvenida=document.getElementById('inputNumero');
+numberAvenida.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           console.log("55")
+           // AQUI FAREMOS A TRANSFERENCIA
+           let ob=document.getElementById("inputAvenida");
+           ob=ob.value;
+           if (ob==''){
+              alert('favor preencher o nome da  avenida !');  
+           }else{
+              console.log(56)
+              document.getElementById("inputNumero").style.backgroundColor="#225644";
+              document.getElementById("inputNumero").style.color="#ffffff";
+              document.getElementById("inputCidade").focus();
+           }
+        }
+});
+
+let nomeCidade=document.getElementById('inputCidade');
+nomeCidade.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           console.log("55")
+           // AQUI FAREMOS A TRANSFERENCIA
+           let ob=document.getElementById("inputCidade");
+           ob=ob.value;
+           if (ob==''){
+              alert('favor preencher o nome da  cidade !');  
+           }else{
+              console.log(56)
+              document.getElementById("inputCidade").style.backgroundColor="#225644";
+              document.getElementById("inputCidade").style.color="#ffffff";
+              document.getElementById("inputBairro").focus();
+           }
+        }
+});
+
+let nomeBairro=document.getElementById('inputBairro');
+nomeBairro.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           console.log("55")
+           // AQUI FAREMOS A TRANSFERENCIA
+           let ob=document.getElementById("inputBairro");
+           ob=ob.value;
+           if (ob==''){
+              alert('favor preencher o nome do bairro !');  
+           }else{
+              console.log(56)
+              document.getElementById("inputBairro").style.backgroundColor="#225644";
+              document.getElementById("inputBairro").style.color="#ffffff";
+              document.getElementById("inputEstado").focus();
+           }
+        }
+});
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+let SiglaEstado=document.getElementById('inputEstado');
+SiglaEstado.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           console.log("55")
+           // AQUI FAREMOS A TRANSFERENCIA
+           let ob=document.getElementById("inputBairro");
+           ob=ob.value;
+           if (ob==''){
+              alert('favor preencher o campo do bairro ! ');  
+           }else{
+              console.log(56)
+              document.getElementById("inputEstado").style.backgroundColor="#225644";
+              document.getElementById("inputEstado").style.color="#ffffff";
+              transfereValores();
+           }
+        }
+})
+
+//.....................................................
+function transfereValores(){
+    console.log('transfereValores- 534')
+    document.getElementById("inputCepForm").style.backgroundColor='red';
+    document.getElementById("inputCepForm").style.color='black';
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    let a=document.getElementById("lojaid");
+    document.getElementById("lojaidForm").value=a.value;
+    document.getElementById("lojaidForm").style.backgroundColor="violet";
+
+    let b=document.getElementById("idlojarazao");
+    document.getElementById("lojarazaoForm").value=b.value;
+    document.getElementById("lojarazaoForm").style.backgroundColor='green'
+
+
+    let c=document.getElementById("idlojasegmento");
+    document.getElementById("idlojasegmentoForm").value=c.value;
+    document.getElementById("idlojasegmentoForm").style.backgroundColor='chocolate'
+
+    let d=document.getElementById("raz3o");
+    document.getElementById("raz3oForm").value=d.value;
+    document.getElementById("raz3oForm").style.backgroundColor='brown'
+
+    let e= document.getElementById("cnj3");
+    document.getElementById("cnj3Form").value=e.value;
+    document.getElementById("cnj3Form").style.backgroundColor='coral'   
+
+    let f= document.getElementById("marc3");
+    document.getElementById("marc3Form").value=f.value;   
+    document.getElementById("marc3Form").style.backgroundColor='chocolate'
+
+    let g=document.getElementById("ema3l");
+    document.getElementById("ema3lForm").value=g.value;
+    document.getElementById("ema3lForm").style.backgroundColor='white'
+
+    let h=document.getElementById("inputCep");
+    document.getElementById("inputCepForm").value=h.value;
+    document.getElementById("inputCepForm").style.backgroundColor='chocolate'
+
+    let i=document.getElementById("inputAvenida");
+    document.getElementById("inputAvenidaForm").value=i.value;
+    document.getElementById("inputAvenidaForm").style.backgroundColor='red'
+
+    let j=document.getElementById("inputNumero");
+    document.getElementById("inputNumeroForm").value=j.value;
+    document.getElementById("inputNumeroForm").style.backgroundColor='chocolate'
+
+    let k=document.getElementById("inputCidade");
+    document.getElementById("inputCidadeForm").value=k.value;
+    document.getElementById("inputCidadeForm").style.backgroundColor='chocolate'
+
+    let l=document.getElementById("inputBairro");
+    document.getElementById("inputBairroForm").value=l.value;
+    document.getElementById("inputBairroForm").style.backgroundColor='chocolate'
+
+    let m=document.getElementById("inputEstado");
+    document.getElementById("inputEstadoForm").value=m.value;
+    document.getElementById("inputEstadoForm").style.backgroundColor='chocolate';
+    document.getElementById("form_gravafornec").style.display="block";
+    /// Transferiu todos os elementos
+    let n=document.getElementById("gravaForm");
+    n.style.backgroundColor="green";
+    n.focus();
+}
+function cnpjFunction(val) {
+    // Confere se o cnpj já está cadastrado
+    let j=document.getElementById("lojaid");
+    j=j.value;
+    document.getElementById("cnj3").style.backgroundColor="green";
+    let cnpj=document.getElementById("cnj3").value;
+    console.log(' [ 489 ] vai buscar o cnpj : ',cnpj)
+      if (cnpj=='' || cnpj=="null" || cnpj=="undefined"){
+        console.log('etâ!')
+      }else{
+        console.log(typeof(cnpj) )
+        let result = cnpj.replace(".", "A");
+        result = result.replace(".", "A");
+        result=result.replace("/","B");
+        result=result.replace("-","C")
+        console.log('linha 405',result)
+        result=result + ":=" + j;
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //////////////////////////////////////////////////////////////
+        console.log(baseApiUrl)
+        // ----------------------------------------------------------
+        try{
+            fetch(`${baseApiUrl}` + `/lojista/buscacnpj/${result}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                            console.log(response.status)
+                            return response.json()
+                    }  
+                    console.log(response.status)
+                    throw response;
+                })
+                .then((json)=>{
+                    console.log('valor de json',json)
+                    let vr=json[0];
+                    if(vr==1){
+                            let Fcnpj=json[2];
+                            let Fid=json[1];
+                            console.log('vr de Fid',Fid)
+                            let Flojaid=json[3];
+                            Flojaid=Flojaid
+                            console.log('cnpj : ',Fcnpj);
+                            console.log('id : ',Fid);
+                            // Se é igual, então mostro o modal com msg
+                            if(cnpj==Fcnpj && j==Flojaid){
+                                //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                // Se o cnpj e o id da loja são iguais então não há nada o que fazer
+                                let sp=document.getElementById("idspan");
+                                sp.innerText=Fcnpj;
+                                //...................................................
+                                let rp=document.getElementById("msgSpan");
+                                rp.style.display="block"
+                                //....................................................
+                                let rq=document.getElementById("msgSpan1");
+                                rq.style.display="none"
+                                //..........................................................
+                                document.getElementById("zero").click();
+                                //.................................................
+                            }else if(cnpj==Fcnpj){
+                                console.log('deu!')
+                                //.............................................
+                                let sp1=document.getElementById("idspan1");
+                                sp1.innerText=Fcnpj;
+                                //.............................................
+                                let rp1=document.getElementById("msgSpan1");
+                                rp1.style.display="block";
+                                //..............................................
+                                let rq1=document.getElementById("msgSpan");
+                                rq1.style.display="none";
+                                //..............................................
+                                document.getElementById("vinculaFornecId").value=Fid;
+                                document.getElementById("zero").click();
+                            }
+                    }else{
+                        console.log("feita a consulta.Não hpa cadastro!");
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                });
+            }catch(err){
+               console.log(err)
+            }  
+      }
+}
+</script>
+{{!-- Preenche os campos de CEP,BAIRRO,CIDADE,AVENIDA --}}
+<script>
+var input = document.getElementById("inputCep");
+input.addEventListener("keydown", function(event) {
+         console.log(' [ 707] : ',input.value)
+        if (event.keyCode === 13) {
+            document.getElementById("inputNumero").value="";
+            document.getElementById("inputEstado").value="";
+            document.getElementById("inputCidade").value="";
+            document.getElementById("inputBairro").value="";
+            document.getElementById("inputAvenida").value="";
+            event.preventDefault();
+            buscOsregistros();
+            //let x1=document.getElementById("inputNumero");
+            //x1.focus()
+        }
+});
+
+function buscOsregistros(){
+        const cep=document.getElementById("inputCep").value;     
+        if (cep==null || cep==""){
+            return false
+        }
+        console.log(cep);
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(respostaDoServer=>{
+            return respostaDoServer.json();
+        })
+        .then(dadosDoCep => {
+            //..............................................
+            let retorno=dadosDoCep.bairro;
+            if(retorno='undefined'){
+                document.getElementById("inputAvenida").style.backgroundColor="#225644";
+                document.getElementById("inputAvenida").style.color="#ffffff";
+                document.getElementById("inputAvenida").focus();
+            }else{
+                 console.log(1000);
+                 console.log(dadosDoCep.bairro);
+                document.getElementById("inputAvenida").value=dadosDoCep.logradouro;
+                document.getElementById("inputAvenida").style.background="yellow";
+                document.getElementById("inputNumero").value=dadosDoCep.complemento;
+                document.getElementById("inputEstado").value=dadosDoCep.uf;
+                document.getElementById("inputEstado").style.background="yellow";
+                document.getElementById("inputCidade").value=dadosDoCep.localidade;
+                document.getElementById("inputCidade").style.background="yellow";
+                document.getElementById("inputBairro").value=dadosDoCep.bairro;
+                document.getElementById("inputBairro").style.background="yellow";
+                document.getElementById("inputNumero").focus();
+            }    
+        })
+        .catch((e)=>{
+        console.log(e)
+        })
+}
+</script>
+<script>
+
+function  buscafornecedores(n){    
+    // essa rotina é acionada após ter sido selecionado o segmento
+    // Vai buscar os fornecedores vinculado ao lojista e ao segemnto
+    let palavra=n;
+    let nome=n;
+    //console.log('aqui...',n)
+    let p=document.getElementById("lojaid");
+    p=p.value;
+    console.log(p)
+    palavra=palavra + ":=" + p;
+    
+    if (palavra!=""){
+        //............................................
+        let d=document.getElementById("idlojasegmento");
+        let h=document.getElementById("vinculaLojaSegmento");
+        h.value=nome;
+        //...........................................
+        let lab1=document.getElementById("idLabel");
+        console.log(1)
+        lab1.innerHTML=nome;
+        //............................................
+        d.value=nome;
+        //...........................................
+        d.style.backgroundColor='black';
+        d.style.color="red";
+        //...................................................
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //console.log('linha base',baseApiUrl)
+        try{
+            console.log(' [ 864 ] :::::::',palavra);
+                fetch(`${baseApiUrl}` + `/roupa/fornecedor_vinculadoLojista/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        //console.log(response.status)
+                        return response.json()
+                        }  
+                        //console.log(response.status)
+                        throw response;
+                })
+                .then((json)=>{
+                    console.log('resulta da pesquisa :')
+                    console.log(json);
+                    const  l=Object.values(json)
+                    console.log('valor de l',l)
+                    console.log(l.length)
+                    let h=l.length;
+                    let p=0;
+                    //::::::::::::::::::::::::::::::::::::::::::::::::::
+                    var elem=document.getElementById("x9")
+                    const myNodelist = document.querySelectorAll("tr");
+                    let reta=myNodelist.length;
+                    console.log('valor de reta',reta)
+                    for(j=0;j<reta;j++){
+                        console.log('vr de j',j)
+                        document.getElementById("x9").deleteRow(j);
+                    }
+                    let w=elem.childElementCount
+                    let q=elem.children.length;
+                    console.log('vr de w',w)
+                    console.log('vr de q',q)
+                    //::::::::::::::::::::::::::::::::::::::::::::::::::
+                        const node0=document.createElement("tr")
+                        node0.setAttribute("id",'linha' + 0)
+                        node0.setAttribute("class","row-table")
+                        document.getElementById('x9').appendChild(node0)
+                        let x=1;
+                        
+                        for(i=0;i<h;i++){
+                            if(i>0){
+                                p=p+1;
+                                x=x+1;
+                            }
+                                const node = document.createElement("td");
+                                let A = l[i].razao;
+                                let I = l[i]._id;
+                                const textnode = document.createTextNode(A);
+                                node.setAttribute("class","fornecedor")
+                                node.appendChild(textnode);
+                                document.getElementById("linha" + p).appendChild(node);
+
+                                const node1 = document.createElement("td");
+                                const textnode1 = document.createTextNode('');
+                                node1.setAttribute("class","")
+                                node1.setAttribute("id","mycol" + p)
+                                node1.appendChild(textnode1);
+                                document.getElementById("linha" + p).appendChild(node1);
+
+                                const node2 = document.createElement("td");
+                                const textnode2 = document.createTextNode('editar');
+                                node2.setAttribute("class","bnt-editar")
+                                node2.setAttribute("id","mycolE" + p)
+                                node2.appendChild(textnode2);
+                                document.getElementById("linha" + p).appendChild(node2);
+
+                                const node3 = document.createElement("button");
+                                const textnode3 = document.createTextNode('desvincula');
+                                node3.setAttribute("class","bnt-click")
+                                node3.setAttribute("id","mycol-E" + p)
+                                node3.setAttribute("onclick","desvincula('" + I + "')")
+                                node3.appendChild(textnode3);
+                                document.getElementById("mycol" + p).appendChild(node3);
+
+                                const node10=document.createElement("tr")
+                                node10.setAttribute("id",'linha' + x)
+                                node10.setAttribute("class","row-table")
+                                document.getElementById("x9").appendChild(node10)
+                        }
+                            return
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+                    });
+        }catch(e){
+            console.log(e)
+        } 
+    }    
+}
+
+</script>
+<script>
+//.......................................................
+function ativaAviso(){
+        let r=document.getElementById("myModal");
+        r.style.display='block';
+}
+
+function fecha_modal(){
+        console.log('fechado!')
+        //........................................
+        let p=document.getElementById("idspan");
+        p.innerText="";
+
+        let r=document.getElementById("myModal");
+        r.style.display='none';
+}
+
+async function vinculaFornecedor(){
+    //................................................
+    console.log('vinculaFornecedor()')
+    let disp=document.getElementById("id_addlojista");
+    disp.click();
+    limpaFornecedor();
+}
+
+function limpaFornecedor(){
+    console.log('limpa fornecedor');
+    //.........................................................
+    let r1=document.getElementById("raz3o");
+    r1.value="";
+    //.........................................................
+    let r2=document.getElementById("cnj3");
+    r2.value="";
+    //.........................................................
+    //document.getElementById("cadastro-fornecFalse").style.display="block";
+    document.getElementById("cadastro-fornecedor").style.display="none";
+    document.getElementById("formularioTrue").style.display="none";
+    //document.getElementById("formularioFalse").style.display="block"
+    document.getElementById("myModal").style.display="none";
+}
+
+let z1=document.getElementById("idsegVinculado");
+z1.addEventListener("click",function(event){
+   // return
+   event.stopPropagation();
+      let r2=document.getElementById("idsegVinculado").selectedIndex;
+      let r3=document.getElementById("idsegVinculado").options;
+      let r4=r3[r2].text;
+      console.log('dentrooo!')
+      // Se o nome é diferente de vazio então,
+      if(r4!=''){
+         console.log('valor de r4',r4);
+         buscafornecedores(r4)
+         document.getElementById("vinculaLojaSegmento").value=r4;
+         document.getElementById("idlojasegmento").value=r4;
+         document.getElementById("raz3o").focus();
+      }
+})
+
+function desvincula(n){
+    console.log('[992]',n)
+    let palavra=n;
+    let r5=document.getElementById("lojaid");
+    let number=r5.value;
+    palavra=palavra + 'number=' + number;
+    console.log(palavra); 
+    // return
+    let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //console.log('linha base',baseApiUrl)
+        try{
+            console.log(' [ 864 ] :::::::',palavra);
+                fetch(`${baseApiUrl}` + `/roupa/fornecedor_desvincula-Lojista/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        //console.log(response.status)
+                        return response.json()
+                        }  
+                        //console.log(response.status)
+                        throw response;
+                })
+                .then((json)=>{
+        
+                })
+                .catch((e)=>{
+                  console.log(e);
+                })
+        }catch(e){
+            console.log(e);
+        }    
+}
+
+// busca os segmentos vinculado ao lojista 
+pegaSegmento()   
+
+</script>
+
+

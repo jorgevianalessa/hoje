@@ -1,0 +1,550 @@
+<style>
+  #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+#customers tr:nth-child(even){background-color: #b50808;}
+
+#customers tr:hover {background-color: #0cd251;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0fa26c;
+  color: white;
+}
+
+.grab{
+  cursor: -webkit-grab; cursor: grab;row-tab;
+}
+
+    .mudacor a:hover {background-color: yellow;}
+    
+    .menuUl{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #03439e;
+        border-top: 1px solid #ffffff;
+        border-bottom: 1px solid #ffffff;
+        width: 99.7%;margin: auto;
+        margin-bottom:3px ;
+    }
+
+    .menuLi{
+        float: left;
+        margin-left: 5px;
+    }
+
+    .menuLi a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 6px;
+        text-decoration: none;
+    }
+
+    .menuLi a:hover {
+       background-color: #1d60b7;
+       color: #ffffff;
+    }
+
+     /* Pertence a tablela*/
+    .col-Marca{
+      width: 45%;
+    }
+
+    .col-Acoes{
+       width: 40%;
+    }
+
+    .row-table{
+      border-bottom: #0bf02a 1px solid;
+      width: 100%;
+      margin:auto;
+      margin-botton: 10px;
+      background-color: transparente;
+      margin-top: 10px;
+    }
+
+    .fornecedor{
+        width: 70%;
+    }
+
+    .bnt-addprod{
+      width: 15%;
+      border-radius: 6px;
+      font-size: xx-small;
+      background-color: #04bb32;
+      text-decoration: none;
+      list-style: none;
+      color:#ffffff;
+      margin-left: 40%;
+      margin-top: 3px;
+      text-align: center;
+      height: 4vh;
+    }
+
+    .bnt-editar{
+      width: 10%;
+      border-radius: 6px;
+      font-size: small;
+      background-color: #ff0000;
+      color:#ffffff;
+      text-align: center;
+    }
+
+    .bnt-link{
+        color: #ffffff;
+        text-align: center;
+        background-color: #ff0000;
+        border-radius: 6px;
+    }
+     /*  Pertence ao form Cadastro                  */
+    .form-fornec{
+          background-color: slategray;color:#ffffff;padding: 15px;font-size: small;border-radius: 8px;
+    }
+
+    .div-fornec{
+        float:left;display: flex;flex-direction:row;width:100% ;background-color:#44515f;color:#ffffff;padding-top:8px ;
+    }
+
+    .div-label-fornec{
+       background-color:trasparente;float: left;width:15%;margin-top:6px;
+    }
+    .label-fornec{
+      font-size:small;font-weight:100;margin-left: 6px;
+    }
+
+    .div-input-fornec{
+      background-color:trasparente;float: left;width:90%;border-radius:5px;
+    }
+
+    .input-fornec{
+         width:75% ;border-radius: 5px;margin-left: 15px;
+    }
+
+    .limpalista{
+      background-color: #0bf02a;
+      color:#ff0000;
+      list-style: none;
+      padding: 10px;
+      border-radius: 6px;
+    }
+</style>
+<style>
+  /*
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  overflow: auto;
+} 
+
+td {
+  border: 1px solid white;
+}
+ 
+ .table-auto{
+    table-layout: fixed;
+    width: 80%;  
+    height: 60vh;margin:auto;margin-top: 2vh;
+ }
+ 
+.row-tab{
+    color:#ffffff;
+    font-size: small;
+    valign:top;
+    height: .8vh;
+   
+}*/
+</style>
+<style>
+ 
+ 
+
+</style>
+
+  <div class="" id="main" style="width:99%;height:100vh;margin:auto;background-color: #02160f;margin-top:5.8vh;padding-top:1px;">
+          <div style="width:100%;height:5vh;margin:auto;background-color: #44515f;display: flex;flex-direction: row;">
+               <div style="width:20%;background-color:#717880 ;height:3.8vh ;border-right: 1px solid yellow;display: flex;flex-direction: row;justify-content: center; ">
+                 <label style="color:#ffffff;margin-left:2%;font-size:small ;">Busque a empresa..</label>
+                 <input type="text" id="inputRegex" style="width:40% ;margin-left:2% ;font-size: small;height:3vh;margin-top: .5vh;">
+               </div>
+                <div style="width:20%;background-color:#717880 ;height:3.8vh ;border-right: 1px solid yellow;">
+
+               </div>
+                <div style="width:20%;background-color:#717880 ;height:3.8vh ;border-right: 1px solid yellow;">
+
+               </div>
+                <div style="width:20%;background-color:#717880 ;height:3.8vh ;border-right: 1px solid yellow;">
+
+               </div>
+                <div style="width:20%;background-color:#717880 ;height:3.8vh ;">
+
+               </div>
+          </div> 
+          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+          <div class="modal fade" id="myModal">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title" style="color:#ff0000">Atenção!</h4>
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                Esse 'cnpj' já esta cadastrado!
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger"  data-dismiss="modal">Close</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+          </div>
+          <button id="zero"  type="button" class="btn btn-primary" style="display:none ;" data-toggle="modal" data-target="#myModal">
+                                                                         Open modal
+          </button>
+          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+          <div style="background-color:transparente ;width:100% ;height:5vh;margin: auto;display: flex;flex-direction:row ;justify-content: flex-start;margin-bottom: 2vh;">
+                <div style="background-color:transparente;width:100% ;float:left ;">
+                    <ul class="menuUl" >
+                                {{!-- <li class="menuLi"><a href="#home">Segmentos</a></li>
+                                <li class="menuLi"><a href="#news">Segmentos_01</a></li>
+                                <li class="menuLi"><a href="#contact">Segmentos_02</a></li>
+                                <li class="menuLi"><a href="#about">Palavra chaves</a></li> --}}
+                    </ul>
+                </div>
+          </div> 
+          <div style="float:left ;width:48%;height:84vh;margin:auto;background-color: #ffffff;margin-left:1%;display:block;">
+               <div style="background-color:#ffffff ;overflow-y: auto;padding:10px ;height: 70vh;">
+                <table  class="table-auto" style="overflow: auto;height: 60vh;" id="customers">
+                  <thead style="width:100%;">
+                      <tr class="" style="">
+                        <th class="" style="width: 50%;padding-left:1vw;" id="TitRz">razao</th>
+                        <th class="" style="width: 25%;padding-left:1vw;"  id="TitMr">marca</th>
+                        <th class="" style="width: 25%;padding-left:1vw;" id="TitSg">segmento</th>
+                      </tr>
+                  </thead>
+                 
+                      <tbody id="tbBody" style="width:100%;">
+                          
+                      </tbody>
+                
+                </table>
+                 </div> 
+          </div>
+          <div>
+
+          </div>
+          <div style="float:left;width:48%;height:92vh;margin:auto;background-color: transparente;margin-left:1%;">
+                     <div style="width:100%;height:85vh;margin:auto;background-color:#f0f1f4;padding:15px;">
+                        <div class="" style="width:100%;height: 10vh;float:left;background-color: #01317d;color:#ffffff;text-align: center;">
+                            <h2 class="" style="font-size:large;" > Lista de fornecedores : <span id="spanLoja" style="color:#ff0000;font-size: larger;">{{loja}}</span></h2>
+                            <div style="width:70%;height:4vh;margin:auto;background-color:#1d60b7;display: flex;flex-direction: row;justify-content: space-between;margin-top:10px ;padding-left:4px 4px 4px 15px;border-radius: 5px;">
+                                <label style="margin-left:10px;">Selecione o segmento desejado :</label>
+                                <select id="SegSelect" style="margin-left:10px;border-radius:5px ;">
+                                    {{#each segment}}
+                                            {{!-- <option>e</option> --}}
+                                            <option  value="{{segmento}}">{{segmento}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div style="width:100%;height:60vh;margin:auto;background-color: #01317d;border:#ffffff 1px solid;margin-top:12vh;padding:15px ;overflow: auto;">
+                          
+                            <table id="x9" style="color:#ffffff;width:90%;">
+                                  <tr>
+                                    <th class="col-Marca">Marca</th>
+                                    <th class="col-Acoes">Ações</th>
+                                  </tr>
+                                  {{!-- {{#each fornex}} --}}
+                                  {{!-- <tbody id="bodyX">
+
+                                  </tbody> --}}
+                                  {{!-- <tr id="linhaX" > --}}
+                                    {{!-- <td id="linhaM"></td> --}}
+                                    {{!-- <td><button class="bnt-addprod"><a href="/fornec/add-produto/{{marca}}">add produto</a></button></td> --}}
+                                    {{!-- <td><button class="bnt-editar">editar</button></td> --}}
+                                  //</tr>
+                                  {{!-- {{/each}} --}}
+                            </table>
+                         
+                        </div>
+                    </div>
+         </div>
+         <div style="float:right;width:48%;height:92vh;margin:auto;background-color: transparente;margin-right:1%;">
+            <div class="modal-dialog" style="margin-top:2.2vh;">
+                <div class="modal-content" style="background-color:transparente;margin-top:.5vh;" >
+                      <!-- Modal Header -->
+                      <div class="modal-header" style="height:7vh;background-color:transparente;">
+                        <h4 class="modal-title">Busque  o fornecedor</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="modal-body" style="background-color:red ;padding-top:10px;margin-top:5.5vh;height:70vh;">
+                          <div class="div-fornec" style="background-color:#44515f;height:10vh ;text-align: center;">
+                                <div style="width:100%;height:5vh;margin:auto;background-color: #1d60b7;color: #ffffff;text-align:center;margin-top: -5px;">
+                                    <h5>digite o cnpj:</h5>
+                                    <input type="text" style="background-color:gold ;text-align:center ;" id="dig-cnpj">
+                                </div>      
+                          </div>
+                          <div class="div-fornec" style="background-color:#44515f;height:25vh ;text-align: center;margin-top:2vh ;">
+                             <ul id="nomefirma">
+                                
+                             </ul>
+                          </div>
+                      </div>
+                </div>  
+            </div>
+       </div>
+  </div>  
+ 
+<script>
+    function limpaCxLoja(){
+        console.log('limpaCaix')
+    }
+   //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    let numero;
+    let elemnto1 = document.getElementById("dig-cnpj");
+    elemnto1.addEventListener("keydown", function(event){
+        if (event.keyCode === 13) {
+                numero=elemnto1.value;
+                console.log('linha 227',numero)
+                let n;
+               // n=numero.replace(".","")
+               // n=n.replace(".","")
+                n=numero.replace("/","-bbb-")
+
+                console.log(n)
+                try{
+                    fetch(`http://localhost:8085/lojistalj/buscforneccnpj/${n}`, { method: "GET",
+                        headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => response.json())
+                    .then((json)=>{
+                      console.log(json)
+                      let firma=Object.values(json);
+                      console.log('vr de firma',firma)
+                      console.log(firma.length)
+                      console.log(firma[0])
+
+                       const node = document.createElement("li")
+                       const textnode=document.createTextNode(firma[0])
+                       let a=firma[0]
+                       node.appendChild(textnode)
+                       node.setAttribute("id","id" + textnode)
+                       node.setAttribute("class","limpalista")
+                       node.setAttribute("onclick","buscaF(" + "'" + a + "'" + ")")
+                       document.getElementById("nomefirma").appendChild(node)
+                    })
+                    .catch((e)=>{
+                      console.log(e)
+                    })
+                }catch(e){
+                  console.log('errou!')
+                }
+        }
+  });
+
+</script>
+
+
+<script>
+   function buscaF(val){
+
+    console.log(val)
+   }
+        
+</script>
+
+<script>
+    // Essa rotina vai  buscar os segmentos pertencente ao lojista focado. 
+    let palavra;
+    let elemt=document.getElementById("SegSelect");
+    elemt.addEventListener("click", function(event) {
+        palavra=document.getElementById("SegSelect").value;
+        console.log(palavra)
+        //document.getElementById("inputSegmento").value=palavra;
+           let loja=document.getElementById("spanLoja").innerText;
+           console.log('linha 232 -vr de loja',loja)
+           //return
+           try{
+                fetch(`http://localhost:8085/lojista/busca_segfornec/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => response.json())
+                .then((json)=>{
+                   const  l=Object.values(json)
+                    let h=l.length;
+                    let p=0;
+                    //::::::::::::::::::::::::::::::::::::::::::::::::::
+                   // var elem=document.getElementById("x9")
+                    const myNodelist = document.querySelectorAll("tr");
+                    let reta=myNodelist.length;
+                   
+                    for(j=0;j<reta;j++){
+                        document.getElementById("x9").deleteRow(j);
+                    }
+                   // let w=elem.childElementCount
+                   // let q=elem.children.length;
+                    //::::::::::::::::::::::::::::::::::::::::::::::::::
+                         const node0=document.createElement("tr")
+                         node0.setAttribute("id",'linha' + 0)
+                         node0.setAttribute("class","row-table")
+                         document.getElementById('x9').appendChild(node0)
+                         let x=1;
+
+                        for(i=0;i<h;i++){
+                               if(i>0){
+                                  p=p+1;
+                                  x=x+1;
+                               }
+                                //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                const node = document.createElement("td");
+                                let A = l[i].razao
+                                const textnode = document.createTextNode(A);
+                                node.setAttribute("class","fornecedor")
+                               
+                                node.appendChild(textnode);
+                                document.getElementById("linha" + p).appendChild(node);
+
+                                const node1 = document.createElement("td");
+                                const textnode1 = document.createTextNode('');
+                                node1.setAttribute("class","bnt-addprod")
+                                node1.setAttribute("id","mycol" + p)
+                                node1.appendChild(textnode1);
+                                document.getElementById("linha" + p).appendChild(node1);
+
+                                const node2 = document.createElement("td");
+                                const textnode2 = document.createTextNode('editar');
+                                node2.setAttribute("class","bnt-editar")
+                                node2.setAttribute("id","mycolE" + p)
+                                node2.appendChild(textnode2);
+                                document.getElementById("linha" + p).appendChild(node2);
+                               
+                                const node3 = document.createElement("a");
+                                const textnode3 = document.createTextNode('/fornec/add-produto/{{marca}}');
+                                node2.setAttribute("class","bnt-link")
+                                node3.setAttribute("id","mycol-E" + p)
+                                node3.setAttribute("href","/lojistalj/importando-produto/" + A + '<->' + loja)
+                                //src\routes\_lojista\lj_fornecedor.js
+                                //passa o nome do fornecedor e o nome da loja 
+                                node3.appendChild(textnode3);
+                                document.getElementById("mycol" + p).appendChild(node3);
+
+                                const node10=document.createElement("tr")
+                                node10.setAttribute("id",'linha' + x)
+                                node10.setAttribute("class","row-table")
+                                document.getElementById("x9").appendChild(node10)
+                        }
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+                    });
+            }catch(e){
+                console.log(e) 
+            }
+     }) 
+</script>
+<script>
+
+  var boxInputRegex=document.getElementById("inputRegex")
+
+  boxInputRegex.addEventListener("keydown",function(event){
+     
+     if(event.keyCode === 13){
+          let q=boxInputRegex.value;
+          try{
+                console.log(q)
+
+                fetch(`http://localhost:5000/centrallj/pegaRegex/${q}`,
+                        {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                        })
+                        .then(response => response.json())
+                        .then((json) => {
+                            console.log(json)
+                            let l=Object.values(json).length;
+                            console.log(l)
+                           
+                            for(i=0;i<l;i++){
+                              node=document.createElement("tr")
+                              node.setAttribute("id","tbBody" + i)
+                              node=document.getElementById("tbBody").appendChild(node)
+                              //::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                              let Rz=json[i].razao;
+                              //::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                              let St=json[i].segmento;
+                              let [R]=Object.entries(St)
+                              let d=Object.entries(R[1])
+                              d=d[0];
+                              d=d[1];
+                              //:::::::::::::::::::::::::::::::::::::::::::::::::::::
+                              node1=document.createElement("td")
+                              const textnode1 = document.createTextNode(Rz);
+                              node1.appendChild(textnode1)
+                              node1.setAttribute("id","tbBody" + i + 1)
+                              node1.setAttribute("class","grab")
+                              node1.setAttribute("onclick","buscF('" + Rz + ";" +  d + "')")
+                              document.getElementById("tbBody").appendChild(node1)
+                              //::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                              let Mr=json[i].marca;
+                              node2=document.createElement("td")
+                              const textnode2 = document.createTextNode(Mr);
+                              node2.appendChild(textnode2)
+                              node2.setAttribute("id","tbBody" + i + 2)
+                              document.getElementById("tbBody").appendChild(node2)
+                              //::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                              node3=document.createElement("td")
+                              const textnode3 = document.createTextNode(d);
+                              node3.appendChild(textnode3)
+                              node3.setAttribute("id","tbBody" + i + 3)
+                              document.getElementById("tbBody").appendChild(node3)
+                            }
+                        })
+                        .catch((err)=>{
+                          console.log(err)
+                        })
+                       
+
+          } catch(e){
+            console.log(e)
+          }         
+     }
+  })
+
+
+  function buscF(n){
+    console.log(n)
+    document.getElementById("main").style.backgroundColor="pink";
+    try{
+       fetch(`http://localhost:8085/centrallj/busFornecLojista/${n}`,
+                        {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                        })
+                        .then(response => response.json())
+                        .then((json) => {
+                            console.log(json)
+                        })
+                        .catch((err)=>{
+
+                        })
+
+    }catch(e){
+      console.log(e)
+    }
+  }
+</script>
+
+

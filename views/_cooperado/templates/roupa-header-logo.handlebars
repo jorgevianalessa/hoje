@@ -1,0 +1,159 @@
+
+<style>
+   .main{
+      width: 100%;
+      height: 90vh;
+      margin: auto;
+      margin-top: 8vh;
+      background-color: #fffff1;
+   }
+
+   .mainsub{
+      width: 80%;height: 90vh;margin: auto;
+      display: flex;flex-direction: column;justify-content: center;
+      margin-top: 1vh;
+      background-color: black;
+   }
+
+   
+   .ficheiro{
+       width: 25%;height: 38vh;margin: auto;
+       float: left;position: absolute;top:2vh;right: 10px; z-index: 2000;
+       background-color: #ffffff;
+       display:none;
+    }
+
+   .ficheiro_form{
+        width: 95%;height: 36vh;margin: auto;
+        background-color: #ece7e7;margin-top: 6px;padding: 10px;
+    }
+
+    .btn-up{
+        width: 50%;height: 15vh;margin: auto;
+        margin-left: 25%;
+        border-radius: 5px;
+        border: 0px;
+        border-right: 2px solid #67676b;
+        border-bottom: 2px solid #67676b;
+        background-color: #80868b;color:#ffffff;
+    }
+
+    .formtaImgFile{
+        width: 90%;height:25vh;margin: auto;
+        display: flex;flex-direction: column;
+        align-items: center ;z-index: 10;
+        margin-top: 15px;padding: 10px;
+        background-color: #cccccc;
+    }
+
+    .div-btnUpload{
+        width: 100%;height: 4vh;margin: auto;
+        text-align: center;padding-top: 0.5vh;
+        background-color:transparent;
+    }
+
+</style>
+
+<div class="main">
+     <div id="escolheFicheiro" class="ficheiro" >
+            <form action="/roupa/upload" id="idfile" method="post" enctype="multipart/form-data" class="ficheiro_form">
+                <div style="display: flex;flex-direction: row;justify-content: center;">
+                    <div style="width: 90%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+                    <div style="width: 10%;height: 4vh;margin: auto;background-color: #008000;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;color: #ffffff;">
+                        <button type="button" style="background-color: #008000;color:#ffffff;font-size: larger;font-weight: 200;border: 0px;" onclick="EscondeImg()">X</button>
+                    </div>
+                </div>     
+                <div >
+                    <input type="file" name="upload" id="fileA">
+                    <input type="text" id="idProdutoDefault" name="idProduto" value="{{idLoja}}" style="display:block;background-color: #06eb1d;color:#ffffff;">
+                    <input type="text" id="idDetalheFoto" name="idDetalhe" style="display:block;background-color: #f35906;color:#ffffff;font-weight: 100;">
+                    <input type="text" id="idLocalImagem" name="LocalImagem" style="display:block;color:#0000ff;background-color: #ffffff;" value="10">
+                    <input type="text" id="idSide" name="PosicaoImg" style="display:block;color:red;background-color: #ffffff;" >
+                </div>
+                <div class="formtaImgFile">
+                    <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color: #ffffff;padding: 10px;">
+                        <img id="imgPreviewA" src="" alt="" class="" width="100%" height="auto" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;"/>
+                    </div>
+                    <div class="div-btnUpload">
+                        <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:0px;display: none;width: 40%;margin-left: 30%;">Upload</button>
+                    </div>
+                </div> 
+            </form>
+     </div>
+     <div class="mainsub">
+         <div id="idTipoLista" style="width: 100%;height: 25vh;margin: auto;display: flex;flex-direction: row;justify-items: center;margin-bottom: 1vh;background-color: transparent;" >
+              <div style="width: 40%;height: 24vh;margin: auto;background-color: cadetblue;display: flex;flex-direction: row;justify-content:center ;vertical-align: middle;padding: 5vh; ">
+                   <img  src="{{r1.urllogolista}}">
+              </div>
+              <div style="width: 40%;height: 24vh;margin: auto;background-color: cadetblue;justify-content: center;padding-top: 2vh;">
+                      <div style="width: 80%;height: 20vh;margin: auto;vertical-align: middle;background-color:transparent;padding-top: 2vh;margin-left: 10%;">
+                         <button class="btn-up" onclick="upLista()">Título Lista</button>
+                    </div>
+              </div>
+         </div>
+         <div id="idLogaMarca" style="width: 100%;height: 25vh;margin: auto;display: flex;flex-direction: row;justify-items: center;margin-bottom: 1vh;background-color:transparent;">
+                <div style="width: 40%;height: 24vh;margin: auto;background-color: cadetblue;display: flex;flex-direction: row;justify-content:center ;vertical-align: middle;padding: 5vh; ">
+                   <img  src="{{r1.urllogomarca}}">
+              </div>
+              <div style="width: 40%;height: 24vh;margin: auto;background-color: cadetblue;justify-content: center;padding-top: 2vh;">
+                    <div style="width: 80%;height: 20vh;margin: auto;vertical-align: middle;background-color: transparent;padding-top: 2vh;margin-left: 10%;">
+                         <button class="btn-up" onclick="upLogo()">Logomarca</button>
+                    </div>
+              </div>
+         </div>
+
+         <div id="idtituloPage" style="width: 100%;height: 25vh;margin: auto;display: flex;flex-direction: row;justify-items: center;margin-bottom: 1vh;background-color:transparent;">
+               <div style="width: 40%;height: 24vh;margin: auto;background-color: cadetblue;display: flex;flex-direction: row;justify-content:center ;vertical-align: middle;padding: 5vh; ">
+                   <img  src="{{r1.urltitulopage}}">
+              </div>
+              <div style="width: 40%;height: 24vh;margin: auto;background-color: cadetblue;justify-content: center;padding-top: 2vh;">
+                    <div style="width: 80%;height: 20vh;margin: auto;vertical-align: middle;background-color:transparent;padding-top: 2vh;margin-left: 10%;">
+                         <button class="btn-up" onclick="upPage()">Título Page</button>
+                    </div>
+              </div>
+         </div>
+     </div>
+</div>
+<script>
+function EscondeImg(){
+    document.getElementById("escolheFicheiro").style.display="none";
+}
+
+//.............................................
+let fileImgA=document.querySelector('#fileA');
+
+const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        console.log(' [ 72 ]')
+        document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+            console.log(' [ 80 ] ')
+            document.getElementById("ladoLoadImage").style.display="block";
+            document.getElementById("menu-modal").style.display="block";
+            document.getElementById("Up01").style.visibility="visible";
+          }
+          reader.readAsDataURL(selecledFile);
+    });
+
+function upLista(){
+    document.getElementById("escolheFicheiro").style.display="block";
+    document.getElementById("idSide").value="tipolista";
+}
+
+function upLogo(){
+   document.getElementById("escolheFicheiro").style.display="block";
+   document.getElementById("idSide").value="logomarca";
+}
+
+function upPage(){
+   document.getElementById("escolheFicheiro").style.display="block";
+   document.getElementById("idSide").value="titulopage";
+}
+</script>

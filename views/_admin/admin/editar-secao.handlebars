@@ -1,0 +1,1454 @@
+<style>
+  input[type=text], select, textarea {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+       padding: 6px 6px 6px 0;
+       font-size: smaller;
+       font-weight: 100;
+       display: inline-block;
+    }
+
+    .container {
+       border-radius: 5px;
+       background-color: #f2f2f2;
+       padding: 20px;
+    }
+    
+    .row{
+        height: 4vh;
+        font-size: medium;
+        background-color: transparent;
+        border-bottom: solid #ffffff 2px;
+        margin-top: 2px;
+        width: 95%;
+        margin: auto;
+    }
+
+    .col-0{
+       float: left;
+       width: 0%;
+       margin-top: 6px;
+    }
+
+    .col-15{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-20{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-25{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transparent;
+       color: #ffffff;
+    }
+
+    .col-26{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-261{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-30{
+       float: left;
+       width: 30%;
+       margin-top: 6px;
+    }
+
+    .col-45{
+       float: left;
+       width: 45%;
+       margin-top: 6px;
+    }
+
+    .col-70{
+       float: left;
+       width: 70%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    .col-75{
+       float: left;
+       width: 75%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .main{
+        width: 100%;background-color:#ffffff;margin:auto;padding:3px;height: 95vh;margin-top: 3.3rem;
+    }
+
+    .main-grid{
+        width: 100%;height: 100vh;margin:auto;display: grid;grid-auto-columns:1fr 4fr;background-color:#fffff;text-align: center;
+    }
+
+    .ul-setor{
+        width:100%;height:30vh;background-color: #ffffff;list-style:none;margin-left:1px;overflow-x:auto;padding-top: 24px;
+    }
+
+    .ul-setor-linha{
+        width: 95%;
+        height: 4vh;
+        margin-left: -10px;
+        margin-top: 12px;
+        font-weight: 100;
+        color:#000000;
+        border:#00ff11 2px solid;
+        text-align: left;
+        padding-left: 6px;
+        box-shadow: 2px 2px #ffffff;
+        border-top: none;
+        border-left: none;
+    }
+
+    .conter{
+        width: 80%;
+        height: 90vh;
+        margin: auto;
+        border-radius: 6px;
+        background-color: #8c1515;
+        padding:0px  10px;
+    }
+
+    .loja{
+        width: 90%;height:100vh;margin:auto;background-color: #ffffff;
+        margin-top:0px;padding: 0px 15px 0px 15px;border:solid 2px white;display: none;
+        display: flex;;
+        flex-direction: row;
+    }
+
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color:#800000;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-right: #02536d solid 3px;
+        border-bottom: #025d7b solid 2px;
+        border-radius: 5px;
+        width: 60%;
+   }
+
+.button2 {background-color: #EFCA50;} /* Blue */
+    .form-div{
+        width:90%;height:75vh;margin:auto;background-color:#ffffff;padding: 20px;
+    }
+
+    .form-linha-top{
+        width:80%;height:6vh;margin: auto;background-color: #ffffff;margin-top: 25px;
+    }
+    
+    .form-titulo{
+         width:90%;height:6vh;margin: auto;background-color: #033061;margin-top:20px;color: #00ff11;border-radius: 6px;
+    }
+
+    .form-linha{
+        width:90%;height:5vh;margin: auto;background-color: #033061;margin-top:10px;display: flex;
+        flex-direction: row;padding-right:15px ;border-radius: 6px;
+    }
+
+    .form-linha-cep{
+        width:90%;height:6vh;margin:auto;background-color: #888d92;margin-top:10px;display: flex;flex-direction: row;padding: 8px;justify-content: flex-start;border-radius: 6px;
+    }
+
+    .form-label{
+        width:30%;height:4vh;margin: auto;background-color: #033061;padding: 4px;float: left;margin-left: 5px;padding-left: 0px;
+    }
+
+    .form-input{
+        width:70%;height:4vh;margin: auto;background-color: #033061;padding: 4px;float: left;margin-left: 2px;
+    }
+
+    .form-inputCep{
+        width:40%;height:4vh;margin: auto;background-color: #033061;padding: 4px;float: left;margin-left:-10px;padding-right: 5px;
+    }
+
+    .form-inputLinha{
+        width: 90%;
+        height: 3vh;
+        font-size: medium;
+        color: #033061;
+        text-align: left;
+        margin-left: 2px;
+        padding: 1px;
+        background-color: #ffffff;
+    }
+
+    .form-labelLinha{
+        font-size: medium;
+        color: #f2f2f2;
+        text-align: left;
+        margin-left: 2px; 
+        padding: 1px;
+    }
+
+    /*-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->*/
+    .lateral-left-S{
+        grid-column:1/span 1;grid-row:1;background-color: #ffffff;height: 42vh;padding:20px;color:#057c17;
+    }
+
+    .lateral-left-I{
+        grid-column:1/span1;grid-row:2;background-color: #ffffff;height: 42vh;padding:20px;
+    }
+
+    .centro-div{
+        grid-column:2;grid-row:0/span 1;background-color:#ffffff;padding:0px 15px  0px 15px;
+    }
+
+    .col-15 input{
+        background-color: #ffffff;
+        height:3.5vh;
+        margin-top:.2vh;
+    }
+
+    .col-20 input{
+        background-color: #ffffff;
+        height:3.5vh;
+        margin-top:.2vh;
+    }
+
+    .col-25 input{
+        background-color: pink;
+        height:3.5vh;
+    }
+
+    .col-26 input{  
+        background-color: #025d7b;
+        height:3.5vh;
+    }
+
+    .col-261 input{  
+        background-color: #025d7b;
+        height:3.5vh;
+    }
+
+     .col-45 input{
+        background-color: transparent;
+        height:3.5vh;
+    }
+
+    .col-60 input{
+        background-color: #025d7b;
+        height:3.5vh;
+        color:#ffffff;
+    }
+
+    .col-70 input{
+        background-color: #ffffff;
+        height:3.5vh;
+        color:red;
+    }
+
+
+    .tdcor{
+        margin-left: 0px;
+        border-bottom : solid #dedbe3 1px;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    .tdsecao{
+        margin-left: 0px;
+    }
+
+    .tdcolorido{
+        width: 100vw;
+        height:3vh;
+        margin-top: 3px;
+        background-color: #1807ae;
+        color: red;
+        border-bottom: 2px solid #ffffff;
+        vertical-align: middle;
+        visibility: visible;
+    }
+
+   
+   
+</style>
+<script>
+  function limpaCxLoja(){
+        let n=1;
+        let x=1;
+        if(x==n){
+          //function limpaTudoX()
+        }
+        document.getElementById("typeSegmento").style.display="none";     
+  }
+
+  function limpaTudoX(){
+            console.log(590)
+            document.getElementById("inputSenha").value="555";
+            var vazio=document.getElementById("boxEmail").value='122';
+            console.log('vr de vazio',vazio)
+            document.getElementById("confirmeSenha").value="345";
+        }
+
+ 
+</script>
+
+</head>
+<script>
+   function myFunction(n){
+     console.log('gol',2,n)
+     document.getElementById("edicaoClient").style.display="block";
+     document.getElementById("typeSegmento").style.display="none";
+     document.getElementById("typeSecao").style.display="none";
+    document.getElementById("deleteClient").style.display="none";
+  }
+</script>
+<body style="background-color: #cccccc;width: 90%;height: 100vh;margin: auto;padding: 2pxtbodySegSecao;padding-top: 4vh;" >
+    <div style="width: 95%;height: 110vh;margin: auto;display: flex;flex-direction: column;align-items: center;background-color: #043ac1;
+                margin-top:4vh;padding: 2px;margin-bottom: 10px;">
+        <div style="width: 100%;height: 5vh;margin: auto;background-color: #9a0a6a;color:#ffffff;
+                    margin-top: 0.1vh;margin-bottom:0.3vh;display: flex;flex-direction: row;
+                    justify-content: center;align-items: center;padding:0px;">
+                        <p style="font-size: larger;">Administração do Lojista</p>
+        </div>
+        <div id="corpo" style="width: 95%;height: 110vh;margin: auto;background-color: #1b9a0a;color:#ffffff;margin-bottom: 1vh;">
+            <div id="menuLateral" style="width: 30%;height: 100vh;margin: auto;padding-left: 10px; background-color: #8b0520;float: left;
+                                        display: flex;flex-direction: column;">
+                <div style="width: 100%;height:60vh;margin: auto;background-color: #c6ccce;padding-top: 10%;">
+                <div style="width: 70%;height: 10vh;margin: auto;background-color: #888d92;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+                        <button class="button button2"  onclick="editClient()" ><span style="font-size: xx-small;">EDITE cliente</span></button>
+                </div>                      
+                <div style="width: 70%;height: 10vh;margin: auto;background-color: #888d92;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+                        <button class="button button2" onclick="typeSegmento()">Segmento</button>
+                </div>
+                <div style="width: 70%;height: 10vh;margin: auto;background-color: #888d92;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+                        <button class="button button2" onclick="typeSecao()">Seção</button>
+                </div>
+                    <div style="width: 70%;height: 10vh;margin: auto;background-color: #888d92;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+                        <button class="button button2" onclick="deleteClient()">Delete Cliente</button>
+                </div>
+                <div style="width: 70%;height: 10vh;margin: auto;background-color: #888d92;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+                        <button class="button button2" onclick="retorno()">retorno</button>
+                </div>
+                
+                </div>                            
+            </div>
+            <div id="edicaoClient" style="width: 70%;height: 100vh;margin: auto;padding-left:10px;background-color: #f3f306;margin-bottom: 1vh;float: left;">
+                <div style="text-align: center;">
+                    <p style="font-size: larger;color:#ffffff;">Edite Cliente</p>
+                </div>
+                <form action="/centrallj/cadastro-lojista" style="width: 80%;background-color:#c00202;margin:auto;margin-top:5px;padding-top: 2%;padding-bottom: 2%;border-radius: 6px;" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                            {{!-- ------------------------------------------------------------ --}}
+                            <div id="Rwrazao" class="row">
+                                <input id="idValue" style="display: none;" value="{{client._id}}">
+                                
+                                <div class="col-25">
+                                    <label for="rzsocial">Razão Social :</label>
+                                </div>
+                                <div class="col-70">
+                                    <input type="text" id="rzsocial" name="rzsocial" style="color:#ffffff;" placeholder="razão ..." tabindex="0" value='{{client.razao}}' required>
+                                </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="Rwrespd" class="row">
+                                <div class="col-25">
+                                    <label for="resp1">Responsável :</label>
+                                </div>
+                                <div class="col-70">
+                                    <input type="text" id="resp1" name="resp1"  placeholder="" tabindex="1" value='{{client.respHum}}' required>
+                                </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="Rwcpf" class="row">
+                                <div class="col-25">
+                                    <label class="" for="cpf1">CPF :</label>
+                                </div>
+                                <div class="col-70">
+                                    <input type="text" id="cpf1" name="cpf1"  placeholder="" tabindex="2" value='{{client.cpfHum}}' required>
+                                </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="Rwcnpj" class="row">
+                                <div class="col-25">
+                                    <label class="" for="cnpj">CNPJ :</label>
+                                </div>
+                                <div class="col-70">
+                                    <input type="text" id="cnpj" name="cnpj"  placeholder="" tabindex="3" value="{{client.cnpj}}" required>
+                                </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="Rwinscricao" class="row">
+                                <div class="col-25">
+                                    <label  for="inscricao">INSCRIÇÃO :</label>
+                                </div>
+                                <div class="col-70">
+                                    <input type="text" id="inscricao" name="inscricao"  placeholder="" tabindex="4" value='{{client.inscricao}}' required>
+                                </div>
+                            </div>
+                            <div id="Rwsite" class="row" >
+                                <div class="col-25">
+                                    <label class="" for="nomeSite" >Site :</label>
+                                </div>
+                                <div class="col-70">
+                                    <input type="text" id="nomeSite" name="nomeSite"  placeholder=""  tabindex="5" value='{{client.site}}' required>
+                                </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="Rwmarca" class="row" >
+                                <div class="col-25" >
+                                    <label class="" for="marca">Marca :</label>
+                                </div>
+                                <div class="col-26">
+                                    <input type="text" id="marca" name="marca"  placeholder="" tabindex="7" value='{{client.marca}}' required>
+                                </div>
+                            </div>    
+                            <div id="Rwfone" class="row" style="margin-top:3px ;">
+                                <div class="col-25" >
+                                    <label class="" for="celular" style="text-align:center;">Celular :</label>
+                                </div>
+                                <div class="col-26" >
+                                    <input type="text" id="celular" name="celular" style="background-color: #025d7b;color:#ffffff;"  placeholder="" tabindex="8" value='{{client.celular}}' required>
+                                </div>
+                                {{!-- ----------------------------------------------------------- --}}
+                                <div class="col-25" style="background-color:transparent;width:18%;">
+                                    <label class="" for="telefixo">Tel Fixo :</label>
+                                </div>
+                                <div class="col-26" style="margin-left:.3% ;">
+                                    <input type="text" id="telefixo" name="telefixo" style="background-color: #025d7b;color:#ffffff;" placeholder="" tabindex="9" value='{{client.telefone}}' required>
+                                </div>
+                            </div>        
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="Rwemail" class="row" >
+                                <div class="col-25" >
+                                    <label class="" for="">E-mail :</label>
+                                </div>
+                                <div class="col-701" > 
+                                    <input type="text" id="telefixo" name="telefixo"  placeholder="" tabindex="10" value='{{client.email}}' required>
+                                </div>
+                                {{!-- <input type="text" style="height:3.2vh;" id="box" name="box" style="background-color: #025d7b;color:#ffffff;" placeholder="" tabindex="10" value='{{client.email}}'  required> --}}
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="RwCep" class="row" >
+                                <div class="col-25" >
+                                    <label class="" for="labelcep" >Cep :</label>
+                                </div>
+                                <div class="col-26" >
+                                    <input type="text" id="inputCep" name="inputCep" style="background-color: #025d7b;color:#ffffff;"  tabindex="11" value='{{client.cep}}' required>
+                                </div>
+                            </div>         
+                            <div id="RwAvenida"  class="row" style="margin-top:3px;padding:2px ;">
+                                <div class="col-25" >
+                                    <label class="" for="inputAvenida">Avenida/rua :</label>
+                                </div>
+                                <div class="col-45" >
+                                    <input type="text" id="inputCep" name="inputCep" style="background-color: #025d7b;color:#ffffff;"  tabindex="12" value='{{client.logradouro}}' required>
+                                </div>
+                                {{!-- <input style="" type="text" id="inputAvenida" name="inputAvenida" style="background-color: #025d7b;color:#ffffff;" tabindex="16" value='{{client.logradouro}}' required> --}}
+                                <div class="col-20" style="width:12%;height: 4vh;">
+                                    <label class="" for="inputNumero">Nº :</label>
+                                </div>
+                                <div class="col-15" style="float:left;width:15%;margin-top:5px;">
+                                    <input type="text" id="inputCep" name="inputCep" style="background-color: #025d7b;color:#ffffff;"  tabindex="13" value='{{client.numero}}' required>
+                                </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="RwComplemento" class="row" >
+                                    <div class="col-25" >
+                                    <label class="" for="Complemento">Complemento :</label>
+                                </div>
+                                <div class="col-45" >
+                                    <input type="text" id="inputComplemento" name="inputComplemento" style="background-color: #025d7b;color:#ffffff;" tabindex="14" value='' required>
+                                </div> 
+                            </div>
+                            <div id="RwCidade" class="row" >
+                                <div class="col-25" >
+                                    <label  for="inputAvenida">Cidade :</label>
+                                </div>
+                                <div class="col-45" >
+                                        <input type="text"  id="inputCidade" name="inputCidade" style="background-color: #025d7b;color:#ffffff;" value="{{client.cidade}}" tabindex="15" required>
+                                </div>
+                            </div>
+                            <div id="RwBairro" class="row">
+                                    <div class="col-25" >
+                                        <label  for="inputBairro">Bairro:</label>
+                                    </div>
+                                    <div class="col-15" >
+                                        <input type="text"  id="inputBairro" name="inputBairro" style="background-color: #025d7b;color:#ffffff;" tabindex="16" value='{{client.bairro}}' required>
+                                    </div>
+                            </div>
+                            <div id="Rwesatdo" class="row">
+                                    <div class="col-25"  >
+                                        <label class=""  for="inputEstado">Estado :</label>
+                                    </div>
+                                    <div class="col-20" >
+                                        <input type="text"   id="inputEstado" name="inputEstado" style="background-color: #025d7b;color:#ffffff;" value="ES" tabindex="17" value='{{client.estado}}' required>
+                                    </div>
+                            </div>
+                            {{!-- ----------------------------------------------------------- --}}
+                            <div id="RwSegmento" class="row" >
+                                    <div class="col-25" >
+                                        <label for="inputAvenida" >Segmento:</label>
+                                    </div>
+                                    <div class="col-45" >
+                                            <select name="SelectSeg" id="SelectSeg" class=""  value="" tabindex="18" required>
+                                                {{!-- {{#each segmento}} --}}
+                                                        <option onclick="buscabairro({{this}})">{{client.titulo}}</option>
+                                                {{!-- {{/each}} --}}
+                                            </select>
+                                    </div>
+                            </div>
+                            <div id="RwSubSegmento" class="row">
+                                    <div class="col-25">
+                                        <label for="inputAvenida">Sub-Segmento:</label>
+                                    </div>
+                                    <div class="col-45" >
+                                        <select name="SelectSubSeg" id="SelectSubSeg" onchange="myFunctionB()" class=""   value="" tabindex="19" required>
+                                                    <option></option>
+                                        </select>
+                                    </div>
+                            </div>
+                            <div class="row" style="margin-top:1vh ;background-color:transpareente;">
+                                <button style="width: 50%;margin: auto;background-color: #02536d;color: white;border-top: #00ff11 2px solid;border-bottom: #00ff11 2px solid;border-right: #00ff11 2px solid;">Editar</button>
+                                
+                            </div>
+                            <div style="grid-column: 4;grid-row:1/span 10;background-color:#4e04b6;">
+
+                            </div>
+                </form>
+            </div>
+            <div id="typeSegmento" style="width: 70%;height: 100vh;margin: auto;padding-left:10px;background-color:#07090b;text-align: center;float: left;">
+                <h1  style="color:#ffffff;font-size: medium;">Add Segmento</h1>
+                <div id="typeSegmento-nucleo" style="width: 80%;height: 80vh;background-color:#424739;margin:auto;margin-top:10px;padding: 2% 6% 2% 6%;">
+                        <div id="typeSegmento-titulo" style="width: 90%;height: 12vh;margin: auto;border: solid 1px #ffffff;padding-top: 1%;background-color:#424739;">
+                                {{!-- Nome do LOJISTA --}}
+                                <div id="divnmloja" style="width: 90%;height: 5vh;margin: auto;background-color:#424739;margin-bottom: 6px;display: flex;flex-direction:row;
+                                            justify-content: center;align-content: center;border-radius: 6px;">
+                                    <div style="width: 30%;height: 4vh;margin: auto;background-color: transparent;margin-bottom: 4px;float: left;display: flex;
+                                                flex-direction: column;padding: .4%;justify-content: right;">
+                                    <label style="background-color: transparent;color:white;font-size: larger;">loja :</label>
+                                    </div>
+                                    <div style="width: 50%;height: 4vh;margin: auto;background-color: transparent;margin-bottom: 4px;float: left;display: flex;
+                                                flex-direction: column;justify-content:left;">
+                                    <input value="{{client.razao}}">
+                                    </div>
+                                </div>
+                                {{!-- Título  Segmento   --}}
+                                <div id="divnmsegmneto" style="width: 90%;height: 4vh;margin: auto;background-color: transparent;margin-bottom: 4px;display: flex;
+                                            flex-direction: column;justify-items: center;padding: 0.4%;align-content: center;border-radius: 6px;">
+                                    <h4 style="color:#800000;background-color: #EFCA50;border-radius: 4px;">Edição de segmento:</h4>
+                                </div>
+                        </div>   
+                        {{!-- TABLE QUE RECEBE OS SEGMENTOS PERTENCENTE AO LOGISTA--}}
+                        <div id="typeSegmento-delete" style="width: 90%;height: 30vh;margin: auto;background-color:#424739;margin-bottom: 4px;
+                                                        padding: 0.8%;border-radius: 6px;padding-top: 1.5%;border:2px solid #ffffff;">
+                            <div style="width: 90%;height: 28vh;margin: auto;display: flex;flex-direction:column;justify-content: center;background-color:#424739;">
+                                    <input id="typeSegmento-delete-chave" style="width: 20%;margin: auto;display: none" value="0">
+                                    <table id="selectedSeg" style="width: 40%;height: 12vh;margin: auto; background-color:#096735;color:#ffffff;text-decoration: none;">
+                                        <tbody id="tbodySeg">
+                                        </tbody>
+                                    </table>
+                                    <div id="typeSegmento-delete-form" style="width: 90%;height: 12vh;margin: auto;background-color: #424739;margin-top: 6px;visibility: hidden;">
+                                        <form method="post" action="/centrallj/edicao-lojista-tudo/sd" style="width: 80%;height: 5vh;margin: auto;background-color:transparent;margin-top: 5px;" enctype="application/x-www-form-urlencoded">
+                                            <div style="width: 90%;height: 4vh;margin: auto;background-color:transparent;margin-bottom: 4px;display: flex;
+                                                    flex-direction: column;justify-content: center;">
+                                                    <input id="typeSegmento-delete-form-idClient" name="sd-idclient" style="display: none;" value="{{client._id}}">
+                                                    <input id="typeSegmento-delete-form-valorSeg" name="sd-valorseg" style="width: 60%;margin: auto;border-radius: 5px;">
+                                            </div>   
+                                            <div style="width: 90%;height: 4vh;margin: auto;background-color:#02536d transparent;margin-bottom: 4px;display: flex;
+                                                        flex-direction: row;justify-content: space-around;">
+                                                <button type="submit" style="width: 90%;background-color: #033061;border-radius: 6px;
+                                                                border-right: solid 2.6px #ffffff;border-top: solid 0.8px #ffffff;border-bottom: solid 2px #ffffff;
+                                                                border-left: solid 0.8px #ffffff;;color:#ffffff">Delete segmento</button>
+                                        </div>
+                                    </form>    
+                                    </div>
+                            </div>                                 
+                        </div>
+                        {{!-- LISTA DE SEGMENTOS TOTAL --}}
+                        <div id="typeSegmento-adcionar" style="width: 90%;height:20vh;margin: auto;background-color: #424739;
+                                                            margin-top: 5vh;padding: 1% 2% 1% 2%;border:2px solid #ffffff;">
+                            
+                            <div id="typeSegmento-adcionar-list" style="width: 90%;height: 4vh;margin: auto;background-color: transparent;margin-bottom: 4px;">
+                                    <select id="selecaoSeg" style="color:red;">
+                                        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+                                        {{#each Seg}}
+                                        <option onclick="buscSeg({{this.segmento}})">{{this.segmento}}</option>
+                                        {{/each}}   
+                                    </select>
+                            </div>
+                            <div id="typeSegmento-adcionar-form"  style="width: 90%;height: 9vh;margin: auto;background-color:transparent;visibility: hidden;">
+                                    <form method="post" action="/centrallj/edicao-lojista-tudo/sa" style="width: 80%;height: 8vh;margin: auto;background-color:#424739;margin-top: 5px;" enctype="application/x-www-form-urlencoded">
+                                            <div style="width: 90%;height: 4vh;margin: auto;background-color:transparent;margin-bottom: 4px;display: flex;
+                                                    flex-direction: column;justify-content: center;">
+                                                    <input id="idClient" name="sa-idclient" style="display: none;" value="{{client._id}}">
+                                                    <input id="typeSegmento-adcionar-form-valorseg" name="sa-valorseg" style="width: 60%;margin: auto;border-radius: 5px;">
+                                            </div>   
+                                            <div style="width: 90%;height: 3vh;margin: auto;background-color:#02536d transparent;margin-bottom: 2px;display: flex;
+                                                        flex-direction: row;justify-content: space-around;">
+                                                <button type="submit" style="width: 90%;background-color: #033061;border-radius: 6px;
+                                                                border-right: solid 2.6px #ffffff;border-top: solid 0.8px #ffffff;border-bottom: solid 2px #ffffff;
+                                                                border-left: solid 0.8px #ffffff;;color:#ffffff">Add segmento</button>
+                                            </div>
+                                    </form>     
+                            </div>
+                            <div id="typeSegmento-adcionar-limpar" style="width: 90%;margin: auto;height: 3.5vh;background-color:#424739;padding:.3%;margin-top: 0.5vh;text-align: center;
+                                                                    visibility: hidden;">
+                                    <button type="button" style="width: 90%;background-color: #033061;border-radius: 6px;
+                                                                border-right: solid 2.6px #ffffff;border-top: solid 0.8px #ffffff;border-bottom: solid 2px #ffffff;
+                                                                border-left: solid 0.8px #ffffff;;color:#ffffff" onclick="limpaTudo()">Limpar tudo</button>
+                        </div>
+                        </div>      
+                        {{!-- //////////////////////////////////////////// --}}
+                        
+                </div>
+            </div>       
+            <div id="typeSecao" style="width: 70%;height: 100vh;margin: auto;padding-left:10px;background-color: #888d92;text-align: center;float: left;">
+                <div id="typeSecao-nucleo"  style="width: 90%;height: 90vh;background-color:#888d92;margin:auto;margin-top:5px;padding: 8%;">
+                        <div id="typeSecao-nucleo-titulo" style="width: 90%;height: 12vh;margin: auto;border: solid 1px #ffffff;padding-top: 1%;background-color: #424739;margin-bottom: 10px;">
+                            <div  style="width: 90%;height: 5vh;margin: auto;background-color:transparent;margin-bottom: 6px;display: flex;flex-direction:row;
+                                    justify-content: center;align-content: center;border-radius: 6px;">
+                            <div id="typeSecao-nucleo-label" style="width: 30%;height: 4vh;margin: auto;background-color:transparent;margin-bottom: 4px;float: left;display: flex;
+                                        flex-direction: column;justify-content: right;align-items: center;">
+                                    <label style="background-color: transparent;color:#ffffff;font-size: larger;">loja :</label>
+                            </div>
+                            <div id="typeSecao-nucleo-input" style="width: 50%;height: 4vh;margin: auto;background-color: transparent;margin-bottom: 4px;float: left;display: flex;
+                                        flex-direction: column;justify-content:left;padding: .4%;">
+                                    <input style="border-radius: 6px;text-align: center;" value="{{client.razao}}">
+                            </div>
+                            </div>  
+                            <div id="typeSecao-nucleo" style="width: 90%;height: 4vh;margin: auto;background-color:red;margin-bottom: 4px;display: flex;
+                                    flex-direction: column;justify-items: center;padding: 0.4%;align-content: center;border-radius: 6px;">
+                            <p style="color:white;background-color: transparent;font-size: large;">Editando Seção:</p>
+                            </div>
+                        </div>      
+                        {{!-- Divisão que recebe a lista de segmentos cadastrado no lojista --[Table VERDE]--}}
+                        <div id="typeSecao-nucleo-segmento" style="width: 90%;height: 20vh;margin: auto;background-color:#424739;margin-bottom: 4px;padding: 0.8%;
+                                                                border-radius: 6px;border:2px solid #ffffff">
+                            <div style="width: 90%;height: 19vh;margin: auto;display: flex;flex-direction:column;justify-content: center;background-color:transparent;padding-top: 0.2%;">
+                                <input id="typeSecao-delete-chave" style="width: 20%;margin: auto;margin-bottom: 4px;background-color: transparent;color:#02536d;display: none;" value="0">
+                                <table id="typeSecao-selectedSeg" style="width: 40%;height: 15vh;margin: auto; background-color:transparent;color:#ffffff;text-decoration: none;">
+                                    <tbody id="tbodySegSecao" style="height: 12vh;padding-left:10px;">
+                                    {{!-- Essa tabela lista os segmentos cadastro no lojista   --}}
+                                    </tbody>
+                                </table>
+                            </div>    
+                        </div>
+                        {{!-- Divisão que recebe as seções cadastradas no segmento selecionado --}}
+                        <div id="typeSecao-delete-lista-subtitulo" style="width: 90%;height: 15vh;margin: auto;background-color:#424739;margin-bottom: 4px;padding: 0.8%;
+                                                                        border-radius: 6px;padding-top: 0.8vh;border: 2px solid #ffffff;">
+                                <input id="typeSecao-numSecao" style="width: 10%;height:2vh;margin:  auto;margin-bottom: 4px;display:block;background-color: #02536d;color:#ffffff;text-align: center;display: none;" >
+                                <input id="typeSecao-nomeSegmento" style="width: 40%;height:3vh;margin:  auto;margin-bottom: 4px;display:block;background-color:#EFCA50;color:#800000;text-align: center;border-radius: 4px;
+                                                                        border-right:solid #ffffff 2px;border-bottom:2px solid #ffffff ;display: block;" >
+                                <table id="typeSecao-selectedSecao" style="width: 40%;height: 10vh;margin: auto; background-color:transparent;color:#ffffff;text-decoration: none;">
+                                    <tbody id="tbodySecao" class="" style="width:100%;">
+                                    {{!-- Essa tabela lista as seções cadastradas do segmento selecioando --}}
+                                    </tbody>
+                                </table>
+                                <div id="avisoSecao" style="width: 60%;height: 3vh;margin: auto;background-color:#1807ae;text-align: center;border-radius: 6px;
+                                                            border-bottom:3px solid #ffffff;border-right:solid #ffffff 2.5px;border-left:1px solid #ffffff;
+                                                            border-top:1px solid #ffffff;padding: 0.3vh;">
+                                            <h3 style="color:#ffffff;font-size: medium;">Não há seção cadastrada em : <span id="Avisosegmento" style="color:#00ff11;font-size: smaller;"></span></h3>
+                                </div>
+                        </div>    
+                        {{!-- Divisão que dispoem sub-titulo para anexar ao segmento pertencente ao lojista                              --}}
+                        <div id="typeSecao-add-secao-segmento" style="width: 90%;height: 10vh;margin: auto;background-color: #424739;margin-top: 4px;display: none;border: 2px solid #ffffff;padding: .5vh;">
+                                    {{!-- Essa divisão contém a lista de sub-titulo pertinente ao segmento selecionado para inserção  --}}
+                                    <div style="width: 90%;height: 3.5vh;margin: auto;background-color:transparent;margin-bottom: 4px;display: flex;
+                                                flex-direction: column;justify-content: center;">
+                                            <select id="selected-subtitulo" style="width: 60%;margin: auto;height: 3vh;border-radius: 5px;background-color:;color:#bf1111;font-size: medium;text-align: center;">                                           
+                                            </select>
+                                    </div>  
+                                    {{!-- Essa divisão mostra no input   o valor da seção escolhida para inserir --}}
+                                    <div id="typeSecao-add-secao-rotina" style=" width: 90%;height:11vh ;margin: auto;background-color: transparent;padding: 0.6vh;display: none;">
+                                            <div style="width: 90%;height: 4vh;margin: auto;background-color:transparent;margin-bottom: 4px;display: flex;
+                                                    flex-direction: column;justify-content: center;">
+                                                    <input id="valorSeg" style="width: 60%;margin: auto;border-radius: 5px;background-color:#EFCA50;visibility:block;text-align: center;">
+                                            </div>   
+                                            <div style="width: 90%;height: 5vh;margin: auto;background-color:transparent;margin-bottom: 4px;display: flex;
+                                                        flex-direction:column;justify-content:center;align-items:center;margin-top: 3px;">
+                                            <button id="addseccao" type="submit" style="width: 90%;background-color: #033061;border-radius: 6px;
+                                                            border-right: solid 2.6px #ffffff;border-top: solid 0.8px #ffffff;border-bottom: solid 2px #ffffff;
+                                                            border-left: solid 0.8px #ffffff;color: #ffffff;visibility: visible;">Add secção</button>
+                                                
+                                            </div>
+                                    </div>  
+                                    <div>
+                                            <button type="button" style="width: 90%;background-color: #033061;border-radius: 6px;
+                                                                            border-right: solid 2.6px #ffffff;border-top: solid 0.8px #ffffff;
+                                                                            border-bottom: solid 2px #ffffff;border-left: solid 0.8px #ffffff;
+                                                                            margin-top: 6px;color: #ffffff;" onclick="limpaAddSecao()">Limpa tudo</button>                      
+                                    </div>                                                             
+                        </div>
+                        {{!-- Divisão para deletar seção pertencente a um segmento --}}
+                        <div id="typeSecao-nucleo-delete-secao"  style="width: 90%;height: 15vh;margin: auto;background-color:#424739;display: none;
+                                                                        border:2px solid #ffffff;border-radius: 4px;">
+                            <div style="width: 90%;height: 14.5vh;margin: auto;display: flex;flex-direction: column;justify-content: center;justify-items: center;
+                                        background-color:#424739;padding: 0.1vh;">
+                                <form style="background-color:transparent;">
+                                    <div style="width: 90%;height: 13.9vh;margin: auto;display: flex;flex-direction: column;justify-content: center;justify-items: center;
+                                        background-color:transparent;padding: 0.1vh;">
+                                            <div style="width: 90%;height: 14.9vh;margin: auto;display: flex;flex-direction: column;justify-content: center;justify-items: center;
+                                                background-color:transparent;padding: 0.1vh;">
+                                                        <input id="typeSecao-nucleo-delete-secao-nomeSegmento" style="width: 60%;margin: auto;border-radius: 5px;background-color:#EFCA50;color:maroon;text-align: center;">
+                                                        <input id="typeSecao-nucleo-delete-secao-nomeSecao" style="width: 60%;margin: auto;border-radius: 5px;background-color:white;text-align: center;">
+                                            </div>
+                                            <div style="width: 90%;height: 4vh;margin: auto;background-color: transparent;margin-bottom: 4px;display: flex;
+                                                    flex-direction: row;justify-content: space-around;">
+                                            <button type="button" style="width: 90%;background-color: #033061;border-radius: 6px;
+                                                            border-right: solid 2.6px #ffffff;border-top: solid 0.8px #ffffff;border-bottom: solid 2px #ffffff;
+                                                            border-left: solid 0.8px #ffffff;;color:#ffffff" onclick="LimpaSeccao()">Limpa secção</button>
+                                            </div>
+                                    </div>
+                                </form>
+                            </div>     
+                        </div>
+                </div>
+            </div>
+            <div id="deleteClient" style="width: 70%;height: 100vh;margin: auto;padding-left:10px;background-color: #25e30c;text-align: center;float: left;">
+                <div style="width: 80%;background-color:#25e30c;margin:auto;margin-top:5px">
+                        <p style="font-size: larger;color: #ffffff;">Edite Cliente</p>
+                        <form action="/centrallj/cadastro-lojista" style="width: 80%;background-color:#043ac1;margin:auto;margin-top:5px;padding-top: 2%;padding-bottom: 2%;border-radius: 6px;" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                    {{!-- ------------------------------------------------------------ --}}
+                                    <div id="Rwrazao" class="row" style="border-radius: 5px;">
+                                        <input id="idValue" style="display: none;" value=" {{client._id}}">
+                                        
+                                        <div class="col-25">
+                                            <label for="rzsocial">Razão Social :</label>
+                                        </div>
+                                        <div class="col-70">
+                                            <input type="text" id="rzsocial" name="rzsocial" style="" placeholder="razão ..." tabindex="0" value='{{client.razao}}' required>
+                                        </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="Rwrespd" class="row">
+                                        <div class="col-25">
+                                            <label for="resp1">Responsável :</label>
+                                        </div>
+                                        <div class="col-70">
+                                            <input type="text" id="resp1" name="resp1" style="background-color: #025d7b;color:#ffffff;" placeholder="" tabindex="1" value='{{client.respHum}}' required>
+                                        </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="Rwcpf" class="row">
+                                        <div class="col-25">
+                                            <label class="" for="cpf1">CPF :</label>
+                                        </div>
+                                        <div class="col-70">
+                                            <input type="text" id="cpf1" name="cpf1" style="background-color: #025d7b;color:#ffffff;" placeholder="" tabindex="2" value='{{client.cpfHum}}' required>
+                                        </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="Rwcnpj" class="row">
+                                        <div class="col-25">
+                                            <label class="" for="cnpj">CNPJ :</label>
+                                        </div>
+                                        <div class="col-70">
+                                            <input type="text" id="cnpj" name="cnpj" style="background-color: #025d7b;color:#ffffff;" placeholder="" tabindex="3" value="{{client.cnpj}}" required>
+                                        </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="Rwinscricao" class="row">
+                                        <div class="col-25">
+                                            <label  for="inscricao">INSCRIÇÃO :</label>
+                                        </div>
+                                        <div class="col-701">
+                                            <input type="text" id="inscricao" name="inscricao"  placeholder="" tabindex="4" value='{{client.inscricao}}' required>
+                                        </div>
+                                    </div>
+                                    <div id="Rwsite" class="row" >
+                                        <div class="col-25">
+                                            <label class="" for="nomeSite" >Site :</label>
+                                        </div>
+                                        <div class="col-701">
+                                            <input type="text" id="nomeSite" name="nomeSite"  placeholder=""  tabindex="5" value='{{client.site}}' required>
+                                        </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="Rwmarca" class="row" >
+                                        <div class="col-25" >
+                                            <label class="" for="marca">Marca :</label>
+                                        </div>
+                                        <div class="col-261">
+                                            <input type="text" id="marca" name="marca"  placeholder="" tabindex="7" value='{{client.marca}}' required>
+                                        </div>
+                                    </div>    
+                                    <div id="Rwfone" class="row" style="margin-top:3px ;">
+                                        <div class="col-25" >
+                                            <label class="" for="celular" style="text-align:center;">Celular :</label>
+                                        </div>
+                                        <div class="col-261" >
+                                            <input type="text" id="celular" name="celular"   placeholder="" tabindex="8" value='{{client.celular}}' required>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div class="col-25" style="background-color:transparent;width:18%;">
+                                            <label class="" for="telefixo">Tel Fixo :</label>
+                                        </div>
+                                        <div class="col-26" style="margin-left:.3% ;">
+                                            <input type="text" id="telefixo" name="telefixo"  placeholder="" tabindex="9" value='{{client.telefone}}' required>
+                                        </div>
+                                    </div>        
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="Rwemail" class="row" >
+                                        <div class="col-25" >
+                                            <label class="" for="">E-mail :</label>
+                                        </div>
+                                        <div class="col-70" > 
+                                            <input type="text" id="telefixo" name="telefixo"  placeholder="" tabindex="10" value='{{client.email}}' required>
+                                        </div>
+                                        {{!-- <input type="text" style="height:3.2vh;" id="box" name="box" style="background-color: #025d7b;color:#ffffff;" placeholder="" tabindex="10" value='{{client.email}}'  required> --}}
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="RwCep" class="row" >
+                                        <div class="col-25" >
+                                            <label class="" for="labelcep" >Cep :</label>
+                                        </div>
+                                        <div class="col-26" >
+                                            <input type="text" id="inputCep" name="inputCep" style="background-color: #025d7b;color:#ffffff;"  tabindex="11" value='{{client.cep}}' required>
+                                        </div>
+                                    </div>         
+                                    <div id="RwAvenida"  class="row" style="margin-top:3px;padding:2px ;">
+                                        <div class="col-25" >
+                                            <label class="" for="inputAvenida">Avenida/rua :</label>
+                                        </div>
+                                        <div class="col-45" >
+                                            <input type="text" id="inputCep" name="inputCep" style="background-color: #025d7b;color:#ffffff;"  tabindex="12" value='{{client.logradouro}}' required>
+                                        </div>
+                                        {{!-- <input style="" type="text" id="inputAvenida" name="inputAvenida" style="background-color: #025d7b;color:#ffffff;" tabindex="16" value='{{client.logradouro}}' required> --}}
+                                        <div class="col-20" style="width:12%;height: 4vh;">
+                                            <label class="" for="inputNumero">Nº :</label>
+                                        </div>
+                                        <div class="col-15" style="float:left;width:15%;margin-top:5px;">
+                                            <input type="text" id="inputCep" name="inputCep" style="background-color: #025d7b;color:#ffffff;"  tabindex="13" value='{{client.numero}}' required>
+                                        </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="RwComplemento" class="row" >
+                                            <div class="col-25" >
+                                            <label class="" for="Complemento">Complemento :</label>
+                                        </div>
+                                        <div class="col-45" >
+                                            <input type="text" id="inputComplemento" name="inputComplemento" style="background-color: #025d7b;color:#ffffff;" tabindex="14" value='' required>
+                                        </div> 
+                                    </div>
+                                    <div id="RwCidade" class="row" >
+                                        <div class="col-25" >
+                                            <label  for="inputAvenida">Cidade :</label>
+                                        </div>
+                                        <div class="col-45" >
+                                                <input type="text"  id="inputCidade" name="inputCidade" style="background-color: #025d7b;color:#ffffff;" value="{{client.cidade}}" tabindex="15" required>
+                                        </div>
+                                    </div>
+                                    <div id="RwBairro" class="row">
+                                            <div class="col-25" >
+                                                <label  for="inputBairro">Bairro:</label>
+                                            </div>
+                                            <div class="col-15" >
+                                                <input type="text"  id="inputBairro" name="inputBairro" style="background-color: #025d7b;color:#ffffff;" tabindex="16" value='{{client.bairro}}' required>
+                                            </div>
+                                    </div>
+                                    <div id="Rwesatdo" class="row">
+                                            <div class="col-25"  >
+                                                <label class=""  for="inputEstado">Estado :</label>
+                                            </div>
+                                            <div class="col-20" >
+                                                <input type="text"   id="inputEstado" name="inputEstado" style="background-color: #025d7b;color:#ffffff;" value="ES" tabindex="17" value='{{client.estado}}' required>
+                                            </div>
+                                    </div>
+                                    {{!-- ----------------------------------------------------------- --}}
+                                    <div id="RwSegmento" class="row" >
+                                            <div class="col-25" >
+                                                <label for="inputAvenida" >Segmento:</label>
+                                            </div>
+                                            <div class="col-45" >
+                                                    <select name="SelectSeg" id="SelectSeg" class=""  value="" tabindex="18" required>
+                                                        {{!-- {{#each segmento}} --}}
+                                                                <option onclick="buscabairro({{this}})">{{client.titulo}}</option>
+                                                        {{!-- {{/each}} --}}
+                                                    </select>
+                                            </div>
+                                    </div>
+                                    <div id="RwSubSegmento" class="row">
+                                            <div class="col-25">
+                                                <label for="inputAvenida">Sub-Segmento:</label>
+                                            </div>
+                                            <div class="col-45" >
+                                                <select name="SelectSubSeg" id="SelectSubSeg" onchange="myFunctionB()" class=""   value="" tabindex="19" required>
+                                                            <option></option>
+                                                </select>
+                                            </div>
+                                    </div>
+                                    <div class="row" style="margin-top:1vh ;background-color:transpareente;">
+                                        <button style="width: 50%;margin: auto;background-color: #02536d;color: white;border-top: #00ff11 2px solid;border-bottom: #00ff11 2px solid;border-right: #00ff11 2px solid;">Editar</button>
+                                        
+                                    </div>
+                                    <div style="grid-column: 4;grid-row:1/span 10;background-color:#4e04b6;">
+
+                                    </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+<script>
+   function  typeSegmento(){
+     //.................................................................
+     if(document.getElementById('typeSegmento').style.display="none"){
+        console.log('b')
+        document.getElementById('typeSegmento').style.display="block";
+        document.getElementById('edicaoClient').style.display="none";
+        document.getElementById('typeSecao').style.display="none";
+        document.getElementById('deleteClient').style.display='none';
+        var idClient=document.getElementById("idValue").value;  
+        console.log(idClient)
+        buscaSegmentoClient(idClient,1)
+     } 
+   }
+
+   var boxsubtitulo=document.getElementById("selecaoSeg")
+
+   boxsubtitulo.addEventListener("click",function(event){
+      document.getElementById('typeSegmento-adcionar-form-valorseg').value=boxsubtitulo.value;   
+      document.getElementById('typeSegmento-adcionar-form').style.visibility='visible';  
+   })
+   var boxsubtitulo=document.getElementById("selecaoSeg")
+   boxsubtitulo.addEventListener("click",function(event){
+      document.getElementById('valorSeg').value=boxsubtitulo.value;   
+      document.getElementById('typeSegmento-adcionar-form').style.visibility='visible';  
+      document.getElementById("typeSegmento-adcionar-limpar").style.visibility="visible";
+   })
+
+   function  typeSecao(){
+       if(document.getElementById('typeSecao').style.display='none'){
+        document.getElementById('typeSecao').style.display='block';
+        document.getElementById('edicaoClient').style.display='none';
+        document.getElementById('typeSegmento').style.display='none';
+        document.getElementById('deleteClient').style.display='none';
+        document.getElementById("avisoSecao").style.display='none';
+        var idClient=document.getElementById("idValue").value;  
+        console.log(idClient)
+        buscaSegmentoClient(idClient,2)
+     }
+   }
+
+   function  deleteClient(){
+     console.log(77)
+     if(document.getElementById('deleteClient').style.display='none'){
+        document.getElementById('deleteClient').style.display='block';
+        document.getElementById('typeSegmento').style.display='none';
+        document.getElementById('typeSecao').style.display='none';
+        document.getElementById('edicaoClient').style.display='none';
+     }
+   }
+
+   function editClient(){
+     if(document.getElementById('typeSegmento').style.display='block'){
+        document.getElementById('typeSegmento').style.display='none';
+        document.getElementById('typeSecao').style.display='none';
+        document.getElementById('deleteClient').style.display='none';
+        document.getElementById('edicaoClient').style.display='block';
+     }
+   }
+
+   function buscaSegmentoClient(n,k){
+         document.getElementById("typeSecao-delete-lista-subtitulo").style.display="none";
+         n=n.trim(n)
+         let b=k;
+         console.log('vr de n9',n)
+         let G=window.location.hostname;
+         if (G=='localhost'){
+            G='http://localhost:3000'
+         }else{
+            G='https://www.rotaes.com.br'
+         }
+        
+         let caminho =`${G}` + '/centrallj/addsegmento/' + `${n}`
+         console.log(caminho)
+         try{
+            fetch(`${caminho}`,
+                    {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+                    .then(response =>{
+                       if(response.ok){
+                        // console.log('vr de response',response.json)
+                         return response.json()
+                       }   
+                       throw error
+                    })
+                    .then((json) => {
+                      // console.log('vr de json',json) 
+                     //  let b=1;
+                       let s;
+                       if(b==1){ 
+                           // ---------------------------------------------------------------
+                           // const myNodelist = document.querySelectorAll("tr");
+                           // console.log('990')
+                           // let reta=myNodelist.length;
+                            
+                           // console.log(reta)
+                           // h=reta;
+                           // if(reta>1){ 
+                           //     for(j=h;j>0;j--){
+                           //         if(j>1){
+                           //         document.getElementById("tb1").deleteRow(j-1);
+                           //         //console.log('deletou a de nº',j)
+                           //         }
+                           //     }
+                           // }
+                            var g=document.getElementById("typeSegmento-delete-chave").value;
+                            if (g>0){
+                                for (l=g;l>0;l--){
+                                    document.getElementById("selectedSeg").deleteRow(l);
+                                }
+                            }
+                            let j=json.length;
+                            document.getElementById("typeSegmento-delete-chave").value=j;
+                            //----------------------------------------------------------------
+                            for (i=0;i<j;i++){
+                                    let A=json[i];
+                                    A=Object.values(A)
+                                    if(i==0){
+                                        const node1=document.createElement("tr")
+                                        node1.setAttribute("id",i)
+                                        document.getElementById("tbodySeg").appendChild(node1)
+                                        //::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                        const node=document.createElement("td")
+                                        const textnode = document.createTextNode(A);
+                                        node.appendChild(textnode)
+                                        node.setAttribute("id",i)
+                                        node.setAttribute("class",'tdcor')
+                                        node.setAttribute("onclick","buscSeg(" + "'" + A + "'" + ")")
+                                        document.getElementById(`${i}`).appendChild(node)
+                                    }else if (i>0){
+                                        const node2=document.createElement("tr")
+                                        node2.setAttribute("id",i)
+                                        document.getElementById("tbodySeg").appendChild(node2)
+
+                                        const node=document.createElement("td")
+                                        const textnode = document.createTextNode(A);
+                                        node.appendChild(textnode)
+                                        node.setAttribute("id",i)
+                                        node.setAttribute("class",'tdcor')
+                                        node.setAttribute("onclick","buscSeg(" + "'" + A + "'" + ")")
+                                
+                                       document.getElementById("tbodySeg").appendChild(node)
+                                    }
+                            } 
+                        }else if (b==2){
+                            //----------------------------------------------------------------
+                            var g=document.getElementById("typeSecao-delete-chave").value;
+                            if (g>0){
+                                for (l=g;l>0;l--){
+                                    document.getElementById("selectedSecao").deleteRow(l);
+                                }
+                            }
+                            s=json.length;
+                            document.getElementById("typeSecao-delete-chave").value=s;
+                            //-----------------------------------------------------------------------
+                            for (h=0;(h<s);h++){
+                                    let A=json[h];
+                                    A=Object.values(A)
+                                    if(h==0){
+                                        ////////////////////////////////////////////////////////
+                                        const node1=document.createElement("tr")
+                                        node1.setAttribute("id",h)
+                                        document.getElementById("tbodySegSecao").appendChild(node1)
+                                        ////////////////////////////////////////////////////////
+                                        const node=document.createElement("td")
+                                        const textnode = document.createTextNode(A);
+                                        node.appendChild(textnode)
+                                        node.setAttribute("id",h)
+                                        node.setAttribute("class",'tdcor td-secao')
+                                        node.setAttribute("onclick","buscSegsecao(" + "'" + A + "'" + ")")
+                                        document.getElementById(`${h}`).appendChild(node)
+                                        ////////////////////////////////////////////////////////
+                                    }else if (h>0){
+                                        ///////////////////////////////////////////////////////
+                                        const node2=document.createElement("tr")
+                                        node2.setAttribute("id",h)
+                                        document.getElementById("tbodySegSecao").appendChild(node2)
+                                        //////////////////////////////////////////////////////  
+                                        const node=document.createElement("td")
+                                        const textnode = document.createTextNode(A);
+                                        node.appendChild(textnode)
+                                        node.setAttribute("id",h)
+                                        node.setAttribute("class",'tdcor')
+                                        node.setAttribute("onclick","buscSegsecao(" + "'" + A + "'" + ")")
+                                        document.getElementById("tbodySegSecao").appendChild(node)
+                                        ////////////////////////////////////////////////////////
+                                    }
+                             } 
+                        }   
+                    })
+         }catch(err){
+            console.log(error,err)
+         }        
+   }
+
+   function retorno(){
+
+   }
+
+   function buscSeg(n){
+      console.log('vr de n',n)
+      document.getElementById("typeSegmento-delete-form").style.visibility='visible';
+      document.getElementById("typeSegmento-delete-form-valorSeg").value=n;
+      document.getElementById("typeSegmento-adcionar-limpar").style.visibility='visible';
+      document.getElementById("typeSegmento-adcionar").style.visibility='visible';
+   }
+
+  function limpaTudo(){
+    console.log(77)
+    document.getElementById("typeSegmento-delete-form").style.visibility='hidden';
+    document.getElementById("typeSegmento-adcionar-limpar").style.visibility='hidden';
+    document.getElementById("typeSegmento-delete-form-valorSeg").value="";
+    document.getElementById("typeSegmento-adcionar-form").style.visibility='hidden';
+    document.getElementById("typeSegmento-adcionar").style.visibility='hidden';
+    
+  } 
+
+  function buscSegsecao(x){
+    ////////////////////////////////////////////////////////
+    x=x.trim(x)
+    var codClient=document.getElementById("idValue").value;
+    let letra= "" + codClient + ""
+    
+    let G=window.location.hostname;
+    if (G=='localhost'){
+        G='http://localhost:3000'
+    }else{
+       G='https://www.rotaes.com.br'
+    }
+    let caminho ='/centrallj/edicao-lojista-tudo/' + `${x}` + ' - ' + `${codClient}`  
+    console.log(caminho)
+         try{
+            fetch(`${caminho}`,
+                    {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+                    .then(response =>{
+                       if(response.ok){
+                         return response.json()
+                       }   
+                       throw error
+                    })
+                    .then((json) => {   
+                          let w=json;
+                          var g= document.getElementById("typeSecao-numSecao").value;
+                          let l=w.length;
+                          //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                          //  LIMPA AS LINHAS DA TABLE
+                          //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                          if (g>0){
+                                limpaTableSecao()
+                          }
+                          //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                          // QUANDO SÒ EXISTE UM ELEMENTO,SEJA VAZIO<NULL< OU COM CONTEÚDO
+                          //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                          if(l==0){
+                            let d=json[0]
+                            if(d=='undefined' || d==null || d==''){
+                                // QUANDO HÁ UM ELEMENTO É NULO<VAZIO OU UNDEFINED = ['Fast Food','Estética' ]
+                                console.log(x);
+                                document.getElementById("typeSecao-numSecao").value=0;
+                                document.getElementById("typeSecao-selectedSecao").style.display="none";
+                                document.getElementById("avisoSecao").style.display="block";
+                                document.getElementById("Avisosegmento").innerText=x;
+                                document.getElementById("typeSecao-nomeSegmento").value=x;
+                                document.getElementById("typeSecao-add-secao-segmento").style.display="block";
+                               // document.getElementById("typeSecao-add-secao").style.display="block";
+                                document.getElementById("valorSeg").focus();
+                                buscSubSegmento() 
+                            }else{
+                                // QUANDO HÁ UM ELEMENTO COM CONTEÚDO
+                                document.getElementById("typeSecao-selectedSecao").style.display="block";
+                                document.getElementById("avisoSecao").style.display="none";
+                                document.getElementById("typeSecao-numSecao").value="1";
+                                document.getElementById("typeSecao-nomeSegmento").value=x;
+                                console.log("------------------ATENÇÃO!------------------------------")
+                                let A=json[0]
+                                const node=document.createElement("tr")
+                                node.setAttribute("id",'tr' + l)
+                                document.getElementById("tbodySecao").appendChild(node)
+                                //////////////////////////////////////////////////////////////////////
+                                const node1=document.createElement("td")
+                                const textnode1 = document.createTextNode(A);
+                                node1.appendChild(textnode1)
+                                node1.setAttribute("id",l)
+                                node1.setAttribute("class",'tdcolorido')
+                                node1.setAttribute("onclick","mostrasecao(" + "'" + A + "'" + ")")
+                                document.getElementById("tbodySecao").appendChild(node1);
+                            }
+                          }else{
+                             //console.log('linha 1207')
+                             if(l==1){
+                                let d=json[0]
+                                if(d=='undefined' || d==null || d==''){
+                                    // HÁ UM ELEMENTO COM CONTEÚDO VAZIO<NULO OU U*NDEFINED ="SAÚDE"
+                                    console.log(x );
+                                    document.getElementById("typeSecao-selectedSecao").style.display="none";
+                                    document.getElementById("avisoSecao").style.display="block";
+                                    document.getElementById("Avisosegmento").innerText=x;
+                                    document.getElementById("typeSecao-numSecao").value=0;
+                                    document.getElementById("typeSecao-nomeSegmento").value=x;
+                                    document.getElementById("typeSecao-add-secao-segmento").style.display="block";
+                                    //document.getElementById("typeSecao-add-secao").style.display="block";
+                                    document.getElementById("valorSeg").focus();
+                               }else{  
+                                    // HÁ UM ELEMENTO COM CONTEÚDO REAL = 'CONSTRUÇÃO CIVIL'
+                                    console.log(x);
+                                    document.getElementById("typeSecao-nomeSegmento").value=x;
+                                    document.getElementById("typeSecao-selectedSecao").style.display="block";
+                                    document.getElementById("avisoSecao").style.display="none";
+                                    document.getElementById("typeSecao-numSecao").value=1;
+                                    document.getElementById("typeSecao-nomeSegmento").value=x;
+                                    document.getElementById("typeSecao-add-secao-segmento").style.display="block";
+                                   // console.log('linha 1227')
+                                    //document.getElementById("typeSecao-add-secao").style.display="block";
+                                    document.getElementById("valorSeg").focus();
+                                    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                    let A=json[0];
+                                    ////////////////////////////////////////////////////////////////////
+                                    const node=document.createElement("tr")
+                                    node.setAttribute("id",'tr' + l)
+                                    document.getElementById("tbodySecao").appendChild(node)
+                                    //////////////////////////////////////////////////////////////////////
+                                    const node1=document.createElement("td")
+                                    const textnode1 = document.createTextNode(A);
+                                    node1.appendChild(textnode1)
+                                    node1.setAttribute("id",l)
+                                    node1.setAttribute("class",'tdcolorido')
+                                    node1.setAttribute("onclick","mostrasecao(" + "'" + A + "'" + ")")
+                                    document.getElementById("tbodySecao").appendChild(node1);
+                                    /////////////////////////////////////////////////////////////////////
+                                    console.log("------------------ATENÇÃO!------------------------------")
+                               }
+                               //............................................................................
+                            }else{
+                                  //  console.log('linha 1250',l)
+                                    for (i=0;i<l;i++){
+                                        // HÁ DIVERSOS ELEMENTOS COM CONTEÚDO $$$$
+                                        //console.log('linha 1254')
+                                        document.getElementById("avisoSecao").style.display="none";
+                                        document.getElementById("typeSecao-selectedSecao").style.display="block";
+                                        console.log('segmento',x)
+                                        let A=json[i];
+                                        document.getElementById("typeSecao-numSecao").value=l;
+                                        document.getElementById("typeSecao-nomeSegmento").value=x;
+                                        if(A==''){
+                                            //<><><><><><><><><><><><><<><><><><><><><>
+                                            A="não há seção"
+                                            document.getElementById("typeSecao-selectedSecao").style.display="none";
+                                            document.getElementById("avisoSecao").style.display="block";
+                                            document.getElementById("Avisosegmento").innerText=x;
+                                            document.getElementById("typeSecao-numSecao").value=0;
+                                            //<><><><><><><><><><><><><<><><><><><><><>
+                                        }else if(A==null || A=='undefined'){
+                                            //<><><><><><><><><><><><><<><><><><><><><>
+                                            A='elemento vazio';
+                                            document.getElementById("typeSecao-numSecao").value=1;
+                                            document.getElementById("typeSecao-selectedSecao").style.display="none";
+                                            document.getElementById("avisoSecao").style.display="block";
+                                            //<><><><><><><><><><><><><<><><><><><><><>
+                                        }else{
+                                            /////////////////////////////////////////////////////////////
+                                            // HÁ DIVERSOS SEGMENTO COM CONTEÚDO REAL = 'ROUPAS'
+                                    //        console.log('linha 1279')
+                                            document.getElementById("typeSecao-add-secao-segmento").style.display="block";
+                                           // document.getElementById("typeSecao-add-secao").style.display="block";
+                                           // document.getElementById("valorSeg").focus();
+                                           // console.log('linha 1283')
+                                            ////////////////////////////////////////////////////////////
+                                            const node=document.createElement("tr")
+                                            node.setAttribute("id",'tr'+l)
+                                      //      console.log("linha 1286")
+                                            document.getElementById("tbodySecao").appendChild(node)
+                                            ///////////////////////////////////////////////////////////////
+                                            const node1=document.createElement("td")
+                                            const textnode1 = document.createTextNode( A );
+                                        //    console.log('linha 1287',A)
+                                            node1.appendChild(textnode1)
+                                            node1.setAttribute("id",l)
+                                            node1.setAttribute("class","tdcolorido")
+                                            node1.setAttribute("onclick","mostrasecao(" + "'" + A + "'" + ")")
+                                            document.getElementById("tbodySecao").appendChild(node1);
+                                            ///////////////////////////////////////////////////////////////
+                                        }
+                                    }
+                                 //   console.log('linha 1299')
+                                        console.log('-----------------------------------------------')
+                            }   
+                            document.getElementById("tbodySecao").style.display="block";
+                            document.getElementById("typeSecao-delete-lista-subtitulo").style.display="block";
+                            buscSubSegmento() 
+                          } 
+                    }).catch((err)=>{
+                        console.log('linha 1306',err)
+                    }) 
+         }catch(e){
+            console.log(e)
+         }        
+  }
+
+ function limpaTableSecao(){
+   /////////////////////////////////////////////////////////
+   const list = document.getElementById("tbodySecao");
+   let n=list.parentElement.childElementCount;
+   console.log('valor da XXXXXXXXXXXXXXXXXn',n)
+   console.log('----------------------------------------')
+   for (let i=0;i<n;i++){
+       let list10=[]
+       list10[i]=document.getElementById("tbodySecao");
+       list10[i].remove(list10.firstElementChild)
+   }
+   //..............................................................
+   document.getElementById("typeSecao-numSecao").value=0;
+   node=document.createElement("tbody")
+   node.setAttribute("id",'tbodySecao')
+   document.getElementById("typeSecao-selectedSecao").appendChild(node)
+   document.getElementById("typeSecao-nucleo-delete-secao").style.display="none";
+ }
+
+function limpaAddSecao(){
+   // Esconde a divisão destinada a adcionar uma seção em determinado segmento 
+   document.getElementById("valorSeg").value="";
+   document.getElementById("typeSecao-add-secao-rotina").style.display="none";
+   document.getElementById("typeSecao-add-secao-segmento").style.height="10vh";
+   document.getElementById("typeSecao-add-secao-segmento").style.display="none"
+   document.getElementById("typeSecao-nomeSegmento").value="";
+   limpaTableSecao()
+   document.getElementById("typeSecao-delete-lista-subtitulo").style.display="none";
+}
+
+ function mostrasecao(n){
+    // Mostra a divisão para deletar a seção selecionada
+    document.getElementById("typeSecao-nucleo-delete-secao").style.display="block";
+    let nome=document.getElementById("typeSecao-nomeSegmento").value;
+    document.getElementById("typeSecao-add-secao-segmento").style.display="none";
+    document.getElementById("typeSecao-nucleo-delete-secao-nomeSegmento").value=nome;
+    document.getElementById("typeSecao-nucleo-delete-secao-nomeSecao").value=n;
+ }
+
+ function buscSubSegmento(){
+    //////////////////////////////////////////////////////////////////////
+    var nmsegemnto=document.getElementById("typeSecao-nomeSegmento").value;
+    document.getElementById("")
+    let m=document.getElementById("selected-subtitulo");
+    //////////////////////////////////////////////////////////////////////
+    let l=m.length;
+    
+    for (let i=0;i<l;i++){
+         m.remove(m[i]);
+    }
+    document.getElementById("valorSeg").value="";
+    /////////////////////////////////////
+    let G=window.location.hostname;
+    if (G=='localhost'){
+        G='http://localhost:3000'
+    }else{
+       G='https://www.rotaes.com.br'
+    }
+    let caminho ='/centrallj/edicao-lojista-subtitulo/' + `${nmsegemnto}`  
+    console.log(caminho)
+         try{
+            fetch(`${caminho}`,
+                    {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+                    .then(response =>{
+                       if(response.ok){
+                         console.log(response.status)
+                         return response.json()
+                       }   
+                       throw error
+                    })
+                    .then((json) =>{   
+                        //console.log('linha 1356',json)
+                        let l=json.length;
+                        for(let i=0;i<l;i++){
+                             A=json[i];
+                             const node=document.createElement("option")
+                             const textnode = document.createTextNode(A);
+                             node.appendChild(textnode)
+                             node.setAttribute("id",'list' + i)
+                             node.setAttribute("class","tdcolorido")
+                             node.setAttribute("onclick","frente(" + i + ")")
+                             node.setAttribute("onclick","fixasubtitulo(" +  A +  ")")
+                             document.getElementById("selected-subtitulo").appendChild(node)
+                        }
+                    })
+                    .catch((err)=>{
+                      console.log(err)
+                    })
+         }catch(e){
+            console.log(e)
+         }        
+ } 
+</script>
+<script>
+  var b=document.getElementById("selected-subtitulo");
+  b.addEventListener("click",function(event){
+        let f=b.value;
+       
+        let h=200000000;
+        for(let r=0;r<h;r++){
+               if(r==1999){
+                 document.getElementById("valorSeg").value=f; 
+                 document.getElementById("typeSecao-add-secao-rotina").style.display="block";
+                 document.getElementById("typeSecao-add-secao-segmento").style.height="20vh";
+               }  
+        }
+})
+
+ function LimpaSeccao(){
+    document.getElementById("typeSecao-nucleo-delete-secao").style.display="none";
+    document.getElementById("typeSecao-nomeSegmento").value="";
+    limpaTableSecao()
+    document.getElementById("typeSecao-delete-lista-subtitulo").style.display="none";
+ }
+</script>
+</html>

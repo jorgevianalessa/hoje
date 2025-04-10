@@ -1,0 +1,331 @@
+<style>
+.linhatable{
+    margin-left:3px;background-color: aqua;color:#ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+.colhum{
+    margin-left:3px;background-color:#d1d80d;width: 10%;
+    font-size: small;
+}
+
+.coldois{
+    background-color:darkslategray;text-align: left;padding-left:10px;width: 50%;
+    font-size: small;
+}
+    
+</style>
+<div style="width:100%;height:100vh;margin:auto;background: crimson;margin-top:5.5vh;">
+    <div style="background-color:limegreen;width:100%;height:10vh;margin:auto;display: flex;flex-direction: row;justify-content: space-between;">
+          <div style="background-color:#030803;width:25%;height:10vh;margin:auto;float:left;text-align: center;color:#ffffff;padding: 3.5vh;">
+                   <div>
+                        <label>lojista</label>
+                        <label style="margin-left:6px;">Comercial Lavanda</label>
+                  </div>
+          </div>
+           <div style="background-color:#b8bfb8;width:25%;height:10vh;margin:auto;float:left;text-align: center;color:#ffffff;padding: 3.5vh;">
+                   <div>
+                       <label >segmento</label>
+                        <select id="selectSeg01" style="margin-left:6px;">
+                            <option>construção civil</option>
+                            <option>móveis</option>
+                            <option>eletrodoméstico</option>
+                        </select>  
+                  </div>
+          </div>
+           <div style="background-color:#030803;width:25%;height:10vh;margin:auto;float:left;text-align: center;color:#ffffff;padding: 3.5vh;">
+                   <div>
+                         <label for="cars">segmento 01</label>
+                         <select id="selectSeg01" style="margin-left:6px;">
+                            <option>acabamento</option>
+                            <option>elétrica</option>
+                            <option>hidráulica</option>
+                         </select>  
+                    </div>    
+          </div>
+           <div style="background-color:#b8bfb8;width:25%;height:10vh;margin:auto;float:left;text-align: center;color:#ffffff;padding: 3.5vh;">
+                   <div>
+                         <label>segmento 02</label>
+                        <select style="margin-left:6px;">
+                            <option>tubos e conexões</option>
+                            <option>torneiras & registros</option>
+                            <option>acessórios</option>
+                        </select>  
+                    </div>
+          </div>
+    </div>
+    <div style="background-color:#ffffff;width:100%;height:1vh;margin:auto ;">
+
+    </div>
+     <div style="background-color:#e1dbdb;width:99%;height:88.5vh;margin:auto ;margin-top: 3px;float: left;">
+        <div style="background-color:#055888;width:50%;height:88vh;margin:auto ;float: left;">
+            <div style="background-color:#ffffff;width:100%;height:4.5vh;margin:auto ;text-align: center;padding: .9vh;">
+                       <h5>lista de produtos</h5>
+            </div>
+            <div style="width:100%;height:4vh;margin:auto;background-color:#055888;display:flex;flex-direction:row;color:#ffffff;padding-left:1.5vw ;">
+                <label style="width:20%;float:left;">código</label>
+                <label style="width:20%;float:left ;padding-left:1.5vw ;">descrição</label>
+            </div>
+            <div style="background-color:#ffffff;width:100%;margin:auto ;text-align: center;padding: 1vh;border-top: #055888 2px solid;height:80vh;overflow: auto;">
+                 
+                  <table style="height:70vh;overflow: auto;">
+                       {{!-- <thead>
+                           <th>código</th>
+                           <th>descritivo</th>
+                       </thead> --}}
+                       <tbody >
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="/lojista/img-Upload/1270">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                             <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                             <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum"> 1270</td>
+                                <td class="coldois">TUBO SEMI RIGIDO - TSR 150 - 150MM ( 5 METROS )</td>
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                            <tr class="linhatable">
+                                <td class="colhum">5648</td>
+                                <td class="coldois">cordão de sisal</td>
+                                
+                                <td><input type="checkbox" value="banderola" style="width:15%;margin-right: 4px;"><a href="#">banderola</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">janela</a></td>
+                                <td><input type="checkbox" value="janela" style="width:15%;margin-right: 4px;"><a href="#">status</a></td>
+                            </tr>
+                        
+                       </tbody>
+                  </table>
+            </div>
+        </div>
+         <div style="background-color:#88055c;width:50%;height:88vh;margin:auto ;float: right;">
+             <div style="background-color:#ffffff;width:100%;height:4.5vh;margin:auto ;text-align: center;padding: .9vh;">
+                       <h5>painel de imagens</h5>
+            </div>
+             <div style="width:100%;height:4vh;margin:auto;background-color:#055888;display:flex;flex-direction:row;color:#ffffff;padding-left:1.5vw ;">
+                <label style="width:20%;float:left;">código</label>
+                <label style="width:20%;float:left ;padding-left:1.5vw ;">descrição</label>
+            </div>
+            <div style="width:100%;height:4vh;margin:auto;background-color:#ffffff;display:flex;flex-direction:row;color:#055888;padding-left:1.5vw ;">
+                <label>i965      .....................                hhhhhh jjjjjj 67589    </label>
+            </div>
+            <div style="width:100%;height:18vh;margin:auto;background-color: chocolate;margin-top:2px ;border-bottom: #055888 solid 2px;">
+
+            </div>
+              <div style="width:100%;height:25vh;margin:auto;background-color: rgb(16, 117, 234);margin-top:2px ;border-bottom: #055888 solid 2px;">
+
+            </div>
+              <div style="width:100%;height:40vh;margin:auto;background-color: rgb(31, 143, 11);margin-top:2px ;border-bottom: #055888 solid 2px;">
+
+            </div>
+         </div>
+    </div>
+   
+</div>

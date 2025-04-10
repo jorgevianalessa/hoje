@@ -1,0 +1,32 @@
+<div class="d-flex" style="width: 90%;height: 88vh;margin: auto;background-color: darkgrey;padding: 30px;margin-top:12vh;">
+    <div style="width: 100%;height: 82vh;margin: auto;background-color: #e31f1f;padding: 10px;text-align: center;margin-top:3vh;">
+      <div style="width: 100%;height: 6vh;margin: auto;text-align: center;background-color: #ffffff;padding: 20px;">
+          <h1 style="font-size: larger;color:#089003">Cadastro de Artigos!</h1>
+      </div>  
+      <div style="width: 80%;height: 45vh;margin: auto;background-color: #089003;margin-top:5vh;padding-top: .5vh;">
+           <div style="width: 60%;height: 6vh;margin: auto;background-color: #ebe5e5;margin-top:15vh;padding: 2vh;">
+                 <select>
+                   {{artigo.artigo}}
+                    {{!-- {{#each Artigo}} --}}
+                    <option>{{artigo}}</option>
+                    {{!-- {{/each}} --}}
+                 </select>
+           </div>
+           <div style="width: 60%;height: 25vh;margin: auto;background-color: darkgray;margin-top:5vh;padding: 1vh;">
+                <form class="form-signin form-fornex" id="formProduto" method="POST" action="/lojista/artigo-grava/" enctype="application/x-www-form-urlencoded" 
+                            style="background-color:#e31f1f;margin-top:15px;height:20vh;padding-top: 10px;">
+                   <div style="display: flex;flex-direction: column;justify-content:center;width: 60%; margin: auto;">
+                        <label>Digite o nome do artigos</label>
+                            <input id="cnpjloja" name="cnpjloja" value="{{corpo.cnpj}}" style="width: 50%;margin: auto;display: none;">
+                            <input id="idloja" name="idloja" value="{{corpo.idd}}" style="width: 50%;margin: auto;display: none;">
+                            <input id="segmentoloja" name="segmentoloja" value="{{corpo.segmento}}" style="width: 50%;margin: auto;display: none;">
+                            <input id="artigo" name="artigo" style="width: 50%;margin: auto;">
+                            <div style="width: 80%;height: 4vh;margin: auto;">
+                            <button style="margin-top: 15px;width: 80%;height: 3vh;border-radius: 6px;background-color: dodgerblue;color:#ffffff;border:#ffffff solid;"> gravar artigo</button>
+                        </div>
+                   </div>         
+                 </form>
+           </div>
+      </div>
+    </div>
+</div>

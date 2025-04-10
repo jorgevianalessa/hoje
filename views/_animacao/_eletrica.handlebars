@@ -1,0 +1,961 @@
+<style>
+  body{
+    margin: 0px;
+  }
+
+  .corpo{
+    background-color: #ffffff;width: 97.5vw;height: 100vh;margin: auto;display: flex;flex-direction:column;justify-content:center;margin-top: -2vh;
+  }
+
+  
+
+  .sideLeft{
+     /*width: 20vw;height: 85vh;margin: auto;background-color: #ffffff;float: left;*/
+  }
+
+  .sideMiddle{
+     width: 83.5vw;height: 94.5vh;margin: auto;
+     background-color:#ffffff;
+     margin-left: 2vw;
+     display: flex;flex-direction: column;justify-content: center;
+  }
+
+  .sideRight{
+     width: 15vw;height: 97.5vh;margin: auto;background-color: #ffffff;float: left;
+  }
+  
+  .barraElements{
+    width: 82vw;height: 7vh; display: flex;flex-direction: row;margin: auto;justify-content: space-between;background-color:#ffffff;
+  }
+
+  .barraElements_{
+     width: 260px;height: 4vh;padding-top: 0.5vh;background-color:#ffffff;text-align: center;display:none;
+  }
+
+
+  .btnBarraElements{
+     width: 220px;height: 3vh;margin: auto;background-color: #6c0359;border-radius: 5px ;color:#faf6f6;font-size: 0.8vw;
+  }
+
+  .canvasX{
+    /* background-image: url('https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png');*/
+     /*background-image:url('https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png');*/
+     /*https://amelia.nyc3.digitaloceanspaces.com/f201734758916a66b07f_parede_duas42.jpg*/
+     display: no-repeat;background-size: cover;margin:auto;border:gray 2px solid;background-color: aqua;
+
+  }
+</style>
+<div class="d-flex corpo" id="corpo" >
+  
+    <div id="barraTitulo" style="width: 99vw;height: 5vh;margin: auto;background-color: #11c90b;color: #ffffff;text-align: center;margin-top:0.95vh;padding-top: 0.5vh;display: flex;flex-direction: row;justify-items: center;justify-content: space-between;">
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.4vw;margin-left: 3vw;">Inscreva-se no canal</h3>
+        
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.5vw;">projeto de distribuição</h3>
+         <div style="display: flex;flex-direction: row;justify-content:space-around space-between;justify-items: center;background-color:transparent;margin-bottom: 0.5vh;width: 15%;">
+            <div style="background-color: #0bc95d;width: 80%;text-align: right;">
+              <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.4vw;margin-right:0.4vw;padding-right: 6px;">deixe seu like<span style="background-color:transparent;width: 10vw;height: 4vh;"></span></h3>
+            </div>
+            <div style="background-color: #0fd805;width: 20%;">
+              <img src="https://amelia.nyc3.digitaloceanspaces.com/5e79abd1bec281324aab_LikeBtn.png" width="40px" height="auto">
+           </div>
+         </div>
+    </div>
+    <div id="stokeImg" style="display: none;">
+        {{!-- https://amelia.nyc3.digitaloceanspaces.com/454b9129fc1cb773cd38_placa42_menor.jpg --}}
+        {{!-- https://amelia.nyc3.digitaloceanspaces.com/62702f2c8b536bea25ac_parede_duas42.jpg --}}
+       <img id="imgMaster" src="https://amelia.nyc3.digitaloceanspaces.com/645299a34106112f816a_suite_master.png">
+       <img id="img02" src="https://amelia.nyc3.digitaloceanspaces.com/d0c58e6f6a6c6510f412_suite_02.png">
+       <img id="img01" src="https://amelia.nyc3.digitaloceanspaces.com/0b8aa8ada2a790fe4351_suite_01.png">
+       <img id="imgAquec" src="https://amelia.nyc3.digitaloceanspaces.com/f015f242ab750c5113a6_aquecedor.png">
+       <img id="imgCbox" src="https://amelia.nyc3.digitaloceanspaces.com/d645730bafcf40df3b7f_caixaBox_.jpg" alt=""> 
+       <img id="placa42" src="https://amelia.nyc3.digitaloceanspaces.com/3792fce0fa07aeeeef29_placa42_menor.jpg">
+       <img id="placaTecla" src="https://amelia.nyc3.digitaloceanspaces.com/0e42d86aefc24c98640d_led%2Btecla.jpg">
+       <img id="paredeFoto" src="https://amelia.nyc3.digitaloceanspaces.com/90cac59b821c2e1e557d_parede_duas42.jpg">
+       <img id="cabinho" src="https://amelia.nyc3.digitaloceanspaces.com/ac81b226b420347eaf9f_cabinho.jpg">
+    </div>
+    <div style="display: flex;flex-direction: row;justify-content: space-around;">
+        <div id="sideLeft" class="sideLeft" style="display: flex;flex-direction: column;justify-items: center;display: none;">
+            <div style="width: 100%;height: 18vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items:center ;padding: 12px;text-align: center;visibility:visible">
+                <label style="color:#25cb0c;font-size: 2vw;">RaqSystem</label><br><br>
+                <label style="color:#179304;font-size: 1vw;">email: jorgelessa@terra.com.br</label><br>
+                <label style="color:#179304;font-size: 1vw;">celular:</label>
+                <label style="color:#179304;font-size: 1vw;"> 27 99942-6272</label>
+            </div>  
+            <div style="width: 80%;height: 28vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-items:auto ;padding: 12px;text-align: center;visibility: hidden;">
+                <div style="width: 4vw;height: 7vh;margin-top: 1vh;background-color: #48f912;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/ba0449dc3a904fa116e2_setaHorizontalRed.png" width="50px" height="auto"></button>
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color:red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/341f8422fb51a1009c38_setaHorizontalOcre.png" width="50px" height="auto" ></button> 
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color: red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/15737d15ea44135373c5_setaVerticalRed.png" width="20px" height="50px" ></button> 
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color: red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/b11fe805110fc5946827_setaVerticalRedBaixo.png" width="auto" height="50px" ></button> 
+                </div>
+            </div>
+        </div>
+        <div id="sideMiddle" class="sideMiddle" style="">
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png
+                https://amelia.nyc3.digitaloceanspaces.com/441204576f30d47cdd7e_doisbanheiros.png --}}
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png --}}
+                {{!-- background-image: url('https://amelia.nyc3.digitaloceanspaces.com/645299a34106112f816a_suite_master.png') --}}
+            <div style="width: 82vw;height: 87vh;background-color: white;display: flex;flex-direction:column;justify-content: space-around;text-align: center;">
+                    <div id="canvas-1" style="width: 81.5vw;height: 87vh;margin: auto;display:block;background-color:transparent;border: 10px #ffffff solid;">
+                       <canvas id="pranchaA" width="1500" height="840" class="canvaX" style="margin:auto;border:gray 2px solid;display: no-repeat;background-size: cover;object-fit: contain;background-color: #ffffff;">
+                        
+                      </canvas>
+                    </div>
+                    {{!-- <div style="height: 4vh;background-color: yellow;"></div>  --}}
+            </div>
+            <div id="barraElements" class="barraElements">
+                
+            </div>
+        </div>
+        <div id="sideRight" class="sideRight" style="background-color: #9903f0;display: flex;flex-direction: column;justify-items: auto;visibility: visible;width: 12vw;">
+             <div id="fotoAlerta" style="width: 12vw;height: 30vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-content: center;">
+               <div style="height: 20vh;padding-bottom: 1vh;background-color: #ffffff;padding: 30px;">
+                     <img src="https://amelia.nyc3.digitaloceanspaces.com/ac81b226b420347eaf9f_cabinho.jpg" width="100%" height="auto">
+                     {{!-- https://amelia.nyc3.digitaloceanspaces.com/895ddf1fa1c19c7e6d3b_isolamento_t%C3%A9rmico.png --}}
+               </div>
+               <div style="height: 6vh;margin-top: 1vh;background-color: #ffffff;">
+                     <label style="color:#7e032a;font-size: 1vw;font: bold;font-optical-sizing: auto;">Cabo PP 4 vias 1mm.</label>
+               </div>
+             </div>
+             <div id="btnAnimacao" style="background-color: #ffffff;height: 35vh;display: flex;flex-direction: column;justify-items:center ;">
+                  <div style="width: 12vw;height:6vh;margin: auto;padding: 0.5vw;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                     <button style="width: 10vw;height: 5vh;margin: auto;background-color: #044654;border-radius: 5px;color:#ffffff;" onclick="Suites()">Montando estrutura</button>
+                  </div>
+                  <div style="width: 12vw;height:6vh;margin: auto;padding: 0.5vw;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                     <button id="TraçaMaster" style="width: 10vw;height: 5vh;margin: auto;background-color: #044654;border-radius: 5px;color:#ffffff;" onclick="linhaA()">Passando Eletrodutos</button>
+                  </div> 
+                  {{!-- <div style="width: 12vw;height:6vh;margin: auto;padding: 0.5vw;background-color: transparent;display: flex;flex-direction: row;justify-content: center;">
+                     <button style="width: 10vw;height: 5vh;margin: auto;background-color: #044654;border-radius: 5px;color:#ffffff;" onclick="traçaEletrB()">Eletroduto B</button>
+                  </div>  --}}
+                  <div style="width: 12vw;height:6vh;margin: auto;padding: 0.5vw;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                     <button style="width: 10vw;height: 5vh;margin: auto;background-color: #044654;border-radius: 5px;color:#ffffff;" onclick="mostraParede()">Foto Parede</button>
+                  </div>
+                  <div style="width: 12vw;height:6vh;margin: auto;padding: 0.5vw;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                     <button style="width: 10vw;height: 5vh;margin: auto;background-color: #044654;border-radius: 5px;color:#ffffff;" onclick="Cabinho()">Cabinho</button>
+                  </div> 
+             </div> 
+             <div style="background-color: #ffffff;height: 18vh;">
+
+             </div>
+             <div id="Complemento" style="background-color: #ffffff;height: 15vh;">
+                  <div style="width: 12vw;height: 10vh;margin: auto;padding: .5vw;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                     <button style="background-color: #044654;width: 12vw;height: 5vh;margin: auto;border-radius: 5px;color:#ffffff;visibility: hidden;" onclick="CircPerdido()">Eletroduto D</button>
+                  </div>
+             </div>
+        </div>
+    </div>
+</div>
+<script>
+// Variáveis     
+
+let nA=0;
+let nAB=0;
+let nEletrB=0;
+let nEletrC=0;
+let nEletrD=0;
+
+// figura do Mapa
+const canvas = document.getElementById('pranchaA');
+const ctx = canvas.getContext('2d')
+
+let g=document.getElementById("sideMiddle");
+console.log(g.offsetTop)
+console.log('__________________________________');
+
+// Desenhando a grade da planta
+function grade(){
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 100)
+    ctx.lineTo(1500,100)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(100,0)
+    ctx.lineTo(100,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 200)
+    ctx.lineTo(1500,200)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(200,0)
+    ctx.lineTo(200,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 300)
+    ctx.lineTo(1500,300)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(300,0)
+    ctx.lineTo(300,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 400)
+    ctx.lineTo(1500,400)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(400,0)
+    ctx.lineTo(400,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 500)
+    ctx.lineTo(1500,500)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(500,0)
+    ctx.lineTo(500,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 600)
+    ctx.lineTo(1500,600)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(600,0)
+    ctx.lineTo(600,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 700)
+    ctx.lineTo(1500,700)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(700,0)
+    ctx.lineTo(700,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal [ 6 ]
+    ctx.beginPath()
+    ctx.moveTo(0, 800)
+    ctx.lineTo(1500,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical [ 8 ]
+    ctx.beginPath()
+    ctx.moveTo(800,0)
+    ctx.lineTo(800,840)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "red"
+    ctx.stroke()
+ 
+    // Vertical [ 9 ]
+    ctx.beginPath()
+    ctx.moveTo(840,0)
+    ctx.lineTo(840,860)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "yellow"
+    ctx.stroke()
+
+     let cor='blue'
+    // Vertical [ 10 ]
+    ctx.beginPath()
+    ctx.moveTo(1000,0)
+    ctx.lineTo(1000,850)
+    ctx.lineWidth =1
+    ctx.strokeStyle = cor;
+    ctx.stroke()
+
+    // Vertical [ 11 ]
+    ctx.beginPath()
+    ctx.moveTo(1100,0)
+    ctx.lineTo(1100,850)
+    ctx.lineWidth =1
+    ctx.strokeStyle = cor;
+    ctx.stroke()
+    // Vertical [ 12 ]
+    ctx.beginPath()
+    ctx.moveTo(1200,0)
+    ctx.lineTo(1200,850)
+    ctx.lineWidth =1
+    ctx.strokeStyle = cor;
+    ctx.stroke()
+
+    // Vertical [ 13 ]
+    ctx.beginPath()
+    ctx.moveTo(1300,0)
+    ctx.lineTo(1300,850)
+    ctx.lineWidth =1
+    ctx.strokeStyle = cor;
+    ctx.stroke()
+
+     // Vertical [ 14 ]
+    ctx.beginPath()
+    ctx.moveTo(1400,0)
+    ctx.lineTo(1400,850)
+    ctx.lineWidth =1
+    ctx.strokeStyle = cor;
+    ctx.stroke()
+}
+
+function mostraParede(){
+   //https://amelia.nyc3.digitaloceanspaces.com/0e42d86aefc24c98640d_led%2Btecla.jpg
+   const paredeFoto=document.getElementById("paredeFoto");      
+   ctx.drawImage(paredeFoto,380,70,280,280)
+}
+
+function Cabinho(){
+   const paredeFoto=document.getElementById("cabinho");      
+   ctx.drawImage(paredeFoto,750,600,150,150)
+}
+
+//https://amelia.nyc3.digitaloceanspaces.com/90cac59b821c2e1e557d_parede_duas42.jpg
+
+function Suites(){
+  let Mter=setInterval(suiteMaster,50)
+  //suiteMaster()
+  function suiteMaster(){
+      // suíte Master
+      const imgM=document.getElementById("imgMaster");
+      ctx.drawImage(imgM,20,200)
+      imgM.width='200vw';
+      imgM.height="auto";
+      clearInterval(Mter)
+      suite_01();
+    }
+
+    function suite_01(){
+      // Suíte 01
+      let S01=setInterval(suiteHum,400)
+      function suiteHum(){
+         const imgSuite01=document.getElementById("img01");      
+         ctx.drawImage(imgSuite01,440,400)
+         clearInterval(S01)
+         suite_02();
+      }
+    }
+
+     function suite_02(){
+         // Suíte 02
+            let S02=setInterval(suiteDois,400)
+         function suiteDois(){
+         const imgSuite02=document.getElementById("img02");      
+         ctx.drawImage(imgSuite02,800,180)
+         clearInterval(S02)
+         loadSuites()
+         }
+     };
+}
+function loadSuites(){
+    //imgAquec
+    let SAquec=setInterval(imgAquec,400)
+    function imgAquec(){
+        const imgAquec=document.getElementById("imgAquec");      
+        ctx.drawImage(imgAquec,1170,220)
+        clearInterval(SAquec);
+        imgCbox();
+    }
+}
+
+function imgCbox(){
+   // Caixa Box
+   let SCboxc=setInterval(CaixaBox,600);
+   function CaixaBox(){
+      const imgcBox=document.getElementById("imgCbox");      
+      ctx.drawImage(imgcBox,1370,170,80,140)
+      clearInterval(CaixaBox)
+      placaMaster();
+   }
+}
+
+function placaMaster(){
+   let M=setInterval(master,600)
+   function master(){
+      const imgplaca1=document.getElementById("placa42");      
+      ctx.drawImage(imgplaca1,360,360,80,80);
+      clearInterval(M)
+      placaSHum();
+   }
+}
+
+function placaSHum(){
+   let SH=setInterval(pHum,600)
+   function pHum(){      
+      const imgplaca2=document.getElementById("placa42");
+      ctx.drawImage(imgplaca2,680,580,80,80);  
+      clearInterval(SH)
+      placaSDois();
+   }
+}
+
+function placaSDois(){
+   let SD=setInterval(pDois,600)
+   function pDois(){
+     const imgplaca3=document.getElementById("placa42");      
+     ctx.drawImage(imgplaca3,1100,360,80,80);
+     clearInterval(SD)
+   }
+}
+//grade();
+
+// Variáveis sem uso.
+let isPressed = false;
+let mouseDownPos = null
+
+// determina onde o canvas foi clicado
+canvas.addEventListener('mousedown', function(e) {
+    // marcação dos pontos  left/top no camvas em relação atela.
+    isPressed = true
+    mouseDownPos = {
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop
+    }
+    /////////////////////////////////////////////////
+    
+    // formata o ponto para inicio da linha
+    const line = {
+        start: mouseDownPos,
+        end: mouseDownPos,
+    }
+
+    
+})
+
+canvas.addEventListener('click', function(e) {
+    // marcação dos pontos  left/top no camvas em relação atela.
+    isPressed = true
+    mouseDownPos = {
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop
+    }
+    /////////////////////////////////////////////////
+    
+    // formata o ponto para inicio da linha
+    const line = {
+        start: mouseDownPos,
+        end: mouseDownPos,
+    }
+
+    console.log(line)
+    let g=line.start.x
+    let h=line.start.y
+    console.log( g ,'-----',h)
+    if (g>600 & g < 750){
+       mostraLed();
+       suiteMaster();
+       piscaPisca();
+    }else if(g>1350 & h<350){
+       console.log(line)
+       piscaPisca();
+    }
+})
+
+function suiteMaster(){
+         let x=398;
+         let y=398;
+         ctx.beginPath()
+         ctx.arc(x,y,10,0,2 * Math.PI);
+         ctx.lineWidth=3;
+         ctx.fillStyle="#c37a05"
+         ctx.fill();
+         ctx.strokeStyle="#c37a05"
+         ctx.stroke();
+         suite01();
+
+          function suite01(){
+         let x=721;
+         let y=618;
+         ctx.beginPath()
+         ctx.arc(x,y,10,0,2 * Math.PI);
+         ctx.lineWidth=3;
+         ctx.fillStyle="#c37a05"
+         ctx.fill();
+         ctx.strokeStyle="#c37a05"
+         ctx.stroke();
+         suite02()
+       }
+
+       function suite02(){ 
+         let x=1138;
+         let y=392;
+         ctx.beginPath()
+         ctx.arc(x,y,10,0,2 * Math.PI);
+         ctx.lineWidth=3;
+         ctx.fillStyle="#c37a05"
+         ctx.fill();
+         ctx.strokeStyle="#c37a05"
+         ctx.stroke();
+       }
+
+}
+
+function mostraLed(){
+   console.log('BLZ')
+  // const imgplaca1=document.getElementById("placa42");      
+  // ctx.drawImage(imgplaca1,398,398,90,80);
+
+  // const imgplaca2=document.getElementById("placa42");
+  // ctx.drawImage(imgplaca2,721,618,90,80);  
+
+  // const imgplaca3=document.getElementById("placa42");      
+  // ctx.drawImage(imgplaca3,1138,392,90,80);
+   return
+   interruptorHum();
+   function interruptorHum(){
+      let x=398;
+      let y=398;
+      ctx.beginPath()
+      ctx.arc(x,y,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="yellow"
+      ctx.stroke();
+      //::::::::::::::::::::::::::::
+      ctx.beginPath()
+      ctx.arc(x-1,y,7,0,1.5 * Math.PI);
+      ctx.lineWidth=1;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="white"
+      ctx.stroke();
+
+      interruptorDois()
+   }
+
+   function interruptorDois(){
+      let x=721;
+      let y=618;
+      ctx.beginPath()
+      ctx.arc(x,y,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="yellow"
+      ctx.stroke();
+
+       //::::::::::::::::::::::::::::
+      ctx.beginPath()
+      ctx.arc(x-1,y,7,0,1.5 * Math.PI);
+      ctx.lineWidth=1;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="white"
+      ctx.stroke();
+      interruptorTres()
+  }
+
+  function interruptorTres(){
+      let x=1138;  
+      let y=392;
+      ctx.beginPath()
+      ctx.arc(x,y,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="yellow"
+      ctx.stroke();
+
+       //::::::::::::::::::::::::::::
+      ctx.beginPath()
+      ctx.arc(x-1,y,7,0,1.5 * Math.PI);
+      ctx.lineWidth=1;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="white"
+      ctx.stroke();
+  }
+}
+
+async function  piscaPisca(){
+   console.log('0000000000000000000000');
+   FixaAmarelo();
+   let t=0;
+   let h=0;
+   const P=setInterval(Amarela,1000)
+   function Amarela(){
+      let x=398;
+      let y=398;
+      ctx.beginPath()
+      ctx.arc(x,y,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+     // if (h==0){
+         ctx.fillStyle="yellow"
+         ctx.fill();
+         ctx.strokeStyle="yellow";
+     // }else{
+         ctx.fillStyle="red"
+         ctx.fill();
+         ctx.strokeStyle="red";
+     // }
+      ctx.stroke();
+      console.log('saindo amarelo')
+
+      let x1=721;
+      let y1=618;
+      ctx.beginPath()
+      ctx.arc(x1,y1,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+     // if (h==0){
+         ctx.fillStyle="yellow"
+         ctx.fill();
+         ctx.strokeStyle="yellow";
+     // }else{
+     //    ctx.fillStyle="red"
+     //    ctx.fill();
+     //    ctx.strokeStyle="red";
+     // }
+      ctx.stroke();
+
+      let x2=1138;
+      let y2=394;
+      ctx.beginPath()
+      ctx.arc(x2,y2,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+     // i//f (h==0){
+         ctx.fillStyle="yellow"
+         ctx.fill();
+         ctx.strokeStyle="yellow";
+     // }else{
+       //  ctx.fillStyle="red"
+       //  ctx.fill();
+        // ctx.strokeStyle="red";
+        Vermelha()
+      //}
+      ctx.stroke();
+     // if (h==1){
+     //    h=0;
+     // }else{
+     //    h=1;   
+     // }
+   }
+}
+
+function Vermelha(){    
+      console.log('entrando vermelho')
+      let x=398;
+      let y=398;
+      ctx.beginPath()
+      ctx.arc(x,y,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+      ctx.fillStyle="red"
+      ctx.fill();
+      ctx.strokeStyle="red"
+      ctx.stroke();
+      
+      let x1=721;
+      let y1=618;
+      ctx.beginPath()
+      ctx.arc(x1,y1,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+     // if (h==0){
+     //    ctx.fillStyle="yellow"
+     //    ctx.fill();
+     //    ctx.strokeStyle="yellow";
+     // }else{
+         ctx.fillStyle="red"
+         ctx.fill();
+         ctx.strokeStyle="red";
+     // }
+      ctx.stroke();
+
+       let x2=1138;
+      let y2=394;
+      ctx.beginPath()
+      ctx.arc(x2,y2,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+     // if (h==0){
+     //    ctx.fillStyle="yellow"
+     //    ctx.fill();
+     //    ctx.strokeStyle="yellow";
+     // }else{
+         ctx.fillStyle="red"
+         ctx.fill();
+         ctx.strokeStyle="red";
+        //Vermelha()
+     // }
+      ctx.stroke();
+     // if (h==1){
+     //    h=0;
+     // }else{
+     //    h=1;   
+     // }
+}
+
+function FixaAmarelo(){
+    const P=setInterval(FixYellow,100000);
+    function FixYellow(){
+      let x=405;
+      let y=785;
+      ctx.beginPath()
+      ctx.arc(x,y,8,0,2 * Math.PI);
+      ctx.lineWidth=3;
+      ctx.fillStyle="yellow"
+      ctx.fill();
+      ctx.strokeStyle="yellow";
+      ctx.stroke();
+    }
+    clearInterval(P)
+}
+
+function linhaA(){
+    let nAI=360;
+    nA=330; 
+    let A=setInterval(linhaAV, 300);
+    function linhaAV() {
+      if (nA>39){
+         ctx.beginPath()
+         ctx.moveTo(399, nAI)
+         ctx.lineTo(399,nA)
+         ctx.lineWidth = 5;
+         ctx.lineCap = 'round';
+         ctx.strokeStyle ="#c37a05";
+         ctx.stroke();
+         nAI=nA 
+         nA=nA - 30;
+      }else{    
+         clearInterval(A)
+         linhaAB(nA)
+      }
+   }
+
+   function linhaAB(nA){
+      nAB=nA +30
+      let AB=setInterval(linharetaH, 300);
+
+      function linharetaH(){
+         nAB=nAB+30
+         if (nAB<360){
+            ctx.beginPath()
+            ctx.moveTo(399, 60)
+            if(nAB==330){
+               nAB=320;
+            }
+            ctx.lineTo(399 + nAB,60)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ="#c37a05";
+            ctx.stroke() 
+            if(nAB==320){
+             clearInterval(AB)
+             linhaB();
+            }
+         }else{
+            console.log(' ACABOU AB => ',nAB)
+            clearInterval(AB)
+            linhaB();
+         }
+      }
+   }
+}
+
+function linhaB(){
+   nEletrA=399
+   let B=setInterval(linhaBV, 400);
+   function linhaBV(){
+         nEletrA=nEletrA+30
+         if (nEletrA<600){
+            ctx.beginPath()
+            ctx.moveTo(720, 60)
+            ctx.lineTo(720,nEletrA)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ="#c37a05";
+            ctx.stroke() 
+         }else{
+            clearInterval(B)
+            linhaC(nEletrA);
+         }
+      }
+}
+
+function linhaC(n){
+    nEletrB=n -30 
+    let C=setInterval(linhaCV, 450);
+    function linhaCV(){
+         if(nEletrB>(0)){
+            ctx.beginPath()
+            if(nEletrB==69){
+               nEletrB=60;
+            }
+            ctx.moveTo(730, 500)
+            ctx.lineTo(730,nEletrB)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ="#c37a05";
+            ctx.stroke() 
+            if(nEletrB==60){
+               clearInterval(C)   
+            }else{
+               nEletrB=nEletrB -30;
+            }   
+         }
+
+         if(nEletrB==60){
+            ctx.beginPath()
+            ctx.moveTo(730, 60)
+            ctx.lineTo(1125,60)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ="#c37a05";
+            ctx.stroke()
+            clearInterval(C)
+            linhaD()
+         }
+    }
+}
+
+function linhaD(){
+    nEletrC=0 
+    let C=setInterval(linhaDv,400)
+    function linhaDv(){
+      if (nEletrC<330){
+            ctx.beginPath()
+            ctx.moveTo(1130, 60)
+            ctx.lineTo(1130,60 + nEletrC)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ="#c37a05";
+            ctx.stroke()
+            nEletrC=nEletrC + 30  
+      }else if(nEletrC==330){
+          linhaE(nEletrC)
+          clearInterval(C);
+      }
+    } 
+}
+
+function linhaE(){
+      nEletrD=nEletrD - 30 
+      let E=setInterval(linhaEv,300)
+
+      function linhaEv(){
+        if (nEletrD>-330){
+            ctx.beginPath()
+            ctx.moveTo(1150, 360)
+            ctx.lineTo(1150,360 + nEletrD)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ="#c37a05";
+            ctx.stroke() 
+            nEletrD=nEletrD-30
+        }
+
+        if(nEletrD==-330){
+            clearInterval(E)
+            linhaEF()
+        }
+      }
+}
+
+function linhaEF(){
+      let linEf=1150 + 30;
+      let EF=setInterval(linhaEFH,400);
+      
+      function linhaEFH(){
+          ctx.beginPath()
+          ctx.moveTo(1150, 60)
+          ctx.lineTo(linEf,60)
+          ctx.lineWidth = 6;
+          ctx.lineCap = 'round';
+          ctx.strokeStyle ="#c37a05";
+          ctx.stroke() ;
+          linEf=linEf + 30;
+          //console.log('>>>>>>',linEf) 
+          if(linEf==1510){
+             clearInterval(EF)
+             linhaF();
+          }
+       }
+}
+
+function linhaF(){
+      let X1=1480;
+      let nf=0;
+      //let j=0;
+      dbox();
+      const DCB=setInterval(dbox,400);
+      function dbox(){
+        //console.log(j)
+        ctx.beginPath()
+        ctx.moveTo(X1, 60)
+        ctx.lineTo(X1,60 + nf)
+        ctx.lineWidth = 5;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle ='#c37a05';          //"";
+        ctx.stroke() ;
+        nf=nf+30;
+        //console.log('----------------',nf)
+        //j++;
+        if (nf==240){
+          clearInterval(DCB)
+          horizontalCbox()
+        }
+      }  
+
+}
+
+async function horizontalCbox(){
+
+            ctx.beginPath()
+            ctx.moveTo(1480,270)
+            ctx.lineTo(1440,270)
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle ='#c37a05'
+            ctx.stroke() 
+     
+  
+}
+
+
+</script>

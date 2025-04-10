@@ -1,0 +1,636 @@
+<style>
+  * {box-sizing: border-box}
+  body {font-family: Verdana, sans-serif; margin:0}
+
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    background: #ffffff;
+  }
+
+  /* Slides => Primeira Painel */
+  .SlidesPainelH {
+    display: none;
+    padding: 50px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .nextHum {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prevHum, .nextHum {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  .dotHum{
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: rgb(9, 135, 194);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+  }
+
+  /* Next & previous buttons */
+  .SlidesPainelD{
+    display: none;
+    padding: 50px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .prevDois, .nextDois {
+      cursor: pointer;
+      position: absolute;
+      top:50%;
+      width: auto;
+      margin-top: -30px;
+      padding: 16px;
+      color: #888;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .nextDois{
+    position: absolute; 
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+ 
+  .dotDois{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #c4c4c1;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+
+  .prev1:hover, .next1:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+
+  /* The dot/bullet/indicator container */
+ .dot-container{
+    text-align: center;
+    padding: 10px;
+    background: #ddd;
+  }
+
+  .dot-container1{
+    text-align: center;
+    padding: 5px;
+    background: #f3f1f1;
+  }
+
+  /* The dots/bullets/indicators */
+  .seta1{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: rgb(9, 135, 194);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  /* Add a background color to the active dot/circle */
+  .active, .dot:hover {
+    background-color: #ffffff;
+  }
+
+  /* Add an italic font style to all quotes */
+  q {font-style: italic;}
+
+  /* Add a blue color to the author */
+  .author {color: cornflowerblue;}
+  /*PAINEL 2 - MEIO/LADO ESQUERDO::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+  .painel-2-1{
+    width:7%;height:50vh;float:right;background-color: #ffffff;display:flex;flex-direction: column;justify-items: center;justify-content: center;
+  }
+
+  /*PAINEL 2 - MEIO/LADO DIREITO::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+  .painel-2-0{
+    width:7%;height:50vh;float:left;background-color: #ffffff;display:flex;flex-direction: column;justify-items: center;justify-content: center;
+  }
+
+  .base1{
+    width:100%;height:10vh;background-color: #ffffff;clear: both;overflow: auto;text-align:center;padding:2.5vh ;
+  }
+
+  .Slides10 {
+    display: none;
+    padding: 80px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .menuForm-a{
+    color:#ffffff;margin-left:10px;background-color: transparente;margin-top: -5px;text-decoration: none;
+  }
+
+  .linhaMenu{
+     height:3vh;margin-top:2px;font-size: smaller;
+  }
+
+</style>
+<style>
+.linhablockLojas{
+    padding: 0.6%;
+}
+
+.blockLoja{
+   width: 97%;height: 6vh;margin: auto;
+   font-size: 1vw;
+   background-color: #ffffff;color: #0138b8;
+   text-align: center;padding: 2vh;
+}
+
+.blockLoja button{
+   font-size: 0.8vw;border-radius: 6px;background-color: #008b8b;color: #f3f1f1; width: 99%;margin: auto;
+}
+
+.blockPesquisa{
+    width: 30%;height: 9vh;margin: auto;background-color:#ffffff ;
+    text-align: center;
+}
+.blockPesquisa_{
+    width: 40%;height: 9vh;margin: auto;background-color:#ffffff ;
+    text-align: center;
+}
+
+.guardaImg{
+   background-size: cover;
+   padding: 2px;
+}
+
+.guardaImg img{
+  background-size: cover;
+}
+
+.mySlides {display:block;}
+
+.myCla{
+   height: 50vh;
+}
+
+.mySlides1{
+   height: 50vh;
+}
+</style>
+{{!-- Controla a acordeon do menu lateral  --}}
+<style>
+    /* Style the buttons that are used to open and close the accordion panel */
+    .accordion {
+        background-color: #022c81;
+        color: #fbfafa;
+        cursor: pointer;
+        padding: 12px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .accordion:hover {
+       /* background-color: rgb(4, 214, 25);*/
+       background-color: #022c81;
+       color: #c4c4c1;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+        overflow: hidden;
+    }
+
+    .panel p{
+        color:#022c81;
+    }
+
+    .linhahum{
+       margin-top:10px;
+    }
+
+    a{
+       text-decoration: none;
+    }
+</style>
+{{!--Controla o movimentação dos link*/ --}}
+<style>
+      a:link {
+      text-decoration: none;
+    }
+
+    a:visited {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration:  none;
+      color: #ffffff;
+    }
+
+    a:active {
+      text-decoration: none;
+    }
+
+    
+
+   
+
+  
+  
+</style>
+{{!Esse form é o corpo da HOME}}
+<div class="d-flex" style="background-color: #100505;width: 100%;height: 165vh;margin-bottom: 20vh;">
+     {{!-- painel de lateral esquerdo para setor de atividades diversas ? --}}
+     <div id="paineis-left" class="lateralLeft" style="overflow-y: auto;width: 15%;height: 155vh;background-color: transparent;">
+          <div id="tituloSegmento" style="width:100% ;height:5vh;margin:auto;text-align:center; background-color:red;color:#ffffff;padding: 5px;
+                       border-bottom: 2px solid #ffffff;margin-bottom: 5px;">
+                <h1 style="font-size:larger;margin:auto;font-weight:400;">Segmentos</h1>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja" style="padding-top: 1vh;">
+                  <button style="cursor: not-allowed;" onclick="segmentoBusca('Material de Construção')">Material Construção</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Acabamento')">Acabamento</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Aquecimento')">Aquecimento</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Automação')">Automação</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Banheiros')">Banheiros</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Concreto')">Concreto</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Cozinhas')">Cozinhas</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Elétrica')">Elétrica</button>
+              </div>
+          </div>
+           <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Energia Solar')">Energia Solar</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Ferragens')">Ferragens</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Ferramentas')">Ferramentas</button>
+              </div>
+          </div>
+           <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Forro Telhados')">Forros Telhados</button>
+              </div>
+          </div>
+     
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Hidráulica')">Hidráulica</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Instrumentos')">Instrumentos</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Jardins Piscinas')">Jardins & Piscinas</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Gás')">Linha Gás</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Louças Sanitária')">Louças Sanitária</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Manutenção')">Manutenção</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Material Bruto')">Material Bruto</button>
+              </div>
+          </div>
+           <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Máquinas')">Máquinas</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Mão de Obra)">Mão de Obra</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Móveis Decor')">Móveis Decor</button>
+              </div>
+          </div>
+           <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Pisos Revestimentos')">Pisos Revestimentos</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Portas Janelas')">Portas Janelas</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Produtos Siderúgicos')">Produtos Siderúgicos</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Projetos Consultorias')">Projetos Consultorias</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Reciclagens')">Reciclagens</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja" >
+                  <button style="border: 2px solid #ffffff;" onclick="segmentoBusca('Serviço')">Serviço</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Tintas')">Tintas</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Utilidades')">Utilidades</button>
+              </div>
+          </div>
+          <div class="linhablockLojas">
+              <div class="blockLoja">
+                  <button onclick="segmentoBusca('Vidros')">Vidros</button>
+              </div>
+          </div>
+     </div>
+     {{!-- Painel Central de slidesShow --}}
+     <div id="painel-central" class="central" style="width: 65%;height: 155vh;overflow-y: auto;background-color:transparent;">
+           <div id="FontePesquisa" style="width: 62.7%;height: 10vh;margin: auto;background-color: #010849;display: flex;flex-direction: row;justify-content: space-between;position: fixed;margin-top: .06vh;z-index: 200;">
+               <div id="Localização" class="blockPesquisa" style="background-color: #010849;">
+                  <div style="display: flex;flex-direction:column ;justify-content:center ;background-color: #010849;height: 8vh;justify-items: center;width: 98%;">
+                   <h6 style="color:#ffffff;font-size: 1vw;">Escolha a cidade :</h6>
+                   <div style="font-size: 1vw;">
+                       <select>
+                         <option>todas cidades</option>
+                         <option>Cariacica</option>
+                         <option>Guarapari</option>
+                         <option>Serra</option>
+                         <option>Vila Velha</option>
+                         <option>Vitória</option>
+                       </select>
+                   </div>
+                  </div> 
+               </div>
+                <div id="InputPesquisa" class="blockPesquisa_" style="background-color: #010849;">
+                    <div style="display: flex;flex-direction:column ;justify-content:center ;background-color: #010849;height: 8vh;justify-items: center;width: 98%;">
+                     <div style="display: flex;flex-direction: row;margin-left:12px;width: 89%;padding-top: 5%;margin: auto;justify-content:center ;">
+                        <div style="width:62%;background-color:#da0e0e;display: flex;flex-direction: row;margin-right: 6px;">
+                            <input type="text" widht='600;' placeholder="digite o nome do produto" style="float:left;padding-top: 2px;background-color: #f9f6f8;width: 100%;font-size:1vw;">
+                        </div>
+                        <div class="" style="width: 20%;display: flex; flex-direction: row;justify-content:right;align-items: center;background-color:#ffffff;height:2.5rem;float: right;margin-right: 1px;">
+                            <div style="display: flex;align-items:flex-start;background-color: #038728;height:2.7rem;width: 100%;padding: 0.5rem;">
+                                <label style="margin-right: 10px;color:#ffffff;font-size: 1vw;" >Buscar</label>  
+                            </div>  
+                        </div>
+                        <div style="width: 10%;">
+                            <i class="fa fa-search" style="height: 2.4rem;width: 2.8rem;color:white;border:solid black 1px;background-color: black;border-radius:10px ;"></i>
+                        </div>
+                     </div> 
+                   </div>  
+                </div>
+                <div id="Importante" class="blockPesquisa" style="background-color: #010849;color: #ffffff;display: flex;flex-direction: column;justify-content:center;">
+                    <label style="font-size: 1vw;">Cidade Selecionada :</label>
+                    <div>
+                       <input type="text" style="width: 180px;height: 3vh;margin:auto ;">
+                    </div>
+               </div>
+           </div>
+           {{!-- ///////////////////////////////////////////////////////////////////////////////////////// --}}
+           <div  style="display:flex;flex-direction: column;justify-content: space-between;overflow-y: auto;">
+           
+            <div id="ofertaProdutoLinha1" style="width: 100%;height: 30vh;margin: auto;background-color:#a60404;display: flex;flex-direction: row;justify-content: space-between;margin-bottom:.4vh;margin-top: 11vh;padding: 6px;">
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;border-radius: 2px;">
+                  <img src="./img_publicidade/anunciosPreço/maqTrapp_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/carrinhoMão_0.png" style="margin: auto;display: flex;flex-direction: row;justify-content: space-around;" width="100%" height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/torneiraBancada_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                   <img src="./img_publicidade/anunciosPreço/alicatepressão_0.png" width=100% height="auto">
+               </div>
+           </div>
+           <div id="divisoria" style="width: 100%;height: 0.4vh;margin: auto;background-color: #12ef7d;margin-top: 1vh;"></div>   
+           <div id="ofertaProdutoLinha2" style="width: 100%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-content: space-between;margin-bottom:0.5vh;margin-top: 0.5vh;padding: 6px;">
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;border-radius: 2px;">
+                  <img src="./img_publicidade/anunciosPreço/maqTrapp_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/carrinhoMão_0.png" style="margin: auto;display: flex;flex-direction: row;justify-content: space-around;" width="100%" height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/torneiraBancada_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                   <img src="./img_publicidade/anunciosPreço/alicatepressão_0.png" width=100% height="auto">
+               </div>
+           </div>
+            <div id="ofertaProdutoLinha3" style="width: 100%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-content: space-between;margin-bottom:0.5vh;margin-top: 0.5vh;padding: 6px;">
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;border-radius: 2px;">
+                  <img src="./img_publicidade/anunciosPreço/maqTrapp_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/carrinhoMão_0.png" style="margin: auto;display: flex;flex-direction: row;justify-content: space-around;" width="100%" height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/torneiraBancada_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                   <img src="./img_publicidade/anunciosPreço/alicatepressão_0.png" width=100% height="auto">
+               </div>
+           </div>
+            <div id="ofertaProdutoLinha4" style="width: 100%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-content: space-between;margin-bottom:0.5vh;margin-top: 0.5vh;padding: 6px;">
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;border-radius: 2px;">
+                  <img src="./img_publicidade/anunciosPreço/maqTrapp_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/carrinhoMão_0.png" style="margin: auto;display: flex;flex-direction: row;justify-content: space-around;" width="100%" height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                  <img src="./img_publicidade/anunciosPreço/torneiraBancada_0.png" width=100% height="auto">
+               </div>
+               <div style="width: 24.4%;height: 29vh;margin: auto;padding-top: 0.25vh;background-color: transparente;border: 1px solid #888;">
+                   <img src="./img_publicidade/anunciosPreço/alicatepressão_0.png" width=100% height="auto">
+               </div>
+           </div>
+           <div id="carrocel1" style="width:100%;height:53vh;margin:auto;display:flex ;flex-direction: column;background-color:#d60707;margin-top:1.5vh;padding-bottom: 3px;justify-content: center;">
+               <div class="" style="width: 100%;background-color: #ca0909;height: 50vh;margin: auto;">
+                    <img class="mySlides1" src="./img_publicidade/galwan/galwan_marCaribe.png" style="width:100%">
+                    <img class="mySlides1" src="./img_publicidade/galwan/galwan_Ocean.png" style="width:100%">
+                    <img class="mySlides1" src="./img_publicidade/galwan/galwan_Pignaton.png" style="width:100%">
+                    {{!-- <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button> --}}
+                </div>
+           </div>      
+          </div>
+     </div>
+      {{!-- ===== Painel lateral Esquerdo de publicidade===   --}}
+     <div id="lateralRight" class="lateralRight" style="background-color:transparent;width: 20%;height: 165vh;padding-left: .5vw;">
+         <div id="painel-right-titulo" class="lateralRightTitulo" >
+              <h1 style="color:#000000;font-size: 1vw;">Anúncios</h1>
+         </div>
+         <div id="paineis-right-public" style="display: flex;flex-direction: column;justify-content:space-between ;justify-items: center;background-color: #000000;height: 145vh;">
+              <div id="paineis-right-box-1" class="" style="width: 100%;height: 30vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-content:space-between;">
+                  <div class="guardaImg" style="display: flex;flex-direction: column;justify-content:space-between;border:none">
+                      <img src="./img_publicidade/anuncios/pressurizador.png" width="100%" height="auto" alt="pressurizador 820">
+                  </div>  
+              </div>
+              <div id="paineis-right-box-2" class="" style="width: 100%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-content:space-around;";>
+                  <div class="guardaImg" style="background-color: #ffffff;border:none;" >
+                      <img src="./img_publicidade/anuncios/Kit_Chaminé_80_x_1.50.png" width="100%" height="auto" alt="kit-chaminé" >
+                  </div>  
+              </div>
+              <div id="paineis-right-box-3" class="" style="width: 100%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-content:space-around;" >
+                  <div style="background-color: #ffffff;border:none">
+                    <img src="./img_publicidade/anuncios/tubo_rigido.jpg" width="100%" height="auto" alt="tubo rígido">
+                  </div>  
+              </div>
+              <div id="paineis-right-box-4" class="" style="width: 100%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-content:space-around;">
+                  <div style="background-color: #ffffff;enable-background: 0%; cursor: not-allowed;background-size: cover;border:none;">
+                    <img src="./img_publicidade/anuncios/New Dritta 90 Cm.png" width="100%" height="auto" alt="coifa Dritta">
+                  </div>     
+              </div>
+              <div id="paineis-right-box-5" class="" style="width: 100%;height: 30vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-content:space-around;">
+                <div style="margin-top:4px;background-color: #ffffff;background-size: cover;border:none;">
+                  <img   src="./img_publicidade/anuncios/grelha_plastica_quadrada_fixa_sobrepor.png" width="100%" height="auto" alt="grelha plástica">
+                </div>     
+              </div>
+         </div>
+     </div>
+</div>
+{{!-- ////////////////////////////////////////////////////////////////////////// --}}
+<script>
+  var myIndex = 0;
+  carousel();
+
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("myCla");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 3000); // Change image every 2 seconds
+}
+</script>
+{{!-- //////////////////////////////////////////////////////////////////////// --}}
+<script>
+  var myIndex1 = 0;
+  carousel1();
+
+  function carousel1() {
+    var i;
+    var x1 = document.getElementsByClassName("mySlides1");
+    for (i = 0; i < x1.length; i++) {
+      x1[i].style.display = "none";  
+    }
+    myIndex1++;
+    if (myIndex1 > x1.length) {myIndex1 = 1}    
+    x1[myIndex1-1].style.display = "block";  
+    setTimeout(carousel1, 3000); // Change image every 2 seconds
+}
+
+</script>
+{{!-- /////////////////////////////////////////////////////////   --}}
+<script>
+  async function segmentoBusca(n){
+     console.log(n)
+     document.getElementById("nomeSegmentoId").value=n;
+     document.getElementById("btnEnviar").click();
+  }      
+</script>
+
+        
+
+        

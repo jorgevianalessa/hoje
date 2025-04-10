@@ -1,0 +1,61 @@
+<style>
+ .squala{
+    width: 90%;height: 86vh;margin: auto;background-color:transparent;margin-top: 5.5vh;
+ }
+
+ .squala_{
+    width: 60%;height: 85vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-items: center;padding: 30px;
+ }
+
+ .btnhome{
+    width: 220px;height: 60px;margin: auto;background-color: black;color:yellow;border-radius: 6px;
+ }
+
+ a{
+    text-decoration: none;color:yellow
+ }
+
+</style>
+
+
+<div class="d-flex squala" >
+   <div class="squala_">
+         <div><p style="font-size: small;color:rgb(171, 168, 171)">views/_animacao/ponto-4-home.handlebars</p></div>
+         <div style="width: 80%;height: 20vh;margin: auto;background-color:crimson;display: flex;flex-direction: column;justify-items: center;padding: 8px;">
+            <div style="display: flex;flex-direction: column;justify-content: center;background-color: crimson;text-align: center;">
+              <label>Entre com e-mail:</label>
+              <input type="email" style="width: 120px;height: 3vh;margin: auto;background-color: #ffffff;color:blue">
+            </div>  
+            <div style="display: flex;flex-direction: column;justify-content: center;background-color: crimson;text-align: center;margin-top: 1.5vh;">
+                 <label>Digite a senha</label>
+                 <input type="password" style="width: 120px;height: 3vh;margin: auto;background-color: #ffffff;color:blue">
+            </div>
+         </div>
+         <div style="width: 80%;height: 30vh;margin: auto;background-color: blue;color:#ffffff;display: flex;flex-direction: row;justify-content:space-around;padding: 12px;">
+              <div style="width: 40%;height: 15vh;margin: auto;background-color: #06a32b;display: flex;flex-direction: column;justify-items:auto ;">
+                    <label style="margin-left: 10%;height: 2.5vh;">nome :</label>
+                     <label style="margin-left: 10%;height: 2.5vh;">e-mail :</label>
+                    <label style="margin-left: 10%;height: 2.5vh;">senha :</label> 
+                    <label style="margin-left: 10%;height: 2.5vh;">profissão</label>
+              </div>
+              <div style="width: 60%;height: 15vh;margin: auto;background-color: gray;display: flex;flex-direction: column;justify-items:auto ;">
+                    <input style="margin-left: 2px;height: 3.5vh;" value="" placeholder="nome">
+                    <input style="margin-left: 2px;height: 3.5vh;" value="" placeholder="email">
+                    <input style="margin-left: 2px;height: 3.5vh;" value="" placeholder="senha">
+                    <select style="margin-left: 2px;height: 3.5vh;">
+                        <option>arquiteto</option>
+                        <option>engenheiro</option>
+                        <option>projetista</option>
+                        <option>usuário</option>
+                    </select>
+              </div>
+         </div>
+         <div style="width: 60%;height: 60vh;margin: auto;background-color: gray;margin-top: 1.5vh;margin-bottom: 1.5vh;display: flex;flex-direction: column;justify-items: center;visibility:visible;">
+            <button id="btn-hum" class="btnhome" onclick="document.getElementById('btnhum').style.backgroundColor='red'"><a  href="/produto/cadastro-cliente" >Cadastro cliente</a></button>
+            <button id="btn-dois" class="btnhome"><a href="/produto/upload-planta-cliente"> Imagem</a></button>
+            <button id="btn-tres" class="btnhome"><a href="/produto/menuAnimacao">Projeto</a></button>
+            <button id="btn-quatro" class="btnhome">Sair</button>
+        </div>
+   </div>
+
+</div>

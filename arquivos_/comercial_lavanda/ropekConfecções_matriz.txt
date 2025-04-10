@@ -1,0 +1,39 @@
+Código;Descrição;                 Detalhe;        Tecido;          Cor;                         Tamanho;          Qtd;         Preço;  
+1001;Macacão Bebê                ;-              ;Suedine          ;Elefante Azul                ;Rn/P/M/G/1       ;0.000     ;14.510
+1002;Macacão Bebê                ;-              ;Suedine          ;Algodão Rosa Elefante        ;0                ;0.000     ;2.650
+1003;Macacão Bebê                ;-              ;Suedine          ;Verde Elefante               ;0                ;0.000     ;3.090
+1004;Macacão Jardineira Infantil ;-              ;Suedine          ;Marinho Milk                 ;[Rn-M-1]         ;5.400     ;64.800
+1005;Macacão Jardineira Infantil ;-              ;Suedine          ;Bordô Coala                  ;Rn-P-M-G-1       ;0.20      ;0.000
+1006;Macacão Jardineira Infantil ;-              ;Suedine          ;Vermelho Ursinho             ;P-M-G            ;0.000     ;4.020
+1007;Conjunto Body Bebê          ;- Pagão        ;Canelado Longo   ;Branco                       ;P-G-1            ;2.000     ;5.710
+1008;Conjunto Body Bebê          ;- Pagão        ;Canelado Longo   ;Caramelo                     ;Rn-P-M1          ;0.000     ;41.540
+1009;Conjunto Body Bebê          ;- Pagão        ;Canelado Longo   ;Marinho                      ;0                ;1.000     ;65.960
+1010;Shorts Bermuda Infantil     ;- Saruel -     ;Suedine          ;Caramelo                     ;(Rn)(P)(M)(G)    ;0.000     ;38.000
+1011;Shorts Bermuda Infantil     ;- Saruel       ;Suedine          ;Rosa                         ;Rn-P-M-G         ;50.000    ;28.280
+1012;Shorts Bermuda Infantil     ;- Saruel       ;Suedine          ;Rosa Ursinho                 ;Rn-M-1           ;0.000     ;8.280
+1013;Macacão Bebê                ;- Estampa -    ;Soft             ;Flores                       ;Rn-M-1           ;40.443    ;12.329
+1014;Macacão Bebê                ;- Estampa -    ;Soft             ;Arco-Íris                    ;Rn-P-M-G-1       ;0.000     ;7.490
+1015;Macacão Bebê                ;- Estampa -    ;Soft             ;Unicórnio                    ;Rn.M.1           ;8.970     ;0.000
+1016;Conjunto Body Bebê Verão    ;- Com 3 Peças  ;Suedine -        ;Caramelo Pet                 ;Rn-P-M-G         ;0.000     ;3.310
+1017;Conjunto Body Bebê Verão    ;- Com 3 Peças  ;Suedine -        ;Marinho Estrela              ;Rn.P.M.G.1       ;36.270    ;36.700
+1018;Conjunto Body Bebê Verão    ;- Com 3 Peças  ;Suedine -        ;Pink Avião                   ;Rn-P-M-G-1       ;15.110    ;0.000
+1019;Macacão Bebê                ;- Malha Dupla  ;Poá              ;Rosa Bebê                    ;Rn.P.1           ;12.000    ;46.150
+1020;Macacão Bebê                ;- Malha Dupla  ;Poá              ;Amarelo Canário              ;Rn.M.1           ;0.000     ;24.830
+1021;Macacão Bebê Face Preto     ;- Malha Dupla  ;Poá              ;Branco                       ;Rn-P-M-G-1       ;0.00      ;6.880
+1022;Conjunto Infantil           ;- Capuz        ;Moletom          ;Azul Happy                   ;M.G.1            ;5.000     ;16.820
+1023;Conjunto Infantil           ;- Capuz        ;Moletom          ;Bordô Floresta               ;P/M/G/1          ;12.000    ;8.768
+1024;Conjunto Infantil           ;- Capuz        ;Moletom          ;Vermelho Pet                 ;M-G-1            ;0.000     ;9.660
+1025;Conjunto Body Bebê          ;- Longo        ;Poá              ;Listra Pink                  ;P-M-G-1          ;3.000     ;13.170
+1026;Conjunto Body Bebê          ;- Longo        ;Poá              ;Listra Lima                  ;M-G-1            ;19.000    ;40.610
+1027;Conjunto Body Bebê          ;- Longo        ;Poá              ;Listra Bordô                 ;0                ;0.000     ;6.280
+1028;Casaco Infantil             ;- Cardigan     ;Tricot           ;Goiaba Feminino              ;Rn/P/M/G/1       ;20.000    ;0.000
+1029;Casaco Infantil             ;- Cardigan     ;Tricot           ;Vermelho Feminino            ;Rn/P/M/G/1       ;20.000    ;0.000
+1030;Casaco Infantil             ;- Cardigan     ;Tricot           ;Pêssego                      ;Rn-P-M-G-1       ;20.000    ;0.000
+
+      soft -tecido sintético
+      estampa - impresso desenhos
+      suedine - malha de algodão
+      canelado longo - lista em relevo
+      poá - tecido de bolinhas
+      moleton - macio de algodão
+      pagão - calça com pezinho, casaco aberto e uma blusa que parece um coletinho

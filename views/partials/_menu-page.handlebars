@@ -1,0 +1,86 @@
+<style>
+.pagination{
+    display: inline-block;
+}    
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+a.active {
+  background-color: #ecedef;
+  color: white;
+}
+
+a:hover:not(.active) {background-color: #ddd;}
+</style>
+<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 2px 4px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #b8bcba;
+  color: black;
+}
+
+.next {
+  background-color: #b8bcba;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+<div id="myHeader" class=""  >
+    <div class="titulo-main" style="margin-top: -9px;background-color: #ffffff;height: 10vh;">
+            <div id="idTitulo"  style="display: flex;flex-direction: row;background-color: #ffffff;margin-top:-9px;height: 6vh;border-bottom: 1px #ccc solid;" >
+                <div id="logamarca" style="width: 33%;background-color: transparent;color:#efebeb;
+                                        text-align: left;padding-top: 7px;display: flex;flex-direction: row;height: 7vh;">
+                    <div style="width: 20%;height: 7.8vh;background-color:transparent;margin-left: 30px;">
+                        <img class="imgXY" src="../../img-lojista/lookBelle/logo123.png" alt="logo" class="responsivo" width="100%" height="80" style="" class="responsive">
+                    </div>
+                    <div>
+                      <button style="border: 0px;border-radius: 6px;background-color: #5f5e60;color: #ffffff;">Editar image</button>
+                    </div>
+                    {{container.id}}
+                </div>
+                <div id="tituloMain" class="" style="width: 34%;background-color:transparent;text-align: center;color:#325b80;height: 7vh;padding: 0.5vh;padding-top:1.5vh;">
+                    <h1 style="font-size:1vw;font-weight: lighter;color:#621a20;">{{container.razao}}</h1>
+                </div>
+                <div id="Voltar"   style="width: 33%;text-align: center;background-color:transparent;color:#ee1111;padding-top: 10px;display: flex;flex-direction: row;justify-content:center;height: 7vh;align-items: center;margin-right: 20px;">
+                    <div style="width: 50%;height: 4vh;background-color: #dc1515;color:#ffffff;font-size: 1.5rem;padding: 0.5vh;visibility:hidden;display: flex;flex-direction: row;justify-content: space-between;">
+                        <label id="pegaWidth"   style="background-color: #0453c1;color:#ffffff;width: 100px;text-align: center;" ></label>
+                        <label id="pegaHeight"  style="background-color: #038020;color:#ffffff;width: 100px;text-align: center;" ></label>
+                    </div> 
+                </div>
+               
+            </div>
+            <div style="display: flex;flex-direction: row;justify-content: space-between;border-bottom: #918e92 2px solid;margin-top: 6px;height: 3.5vh;">
+                    <div id="pagination" class="pagination"  style="background-color:transparent;height: 3vh;">
+                            <a href="/roupa/adminloja_container/{{container._id}}" style="color:#918e92;padding: 1px 2.5px;text-align: center;float:left;margin-left:0.5vw;text-decoration: none;width: 12vw;background-color:transparent;color:#5f5e60;border: 0px;">Admin</a>
+                            {{!-- <a href="/roupa/listatemporario/{{container._id}}" style="color:#918e92;padding: 1px 2.5px;text-align: center;float:left;text-decoration: none;width: 12vw;background-color: transparent;border: 0px;">Lista</a> --}}
+                            <a href="javascript:void(0);" class="icon" onclick="myFunction()" style="background-color: transparent;color:#ffffff;padding: 1px 2.5px;text-align: center;display: inline;float:left;visibility: hidden;">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                    </div>
+                    <div id="NextPrevious" class="pagination" style="float:right;margin-right:3vw;background-color:transparent;">
+                        <a href="/lojista/busca_previous/{{h.idproduto}}" class="previous" style="color:#5f5e60;padding: 1px 2.5px;text-align: center;float:left;width: 12vw;">&laquo; Previous</a>
+                        <a href="/lojista/busca_next/{{h.idproduto}}" class="next" style="color:#5f5e60;padding: 1px 2.5px;text-align: center;float:left;width: 12vw;">Next &raquo;</a>
+                    </div>
+            </div>
+    </div>
+</div> 

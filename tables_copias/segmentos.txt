@@ -1,0 +1,6 @@
+{"_id":{"$oid":"631cf8b247551956003cfcaa"},"segmento":"roupas","segmento_01":[],"createAt":{"$date":"2022-09-10T20:47:53.005Z"},"__v":0}
+
+{"_id":{"$oid":"631cf8c247551956003cfcb5"},"segmento":"móveis","segmento_01":[],"createAt":{"$date":"2022-09-10T20:47:53.005Z"},"__v":0}
+
+{"_id":{"$oid":"631cf92847551956003cfcd5"},"segmento":"construção civil","segmento_01":[],"createAt":{"$date":"2022-09-10T20:47:53.005Z"},"__v":0}
+{"_id":{"$oid":"631cf97347551956003cfcf7"},"segmento":"Roupas","segmento_01":[],"createAt":{"$date":"2022-09-10T20:47:53.005Z"},"__v":0}

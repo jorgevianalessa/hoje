@@ -1,0 +1,2958 @@
+<style>
+  .spaceModo{
+    display:block;width: 100vw;height: 91vh;margin: auto;background-color: #fa0aee;padding-top: 0.5vh;
+  }
+
+  .linhaCheia{
+     background-color: #8f0545;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaAmarela{
+     background-color:#232aee;
+     padding-left: 1vw;
+  }
+
+  .btnCliente{
+    width: 100%;height: 3vh;margin: auto;background-color: #ffffff;color:#f30c0c;
+  }
+
+  .listClient{
+     background-color: #ffffff;display: none;padding-top: 10px;
+     position: relative;top:0;left:0;z-index: 1000;
+  }
+
+  .gol{
+    width: 1.2%;
+    /*background-color: #eb1fd7;*/
+  }
+
+  .gol1{
+    display: none;
+  }
+
+  .zera{
+    display: none;
+  }
+
+  .faixa{
+    width: 99%;height: 15vh;margin: auto;display: flex;flex-direction:row;justify-content:space-betweenflex-start;margin-top:.1vh;padding-top: 0vh;background-color:#edeef3;
+  }
+  .col{
+    height: 14vh;margin: auto;display: flex;flex-direction: column;justify-items:center;padding-top: 3px;background-color: #a80d0d;justify-content: space-between;
+  }
+
+  .LinhaHum{
+    width:100%;height: 4vh;margin-left: .4vw;background-color: #999599;display: flex;flex-direction: row;justify-content:space-between;padding-left: .5vw;
+  }
+
+  .LinhaDois{
+    width:100%;height: 4vh;margin-left: .4vw;background-color: #999599;display: flex;flex-direction: row;justify-content:space-between;padding-left: .5vw;margin-top: .5vh;
+  }
+
+  .LinhaTres{
+     width:100%;height: 4vh;margin-left: .4vw;background-color: #999599;display: flex;flex-direction: row;justify-content:space-between;padding-left: .5vw;margin-top: .5vh;
+  }
+  tr{
+    height: 4vh;
+    background-color: #615f61;
+  }
+
+  .x12-par{
+     background-color: #918e8e;
+  }
+
+  .x12-impar{
+     background-color: #beb9b9;
+  }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.linNull{
+    color:#6b6a6a;
+}
+
+.linNull1{
+    color:#f3f308;
+}
+
+.linNone{
+    display: none;
+}
+
+.painelqte_{
+    width: 20%;height: 7vh;display: flex;flex-direction: column;justify-items: auto;padding-left: 1vw;background-color: transparent;
+}
+
+.painelqte_ label{
+    width: 40%;color:#ffffff;background-color:#295ee4;text-align: center;border-radius: 3px;font-size: medium;font-weight: 300;
+}
+.painelqte_ input{
+    width: 60%;border-radius: 3px;text-align: center;background-color: #ffffff;color:#295ee4;
+}
+.uni_{
+   width: 50%; 
+}
+
+.codigo_{
+    width: 50% 
+}
+.descri_{
+   width: 90% 
+}
+
+.btn_confirma{
+  width: 30%;border-radius: 6px;background-color: #295ee4;color:#ffffff;
+}
+
+.digite-letras{
+    width: 150px;
+}
+
+.linRed{
+   background-color:#8f0545; 
+}
+
+.foo{
+    writing-mode: vertical-rl;
+}
+
+.btnMenu{
+  background-color: #0b2f83;color: #ffffff;width:95%;padding-left: 15px;margin-bottom: 1vh;font-size: 0.6vw;font-weight: 100;text-align: left;  
+}
+
+.btnFoto{
+    width: 90px;background-color: #0b1ff5;color: #ffffff;border-radius: 5px;
+}
+
+.btnDelete{
+    width: 90px;background-color: #c10303;color: #ffffff;border-radius: 5px;
+}
+
+.btnclose{
+   height: 3vh;border-radius: 6px;width: 12vw;background-color: #0b2f83;color: #ffffff;
+}
+
+.divLabel{
+    width:45%;height: 30vh;margin: auto;display: flex;flex-direction: column;background-color:#a8a8b1;padding-right: 0.1vw;padding-top: 3vh;padding-left: 3vw;
+}
+
+.divLabel_{
+    background-color: #ffffff;width: 100%;margin-top: 6px;text-align: right;height: 3.3vh;float: right;padding-left: 8%;
+}
+
+.labelImage{
+  width: 6vw;height: 3.3vh;background-color: #ffffff;padding-right: 1vw;
+}
+
+.inputImage{
+    width: 12vw;height:3.3vh;text-align: right;padding-left: .5vw;margin-top: 6px;
+}
+
+.divCol2{
+    display: flex;flex-direction: row;width: 10vw;background-color: #434544;padding-left: 6px;height: 2.5vh;
+}
+
+.labelCol2{
+  width:6.5vw;height: 2.5vh;color:red;
+}
+
+.inputCol2{
+    width:4.5vw;text-align: center;background-color: #615f61;
+}
+
+.btnVisual{
+   background-color: #050fd7;
+   color:#ffffff;
+   border-radius: 4px; 
+   text-align: center;
+}
+.linhaVisual{
+   width: 3vw;
+   background-color: #ffffff;
+   text-align: center; 
+}
+
+.barraTable{
+    color:#cd0909;padding-left: 1vw;width: 5%;background-color: #ffffff;font-size: .7vw;
+}
+</style>
+
+<div class="d-fl" style="width: 100%;height: 93vh;margin: auto;margin-top:0.2rem;background-color: #dc1478bd;">
+    <input id="codigolojista" value="{{codigoLojista}}" type="text" style="display:block;background-color:#012a2abd;color:#ffffff;">
+    <div id="barraTitulo" style="width: 100%;height: 3vh;margin: auto;background-color: #012a2abd;text-align: center;">
+          <h2 style="color:#ffffff;font-size: 1.2vw;font-weight: 200;">Compras</h2>
+    </div>
+    <div id="querContabil" style="width: 100%;height: 100vh;margin: auto;background-color: #04a048;opacity: 0.9;position: absolute;z-index: 800;display: none;">
+        <div style="width:70vw;height: 70vh;margin: auto;background-color:#ffffff;margin-top: 15vh;border: 6px black solid;border-radius: 4px;display: flex;flex-direction: column;justify-items: flex-start;opacity: 1.9;">
+              <div style="width:45vw;height: 20vh;margin: auto;background-color: #ffffff;opacity: 2;">
+                   <div style="background-color: #ffffff;height: 6vh;margin-top: 2vh;text-align: center;">
+                     <label style="color:red;font-size: 1.6vw;font-weight: 300;">Você confirma a inclusão desse cliente no sistema contabil?</label>
+                   </div>
+                   <div style="background-color: #ffffff;height: 6vh;margin:auto;display: flex;flex-direction: row;justify-content: space-around;color:red;text-align: center;">
+                      <Label id="NomeNovoContabil" style="color:#080808;font-size:1.2vw;width: 20vw;height: 4vh;border-radius: 5px;background-color: #ffffff;border: gray 4px solid;border-radius: 6px;"></Label>
+                      <label id="NumeroNovoContabil" style="color: #080808;font-size:1.2vw;width: 20vw;height: 4vh;border-radius: 5px;background-color: #ffffff;border: gray 4px solid;border-radius: 6px;"></label>
+                   </div>
+              </div>
+              <div style="width:45vw;height: 2vh;margin: auto;background-color: #8b0404;opacity: 2;">
+
+              </div>
+               <div style="width:30vw;height: 20vh;margin: auto;background-color: #ffffff;padding: 12vh;display: flex;flex-direction: row;justify-items:center;">
+                     <button style="color:#ffffff;font-size:1.2vw;width: 10vw;height: 4vh;border-radius: 5px;background-color: #032c4e;margin-right: 5vw;" onclick="fechaContabil('s')">Sim</button>
+                     <button style="color:#ffffff;font-size:1.2vw;width: 10vw;height: 4vh;border-radius: 5px;background-color: #032c4e;" onclick="fechaContabil('n')">Não</button>
+              </div>
+        </div>
+ 
+    </div>
+     <div id="QteNegativa" style="width: 60vw;height: 20vh;background-color: #0b9432;display:none;padding: 0.5vw;margin-top: 150px;margin-left: 20vw;">
+        <div style="width: 100%;height: 2.5vh;margin: auto;display: flex;flex-direction: row;justify-content: right;">
+             <button style="color:#ffffff;font-size: 1vw;text-align: center;border: 0px;background-color: #0b9432;" onclick="escondeQteNegativa()">X</button>
+        </div>
+            <div style="width: 90%;height: 14vh;margin: auto;background-color:#ffffff;display: flex;flex-direction:column ;">
+                <div style="width: 90%;height: 4vh;margin: auto;background-color: ##0b9432;text-align: center;justify-items: center;">
+                    <div style="width: 98%;height: 3.5vh;margin: auto;background-color:transparent;display: flex;flex-direction: row;justify-content: space-around;">
+                         <div style="width: 30%;background-color: #0b9432;display: flex;flex-direction: row;justify-content:space-around;justify-items: center;padding-top: 0.3vh;">
+                            <label style="color: #ffffff;font-size: 0.7vw;font-weight: 400;margin-left: 20%;">Qte estoque</label>
+                            <input id="QteNegativaInput" type="text" style="padding-right: 1vw;width: 6vw;height: 3vh;text-align: right;">
+                        </div>
+                          <div style="width: 30%;background-color: #0b9432;display: flex;flex-direction: row;justify-content:space-around ;padding-top: 0.3vh;">
+                            <label style="color: #ffffff;font-size: 0.7vw;font-weight: 400;margin-left: 20%;">Qte pedida</label>
+                            <input id="QteNegativaInput" type="text" style="padding-right: 1vw;width: 6vw;height: 3vh;text-align: right;">
+                        </div>
+                        <div style="width: 30%;background-color: #0b9432;display: flex;flex-direction: row;justify-content:space-around ;padding-top: 0.3vh;">
+                            <label style="color: #ffffff;font-size: 0.7vw;font-weight: 400;margin-left: 20%;">Qte negativa</label>
+                            <input id="QteNegativaInput" type="text" style="padding-right: 1vw;width: 6vw;height: 3vh;text-align: right;">
+                        </div>
+                      
+                       
+                    </div>
+                </div>
+                <div id="divLabel" class="" style="width: 90%;height: 4vh;margin: auto;background-color: ##0b9432;text-align: center;">
+                     
+                        <label style="color: #010101;font-size: 1.5vw;font-weight: 400;">Quer manter a quantidade negativa?</label>
+                </div>    
+                <div id="divInput" style="width: 55%;height: 4vh;margin: auto;display: flex;flex-direction:row;background-color:transparent;padding-top:0.3vh;justify-content: space-around;">
+                         <button style="width: 30%;background-color: #04a048;color: #ffffff;border-radius: 6px;height: 2.5vh;">Sim</button>
+                        <button style="width: 30%;background-color: #04a048;color: #ffffff;border-radius: 6px;height: 2.5vh;">Não</button>
+                </div>
+            </div>
+    </div>
+    <div id="MostraFoto" style="width: 60vw;height: 38vh;background-color: #0b9432;display:none;padding: 0.5vw;margin-top: -100px;margin-left: 20vw;">
+        <div style="width: 100%;height: 3.5vh;margin: auto;display: flex;flex-direction: row;justify-content: right;">
+             <button style="color:#ffffff;font-size: 1.2vw;text-align: center;border: 0px;background-color: #06899a;" onclick="ocultaModatFoto()">X</button>
+        </div>
+        <div id="MostraFoto_" style="width: 98%;display:flex ;flex-direction: row;justify-content: space-around;margin-top: 1vh;background-color:#f01313;">
+            <div style="width: 45%;height: 30vh;margin: auto;background-color:#ffffff;display: flex;flex-direction:row ;">
+                <div id="divLabel" class="divLabel">
+                        <div class="divLabel_" style="">
+                            <label class="labelImage">qte</label>
+                        </div>
+                        <div class="divLabel_" > 
+                            <label class="labelImage">código</label>
+                        </div> 
+                        <div class="divLabel_" >
+                            <label class="labelImage">descrição</label>
+                        </div> 
+                        <div class="divLabel_" > 
+                            <label class="labelImage">preço</label>
+                        </div> 
+                        <div class="divLabel_" > 
+                            <label class="labelImage">total</label>
+                        </div> 
+                </div>    
+                <div id="divInput" style="width: 55%;height: 30vh;margin: auto;display: flex;flex-direction:column;background-color:#a8a8b1;padding-top: 3vh;">
+                        <input id="ImgqteId" value="" type="text" class="inputImage" >
+                        <input id="ImagecodigoProd" style="width: 12vw;display: none;" value="0">
+                        <input id="ImgcodigoId" value="" type="text" class="inputImage">
+                        <input id="ImgdescrId" value="" type="text" class="inputImage">
+                        <input id="ImgprecoId" value="" type="text" class="inputImage">
+                        <input id="ImgtotalId" value="" type="text" class="inputImage" >
+                </div>
+            </div>
+            <div id="divImage" style="width: 60%;height: 30vh;margin: auto;background-color: #0f0f0f;padding: 2%;">
+                <div class="painelqte_ uni_" style="width: 27vw;height: 27vh;margin: auto;background-color: #04a048;border-radius: 6px;border: 1px solid white;padding: 0.2vw;"> 
+                    <div style="width: 200px;height: 26vh;margin: auto; background-size: cover;background-color: #06899a;padding: 0.3vw;">
+                      <img id="imgProduto" src="" width="100%" height="auto" style="">
+                    </div>
+                </div>
+            </div>    
+        </div> 
+    </div>
+    <div id="painelConfirmQte" style="width: 60vw;height: 20vh;background-color: #2fea3c;display:none;padding: 0.5vw;margin-top: -110px;margin-left: 20vw;">
+        <div id="painelConfirmQte_01" style="width: 90%;height: 18vh;margin: auto;background:transparent;display: flex;flex-direction: column;justify-content: center;">
+            <div id="painelConfirmQte_02" style="display:flex ;flex-direction: row;justify-content: space-around;margin-top: 1vh;background-color:transparent;padding-top: .5vh;">
+                <div class="painelqte_ uni_">
+                    <label >qte</label>
+                    <input id="qteId" value="" type="text" >
+                </div>
+                <div class="painelqte_ codigo_"> 
+                <label >código</label>
+                <input id="codigoId" value="" type="text" >
+                </div> 
+                <div class="painelqte_ descri_" > 
+                <label >descrição</label>
+                <input id="descrId" value="" type="text" style="text-align: left;padding-left: .5vw;width: 90%;">
+                </div> 
+                <div class="painelqte_ uni_"> 
+                <label >preço</label>
+                <input id="precoId" value="" type="text" style="text-align: right;padding-right: .5vw;">
+                </div> 
+                <div class="painelqte_ uni_"> 
+                <label >total</label>
+                <input id="totalId" value="" type="text" style="text-align: right;padding-right: .5vw;" >
+                </div> 
+            </div> 
+            <div style="display: flex;flex-direction: column;justify-content: center;justify-items: auto;margin-top: 1vh;">
+                <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                    <label style="color: #ffffff;font-size: 2rem;font-weight: 200;">Está tudo certo ?</label>
+                </div>
+                <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                    <button id="idNao" onclick="document.getElementById('painelConfirmQte').style.display='none'" class="btn_confirma">Não</button>
+                    <button id="idSim" class="btn_confirma" onclick="registraQte()">Sim</button>
+                </div>      
+            </div>
+        </div>
+    </div>
+    <div id="Lateral_menu" style="width: 10vw;height: 88vh;margin-left:.1vw;background-color: #f66a07;position: absolute;left: 0;top:50;visibility:hidden;z-index: 1000;">
+        <div style="display:flex;flex-direction:row;justify-content: space-around;position: relative;left: 10;top:100;background-color:#000;">
+                <div style="width: 8vw;height: 88vh;background-color: #ffffff;display: flex;flex-direction: column;justify-content:space-around ;">
+                  
+                    <div style="height: 25vh;background-color:#ffffff;">
+
+                    </div>  
+                    <div style="display: flex;flex-direction: column;justify-content: space-around;">
+                        <ul style="background-color:#ffffff;width:100%;height: 35vh;list-style: none;margin: auto;display:block;padding-top: 6vh;line-height: 260%;padding-left:0.4vw;">
+                            <li ><button class="btnMenu" onclick="cadastroClient()" style="width: 8vw;height: 3vh;text-align: left;">Cadastrar fornecedores</button></li>
+                            <li><a href="/raqvendas/acesso_relatorio_vendas" class="btnMenu" onclick="relatorios()">Relatórios</a></li>
+                        </ul>
+                    </div>
+                    <div style="height: 25vh;background-color: #ffffff;"></div>  
+                </div>
+                <div id="faixaVertical_20" style="width: 2vw;height: 88vh;background-color: #295ee4;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;z-index: 800;">
+                    <button id="H2menuLateral" style="font-size: 1vw;text-align:end;color: #ffffff;border: none;background-color: transparent;font-weight: 100;" class="foo" >Menu lateral</button>
+                </div>  
+        </div>          
+    </div>
+    <div id="corpo" style="display: flex;flex-direction: column;background-color: #295ee4;width:100%;height: 90vh;margin: auto;justify-content:space-between;margin-top: -1px;">
+        <div id="corpo_main" style="width: 100%;height: 90vh;background-color: #ffffff;margin-left: 0vw;display: flex;flex-direction: row;">
+            <div id="menuLateral" style="width: 10vw;height: 88vh;margin-left:-8vw;background-color: #ffffff;display:flex;flex-direction:row;justify-content: space-between;">
+                <div style="width: 8vw;height: 88vh;background-color: #ffffff;display: flex;flex-direction: column;justify-content:space-around ;">
+                  
+                    <div style="height: 25vh;background-color: #ffffff;">
+
+                    </div>  
+                    <div style="display: flex;flex-direction: column;justify-content: space-around;">
+                    <ul style="background-color:#ffffff;width:100%;height: 35vh;list-style: none;margin: auto;display:block;padding-top: 6vh;line-height: 260%;padding-left:0.4vw;">
+                        <button style="background-color: #0b2f83;color: #ffffff;width:95%;padding-left: 15px;margin-bottom: 1vh;font-size: 0.6vw;font-weight: 100;text-align: left;">Cadastrar clientes</button>
+                        <button style="background-color: #0b2f83;color: #ffffff;width:95%;padding-left: 15px;margin-bottom: 1vh;font-size: 0.6vw;font-weight: 100;text-align: left;">Relatórios</button>
+                    </ul>
+                    </div>
+                    <div style="height: 25vh;background-color: #ffffff;"></div>  
+                </div>
+                <div id="faixaVertical" style="width: 2vw;height: 88vh;background-color: #295ee4;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;z-index: 800;">
+                    <h2 id="H2menuLateral" style="font-size: 1vw;text-align:end;color: #ffffff;" class="foo">Menu lateral</h2>
+                </div>    
+            </div>
+            <div id="corpoCentral" style="width: 100%;height: 88vh;margin: auto;display: flex;flex-direction: column;background-color:#012a2abd;justify-content:space-aroundcenter;padding-top: 0.5vh;">
+                <div id="painelQte" style="width: 80%;height: 12vh;margin: auto;background-color:#050fd7;position: absolute;top:50;z-index: 200;display:none;margin-left: 12vw;">
+                    <div style="background-color:transparent;width: 100%;height: 3.5vh;margin: auto;text-align: right;margin-bottom: 12px;padding-right: 10px;">
+                             <button style="font-size: 1vw;color:#ffffff;background-color: #f54d0b;" onclick="ocultaModalQte()">X</button>
+                    </div>
+                    <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                     <div style="display: flex;flex-direction:row ;justify-content:space-around;width: 80%;">
+                         <div class="painelqte_ uni_">
+                            <label style="background-color: transparent;">number</label>
+                            <input id="numberCaption" value="" type="text" style="background-color: #f66a07;">
+                         </div>
+                         <div class="painelqte_ uni_">
+                            <label style="background-color: transparent;">quatidade</label>
+                            <input id="qteCaption" value="" type="text" style="background-color: #f66a07;">
+                         </div>
+                         <div class="painelqte_ codigo_"> 
+                            <label style="background-color: transparent;" >código</label>
+                            <input id="codigoCaption" value="" type="text" >
+                         </div> 
+                         <div class="painelqte_ descri_"> 
+                            <label style="background-color: transparent;">descrição</label>
+                            <input id="descrCaption" value="" type="text" style="text-align: left;padding-left: .5vw;" >
+                         </div> 
+                         <div class="painelqte_ uni_"> 
+                            <label style="background-color: transparent;" >preço</label>
+                            <input id="precoCaption" value="" type="text" style="text-align: right;padding-right: .5vw;">
+                         </div> 
+                         <div class="painelqte_ uni_"> 
+                            <label style="background-color: transparent;">total</label>
+                            <input id="totalCaption" value="" type="text" style="text-align: right;padding-right: .5vw;" >
+                         </div> 
+                     </div>
+                    </div> 
+                </div>
+                <div id="container_Botoes" style="background-color: #0b2f83;">
+                    <div id="Btn_Cliente" style="width: 100%;height: 6vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;">
+                        <div id="SelectFornec" style="visibility: hidden;width:20%;background-color: #ffffff;padding-top: 1vh;">
+                            <div id="div_SelectClienteNovo" class="" style="display: flex;flex-direction: row;justify-content: space-between;width: 80%;float: left;height: 4vh;background-color: #ffffff;padding-left: 1%;">
+                                <div style="display: flex;flex-direction:row ;justify-content:space-between;background-color: #ffffff;color:#041f8a;width: 98%;height: 3.8vh;">
+                                    <div style="width: 50%;height: 4vh;margin: auto;background-color:transparent;padding-top: 1vh;">
+                                        <h2 id="btnClienteH2" style="font-size: 1vw;color:#ffffff;padding-left: 1vw;font-weight: 200;">Fornecedores :</h2>
+                                    </div>     
+                                    <div style="width: 50%;height: 3.6vh;margin: auto;background-color: #ffffff;padding-top: 0.2vh;">
+                                        <select id="IdFornecSelect" style="width: 100%;height: 3.2vh;margin: auto;font-size: 1vw;font-weight: 400;">
+                                            <option></option>
+                                            <option>Fabricante</option>
+                                            <option>Revenda</option>
+                                        </select>
+                                    </div>        
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Space1" style="width: 50%;display: block;background-color: #ffffff;"></div>
+                        <div style="width:20%;height:5.8vh;margin: auto;background-color: #ffffff;margin-left: 8vw;">
+                            <div id="div_SelectComprador" style="display: flex;flex-direction: column;justify-content: center;">
+                                <div style="background-color: transparent;height: 2vh;margin-bottom: 0.6vh;">
+                                    <label style="font-size: 1vw;color: #232aee;font-weight: 400;">Selecione comprador:</label>
+                                </div>
+                                <select id="selecVendedorId" style="width: 10vw;height: 3vh;font-size: 1vw;">
+                                    <option id="vazio"></option>
+                                    <option style="font-size: 1vw;">comprador 1</option>
+                                    <option style="font-size: 1vw;">comprador 2</option>
+                                    <option style="font-size: 1vw;">comprador 3</option>
+                                </select>
+                                <input id="VendedorselectedId" style="background-color: yellow;width: 6vw;display: none;" value="">
+                            </div> 
+                        </div>
+                    </div>
+                    <div id='Btn_Produtos' style="width: 100%;height: 3vh;margin: auto;background-color: #ffffff;color:#f30c0c">
+                            <button style="border: none;background-color: transparent;" onclick="mostraProduto()">
+                                <h2 id="h2Produtos" style="font-size: 1vw;color:#232aee;padding-left: 1vw;font-weight: 200;">Produtos :</h2>
+                            </button>
+                    </div>
+                    <div id="Btn_Pedido" style="width: 100%;height: 3vh;margin: auto;background-color: #ffffff;">
+                            <button style="border: none;background-color: transparent;" onclick="mostraPedido()">
+                                <h2 style="font-size: 1vw;color:#0b1ff5;padding-left: 1vw;font-weight: 200;">Pedido :</h2>
+                            </button>
+                    </div>
+                </div>
+                <div id="ListaFornec" class="listClient">
+                    <div id="ListaFornec_" style="width: 90vw;height: 36vh;margin:auto;background-color: #2721e1;display: flex;flex-direction: column;padding-top:.5vh;position: absolute;margin-left: 100px;top: 100;">
+                        <div style="width: 98%;height: 5vh;margin: auto;background-color:transparent;display: flex;flex-direction: row;justify-content: flex-start;padding-top: 0.5vh;">
+                            <div style="width: 40%;height: auto;margin-left: 15px;">
+                             <label style="color: #ffffff;font-size: 1.2vw;font-weight: 200;">Digite :</label>
+                             <input id="Id_digiteLetras" type="text" class="digite-letras" maxlength="3" >
+                            </div> 
+                        </div>
+                        <div id="tableFornec" style="width: 98%;height: 28vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                            <table id="table" style="width: 100%;height: 29vh;margin: auto;background-color: #e70a0a;margin-top: 6px;">
+                                <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                    <td class="barraTable" style="width: 1%">Ordem</td>
+                                    <td class="barraTable" style="display: none;">Id</td>
+                                    <td class="barraTable" style="width: 20%">Cliente</td>
+                                    <td class="barraTable" style="width: 14%">Endereço</td>
+                                    <td class="barraTable" style="width: 8%">Cidade</td>
+                                    <td class="barraTable" style="width: 8%">Bairro</td>
+                                    <td class="barraTable" style="width: 8%">CPf</td>
+                                    <td class="barraTable" style="width: 4%">Visualizar</td>
+                                </thead>
+                                <tbody id="X10">
+                                    <tr>
+                                      <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="ListaProduto" style="width: 92vw;background-color: #545353;display:none;margin-left: 4vw;padding-top: .5vh;">
+                    <div id="ListaProduto_" style="width: 91.5vw;height: 27vh;margin:auto;background-color: #2f32ea;display: flex;flex-direction: column;">
+                        <div style="display: flex;flex-direction: row;justify-content: space-around;padding-top: 0.4vh;">
+                            <div>
+                                <label style="color:#ffffff;">fornecedor :</label>
+                                <select style="width: 5vw;margin-left: 10px;">
+                                    <option>Eplax</option>
+                                </select>
+                                <input style="display: none;">
+                            </div>
+                            <div>
+                                <label style="color:#ffffff;">produto :</label>
+                                <input id="busclistId" type="text" style="width: 5vw;margin-left: 10px;" maxlength="3" >
+                            </div>
+                        </div>
+                        <div id="tableProduto" style="width: 100%;height: 27vh;margin: auto;background-color: #0b832b;color: #ffffff;overflow: auto;margin-top:0px;">
+                            <table id="table" style="width: 99%;height: 25vh;margin: auto;background-color: #000;">
+                                <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff;margin-top: -10px;">
+                                    <td style="color:#ffffff;width: 2%;padding-left: 6px;">Itens</td>
+                                    <td style="color:#ffffff;width: 4%;padding-left: 10px;">_Id</td>
+                                    <td style="color:#ffffff;width: 4%;padding-left: 10px;">Estoque </td>
+                                    <td style="color:#ffffff;width: 6%;padding-left: 20px;">Código </td>
+                                    <td style="color:#ffffff;width: 20%;padding-left: 25px;">Descrição </td>
+                                    <td style="color:#ffffff;width: 6%;padding-left: 18px;">Refer </td>
+                                    <td style="color:#ffffff;width: 6%;">Custo </td>
+                                    <td style="color:#ffffff;width: 6%;">Vista </td>
+                                    <td style="color:#ffffff;width: 6%;">Prazo </td>
+                                </thead>
+                                <tbody id="X11">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="ListaPedido" style="width: 100%;height: 66.5vh;margin: auto;background-color: #0b2f83;padding-top: .5vh;">
+                    <div id="ListaPedido_" style="width: 98vw;height: 62vh;margin-left:4px;background-color: #ffffff;display: flex;flex-direction: column;">
+                       
+                        <div id="tablePedido" style="width: 98%;height: 60vh;margin: auto;background-color: #0b2f83;color: #7d0b0b;overflow: auto;display: block;">
+                                <div id="faixa" class="faixa" style="width: 95vw;">
+                                    <div id="col1" class="col" style="background-color:#ffffff;width: 70vw;">
+                                        <div id="primeiraLinha" class="LinhaHum">
+                                            <div style="width: 73%;padding-left: .4vw;background-color:transparent;display: flex;flex-direction: row;justify-content: space-between;">
+                                                <caption style="color:#ffffff;font-size: medium;">razão/Fornecedor :</caption>
+                                                <input id="IdFornec" name="IdnumberFornec" value="" style="display:none;background-color: #0417e3;color:#ffffff">
+                                                <input id="NomeFornec" name="NomeFornece" value="" style="width:25vw;height: 3.5vh;margin-top: .3vh;">
+                                            </div>
+                                            <div style="width: 26%;padding-left: .4vw;background-color:transparent;">
+                                                <caption style="color:#ffffff;font-size: medium;">cnpj :</caption>
+                                                <input id="Cnpj" name="nameCnpj" value="" style="width:8vw;height: 3.5vh;margin-top: .3vh;background-color: #ffffff;text-align: center;">
+                                            </div>
+                                        </div>
+                                        <div id="segundaLinha" class="LinhaDois">
+                                            <div style="width: 60%;padding-left: .4vw;background-color:transparent;">
+                                                <label style="color:#ffffff;font-size: medium;color: #ffffff;">endereço :</label>
+                                                <input id="EndFornec" name="nameEndFornec" value="" style="width:22vw;height: 3.5vh;margin-top: .3vh;background-color:#ffffff;">
+                                            </div>
+                                            <div style="width: 22%;padding-left: .4vw;background-color:transparent;">
+                                                {{!-- {{headnota.bairro}} --}}
+                                                <caption style="color:#ffffff;font-size: medium;">bairro :</caption>
+                                                <input id="Bairro" value="" style="width:6.5vw;height: 3.5vh;margin-top: .3vh;" type="text">
+                                            </div>
+                                            <div style="width: 18%;padding-left: .4vw;background-color:transparent;">
+                                                <caption style="color:#ffffff;font-size: medium;">cep :</caption>
+                                                <input id="Cep"  value="" style="width:6vw;height: 3.5vh;margin-top: .3vh;text-align: center;">
+                                            </div>
+                                        </div>
+                                        <div id="terceiraLinha" class="LinhaTres" >
+                                            <div style="width: 38%;padding-left: .4vw;background-color:transparent;">
+                                                <caption >município :</caption>
+                                                <input id="Cidade" name="" value="" style="width:15vw;height: 3.5vh;margin-top: .3vh;">
+                                            </div>
+                                            <div style="width: 18%;padding-left: .4vw;background-color:transparent;">
+                                                <caption style="color:#ffffff;font-size: medium;">fone :</caption>
+                                                <input id="Celular" name="" value="" style="width:7vw;height: 3.5vh;margin-top: .3vh;margin-left: 5px;text-align: center;">
+                                            </div>
+                                            <div style="width: 15.6%;padding-left: .4vw;background-color:transparent;">
+                                                <caption style="color:#ffffff;font-size: medium;">uf :</caption>
+                                                <input id="Estado" name="" value="" style="width:6vw;height: 3.5vh;margin-top: .3vh;margin-left: 19px;text-align: center;">
+                                            </div>
+                                            <div style="width: 21.6%;padding-left: .4vw;background-color:transparent;">
+                                                <caption style="color:#ffffff;font-size: medium;">inscrição :</caption>
+                                                <input id="Inscricao" name="" value="" style="width:6vw;height: 3.5vh;margin-top: .3vh;margin-left: 5px;text-align: center;">
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div style="width: 24vw;display: flex;flex-direction: row;justify-content: space-between;background-color: #ffffff">
+                                       <div id="col2" style="width: 12vw;background-color:#ffffff;">
+                                                <div style="width: 10vw;height: 6vh;margin-left: .5vw;background-color: #ffffff;padding-top: 10px;text-align: center;">
+                                                    <div class="divCol2">
+                                                        <label class="labelCol2">Number :</label>
+                                                        <input id="IdNrPedido" name="numberNota" value="0" class="inputCol2">
+                                                    </div>
+                                                    <div class="divCol2">
+                                                        <label class="labelCol2">Linha :</label>  
+                                                        <input id="NumberLinha" value="0" class="inputCol2">
+                                                    </div>
+                                                    <div class="divCol2">
+                                                        <label class="labelCol2">Código Linha :</label> 
+                                                        <input id="CodigoLinha" value="0" class="inputCol2">
+                                                    </div>
+                                                    <div class="divCol2">
+                                                        <label class="labelCol2" >Código Painel :</label> 
+                                                        <input id="CodigoPainel" value="0" class="inputCol2">
+                                                    </div>
+                                                    <div class="divCol2">
+                                                        <label class="labelCol2">Linha select :</label> 
+                                                        <input id="SelectLinha" value="-1" class="inputCol2">
+                                                    </div>
+                                                </div>
+                                       </div>
+                                       <div id="col3" style="margin-right: 12px;width: 12vw;display: flex;flex-direction: row;justify-content: center;padding-top: 2vh;">
+                                            <div class="divCol2" style="width: 10vw;">
+                                                <label class="labelCol2">comprador :</label> 
+                                                <input id="IdComprador" value="0" class="inputCol2">
+                                            </div>
+                                       </div>
+                                    </div>
+                                 </div> 
+                                <table id="table" style="width: 100%;height: 25vh;margin: auto;background-color: #a4a0a0;margin-top: 1vh;padding-right: 1vw;">
+                                    <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                        <td style="color:#ffffff;width:.8vw;">Itens</td>
+                                        <td style="color:#ffffff;display: none;">Id</td>
+                                        <td style="color:#ffffff;text-align: center;">Qte</td>
+                                        <td style="color:#ffffff;text-align: center;">Código</td>
+                                        <td style="color:#ffffff;text-align: center;">Descrição</td>
+                                        <td style="color:#ffffff;text-align: center;">Refer</td>
+                                        <td style="color:#ffffff;text-align: center;">Fornec</td>
+                                        <td style="color:#ffffff;text-align: center;">Valor</td>
+                                        <td style="color:#ffffff;text-align: center;">Total</td>
+                                        <td style="color:#ffffff;text-align: center;width: 2vw;">Foto</td>
+                                        <td style="color:#ffffff;text-align: center;width: 2vw;margin-right: 5px">Delete</td>
+                                    </thead>
+                                    <tbody id="X12">
+                                        <tr id="x12-0" class="x12-par">
+                                            <td id="x12-0-a" >1</td>
+                                            <td id="x12-0-b" class="linNull linNone"></td>
+                                            <td id="x12-0-c" class="linNull" onclick="fixaqte('x12-0-c')">-</td>
+                                            <td id="x12-0-d" class="linNull">-</td>
+                                            <td id="x12-0-e" class="linNull">-</td>
+                                            <td id="x12-0-f" class="linNull">-</td>
+                                            <td id="x12-0-g" class="linNull">-</td>
+                                            <td id="x12-0-h" class="linNull">-</td>
+                                            <td id="x12-0-i" class="linNull" >-</td>
+                                            <td id="x12-0-j" class="linNull" ></td>
+                                            <td id="x12-0-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-1" class="x12-impar">
+                                            <td>2</td>
+                                            <td id="x12-1-b" class="linNull linNone">-</td>
+                                            <td id="x12-1-c" class="linNull" onclick="fixaqte('x12-1-c')">-</td>
+                                            <td id="x12-1-d" class="linNull">-</td>
+                                            <td id="x12-1-e" class="linNull">-</td>
+                                            <td id="x12-1-f" class="linNull">-</td>
+                                            <td id="x12-1-g" class="linNull">-</td>
+                                            <td id="x12-1-h" class="linNull">-</td>
+                                            <td id="x12-1-i" class="linNull"></td>
+                                            <td id="x12-1-j" class="linNull" ></td>
+                                            <td id="x12-1-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-2" class="x12-par">
+                                            <td>3</td>
+                                            <td id="x12-2-b" class="linNull linNone">-</td>
+                                            <td id="x12-2-c" class="linNull" onclick="fixaqte('x12-2-c')">-</td>
+                                            <td id="x12-2-d" class="linNull">-</td>
+                                            <td id="x12-2-e" class="linNull">-</td>
+                                            <td id="x12-2-f" class="linNull">-</td>
+                                            <td id="x12-2-g" class="linNull">-</td>
+                                            <td id="x12-2-h" class="linNull">-</td>
+                                            <td id="x12-2-i" class="linNull">-</td>
+                                            <td id="x12-2-j" class="linNull" ></td>
+                                            <td id="x12-2-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-3" class="x12-impar">
+                                            <td>4</td>
+                                            <td id="x12-3-b" class="linNull linNone">-</td>
+                                            <td id="x12-3-c" class="linNull" onclick="fixaqte('x12-3-c')">-</td>
+                                            <td id="x12-3-d" class="linNull">-</td>
+                                            <td id="x12-3-e" class="linNull">-</td>
+                                            <td id="x12-3-f" class="linNull">-</td>
+                                            <td id="x12-3-g" class="linNull">-</td>
+                                            <td id="x12-3-h" class="linNull">-</td>
+                                            <td id="x12-3-i" class="linNull">-</td>
+                                            <td id="x12-3-j" class="linNull" ></td>
+                                            <td id="x12-3-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-4" class="x12-par">
+                                            <td>5</td>
+                                            <td id="x12-4-b" class="linNull linNone">-</td>
+                                            <td id="x12-4-c" class="linNull" onclick="fixaqte('x12-4-c')">-</td>
+                                            <td id="x12-4-d" class="linNull">-</td>
+                                            <td id="x12-4-e" class="linNull">-</td>
+                                            <td id="x12-4-f" class="linNull">-</td>
+                                            <td id="x12-4-g" class="linNull">-</td>
+                                            <td id="x12-4-h" class="linNull">-</td>
+                                            <td id="x12-4-i" class="linNull">-</td>
+                                            <td id="x12-4-j" class="linNull" ></td>
+                                            <td id="x12-4-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-5" class="x12-impar">
+                                            <td>6</td>
+                                            <td id="x12-5-b" class="linNull linNone">-</td>
+                                            <td id="x12-5-c" class="linNull" onclick="fixaqte('x12-5-c')">-</td>
+                                            <td id="x12-5-d" class="linNull">-</td>
+                                            <td id="x12-5-e" class="linNull">-</td>
+                                            <td id="x12-5-f" class="linNull">-</td>
+                                            <td id="x12-5-g" class="linNull">-</td>
+                                            <td id="x12-5-h" class="linNull">-</td>
+                                            <td id="x12-5-i" class="linNull">-</td>
+                                            <td id="x12-5-j" class="linNull" ></td>
+                                            <td id="x12-5-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-6" class="x12-par">
+                                            <td>7</td>
+                                            <td id="x12-6-b" class="linNull linNone">-</td>
+                                            <td id="x12-6-c" class="linNull" onclick="fixaqte('x12-6-c')">-</td>
+                                            <td id="x12-6-d" class="linNull">-</td>
+                                            <td id="x12-6-e" class="linNull">-</td>
+                                            <td id="x12-6-f" class="linNull">-</td>
+                                            <td id="x12-6-g" class="linNull">-</td>
+                                            <td id="x12-6-h" class="linNull">-</td>
+                                            <td id="x12-6-i" class="linNull">-</td>
+                                            <td id="x12-6-j" class="linNull" ></td>
+                                            <td id="x12-6-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-7" class="x12-impar">
+                                            <td>8</td>
+                                            <td id="x12-7-b" class="linNull linNone">-</td>
+                                            <td id="x12-7-c" class="linNull" onclick="fixaqte('x12-7-c')">-</td>
+                                            <td id="x12-7-d" class="linNull">-</td>
+                                            <td id="x12-7-e" class="linNull">-</td>
+                                            <td id="x12-7-f" class="linNull">-</td>
+                                            <td id="x12-7-g" class="linNull">-</td>
+                                            <td id="x12-7-h" class="linNull">-</td>
+                                            <td id="x12-7-i" class="linNull">-</td>
+                                            <td id="x12-7-j" class="linNull" ></td>
+                                            <td id="x12-7-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-8" class="x12-par">
+                                            <td>9</td>
+                                            <td id="x12-8-b" class="linNull linNone">-</td>
+                                            <td id="x12-8-c" class="linNull" onclick="fixaqte('x12-8-c')">-</td>
+                                            <td id="x12-8-d" class="linNull">-</td>
+                                            <td id="x12-8-f" class="linNull">-</td>
+                                            <td id="x12-8-g" class="linNull">-</td>
+                                            <td id="x12-8-h" class="linNull">-</td>
+                                            <td id="x12-8-i" class="linNull">-</td>
+                                            <td id="x12-8-j" class="linNull" ></td>
+                                            <td id="x12-8-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-9" class="x12-impar">
+                                            <td>10</td>
+                                            <td id="x12-9-b" class="linNull linNone">-</td>
+                                            <td id="x12-9-c" class="linNull" onclick="fixaqte('x12-9-c')">-</td>
+                                            <td id="x12-9-d" class="linNull">-</td>
+                                            <td id="x12-9-e" class="linNull">-</td>
+                                            <td id="x12-9-f" class="linNull">-</td>
+                                            <td id="x12-9-g" class="linNull">-</td>
+                                            <td id="x12-9-h" class="linNull">-</td>
+                                            <td id="x12-9-i" class="linNull">-</td>
+                                            <td id="x12-9-j" class="linNull" ></td>
+                                            <td id="x12-9-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-10" class="x12-par">
+                                            <td>11</td>
+                                            <td id="x12-10-b" class="linNull linNone">-</td>
+                                            <td id="x12-10-c" class="linNull" onclick="fixaqte('x12-10-c')">-</td>
+                                            <td id="x12-10-d" class="linNull">-</td>
+                                            <td id="x12-10-e" class="linNull">-</td>
+                                            <td id="x12-10-f" class="linNull">-</td>
+                                            <td id="x12-10-g" class="linNull">-</td>
+                                            <td id="x12-10-h" class="linNull">-</td>
+                                            <td id="x12-10-i" class="linNull">-</td>
+                                            <td id="x12-10-j" class="linNull" ></td>
+                                            <td id="x12-10-l" class="linNull" ></td>
+                                        </tr>
+                                        <tr id="x12-11" class="x12-impar">
+                                            <td>12</td>
+                                            <td id="x12-11-b" class="linNull linNone">-</td>
+                                            <td id="x12-11-c" class="linNull" onclick="fixaqte('x12-11-c')">-</td>
+                                            <td id="x12-11-d" class="linNull">-</td>
+                                            <td id="x12-11-e" class="linNull">-</td>
+                                            <td id="x12-11-f" class="linNull">-</td>
+                                            <td id="x12-11-g" class="linNull">-</td>
+                                            <td id="x12-11-h" class="linNull">-</td>
+                                            <td id="x12-11-i" class="linNull">-</td>
+                                            <td id="x12-11-j" class="linNull" ></td>
+                                            <td id="x12-11-l" class="linNull" ></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="Fechamento" style="width: 95vw;height: 15vh;margin: auto;background-color:#ffffff;margin-top: 2vh;">
+                    <form action="/raqvendas/fechamentoNota" id="idfecha" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="background-color: #b1aeae;">
+                        <div style="padding-top: 2vh;background-color: #ffffff;height: 7vh;padding-left: 1vw;padding-right: 1vw;">
+                            <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                                <div style="width: 30%;background-color: #ffffff;">
+                                    <label style="padding-left: 2vw;color: #232aee;">condição de pagamento :</label>
+                                    <select id="selectPago" style="margin-top: .4vh;width:9vw;">
+                                        <option></option>
+                                        <option value="-1">vista / dinheiro</option>
+                                        <option value="0">pix</option>
+                                        <option value="1">cartão 1 x</option>
+                                        <option value="2">cartão 2 x</option>
+                                        <option value="3">cartão 3 x</option>
+                                        <option value="4">cartão 4 x</option>
+                                        <option value="5">cartão 5 x</option>
+                                        <option value="6">cartão 6 x</option>
+                                        <option value="7">cartão 7 x</option>
+                                        <option value="8">cartão 8 x</option>
+                                        <option value="9">cartão 9 x</option>
+                                        <option value="10">cartão 10 x</option>
+                                    </select>
+                                    <div style="display: flex;flex-direction: row;background-color: #c30a60;margin-bottom: 10px;width: 100px;">
+                                         <input id="IdCondpag" name="Nomecondpago" style="display:block;background-color: #04a048;">
+                                         <input id="IdNomecomprador" name="NomeVendedor" style="display: block;background-color: pink;">
+                                    </div>
+                                   
+                                    <div style="display: flex;flex-direction: row;background-color: #f2f204;width: 700px;">
+                                        {{!-- <div style="display: flex;flex-direction: row;background-color: #4a0ac3;width: 100px;"> --}}
+                                           <input id="IdnomeContabil" name="nomeContabil" style="display:block;background-color: #a022fa;width: 100px;" value="">
+                                           <input id="IdnumeroContabil" name="numeroContabil" style="display:block;background-color: #0417e3;color:#ffffff;width: 80px;text-align: center;" value="0" placeholder="nr contabil">
+                                        {{!-- </div> --}}
+                                        <input id="numeroItens" type="text" value="0" style="background-color: #000;color:#ffffff;width: 40px;">
+                                        <input id="IdnumeroFornec" name="_idClient" style="display:block;background-color: #dceb08;">
+                                        <input id="NumeroLoja" name="NumeroLoja" style="display:block;background-color: #dceb08;" value="{{codigoLojista}}">
+                                        <input id="NomeFornec_" name="NomeFornec_" style="background-color: #050fd7;color:red;display: block;">
+                                    </div>
+                                </div>
+                                <div style="width: 30%;background-color: #ffffff;">
+                                    <label style="margin-left: 10vw;color:#232aee;">entrega :</label>
+                                    <input id="Iddataentrega" name="DataEntrega" type="date" value="">
+                                </div>
+                                <div>
+                                    <button id="mudaCampo" onclick="AddField()" style="visibility:hidden;">Ok</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: row;justify-content: space-around;height: 6vh;background-color: #ffffff;padding-top: .5vh;">
+                            <div id='EscondeBtn' style="display: none;margin: auto;background-color: #ffffff;width: 30vw;height: 6vh;padding-top: 2vh;">
+                                <div style="display: flex;flex-direction: row;justify-content: space-around;">
+                                   <button class="btnclose">cancela</button>
+                                   <button id="buscContabil" class="btnclose"  type="button" onclick="fechamento()" style="background-color: red;">fechamento</button>
+                                </div>
+                            </div>
+                            <button id="btnClose" class="btnclose"  type="submit" style="display: none;"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+let q1=document.getElementById('qteCaption');
+let p1=document.getElementById('precoCaption');
+let t1=document.getElementById('totalCaption');
+
+function mostraCliente(){
+      console.log("Ei!")
+      let j=document.getElementById("btnClienteH2").style.color;
+      let palavra=j.length;
+      console.log(j)
+      if(j=="gray"){
+         alert("Primeiro conclua a nota! ou ")
+         return
+      }else{  
+        console.log(6)
+        let d= document.getElementById('ListaFornec');
+        let palavra=d.style.display;
+        if (palavra=="none"){
+            d.style.display="block";
+            document.getElementById("ListaProduto").style.display="none";
+            console.log(2000)
+            buscaFornec();
+        }else{
+            d.style.display="none";
+        }
+        
+      }
+    }
+
+function mostraProduto(){
+      console.log('&*&*')
+      // Essa rotina lista os produtos rferente ao fornecedor selecionado
+      let d= document.getElementById('ListaProduto');
+      d.style.position= 'absolute';
+      d.style.zIndex=200;
+     
+      d.style.marginTop=0;
+      let palavra=d.style.display;
+      if (palavra=="none"){
+        d.style.display="block";
+        let b=document.getElementById("NomeFornec").value;
+        if (b==""){
+            alert('Selecione o fornecedor  primeiro');
+            d.style.display="none";
+            document.getElementById('ListaFornec').style.display="block";
+            buscaFornec();
+        }else{
+            buscaProduto();
+        }
+      }else{
+        d.style.display="none";
+        document.getElementById("ListaFornec").style.display="none";
+      }
+    }
+
+function mostraPedido(){
+        document.getElementById("ListaFornec").style.display='none';
+        document.getElementById("ListaProduto").style.display="none";
+    }
+
+let pessoa=document.getElementById("IdFornecSelect");
+pessoa.addEventListener("click",function(event){
+    event.stopPropagation();
+    let z=pessoa.selectedIndex;
+    let y=pessoa.options;
+    let typeJuridico=y[z].text;
+   // let compradorNovo=y[z].text;
+   // let compradorAtual=document.getElementById("IdFornec").value;
+    // SE O FORNEC FOR VAZIO NÃO FAZ NADA.
+    if(typeJuridico===""){
+       limpaTudo();
+    }else{
+       document.getElementById('ListaFornec').style.display="none";
+       document.getElementById("IdnomeContabil").value=typeJuridico; 
+       buscaFornec(typeJuridico);  
+       //if (compradorNovo==compradorAtual){
+       //      document.getElementById("IdComprador").value=0;
+       //      limpaTudo();
+       //   }else{
+       //     limpaTudo();
+       //     console.log('novo comprador ',compradorNovo)
+       //     console.log('comprador atual ',compradorAtual)
+       //     document.getElementById("VendedorselectedId").value=compradorNovo;
+       //     document.getElementById("IdComprador").value=compradorNovo;
+       //     // VAI BUSCAR OS FORNECEDORES VINCULADOS
+       //     
+       //     document.getElementById("IdComprador").value=compradorNovo;
+       //  }
+    }        
+})
+
+// Busca a lista de clientes cadastrada para emissão da nota
+function buscaFornec(t){
+        console.log(' dentro de busca fornec    ');
+        console.log('tipo jurídico ',t)
+        limpaCaixa();
+        function limpaCaixa(){
+            let corpos;
+            corpos=document.getElementById("X10").children;
+            let c=corpos.length;
+            for (i=c-1;i>-1;i--){
+            corpos[i].remove();
+            }
+        }
+        let palavra=document.getElementById("codigolojista").value;
+        palavra=palavra + ":::" + t;
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //.....................................
+        //......................................
+        console.log(palavra)
+        try{
+                fetch(`${baseApiUrl}` + `/raqcompras/listaFornecCompras/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('[ 946 ]',json)
+                        let obj=json;
+                        let l=json.length;
+                        for(i=0;i<l;i++){
+                            console.log('lenght',l)
+                            console.log(obj[i]);
+                            console.log('__________________________________________________________');
+                            let letra=obj[i].contabil;
+                            let letra1=obj[i].razao;
+                            letra=letra + '-' + letra1;
+                            console.log(' letra',letra);
+                            console.log('');
+                            console.log('__________________________________________________________');
+                            const node=document.createElement('tr');
+                            node.setAttribute("id","linha" + '-' + i);
+                            node.setAttribute("class","linhaCheia");
+                            document.getElementById('X10').appendChild(node);
+
+                            // Ordem
+                            const node0=document.createElement('td');
+                            const textNode0=document.createTextNode(i+1);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                            // _id 
+                            const node1=document.createElement('td');
+                            const textNode1=document.createTextNode(obj[i]._id);
+                            let N=obj[i]._id
+                            node1.appendChild(textNode1);
+                            node1.setAttribute("class","linhaAmarela gol1");
+                            document.getElementById('linha' + '-' + i ).appendChild(node1);
+                            // Nome Razão
+                            const node2=document.createElement('td');
+                            const textNode2=document.createTextNode(obj[i].razao);
+                            node2.appendChild(textNode2);
+                            node2.setAttribute("onclick","transfer(" + "'" + N + "'" + ")");
+                            node2.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node2);
+                            // Endereço 
+                            const node3=document.createElement('td');
+                            const textNode3=document.createTextNode(obj[i].logradouro);
+                            node3.appendChild(textNode3);
+                            node3.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node3);
+                            // Cidade
+                            const node4=document.createElement('td');
+                            const textNode4=document.createTextNode(obj[i].cidade);
+                            node4.appendChild(textNode4);
+                            node4.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node4);
+                            // Bairro
+                            const node5=document.createElement('td');
+                            const textNode5=document.createTextNode(obj[i].bairro);
+                            node5.appendChild(textNode5);
+                            node5.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node5);
+
+                            console.log(29) 
+                            // CPF
+                            const node6=document.createElement('td');
+                            const textNode6=document.createTextNode(obj[i].cnpj);
+                            node6.appendChild(textNode6);
+                            node6.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node6);
+
+                            // Button Visualizar
+                            const node7=document.createElement('td');
+                            const textNode7=document.createTextNode('');
+                            node7.setAttribute("id","linha1" + '-' + i);
+                            node7.appendChild(textNode7);
+                            node7.setAttribute("class","linhaVisual");
+                            document.getElementById('linha' + '-' + i ).appendChild(node7);
+
+                            // Visualizar
+                            const node8=document.createElement('button');
+                            const textNode8=document.createTextNode('visualizar');
+                            node8.setAttribute("id","linha1" + '-' + i);
+                            node8.appendChild(textNode8);
+                            node8.setAttribute("class","btnVisual");
+                            document.getElementById("linha1" + '-' + i).appendChild(node8);
+
+                        }
+                        /////////////////////////////////////////////////////////////
+                        
+                        document.getElementById("ListaFornec").style.display="block";
+                        document.getElementById("Id_digiteLetras").style.backgroundColor="orange";
+                        document.getElementById("Id_digiteLetras").focus();
+                    })
+                    .catch((e)=>{
+                            console.log(e)
+                    })
+        }catch(er){
+            console.log(er)
+        }            
+    }
+
+// Busca os produtos para preencher o grid/lista para que o usuário selecionar o produto desejado 
+function buscaProduto(){
+        // Limpa a lista para buscar elementos novos
+        limpaCaixa();
+        function limpaCaixa(){
+            let corpos;
+            corpos=document.getElementById("X11").children;
+            let c=corpos.length;
+            for (i=c-1;i>-1;i--){
+              corpos[i].remove();
+            }
+        }
+        let n=document.getElementById("codigolojista").value;
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //......................................
+        try{
+            fetch(`${baseApiUrl}` + `/raqcompras/Pega_produtosParaSelect/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    ////////////////////////////
+                    let produto=json[0];
+                    console.log(produto);
+                    console.log('________________________________');
+                    let l=json[1];
+                    console.log(l);
+                    /////////////////////////////////////////
+                    let n1=document.getElementById('NumberLinha').value;
+                    ///////////////////////////////////////////////////
+                    // Preenche a lista de produtos para que o usuário faça a seleção desejada
+                    for(let i=0;i<l;i++){
+                        let N=produto[i]._id
+                        const node=document.createElement('tr');
+                        node.setAttribute("id","linhaP" + '-' + i);
+                        node.setAttribute("class","linhaCheia");
+                        document.getElementById('X11').appendChild(node);
+                        // Ordem
+                        const node0=document.createElement('td');
+                        const textNode0=document.createTextNode(i+1);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node0);
+                        // _id 
+                        const node1=document.createElement('td');
+                        const textNode1=document.createTextNode(produto[i]._id);
+                        node1.appendChild(textNode1);
+                        node1.setAttribute("onclick","SelectProduto(" + "'" + N + "'" + ")");
+                        node1.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node1);
+                        // Estoque
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(0);
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("class","linhaAmarela linRed");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node2);
+                        // Código
+                        const node3=document.createElement('td');
+                        const textNode3=document.createTextNode(produto[i].codigo);
+                        node3.appendChild(textNode3);
+                        node3.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node3);
+                        // Descrição
+                        const node4=document.createElement('td');
+                        const textNode4=document.createTextNode(produto[i].descricao + " " + produto[i].complete);
+                        node4.appendChild(textNode4);
+                        node4.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node4);
+                        // Refer 
+                        const node5=document.createElement('td');
+                        const textNode5=document.createTextNode(produto[i].referencia);
+                        node5.appendChild(textNode5);
+                        node5.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node5);
+                        // Custo 
+                        const node6=document.createElement('td');
+                        const textNode6=document.createTextNode(produto[i].precocusto);
+                        node6.appendChild(textNode6);
+                        node6.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node6);
+                        // Vista 
+                        const node7=document.createElement('td');
+                        const textNode7=document.createTextNode(produto[i].precovista);
+                        node7.appendChild(textNode7);
+                        node7.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node7);
+                        // Prazo
+                        const node8=document.createElement('td');
+                        const textNode8=document.createTextNode(produto[i].precoprazo);
+                        node8.appendChild(textNode8);
+                        node8.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node8);
+                    }
+                })
+                .catch((er)=>{
+                    console.log(er)
+                })
+        }catch(e){
+           console.log(e);
+        }            
+    }
+
+function checarNumber(){
+        let H=document.getElementById("X12");
+        const P=H.children;
+        let W=P.length;
+        console.log(W)
+        console.log(P[0])
+        let Q=P[0];
+        console.log('____________________________');
+        console.log('Q ==>',Q);
+        const T=Q.children;
+        console.log(' T ',T)
+        let F=T[1];
+        console.log('F =>',F)
+        let Y;
+        Y=F
+        Y.childNodes[0].innerHTML;
+        console.log('Y ',Y.childNodes.value)
+        let R=F[1].textContent;
+        console.log(R)
+        console.log('++++++++++++++++++++++++++')
+    }
+
+// Com o número do fornecedor vai busca no backend o  complemento da ficha cadastral para prencher o cabeçalho.
+function transfer(h){
+        // pega número do cliente e vai backend buscar os dados do cliente
+        // pegar os complementos com objetivos de preencher o cabeçãlho.
+        let n=document.getElementById("codigolojista").value;
+        let palavra=n + ":::" + h
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        //......................................
+        try{
+                fetch(`${baseApiUrl}` + `/raqcompras/fornec_Headrs/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log(json)
+                        let l=json.length;
+                        console.log('vr de l',l)
+                        if(l==0){
+                            alert('Não há clientes')
+                        }else{
+                            console.log("AQUI")
+                            document.getElementById("NomeFornec").value=json[0].razao;
+                            document.getElementById("NomeFornec_").value=json[0].razao;
+                            let endereço=json[0].logradouro + " , " + json[0].numero 
+                            document.getElementById("EndFornec").value=endereço;
+                            document.getElementById("IdFornec").value=json[0]._id;
+                            console.log('__________________________');
+                            console.log(json[0]._id);
+                            console.log('');
+                            let objet1=json[0]._id;
+                            console.log(objet1);
+                            document.getElementById("IdnumeroFornec").value=objet1;
+                        
+                            document.getElementById("Cnpj").value=json[0].cnpj;
+                            document.getElementById("Bairro").value=json[0].bairro;
+                            document.getElementById("Cep").value=json[0].cep;
+                            document.getElementById("Celular").value=json[0].celular;
+                            document.getElementById("Cidade").value=json[0].cidade;
+                            document.getElementById("Estado").value=json[0].estado;
+                            document.getElementById("Inscricao").value=json[0].inscricao;
+                            document.getElementById('ListaFornec').style.display='none';
+                            document.getElementById("h2Produtos").style.color="blue";
+                            gravandoHeaders();
+                        }    
+                    })
+                    .catch((er)=>{
+                        console.log('[ 822 => ]',er)
+                    })
+        }catch(e){
+           console.log(e)
+        }            
+    }
+
+// Vai buscar os itens que as 4 letras primeiras coincidem
+function SelectProduto(n){
+        ////////////////////////////////////////////////
+        // Após selecionado o produto na lista vai na tabela de produtos e editar como notafiscal=1;
+        // Após isso acrescenta o item na nota fiscal corrente.
+        // Em seguida acrecenta na table => X12
+        console.log('vr de n dentro de SelectProduto',n)
+        let Nproduto=n;
+        let b=document.getElementById("IdNrPedido").value;
+        let c=document.getElementById("VendedorselectedId").value;
+        let palavra=n + ":::" + b + ":<>:" + c;
+        console.log(palavra)
+        //////////////////////////////////////////////////////////
+        document.getElementById("ListaProduto").style.display="none"
+        //return
+        //////////////////////////////////////////////////////// 
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        /////////////////////////////////////////////////////////
+         try{
+                fetch(`${baseApiUrl}` + `/raqcompras/selectProdut/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        ///////////////////////////////////////////////
+                        console.log('967',json)
+                        let produto=json.itens;
+                        console.log(produto);
+                        let l=produto.length;
+                        console.log('l',l)
+                        ////////////////////////////////////////////////////////////////////
+                        //Limpa a tabela toda
+                        limpaCaixa();
+                        function limpaCaixa(){
+                            let corpos;
+                            corpos=document.getElementById("X12").children;
+                            let c=corpos.length;
+                            for (i=c-1;i>-1;i--){
+                            corpos[i].remove();
+                            }
+                        } 
+                        // monta a tabela toda
+                        function montacaixa(){
+                            for (let q=0;q<12;q++){
+                                 const node=document.createElement('tr');
+                                 node.setAttribute("id","x12-" + q);
+                                 node.setAttribute("class","linNull");
+                                 document.getElementById('X12').appendChild(node);
+
+                                 const node0=document.createElement('td');
+                                 const textNode0=document.createTextNode(q+1);
+                                 node0.appendChild(textNode0);
+                                 node0.setAttribute("id","x12-" + q + '-a');
+                                 node0.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node0);
+
+                                 const node1=document.createElement('td');
+                                 const textNode1=document.createTextNode(i+1);
+                                 node1.appendChild(textNode1);
+                                 node1.setAttribute("id","x12-" + q + '-b');
+                                 node1.setAttribute("class","linNull linNone");
+                                 document.getElementById("x12-" + q ).appendChild(node1);
+
+                                 const node2=document.createElement('td');
+                                 const textNode2=document.createTextNode(i+1);
+                                 node2.appendChild(textNode2);
+                                 node2.setAttribute("id","x12-" + q + '-c');
+                                 node2.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node2);
+
+                                 const node3=document.createElement('td');
+                                 const textNode3=document.createTextNode(i+1);
+                                 node3.appendChild(textNode3);
+                                 node3.setAttribute("id","x12-" + q + '-d');
+                                 node3.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node3);
+
+                                 const node4=document.createElement('td');
+                                 const textNode4=document.createTextNode(i+1);
+                                 node4.appendChild(textNode4);
+                                 node4.setAttribute("id","x12-" + q + '-e');
+                                 node4.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node4);
+
+                                 const node5=document.createElement('td');
+                                 const textNode5=document.createTextNode(i+1);
+                                 node5.appendChild(textNode5);
+                                 node5.setAttribute("id","x12-" + q + '-f');
+                                 node5.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node5);
+
+                                 const node6=document.createElement('td');
+                                 const textNode6=document.createTextNode(i+1);
+                                 node6.appendChild(textNode6);
+                                 node6.setAttribute("id","x12-" + q + '-g');
+                                 node6.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node6);
+
+                                 const node7=document.createElement('td');
+                                 const textNode7=document.createTextNode(i+1);
+                                 node7.appendChild(textNode7);
+                                 node7.setAttribute("id","x12-" + q + '-h');
+                                 node7.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node7);
+
+                                 const node8=document.createElement('td');
+                                 const textNode8=document.createTextNode(i+1);
+                                 node8.appendChild(textNode8);
+                                 node8.setAttribute("id","x12-" + q + '-i');
+                                 node8.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node8);
+
+                                 const node9=document.createElement('td');
+                                 const textNode9=document.createTextNode("");
+                                 node9.appendChild(textNode9);
+                                 node9.setAttribute("id","x12-" + q + '-j');
+                                 node9.setAttribute("class","linNull");
+                                 document.getElementById("x12-" + q ).appendChild(node9);
+
+                                 const node10=document.createElement('td');
+                                 const textNode10=document.createTextNode("");
+                                 node10.appendChild(textNode10);
+                                 node10.setAttribute("id","x12-" + q + '-l');
+                                 node10.setAttribute("class","linNull1");
+                                 document.getElementById("x12-" + q ).appendChild(node10);
+                            }
+                        }
+                        montacaixa()
+                        // Preenche a tabela de acordo  com o número de itens.
+                        for (let i=0;i<l;i++){
+                            console.log(produto[i])
+                            let X=document.getElementById("X12");
+                            console.log(X)
+                            document.getElementById("numeroItens").value=l;
+                            ///////////////////////////////////////////////////////
+                            let N=produto[i].IdProduto;
+                            console.log(' selectProdut !',N)
+                            console.log(' número da linha !',i);
+                            console.log(document.getElementById('x12-' + i + '-b'))
+                            document.getElementById('x12-' + i + '-b').innerHTML=produto[i].IdProduto;
+                            document.getElementById('x12-' + i + '-b').style.color="blue"
+                            ///////////////////////////////////////////////////////
+                            // Qte
+                            document.getElementById('x12-' + i + '-c').innerHTML=produto[i].qte;
+                            document.getElementById('x12-' + i + '-c').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-c').style.color="white";
+                            document.getElementById('x12-' + i + '-c').style.textAlign="center";
+                            
+                           // onclick="" setAttribute
+                            const XP=document.getElementById('x12-' + i + '-c');
+                            let codlin='x12-' + i + '-c'
+                            console.log('====>',codlin)
+                            XP.setAttribute("onclick","fixaqte(" + "'" + codlin + "'" + ")");
+                            //XP.setAttribute("onclick","foto(" + "'" + linhaTotal + "'" + ")");
+                           // XP.appendChild(nodeXP1)
+                            ///////////////////////////////////////////////////////////////////////////
+                            // Código
+                            document.getElementById('x12-' + i + '-d').innerHTML=produto[i].codigoProduto;
+                            document.getElementById('x12-' + i + '-d').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-d').style.color="white";
+                            /////////////////////////////////////////////////////////////////
+                            // Descrição
+                            document.getElementById('x12-' + i + '-e').innerHTML=produto[i].descricao;
+                            document.getElementById('x12-' + i + '-e').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-e').style.color="white";             
+                            ////////////////////////////////////////////////////////////////////////
+                            // Referência  
+                            document.getElementById('x12-' + i + '-f').innerHTML=0;
+                            document.getElementById('x12-' + i + '-f').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-f').style.color="white";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Custo  
+                            document.getElementById('x12-' + i + '-g').innerHTML=produto[i].custo;
+                            document.getElementById('x12-' + i + '-g').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-g').style.color="white";
+                            document.getElementById('x12-' + i + '-g').style.marginRight="8px";
+                            document.getElementById('x12-' + i + '-g').style.textAlign="right";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Venda  
+                            document.getElementById('x12-' + i + '-h').innerHTML=produto[i].custo;
+                            document.getElementById('x12-' + i + '-h').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-h').style.color="white";
+                            document.getElementById('x12-' + i + '-h').style.marginRight="8px";
+                            document.getElementById('x12-' + i + '-h').style.textAlign="right";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Total   
+                            document.getElementById('x12-' + i + '-i').innerHTML=produto[i].venda;
+                            document.getElementById('x12-' + i + '-i').style.backgroundColor="blue";
+                            document.getElementById('x12-' + i + '-i').style.color="white";
+                            document.getElementById('x12-' + i + '-i').style.marginRight="8px";
+                            document.getElementById('x12-' + i + '-i').style.textAlign="right";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Foto   
+                            const node11=document.createElement("button");
+                            const textNode11=document.createTextNode('Foto');
+                            node11.appendChild(textNode11);
+                            let linhaTotal=N + "-" + i;
+                            console.log('_______________________________');
+                            console.log(' [ 1200 ] ',linhaTotal);
+                            console.log('_______________________________');
+                            node11.setAttribute("onclick","foto(" + "'" + linhaTotal + "'" + ")");
+                            node11.setAttribute("class","btnFoto");
+                            document.getElementById('x12-' + i + '-j').appendChild(node11);
+                            ////////////////////////////////////////////////////////////////////////
+                            // Delete   
+                            const node12=document.createElement("button");
+                            const textNode12=document.createTextNode('Delete');
+                            node12.appendChild(textNode12);
+                            node12.setAttribute("onclick","delete1(" + "'" + N + "'" + ")");
+                            node12.setAttribute("class","btnDelete");
+                            document.getElementById('x12-' + i + '-l').appendChild(node12);
+                                                
+                            i=parseInt(i);
+                            document.getElementById("NumberLinha").value=i;
+                        }    
+                    })
+                    .catch((er)=>{
+                        console.log('[ 1048 ]',er)
+                    })
+        }catch(e){
+           console.log(e)
+        }    
+    }
+    
+// Ao selecionar o comprador busca-se os produtos que por ventura tenham sido selecionado previamente.
+// Ao selecionar o comprador a funcao 'buscaPendente()' pega os produtos já selecionados
+let selectVendedor=document.getElementById("selecVendedorId");
+selectVendedor.addEventListener("click",function(event){
+    event.stopPropagation();
+    let z=selectVendedor.selectedIndex;
+    let y=selectVendedor.options;
+    let compradorNovo=y[z].text;
+    let compradorAtual=document.getElementById("IdComprador").value;
+    // SE O VENDEDOR FOR VAZIO NÃO FAZ NADA.
+    if(compradorNovo===""){
+        //' passa'
+        limpaTudo();
+        //document.getElementById("btnClienteH2").style.color="blue";
+        //document.getElementById("btnClienteH2").style.visibility="hidden";
+    }else{
+         console.log('AQUI')
+         if (compradorNovo==compradorAtual){
+             //' fora'
+             document.getElementById("IdComprador").value=0;
+             limpaTudo();
+          }else{
+            limpaTudo();
+            console.log('novo comprador ',compradorNovo)
+            console.log('comprador atual ',compradorAtual)
+            document.getElementById("VendedorselectedId").value=compradorNovo;
+            document.getElementById("IdComprador").value=compradorNovo;
+            buscaPendente(compradorNovo)
+            document.getElementById("IdComprador").value=compradorNovo;
+         }
+        
+    }
+})
+
+// Essa função é acionada quando se seleciona o comprador.Ela vai buscar os produtos previamente selecionado.
+function buscaPendente(n){
+    console.log('');
+    console.log('busca Pendente');
+    let b=document.getElementById("IdNrPedido").value;
+    document.getElementById("mudaCampo").style.visibility="hidden";
+    let palavra=n + ":::" + b;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    console.log(" vr da palavra : ",palavra)
+    try{
+        fetch(`${baseApiUrl}` + `/raqcompras/buscaPendente/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(' [ 1485 ] ',json[0]);
+                console.log('');
+                console.log(' [ 1485 ] ',json[1]);
+                console.log('');
+                console.log('_________________________________________________')
+                if(json[1]==null){
+                     console.log('BELO!')
+                     limpaTudo();
+                     document.getElementById('SelectFornec').style.visibility="visible";
+                }else{
+                    let itensNota=json[0];
+                    let dadosFornec=json[1];
+                    let l=dadosFornec.length;
+                   // document.getElementById("IdnomeContabil").value=dadosFornec.pessoa;
+                   // console.log(dadosFornec.contabil.cta)
+                   // let k=dadosFornec.contabil.cta;
+
+                   // if(k==undefined){
+                   //    document.getElementById("IdnumeroContabil").value=0;    
+                   // }else{
+                   //    document.getElementById("IdnumeroContabil").value=dadosFornec.contabil.cta;
+                   // }   
+
+                    document.getElementById('btnClienteH2').style.visibility="hidden";
+                    document.getElementById("NomeFornec").value=dadosFornec.razao;
+                    console.log(dadosFornec.razao)
+                    document.getElementById("NomeFornec_").value=dadosFornec.razao;
+                    document.getElementById("NomeFornec_").style.backgroundColor="red";
+                    document.getElementById("NomeFornec_").style.color="white";
+                    
+                    document.getElementById("NomeFornec").style.backgroundColor="green";
+                    document.getElementById("NomeFornec").style.color="white";
+                    let endereço=dadosFornec.logradouro + " , " + dadosFornec.numero 
+                    document.getElementById("EndFornec").value=endereço;
+                    document.getElementById("EndFornec").style.backgroundColor="green";
+                    document.getElementById("EndFornec").style.color="white";
+                    document.getElementById("IdFornec").value=dadosFornec._id;
+                    document.getElementById("IdnumeroFornec").value=dadosFornec._id
+                    document.getElementById("Cnpj").value=dadosFornec.cnpj;
+                    document.getElementById("Cnpj").style.backgroundColor="green";
+                    document.getElementById("Cnpj").style.color="white";
+                    document.getElementById("Bairro").value=dadosFornec.bairro;
+                    document.getElementById("Bairro").style.backgroundColor="green";
+                    document.getElementById("Bairro").style.color="white";
+                    document.getElementById("Cep").value=dadosFornec.cep;
+                    document.getElementById("Cep").style.backgroundColor="green";
+                    document.getElementById("Cep").style.color="white";
+                    document.getElementById("Celular").value=dadosFornec.celular;
+                    document.getElementById("Celular").style.backgroundColor="green";
+                    document.getElementById("Celular").style.color="white";
+                    document.getElementById("Cidade").value=dadosFornec.cidade;
+                    document.getElementById("Cidade").style.backgroundColor="green";
+                    document.getElementById("Cidade").style.color="white";
+                    document.getElementById("Estado").value=dadosFornec.estado;
+                    document.getElementById("Estado").style.backgroundColor="green";
+                    document.getElementById("Estado").style.color="white";
+                    document.getElementById("Inscricao").value=dadosFornec.inscricao;
+                    document.getElementById("Inscricao").style.backgroundColor="green";
+                    document.getElementById("Inscricao").style.color="white";
+                    document.getElementById('ListaFornec').style.display='none';
+                    document.getElementById("h2Produtos").style.color="blue";
+
+                    let Itens=itensNota;
+                    Itens=Itens.itens
+                    let c=Itens.length;
+                    document.getElementById("numeroItens").value=c;
+                    for(let lin=0;lin<(c);lin++){
+                            let lin=document.getElementById("NumberLinha").value;
+                            let X=document.getElementById("X12");
+                            ///////////////////////////////////////////////////////
+                            console.log(' vr lin ',lin)
+                            console.log(' 1401 buscas linha pendente ',Itens[lin]);
+                            let N=Itens[lin].IdProduto;
+                            document.getElementById('x12-' + lin + '-b').innerText=N;
+                            document.getElementById('x12-' + lin + '-b').style.color="blue"
+                            ///////////////////////////////////////////////////////
+                            // Qte
+                            document.getElementById('x12-' + lin + '-c').innerHTML=Itens[lin].qte;
+                            document.getElementById('x12-' + lin + '-c').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-c').style.color="white";
+                            document.getElementById('x12-' + lin + '-c').style.textAlign="center";
+                            ///////////////////////////////////////////////////////////////////////////
+                            // Código
+                            document.getElementById('x12-' + lin + '-d').innerHTML=Itens[lin].codigoProduto;
+                            document.getElementById('x12-' + lin + '-d').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-d').style.color="white";
+                            /////////////////////////////////////////////////////////////////
+                            // Descrição
+                            document.getElementById('x12-' + lin + '-e').innerHTML=Itens[lin].descricao ;
+                            document.getElementById('x12-' + lin + '-e').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-e').style.color="white";             
+                            ////////////////////////////////////////////////////////////////////////
+                            // Referência  
+                            document.getElementById('x12-' + lin + '-f').innerHTML=0;
+                            document.getElementById('x12-' + lin + '-f').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-f').style.color="white";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Custo  
+                            document.getElementById('x12-' + lin + '-g').innerHTML=Itens[lin].custo;
+                            document.getElementById('x12-' + lin + '-g').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-g').style.color="white";
+                            document.getElementById('x12-' + lin + '-g').style.marginRight="8px";
+                            document.getElementById('x12-' + lin + '-g').style.textAlign="right";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Venda  
+                            document.getElementById('x12-' + lin + '-h').innerHTML=Itens[lin].custo;
+                            document.getElementById('x12-' + lin + '-h').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-h').style.color="white";
+                            document.getElementById('x12-' + lin + '-h').style.marginRight="8px";
+                            document.getElementById('x12-' + lin + '-h').style.textAlign="right";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Total   
+                            document.getElementById('x12-' + lin + '-i').innerHTML=Itens[lin].venda;
+                            document.getElementById('x12-' + lin + '-i').style.backgroundColor="blue";
+                            document.getElementById('x12-' + lin + '-i').style.color="white";
+                            document.getElementById('x12-' + lin + '-i').style.marginRight="8px";
+                            document.getElementById('x12-' + lin + '-i').style.textAlign="right";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Foto   
+                            const node=document.createElement("button");
+                            const textNode=document.createTextNode('Foto');
+                            node.appendChild(textNode);
+                            node.setAttribute("onclick","foto(" + "'" + N + lin +  "'" + ")");
+                            node.setAttribute("class","btnFoto");
+                            document.getElementById('x12-' + lin + '-j').appendChild(node);
+                            ////////////////////////////////////////////////////////////////////////
+                            // Delete   
+                            const node1=document.createElement("button");
+                            const textNode1=document.createTextNode('Delete');
+                            node1.appendChild(textNode1);
+                            node1.setAttribute("onclick","delete1(" + "'" + N + "'" + ")");
+                            node1.setAttribute("class","btnDelete");
+                            document.getElementById('x12-' + lin + '-l').appendChild(node1);
+                                            
+
+                            lin=parseInt(lin)+1;
+                            document.getElementById("NumberLinha").value=lin;
+                            document.getElementById('Btn_Produtos').style.display="block";
+                    }        
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }catch(e){
+        console.log(e)
+    }    
+}
+
+// Essa função busca produtos que contém a sequência de letras(4) atrávez da função pegaProduto
+let buscA=document.getElementById('busclistId');
+buscA.addEventListener("keypress",function(event){
+         let letras=buscA.value;
+         let l=letras.length;
+         ////////////////////////
+         if(i==3){
+            event.stopPropagation();
+            let key=event.which;
+            if(key==13){
+            pegaProduto(letras)
+            }
+         }
+    })
+
+// Essa função é acionada pela função acima para pegar os produtos de acordo com as letras  inseridas.
+function pegaProduto(letras){
+    let a=document.getElementById("codigolojista").value;
+    letras=a + letras;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    //////////////////////////////////////////////////////////////////
+    try{
+            fetch(`${baseApiUrl}` + `/raqvendas/produtoLetras/${letras}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    console.log(json)
+                    let produto=json;
+                    let l=json.length;
+                    limpaCaixa();
+                    function limpaCaixa(){
+                        let corpos;
+                        corpos=document.getElementById("X11").children;
+                        let c=corpos.length;
+                        for (i=c-1;i>-1;i--){
+                        corpos[i].remove();
+                        }
+                    }
+                    
+                    for(let i=0;i<l;i++){
+                        const node=document.createElement('tr');
+                        node.setAttribute("id","linhaP" + '-' + i);
+                        node.setAttribute("class","linhaCheia");
+                        document.getElementById('X11').appendChild(node);
+
+                        // Ordem
+                        const node0=document.createElement('td');
+                        const textNode0=document.createTextNode(i+1);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node0);
+                                              
+                        // _id 
+                        const node1=document.createElement('td');
+                        const textNode1=document.createTextNode(produto[i]._id);
+                        let N=produto[i]._id
+                        node1.appendChild(textNode1);
+                        node1.setAttribute("class","linhaAmarela gol1");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node1);
+                               
+                        // Estoque
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(0);
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node2);
+                        
+                        // Código
+                        const node3=document.createElement('td');
+                        const textNode3=document.createTextNode(produto[i].codigo);
+                        node3.appendChild(textNode3);
+                        node3.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node3);
+
+                        // Descrição
+                        const node4=document.createElement('td');
+                        const textNode4=document.createTextNode(produto[i].descricao + " " + produto[i].complete);
+                        node4.appendChild(textNode4);
+                        node4.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node4);
+
+                        // Refer 
+                        const node5=document.createElement('td');
+                        const textNode5=document.createTextNode(produto[i].referencia);
+                        node5.appendChild(textNode5);
+                        node5.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node5);
+
+                        // Custo 
+                        const node6=document.createElement('td');
+                        const textNode6=document.createTextNode(produto[i].precocusto);
+                        node6.appendChild(textNode6);
+                        node6.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node6);
+
+                        // Vista 
+                        const node7=document.createElement('td');
+                        const textNode7=document.createTextNode(produto[i].precovista);
+                        node7.appendChild(textNode7);
+                        node7.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node7);
+
+                        // Prazo
+                        const node8=document.createElement('td');
+                        const textNode8=document.createTextNode(produto[i].precoprazo);
+                        node8.appendChild(textNode8);
+                        node8.setAttribute("class","linhaAmarela");
+                        document.getElementById('linhaP' + '-' + i ).appendChild(node8);
+                    }
+                })
+                .catch((er)=>{
+                     console.log(er)
+                })
+        }catch(e){
+           console.log(e)
+        }
+        
+}
+
+//Essa função ativa o MODAL QTE
+function fixaqte(n){
+     console.log(' 1609 => fixar a linha  ',n)
+     let p1=n.substring(0,5);
+     console.log(' vr de p1 ',p1)
+     //-----------------------------------------------------------------------
+     // VERIFICA SE HÁ LINHA SELECIONADA
+     let R1=document.getElementById("CodigoPainel").value;
+     let linSelect=document.getElementById("SelectLinha").value;
+     // Se linSelect for maior que -1 então tem linha orange e precida ocultar. 
+     if (linSelect>-1){
+        let codlin='x12-' + linSelect; 
+        ocultaLinhaOrange(codlin)
+     }
+     /////////////////////////////////////////////////////////////////////////
+     // VERIFICA SE O MODAL DE FOTO ESTÁ VISIVEL;
+     if(R1=="F"){
+        document.getElementById("ImgqteId").value="";
+        document.getElementById("ImgcodigoId").value="";
+        document.getElementById("ImgdescrId").value="";
+        document.getElementById("ImgprecoId").value="";
+        document.getElementById("ImgtotalId").value="";
+        document.getElementById("CodigoPainel").value="X";
+        document.getElementById("MostraFoto").style.display="none";
+     }
+     ////////////////////////////////////////////////////////////////////
+     //   PINTAR A NOVA LINHA SELECIONADA
+        let b1=n.substring(4,5);
+        document.getElementById("SelectLinha").value=b1
+        console.log('pinta nova linha =>b1',b1)
+        /////////////////////////////////////////////////////////////////////
+        // LIMPA A LINHA PINTADA DE ORANGE
+        console.log('');
+        console.log(' nova linha a ser pintada ',n)
+        console.log('');
+        //return
+        mostraLinhaOrange(p1)
+     ////////////////////////////////////////////////////////////////////
+     //Preencher o MODAL para ajustar qte e preço
+        ////////////////////////////////////////////////////////////////////
+        // number produto
+        let  f0=document.getElementById(p1 + '-b').innerText;
+        document.getElementById("numberCaption").value=f0;
+        
+        // qte
+        let  f1=document.getElementById(p1 + '-c').innerText;
+        document.getElementById("qteCaption").value=f1;
+        
+        // código
+        let  f2=document.getElementById(p1 + '-d').innerText;
+        document.getElementById("codigoCaption").value=f2;
+        
+        // descrição
+        let  f3=document.getElementById(p1 + '-e').innerText;
+        document.getElementById("descrCaption").value=f3;
+        
+        // preço
+        let  f4=document.getElementById(p1 + '-h').innerText;
+        document.getElementById("precoCaption").value=f4;
+
+        // total
+        let  f5=document.getElementById(p1 + '-i').innerText;
+        document.getElementById("totalCaption").value=f5;
+
+        /////////////////////////////////////////////////////////////////////
+        document.getElementById("CodigoPainel").value="Q"
+        document.getElementById("painelQte").style.display="block";
+
+        console.log(' vr de ==>',n)
+        n=n.substring(0,5)
+        document.getElementById("CodigoLinha").value=n;
+        // SINALIZANDO O FOCO
+        document.getElementById("qteCaption").style.backgroundColor="yellow";
+        document.getElementById("qteCaption").focus();
+}
+
+// Essa função pinta a linha de 'Orange' quando clicada a linha
+function mostraLinhaOrange(n){
+   // O Valor tem que ser de comprimento 6
+   console.log('');
+   console.log(' pintar a linha ',n)
+   if(n==undefined){
+       n=document.getElementById("CodigoLinha").value;
+   }else{
+     document.getElementById("CodigoLinha").value=n;
+   }    
+    //console.log(' [ 1663 ] ',n)
+    document.getElementById(n + '-c').style.backgroundColor="orange";
+    document.getElementById(n + '-c').style.color="blue";
+    console.log('[ 1669 ] ',n)
+    document.getElementById(n + '-d').style.backgroundColor="orange";
+    document.getElementById(n + '-d').style.color="blue";
+
+    document.getElementById(n + '-e').style.backgroundColor="orange";
+    document.getElementById(n + '-e').style.color="blue";
+    /////////////////////////////////////////////////////////////////
+    document.getElementById(n + '-f').style.backgroundColor="orange";
+    document.getElementById(n + '-f').style.color="blue";
+
+    document.getElementById(n + '-g').style.backgroundColor="orange";
+    document.getElementById(n + '-g').style.color="blue";
+
+    document.getElementById(n + '-h').style.backgroundColor="orange";
+    document.getElementById(n + '-h').style.color="blue";
+
+    document.getElementById(n + '-i').style.backgroundColor="orange";
+    document.getElementById(n + '-i').style.color="blue";
+}
+
+function ocultaLinhaOrange(p1){
+    let n=p1;
+    console.log('');
+    console.log('ocultar a linha',p1)
+    document.getElementById(n + '-c').style.backgroundColor="blue";
+    document.getElementById(n + '-c').style.color="white";
+
+    document.getElementById(n + '-d').style.backgroundColor="blue";
+    document.getElementById(n + '-d').style.color="white";
+
+    document.getElementById(n + '-e').style.backgroundColor="blue";
+    document.getElementById(n + '-e').style.color="white";
+    /////////////////////////////////////////////////////////////////
+    document.getElementById(n + '-f').style.backgroundColor="blue";
+    document.getElementById(n + '-f').style.color="white";
+
+    document.getElementById(n + '-g').style.backgroundColor="blue";
+    document.getElementById(n + '-g').style.color="white";
+
+    document.getElementById(n + '-h').style.backgroundColor="blue";
+    document.getElementById(n + '-h').style.color="white";
+
+    document.getElementById(n + '-i').style.backgroundColor="blue";
+    document.getElementById(n + '-i').style.color="white";
+    document.getElementById("painelQte").style.display="none";
+    //let opt=document.getElementById("CodigoPainel").value="X";
+    // CodigoLinha
+    document.getElementById("CodigoLinha").value=0;
+    document.getElementById('SelectLinha').value=-1;
+   
+}
+    
+q1.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+            document.getElementById('qteCaption').style.backgroundColor="green";
+            document.getElementById('qteCaption').style.color="red";
+            document.getElementById('precoCaption').style.backgroundColor='yellow';
+            document.getElementById('precoCaption').style.color='black';
+            document.getElementById('precoCaption').focus();
+        }else{
+           console.log(key.code)
+           if(key=='.'){
+             alert('você digitou um PONTO!')
+           }
+           event.preventDefault();
+        } 
+    }else{
+      if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+      }else{
+        ' deixa passar'
+      }
+    }
+})
+
+p1.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+            document.getElementById('precoCaption').style.backgroundColor="green";
+            document.getElementById('precoCaption').style.color="red";
+            ///////////////////////////////////////////////////////////////
+            let q2=document.getElementById("qteCaption").value;
+            let p2=document.getElementById("precoCaption").value;
+            ///////////////////////////////////////////////////////
+            let t2=(q2*p2)
+            console.log(t2)
+            document.getElementById('totalCaption').value=t2
+            document.getElementById('totalCaption').style.backgroundColor='green';
+            document.getElementById('totalCaption').style.color='red';
+            document.getElementById('totalCaption').focus();
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+t1.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          confirmaQte();
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+function confirmaQte(){
+    let r=document.getElementById("painelConfirmQte");
+    r.style.position= 'absolute';
+    r.style.zIndex=200;
+    r.style.marginTop=0;
+    document.getElementById("painelQte").style.display="none";
+    r.style.display='block';
+    ///////////////////////////////////////////
+    let a=document.getElementById("qteCaption").value;
+    document.getElementById("qteId").value=a;
+
+    let b=document.getElementById("codigoCaption").value;
+    document.getElementById("codigoId").value=b;
+
+    let c=document.getElementById("descrCaption").value;
+    document.getElementById("descrId").value=c;
+
+    let d=document.getElementById("precoCaption").value;
+    document.getElementById("precoId").value=d;
+
+    let e=document.getElementById("totalCaption").value;
+    document.getElementById("totalId").value=e;
+
+    //document.getElementById("idSim").focus();
+}
+
+function registraQte(){
+    let NumberLin=document.getElementById("CodigoLinha").value;
+    console.log('-------------------------------')
+    console.log(NumberLin);
+    let a1=document.getElementById("qteId").value;
+    console.log(a1)
+    console.log(document.getElementById(NumberLin + 'c'))
+   
+    document.getElementById(NumberLin + 'c').innerHTML=a1;
+    document.getElementById(NumberLin + 'c').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'c').style.color="white";
+    //////////////////////////////////////////////////////////////////
+    document.getElementById(NumberLin + 'd').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'd').style.color="white";
+    document.getElementById(NumberLin + 'e').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'e').style.color="white";
+    document.getElementById(NumberLin + 'f').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'f').style.color="white";
+    document.getElementById(NumberLin + 'g').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'g').style.color="white";
+    //////////////////////////////////////////////////////////////////////////////////
+    let a2=document.getElementById("precoId").value;
+    document.getElementById(NumberLin + 'h').innerHTML=a2;
+    document.getElementById(NumberLin + 'h').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'h').style.color="white";
+
+    let a3=document.getElementById("totalId").value;
+    document.getElementById(NumberLin + 'i').innerHTML=a3;
+    document.getElementById(NumberLin + 'i').style.backgroundColor="black";
+    document.getElementById(NumberLin + 'i').style.color="white";
+
+    document.getElementById("painelConfirmQte").style.display="none"
+}
+
+let s=document.getElementById("Id_digiteLetras");
+s.addEventListener("keydown",function(event){
+    let letras=s.value;
+    let l=letras.length;
+    if (l==3){
+         pegaClienteLetra(letras)
+    }
+})
+
+function pegaClienteLetra(n){
+    let letras=document.getElementById("Id_digiteLetras").value;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    console.log(' 557',letras)
+    try{
+        fetch(`${baseApiUrl}` + `/raqvendas/clienteLetras/${letras}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    console.log('result',json)
+                    function limpaCaixa(){
+                        let corpos;
+                        corpos=document.getElementById("X10").children;
+                        let c=corpos.length;
+                        for (i=c-1;i>-1;i--){
+                        corpos[i].remove();
+                        }
+                    }
+                    limpaCaixa();
+                    let obj=json;
+                    let l=json.length;
+                    console.log('1215',l)
+                    for (let i=0;i<6;i++){
+                        console.log('dentro')
+                        if(l>i){
+                            const node=document.createElement('tr');
+                            node.setAttribute("id","linha" + '-' + i);
+                            node.setAttribute("class","linhaCheia");
+                            document.getElementById('X10').appendChild(node)
+                            // Ordem
+                            const node0=document.createElement('td');
+                            const textNode0=document.createTextNode(i+1);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node0);
+                            // _id 
+                            const node1=document.createElement('td');
+                            const textNode1=document.createTextNode(obj[i]._id);
+                            let N=obj[i]._id
+                            node1.appendChild(textNode1);
+                            node1.setAttribute("class","linhaAmarela gol1");
+                            document.getElementById('linha' + '-' + i ).appendChild(node1);
+                            // Nome Razão
+                            const node2=document.createElement('td');
+                            const textNode2=document.createTextNode(obj[i].razaoNome);
+                            node2.appendChild(textNode2);
+                            node2.setAttribute("onclick","transfer(" + "'" + N + "'" + ")");
+                            node2.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node2);
+                            // Endereço 
+                            const node3=document.createElement('td');
+                            const textNode3=document.createTextNode(obj[i].logradouro);
+                            node3.appendChild(textNode3);
+                            node3.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node3);
+                            // Cidade
+                            const node4=document.createElement('td');
+                            const textNode4=document.createTextNode(obj[i].cidade);
+                            node4.appendChild(textNode4);
+                            node4.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node4);
+                            // Bairro
+                            const node5=document.createElement('td');
+                            const textNode5=document.createTextNode(obj[i].bairro);
+                            node5.appendChild(textNode5);
+                            node5.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node5);
+                        }else{
+                            const node=document.createElement('tr');
+                            node.setAttribute("id","linha" + '-' + i);
+                            node.setAttribute("class","linhaCheia");
+                            document.getElementById('X10').appendChild(node)
+                            // Ordem
+                            const node0=document.createElement('td');
+                            const textNode0=document.createTextNode(i+1);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node0);
+                            // _id 
+                            const node1=document.createElement('td');
+                            const textNode1=document.createTextNode("-");
+                            //let N=obj[i]._id
+                            node1.appendChild(textNode1);
+                            node1.setAttribute("class","linhaAmarela gol1");
+                            document.getElementById('linha' + '-' + i ).appendChild(node1);
+                            // Nome Razão
+                            const node2=document.createElement('td');
+                            const textNode2=document.createTextNode("-");
+                            node2.appendChild(textNode2);
+                            node2.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node2);
+                            // Endereço 
+                            const node3=document.createElement('td');
+                            const textNode3=document.createTextNode("-");
+                            node3.appendChild(textNode3);
+                            node3.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node3);
+                            // Cidade
+                            const node4=document.createElement('td');
+                            const textNode4=document.createTextNode("-");
+                            node4.appendChild(textNode4);
+                            node4.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node4);
+                            // Bairro
+                            const node5=document.createElement('td');
+                            const textNode5=document.createTextNode("-");
+                            node5.appendChild(textNode5);
+                            node5.setAttribute("class","linhaAmarela");
+                            document.getElementById('linha' + '-' + i ).appendChild(node5);
+                        }    
+                    }
+ 
+                })
+                .catch((er)=>{
+                   console.log(er) 
+                })
+    }catch(e){
+       console.log(e)
+    }         
+}
+
+function gravandoHeaders(){
+    //////////////////////////////////////////////////////////
+    console.log('Estamos AQUI')
+    let numberPedido=document.getElementById('IdNrPedido').value;
+    let numberFornec=document.getElementById('IdFornec').value;
+    let nomeFornec=document.getElementById('NomeFornec').value;
+    let nomeComprador=document.getElementById('VendedorselectedId').value;    
+    let palavra=numberFornec + "::" + nomeComprador + ":::" + nomeFornec;
+
+    console.log(palavra)
+   // return
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        /////////////////////////////////////////////////////////
+         try{
+                fetch(`${baseApiUrl}` + `/raqcompras/gravaPedido/${palavra}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                       let nPedido=json[0].numberPedido;
+                       console.log(json)
+                       console.log(' [ 2228 ] ',nPedido)
+                       document.getElementById('IdNrPedido').value=nPedido;
+                       document.getElementById('h2Produtos').style.visibility="visible";
+                    })
+                    .then((er)=>{
+
+                    })
+                    .catch((e)=>{
+                        console.log(e)
+                    })
+         }catch(e){
+            console.log(e)
+         }        
+}
+
+let x=document.getElementById("faixaVertical");
+x.addEventListener("click",function(event){
+     event.stopPropagation();
+     document.getElementById("Lateral_menu").style.visibility="visible";
+     document.getElementById("menuLateral").style.visibility="hidden";
+})
+
+let x1=document.getElementById("faixaVertical_10");
+x1=addEventListener("click",function(event){
+    document.getElementById("Lateral_menu").style.visibility="hidden";
+    document.getElementById("menuLateral").style.visibility="visible";
+})
+
+function cadastroClient(){
+   let Nproduto=n;
+        let b=document.getElementById("IdNrPedido").value;
+        let palavra=n + ":::" + b;
+        console.log(palavra)
+        //////////////////////////////////////////////////////////
+        //        const node=document.getElementById('x12-' + j + '-b').firstChild;
+        //        if(node==n){
+        //        console.log('Golaço!') 
+        //////////////////////////////////////////////////////// 
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        /////////////////////////////////////////////////////////
+         try{
+                fetch(`${baseApiUrl}` + `/raqvendas/acesso_cadastro_cliente/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                    })
+                    .catch((er)=>{
+                       console.log(er) 
+                    })
+         }catch(e){
+            console.log(e);
+         }
+}
+
+function relatorios(){
+        //////////////////////////////////////////////////////// 
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        /////////////////////////////////////////////////////////
+         try{
+                fetch(`${baseApiUrl}` + `/raqvendas/acesso_relatorio_vendas`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                    })
+                    .catch((er)=>{
+                       console.log(er) 
+                    })
+         }catch(e){
+            console.log(e);
+         }
+}
+
+function delete1(n){
+    ///////////////////////////////////////
+    let b=document.getElementById("IdNrPedido").value;
+    let comprador=document.getElementById("IdComprador").value;
+    let palavra=n + ":::" + comprador;
+    //////////////////////////////////////////////////////// 
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/raqvendas/acesso_delete_vendas/${palavra}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                   console.log(json); 
+                   notaPendente();
+                })
+                .catch((er)=>{
+                    console.log(er) 
+                })
+        }catch(e){
+           console.log(e);
+        }
+}
+
+function foto(n){
+    // Essa rotina recebe o nùmero do produto junto ao número da linha que será desmembrado logo a frente.
+    console.log('--------------------------------')
+    console.log(' Desmembrando o número passado por foto(n)',n)
+    console.log('------------------------')
+    let palavra=n;
+    let c=palavra.length;
+    let number=palavra.substring(0,24);
+    let coluna=palavra.substring(24,c)
+    // VERIFICA SE HÁ LINHA SELECIONADA
+    let linSelect=document.getElementById("SelectLinha").value;
+    // Se linSelect for maior que -1 então tem linha orange e precida ocultar. 
+    if (linSelect>-1){
+       let codlin='x12-' + linSelect; 
+        ocultaLinhaOrange(codlin)
+    }
+    // Determina se o Modal é de Foto ou Qte
+    let R1=document.getElementById("CodigoPainel").value;
+    if(R1=='Q'){
+        document.getElementById("qteCaption").value="";
+        document.getElementById("codigoCaption").value="";
+        document.getElementById("descrCaption").value="";
+        document.getElementById("precoCaption").value="";
+        document.getElementById("totalCaption").value="";
+        document.getElementById("CodigoPainel").value="X";
+        document.getElementById("painelConfirmQte").style.display="none"
+    }
+     
+    console.log('');
+    console.log('__________________________________')
+    console.log('__________________________________')
+    let col='x12-' + coluna;
+    console.log(col);
+    document.getElementById("CodigoLinha").value=col;
+    document.getElementById("SelectLinha").value=coluna;
+
+    console.log(document.getElementById("CodigoLinha").value)
+    mostraLinhaOrange();
+    let r=document.getElementById("MostraFoto");
+    r.style.position= 'absolute';
+    r.style.zIndex=200;
+    r.style.marginTop=0;
+    r.style.display='block';
+    let p1=document.getElementById("MostraFoto").style.display;
+    // Determina que o Modal é Foto.
+    document.getElementById("CodigoPainel").value="F"
+    console.log('__________________________________')
+    console.log('number ',number);
+    console.log('__________________________________')
+    console.log('coluna ',coluna);
+    console.log('__________________________________')
+    console.log(document.getElementById('x12-' + coluna + '-c').innerText)
+    document.getElementById("ImgqteId").value=document.getElementById('x12-' + coluna + '-c').innerHTML;
+    document.getElementById("ImgcodigoId").value=document.getElementById('x12-' + coluna + '-d').innerHTML;
+    document.getElementById("ImgdescrId").value=document.getElementById('x12-' + coluna + '-e').innerHTML;
+    document.getElementById("ImgprecoId").value=document.getElementById('x12-' + coluna + '-f').innerHTML;
+    BuscaImg(number);
+}
+
+function escondeFoto(){
+    document.getElementById("ImgqteId").value="";
+    document.getElementById("ImgcodigoId").value="";
+    document.getElementById("ImgdescrId").value="";
+    document.getElementById("ImgprecoId").value="";
+    document.getElementById("CodigoPainel").value="X";
+    document.getElementById("MostraFoto").style.display="none";
+    ocultaLinhaOrange();
+}
+
+function BuscaImg(n){
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqvendas/buscaImg/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json)
+                let r=json;
+                console.log(r.pageurl)
+                document.getElementById("imgProduto").src=r.pageurl;
+                document.getElementById("imgProduto").style.backgroundImage=r.pageurl;
+                document.getElementById("imgProduto").style.marginLeft='auto';
+                document.getElementById("imgProduto").style.marginRight='auto';
+                document.getElementById("imgProduto").style.width= '100%';   
+                document.getElementById("imgProduto").style.height= 'auto';
+            })
+            .catch((er)=>{
+               console.log(er) 
+            })
+    }catch(e){
+        console.log(e)
+    }     
+}
+
+function fechamento(){
+    ///////////////////////////////////////
+    let b=document.getElementById("IdNrPedido").value;
+   
+    let palavra=b;
+    console.log(document.getElementById('Iddataentrega').value)
+    let dt=document.getElementById('Iddataentrega').value;
+    if(dt==""){
+        ' deixar passar '
+    }else{
+        alert("Quer encerrar a nota ! ");
+        buscNumeroContabil();
+    }
+}
+
+function buscNumeroContabil(){
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    ///////////////////////////////////////////////////////
+    let letras=4;
+    try{
+        fetch(`${baseApiUrl}` + `/raqvendas/buscNumeroContaNova/${letras}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                   console.log(json)
+                   document.getElementById("NumeroNovoContabil").innerText=json.n;
+                   let x=document.getElementById("NomeFornec").value;
+                   console.log(document.getElementById("NomeFornec").value)
+                   console.log(x)
+                   document.getElementById("NomeNovoContabil").innerText=x;
+                   document.getElementById("querContabil").style.display="block";
+                })
+                .catch((er)=>{
+                   console.log(er) 
+                })  
+    }catch(e){
+       console.log(e) 
+    }          
+}
+
+function notaPendente(){
+    console.log(78787)
+    let t4=document.getElementById("VendedorselectedId").value;
+    let t5=document.getElementById("IdNrPedido").value;
+    console.log( 'nota pendente ',t4)
+    console.log(t4)
+    if(t4===""){
+       document.getElementById('btnClienteH2').style.visibility="hidden";
+       document.getElementById('h2Produtos').style.visibility="hidden";  
+       return
+    }else{
+        let n=t4 + "::-::" + t5
+        console.log(n)
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        /////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/raqcompras/pegaPedidoPendente/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    console.log(json);
+                    let l=json.length;
+                    if (l>1){
+                        console.log('lenght ',json.length)
+                        console.log(' 1463 => ',json)
+                        let dadosPedido=json[0];
+                        let dadosFornec=json[1];
+                        console.log('------------------------')
+                        console.log(' dados ', dadosFornec);
+                        document.getElementById("IdNrPedido").value=dadosPedido.numberPedido;
+                        document.getElementById("IdNrPedido").style.backgroundColor="green";
+                        document.getElementById("IdNrPedido").style.color="white";
+                    
+                        document.getElementById("IdFornec").value=dadosFornec._id;
+                        document.getElementById("IdnumeroFornec").value=dadosFornec._id;
+                        document.getElementById("NomeFornec").value= dadosFornec.razao;
+                        document.getElementById("NomeFornec_").value= dadosFornec.razao;
+                        document.getElementById("NomeFornec").style.backgroundColor="green";
+                        document.getElementById("NomeFornec").style.color="white";
+                        let nome=document.getElementById("NomeFornec").value;
+                        console.log(45);
+                        console.log(nome)
+                        if (nome!=""){
+                            document.getElementById("h2Produtos").style.visibility="visible";
+                        }
+
+                        document.getElementById("Cnpj").value= dadosFornec.cnpj;
+                        document.getElementById("Cnpj").style.backgroundColor="green";
+                        document.getElementById("Cnpj").style.color="white";
+
+                        document.getElementById("EndFornec").value= dadosFornec.logradouro + "," + dadosFornec.numero;
+                        document.getElementById("EndFornec").style.backgroundColor="green";
+                        document.getElementById("EndFornec").style.color="white";
+
+                        document.getElementById("Bairro").value=dadosFornec.bairro;
+                        document.getElementById("Bairro").style.backgroundColor="green";
+                        document.getElementById("Bairro").style.color="white";
+
+                        document.getElementById("Cep").value=dadosFornec.cep;
+                        document.getElementById("Cep").style.backgroundColor="green";
+                        document.getElementById("Cep").style.color="white";
+
+                        document.getElementById('Cidade').value=dadosFornec.cidade;
+                        document.getElementById("Cidade").style.backgroundColor="green";
+                        document.getElementById("Cidade").style.color="white";
+
+                        document.getElementById("Celular").value=dadosFornec.celular;
+                        document.getElementById("Celular").style.backgroundColor="green";
+                        document.getElementById("Celular").style.color="white";
+
+                        document.getElementById("Estado").value=dadosFornec.estado;
+                        document.getElementById("Estado").style.backgroundColor="green";
+                        document.getElementById("Estado").style.color="white";
+
+                        document.getElementById("Inscricao").value=dadosFornec.inscricao;
+                        document.getElementById("Inscricao").style.backgroundColor="green";
+                        document.getElementById("Inscricao").style.color="white";
+                        ///////////////////////////////////////////////////////////////////
+                        const Itens=dadosPedido.itens;
+                        console.log('');
+                        console.log('__________________________');
+                        console.log(' itens ',Itens)
+                        console.log('__________________________');
+                        let l1=Itens.length;
+                        for (let e=0;e<l1;e++){
+                            let _IdProduto=Itens[e]._id;
+                            let IdProduto=Itens[e].IdProduto;
+                            let CodigoProduto=Itens[e].codigoProduto;
+                            let QteProduto=Itens[e].qte;
+                            let DescricaoProduto=Itens[e].descricao;
+                            let CustoProduto=Itens[e].custo;
+                            let VendaProduto=Itens[e].venda;
+                            
+                            document.getElementById('x12-' + e + '-a');
+                            //document.getElementById('x12-' + e + '-b').innerText=IdProduto;
+                            document.getElementById('x12-' + e + '-b').innerText=QteProduto;
+                            document.getElementById('x12-' + e + '-b').style.color="white";
+                            document.getElementById('x12-' + e + '-b').style.textAlign="center";
+                            document.getElementById('x12-' + e + '-b').style.backgroundColor="blue";
+
+                            document.getElementById('x12-' + e + '-c').innerText=CodigoProduto;
+                            document.getElementById('x12-' + e + '-c').style.color="white";
+                            document.getElementById('x12-' + e + '-c').style.textAlign="center";
+                            document.getElementById('x12-' + e + '-c').style.backgroundColor="blue";
+
+                            document.getElementById('x12-' + e + '-d').innerText=DescricaoProduto;
+                            document.getElementById('x12-' + e + '-d').style.color="white";
+                            document.getElementById('x12-' + e + '-d').style.textAlign="left";
+                            document.getElementById('x12-' + e + '-d').style.paddingLeft="12px";
+                            document.getElementById('x12-' + e + '-d').style.backgroundColor="blue";
+
+                            document.getElementById('x12-' + e + '-g').innerText=CustoProduto;
+                            document.getElementById('x12-' + e + '-g').style.color="white";
+                            document.getElementById('x12-' + e + '-g').style.textAlign="right";
+                            document.getElementById('x12-' + e + '-g').style.backgroundColor="blue";
+
+                            document.getElementById('x12-' + e + '-h').innerText=VendaProduto;
+                            document.getElementById('x12-' + e + '-h').style.color="white";
+                            document.getElementById('x12-' + e + '-h').style.textAlign="right";
+                            document.getElementById('x12-' + e + '-h').style.backgroundColor="blue";
+                            ////////////////////////////////////////////////////////////////////////
+                            // Foto   
+                            const node=document.createElement("button");
+                            const textNode=document.createTextNode('Foto');
+                            node.appendChild(textNode);
+                            node.setAttribute("onclick","foto(" + "'" + _IdProduto + "-" + e +  "'" + ")");
+                            node.setAttribute("class","btnFoto");
+                            document.getElementById('x12-' + e + '-i').appendChild(node);
+                            ////////////////////////////////////////////////////////////////////////
+                            // Delete   
+                            const node1=document.createElement("button");
+                            const textNode1=document.createTextNode('Delete');
+                            node1.appendChild(textNode1);
+                            node1.setAttribute("onclick","delete1(" + "'" + _IdProduto + "'" + ")");
+                            node1.setAttribute("class","btnDelete");
+                            document.getElementById('x12-' + e + '-j').appendChild(node1);
+                        }
+                        
+                    }    
+                })
+                .catch((er)=>{
+                    console.log(er)
+                })
+        }catch(e){
+           console.log(e)
+        }        
+    }    
+}
+
+let g5=document.getElementById('qteCaption');
+
+g5.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          //confirmaQte();
+           chekaStoque()
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+   
+function chekaStoque(){
+    // Essa rorina vai buscar a qte em estoque para avaliar se há qte suficiente para atender o cliente.
+    let vr=document.getElementById("numberCaption").value;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqvendas/chekaStoque/${vr}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                 console.log('chekstoque',json.qte)
+                let q1=json.qte;
+                let q2=document.getElementById("qteCaption").value;
+                if(q2>q1){
+                    //document.getElementById('painelQte').style.display='none';
+                    let r=document.getElementById("QteNegativa");
+                    r.style.position= 'absolute';
+                    r.style.zIndex=400;
+                    r.style.marginTop=250;
+                    r.style.display='block';
+                    document.getElementById("QteNegativaInput").value=q1-q2;
+                }
+               
+               
+            })
+            .catch((er)=>{
+            console.log(er) 
+            })
+    }catch(e){
+       console.log(e) 
+    }     
+}
+
+function escondeQteNegativa(){
+    alert("VIVA!")
+    document.getElementById("QteNegativa").style.display="none"
+    ocultaLinhaOrange();
+}
+
+function ocultaModalQte(){
+
+}
+
+function ocultaModatFoto(){
+
+
+}
+
+function limpaTudo(){
+    // LIMPA CABEÇALHO DA NOTA
+    let linha=document.getElementById("NumberLinha").value;
+    document.getElementById("NomeFornec").value="";
+    document.getElementById("NomeFornec_").value="";
+    document.getElementById("EndFornec").value="";
+    document.getElementById("IdFornec").value="";
+    document.getElementById("IdnumeroFornec").value="";
+    document.getElementById("Cnpj").value="";
+    document.getElementById("Bairro").value="";
+    document.getElementById("Cep").value="";
+    document.getElementById("Celular").value="";
+    document.getElementById("Cidade").value="";
+    document.getElementById("Estado").value="";
+    document.getElementById("Inscricao").value="";
+    // Limpa os elementos do "fechamentoNota"
+    document.getElementById("IdCondpag").value="";
+    document.getElementById("IdNomecomprador").value="";
+    document.getElementById("IdnumeroContabil").value=0
+    document.getElementById('IdnomeContabil').value="";
+    document.getElementById("IdnumeroFornec").value="";
+    document.getElementById("NomeFornec_").value="";
+   
+    //ATIVA A LISTA DE CLIENTES
+    document.getElementById("btnClienteH2").style.color="blue";
+    //ZERO OS PARAMETROS DA PAGE
+    document.getElementById("IdNrPedido").value=0;
+    document.getElementById("NumberLinha").value=0;
+    document.getElementById("CodigoLinha").value=0;
+    document.getElementById("CodigoPainel").value=0;
+    document.getElementById("SelectLinha").value=-1;
+    document.getElementById("btnClienteH2").style.visibility="visible";
+    document.getElementById("btnClienteH2").style.color="blue";
+    let colorLine;
+    let n6=0;
+    // PEGA O NÚMERO DE LINHA PREENCHIDA ANTERIORMENTE E LIMPA
+    for (let i=0;i<linha;i++){
+        console.log('2487',i)
+        // trata a cor cor da linha alternada
+        if(n6==0){
+          colorLine="#6b6a6a"
+        }else if(n6=01){
+          colorLine='#dddddd';
+        }
+        // LIMPA A TABELA ONDE CONSTA OS PRODITOS ANTEROR
+        document.getElementById("x12-" + i + "-b").innerText="-";
+        document.getElementById("x12-" + i + "-c").innerText="-";
+        document.getElementById("x12-" + i + "-c").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-d").innerText="-";
+        document.getElementById("x12-" + i + "-d").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-e").innerText="-";
+        document.getElementById("x12-" + i + "-e").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-f").innerText="-";
+        document.getElementById("x12-" + i + "-f").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-g").innerText="-";
+        document.getElementById("x12-" + i + "-g").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-h").innerText="-";
+        document.getElementById("x12-" + i + "-h").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-i").innerText="-";
+        document.getElementById("x12-" + i + "-i").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-j").innerText="";
+        document.getElementById("x12-" + i + "-j").style.backgroundColor=colorLine;
+        document.getElementById("x12-" + i + "-l").innerText="";
+        document.getElementById("x12-" + i + "-l").style.backgroundColor=colorLine;
+        // INVERTE A COR
+        if (n6==0){
+            n6=1;
+        }else{
+           n6=0; 
+        }
+    }
+    //LIMPA O MODAL QTE
+    document.getElementById("ImgqteId").value="";
+    document.getElementById("ImgcodigoId").value="";
+    document.getElementById("ImgdescrId").value="";
+    document.getElementById("ImgprecoId").value="";
+    document.getElementById("ImgtotalId").value="";
+    document.getElementById("CodigoPainel").value="X";
+    document.getElementById("MostraFoto").style.display="none";
+    // LIMPA O MODAL FOTO
+    document.getElementById("ImgqteId").value="";
+    document.getElementById("ImgcodigoId").value="";
+    document.getElementById("ImgdescrId").value="";
+    document.getElementById("ImgprecoId").value="";
+    document.getElementById("ImgtotalId").value="";
+    document.getElementById("CodigoPainel").value="X";
+    document.getElementById("MostraFoto").style.display="none";
+
+}
+
+let closef=document.getElementById("selectPago");
+closef.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=closef.selectedIndex;
+   let y=closef.options;
+   let condicaopag=y[z].text;
+   console.log(y[z].value)
+   console.log(condicaopag)
+   if (condicaopag==""){
+       
+   }else{
+      document.getElementById("IdCondpag").value=y[z].value;
+      let IdCompras=document.getElementById("VendedorselectedId").value;
+      document.getElementById("IdNomecomprador").value=IdCompras;
+      document.getElementById("IdNomecomprador").style.backgroundColor="yellow";
+   }   
+})
+
+function AddField(){
+    /////////////////////////////////////////////////////////
+    let n=document.getElementById("codigolojista").value;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqvendas/addField/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+            })
+            .catch((er)=>{
+               console.log(er);
+            })
+    }catch(e){
+        console.log(e);
+    }      
+}
+
+function fechaContabil(n){
+   console.log(''); 
+   console.log(n);
+   console.log('----------------------------------');
+   // s quer dizer sim
+   if(n==='s'){
+        console.log(230)
+        //document.getElementById('IdnumeroContabil').value=n;
+        console.log(231)
+        document.getElementById("btnClose").click();
+        console.log(232)
+   }else if(n==='n'){
+        // n quer dizer não
+        console.log(240)
+        document.getElementById("querContabil").style.display="none"
+   } 
+}
+
+let j1=document.getElementById('Iddataentrega');
+j1.addEventListener('click',function(event){
+    console.log('Olá 2827 ')
+    event.stopPropagation();
+    let e=document.getElementById("Iddataentrega").value;
+    console.log(e)
+    let q1=document.getElementById("IdCondpag").value;
+    if(q1==""){
+      alert("Selecione o pagamento !")    
+      document.getElementById("selectPago").focus();
+      document.getElementById("selectPago").style.backgroundColor="yellow";
+    }else{
+      let r1=document.getElementById("EscondeBtn");
+      r1.style.display="block";
+    }  
+})
+</script>

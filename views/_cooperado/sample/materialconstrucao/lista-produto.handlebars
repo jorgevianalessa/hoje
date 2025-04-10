@@ -1,0 +1,445 @@
+ <style>
+    .forma{
+    width: 98%;height: 90vh;margin: auto;
+    background-color:#ffffff;padding: 6px;
+    display: flex;flex-direction: column;
+}
+
+.linhaTitulo{
+    height: 2.5vh;
+    background-color: #ffffff;
+  }
+
+  .linhatable{
+     width: 12%;background-color: #0b0bc9;color:#ffffff;height: 3vh;
+  }
+
+  .bntlinha{
+     width: 100%;height: 3vh;border-radius: 6px;background-color: #035384;color: #ffffff;font-size: small;
+  }
+  
+   .labellinha{
+     width: 100%;height: 2vh;border-radius: 6px;background-color:transparent;color: #ffffff;font-size: larger;padding: 4px;text-align: center;justify-items:center;font-weight: 600;
+  }
+
+  .linetd{
+    width: 12%;background-color: #d4d4dd;color:#121212;height: 3vh;font-weight: 600;
+  }
+
+  
+  .linebtn{
+     width: 100%;background-color: #ffffff;color:#ffffff;height: 3vh;
+  }
+
+  .cadastro_btn{
+      width: 60%;height: 4vh;margin: auto;background-color: #035384;color:#ffffff;border-radius: 5px;
+  }
+
+  .linhaCheia{
+     background-color: #8f0545;
+  }
+
+  .linhaAmarela{
+     background-color:#1be53c;
+  }
+ </style>
+ <div class="d-flex forma">
+ <div id="listaProduto" style="display: flex;flex-direction: column;justify-items: center;height: 90vh;background-color: #ffffff;width: 100%;">
+         {{!-- // informações sobre o nome page --}}
+         <div style="width: 100%;margin: auto;height: 2vh;background-color:#a7a6a6;margin-top: 2px;">
+            <h1 style="font-size: smaller;color:#ffffff;">_cooperado/sample/cadastro_produto</h1>
+         </div>
+         {{!-- // título razão e marca do cooperado --}}
+         <div id="tituloPage" style="width: 100%;margin: auto;height: 6.2vh;background-color: #ffffff;display: flex;flex-direction: row;padding: 3px;margin-top: 3px;margin-bottom: 8px;">
+              <div style="display: flex;flex-direction: row;background-color: #ffffff;width: 60%;height: 4.8vh;margin-top: 4px;">
+                    <div id="tituloPageLabel" style="width: 15%;height: 5vh;background-color: #ffffff;padding-left: 1vw;display: flex;flex-direction:column;">
+                        <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 100%;text-align: right;padding-right: 5%;">razão social :</label>
+                        <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 100%;text-align: right;padding-right: 5%;"> marca :</label>
+                    </div>
+                    <div id="tituloPageInput" style="width: 40%;height: 2.5vh;background-color: #ffffff;padding-left: 0.2vw;display: flex;flex-direction: column;">
+                        <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 70%;text-align: left;padding-left: 0.5%;float: left;">{{lojista.razao}}</label>
+                        <label style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 70%;text-align: left;">{{lojista.marca}}</label>
+                        <input id="number" style="color:#0b0b0b;height: 2.2;background-color: #ffffff;width: 70%;text-align: left;display: none;" value="{{lojista._id}}">
+                    </div>
+             </div>
+            
+              {{!-- <div style="width: 60%;height: 2.5vh;background-color: #ffffff;padding-left: 1vw;display: flex;flex-direction: column;"></div> --}}
+         </div>
+         {{!-- // container de seleção do setor=> seção --}}
+         <div id="containerId" style="width: 98%;height: 89vh;margin: auto;background-color: yellow;display: flex;flex-direction:row ;justify-content: space-between;">
+            {{!-- // contém as caixas de seleção segmento => setor => seção --}}
+            <div style="width: 12%;height: 70vh;margin: auto;display: flex;flex-direction: row;justify-items: center;">
+                <div style="width: 90%;height: 60vh;margin: auto;background-color: #035384;color:#ffffff;">
+                    <div style="display: flex;flex-direction: column;justify-content: space-between;width: 100%;height: 59vh;margin: auto;padding-bottom: 10vh;">
+                        <div style="background-color: #ffffff;display: flex;flex-direction: row;justify-content:end ;height: 3.5vh;padding-top: 1vh;width: 100%;margin-right:1vw;">
+                        <select id="SelectSegmentoId" style="width: 100%;height: 3.5vh;">
+                            <option id="Optionzero" style="margin-left: 5px;background-color: #373636;color:#06eb1d"></option>
+                            <option id="OptionSegemnto" style="margin-left: 5px;background-color: #373636;color:#06eb1d">material de construção</option>
+                        </select>
+                        </div>
+
+                        <div style="background-color: #0842f1;display: flex;flex-direction: row;justify-content:end ;height: 3.5vh;padding-top: 1vh;width: 100%;margin-right:1vw;">
+                        <select id="SelectSetorId" style="width: 100%;height: 3.5vh;">
+                            <option id="OptionSetor" style="margin-left: 5px;background-color: #373636;color:#e706eb;width: 100%;"></option>
+                        </select>
+                        </div>
+
+                        <div style="background-color: #1be53c;display: flex;flex-direction: row;justify-content:end ;height: 3.5vh;width:100%;">
+                          <select id="SelectSecaoId" style="width: 100%;height: 3.5vh;">
+                            <option id="SelectSecaogmento" style="margin-left: 5px;background-color: #373636;color:#06eb1d"></option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- // container da table lista de produtos --}}
+            <div id="listaEspelho" style="width: 88%;height: 70vh;margin: auto;justify-content: center;color:#ffffff;background-color: #033986;overflow: auto;margin-top: 6px;border-bottom: 2px solid #373636;">
+                    <div style="margin-top: 4px;margin-left: 10px;">
+                    <h1 style="font-size: medium;font-weight: 400;height: 2.5vh;background-color:#033986;color:#ffffff;">Lista de produtos cadastrados</h1>
+                    </div>  
+                    {{!-- ////////////////////////////////////////////////////////////// --}}
+                    <table id="tableProduct" class="table table-striped table-hover table-bordered" style="background-color: #ffffff;margin-bottom: 1px;height: 65vh;">
+                                <thead style="height:1.4vh;background-color: #797777;font-size: medium;color:#ffffff;">
+                                    <tr >
+                                        <th style="display: none;">ID</th>
+                                        <th class="d-none d-sm-table-cell linhaTitulo"  >item</th>
+                                        <th class="d-none d-sm-table-cell linhaTitulo"   ><button onclick="sortTable(2)" style="background-color:transparent;width: 100%;height:2.7vh;margin: auto;border: none;color: #ffffff;">Código</button></th>
+                                        <th class="d-none d-sm-table-cell linhaTitulo" ><button onclick="sortTable(3)" style="background-color:transparent;width: 100%;height:2.7vh;margin: auto;border: none;color: #ffffff;">Descritivo</button></th>
+                                        <th class="d-none d-sm-table-cell linhaTitulo" >complemento</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo">material</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo">vista</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo">prazo</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo">artigo</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo">marca</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo" style="width: 12px;">url</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo" style="width: 12px;">local</th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha" style="text-align: center;">Delete</label></th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Editar</label></th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Foto</label></th>
+                                        <th class="d-none d-lg-table-cell linhaTitulo"><label class="labellinha">Visualizar</label></th>
+                                    </tr>
+                                </thead>
+                                {{!-- --------------------------------------------------- --}}
+                                <tbody id="x-9" style="height: 37vh;margin: auto;width: 60%;background-color:#ffffff;">
+                                    {{#each result }}
+                                        
+                                        <tr style="font-size: small;color: #8f0545;font-weight: 100;height: 3vh;padding: 3px;">
+                                                <td style='width: 12%;background-color: #0b0bc9;color:#ffffff;display:none;' >{{lojista._id}}</td>
+                                                <td style='width: 5%;background-color: #0b0bc9;color:#ffffff;text-align: center;' >{{@index}}</td>
+                                                <td id="codigo-{{this._id}}" style='width: 12%;background-color: #8f0545;color:#ffffff;height: 3vh;text-align: center;font-weight: 400;' >{{this.codigo}}</td>
+                                                <td class="linetd" >{{this.descricao}}</td>
+                                                <td class="linetd" >{{this.complete}}</td>
+                                                <td class="linetd" >{{this.referencia}}</td>
+                                                <td class="linetd" >{{this.precovista}}</td>
+                                                <td class="linetd"  >{{this.precoprazo}}</td>
+                                                <td class="linetd" >{{this.page}}</td>
+                                                <td class="linetd"  >{{this.pageposicao}}</td>
+                                                <td class="linetd" style="font-weight: 600;">{{this.pageok}}</td>
+                                                <td id="local-{{this.codigo}}" class="linetd" style="font-weight: 600;">{{this.localizacao}}</td>
+                                                <td><a href="/controle/deleteproduto/{{this._id}}" class="linebtn"><button class="bntlinha" style="background-color: red;">Delete</button></a></td>
+                                                <td><a href="/controle/editaproduto/{{this._id}}" class="linebtn" ><button class="bntlinha">Editar</button></a></td>
+                                                <td><a href="/controle/editarfoto/{{this._id}}" class="linebtn" ><button class="bntlinha">Foto</button></a></td>
+                                                <td><a href="/controle/visualizar/{{this._id}}" class="linebtn" > <button class="bntlinha">Visualizar</button></a></td>
+                                                
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                    </table>
+                    
+            </div>
+         </div>
+         
+         <div id="btnCadastro" style="width: 50%;height: 12vh; margin: auto;background-color:transparent;display:flex;flex-direction: row;   justify-content: center;justify-items:center;ju">
+                <a href="/controle/cadastro_produto/{{lojista._id}}" class="linebtn" ><button class="bntlinha">cadastrar produto</button></a>
+         </div>
+ </div>
+</div>
+
+<script>
+ function sortTable(n) {
+    console.log('Hello!') 
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("tableProduct");
+ 
+    switching = true;
+    /*Faça um loop que continuará até  nenhuma mudança foi feita:*/
+    while (switching) {
+      //comece dizendo: nenhuma troca foi feita:
+      console.log('dentro')
+      switching = false;
+      rows = table.rows;
+      /*Faça um loop que continuará até nenhuma mudança foi feita:*/
+      console.log('rows',rows)
+      for (i = 1; i < (rows.length - 1); i++) {
+          //comece dizendo que não deve haver troca:
+          shouldSwitch = false;
+          /*Obtém os dois elementos que deseja comparar, um da linha atual e um da próxima:*/
+          x = rows[i].getElementsByTagName("td")[n];
+          y = rows[i + 1].getElementsByTagName("td")[n];
+          //console.log(y)
+          console.log('Y => ',y.innerHTML)
+          //verifica se as duas linhas devem trocar de lugar:
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              //se sim, marque como switch e interrompa o loop:
+              shouldSwitch = true;
+              break;
+          }
+    }
+    if (shouldSwitch) {
+      /*Se uma opção foi marcada, faça a troca e marque que uma troca foi feita:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+<script>
+    let z2=document.getElementById("SelectSetorId");
+    let z1=document.getElementById("SelectSegmentoId");
+    // Vai buscar os setores de o sgmento selecionado.
+
+    // clica no segmento
+z1.addEventListener("click",function(event){
+     event.stopPropagation();
+    let h=z1.selectedIndex;
+    let y=z1.options;
+    let c5=y[h].text;
+    
+    if (c5==""){
+
+    }else{
+      console.log(' segmento escolhido [1214]--->',c5);  
+      buscaSetorClient(c5)  
+    }
+})
+
+// cbo para buscar produtos determinados pela seleção do setor escolhido
+z2.addEventListener("click",function(event){
+    event.stopPropagation();
+    let h=z2.selectedIndex;
+    let y=z2.options;
+    let ca=y[h].text;
+   
+    if (ca==""){
+
+    }else{
+      console.log('opção escolhida => 1230',ca);  
+      buscaSetorProduto(ca)  
+    }
+})
+
+// vai buscar os produtos selecionados de acordo com setor escolhido
+function buscaSetorProduto(ca){
+   // console.log('[1283]')
+    let n=document.getElementById("number");
+      n=n.value;
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+          //  console.log('valores : ',n)
+            n=n + '015678j3lk' + ca
+            setorial=[];
+            //......................................
+                try{
+                        fetch(`${baseApiUrl}` + `/controle/selectSetorProduto/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                            .then(response => {
+                                if( response.ok ){
+                                    return response.json()
+                                    }  
+                                    throw response;
+                            })
+                            .then((json)=>{
+                                   let l=json.length;
+                                   console.log(' [ 249 ]',json)
+                                   LoadProdutoSelecionados(json);
+
+                                   function LoadProdutoSelecionados(j){
+                                      limpaCaixa();
+                                      function limpaCaixa(){
+                                            let corpos;
+                                            corpos=document.getElementById("x-9").children;
+                                            let c=corpos.length;
+                                            for (i=c-1;i>-1;i--){
+                                            corpos[i].remove();
+                                           }
+                                      }
+                                      /////////////////////////////////////////////
+
+                                      for(i=0;i<4;i++){
+                                         let registro=j[i];
+                                         console.log(registro)
+                                         let k=document.getElementById('x-9');
+                                         let f=k.childElementCount;
+                                         console.log('valor de f',f)
+                                         document.getElementById('')
+                                        
+                                         const node=document.createElement('tr');
+                                         const textNode0=document.createTextNode(registro.codigo);
+                                         node.appendChild(textNode0);
+                                         node.setAttribute("id","linha" + '-' + i);
+                                         node.setAttribute("class","linhaCheia");
+                                         k.appendChild(node)
+
+                                         const node1=document.createElement('td');
+                                         const textNode1=document.createTextNode(registro.descricao);
+                                         node1.appendChild(textNode1);
+                                         node1.setAttribute("class","linhaAmarela");
+                                         let R=document.getElementById('linha' + '-' + i );
+                                         R.appendChild(node1);
+                                      }
+
+                                   }
+                                   return
+                                   console.log(l)
+                                   json=json.sort();
+                                   for( let q=0;q<l;q++){
+                                       let s=json[q].localizacao;
+                                       console.log(s)
+                                      // let setor1=s[0].setor;
+                                       //setorial.push(setor1)              
+                                   }
+                                   setorial=setorial.sort();
+                                   console.log('1222',setorial)
+                                   return
+                                   /////////////////////////////////////////////////
+                                   for (let i=0;i<l;i++){
+                                     // console.log(json[i])
+                                      let registro=json[i].localizacao;
+                                     // console.log('[1311]',registro)
+                                    
+                                      let setor=registro[0].setor;
+                                      console.log('[1315 ] setor  :',setor)
+                                      let j=setor.length;
+                                      for (let i=0;i<j;i++){
+                                         let r=setor[i];
+                                         console.log(' setor => ',r)
+                                         console.log(r.nameSetor)
+                                         
+                                         let secao=r.secao
+                                         console.log(' secao [1319]',secao)
+                                         let z=secao.length;
+                                         console.log('1323 => Z',z)
+                                         for (let f=0;f<z;f++){
+                                             console.log(f)
+                                             console.log(secao[f])
+                                             fixaSecao(secao[f])
+                                         }
+                                      }
+                                     
+                                      function fixaSecao(n){
+                                        const node0 = document.createElement("option");
+                                        node0.setAttribute("id",'op' + i);
+                                        const textNode0=document.createTextNode(n);
+                                        node0.appendChild(textNode0);
+                                        node0.setAttribute("class","");
+                                        document.getElementById("SelectSecaoId").appendChild(node0);
+                                      }
+                                   }
+                            })
+                            .catch((er)=>{
+                                console.log(er)
+                            })
+
+                    }catch(e){
+                    console.log(e);
+                   }      
+
+}
+
+function buscaSetorClient(c5){
+    console.log('1212')
+    let n=document.getElementById("number");
+      n=n.value;
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+            console.log('valores : ',n)
+            n=n + 'kgi0123npf' + c5
+            //......................................
+                try{
+                        fetch(`${baseApiUrl}` + `/controle/selectSetor/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                            .then(response => {
+                                if( response.ok ){
+                                    return response.json()
+                                    }  
+                                    throw response;
+                            })
+                            .then((json)=>{
+                                   let l=json.length;
+                                   console.log('===> ',l)
+                                   for (let i=0;i<l;i++){
+                                     // console.log(json[i])
+
+                                      const node0 = document.createElement("option");
+                                      node0.setAttribute("id",'op' + i);
+                                      const textNode0=document.createTextNode(json[i]);
+                                      node0.appendChild(textNode0);
+                                      node0.setAttribute("class","");
+                                      document.getElementById("SelectSetorId").appendChild(node0);
+                                   }
+                            })
+                            .catch((er)=>{
+                                console.log(er)
+                            })
+
+                    }catch(e){
+                    console.log(e);
+                   }      
+
+}
+</script>    
+<script>
+
+    function setor(){
+    segmento();
+
+    function segmento(){
+        let d=document.getElementById("x-9");
+        
+        let j=d.childElementCount
+        let elements=d.children
+        j=elements.length;
+        // _________________________________________
+        for (let i=0;i<j;i++){
+            let linha=elements[i]
+            let palavra=linha.children[2]
+            let id=palavra.innerHTML;
+            let local=linha.children[11];
+            let nome=local.innerHTML;
+            let nome1=local.innerHTML;
+            nome=nome.substring(2,5)
+      
+            if(nome==="_id"){
+                local.innerHTML="";
+                let g="vazio"
+      
+                const node4 = document.createElement("td");
+                const textnode4 = document.createTextNode(g);
+
+                node4.appendChild(textnode4);
+                document.getElementById("local-" + id).appendChild(node4);
+      
+            }else if(nome="s"){
+                local.innerHTML="";
+        
+                let c=nome1.substring(15,37)
+                const node3 = document.createElement("td");
+                const textnode3 = document.createTextNode(c);
+
+                node3.appendChild(textnode3);
+                document.getElementById("local-" + id).appendChild(node3);
+                    }
+        }
+    }
+
+    }
+     setor();
+</script>

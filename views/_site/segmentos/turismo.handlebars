@@ -1,0 +1,407 @@
+<script>
+
+   function OnCidade(n){
+          // Coloca o no do 'setor',do 'departamento' e da 'cidade' para consulta futura do lojista
+          let setor=document.getElementById('idSetor');
+          setor=setor.innerHTML;
+          let segmento=document.getElementById("idSegmento");
+          segmento=segmento.innerHTML;
+          document.getElementById("idCidade").value=n;
+          /////////////////////////////////////////////////////////////////////////////
+          let cidade=n;
+          let transfere=setor + ":" + segmento + ":" + cidade;
+          ////////////////////////////////////////////////////////////////////////////
+          try{
+                  fetch(`${baseApiUrl}` + `/site/pegaosbairros/${transfere}`,
+                        {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                        })
+                        .then(response =>{
+                            if(response.ok){
+                                return response.json()
+                            }   
+                            throw error
+                        }) 
+                        .then((json) => {
+                            console.log(json)
+                            let l=json.length;
+                            for (let i=0;i<l;i++){
+                               console.log(i)
+                              // {{!-- if (i=0){
+                              //   document.getElementById("BairroAll").style.display="none";
+                              // } --}}
+                               let bairro=json[i];
+                               console.log('___________________________________');
+                              // console.log('12',bairro)
+                               const node = document.createElement("button");
+                               const textnode = document.createTextNode(bairro);
+                               node.setAttribute("id","btn" + '-' + i)
+                               node.setAttribute("class","btnbairro");
+                               //node.setAttribute("onclick","btnbairro");
+                               node.setAttribute("onclick","buscarLojistas(" + "'" + bairro + "'" + ")");
+                               node.appendChild(textnode);
+                               document.getElementById("cbobairro").appendChild(node);
+                           }
+                        })
+                        .catch((e)=>{
+                           console.log(e);
+                        })
+             }catch(e){
+                console.log(e);
+             }
+
+   }
+
+   function mostraLabel(){
+      document.getElementById("div-avisolabel").style.display="block";
+      document.getElementById("avisoLabel").style.display="block";
+   }
+
+
+   function ocultaLabel(){
+      document.getElementById("div-avisolabel").style.display="none";
+      document.getElementById("avisoLabel").style.display="none";
+   }
+   
+
+  function buscarLojistas(n1){
+      // o nome da seção 
+      let setor=document.getElementById("idSetor").innerHTML;
+      //console.log('departamento',departamento.innerHTML);
+      let departo=document.getElementById('idSegmento').innerHTML;
+      let cidade=document.getElementById("idCidade").value;
+      let bairro=n1
+
+     // console.log('');
+     // console.log('1- ',setor);
+     // console.log('_________________________________________');
+     // console.log('2- ',departo);
+     // console.log('__________________________________________');
+     // console.log('3- ',cidade);
+     // console.log('_________________________________________');
+      //console.log('4- ',bairro);
+      console.log('_________________________________________');
+      //return
+      //////////////////////////////////////////////////////////
+      limpapainel()
+      //console.log(1000)
+      //////////////////////////////////////////////////////////
+      // o nome da cidade
+      
+      // o nome do bairro
+      //let bairro=document.getElementById("idBairroH3").innerHTML=value;
+      // escondo o frame de consulta
+      //document.getElementById("modal_pesquisa").style.display="none";
+      //return
+      //...............................................
+      let transfere=[]
+      transfere=[
+         depto=departo,
+         cidade=cidade,
+         bairro=bairro
+      ]
+      console.log('vr de transfere : ',transfere);
+      //......................................
+      try{
+          fetch(`${baseApiUrl}` + `/site/pegarLojistas/${transfere}`,
+                        {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                        })
+                        .then(response =>{
+                            if(response.ok){
+                                return response.json()
+                            }   
+                            throw error
+                        }) 
+                        .then((json) => {
+                            console.log('valor do result [1200]: ' ,json)
+                            let c=json.length;
+                            //................................................
+                           // let rz=Object.values(json[1]);
+                            console.log('_____________XXX_________________');
+                           // rz=rz[1];
+                            let x=0; // dividor para achar o número par
+                            let idloja=1000;
+                            //c=4;
+                            let q=0;
+                            console.log('valor de c : ',c)
+                            //.................................................
+                            for(let z=0;z<c;z++){
+                                     let loja=Object.values(json[z])
+                                     //..............................
+                                     idloja++;
+                                     console.log(' conteúdo da loja', loja)
+                                     //.........................................
+                                     //.........................................
+                                          let razao=loja[0];
+                                          let celular=loja[1]
+                                          let rua=loja[2]
+                                          let numero=loja[3]
+                                          let cidade=loja[4];
+                                          let bairro=loja[5];
+                                          let template=loja[6];
+                                          let url=loja[7];
+                                          let end=rua + " nº " + numero  + "  -  " + bairro
+                                     //.............................
+                                     if (q==0){
+                                          //////////////////////////////////////////////
+                                          console.log("valor de q : ",q)
+                                          //Essa divisão receber os demais  elementos
+                                          const A= formatadivisaoBase()
+
+                                          console.log('vr de A ',A)
+                                          function formatadivisaoBase(){
+                                              const node3 =document.createElement("div");
+                                              // node3.setAttribute("onclick","mostraloja(" + "'" + loja[0] + "'" + ")");
+                                              node3.setAttribute("id",idloja);
+                                              node3.setAttribute("class","divLojaFundo");
+                                              document.getElementById('boxLojaRight').appendChild(node3); 
+                                              return idloja
+                                          } 
+
+                                          console.log(3000)
+                                          // Divisão que contém a imagem
+                                          formatadivisaoBaseImagem()
+
+                                          function formatadivisaoBaseImagem(){
+                                              console.log(2000)
+                                              const node31=document.createElement("div")
+                                              node31.setAttribute("id",idloja + '-a')
+                                              node31.setAttribute("class","divLojaZero");
+                                              document.getElementById(idloja).appendChild(node31) 
+
+                                               //:::::::::::::::::::::::::::::::::::::::::::::::
+                                              // A imagem logo do lojista
+                                              const node32=document.createElement("img");
+                                              node32.setAttribute("id",idloja);
+                                              node32.setAttribute("class","mudaImg");
+                                              node32.setAttribute("src",url);
+                                              document.getElementById(idloja + '-a').appendChild(node32) 
+                                          }
+                                         
+                                          formatadivisaoBaseDados()
+
+                                          function formatadivisaoBaseDados(){
+                                              console.log(4000)
+                                              //::::::::::::::::::::::::::::::::::::::::::::::: 
+                                              //Divisão que contém dados do lojista
+                                              const node42=document.createElement("div")
+                                              node42.setAttribute("id",idloja + '-b')
+                                              node42.setAttribute("class","divLojaHum");
+                                              document.getElementById(idloja).appendChild(node42) 
+                                          }
+                                          
+                                         
+                                          formataRazao()                                        
+                                          
+                                          function formataRazao(){
+                                              const node44 =document.createElement("label");
+                                          
+                                              const textnode44=document.createTextNode(razao);
+                                              node44.appendChild(textnode44);
+                                              node44.setAttribute("id",'pnel-j-' + 1 );
+                                              node44.setAttribute("class","formatrazao")
+                                              document.getElementById(idloja + '-b').appendChild(node44);
+                                              //..............................
+                                              
+                                          }
+                                          //.................................................
+                                          
+                                          formataCelular()
+
+                                          function formataCelular(){
+                                              //////////////////////////////////////////////////////////
+                                              // Pega o celular
+                                              const node444 =document.createElement("label");
+                                              const textnode444=document.createTextNode(celular);
+                                              node444.appendChild(textnode444);
+                                              node444.setAttribute("id",'pnel-j-' + 2 );
+                                              node444.setAttribute("class","celularNumber")
+                                              //..............................
+                                              document.getElementById(idloja + '-b').appendChild(node444);
+                                          }
+                                          
+                                          //////////////////////////////////////////////////////////
+                                          formataEnd()
+                                          
+                                          function formataEnd(){
+                                             console.log('5000')
+                                             const node45 =document.createElement("p");
+                                             const textnode45=document.createTextNode("");
+                                             node45.appendChild(textnode45);
+                                             node45.setAttribute("id",'pnel-j-' + 3 );
+                                             node45.setAttribute("class","cidadeName")
+                                             document.getElementById(idloja + '-b').appendChild(node45);
+                                             document.getElementById('pnel-j-' + 3).innerHTML=end;
+                                          }
+                                                                                
+                                          ///////////////////////////////////////////////////
+                                          formataCidade()
+
+                                          function formataCidade(){
+                                             const node46=document.createElement("label");
+                                             const textnode46=document.createTextNode(cidade);
+                                             node46.appendChild(textnode46);
+                                             node46.setAttribute("id",'pnel-j-' + 4 );
+                                             node46.setAttribute("class","cidadeName")
+                                             document.getElementById(idloja + '-b').appendChild(node46);
+                                          }   
+
+                                          templateModel()
+
+                                          function templateModel(){
+                                             const node10=document.createElement("button");
+                                             const textnode10=document.createTextNode(template);
+                                             node10.appendChild(textnode10);
+                                             node10.setAttribute("id",'pnel-j-' + 5 );
+                                             node10.setAttribute("class","template")
+                                             document.getElementById(idloja + '-b').appendChild(node10);
+                                          }
+                                          ////////////////////////////////////////////////////
+                                          q++;
+                                          console.log('');
+                                          console.log(' Q : ',q);
+                                          console.log('');
+                                     }else{
+                                       //.........................................
+                                          end=rua  + " nº " + numero  + "  -  " + bairro
+                                          formatadivisaoBase()
+
+                                          function formatadivisaoBase(){
+                                             const node3 =document.createElement("div");
+                                             //node3.setAttribute("onclick","mostraloja(" + "'" + loja[0] + "'" + ")");
+                                             node3.setAttribute("id",idloja + '-g');
+                                             node3.setAttribute("class","divLojaFundo");
+                                             document.getElementById('boxLojaLeft').appendChild(node3); 
+                                          } 
+
+                                          console.log(3000)
+                                          // Divisão que contém a imagem
+                                          formatadivisaoBaseImagem()
+
+                                          function formatadivisaoBaseImagem(){
+                                             console.log(2000)
+                                             const node31=document.createElement("div")
+                                             node31.setAttribute("id",idloja + '-a')
+                                             node31.setAttribute("class","divLojaZero");
+                                             document.getElementById(idloja + '-g').appendChild(node31) 
+
+                                             //:::::::::::::::::::::::::::::::::::::::::::::::
+                                             // A imagem logo do lojista
+                                             const node32=document.createElement("img");
+                                             node32.setAttribute("id",idloja);
+                                             node32.setAttribute("class","mudaImg");
+                                             node32.setAttribute("src",url);
+                                             document.getElementById(idloja + '-a').appendChild(node32) 
+                                          }
+                                         
+                                          formatadivisaoBaseDados()
+
+                                          function formatadivisaoBaseDados(){
+                                             //::::::::::::::::::::::::::::::::::::::::::::::: 
+                                             //Divisão que contém dados do lojista
+                                             const node42=document.createElement("div")
+                                             node42.setAttribute("id",idloja + '-b')
+                                             node42.setAttribute("class","divLojaHum");
+                                             document.getElementById(idloja + '-g').appendChild(node42) 
+                                          }
+                                          
+                                         
+                                         formataRazao()                                        
+                                          
+                                          function formataRazao(){
+                                             const node44 =document.createElement("label");
+                                             const textnode44=document.createTextNode(razao);
+                                             node44.appendChild(textnode44);
+                                             node44.setAttribute("id",'pnel-j-' + 1 );
+                                             node44.setAttribute("class","formatrazao")
+                                             //..............................
+                                             document.getElementById(idloja + '-b').appendChild(node44);
+                                          }
+                                          //.................................................
+                                          
+                                          formataCelular()
+
+                                          function formataCelular(){
+                                             //////////////////////////////////////////////////////////
+                                             // Pega o celular
+                                             const node44 =document.createElement("label");
+                                             const textnode44=document.createTextNode(celular);
+                                             node44.appendChild(textnode44);
+                                             node44.setAttribute("id",'pnel-j-' + 2 );
+                                             node44.setAttribute("class","celularNumber")
+                                             document.getElementById(idloja + '-b').appendChild(node44);
+                                          }
+                                          
+                                          //////////////////////////////////////////////////////////
+                                          formataEnd()
+                                          
+                                          function formataEnd(){
+                                              console.log('5000')
+                                              const node45 =document.createElement("label");
+                                              const textnode45=document.createTextNode(end);
+                                              node45.appendChild(textnode45);
+                                              node45.setAttribute("id","pnel-j-" + 3 );
+                                              node45.setAttribute("class","cidadeName")
+                                              document.getElementById(idloja + '-b').appendChild(node45);
+                                          }
+                                          
+
+                                          formataCidade()
+
+
+                                          function formataCidade(){
+                                              ///////////////////////////////////////////////////
+                                              const node9=document.createElement("label");
+                                              const textnode9=document.createTextNode(cidade);
+                                              node9.appendChild(textnode9);
+                                              node9.setAttribute("id","pnel-j-" + 4 );
+                                              node9.setAttribute("class","cidadeName")
+                                              document.getElementById(idloja + '-b').appendChild(node9);
+                                          }
+                                          //??????????????????????????????????????????????????????????????????????
+                                          templateModel()
+
+                                          function templateModel(){
+                                              const node10=document.createElement("button");
+                                              const textnode10=document.createTextNode(template);
+                                              node10.appendChild(textnode10);
+                                              node10.setAttribute("id","pnel-j-" + 5 );
+                                              node10.setAttribute("class","template")
+                                              document.getElementById(idloja + '-b').appendChild(node10);
+                                          }
+
+                                          q--;
+                                          console.log('');
+                                          console.log(' Q : ',q);
+                                          console.log('');
+                                          //idloja++;
+                                     }
+                                     //.........................................   
+                                     console.log('1000',x);
+                                     console.log('______________________________________________');
+                                     console.log('');
+                           }
+                           //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                        })
+                        .catch((err)=>{
+                            console.log('[1153]',err)
+                        })
+      }catch(e){
+         console.log('errado!')
+      }               
+    }
+   
+   function busc_bairro(cidade){
+   console.log('Está buscando os bairros para seleção a partir da escolha da cidade [ 735 ] : ',cidade)
+   // esconde a relação de cidades
+   document.getElementById("idRel-Cidades").style.display="none";
+   // mostra o titulo da cidade 
+   document.getElementById("idTituloCidade").style.display="block";
+   // coloca o nome da cidade  
+   document.getElementById("idCidadeH4").innerHTML=cidade;
+   // mostra o nome da cidade
+   document.getElementById("idCidadeH4").style.display="block";
+   // mostra a relação dos bairros 
+   document.getElementById("idRel-Bairros").style.display="block";
+   //.............................................................
+}
+</script>

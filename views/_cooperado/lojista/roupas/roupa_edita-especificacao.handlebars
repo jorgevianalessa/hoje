@@ -1,0 +1,1278 @@
+<style>
+
+  .titulo_page{
+      width: 100%;height: 1.4vh;margin: auto;
+      background-color: #ece5e3;text-align: center;
+      padding: 0.1vh;
+      display: flex;flex-direction: row;"
+  }
+
+  .label_control{
+     color:#cccccc;font-size: larger;font-weight: bold;padding: 0px 10px 0px 10px;visibility: hidden;
+  } 
+
+  .handlebars{
+    color:#7e7d7d;font-size: xx-small;font-weight: bold;
+  }
+
+  .form_modal{
+      width: 18%;height: 36vh;margin: auto;
+      position:absolute;
+      top: 100px;;
+      right:10px;
+      z-index: 100;
+      background-color: rgba(114, 3, 92, 0.5);
+      display:none;
+  }
+
+  .form_action{
+     width: 80%;height: 34vh;margin: auto;
+     padding: 2em;margin-top: 1.5vh;
+     background-color: #0000ff4d;
+  }
+
+  .rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color: #008b8b;
+     padding: 3px;
+  }
+
+  .rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color:  #05d639;
+     padding: 3px;
+  }
+
+  .btn_gravar{
+    width: 6vw;
+    height: 3vh;
+    border-radius: 6px;
+    background-color: #035384;color:#ffffff;
+    margin-top:0.3vh;
+  }
+
+  .linha-produto{
+     width: 80%;height: 3.2vh;margin: auto;
+     margin-top: .5vh;
+     display: flex;flex-direction: row;
+     margin-top: 3px;
+     background-color:transparent;
+  }
+
+  .fontUp{
+     text-transform: capitalize;
+  }
+
+  .linha-produto_div{
+    width: 90%;
+    height: 3.2vh;margin: auto;
+    display: flex;flex-direction: row;justify-content:center;
+    background-color:#b20787;
+  }
+
+  .linha-produto_label{
+    width: 20%;
+    text-align: center;
+    background-color: #008000;
+    color: #ffffff;
+    padding: 0.5vh;
+  }
+
+  .linha-produto_input{
+    width: 80%;
+  }
+
+  .linha-produto_input input{
+    width: 100%;height:3.2vh;
+    background-color: #ffffff;color:#0000ff;
+  }
+
+  .btn_label{
+    width: 6vw;
+    margin-left: 6px;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .btn_input{
+    width: 6vw;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .formataImg{
+    max-width: 50vw;
+    max-height: 30vh;
+    width: auto;
+    height: auto;
+    background-color: #959292;
+    padding: 3px;
+  }
+  
+  .dados_produto{
+     width: 85%;height: 58vh;margin: auto;
+     display: flex;flex-direction:row;
+     background-color: #ffffff;
+     padding: 2px 5px 2px 5px;"
+  }
+
+  .dados_itens{
+    width: 50%;height: 57vh;margin: auto;
+    background-color: #ffffff;
+  }
+
+  .dados_imagens{
+    width: 50%;height: 57vh;margin: auto;
+    background-color: #ffffff;"
+  }
+
+</style>
+
+
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<style>
+    .avisoAlerta_{
+        width: 80%;
+        font-size: larger;
+        font-weight: 100;
+        margin-top: 14px;
+        border:1px solid cornsilk;
+        text-align: center;margin-top: 6px;
+        text-align: center;
+        margin-left: 10%;
+    }
+
+    .ativaModalResposta_{
+        width: 80%;height: 7vh;margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 1.5vh;
+    }
+    .buttonAlerta_{
+        width: 10vw;
+        border-radius: 6px;
+        background-color: #04bb32;
+        color:#ffffff;margin: auto;
+    }
+</style>
+
+<div id="nucleo" style="width: 98%;height: 90vh;margin: auto;margin-top:9.4vh;background-color: #ffffff;color:#0c0202">
+    {{!-- ...................Box Dialogo Sim/Não.................................. --}}
+    <div  id="msgSpan1" style="width: 50%;height: 15vh;margin: auto;background-color: #ffffff;text-align: center;display:none;z-index: 1000;position: absolute;
+                               left:25%;top: 50;border: #035384 2px solid;padding-top: 0.5vh;">
+        {{!-- <input id="avisoAlerta" class="avisoAlerta_"  value="">  --}}
+        <h3 style="color:#00ff40;">Esse tamanho já existe? <span id="idspan1" style="color:#ffffff;font-weight: 100;margin:0px 10px 0px 10px;"></span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="ativaModalResposta_" >
+            <input id="avisoAlerta" class="avisoAlerta_"  value="" style="color:green;font-size:larger ;display: none;">
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+            <button class="buttonAlerta_" onclick="fechaAviso()">SIM</button> 
+            {{!-- <button class="buttonAlerta_" onclick="limpaFornecedor()" style="background-color: #ff0000;">Não</button>  --}}
+            </div>
+        </div>
+    </div>
+    {{!-- ...........Form para gravar as modificações............................. --}}
+    <div  class="form_modal">
+          <form action="/roupa/editar-especificacao" method="POST"  enctype="application/x-www-form-urlencoded" class="form_action">
+              <div class="rowPar">
+                 <input id="IdProduto" name="nameIdProduto" value="{{vitrine._id}}">
+              </div>
+              <div class="rowImpar">
+                 <input id="identId" name="namedaCorSelected" value="{{cores._id}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="tamanhoId" name="nameTamanho" value="{{especificacao.tamanho}}">
+              </div>
+              <div class="rowImpar" >
+                 <input id="qteId" name="nameQte" value="{{especificacao.qte}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="custoId" name="nameCusto" value="{{especificacao.precocusto}}">
+              </div>
+                <div class="rowImpar" >
+                 <input id="vistaId" name="nameVista" value="{{especificacao.precovista}}">
+              </div>
+                <div class="rowPar" >
+                 <input id="prazoId" name="namePrazo" value="{{especificacao.precoprazo}}">
+              </div>
+                <div class="rowImpar" >
+                 <input id="pageId" name="namePage" value="default" style="background-color: #0000ff;color:#ffffff;">
+              </div>
+              <div class="rowPar" >
+                 <button class="btn_gravar" type="submit" id="btnId"  >Gravar</button>
+              </div>
+          </form>
+    </div>
+    {{!-- ...................Título da page........................................ --}}
+    <div id="tituloPage" class="titulo_page">
+            <label id="labelControl" class="label_control" >1</label>
+            <label id="titulo_Handlebars" class="handlebars" >Descrição do produto :"roupa_edita-especificacao,{ layout:'roupa-edita-temp.handlebars',produto:Produto}"</label>
+    </div>
+    {{!-- ...................Dados do produto...................................... --}}
+    <div id="Vitrine" style="width: 97%;height: 59vh;margin: auto;background-color: #ffffff;">
+        <div id="DadosProduto" class="dados_produto" >
+            {{!-- {{vitrine}} --}}
+            <div id="DadosProduto_Itens" class="dados_itens" >
+                    {{!-- ___________________________________________________________________ --}}
+                    <div id="separador_2" style="width: 72%;height:3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                            <h6>dados produto</h6>
+                    </div>
+                    <div style="background-color: transparent;z-index: 1200;">
+                        <div id="id_id" class="linha-produto" style="z-index: 500;background-color:transparent;"  >
+                            <div class="linha-produto_div" style="z-index:100;">
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label"  >_Id :</label>
+                                </div>
+                                <div class="linha-produto_input" >
+                                    <input id="idprodut_id" value="{{vitrine._id}}"  disabled style="background-color: #b20787;color:#ffffff;" >
+                                </div>
+                            </div>  
+                        </div>
+                        <div id="codigo" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label">Código :</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_codigo" value="{{vitrine.codigo}}" disabled style="background-color: #b20787;color:#ffffff;">
+                                </div>
+                            </div>  
+                        </div>
+                        <div id="id_descricao" class="linha-produto" >
+                            <div class="linha-produto_div"  >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label">descrição :</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_descricao" value="{{vitrine.descricao}}" disabled style="background-color: #b20787;color:#ffffff;">
+                                </div>
+                            </div>       
+                        </div>
+                        <div id="id_detalhe" class="linha-produto"  >
+                            <div class="linha-produto_div"  >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label">detalhe :</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_detalhe" value="{{vitrine.complete}}" disabled style="background-color: #b20787;color:#ffffff;">
+                                </div>
+                            </div>       
+                        </div>
+                        <div id="id_tecido" class="linha-produto"  >
+                            <div class="linha-produto_div"  >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label">tecido :</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_tecido" value="{{vitrine.tecido}}" style="background-color: #b20787;color:#ffffff;" disabled>
+                                </div>
+                            </div>       
+                        </div>
+                        <div id="id_artigo" class="linha-produto"  >
+                            <div class="linha-produto_div"  >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label">artigo :</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_artigo" value="{{vitrine.artigo}}" style="background-color: #b20787;color:#ffffff;" disabled>
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- <div style="width: 72%;height: 6px;margin: auto;background-color: #dfdfe2;"></div> --}}
+                        <div id="separador_2" style="width: 72%;height:3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                                <h6>imagens do produto</h6>
+                        </div>
+                        <div id="idImgMain" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label  class="btn_label" >img front</label>
+                                </div>
+                                <div class="linha-produto_input" >
+                                    <input id="idproduto_urlmain" value="{{cores.urlfront}}" >
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="urlleft" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label">
+                                    <label  class="btn_label"  >img left</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_urlleft" value="{{cores.urlleft}}">
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="urlback" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label  class="btn_label" >img back</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_urlback"  value="{{cores.urlback}}">
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="urlright" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label">
+                                    <label class="btn_label" >img right</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_right" value="{{cores.urlright}}" >
+                                </div> 
+                            </div>       
+                        </div>
+                        <div id="separador_2" style="width: 72%;height:3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                            <h6>cores do produto</h6>
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="corFront" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label  class="btn_label">cor front</label>
+                                </div>
+                                <div id="dividCores" class="linha-produto_input" >
+                                    <input id="idproduto_corfront" value="{{cores.front}}" style="background-color: {{cores.corfront}};"  disabled >
+                                </div>
+                            </div>       
+                        </div>
+                        <div id="corBack" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label  class="btn_label">cor back</label>
+                                </div>
+                                <div id="dividCores" class="linha-produto_input" >
+                                    <input id="idproduto_corback" value="{{cores.corback}}" style="background-color: {{cores.corback}};"  disabled >
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="corInput" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label" >cor input</label>
+                                </div>
+                                <div id="dividCores" class="linha-produto_input" >
+                                    <input id="idproduto_corinput" value="{{cores.corinput}}" disabled>
+                                </div>
+                            </div>       
+                        </div>
+                    </div> 
+                
+                    {{!-- <div id="containerInserir" style="width: 100%;height: 30vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: column;justify-content: center;border: 2px solid #cccccc;margin-top: 1vh;"> --}}
+                   
+                    {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                    {{!-- <div style="text-align: center;padding: 2.5px;display: flex;flex-direction: row;justify-content: space-around;margin-top: 9px;">
+                            <button id="editaDetalheProduto" class="btn_cria" style="display: block;" onclick="editDetalhe()">Add Tamanho Cor</button>
+                    </div> --}}
+                    {{!-- </div> --}}
+            </div>
+            <div id="DadosProduto_Imagens" class="dados_imagens" >
+                <div class="idFromProdut_div_" style="margin-bottom: 1.2vh;text-align: center;color: #ffffff;margin-bottom: .5vh;" >
+                    <h6 style="font-size: medium;color: #e50606;">imagens do produto</h6>
+                </div>
+                <div id="superior" style="width: 100%;height: 26.35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;border: 2px solid #cccccc;">
+                    <div style="width: 48%;height: 25vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;">
+                        <img  id="imgfront" class="formataImg" src="{{cores.urlfront}}">
+                    </div>
+                    <div style="width: 48%;height: 25vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;">
+                        <img id="imgleft" class="formataImg" src="{{cores.urlleft}}">
+                    </div>
+                </div>
+                {{!-- <div style="width: 75%;height: 6px;margin: auto;background-color: #c4c4c7;"></div> --}}
+                <div id="inferior" style="width: 100%;height: 26.35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;border: 2px solid #cccccc;margin-top: 4px;">
+                    <div style="width: 48%;height: 25vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;">
+                        <img id="imgback" class="formataImg" src="{{cores.urlback}}">
+                    </div>
+                    <div style="width: 48%;height: 25vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;">
+                        <img id="imgright" class="formataImg" src="{{cores.urlright}}">
+                    </div>
+                </div>
+              
+            </div>
+        </div> 
+    </div>
+    <div id="Insercao" style="width: 97%;height: 27vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;margin-top: 1vh;">
+        <div  id="Insercao_One"  style="width: 96%;height: 26.5vh;margin: auto; display: flex;flex-direction: row;background-color: #000000;">
+            <div id="partLeft" style="width:50%;background-color: #ffffff;display: block;">
+                <div id="tamanhos" style="width: 80%;height: 24vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;margin-top: 4px;">
+                        <div style="width: 100%;height: 25.5vh;margin: auto;background-color:#ffffff;padding: 1.5vh;border: 2px solid #cccccc;">
+                            <table id="x9" class="table table-striped table-hover table-bordered" style="background-color: #fbf5f5;width: 50%;margin: auto;">
+                                    <thead>
+                                        <tr>
+                                            <th style="display: none;">ID</th>
+                                            <th class="d-none d-sm-table-cell"  >código</th>
+                                            <th class="d-none d-sm-table-cell">tamanho</th>
+                                            <th class="d-none d-sm-table-cell">qte</th>
+                                            <th class="d-none d-lg-table-cell">custo</th>
+                                            <th class="d-none d-lg-table-cell">vista</th>
+                                            <th class="d-none d-sm-table-cell">prazo</th>
+                                            <th class="d-none d-lg-table-cell">page</th>
+                                            {{!-- <th class="d-none d-lg-table-cell">Delete</th>
+                                            <th class="d-none d-lg-table-cell">Visualizar</th> --}}
+                                        </tr>
+                                    </thead>
+                                    {{!-- --------------------------------------------------- --}}
+                                    <tbody id="x-9">
+                                        {{#each cores.especificacao}}
+                                            <tr id="tr-{{@index}}" style="font-size: small;color: #2bf332;font-weight: 100;">
+                                                    <td style="color:#024082;">{{_id}}</td>
+                                                    <td id="j- + {{@index}}" style="width: 12%;color:#024082;">{{this.tamanho}}</td>
+                                                    <td style="width: 12%;color:#024082;">{{this.qte}}</td>
+                                                    <td style="width: 12%;color:#024082;">{{this.precocusto}}</td>
+                                                    <td style="width: 12%;color:#024082;">{{this.precovista}}</td>
+                                                    <td style="width: 12%;color:#024082;">{{this.precoprazo}}</td>
+                                                    <td style="width: 12%;color:#024082;">{{this.page}}</td>
+                                                    {{!-- //console.log(document.getElementById("j" + @index).innerHTML) --}}
+                                            </tr> 
+                                            {{!-- //<tr style="font-size: small;color: #000000;font-weight: 100;">
+                                            
+                                            </tr> --}}
+                                        {{/each}}  
+                                    </tbody>  
+                            </table>         
+                        </div>
+                    
+                </div>
+            </div>  
+            <div id="partRighr" style="width: 50%;background-color:#ffffff;display:block;border: 2px solid #cccccc;">
+                        <div id="separador_2" style="width: 72%;height:3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: 0.5vh;margin-top: 1vh;">
+                                <h6>especificações complementares</h6>
+                        </div>
+                        <div id="tamanho" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label">
+                                    <label class="btn_label" >tamanho</label>
+                                </div>
+                                <div class="linha-produto_input " >
+                                    <input id="idproduto_tamanho" class="fontUp" value="{{especificacao.[0].tamanho}}" >
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="qte" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label" >
+                                    <label class="btn_label" >qte</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_qte" value="{{especificacao.[0].qte}}" >
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="precocusto" class="linha-produto" >
+                            <div class="linha-produto_div">
+                                <div class="linha-produto_label">
+                                    <label class="btn_label" >p custo</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_custo" value="{{especificacao.[0].precocusto}}" style="background-color: #b20787;color:#ffffff;" >
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="precovenda" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label">
+                                    <label class="btn_label" >p  vista</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_vista" value="{{especificacao.[0].precovista}}" style="background-color: #b20787;color:#ffffff;" >
+                                </div>
+                            </div>       
+                        </div>
+                        {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                        <div id="precoprazo" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label">
+                                    <label class="btn_label" >p prazo</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_prazo" value="{{especificacao.[0].precoprazo}}" style="background-color: #b20787;color:#ffffff;" >
+                                </div>
+                            </div>       
+                        </div>
+                        <div id="page" class="linha-produto" >
+                            <div class="linha-produto_div" >
+                                <div class="linha-produto_label">
+                                    <label class="btn_label"  >page</label>
+                                </div>
+                                <div class="linha-produto_input">
+                                    <input id="idproduto_page" value="default" onkeypress="focaInput('idDetalheProdutoPprazo')"style="background-color: #b20787;color:#ffffff;" >
+                                </div>
+                            </div>       
+                        </div>
+            </div> 
+        </div>     
+    </div>
+    
+</div>
+
+<script>
+
+
+let var_tamanho=document.getElementById("tamanhoId").value;
+let var_qte=document.getElementById("qteId").value;
+let var_custo=document.getElementById("custoId").value;
+let var_vista=document.getElementById("vistaId").value;
+let var_prazo=document.getElementById("prazoId").value;
+let var_page=document.getElementById("pageId").value;
+
+
+function validacao(n){
+   console.log('1',e1.value)
+   let A=e1.value;
+   if (A=='default'){
+      e1.focus();
+      n=1
+      return n
+   }
+}
+
+
+// Torna o field descrição com fundo roxo e focado   
+function primefoco(){
+    console.log('122222')
+    //a.;
+    //a.;
+    //a.focus();
+    let p1=document.getElementById("idproduto_tamanho");
+    p1.style.backgroundColor='red';
+    p1.style.color="#ffffff";
+    p1.focus();
+}
+</script>
+
+<script>
+    
+
+//........................................................
+///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+let e1=document.getElementById("idproduto_tamanho");
+
+let f1=document.getElementById("idproduto_qte");
+let g1=document.getElementById("idproduto_custo");
+let h1=document.getElementById("idproduto_vista");
+let i1=document.getElementById("idproduto_prazo");
+let j1=document.getElementById("idproduto_page");
+
+
+
+// Tamanho
+e1.addEventListener("keypress",function(event){
+      ///////////////////////////////////////////
+      let key=event.which;
+      let P=event.key;
+       console.log('tecla pressionada',key,P)
+      //.................................................
+      if (key>48 && key< 57){
+          console.log('é numero!',key)  
+          executa(key)
+      }else if(key>65 && key<90){
+          console.log('é letra !',key)
+          executa(key)
+      }else if( key==16 || key=="Shift" || key==72) {
+          //console.log('deixa passar ',letra)
+      }else if (key=="Enter" || key==13 ){
+           executa(key)
+      }else if(key==109 || key==103){
+         console.log('[612]',key)    
+         console.log('P',P) 
+         console.log('_________________________________________________')
+      }else{
+        event.preventDefault();
+      }
+      //////////////////////////////////////////    
+              function executa(key){
+                   console.log('funcionando')
+                    if(key==13){
+                                //....................................
+                                console.log('dentrooooooo!')
+                                const A=duplicidade(e1.value);
+                                
+                                console.log(A)
+                                if(A==100){
+                                    // O valor já existe
+                                    console.log(4)
+
+                                    e1.value="";
+                                    e1.style.backgroundColor="yellow";
+                                    e1.focus();
+                                }else{
+                                    // O valor é novo
+                                    let a1=e1.value;
+                                    let a2=var_tamanho;
+                                    //....................................
+                                    //....................................
+                                    if(a1==a2){
+                                        e1.style.backgroundColor="#1805c0";
+                                        e1.style.color="yellow";
+                                        document.getElementById("tamanhoId").value=a1;
+                                    }else{ 
+                                        e1.style.backgroundColor="green";
+                                        e1.style.color="white";
+                                        document.getElementById("tamanhoId").value=a1;
+                                        document.getElementById("tamanhoId").style.backgroundColor='pink';
+                                    }
+                                    //......................................
+                                    f1.focus();
+                                }    
+                            }else if(key==8){
+                                e1.value="";
+                                e1.style.backgroundColor="violet"
+                            }
+                  }
+})
+
+
+function duplicidade(e){
+    console.log('[615]',e)
+    let q=e;
+    let d=document.getElementById("x-9").children;
+    console.log(d)
+    let j=d.length;
+    console.log(' j ',j);
+    console.log('');
+    console.log('________________________________');
+    console.log('vr ',q)
+    for (let i=0;i<j;i++){
+          console.log('....',i)
+          let g=d[i].children;
+          console.log('g : ',g[1]) 
+          let h=g[1];
+          h=h.innerHTML;
+          // h é o valor da tabela
+          console.log('valor existente :',h)
+          console.log('valor digitado  :',q)
+          // q é o valor digitado 
+          if(q===h){
+             console.log("BRAVO!")
+             document.getElementById("msgSpan1").style.display="block";
+             return 100;
+          }else{;
+             console.log('O valor digitado é novo !')
+             console.log("1000!")
+          }
+    }
+   
+};
+
+function fechaAviso(){
+    document.getElementById("msgSpan1").style.display="none";
+    document.getElementById('idproduto_tamanho').style.backgroundColor="black";
+    document.getElementById('idproduto_tamanho').focus();
+}
+// Qte
+f1.addEventListener("keydown",function(event){
+      let key=event.which;
+      let P=event.key;
+      console.log('vr de key',key)  
+      console.log('vr de P',P)  
+      if (key>48 && key< 57){
+         console.log('é numero!')  
+            
+      }else if(key!='Enter' || key==13){
+         console.log('[734]',key)
+         Executa_B()
+      }else{
+         alert("corrija a digição")
+      }     
+
+      function Executa_B(){
+           if(key==13){
+                    //....................................
+                    let a1=f1.value;
+                    let a2=var_qte;
+                    if(isNaN(a1)){
+                        alert("o valor digitado não é número!")
+                    }
+                    //...................................
+                    
+                    if(a1==a2){
+                        f1.style.backgroundColor="#1805c0";
+                        f1.style.color="yellow";
+                        document.getElementById("qteId").value=a1;
+                    }else{ 
+                        f1.style.backgroundColor="yellow";
+                        f1.style.color="black";
+                        document.getElementById("qteId").value=a1;
+                        document.getElementById("qteId").style.backgroundColor='pink';
+                    }
+                    //......................................
+                    
+                    g1.style.backgroundColor='black';
+                    g1.focus();
+                }else if(key==8){
+                    f1.value="";
+                    f1.style.backgroundColor="violet"
+            }
+      }   
+})
+
+// field de Custo
+g1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+            console.log('');
+           console.log('',var_custo);
+           let a1=g1.value;
+           let a2=var_custo;
+           console.log('',f1.value);
+           //........................
+           if(a1==a2){
+             console.log('Iguais')
+             g1.style.backgroundColor="#1805c0";
+             g1.style.color="yellow";
+             //.................................
+           }else{ 
+             // houve mudança de valor
+             console.log( 'diferente')
+             g1.style.backgroundColor="yellow";
+             g1.style.color="black";
+             //.................................
+             document.getElementById("custoId").value=g1.value;
+             document.getElementById("custoId").style.backgroundColor='pink';
+           }
+           //......................................
+           let num=g1.value.toString();
+           console.log('num : ',num)
+           let x=formataValor(num)
+           console.log(' vr de x ',x)
+           //.......................................................
+          // document.getElementById("msgSpanPcusto").style.display="block";
+           //document.getElementById("idspan1").innerHTML=x;
+          // document.getElementById("idspan1").style.backgroundColor="black";
+           //let p=document.getElementById("btn-custo-sim");
+           h1.focus();
+           //...................................................... 
+       }else if(key==8){
+           g1.value="";
+           g1.style.backgroundColor="violet"
+       }
+})
+
+// Custo
+g1.addEventListener("focusin",function(event){
+      console.log('valor de foco ',g1.value);
+      if (g1.value==0){
+         g1.value="";
+         g1.style.backgroundColor="red";
+         g1.style.color="white";
+         g1.focus()
+      }
+})
+
+// Vista
+h1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=h1.value;
+           let a2=var_vista;
+           console.log(a1,a2)
+           console.log('',h1.value);
+           console.log('______________________________________________')
+           if(a1==a2){
+             h1.style.backgroundColor="#1805c0";
+             h1.style.color="yellow";
+             //document.getElementById("vistaId").value=a1;
+           }else{ 
+             h1.style.backgroundColor="yellow";
+             h1.style.color="black";
+             document.getElementById("vistaId").value=h1.value;
+             document.getElementById("vistaId").style.backgroundColor='pink';
+           }
+           //......................................
+           let num=h1.value.toString();
+           console.log('>>>>>>>>>>>>>>>>>>>',num)
+           let x=formataValor(num)
+           console.log('_________________________________________')
+           //.......................................................
+           //document.getElementById("msgSpanPvista").style.display="block";
+           //document.getElementById("idspan2").innerHTML=x;
+           //document.getElementById("idspan2").style.backgroundColor="black";
+           //document.getElementById("btn-vista-sim").style.focus();
+           //.........................................
+           i1.focus();
+       }else if(key==8){
+           h1.value="";
+           h1.style.backgroundColor="violet"
+       }
+})
+
+// Vista
+h1.addEventListener("focusin",function(event){
+      console.log('valor de foco vista',h1.value);
+      if (h1.value==0){
+         h1.value="";
+         h1.style.backgroundColor="red";
+         h1.style.color="white";
+         h1.focus()
+      }
+})
+
+// Prazo
+i1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=i1.value;
+           let a2=var_prazo;
+           if(a1==a2){
+             i1.style.backgroundColor="#1805c0";
+             i1.style.color="yellow";
+             //..................................................
+           }else{ 
+             i1.style.backgroundColor="yellow";
+             i1.style.color="black";
+             document.getElementById("prazoId").style.backgroundColor='pink';
+           }
+           //......................................
+           let num=i1.value.toString();
+           let x=formataValor(num);
+           console.log('valor de x',x)
+           if(x==='1n1'){
+             alert("corrija o valor !")
+             return
+           }
+           //.......................................................
+           //document.getElementById("msgSpanPprazo").style.display="block";
+           //document.getElementById("idspan3").innerHTML=x;
+           //document.getElementById("idspan3").style.backgroundColor="black";
+           //document.getElementById("btn-prazo-sim").style.focus()
+           j1.focus();
+           //.............................................................
+       }else if(key==8){
+           i1.value="";
+           i1.style.backgroundColor="violet"
+       }
+})
+
+// Prazo
+i1.addEventListener("focusin",function(event){
+      console.log(i1.value);
+      if (i1.value==0){
+        i1.value="";
+        i1.style.backgroundColor="red";
+        i1.style.color="white";
+        i1.focus()
+      }
+})
+
+// Page
+j1.addEventListener("keydown",function(event){
+    let key=event.which;
+    //console.log(11)
+    if(key==13){
+        //....................................
+        console.log(12)
+        let n=0
+        validacao(n);
+        if (n==1){
+            return
+        }
+        let a1=j1.value;
+        let a2=var_page;
+        if(a1==a2){
+            j1.style.backgroundColor="#1805c0";
+            j1.style.color="yellow";
+            document.getElementById("pageId").value=a1;
+        }else{ 
+            j1.style.backgroundColor="yellow";
+            j1.style.color="black";
+            document.getElementById("pageId").value=a1;
+            document.getElementById("pageId").style.backgroundColor='pink';
+        }
+        //......................................
+        let btn=document.getElementById("btnId");
+        btn.click()
+    }else if(key==8){
+        j1.value="";
+        j1.style.backgroundColor="violet"
+    }
+})
+
+// atualizado=> 23-12-23
+function formataValor(r1){
+    console.log('');
+    console.log('_____________________________________');
+    console.log('');
+   let n=r1;
+   console.log('valor de r1',r1)
+   console.log('');
+   let f=n.length;
+  
+   if (f<4){
+     // (,00) não passa
+     console.log('menor que 4',r1)
+     return 1 + 'n' + 1;
+   }else if(f>3 && f<7){
+     // (00)=,00 <=> (000000)=0,000.00
+     console.log('maior que 3 e menor que 7 ',r1)
+     ///////////////////////////////////////////////////
+     let centavos=r1.substring(f-2,f)
+     console.log('vr da centavos : ', "." + centavos)
+     let vrfinal="." + centavos
+     console.log('vr final', vrfinal)
+     ///////////////////////////////////////////
+     let restante=r1.substr(0,(f-3))
+     console.log('restante ',restante)
+     let e=restante.length;
+     let centena=restante.substring((e-3),e);
+     console.log(' result 10: ', centena + "." + centavos );
+     vrfinal=centena + vrfinal
+
+     restante=restante.substring(0,e-3)
+     console.log( 'resta 10 : ',restante)
+     if (restante<4){
+        let milha=restante
+        let d=milha.length;
+        if(d > 0 ){ 
+           console.log(" final ", milha + "," + vrfinal)
+           vrfinal=milha + "," + vrfinal;
+        }  
+        console.log('final 10')
+        return vrfinal
+     }else{
+       alert("Não está formatado ainda esse número")    
+     }
+
+    // return 2
+   }else if(f>6 && f<12){
+     console.log('maior que 6 e menor que 12 : ',r1)
+     let r2=r1.replace(".","=")
+     let ponto=r2.search("=");
+     let virgula=r2.search(",")
+     console.log( virgula,"------7---------",ponto)
+     //////////////////////////////////
+     let unidade=r2.substring(5,f)
+     //console.log('vr da unidade 1',unidade)
+     unidade=unidade.substring(0,3); 
+     console.log('vr da unidade 2 : ',"." + unidade)
+     ///////////////////////////////////////////
+     let palavra=r1.substr(0,(f-2))
+     console.log('restante ',palavra)
+     let e=palavra.length;
+     let milha=palavra.substring((e-3),e);
+     console.log('milhar : ',milha + "." + unidade );
+
+     palavra=palavra.substring(0,e-3)
+     console.log( 'resta ',palavra)
+     if (palavra<4){
+        console.log(" final ", palavra + "," + milha + "." + unidade)
+     }
+     
+     //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+     return
+     if (f=8){
+        r1=r1.replace(".","=");
+        console.log(r1)
+        // ............................................................
+        // tratar a unidade decimal
+        let unidade=r1.substr(f-3,f);
+        if (unidade.length>3){
+           unidade=unidade.substr(0,3)
+           //unidade1=unidade;
+           unidade=unidade.replace("=",".")
+           console.log(' unidade : ',unidade)
+        }else if(unidade.length=3){
+           unidade=unidade.replace("=",".")
+           //unidade1=unidade
+           console.log(' unidade : ',unidade)
+        }
+        // ............................................................. 
+        // tratar a centena
+        let centena=r1.substr(f-7,f)
+        let pos=r1.search("=");
+        console.log('');
+        console.log(' pos centena ',pos)
+        console.log(' valor centena : ',centena)
+        centena=centena.substring(0,(pos-1)) + unidade
+        console.log('');
+        centena=centena.replace("=",".")
+        console.log('centena formatada',centena)
+        // ...........................................................
+        // trata a milhar
+        let milhar=r1.substr(f-8,f)
+        console.log('');
+        //console.log(' centena : ',centena)
+        console.log(' milhar : ',milhar)
+    }
+    let pos;
+    let milhar;
+    pos=milhar.search(",")
+    console.log('pos "," " ',pos)
+
+     let m1=r1.toString();
+     m1=m1.replace(".",":");
+     console.log(' pos/m1 ',pos)
+     console.log('');
+
+     let pos1;
+     pos1=m1.search(":");
+     console.log(' pos1 ',pos1)
+     console.log('');
+     return 3 
+   }else if(f>11){
+       alert('favor conferir o valor !!!')
+     
+   }else{
+     return 0
+   } 
+
+}
+</script>
+
+<script >
+
+
+
+function focaInput(n){
+    return
+    console.log('vr de foca',n)
+    //................................................
+    // Se não é o final então pula para o seguinte e muda o fundo para a amarelo
+    if (n!=="final"){
+        document.getElementById(n).style.backgroundColor="yellow"
+        document.getElementById(n).focus();
+    }else{
+        // Se chegou ao final então chama o model para confirmar e alterar o registro
+        let a=document.getElementById("iddetalhe-tamanho").value;
+        //.............................................................
+        document.getElementById("numberTamanho").value=a;
+        let b=document.getElementById("iddetalhe-qte").value;
+        //............................................................
+        document.getElementById("numberQte").value=b;
+        let c=document.getElementById("iddetalhe-pcusto").value;
+        console.log('vr de c',c)
+        //...............................................................
+        document.getElementById("EditaDetalhe").style.display="block";
+        let x=document.getElementById("zero");
+        //x.click()
+    }
+ }
+
+
+//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+
+
+
+
+
+
+
+function final(){
+    console.log('_________________________________________')
+}
+primefoco()
+</script>
+<script>
+    function lixo(){
+        // Qte
+            fX.addEventListener("keydown",function(event){
+                let key=event.which;
+                if(key==13){
+                    //....................................
+                    let a1=f.value;
+                    let a2=var_qte;
+                    //console.log('qte1 : ',a1);
+                    //console.log('qte2 : ',a2);
+                    if(a1==a2){
+                        f.style.backgroundColor="#1805c0";
+                        f.style.color="yellow";
+                        document.getElementById("qteId").value=a1;
+                    }else{ 
+                        f.style.backgroundColor="yellow";
+                        f.style.color="black";
+                        document.getElementById("qteId").value=a1;
+                        document.getElementById("qteId").style.backgroundColor='pink';
+                    }
+                    //......................................
+                    g.focus()
+                }else if(key==8){
+                    f.value="";
+                    f.style.backgroundColor="violet"
+                }
+            })
+
+
+
+            function formataValorX(r1){
+                    console.log('');
+                    console.log('_____________________________________');
+                    console.log('');
+                    let n=r1;
+                    console.log('valor de r1',r1)
+                    //console.log( 'valor de n'  , n)
+                    console.log('');
+                    let f=n.length;
+                    
+                    if (f<4){
+                        console.log('menor que 4',r1)
+                        return 1;
+                    }else if(f>3 && f<7){
+                        console.log('maior que 3 e menor que 7 ',r1)
+                        ///////////////////////////////////////////////////
+                        let centavos=r1.substring(f-2,f)
+                        //console.log('vr da unidade 1',unidade)
+                        //unidade=unidade.substring(0,3); 
+                        console.log('vr da centavos : ', "." + centavos)
+                        let vrfinal="." + centavos
+                        console.log( vrfinal)
+                        ///////////////////////////////////////////
+                        let restante=r1.substr(0,(f-2))
+                        console.log('restante ',restante)
+                        let e=restante.length;
+                        let centena=restante.substring((e-3),e);
+                        console.log(' result : ', centena + "." + centavos );
+                        vrfinal=centena + vrfinal
+
+                        restante=restante.substring(0,e-3)
+                        console.log( 'resta ',restante)
+                        if (restante<4){
+                            let milha=restante
+                            console.log(" final ", milha + "," + vrfinal)
+                            vrfinal=milha + "," + vrfinal;
+                            return vrfinal
+                        }else{
+                                   alert("Não está formatado ainda esse número")    
+                        }
+                        // return 2
+                        }else if(f>6 && f<12){
+                            console.log('maior que 6 e menor que 12 : ',r1)
+                            let r2=r1.replace(".","=")
+                            let ponto=r2.search("=");
+                            let virgula=r2.search(",")
+                            console.log( virgula,"------7---------",ponto)
+                            //////////////////////////////////
+                            let unidade=r2.substring(5,f)
+                            //console.log('vr da unidade 1',unidade)
+                            unidade=unidade.substring(0,3); 
+                            console.log('vr da unidade 2 : ',"." + unidade)
+                            ///////////////////////////////////////////
+                            let palavra=r1.substr(0,(f-2))
+                            console.log('restante ',palavra)
+                            let e=palavra.length;
+                            let milha=palavra.substring((e-3),e);
+                            console.log('milhar : ',milha + "." + unidade );
+
+                            palavra=palavra.substring(0,e-3)
+                            console.log( 'resta ',palavra)
+                            if (palavra<4){
+                                console.log(" final ", palavra + "," + milha + "." + unidade)
+                            }
+                            
+                            //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                            return
+                            if (f=8){
+                                r1=r1.replace(".","=");
+                                console.log(r1)
+                                // ............................................................
+                                // tratar a unidade decimal
+                                let unidade=r1.substr(f-3,f);
+                                if (unidade.length>3){
+                                unidade=unidade.substr(0,3)
+                                unidade1=unidade;
+                                unidade=unidade.replace("=",".")
+                                console.log(' unidade : ',unidade)
+                                }else if(unidade.length=3){
+                                unidade=unidade.replace("=",".")
+                                unidade1=unidade
+                                console.log(' unidade : ',unidade)
+                                }
+                                // ............................................................. 
+                                // tratar a centena
+                                let centena=r1.substr(f-7,f)
+                                let pos=r1.search("=");
+                                console.log('');
+                                console.log(' pos centena ',pos)
+                                console.log(' valor centena : ',centena)
+                                centena=centena.substring(0,(pos-1)) + unidade
+                                console.log('');
+                                centena=centena.replace("=",".")
+                                console.log('centena formatada',centena)
+                                // ...........................................................
+                                // trata a milhar
+                                let milhar=r1.substr(f-8,f)
+                                console.log('');
+                                //console.log(' centena : ',centena)
+                                console.log(' milhar : ',milhar)
+                            }
+                            let pos;
+                            let milhar;
+                            pos=milhar.search(",")
+                            console.log('pos "," " ',pos)
+
+                            let m1=r1.toString();
+                            m1=m1.replace(".",":");
+                            console.log(' pos/m1 ',pos)
+                            console.log('');
+
+                            let pos1;
+                            pos1=m1.search(":");
+                            console.log(' pos1 ',pos1)
+                            console.log('');
+                            return 3 
+                        }else if(f>11){
+                            alert('favor conferir o valor !!!')
+                            
+                        }else{
+                            return 0
+                        } 
+            }
+
+
+
+            
+
+            
+
+}
+    
+</script>
+
+
+
+
+
+
+
+     
+

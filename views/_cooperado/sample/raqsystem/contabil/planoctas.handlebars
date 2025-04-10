@@ -1,0 +1,1702 @@
+<style>
+.corpo{
+        width: 100vw;height: 100vh;margin: auto;
+        margin-top:0.2rem;
+        display: flex;flex-direction: column;justify-content: space-around;
+        background-color: #ffffff;
+    }
+
+.tituloPage{
+    width: 100vw;height: 6vh;margin: auto;background-color:#012c6f;text-align: center;padding-top: 1vh;
+}
+
+.tituloPageH1{
+    font-size: 1vw;font-weight: 200;color: #012c6f;text-align: center;
+}
+
+.painel_central{
+    width: 100vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: row;justify-content: space-between;
+    background-color:#ffffff;text-align: center;
+    margin-top: 0.5vh;margin-bottom: 0.5vh;
+}
+
+.razoes{
+    background-color:transparent;text-align: left;padding-left: 10px;height: 3vh;font-size: 1.3vw;width: 12vw;margin-bottom: 2vh;
+}
+
+.titulo_razoes{
+    width: 18vw;height: 82vh;margin: auto;background-color:#012c6f;display: flex;flex-direction: column;justify-items: center;margin-left: 1.5vw;
+}
+
+.painel_space{
+    width: 18vw;height: 29vh;margin: auto;
+}
+
+.painel_ul{
+    width: 18vw;height: 32vh;
+}
+
+.painel_listUl{
+    background-color: #012c6f;color: #ffffff;list-style-type:none;height: 28vh;padding-top: 2vh;width: 16vw;
+}
+
+.vetores_btn{
+    background-color: transparent;color: #ffffff;width: 12vw;margin-bottom: 2vh;text-align: left;padding-left: 1vw;
+}
+
+.painelRazaoTitulo{
+    width: 19.5vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: center;
+    background-color:#f8f9fb;
+    margin-top: .5vh;
+}
+
+.painelRazaoSub{
+    width: 23.5vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: center;
+    background-color:#a60c30;
+    margin-top: .5vh;
+}
+
+.painelRazaoSub_titulo{
+    width: 29.5vw;height: 6vh;margin: auto;background-color: #012c6f;text-align: center;padding-top: 2vh;
+}
+
+.painelRazaoContas{
+    width: 33.5vw;height: 82vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: center;
+    background-color:#ffffff;
+    margin-top: .5vh;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #847d7d;
+}
+
+.painelRazao_Subtable{
+    width: 29vw;height: 76vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+
+.divRazao{
+    width: 19vw;height: 60vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.divRazaoSub{
+    width: 22vw;height: 60vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.divRazaoCtas{
+    width: 33vw;height: 60vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.divTitulo{
+    width: 19.5vw;height: 6vh;margin: auto;background-color: #012c6f;text-align: center;
+}
+
+.divTituloSub{
+    width: 22vw;height: 6vh;margin: auto;background-color: #012c6f;text-align: center;
+}
+
+.divTituloCtas{
+    width: 32vw;height: 8vh;margin: auto;background-color: #6f0150;text-align: center;
+}
+
+
+.divBtnCtas{
+    width: 17vw;height: 15vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-items: flex-end;
+}
+
+.divBtnSubCtas{
+    width: 17vw;height: 15vh;margin: auto;background-color:#0bca37;display: flex;flex-direction: row;justify-items: flex-end;
+}
+
+.btnCtas{
+    width: 5vw;height: 5vh;margin: auto;background-color: #012c6f;color: #ffffff;
+}
+
+.aumenta{
+     width: 15vw;
+}
+
+.ModalTitulo_{
+    width: 19.5vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: row;justify-items: flex-start;justify-content: space-around;
+    background-color: #06899a;
+    margin-top: 8vh;
+    display: none;
+    text-align: center;
+}
+
+.Sub_ModalADD_{
+    width: 19.5vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: flex-start;justify-content: space-around;
+    background-color: #070707;
+    display: none;
+    margin-top: 8vh;
+    text-align: center;
+    margin-left: 2vw;
+    z-index: 200;
+}
+
+.Sub_ModalEditDel_{
+    width: 19.5vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: column;justify-items: flex-start;justify-content: space-around;
+    background-color: #070707;
+    display: none;
+    margin-top: 6.5vh;
+    text-align: center;
+    margin-left: 2vw;
+    z-index: 200;
+}
+
+.Cta_Modal_{
+    width: 28vw;height: 10vh;margin: auto;
+    display: flex;flex-direction: row;justify-items: flex-start;justify-content: space-around;
+    background-color: #06899a;
+    margin-top: 8vh;
+    display: none;
+    text-align: center;
+    margin-left: 2.5vw;
+}
+
+.frameTitulo_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameTituloEdit_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameTituloDel_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameSub_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameSubEdit_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameSubDel_{
+    width: 18vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;
+    background-color:transparent;
+}
+
+.frameCtas_{
+    width: 22vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-top: 0.8vh;margin-left: 3vw;
+    background-color:gold;
+}
+
+.frameCtasEdit_{
+    width: 22vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;margin-left: 3vw;
+    background-color:blueviolet;
+}
+
+.frameCtasDel_{
+    width: 22vw;
+    display: flex;flex-direction: row;justify-content: center;
+    margin-left: 0.75vw;margin-top: 0.80vh;margin-left: 3vw;
+    background-color:transparent;
+}
+
+.linhaCheia{
+     background-color: #8f0545;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaYellow{
+    background-color: #232aee;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaVerde{
+     background-color: #232aee;
+     margin-left: 2vw;
+     height: 3vh;
+  }
+
+  .linhaAmarela{
+     background-color:#232aee;
+     padding-left: 1vw;
+  }
+
+
+</style>
+{{!-- ////////////////////////////////////////////////////////////////////////////// --}}
+
+         {{!-- EESE FORM É SÓ PARA CADASTRAR AS CONTA,NÃO TENDO ACESSO AOS RAZÔES --}}
+{{!-- ////////////////////////////////////////////////////////////////////////////// --}}
+<div class="d-fl corpo " >
+    <div id="tituloPage" >
+        <h1 class="tituloPageH1">Plano de Contas</h1>
+        <label id="IdcodigoEmpresa" style="display: none;">{{id_cooperado}}</label>
+    </div>
+    <div id="painelcentral" class="painel_central">
+         <div id="titulo_razoes"  class="titulo_razoes" style="background-color: #4a6f01;">
+                <div id="painel__spaceLeft" class="painel_space">
+                    <input id="codigoLojista" value="{{id_cooperado}}" style="background-color: #ee23c5;color: #0bca37;">
+                </div>
+                <div id="painel_ul" class="painel_ul">
+                <ul id="painel_listUl" class="painel_listUl">
+                        <li id="razaoAtivo" class="razoes">
+                            <button onclick="Vetores('ativo')" class="vetores_btn">Ativo</button>    
+                        </li>
+                        <li id="razaoPassivo" class="razoes">
+                            <button onclick="Vetores('passivo')" class="vetores_btn" >Passivo</button>      
+                        </li>
+                        <li id="razaoDespesas" class="razoes">
+                            <button onclick="Vetores('despesas')" class="vetores_btn" >Despesas</button>       
+                        </li>
+                        <li id="razaoReceitas" class="razoes">
+                            <button onclick="Vetores('receitas')" class="vetores_btn" >Receitas</button>       
+                        </li>
+                        <li id="razaoOrca" class="razoes">
+                            <button onclick="Vetores('orçamento')" class="vetores_btn">Orçamento</button>       
+                        </li>
+                         <li id="razaoOrca" class="razoes">
+                            <button onclick="Vetores('parâmetros')" class="vetores_btn">Parâmetros</button>       
+                        </li>
+                </ul>
+                </div>  
+                <div id="painel__spaceRight" class="painel_space" >
+
+                </div> 
+         </div>
+         <div id="Titulo_Painel" class="painelRazaoTitulo" style="background-color: #ffffff;">
+                <div id="Titulo_FrameTitulo" class="divTitulo" style="display: flex;flex-direction: column;justify-content:space-around;justify-items: flex-start;">
+                    <div style="height: 3vh;">
+                       <label style="font-size: 1vw;font-weight: 150;color: #ffffff;height: 3vh;">Contas títulos</label>
+                    </div>
+                    <div style="display: flex;flex-direction:column;justify-items: center;justify-content: space-between;background-color:#8f0545;height: 3vh;padding-bottom: 1vh;">
+                        <label id="IdNomeRazao" style="background-color:transparent;color:#ffffff;font-size: 1.2vw;font-weight: 200;"></label>
+                    </div>
+                </div>
+                {{!-- ///////////////////////////////////////////////////////////////// --}}
+                {{!-- // ADD UMA CONTA TÍTULO --}}
+                <div id="Titulo_ModalADD" class="ModalTitulo_" style="justify-content: center;">
+                    <div style="width: 19vw;height: 2.5vh;margin: auto;">
+                        <label style="font-size: 1vw;font-weight: 200;color:#053ba0;">Adicionado conta título</label>
+                    </div>
+                    <div id="frameTitulo" class="frameTitulo_" >
+                        <div style="display: flex;flex-direction:column;justify-items: flex-start;justify-content: space-between;background-color:#053ba0;">
+                            <label style="background-color:transparent;color:#ffffff;">número</label>
+                            <input id="TituloNumADD" style="width: 8vw;" value="">
+                        </div>
+                        <div style="display: flex;flex-direction:column;justify-items: flex-start;justify-content: space-between;background-color:#053ba0;">    
+                            <label style="background-color:transparent;color:#ffffff;">nome</label>
+                            <input id="TituloNameADD" style="width: 8vw;" value="">
+                            {{!-- <input id="TituloNumberVetor" style="width: 8vw;display: none;" value=""> --}}
+                        </div>
+                    </div> 
+                </div>
+                <div id="Titulo_ModalEditDelete" class="ModalTitulo_" style="justify-content: center;">
+                    <div style="width: 18vw;height: 14vh;margin: auto;display: flex;flex-direction: column;justify-items:flex-start ;background-color: #0bca37;margin-top: -1.5vh;"> 
+                        <div style="background-color:transparent;">
+                        <label style="color: #ffffff;font-size: 1vw;font-weight: 200;margin-top: 1vh;">Edit tít ou Delete?</label>
+                        <div style="display: flex;flex-direction: row;justify-content:center;margin-top: 1vh;margin-bottom: 1vh;">
+                            <input id="TituloNumber_EDITDEL" style="width: 3vw;">
+                            <input id="TituloName_EDITDEL" style="width: 12vw;">
+                        </div>
+                        </div>
+                        <div style="display: flex;flex-direction: row;justify-content:space-around;justify-items: flex-start;background-color:transparent;">
+                            <button style="width: 7vw;background-color: #053ba0;color: #ffffff;border-radius: 5px;" onclick="Titulo_edite()">Edit título</button>
+                            <button style="width: 7vw;background-color: #053ba0;color: #ffffff;border-radius: 5px;" onclick="Titulo_delete()">Delete título</button>
+                        </div>   
+                    </div>
+                </div>
+                {{!-- ///////////////////////////////////////////////////////////////// --}}
+                <div id="Titulo_Razao" class="divRazao">
+                    <div style="width: 17vw;height: 76vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items: center;">
+                        <div id="tableClient" style="width: 98%;height: 50vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                            <table id="table" style="width: 100%;height: 49vh;margin: auto;background-color: #012c6f;margin-top: 6px;">
+                                <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">Id</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 6vw;background-color: #012c6f;text-align: center;">conta</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #012c6f;text-align: center;">número</td>
+                                </thead>
+                                <tbody id="XTitulo">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="Titulo_Btn" class="divBtnCtas" style="background-color:transparent;">
+                    <button id="AddTitulo" class="btnCtas aumenta" onclick="Titulo_BtnADD()">Add</button>
+                </div>
+         </div>
+         {{!-- ////////////////////////////////////////////////////////////////////////////////////// --}}
+         <div id="Sub_Painel" class="painelRazaoSub" style="background-color: #ffffff;">
+            <div id="Sub_FrameTitulo" class="divTituloSub" style="display: flex;flex-direction: column;justify-content:space-around;background-color: yellow;justify-items: flex-start;">
+                <div style="height: 3vh;background-color: black;color:red;">
+                    <label style="font-size: 1vw;font-weight: 150;color: #ffffff;">Contas títulos-sub</label>
+                </div>
+                <div style="height: 3vh;background-color: #8f0545;display: flex;flex-direction: row;">
+                    <label id="idnumCtaSubLabel" style="background-color:transparent;height: 3vh;width:6vw;color:#ffffff;text-align: right;padding-right: 0.5vw;padding-top: 0.5vh;"></label>
+                    <label id="idnomeCtaSubLabel" style="background-color:transparent;height: 3vh;width: 18vw;color: #ffffff;text-align:left;padding-left: .5vw;padding-top: 0.5vh;"></label>
+                </div>
+            </div>
+            {{!-- ///////////////////////////////////////////////////////////////// --}}
+            <div id="Sub_ModalADD" class="Sub_ModalADD_" style="justify-content: center;">
+                <div id="Frame_SubADD" style="background-color: #070305;height: 12vh;">
+                    <div style="width: 19vw;height: 2.5vh;margin: auto;">
+                        <label style="font-size: 1vw;font-weight: 200;color:#ffffff;">Adicionado sub-título</label>
+                    </div>
+                    <div id="frameSub" class="frameSub_" style="">
+                        <div style="display: flex;flex-direction:column;justify-items: flex-start;justify-content: space-between;background-color:#053ba0;">
+                            <label style="background-color:transparent;color:#ffffff;">número</label>
+                            <input id="SubNumberADD" style="width: 8vw;" value="">
+                        </div>
+                        <div style="display: flex;flex-direction:column;justify-items: flex-start;justify-content: space-between;background-color: #053ba0;">    
+                            <label style="background-color:transparent;color:#ffffff;">nome</label>
+                            <input id="SubNameADD" style="width: 8vw;" value="">
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div id="Sub_ModalEditDelete" class="Sub_ModalEditDel_" style="justify-content: center;background-color:red;height: 11vh;">
+                <div style="width: 18vw;height: 14vh;margin: auto;display: flex;flex-direction: column;justify-items:flex-start ;background-color: #050906;"> 
+                    <div style="background-color:#053ba0;padding-top: .5vh;">
+                        <label style="color: #ffffff;font-size: .9vw;font-weight: 200;">Edit ou Delete ?</label>
+                        <div style="display: flex;flex-direction: row;justify-content:center;margin-bottom: 1vh;">
+                            <input id="SubNumberEditDel" style="width: 5vw;background-color: yellow;">
+                            <input id="SubNameEditDel" style="width: 11vw;">
+                        </div>
+                    </div>
+                    <div style="display: flex;flex-direction: row;justify-content:space-around;justify-items: flex-start;background-color:transparent;margin-top: 1.5vh;">
+                        <button id="SubEditBtn" style="width: 7vw;background-color: #053ba0;color: #ffffff;border-radius: 5px;font-size: 0.9vw;" onclick="Sub_edite()">Edit título</button>
+                        <button id="SubDelBtn" style="width: 7vw;background-color: #053ba0;color: #ffffff;border-radius: 5px;font-size: 0.9vw" onclick="Sub_delete()">Delete título</button>
+                    </div>   
+                </div>
+            </div>
+            {{!-- ///////////////////////////////////////////////////////////////// --}}
+            <div id="Sub_Razao" style="background-color:pink;" class="divRazaoSub">
+                <div style="width: 29vw;height: 76vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items: center;">
+                    <div id="tableClient" style="width: 98%;height: 50vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                        <table id="table" style="width: 100%;height: 49vh;margin: auto;background-color: #012c6f;margin-top: 6px;">
+                            <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">Id</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 6vw;background-color: #012c6f;text-align: center;">conta</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #012c6f;text-align: center;">número</td>
+                            </thead>
+                            <tbody id="XSubTitulo">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="Sub_Btn" class="divBtnSubCtas" style="background-color:transparent;">
+                <button id="AddSubTitulo" class="btnCtas" onclick="Sub_BtnADD()" style="width: 18vw;">Add</button>
+            </div>
+         </div>
+         {{!-- //////////////////     Contas --}}
+         <div id="Cta_Painel" class="painelRazaoContas" >
+            <div id="Cta_FrameTitulo" class="divTituloCtas" style="text-align: center;">{{!-- <label style="font-size: 1vw;font-weight: 150;color: #ffffff;">Contas</label> --}}
+                  <div style="height: 3vh;background-color: black;color:red;">
+                    <label style="font-size: 1vw;font-weight: 150;color: #ffffff;">Contas</label>
+                </div>
+                <div style="height: 3vh;background-color: #8f0545;display: flex;flex-direction: row;">
+                    <label id="idnumContasLabel" style="background-color:transparent;height: 3vh;width:9vw;color:#ffffff;text-align: right;padding-right: 0.5vw;padding-top: 0.5vh;"></label>
+                    <label id="idnomeContasLabel" style="background-color:transparent;height: 3vh;width: 22vw;color: #ffffff;text-align:left;padding-left: .5vw;padding-top: 0.5vh;"></label>
+                </div>
+            </div>
+            {{!-- ///////////////////////////////////////////////////////////////// --}}
+            <div id="Cta_ModalADD" class="Cta_Modal_" style="justify-content: center;">
+                <div style="width: 22vw;height: 2.5vh;margin: auto;background-color: #ffffff;">
+                    <label style="font-size: 1vw;font-weight: 200;color:#053ba0;">Adicionado conta</label>
+                </div>
+                <div id="frameCtas" class="frameCtas_" >
+                    <div style="display: flex;flex-direction:column;justify-items: flex-start;justify-content: space-between;background-color:#053ba0;">
+                        <label style="background-color:transparent;color:#ffffff;">número</label>
+                        <input id="CtaNumberADD" style="width: 6vw;" value="">
+                    </div>
+                    <div style="display: flex;flex-direction:column;justify-items: flex-start;justify-content: space-between;background-color:#053ba0;">    
+                        <label style="background-color:transparent;color:#ffffff;">nome</label>
+                        <input id="CtaNameADD" style="width: 18vw;" value="">
+                    </div>
+                </div> 
+            </div>
+            <div id="Cta_ModalEditDel" class="Cta_Modal_" style="justify-content: center;">
+                    <div style="width: 18vw;height: 14vh;margin: auto;display: flex;flex-direction: column;justify-items:flex-start ;background-color: #0bca37;margin-top: -1.5vh;"> 
+                        <div style="background-color:transparent;">
+                            <label style="color: #ffffff;font-size: 1vw;font-weight: 200;margin-top: 1vh;">Edit ou Delete?</label>
+                            <div style="display: flex;flex-direction: row;justify-content:center;margin-top: 1vh;margin-bottom: 1vh;">
+                                <input id="CtaNumberEditDel" style="width: 3vw;">
+                                <input id="CtaNameEditDel" style="width: 12vw;">
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: row;justify-content:space-around;justify-items: flex-start;background-color:transparent;">
+                            <button style="width: 7vw;background-color: #053ba0;color: #ffffff;border-radius: 5px;" onclick="CtaEdit()">Edit título</button>
+                            <button style="width: 7vw;background-color: #053ba0;color: #ffffff;border-radius: 5px;" onclick="CtaDel()">Delete título</button>
+                        </div>   
+                    </div>
+            </div>
+            {{!-- ///////////////////////////////////////////////////////////////// --}}
+            <div id="Cta_Razao" class="divRazaoCtas" >
+                     <div style="width: 32vw;height: 76vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items: center;">
+                        <div id="tableClient" style="width: 98%;height: 50vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                            <table id="table" style="width: 100%;height: 49vh;margin: auto;background-color: #012c6f;margin-top: 6px;overflow: auto;">
+                                <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #615f61;display: none;">Id</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 6vw;background-color: #012c6f;text-align: center;">conta</td>
+                                    <td style="color:#ffffff;padding-left: 1vw;width: 12vw;background-color: #012c6f;text-align: center;">número</td>
+                                </thead>
+                                <tbody id="XContas">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                     </div>
+            </div>
+            <div id="Cta_Btn" class="divBtnSubCtas" style="background-color:transparent;">
+                  <button id="Add_conta" class="btnCtas" onclick="Cta_BtnAdd()" style="width: 18vw;">Add</button>
+            </div>
+         </div>
+         <div id="Orca_Painel" class="painelRazaoContas" style="background-color: #a60c30;display: none;"></div>
+         <div id="Param_Painel" class="painelRazaoContas" style="background-color: chocolate;display: none;"></div>
+    </div>
+    {{!-- //    Ródape --}}
+    <div id="rodape" style="width: 100vw;height: 12vh;margin: auto;background-color:#06899a;text-align: center;">
+     <form action="/raqcontabil/buscrazoes" id="idrazoes" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="display:block;background-color: #6f0150;">
+        <input id="passarazao" name="passaRazao" value="parametros">
+        <input id="_idCooperado" name="id_cooperado" value="{{id_cooperado}}" style="background-color: #8f0545;color: #06899a;">
+        <button id="btnParametro" type="submit" style="text-decoration: none;border:0px solid transparent;background-color: transparent;
+                color:#ffffff;">
+        </button>
+    </form>
+    </div>
+</div>
+
+<script>
+
+let baseApiUrl=window.location.hostname;
+
+// Em teste
+function  rotor(){
+    //////////////////////////////////////////////////////
+    console.log("AQUI")
+    baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    return baseApiUrl
+};
+
+function limpa_Titulo(){
+   /////////////////////////////////////////////////////////////////////////////////////////
+     console.log('limpando titulo ')
+     document.getElementById("Titulo_ModalADD").style.display="none";
+     document.getElementById("TituloNumADD").value="";
+     document.getElementById("TituloNameADD").value="";
+     document.getElementById("Titulo_ModalEditDelete").style.display="none";
+     document.getElementById("TituloNumber_EDITDEL").value="";
+     document.getElementById("TituloName_EDITDEL").value="";
+    ///////////////////////////////////////////////////////////////////////////////////////
+}
+
+function limpa_Sub(){
+   let g=document.getElementById("Sub_ModalADD");
+   document.getElementById("SubNumberADD").innerText="";
+   document.getElementById("SubNameADD").innerText="";
+
+   document.getElementById("Sub_ModalEditDelete").style.display="none";
+   document.getElementById("SubNumberEditDel").value="";
+   document.getElementById("SubNameEditDel").value="";
+}
+
+function limpa_Cta(){
+   let g=document.getElementById("Cta_ModalADD");
+   g.style.display="none";
+   document.getElementById("CtaNumberADD").innerText="";
+   document.getElementById("CtaNameADD").innerText="";
+
+   document.getElementById("Cta_ModalEditDel").style.display="none";
+   document.getElementById("CtaNumberEditDel").value="";
+   document.getElementById("CtaNameEditDel").value="";
+}
+
+function limpaTable_titulo(){
+    let corpos;
+    corpos=document.getElementById("XTitulo").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+        corpos[i].remove();
+    }
+}
+
+function limpaTable_sub(){
+    let corpos;
+    corpos=document.getElementById("XSubTitulo").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+      corpos[i].remove();
+    }
+  
+}
+
+function limpaTable_cta(){
+    let corpos;
+    corpos=document.getElementById("XContas").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+      corpos[i].remove();
+    }
+}
+
+
+// Essa rotina define no 'GRID' qual a razao irá prevalecar vísivel
+function Vetores(n){
+   console.log(n)
+   document.getElementById("IdNomeRazao").innerText=n;
+   if (n=='ativo'){
+       busca_vetor('ativo');
+   }else if(n=='passivo'){
+       busca_vetor('passivo');
+   }else if(n=='despesas'){
+       busca_vetor('despesas');
+   }else if(n=='receitas'){
+       busca_vetor('receitas');
+   }else if(n=='orçamento'){
+       busca_vetor('orçamento');
+   }else if(n=='parâmetros'){
+       document.getElementById("btnParametro").click();
+   }
+}
+
+function busca_vetor(n,baseApiUrl){
+    
+    console.log(' [ 565 ]',n)
+    let c1=document.getElementById("codigoLojista").value;
+    let palavra=c1 + n
+    baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    ///////////////////////////////////////////////////////////////////
+   
+    /////////////////////////////////////////////////////////////////
+    limpaTable_titulo();
+    limpaTable_sub();
+    limpaTable_cta();
+    limpa_Titulo();
+    limpa_Sub();
+    console.log(n)
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/busca_vetor/${n}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                   console.log('[ 631 ]',json);
+                   
+                   let corpo=json;
+                   let l=json.length;
+                   console.log('array length',l)
+                   for (let i=0;i<l;i++){
+                        console.log('passando por i ==>',i)
+                        let N1=json[i];
+                        console.log('________________');
+                        console.log('valor de n1',N1)
+                        let Titulo=N1.titulo;
+                        console.log('');
+                        console.log('__________________________');
+                        console.log(Titulo)
+                        //let nomeCta=R.titulo;
+                        console.log('nome Título 645',Titulo[0].titulo_nome)
+
+                        const node=document.createElement('tr');
+                        node.setAttribute("id","linha_" + '-' + i);
+                        node.setAttribute("class","linhaCheia");
+                        document.getElementById('XTitulo').appendChild(node)
+
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=Titulo[0].titulo_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("onclick","Sub_busca(" + "'" + f + ":" + Titulo[0].titulo_nome + "'" + ")");
+                        node0.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha_' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(Titulo[0].titulo_nome);
+                        f=f + '=' + Titulo[0].titulo_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Titulo_edita(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha_' + '-' + i ).appendChild(node2);
+                        console.log('=======================================')
+                        if(i==(l-1)){
+                            //console.log('final X',i,l)
+                            let r1=Titulo[0].titulo_numero; 
+                            r1++; 
+                            limpa_Titulo();
+                            console.log(40)
+                            document.getElementById("TituloNumADD").value=r1;
+                            console.log('==> ',r1)
+                            
+                        }
+                  }
+                ///////////////////////////////////////
+                })
+                .catch((er)=>{
+                   console.log(er);
+                })
+             
+               
+     }catch(e){
+        console.log(e);
+     }            
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                     VETORES
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Trata do valor número da conta título a ser inserida na database
+let a1=document.getElementById("TituloNumADD");
+a1.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          document.getElementById("TituloNameADD").style.backgroundColor="yellow";
+          document.getElementById("TituloNameADD").focus()
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+          event.code="";
+          event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})    
+
+// Trata o nome da conta título a ser inserida na database
+let b1=document.getElementById("TituloNameADD");
+b1.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          const base=rotor();
+          Titulo_Grava(base);
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+         // event.code="";
+         // event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+// Grava as contas títulos
+function Titulo_Grava(baseApiUrl){
+     let palavra;
+     let id_loja=document.getElementById("codigoLojista").value;
+     console.log(id_loja)
+     let c1=document.getElementById("TituloNameADD").value;
+     let c2=document.getElementById("TituloNumADD").value;
+     palavra=id_loja + c1 + ":::" + c2;
+     /////////////////////////////////////////////////////////////////////////////////////////
+     try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/grava_cta_titulo/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                  console.log('alô!',json)
+                  let l=json.length;
+                  limpaTable_titulo();
+                  for (let i=0;i<l;i++){
+                        let N1=json[i];
+                        console.log('vr de n1',N1);
+                        console.log('');
+                        console.log('_____________________________________________');
+                        console.log('770',N1.titulo)
+                        console.log('________________________________________');
+                        //let nomeCta=N1.titulo[0].titulo_nome;
+                        
+                        const node=document.createElement('tr');
+                        node.setAttribute("id","linha" + '-' + i);
+                        node.setAttribute("class","linhaCheia");
+                        document.getElementById('XTitulo').appendChild(node)
+
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=N1.titulo[0].titulo_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("onclick","Sub_busca(" + "'" + f + ":" + subTitulo[0].titulo_nome + "'" + ")");
+                        node0.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(N1.titulo[0].titulo_nome);
+                        f=f + '=' + N1.titulo[0].titulo_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Titulo_edita(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha' + '-' + i ).appendChild(node2);
+                         if(i==(l-1)){
+                            console.log('final',i,l)
+                            let r1=subTitulo[0].subtitulo_numero;
+                            console.log('____________________');
+                            console.log('=>' ,r1) 
+                            r1++; 
+                            document.getElementById("TituloNumADD").value=r1;
+                            console.log('==> ',r1)
+                        }
+                    
+                    }
+
+                    limpaADDTitulo();
+
+                    function limpaADDTitulo(){
+                        document.getElementById("frameTitulo").style.display="none";
+                        document.getElementById("TituloNumADD").value="";
+                        document.getElementById("TituloNameADD").value="";
+                    }
+
+                })
+                .catch((er)=>{
+                  console.log(er)  
+                })
+     }catch(e){
+        console.log(e);
+     }
+}
+
+// Essa funcion é acionada quando se clica o botão 'Add' do razao "Título" 
+function Titulo_BtnADD(){
+    limpa_Cta();
+    limpa_Sub();
+    //////////////////////////////////////////////////////////////////
+    console.log(2000)
+    let r=document.getElementById("Titulo_ModalADD");
+    r.style.position= 'absolute';
+    r.style.zIndex=300;
+    r.style.marginTop=400;
+    r.style.display='block';
+    r.style.backgroundColor="white";
+    document.getElementById("TituloNumADD").style.backgroundColor="#ffffff";
+    document.getElementById("TituloNumADD").style.color="#053ba0";
+    document.getElementById("TituloNumADD").focus();
+    console.log(3000)
+}
+
+// Essa função é disponibilizada pela 'buscaAtivo_titulo(baseApiUrl)' ao carregar a página
+// MODAL
+function Titulo_edita(n){
+   // Ao clicar sobre uma linha[ coluna 2 ] destaca o modal edit e delete.
+   // Ela traz junto o coteúdo da linha clicada, ou seja col1 e col2.
+   let l=n.length;
+   let pos=n.search("=");
+   let n1=n.substring(0,pos);
+   let n2=n.substring((pos+1),l)
+   console.log(n)
+   document.getElementById("TituloNumber_EDITDEL").value=n1;
+   document.getElementById("TituloName_EDITDEL").value=n2;
+   let d=document.getElementById("Titulo_ModalEditDelete");
+   d.style.position= 'absolute';
+   d.style.zIndex=300;
+   d.style.marginTop=400;
+   d.style.display='block';
+   d.style.backgroundColor="white";
+}
+// É acionada quando se clica no Button 'Edit título
+// PARA EDIÇÂO NO MONGODB
+function Titulo_edite(){
+    // pega os valores para editar ou deletar 
+    let p1=document.getElementById("TituloNumber_EDITDEL").value;
+    let p2=document.getElementById("TituloName_EDITDEL").value;
+    let palavra;
+    palavra=p1 + ":::" + p2;
+    console.log(palavra)
+    const P=rotor();
+    ///////////////////////////////////////////////////////////////////
+    try{
+         fetch(`${baseApiUrl}` + `/raqcontabil/edit_cta_titulo/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('1000',json)
+                        let l=json.length;
+                        limpaTable_titulo();
+                        //////////////////////////////////////////////
+                        for (let i=0;i<l;i++){
+                                let N1=json[i];
+                                //let R=Object.values(N1)
+                                let Titulo=N1.titulo;
+                                const node=document.createElement('tr');
+                                node.setAttribute("id","linha" + '-' + i);
+                                node.setAttribute("class","linhaCheia");
+                                document.getElementById('XTitulo').appendChild(node)
+
+                                // Número Cta
+                                const node0=document.createElement('td');
+                                let f=Titulo[0].titulo_numero;
+                                const textNode0=document.createTextNode(f);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("onclick","Sub_busca(" + "'" + f + ":" + Titulo[0].titulo_nome + "'" + ")");
+                                node0.setAttribute("class","linhaAmarela");
+                                document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                                // Nome Razão
+                                const node2=document.createElement('td');
+                                const textNode2=document.createTextNode(Titulo[0].titulo_nome);
+                                f=f + '=' + Titulo[0].titulo_nome;
+                                node2.appendChild(textNode2);
+                                node2.setAttribute("onclick","Titulo_edita(" + "'" + f + "'" + ")");
+                                node2.setAttribute("class","linhaAmarela");
+                                document.getElementById('linha' + '-' + i ).appendChild(node2);
+                            }
+                            limpaEditTitulo();
+
+                            function limpaEditTitulo(){
+                                document.getElementById("frameTitulo").style.display="none";
+                                document.getElementById("TituloNumber_EDITDEL").value="";
+                                document.getElementById("TituloName_EDITDEL").value="";
+                                document.getElementById("Titulo_ModalEditDelete").style.display="none";
+                            }
+                    })
+                    .catch((er)=>{
+                        console.log(er)  
+                    })
+        }catch(e){
+        console.log(e);
+        }
+}
+
+function Titulo_delete(){
+    // pega os valores para editar ou deletar 
+    let p1=document.getElementById("col1").value;
+    let p2=document.getElementById("col2").value;
+    let palavra;
+    palavra=p1 + ":::" + p2;
+    console.log(palavra);
+    const P=rotor();
+    console.log(P);
+    console.log('------------------------');
+    console.log(baseApiUrl);
+    console.log('------------------------');
+    ///////////////////////////////////////////////////////////////////
+    try{
+         fetch(`${baseApiUrl}` + `/raqcontabil/delete_cta_titulo/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('1000',json)
+                        //return
+                        if (json.deletedCount==1){
+                            buscaAtivo_titulo();
+                        }
+                    })
+                    .catch((er)=>{
+                        console.log(er)  
+                    })
+        }catch(e){
+        console.log(e);
+        } 
+}
+
+function Sub_busca(n){
+    limpaTable_cta();
+    limpa_Cta();
+    limpaTable_sub();
+    limpa_Sub();
+    limpa_Titulo();
+    let palavra=n;
+    console.log('[ 979 ]', palavra)
+    let l=palavra.length;
+    let numeroCta=palavra.substring(0,3);
+    document.getElementById("SubNumberADD").value=numeroCta;
+
+    let nomeCta=palavra.substring(4,l)
+    console.log('pedra => ',n);
+    let baseApiUrl=window.location.hostname;
+    console.log('baseApiUrl',baseApiUrl)
+    /////////////////////////////////////////////////////////////////////////////////////////
+     document.getElementById("Titulo_ModalADD").style.display="none";
+     document.getElementById("TituloNumADD").value="";
+     document.getElementById("TituloNameADD").value="";
+     document.getElementById("Titulo_ModalEditDelete").style.display="none";
+     document.getElementById("TituloNumber_EDITDEL").value="";
+     document.getElementById("TituloName_EDITDEL").value="";
+     ///////////////////////////////////////////////////////////////////////////////////////
+     limpaTable_sub();
+     limpaTable_cta();
+    
+    /////////////////////////////////////////////////////////////////////// 
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    try{
+    fetch(`${baseApiUrl}` + `/raqcontabil/buscaSubContaTitulo/${numeroCta}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                let l=json.length;
+                console.log(' [ 1374 ]',json)
+                console.log(l)
+                console.log('________________________________');
+                if (l==0){
+                   //let n1='conta :' + n 
+                   // Coloca o número inicial para sequenciar as contas sub-titulo quando inseridas. 
+                  //???????????????????????????????? document.getElementById("Sub").value=numeroCta;   
+                   // coloca o número da conta para indentificação do frame Título
+                    // coloca o número da conta para indentificação do frame Título
+                   document.getElementById("idnumCtaSubLabel").innerHTML=numeroCta;
+                   document.getElementById("idnomeCtaSubLabel").innerText=nomeCta;
+                }else if(l>0){
+                   // Coloca o número no input da sub-conta selecionada para no futuro inserir outra conta.
+                
+
+                   // coloca o número da conta para indentificação do frame Título
+                   document.getElementById("idnumCtaSubLabel").innerHTML=numeroCta;
+                   document.getElementById("idnomeCtaSubLabel").innerText=nomeCta;
+                   for (let i=0;i<l;i++){
+                        
+                        let N1=json[i];
+                        console.log('[1034]',N1)
+                        let R=Object.values(N1);
+                       // console.log(R);
+                        console.log('__________________________________________________________')
+                        let subTitulo=N1.subtitulo;
+                        console.log(subTitulo)
+                        /////////////////////////////////////////////////////////////////////////
+                        const node22=document.createElement('tr');
+                        node22.setAttribute("id","line" + '-' + i);
+                        node22.setAttribute("class","linhaYellow");
+                        document.getElementById("XSubTitulo").appendChild(node22)
+                        
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=subTitulo[0].subtitulo_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("onclick","Cta_busca(" + "'" + f + ":" + subTitulo[0].subtitulo_nome + "'" + ")");
+                        node0.setAttribute("class","linhaYellow");
+                        document.getElementById('line' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(subTitulo[0].subtitulo_nome);
+                        f=f + '=' + subTitulo[0].subtitulo_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Sub_edita(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaYellow");
+                        document.getElementById('line' + '-' + i ).appendChild(node2);
+                    }
+                }
+            })
+            .catch((err)=>{
+                console.log(err); 
+            })  
+    }catch(e){
+    console.log(er);
+    }          
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+//                               SUB
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Se há o número da sub-conta digitado então passamos para colocar o nome da sub-conta
+let b3=document.getElementById("SubNumberADD");
+b3.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          const base=rotor();
+          document.getElementById("SubNameADD").style.backgroundColor="green";
+          document.getElementById("SubNameADD").style.color="white";
+          document.getElementById("SubNameADD").focus();
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+          console.log(2323)
+          event.code="";
+          event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+// Se há digitado o name da sub-conta então vamos gravar a sub-conta
+let b2=document.getElementById("SubNameADD");
+b2.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          console.log('230')
+          const base=rotor();
+          Sub_grava(base);
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+          //event.code="";
+          console.log(99)
+         // event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+// Grava as contas títulos
+function Sub_grava(baseApiUrl){
+     console.log(' [ 637 ]',baseApiUrl)
+     let palavra;
+     let id_loja=document.getElementById("codigoLojista").value;
+     let c1=document.getElementById("SubNumberADD").value;
+     let c2=document.getElementById("SubNameADD").value;
+     palavra=id_loja + ':=:=:' + c1 + ":::" + c2
+     limpaTable_sub();
+     limpa_Sub();
+     /////////////////////////////////////////////////////////////////////////////////////////
+     try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/gravaSubCta/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    console.log('alô!',json)
+                    let l=json.length;
+                    console.log('');
+                    console.log('l => ',l);
+                    console.log('');
+                    console.log('');
+                    console.log('c1 ',c1);
+                    console.log('c2 ',c2);
+                    if (l==0){
+                       document.getElementById("idnumCtaSubLabel").innerText=c1;
+                       document.getElementById("idnomeCtaSubLabel").value=c2;   
+                    }else if(l>0){
+                        //let n1='conta :' + c1
+                        // Coloca o número inicial para sequenciar as contas sub-titulo quando inseridas. 
+                       
+                      
+                        // coloca o número da conta para indentificação do frame Título
+                        document.getElementById("idnomeCtaSubLabel").innerText=c2;
+                        document.getElementById("idnumCtaSubLabel").innerText=c1;
+                        //document.getElementById("inputnomeCtaSub").style.backgroundColor="red";
+                        limpaTable_sub();
+                   
+                        for (let i=0;i<l;i++){
+                                let N1=json[i];
+                                console.log('[1172 ]',N1)
+                                //let R=Object.values(N1);
+                                //console.log(R)
+                                 
+                                let subTitulo=N1.subtitulo;
+                                console.log('');
+                                console.log('_____________________________');
+                                console.log('[1183] :',subTitulo)
+                                /////////////////////////////////////////////////////////////////////////
+                                const node22=document.createElement('tr');
+                                node22.setAttribute("id","lin" + '-' + i);
+                                node22.setAttribute("class","linhaYellow");
+                                document.getElementById("XSubTitulo").appendChild(node22)
+                                console.log(99)
+
+                                // Número Cta
+                                const node0=document.createElement('td');
+                                let f=subTitulo[0].subtitulo_numero;
+                                const textNode0=document.createTextNode(f);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("onclick","Cta_busca(" + "'" + f + ":" + subTitulo[0].subtitulo_nome + "'" + ")");
+                                node0.setAttribute("class","linhaYellow");
+                                document.getElementById('lin' + '-' + i ).appendChild(node0);
+
+                                // Nome Razão
+                                const node2=document.createElement('td');
+                                const textNode2=document.createTextNode(subTitulo[0].subtitulo_nome);
+                                f=f + '=' + subTitulo[0].subtitulo_nome
+                                node2.appendChild(textNode2);
+                                node2.setAttribute("onclick","Sub_edita(" + "'" + f + "'" + ")");
+                                node2.setAttribute("class","linhaYellow");
+                                document.getElementById('lin' + '-' + i ).appendChild(node2);
+                            }
+
+                             limpaADDSub();
+
+                            function limpaADDSub(){
+                                document.getElementById("frameSub").style.display="none";
+                            }
+                         }
+                })
+                .catch((er)=>{
+                    console.log(er)  
+                })
+     }catch(e){
+        console.log(e);
+     }
+}
+
+//  MODAL ABSOLUTE
+function Sub_BtnADD(){
+    limpa_Cta();
+    document.getElementById("Sub_ModalEditDelete").style.display="none";
+    document.getElementById("Frame_SubADD").style.display="block";
+    let r=document.getElementById("Sub_ModalADD");
+    r.style.position= 'absolute';
+    r.style.zIndex=300;
+    r.style.marginTop=400;
+    console.log(6000)
+    r.style.display='block';
+    r.style.backgroundColor="white";
+    document.getElementById("SubNumberADD").style.backgroundColor="#ffffff";
+    document.getElementById("SubNumberADD").style.color="#053ba0";
+    document.getElementById("SubNumberADD").focus();
+}
+
+function Sub_edite(){
+    // pega os valores para editar ou deletar 
+    let p1=document.getElementById("SubNumberEditDel").value;
+    let p2=document.getElementById("SubNameEditDel").value;
+    let palavra;
+    palavra=p1 + ":::" + p2;
+    console.log(palavra)
+    /////////////////////////////////////////////////////////////////////////////////////////
+     document.getElementById("Titulo_ModalADD").style.display="none";
+     document.getElementById("TituloNumADD").value="";
+     document.getElementById("TituloNameADD").value="";
+     document.getElementById("Titulo_ModalEditDelete").style.display="none";
+     document.getElementById("TituloNumber_EDITDEL").value="";
+     document.getElementById("TituloName_EDITDEL").value="";
+    ///////////////////////////////////////////////////////////////////////////////////////
+    limpa_Sub();
+
+    baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    ///////////////////////////////////////////////////////////////////
+    try{
+         fetch(`${baseApiUrl}` + `/raqcontabil/editaSub_Titulo/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('1000',json)
+                        let l=json.length;
+                        console.log('vr de L',l)
+                        limpaTable_sub();
+                    
+                        //////////////////////////////////////////////
+                        for (let i=0;i<l;i++){
+                                console.log("FORME")
+                                let N1=json[i];
+                                let R=Object.values(N1)
+                                let nomeCta=R[0].sub_nome;
+                                const node=document.createElement('tr');
+                                node.setAttribute("id","linhao" + '-' + i);
+                                node.setAttribute("class","linhaCheia");
+                                document.getElementById('XSubTitulo').appendChild(node)
+                                console.log('1148',R)
+                                // Número Cta
+                                const node0=document.createElement('td');
+                                let f=R[0].sub_numero;
+                                const textNode0=document.createTextNode(f);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("onclick","Cta_busca(" + "'" + f + ":" + nomeCta + "'" + ")");
+                                node0.setAttribute("class","linhaAmarela");
+                                document.getElementById('linhao' + '-' + i ).appendChild(node0);
+
+                                // Nome Razão
+                                const node2=document.createElement('td');
+                                const textNode2=document.createTextNode(nomeCta);
+                                f=f + '=' + nomeCta
+                                node2.appendChild(textNode2);
+                                node2.setAttribute("onclick","Ctas_edita(" + "'" + f + "'" + ")");
+                                node2.setAttribute("class","linhaAmarela");
+                                document.getElementById('linhao' + '-' + i ).appendChild(node2);
+                                console.log(f)
+                            }
+                            limpaEditSub();
+
+                            function limpaEditSub(){
+                                document.getElementById("frameTitulo").style.display="none";
+                                document.getElementById("TituloNumber_EDITDEL").value="";
+                                document.getElementById("TituloName_EDITDEL").value="";
+                                document.getElementById("Titulo_ModalEditDelete").style.display="none";
+                            }
+                    })
+                    .catch((er)=>{
+                        console.log(er)  
+                    })
+        }catch(e){
+        console.log(e);
+        }
+}
+
+function Sub_edita(n){
+   limpaTable_cta();
+   limpa_Cta(); 
+   let palavra=n;
+   let l=palavra.length;
+   let number_subcta=palavra.substring(0,6);
+   let name_subcta=palavra.substring(7,l); 
+   document.getElementById("SubNumberEditDel").value=number_subcta;
+   document.getElementById("SubNameEditDel").value=name_subcta;
+   let t=document.getElementById("Sub_ModalEditDelete")
+   t.style.position= 'absolute';
+   t.marginTop='8vh';
+   t.style.zIndex=300;
+   t.style.display='block';
+   t.style.backgroundColor="white";
+
+   document.getElementById("Frame_SubADD").style.display="none";
+   document.getElementById('SubNumberADD').value="";
+   document.getElementById('SubNameADD').value="";
+   limpaTable_cta();
+   limpaCaixa()
+   //let d=document.getElementById("EditSub_ou_DeleteSub");
+   //d.style.position= 'absolute';
+   //d.style.zIndex=300;
+   //d.style.display='block';
+   //d.style.backgroundColor="white";
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//                             CTA
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Input Numero_Cta que dá início a gravação da conta
+//  CTAADD
+let h1=document.getElementById("CtaNumberADD");
+h1.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          const base=rotor();
+          document.getElementById("CtaNameADD").style.backgroundColor="green";
+          document.getElementById("CtaNameADD").style.color="white";
+          document.getElementById("CtaNameADD").focus();
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+          console.log(2000)
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+// Input name_Cta que envia para gravação da conta
+let h2=document.getElementById("CtaNameADD");
+h2.addEventListener("keydown",function(event){
+    event.stopPropagation();
+    let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+          const base=rotor();
+          Cta_grava(base);
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+          console.log(2323)
+       
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+function Cta_grava(baseApiUrl){
+     console.log(' [ 1415 ]',baseApiUrl)
+     //////////////////////////////////////////////////////////////////////////////////
+     let id_loja=document.getElementById("codigoLojista").value;
+     //let bz=document.getElementById("idnomeContasLabel").innerText;
+     //console.log('label ',bz)
+
+     let c1=document.getElementById("CtaNumberADD").value;
+     console.log('novo numero ',c1);
+
+     let c2=document.getElementById("CtaNameADD").value;
+   
+     let palavra;
+
+     palavra=id_loja +  "::" + c1 + ":::" + c2;
+     console.log(palavra)
+     // return
+     /////////////////////////////////////////////////////////////////////////////////////////
+     try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/grava_Cta/${palavra}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    console.log('alô!',json)
+                    let l=json.length;
+                    console.log('');
+                    console.log('l => ',l);
+                    console.log('');
+                    console.log('');
+                    console.log('c1 ',c1);
+                    console.log('c2 ',c2);
+                    if (l==0){
+                       document.getElementById("idnumCtaSubLabel").innerText=c1;
+                       document.getElementById("idnomeCtaSubLabel").value=p2;   
+                    }else if(l>0){
+                        //let n1='conta :' + c1
+                        document.getElementById("idnomeCtaSubLabel").innerText=c2;
+                        document.getElementById("idnumCtaSubLabel").innerText=c1;
+                        limpaTable_cta();
+                        for (let i=0;i<l;i++){
+                                let N1=json[i];
+                                console.log(88)
+                                let contas=N1.contas[0];
+                                console.log(' contas ==>',contas)
+                                /////////////////////////////////////////////////////////////////////////
+                                const node22=document.createElement('tr');
+                                node22.setAttribute("id","linh" + '-' + i);
+                                node22.setAttribute("class","linhaVerde");
+                                document.getElementById("XContas").appendChild(node22)
+                                console.log(99)
+
+                                // Número Cta
+                                const node0=document.createElement('td');
+                                let f=contas.conta_numero;
+                                const textNode0=document.createTextNode(f);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("class","linhaVerde");
+                                document.getElementById('linh' + '-' + i ).appendChild(node0);
+
+                                // Nome Razão
+                                const node2=document.createElement('td');
+                                const textNode2=document.createTextNode(contas.conta_nome);
+                                f=f + '=' + contas.conta_nome
+                                node2.appendChild(textNode2);
+                                node2.setAttribute("class","linhaVerde");
+                                node2.setAttribute("onclick","Cta_edita(" + "'" + f + "'" + ")");
+                                document.getElementById('linh' + '-' + i ).appendChild(node2);
+                            }
+
+                            //lim
+                            limpaADDSub();
+
+                            function limpaADDSub(){
+                                document.getElementById("frameSub").style.display="none";
+                                
+                              
+                               
+                            }
+                         }
+                })
+                .catch((er)=>{
+                    console.log(er)  
+                })
+     }catch(e){
+        console.log(e);
+     }
+}
+// MODAL
+function Cta_BtnAdd(){
+    limpa_Titulo();
+    limpa_Sub();
+    let r=document.getElementById("Cta_ModalADD");
+    r.style.position= 'absolute';
+    r.style.zIndex=300;
+    r.style.marginTop=400;
+    r.style.display='block';
+    r.style.backgroundColor="red";
+    document.getElementById("CtaNumberADD").style.backgroundColor="#ffffff";
+    document.getElementById("CtaNumberADD").style.color="#053ba0";
+    console.log(90)
+    document.getElementById("CtaNumberADD").focus();
+}
+
+function Cta_busca(n){
+    let palavra=n;
+    let l=palavra.length;
+    let numero_Conta=palavra.substring(0,6);
+    console.log(numero_Conta);
+    let nome_Conta=palavra.substring(7,l);
+    console.log('[ 1240 ]',numero_Conta);
+    console.log(nome_Conta);
+  
+    document.getElementById("idnumContasLabel").innerText=numero_Conta;
+    document.getElementById("idnomeContasLabel").innerText=nome_Conta;
+    document.getElementById("CtaNumberADD").value=numero_Conta;
+    document.getElementById("CtaNumberADD").style.backgroundColor="yellow";
+    document.getElementById("CtaNumberADD").focus();
+    //////////////////////////////////////////////////////////
+    limpa_Titulo
+    limpa_Sub();
+    limpa_Cta();
+    limpaTable_cta();
+    /////////////////////////////////////////////////////////////////////// 
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    console.log('1287',baseApiUrl)
+    try{
+    fetch(`${baseApiUrl}` + `/raqcontabil/busca_conta/${numero_Conta}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json)
+                let l=json.length;
+                console.log('1464 => ',l)
+                if(l==0){
+                    alert("Não há conta cadastrada!") 
+                    let bloqueio=document.getElementById("idnumContasLabel").innerHTML;
+                    bloqueio=bloqueio.substring(0,6);
+                    console.log('BLOQUEIO',bloqueio)
+                    if (bloqueio=='102001' || bloqueio=='102002'){
+                        alert('Cadastro de clientes no plano de conta somente quando emitir nota fiscal!') 
+                        document.getElementById("Add_conta").style.display="none";
+                    }
+                }else{
+                     for (let i=0;i<l;i++){
+                        let N1=json[i];
+                        console.log('N1',N1);
+
+                        let contas=N1.contas;
+                        console.log('contas 1571 ',contas)
+                        
+                        /////////////////////////////////////////////////////////////////////////
+                        const node22=document.createElement('tr');
+                        node22.setAttribute("id","line_" + '-' + i);
+                        node22.setAttribute("class","linhaVerde");
+                        document.getElementById("XContas").appendChild(node22)
+                        
+                        // Número Cta
+                        const node0=document.createElement('td');
+                       //return
+                        let bloqueio=document.getElementById("idnumContasLabel").innerHTML;
+                        bloqueio=bloqueio.substring(0,6);
+                        console.log('BLOQUEIO',bloqueio)
+                        if (bloqueio=='102001' || bloqueio=='102002'){
+                           alert('Cadastro de clientes no plano de conta somente quando emitir nota fiscal!') 
+                           document.getElementById("Add_conta").style.display="none";
+                        }
+                        let f=contas.conta_numero;
+                        console.log('==> ',f)
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("class","linhaVerde");
+                        document.getElementById('line_' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(contas.conta_nome);
+                        f=f + '=' + contas.conta_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Cta_Edit(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaVerde");
+                        document.getElementById('line_' + '-' + i ).appendChild(node2);
+                    }
+
+                    //  if(numero_Conta=="102001"){
+                    //           alert("não há como criar conta!") 
+                    //  }
+                }
+            })
+            .catch((err)=>{
+               console.log(err); 
+            })
+    }catch(e){
+       console.log(e); 
+    }
+}
+
+function Cta_Edit(){
+    alert('Edit_contas')
+}
+
+// É acionada ao carregar a página buscado os Títulos do ATIVO como DEFAULT.
+function buscaAtivo_titulo(baseApiUrl){
+    ////////////////////////////////////////////////
+    //AQUI FALTA LIMPAR A  TABLE
+    return
+    limpaTable_titulo();
+    ////////////////////////////////////////////
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////// 
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/buscaCtaTituloInicial`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response => {
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    let corpo=json;
+                    let l=json.length;
+                
+                    for (let i=0;i<l;i++){
+                        let N1=corpo[i];
+                       // let R=Object.values(N1)
+                        let Titulo=N1.titulo;
+                        const node=document.createElement('tr');
+                        node.setAttribute("id","linha" + '-' + i);
+                        node.setAttribute("class","linhaCheia");
+                        document.getElementById('XTitulo').appendChild(node)
+
+                        // Número Cta
+                        const node0=document.createElement('td');
+                        let f=Titulo[0].titulo_numero;
+                        const textNode0=document.createTextNode(f);
+                        node0.appendChild(textNode0);
+                        node0.setAttribute("onclick","Sub_busca(" + "'" + f + ":" + Titulo[0].titulo_nome + "'" + ")");
+                        node0.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                        // Nome Razão
+                        const node2=document.createElement('td');
+                        const textNode2=document.createTextNode(Titulo[0].titulo_nome);
+                        f=f + '=' + Titulo[0].titulo_nome
+                        node2.appendChild(textNode2);
+                        node2.setAttribute("onclick","Titulo_edita(" + "'" + f + "'" + ")");
+                        node2.setAttribute("class","linhaAmarela");
+                        document.getElementById('linha' + '-' + i ).appendChild(node2);
+                    }
+                    ///////////////////////////////////////
+                    limpaADDTitulo();
+
+                    function limpaADDTitulo(){
+                        document.getElementById("Titulo_ModalEditDelete").style.display="none";
+                        document.getElementById("TituloNumber_EDITDEL").value="";
+                        document.getElementById("TituloName_EDITDEL").value="";
+                    }
+                })
+                .catch((er)=>{
+                  console.log('error ',er)
+                })
+    }catch(e){
+       console.log(e) 
+    }          
+}
+
+//buscaAtivo_titulo(baseApiUrl);
+
+</script>

@@ -1,0 +1,360 @@
+<style>
+    .mudacor a:hover {background-color: yellow;}
+   
+     /* Pertence a tablela*/
+    .col-titulo{
+        width:100%;background-color:#136101;font-size: small;font-weight:100;
+    }
+
+    .col-linha{
+      width: 8%;
+      font-size: small;font-weight:100;
+    }
+
+    .col-codigo{
+      width: 10%;
+      font-size: small;font-weight:100;
+    }
+
+    .col-descritivo{
+      width: 45%;
+      font-size: small;font-weight:100;
+    }
+
+    .col-qte{
+      width: 10%;
+      font-size: small;font-weight:100;
+    }
+
+    .col-preco{
+      width: 15%;
+      font-size: small;font-weight:100;
+    }
+
+    .col-Acoes{
+       width: 80%;
+       font-size: small;font-weight:100;
+    }
+
+    .row-table{
+      border-bottom: #0bf02a 1px solid;
+    }
+
+    .bnt-addprod{
+      width: 100%;
+      border-radius: 6px;
+      font-size: small;
+      background-color: #04bb32;
+      color:#ffffff;
+      font-size: small;font-weight:100;
+    }
+
+    .bnt-editar{
+      width: 100%;
+      border-radius: 6px;
+      font-size: small;
+      background-color: #ff0000;
+      color:#ffffff;
+      font-size: small;font-weight:100;
+    }
+     /*  Pertence ao form Cadastro                  */
+    .form-fornec{
+          background-color: slategray;color:#ffffff;padding: 15px;font-size: small;border-radius: 8px;
+    }
+
+    .div-fornec{
+        float:left;display: flex;flex-direction:row;width:100% ;background-color:#44515f;color:#ffffff;padding-top:8px ;
+    }
+
+    .div-label-fornec{
+       background-color:trasparente;float: left;width:10%;margin-top:6px;
+    }
+    .label-fornec{
+      font-size:small;font-weight:100;margin-left: 6px;
+    }
+
+    .div-input-fornec{
+      background-color:trasparente;float: left;width:90%;border-radius:5px;
+    }
+
+    .input-fornec{
+         width:75% ;border-radius: 5px;margin-left: 15px;
+    }
+
+    .div-import{
+      width:100%;height:15vh;margin:auto;background-color:transparente;text-align: center;padding:8vh;
+    }
+
+    .btn-import{
+      border-radius:5px;background-color:#04bb32;height:5vh;width:30%;margin:auto;text-decoration: none;text-decoration-color: #ff0000;
+    }
+
+    .btn-import:hover {
+       text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: yellow;
+    }
+
+    a:active {
+       text-decoration: underline;
+    }
+</style>
+<!--                -->
+<!-- Esse modelo está desativado porém há um formulário muito bem feito que pode ser aproveitado.-->
+<!-- Está se estudando 29/07 se vai-se incluir produto individualmente                --> 
+  <div class="" id="" style="width:99%;height:90vh;margin:auto;background-color: #ffffff;margin-top:6vh;padding-top:1px;">
+          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+          <div class="modal fade" id="myModal">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title" style="color:#ff0000">Atenção!</h4>
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                Esse 'cnpj' já esta cadastrado!
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+          </div>
+          <button id="zero"  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="display: none;">
+                                                                         aviso 1
+          </button>
+          <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+       
+         <div style="float:left;width:48%;height:80vh;margin:auto;background-color: #0bf02a;margin-left:1%;">
+                     <div style="width:100%;height:80vh;margin:auto;background-color:#f0f1f4;padding:15px;">
+                        <div class="" style="width:100%;height: 10vh;float:left;background-color: #01317d;color:#ffffff;text-align: center;">
+                            <h2 class=""> Lista de Produtos : <span  style="color:#e90d0d;font-size:smaller;">{{fornec}}</span></h2>
+                            <div style="width:100%;height:4vh;display:flex;flex-direction: row;justify-content: center;background-color: #01317d;">
+                                 <h3 style="color:grenn;font-size:small ;">lojista: {{razao}}</h3>
+                            </div>
+                        </div>
+                        <div style="width:100%;height:60vh;margin:auto;background-color: #ffffff;border:#ffffff 1px solid;margin-top:12vh;padding:15px 5px ;overflow: auto;">
+                          <table style="color:#ffffff;width:100%;background-color: #001d4a;">
+                          </table>
+                        </div>
+                    </div>
+         </div>
+         <div style="float:right;width:48%;height:80vh;margin:auto;background-color: #ffffff;margin-right:1%;">
+            <div class="modal-dialog">
+                <div class="modal-content" style="background-color:#001d4a;color: #ffffff;">
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 class="modal-title" >Cadastro de produto</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                              <form class="form-signin form-fornex" id="formProduto" method="POST" action="/fornec/gravafornec/" enctype="application/x-www-form-urlencoded">
+                                    <div class="div-fornec">
+                                        <div class="div-label-fornec">
+                                              <label for="raz3o" class="label-fornec">descritivo</label>
+                                        </div>
+                                        <div class="div-input-fornec" >
+                                              <input type="text" id="raz3o" name="raz3o" class="input-fornec" autocomplete="off || on" autofocus tabindex="0">
+                                        </div>
+                                    </div>    
+                                    <div class="div-fornec">
+                                        <div class="div-label-fornec">
+                                            <label for="cnj3" class="label-fornec" >código</label>
+                                        </div>
+                                        <div class="div-input-fornec">
+                                            <input type="text" id="cnj3" name="cnj3" onblur="myFunction(this)" class="input-fornec" autocomplete="off || on">
+                                        </div>
+                                    </div>  
+                                    <div class="div-fornec">
+                                        <div class="div-label-fornec">
+                                            <label for="marc3" class="label-fornec" >qte</label>
+                                        </div>
+                                        <div class="div-input-fornec">
+                                            <input type="text" id="marc3" name="marc3" style="" class="input-fornec" autocomplete="off || on">
+                                        </div>
+                                    </div>     
+                                    <div class="div-fornec" >
+                                        <div class="div-label-fornec">
+                                            <label for="ema3l" class="label-fornec">preço</label>
+                                        </div>
+                                        <div class="div-input-fornec">
+                                            <input type="text" id="ema3l" name="ema3l" class="input-fornec" autocomplete="off || on">
+                                        </div>
+                                    </div>    
+                                    <div class="div-fornec" >
+                                        <div class="div-label-fornec">
+                                            <label for="prod3to" class="label-fornec">Produto</label>
+                                        </div> 
+                                        <div class="div-input-fornec">
+                                            <input type="text" id="prod3to" name="prod3to" class="input-fornec" autocomplete="off || on">
+                                        </div>
+                                    </div>
+                                     <div class="div-fornec" >
+                                        <div class="div-label-fornec">
+                                            <label for="prod3to" class="label-fornec">Código</label>
+                                        </div> 
+                                        <div class="div-input-fornec">
+                                            <input type="text" id="prod3to" name="prod3to" class="input-fornec" autocomplete="off || on">
+                                        </div>
+                                    </div>   
+                                    <hr>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-danger"  data-dismiss="">Grava</button>
+                                    </div>
+                              </form>   
+                      </div>
+                </div>  
+               
+            </div>
+            <div class="div-import" style="background-color:#0de961 ;">
+                  <button class="btn-import" style="color:#ffffff"><a href="/fornec/import-produto/{{fornec.marca}}">Importar produtos?</a></button>
+            </div>
+       </div>
+  </div>  
+ 
+<script>
+    // let x=document.getElementById("cnpj");
+
+    // x.addEventListener("click", myFunction);
+
+   //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    rz=document.getElementById('raz3o')
+    rz.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           //document.getElementById("cbarra").style.backgroundColor='#225644';
+           document.getElementById("cnj3").style.backgroundColor='#225644';
+           document.getElementById("cnj3").style.color='#ffffff';
+           document.getElementById("cnj3").focus()
+        }
+    });
+
+    //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    cn=document.getElementById('cnj3')
+    cn.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           //document.getElementById("cbarra").style.backgroundColor='#225644';
+           document.getElementById("marc3").style.backgroundColor='#225644';
+           document.getElementById("marc3").style.color='#ffffff';
+           document.getElementById("marc3").focus()
+        }
+    });
+
+    //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    mr=document.getElementById('marc3')
+    mr.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           //document.getElementById("cbarra").style.backgroundColor='#225644';
+           document.getElementById("ema3l").style.backgroundColor='#225644';
+           document.getElementById("ema3l").style.color='#ffffff';
+           document.getElementById("ema3l").focus()
+        }
+    });
+
+     //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    em=document.getElementById('ema3l')
+    em.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+           //document.getElementById("cbarra").style.backgroundColor='#225644';
+           document.getElementById("prod3to").style.backgroundColor='#225644';
+           document.getElementById("prod3to").style.color='#ffffff';
+           document.getElementById("prod3to").focus()
+        }
+    });
+
+function myFunction(val) {
+      document.getElementById("cnj3").style.backgroundColor="red";
+      let cnpj=document.getElementById("cnj3").value;
+      let result = cnpj.replace(".", "A");
+      result = result.replace(".", "A");
+      result=result.replace("/","B");
+      result=result.replace("-","C")
+     // ----------------------------------------------------------
+      try{
+        fetch(`http://localhost:8085/fornec/busca_cnpj/${result}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+              .then(response => response.json())
+              .then((json)=>{
+                  let F=json[0].cnpj;
+                  console.log('vr de F',F)
+                  if(cnpj==F){
+                    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                    document.getElementById("zero").click();
+                    document.getElementById("raz3o").value="";
+                    document.getElementById("cnj3").value="";
+                   
+                    BuscaListaFornex()                    
+                  }else{
+                    console.log('deu!')
+                  }
+              })
+              .catch((err)=>{
+                console.log(err)
+              });
+        }catch(err){
+          console.log(err)
+        }  
+
+}
+
+function BuscaListaFornex(){
+         document.getElementById("marc3").value="";
+}
+//      function add_fornec(){
+//        let d='Santo!';
+//        let p="Vela!"
+//        const G=[]
+//         G.push(d),
+//         G.push(p)
+//        console.log(G)
+//          fetch(`http://localhost:8085/fornec/add_fornec/[${d}]-[${p}]`,{method: "put",
+//                                    headers: {"Content-type": "application/json; charset=UTF-8"}
+//                                    })
+//                                    .then(response => response.json())
+//                                    .then((json) => {
+//                                         console.log("fera!")
+//                                    })
+//    }
+
+//function gravaFornex() {
+//         console.log(8)
+//         let rz=document.getElementById("raz3o").value;
+//         let cp=document.getElementById("cnj3").value;
+//         let mc=document.getElementById("marc3").value;
+//         let em=document.getElementById("ema3l").value;
+//         let pr=document.getElementById("prod3to").value;
+
+//         let leva={
+//              rz:rz,
+//              cp:cp,
+//              mc:mc,
+//              em:em,
+//              pr:pr
+//         }
+//         console.log(leva)
+
+//         fetch(`http://localhost:8085/fornec/gravafornec/${leva}`,{method: "post",
+//                                    headers: {"Content-type": "application/json; charset=UTF-8"}
+//                                    })
+//                                    .then(response => response.json())
+//                                    .then((json) => {
+//                                         console.log("fera!");
+//
+//                                    })
+//    }
+
+</script>
+

@@ -1,0 +1,59 @@
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+// Está tabela guarda os endereço dos usuário/clientes do site
+const EnderecoLojista = new Schema ( {
+    _idNegocio:{
+        type:String,
+        required:false
+    },
+    cep:{
+        type:String,
+        required:true
+    },
+    complemento:{
+        type:String,
+        required:false
+    },
+    logradouro:{
+        type:String,
+        required:true
+    },
+    numero:{
+        type:String,
+        required:true
+    },
+    loja:{
+        type:String,
+        required:false
+    },
+    andar:{
+        type:String,
+        required:false
+    },
+    sala:{
+        type:String,
+        required:false
+    },
+    bairro:{
+        type:String,
+        required:true
+    },
+    cidade:{
+        type:String,
+        required:true
+    },
+    estado:{
+        type:String,
+        required:true
+    },
+    createAt:{
+        type:Date,
+        default:Date.now()
+    },
+    updateAt:{
+       type:Date,
+       required:false
+   }
+})
+
+mongoose.model("enderecolojista",EnderecoLojista)

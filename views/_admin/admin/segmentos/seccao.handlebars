@@ -1,0 +1,254 @@
+<style>
+ .btngravar{
+    border-radius: 5px;border:1px solid #ffffff;background: #012a82;color:#ffffff;margin-top: 10px;margin-bottom: 10px;width: 10vw;
+ }   
+
+ .divTitulo{
+    width: 100%;height: 10vh;text-align: center;
+    padding:2px;
+    padding: 1vh;display: flex;flex-direction: column;
+    background-color: #152cc0;
+ }
+
+ .divTitulo label{
+    /*font-size:1.2vw;color:#14dc21;margin-top:-2px;background-color: black;*/
+ }
+
+ .ListSegmenot{
+    width: 90%;height: 45vh;background-color:violet;color:#ffffff;overflow-x: auto;list-style: none;margin: auto;padding-top: 10px;
+ }
+</style>
+<div style="background-color:#ffffff;width: 80%;height: 98vh;margin: auto;margin-top:0.3vh;">
+
+    <div id="div_titulos" class="divTitulo">
+         <label style="color:white;font-size: .5vw;">_admin/admin/segmentos/seção.handlebars</label>
+         <div style="display: flex;flex-direction: row;background-color: #ffffff;">
+            <div style="width: 8vw;height: 3vh;background-color: #ffffff;text-align: right;">
+               <label style="color:#da0d0d;font-size: 1vw;width: 7vw;" id="labelSegmento" >Segmento :<span style="color:greenyellow;"></span></label>
+            </div>
+            <input style="float: left;border: none;padding-left: 1vw;" id="NomeSegmento" type="text">
+         </div>
+         <div style="display: flex;flex-direction: row;background-color: #ffffff;">
+            <div style="width: 8vw;height: 3vh;background-color: #ffffff;text-align: right;">
+              <label style="color:#da0d0d;font-size: 1vw;width: 7vw;" id="labelSetor" >Setor     :<span id="seg01" style="font-size:medium;color:yellow "></span><span  style="color:greenyellow;font-size:x-small;"></span></label>
+            </div>
+            <input id="NomeSetor" style="float: left;border: none;padding-left: 1vw;display: none;"  type="text">
+         </div>
+         {{!-- <label style="color:white;font-size: .5vw;" id="labelSecao" >Secão :<span  style="color:greenyellow;font-size:xx-small;"></span></label> --}}
+    </div>    
+    <div id="main" style="height:65vh;display:flex;flex-direction:row;justify-content: space-around;justify-items:flex-start;background-color: #ffffff;padding: 10px;margin-top: 3px;">
+        <div id="ListSegmento" style="width:30%;height:57vh;margin:auto;padding:12px;background-color:#152cc0;float:left;color:#ffffff;">
+            <p style="font-weight:100;color:#ffffff;font-size: 1vw;">lista de segmentos</p>
+            <div style="height:48vh;background-color:#ffffff ;padding: 10px;margin: auto;overflow: auto;">
+                <ul id="ListSegmento" class="listSegmento" style="color:#012a82;" >
+                    {{#each segmentos}}
+                        <li style="font-size: 1vw;" onclick="buscsetor('{{segmento}}')" >{{segmento}}</li>
+                    {{/each}}
+                
+                </ul>
+            </div>
+        </div>
+        <div id="ListSetor_" style="width:30%;height:57vh;margin:auto;padding:12px;background-color:#152cc0;float:left;color:#ffffff;">
+              
+             <p style="font-size:1vw;font-weight:100;color:#ffffff;">lista de setor</p>
+              {{!-- Essa divisão contém os elementos do segmento nível 01 --}}
+             <div style="height:48vh;background-color:#ffffff ;padding: 10px;margin: auto;overflow: auto;">
+                 <ul id="ListSetor" style="width:90%;height:40vh;background-color: transparent;color:#012a82;overflow-x: auto;list-style: none;margin: auto;padding-top: 10px;font-size: 1vw;">
+                      
+                 </ul>
+             </div>
+        </div>
+        <div id="ListSeccao" style="width:30%;height:57vh;margin:auto;padding:12px;background-color:#152cc0;float:left;color:#ffffff;">
+             <p style="font-size:1vw;font-weight:100;color:#ffffff;">lista de seção</p>
+             <div style="height:48vh;background-color:#ffffff ;padding: 10px;margin: auto;">
+                 <ul id="ListSecao" style="width:90%;height:40vh;background-color:transparent;color:#012a82;overflow-x: auto;list-style: none;margin: auto;padding-top: 10px;font-size: medium;">
+                     
+                 </ul>
+             </div>
+        </div>
+    </div>
+     <div id="form_cadastro" style="width: 80%;height: 22vh;margin: auto;background-color:transparent;margin-top: 3px;">
+            {{!-- <form class="" method="post" action="" style="width: 80%;height: 1.5vh;margin: auto;" enctype="application/x-www-form-urlencoded"> --}}
+                <div style="width:75%;height: 21vh;background-color:#012a82;color:#ffffff;margin:auto;padding-top:12px;border-radius: 12px ;">
+                    <div class="form-group" style="padding-top:2px;display:flex ;flex-direction:column;justify-content: center;">
+                        <label class="control-label col-sm-10" for="descritivo">segmento :<span id="idNomeSegmento" style="color:greenyellow;padding-left: 0.5vw;"></span></label>
+                        <div>
+                            <input id="IdSegmento" name="nameSegmento" style="display:none;color:#012a82;background-color: #ff002f;" >  
+                        </div> 
+                    </div>
+                    <div class="form-group" style="padding-top:2px;display:flex ;flex-direction:column;justify-content: center;">
+                        <label class="control-label col-sm-10" for="descritivo">setor :<span id="" style="color:greenyellow;"><label style="width: 12vw;height: 3vh;margin: auto;background-color: transparent;color:greenyellow;padding-left: 0.5vw;" id="IdNomeSetorSpan"></label></span></label>
+                        <input id="IdSetor" name="nameSetor" style="display:none;color:#012a82;background-color: #ff002f;text-align: center;" >
+                    </div>
+                    {{!-- ------------------------------------------------------------------ --}}
+                    <div class="form-group" style="text-align: center;background-color:#012a82;text-align: center;display: flex;flex-direction: row;justify-content: center;">
+
+                        <div id="InserindoSeccao" class="col-sm-offset-2 col-sm-10" style="margin-top: 2px;text-align: center;background-color:transparent;padding-top: .5vh;display: none;">
+                                <input  id="idSecao" name="nameSecao"  class="form-control" style="display:block;color:#820110;background-color: #ffffff;width: 15vw;margin: auto;" type="text" placeholder="nome da seção" autocomplete="off" >
+                               <button id="btndispara" type="" class="btn  btngravar" onclick="gravaSecao()" >Gravar</button>
+                        </div>
+                    </div>
+                </div> 
+    </div>
+</div>
+<script>
+// Busca o setores
+function buscsetor(val){
+    let data=val;
+    document.getElementById("NomeSegmento").value=val;
+    document.getElementById("IdSegmento").value=val;
+    document.getElementById("idNomeSegmento").innerHTML=val;
+    let b= document.getElementById("ListSetor").childElementCount
+    const list = document.getElementById("ListSetor");
+    if (b>0){
+            console.log(b)
+            for(i=0;i<b;i++){
+                list.removeChild(list.firstElementChild);
+                console.log(i)
+            }
+    }
+    //---------------------------------------------------------------------
+    let c= document.getElementById("ListSecao").childElementCount
+    const listSub = document.getElementById("ListSecao");
+    if (c>0){
+            console.log(c)
+            for(i=0;i<c;i++){
+                listSub.removeChild(listSub.firstElementChild);
+                console.log(i)
+            }
+    }
+    ////////////////////////////////////////////////////////////////////
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+    //-------------------------------------------------------------------------
+    fetch(`${baseApiUrl}` + `/centralseg/busca-setores/${data}`, {method: "GET",
+                    headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+            .then(response => response.json())
+            .then((json) => {
+                console.log('_______________________________________')
+                let l=json.length;
+                const M= json;
+                //----------------------------------------------------------------
+                for(i=0;i<l;i++){
+                    const node = document.createElement("li");
+                    let A=M[i];
+                    const textnode = document.createTextNode(A);
+                    node.appendChild(textnode);
+                    document.getElementById("ListSetor").appendChild(node);
+                    document.getElementById("NomeSetor").innerText=M[i]._id;
+                    document.getElementById("IdSetor").value=M[i]._id;
+                    const list = document.getElementById("ListSetor").childElementCount;
+                }
+            })
+            .catch((e)=>{
+                console.log(e);
+            })                      
+    }  
+  
+     
+// Observer - Observa qual elemento setor  foi clicado para determinar o cadastro da secao
+let elem=document.getElementById("ListSetor")
+elem.addEventListener("click", function(event) {
+        let palavra= event.target.innerText;
+        console.log(palavra)
+        document.getElementById("NomeSetor").value=palavra;
+        document.getElementById('IdSetor').value=palavra;
+        document.getElementById("IdNomeSetorSpan").innerHTML=palavra;
+        document.getElementById("InserindoSeccao").style.display='block';
+        const list = document.getElementById("ListSecao");
+        let n= document.getElementById("ListSecao").childElementCount
+        console.log('valor de n',n)
+        if (n>0){
+                console.log(n)
+                for(i=0;i<n;i++){
+                    list.removeChild(list.firstElementChild);
+                    console.log(i)
+                }
+        }
+        busc_secao(palavra)
+});
+
+// Essa rotina vai buscar os elementos que compoem os segmentos  nível 02
+function busc_secao(data){
+    //--------------------------------------------------------------------
+    //---------------------------------------------------------------------  
+    console.log('___________________________________________________')             
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    try{
+        fetch(`${baseApiUrl}` + `/centralseg/busca-secao/${data}`,{method: "GET",
+                                                                   headers: {"Content-type": "application/json; charset=UTF-8"}
+                                                                  })
+                        .then(response => response.json())
+                        .then((json) => {
+                            const nucleo=json;
+                            let f=nucleo.length
+                            console.log('valor de f',f)
+                            //--------------------------------------------
+                            
+                            //----------------------------------------------------------------
+                            for(i=0;i<f;i++){
+                                console.log('dentro')
+                                const node = document.createElement("li");
+                                let A=nucleo[i];
+                                console.log('[207]',nucleo[i])
+                                const textnode = document.createTextNode(A);
+                                node.appendChild(textnode);
+                                node.setAttribute("onclick","deleteSeg2(" + "'" + A + "'" + ")" )
+                                document.getElementById("ListSecao").appendChild(node);
+                                const list = document.getElementById("ListSecao").childElementCount;
+                            }
+                        })
+                        .catch((e)=>{
+                          console.log(e);
+                        })                      
+    }catch(err){
+        console.log(err)
+    }
+}
+
+function deleteSeg2(val){
+        console.log(val)
+}
+
+function gravaSecao(){
+    let beta=document.getElementById("IdSegmento").value;
+    let alpha=document.getElementById("IdSetor").value;
+    let data=document.getElementById("idSecao").value;
+    document.getElementById("idSecao").style.innerHTML="";
+    console.log(data)
+    data=beta + "=:=" + alpha + "=:=" + data
+    console.log('-----------------------------------------')
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    try{
+        //return
+        fetch(`${baseApiUrl}` + `/centralseg/cadastro-secao/${data}`,{method: "POST",
+                                                                   headers: {"Content-type": "application/json; charset=UTF-8"}
+                                                                  })
+                        .then(response => response.json())
+                        .then((json) => {
+                             console.log('linha [248 ] ',json)
+                        })
+                        .catch((e)=>{
+                            console.log(e)
+                        })
+    }catch(e){
+        console.log(e);
+    }                    
+
+}
+</script>

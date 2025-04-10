@@ -1,0 +1,19 @@
+<nav class="sidebar">
+      <div id="sidebar_div" class="sibebar-div" >
+         {{!-- ---------------------------------------------------}}
+         <div id="listaSegmentos" class="list_segmento" >
+               <div class="list_segmento_div" >
+                     <h6 style="color: #ffffff;font-size: 1.2vw;text-align: center;font-weight: 100;">secções</h6>
+               </div>
+               <div style="padding-top: 1vh;background-color:#ffffff;height: 52vh;">
+                     <ul class="ul_list">
+                        {{#each seg}}
+                        <li id="numlin"  onclick="buscaSecao('{{this.seg}}')" >
+                            {{this.seg}}
+                        <li> 
+                        {{/each}}
+                     </ul>
+               </div>
+         </div> 
+      </div>
+</nav>

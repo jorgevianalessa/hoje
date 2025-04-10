@@ -1,0 +1,239 @@
+<nav class="sidebar" style="padding: 10px;background-color: #ffffff;margin-top: 14.5vh;height:85.5vh;
+                            display: flex;flex-direction: column;justify-content:space-around;" >
+    <input id="idLojaSidebar" type="text" value="{{loja._id}}" style="display: none;">
+    <div class="lateral" >
+        <h1 style="font-size: larger;color: #000;font-size:2em ;padding-bottom: 2vh;" >artigos</h1>
+        <ul id="goArtigo" style="list-style-type: none;background-color:transparent;color:#325b80;">
+           {{!--quando clicamos aqui vamos buscar a página corresponde aos artigos focados. --}}
+
+        </ul>
+    </div>
+    <div class="lateral">
+       <h1 ></h1>
+       <ul >
+            
+        </ul>
+    </div>
+    <div class="lateral">
+        <h1></h1>
+        <ul >
+            {{!-- <li >x-pequeno</li>
+            <li >pequeno</li>
+            <li >pequeno</li>
+            <li >médio</li>
+            <li >grande</li>
+            <li >big</li> --}}
+        </ul>
+    </div>
+</nav>
+<script>
+ //buscarArtigo()
+   //return
+ // busca os nome dos artigos relacionados aos produtos cadastrado pelo lojista referenciado.
+ // Fica no menu lateral sob titulod de "Artigos" 
+ //function buscar&Artigo(){
+    //console.log('artigo busca')
+    //...........................................................
+//    let idloja;
+//    var r=document.getElementById("idLojaSidebar");
+//    r.style.backgroundColor="yellow"
+//    console.log('valor do input',r.value)
+//    idloja=r.value;
+//    console.log('atirei',r)
+//    let baseApiUrl=window.location.hostname;
+//    if (baseApiUrl=='localhost'){
+//            baseApiUrl='http://localhost:3000'
+//  }else{
+//        baseApiUrl='https://www.rotaes.com.br'
+//    }   
+    //////////////////////////////////////////////////////////////////
+//    try{
+//        console.log(1000)
+//        fetch(`${baseApiUrl}` + `/site/10buscar-artigosLojista/${idloja}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+//        .then(response =>{
+//            if( response.ok ){
+//                return response.json()
+//                }  
+//                throw response;
+//        })
+//        .then((json)=>{
+//            const X=json;
+//            console.log(X)
+//            let l=X.length;
+        //    console.log(json)
+      //      console.log('--')
+            //:::::::::::::::::::::::::::::::::::::::::
+//            for (let r=0;r<l;r++){
+//                  let A=X[r];
+//                  const node0=document.createElement("li");
+//                  const textnode = document.createTextNode(A);
+//                  node0.appendChild(textnode)
+//                  node0.setAttribute("id",'linha' + r);
+//                  node0.setAttribute("onclick","imgLoadArtigo('"+ A + "')");
+//                  node0.setAttribute("class","test")
+//                  document.getElementById('goArtigo').appendChild(node0)
+//            }
+//        })
+//        .catch((err)=>{
+//            console.log(err)
+//       })  
+//    }catch(e){
+//        console.log(e);
+//    }    
+// }
+
+
+ function imgLoadArtigo(n){
+   // buscando as fotos
+    console.log("(OK)-buscando as fotos do artigo selecionado",n)
+    // Limpa a tabela .......................................
+    // Limpar a tela para receber uma nova page correspondente ao artigo selecionado
+    console.log('');
+  //  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+    let numberCardMax=54;
+    let numberCard=11
+    let main;
+    main="main-";
+    let cardSrc;
+    let lin=1;
+    for (let i=0;i<numberCardMax;i++){
+        if(lin>4){
+            numberCard=numberCard + 6
+            lin=1
+            
+         }  
+         if(numberCard<=numberCardMax){
+            cardSrc=main + numberCard;
+          //  console.log('12',cardSrc)
+            document.getElementById("" + cardSrc + "").src="";
+          //  console.log(cardSrc)
+            numberCard++
+            lin++
+         }   
+    }
+
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    let r=document.getElementById('idloja');
+    r=r.innerText;
+    let artigo=n;
+    let chave;
+    chave=r + "&&&" + artigo;
+    console.log('vr de chave',chave)
+    let obsize=chave;
+ //   console.log('vr de obsize',obsize)
+    r=obsize.length;
+    //if(r=24){
+        //....................................................   
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+                fetch(`${baseApiUrl}` + `/site/img_space_/${obsize}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                   // console.log(' 412 loadImageArtigo -----------------------json',json)
+                    loadImagensArtigo(json)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }catch(e){
+            console.log(e)
+        }
+    //}
+} 
+
+ // Aqui temos a response da Space-Digital sobre os arquivos de imagens,  
+ function loadImagensArtigo(n){
+    console.log('')
+    console.log('dentro de loadImagensArtigo [ 386 ]',n)
+    const blok=n;
+    let b=blok.length;
+    //console.log( 'blok ',blok)
+    //console.log( 'lenght -> ',b)
+    let col=1;
+    let x=1;
+    let cod;
+    let urlPath;
+    let posicao;
+    let pos;
+    let palaavra;
+    for (i=0;i<b;i++){
+            palavra= blok[i]
+          //  console.log('');
+          //  console.log('------------------------------------');
+            
+            console.log('[ 141 ]-buscando os elements -> palavra' ,palavra)
+            //................................................................
+            pos=palavra.search(" &-& ");
+         //   console.log(' [ 594 ] primeira pos "-" : ',pos)
+            //........................................
+            cod=palavra.slice(0,pos)
+         //   console.log('codigo --> Ok: ',cod)
+            //..............................
+            let l=palavra.length;           
+            palavra=palavra.slice((pos+5),l);
+         //   console.log('restante ??',palavra)
+            //...................................................
+            pos=palavra.search(" &-& ");
+            urlPath=palavra.substring(0,pos);
+         //   console.log(' url --> Ok: ',urlPath);
+            //..................................................
+            l=palavra.length;           
+            palavra=palavra.slice((pos+5),l);
+         //   console.log('restante ??',palavra)
+            //...................................................
+            pos=palavra.search(" &-& ");
+            posicao=palavra.substring(0,pos);
+            console.log(' posição --> Ok: ',posicao);
+
+          //  return
+            //.................................
+           // console.log(' [ 603 ] :',palavra);
+            //palavra=palavra.slice((pos+1),c);
+           // console.log('restante ',palavra)
+           // pos=palavra.search("-");
+            //console.log('',pos)
+            //col=palavra.slice(0,pos)
+           // console.log('col --> Ok:',col)
+           // let titulo=palavra.slice((pos+1),c);
+          //  console.log('titulo -->  Ok: ',titulo)
+            transformaArtigo(cod,urlPath,posicao)
+            col++;
+            if(col=4){
+                col=1;
+            };
+    }
+
+    function transformaArtigo(cod,urlPath,posicao){
+      //  console.log(' -> codigo',cod)
+      //  console.log(' -> url',urlPath)
+      //  console.log(' -> posição',posicao)
+       // console.log(' -> c',c)
+        //document.getElementById("artigoSelect").innerHTML='home';
+        //document.getElementById("nome_Artigo").value=home;
+        //.........................................
+        let imgDone=urlPath;
+        console.log('url da image',imgDone)
+     //   console.log('-----------------------------------')
+        let trilha='main-' + posicao
+        console.log('valor da trilha ',trilha)
+        trilha=trilha.trim();
+        var str = trilha.replace(/\s/g, '');
+        console.log('valor do id que receberá a img STR',str)
+        let imgStr=document.getElementById(`${str}`);
+        imgStr.src=imgDone
+    }
+}
+
+</script>

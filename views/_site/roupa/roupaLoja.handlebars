@@ -1,0 +1,934 @@
+<style>
+body{
+    margin: 0;
+    padding: 25px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.responsive {
+    width: auto;
+    height: auto;
+}
+
+.sibebar{
+   height:85.5vh;   
+   display: flex;flex-direction: column;justify-content:space-around;
+   padding: 10px;margin-top: 14.5vh;
+   background-color: #ffffff;
+}
+
+.sidebar{
+    width: 10vw;
+    height:88vh;
+    margin-top: 2vh;
+    padding:2px;
+    padding-top: 0px;
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.menulateral{
+    width: 10%;height: 310vh;margin:auto;
+    margin-top: .1vh;margin-left: 2px;
+    background-color: #ffffff;text-align: center;
+  }
+
+.lateral{
+   width: 10vw;
+   height: 54vh;
+   padding-left: .8vw;
+   padding-bottom: 2vh;
+   margin-top: .8vh;
+   background-color: #eeeef1;
+}
+
+
+
+.sibebar_artigo{
+   width: 100%;height: 48vh;margin: auto;background-color: #ffffff;text-align: left;
+}
+
+.go_artigo{
+    width: 9vw;
+    height: 36vh;
+    padding-top: 6px;
+    background-color:transparent;text-align:left;
+    list-style-type: none;
+    display:flex ;flex-direction: column;justify-items:left ;
+    background-color: #ffffff;
+    font-size: medium;
+    font-weight: 400;
+}
+
+.linhaArtigo{
+   width: 7.5vw;height: 3.5vh;margin:auto;
+   margin-left: -20px;
+   background-color: transparent;
+   font-size: medium;
+   font-weight: 200;
+   float: left;
+   margin-bottom: 3px;
+   color: #909396;
+}
+
+.dflex{
+    width: 100%;height: 310.5vh;margin: auto;
+    display: flex;flex-direction: column;align-items: start;padding: .5%;align-content:center;
+    padding:2px 2px;
+    margin-top:.4vh;
+    margin-left: 10px;
+    background-color:#fefbfb;
+    padding-top: 2px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+  
+/* borda */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #dec8df; 
+    border-radius: 10px;
+}
+  
+/*cor da barra*/
+::-webkit-scrollbar-thumb {
+    background: #716267; 
+    border-radius: 4px;
+}
+  
+  /* Efeito sob mouse */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ab8787; 
+  }
+
+.nucleo{
+    width: 89.8%;
+    height: 310vh;
+    margin-left:4px;
+    background-color: #ffffff;
+    display: block;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  background-color: #040404;
+  padding: 10px;
+  width: 100%;
+  height: 60.5vh;
+  -ms-flex: 1;  /* IE 10 */  
+  flex: 1;
+}
+
+.grid-container_primer{
+    margin-left: 10px;background-color: #ffffff;
+    margin-top: 0.2vh;
+}
+
+.codigo{
+   height: 2vh;
+   background-color: #ffffff;
+   color: #07cc07;
+   font-size: 0.8vw;
+   margin-top: 4px;
+}
+
+.descricao{
+   height: 2vh;
+   background-color: #ffffff;
+   color:#dadada;
+   font-size: small;
+   margin-bottom: 4px;
+}
+
+.pagamento{
+    height: 2vh;
+    background-color: #ffffff;
+    color:#ffffff;
+    margin-top: 15px;
+    font-size:smaller;
+    margin-bottom: 5px;
+}
+</style>
+<style>
+@media screen and (max-width:2000px) {
+   .grid-container {
+      height: 55vh;
+      background-color: #ffffff;
+      row-gap: 5px;
+   }
+   
+    .card_prod{
+        display: flex;flex-direction:column;
+        align-content:space-between;
+        background-color: #ffffff;
+        padding: .2vh;
+        width: 19.1vw;
+        height: 50vh;
+    }
+
+    .polaroid1{
+        width: 18.5vw;
+        height:45vh;
+        padding: .6%;
+        background-color: #ffffff;
+    }
+
+    .img-fluid{
+      background-color: #f4efef;
+      width: 18vw;
+      height:36vh;
+    }
+
+    .polaroid2{
+        width: 18.5vw;
+        height:10vh;
+        background-color:#ffffff;
+        padding: 10px 10px 5px 10px;
+        font-size: large;
+        color:#050505;
+        font-size: medium;
+        font-weight: 100;
+        padding-left: .5vw;
+    }
+
+    .polaroid2 p{
+        color:#0421b3;
+        margin-top: -3px;
+        background-color: #ffffff;
+    }
+}
+
+@media screen and (max-width:1200px) {
+
+}
+</style>
+<script>
+function larguraAltura(){
+    var x=document.getElementById("dflex").clientHeight;
+    console.log('vr de x',x)
+    var d=document.getElementById('pegaHeight');
+    d.innerHTML='h :' + x;
+    d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+    var x1=document.getElementById("myHeader").clientWidth;
+    console.log('vr de x1',x1)
+    var d1=document.getElementById('pegaWidth');
+    d1.innerHTML='w :' + x1;
+    d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+    x.innerHTML=(x1/1.77)
+
+    var q=document.getElementById('dflex');
+     q.addEventListener("resize",function(){
+        console.log('alô!')
+     })
+}
+</script>
+{{!-- Estamos agora dentro da loja selecionada --}}
+<div id="d1-flex"  class="d-flex dflex" style="width: 100vw;background-color: #ffffff;display: flex;flex-direction: row;" >
+      {{!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+      <div id="menulateral" class="menulateral">
+           <nav id="sidebar" class="sidebar">
+               <div class="lateral" style="background-color: #ffffff;">
+                  <input type="text" id="idLoja" style="background-color: #dadada;color:#df0b0b;font-size: small;padding: 2px;display:none;text-align: center;" value="{{loja._id}}">
+                  <h1 style="font-size: medium;color: #757677;font-size:2em ;padding-bottom: .5vh;" >artigos</h1>
+                  <div id="lateral_Artigo" class="sidebar_artigo">
+                        <ul id="goArtigo" class="go_artigo" >
+                        {{!--quando clicamos aqui vamos buscar a página corresponde aos artigos focados. --}}
+                        </ul>
+                  </div>
+               </div>
+               <div class="lateral">
+                  <h1 ></h1>
+                  <ul >
+                  </ul>
+               </div>
+               <div style="height: 2vh;background-color: #555755;width: 10vw;"></div>
+               <div class="lateral">
+                  <h1></h1>
+                  <ul >
+                        {{!-- :::::::::::::::::::::::::::::::::::::::::::: --}}
+                  </ul>
+               </div>
+           </nav>
+      </div>
+      <div id="nucleo" class="nucleo" >
+          <div class="grid-container grid-container_primer" >
+              <div class="card_prod" id="11card" onclick="numberId(11)">
+                 <div style="display: flex;flex-direction: column;width: 100%;height: 100%;background-color:#ffffff;padding: 2.5px">
+                     <div id="11-main" class="polaroid1" style="table;">
+                        <img id="main-11"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                     </div>
+                     <div class="polaroid2" style="">
+                        <p id="11-codigo" class="codigo"></p>
+                        <p id="11-descricao" class="descricao"></p>
+                        <p id="11-vista" class="pagamento"></p>
+                        <p id="11-prazo" class="pagamento"></p>
+                     </div>
+                 </div>
+              </div>    
+              <div class="card_prod" id="12card" onclick="numberId(12)" >
+                 <div id="12-main" class="polaroid1" style="table;" >
+                    <img id="main-12"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="12-codigo" class="codigo" ></p>
+                    <p id="12-descricao" class="descricao" ></p>
+                    <p id="12-vista" class="pagamento"></p>
+                    <p id="12-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="13card" onclick="numberId(13)">
+                 <div id="13-main" class="polaroid1" style="table;" >
+                    <img id="main-13"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="13-codigo" class="codigo"></p>
+                    <p id="13-descricao" class="descricao"> </p>
+                    <p id="13-vista" class="pagamento"></p>
+                    <p id="13-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="14card" onclick="numberId(14)">
+                 <div id="14-main" class="polaroid1" style="table;" >
+                    <img id="main-14"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="14-codigo" class="codigo"></p>
+                    <p id="14-descricao" class="descricao"></p>
+                    <p id="14-vista" class="pagamento"></p>
+                    <p id="14-prazo" class="pagamento"></p>
+                 </div>
+              </div> 
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod" id="21card" onclick="numberId(21)">
+                 <div id="21-main" class="polaroid1" style="table;">
+                    <img id="main-21"  src="" alt="" class="img-fluid" style="width: 100%;"/>  
+                 </div>
+                 <div class="polaroid2">
+                    <p id="21-codigo" class="codigo"></p>
+                    <p id="21-descricao" class="descricao"></p>
+                    <p id="21-vista" class="pagamento"></p>
+                    <p id="21-prazo" class="pagamento"></p>
+                 </div>
+              </div>    
+              <div class="card_prod" id="22card" onclick="numberId(22)">
+                 <div id="22-main" class="polaroid1" style="table;" >
+                    <img id="main-22"  src="" alt="" class="img-fluid" style="width: 100%;"/> 
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="22-codigo" class="codigo"></p>
+                    <p id="22-descricao" class="descricao"></p>
+                    <p id="22-vista" class="pagamento"></p>
+                    <p id="22-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="23card" onclick="numberId(23)">
+                 <div id="23-main" class="polaroid1" style="table;">
+                    <img id="main-23"  src="" alt="" class="img-fluid" style="width: 100%;"/> 
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="23-codigo" class="codigo"></p>
+                    <p id="23-descricao" class="descricao"></p> 
+                    <p id="23-vista" class="pagamento"></p>
+                    <p id="23-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="24card" onclick="numberId(24)">
+                 <div id="24-main" class="polaroid1" style="table;" >
+                    <img id="main-24"  src="" alt="" class="img-fluid" style="width: 100%;"/> 
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="24-codigo" class="codigo"></p>
+                    <p id="24-descricao" class="descricao"></p>
+                    <p id="24-vista" class="pagamento"></p>
+                    <p id="24-prazo" class="pagamento"></p>
+                 </div>
+              </div> 
+          </div>
+          <div style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                <h3 style="color:#ffffff;font-size: medium;font-weight:300;margin-top: 15px;">Topo</h3>
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod" id="31card" onclick="numberId(31)">
+                 <div id="31-main" class="polaroid1" style="table;">
+                    <img id="main-31"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2">
+                    <p id="31-codigo" class="codigo"></p>
+                    <p id="31-descricao" class="descricao"></p>
+                    <p id="31-vista" class="pagamento"></p>
+                    <p id="31-prazo" class="pagamento"></p>
+                 </div>
+              </div>    
+              <div class="card_prod" id="32card" onclick="numberId(32)" >
+                 <div id="32-main" class="polaroid1" style="table;" >
+                    <img id="main-32"  src="" alt="" class="img-fluid"  style="width: 100%;"/>
+                 </div>
+                 <div id="" class="polaroid2" style="">
+                    <p id="32-codigo" class="codigo"></p>
+                    <p id="32-descricao" class="descricao"></p>
+                    <p id="32-vista" class="pagamento"></p>
+                    <p id="32-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="33card" onclick="numberId(33)">
+                 <div id="33-main" class="polaroid1" style="table;" >
+                    <img id="main-33"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="33-codigo" class="codigo"></p>
+                    <p id="33-descricao" class="descricao"></p>
+                    <p id="33-vista" class="pagamento"></p>
+                    <p id="33-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="34card" onclick="numberId(34)">
+                 <div id="34-main" class="polaroid1" style="table;" >
+                    <img id="main-34"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="34-codigo" class="codigo"></p>
+                    <p id="34-descricao" class="descricao"></p>
+                    <p id="34-vista" class="pagamento"></p>
+                    <p id="34-prazo" class="pagamento"></p>
+                 </div>
+              </div> 
+          </div>
+          <div style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                <h3 style="color:#ffffff;font-size: medium;font-weight:300;margin-top: 15px;">Topo</h3>
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod" id="41card" onclick="numberId(41)">
+                 <div id="41-main" class="polaroid1" style="table;">
+                    <img id="main-41"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2">
+                    <p id="41-codigo" class="codigo"></p>
+                    <p id="41-descricao" class="descricao"></p>
+                    <p id="41-vista" class="pagamento"></p>
+                    <p id="41-prazo" class="pagamento"></p>
+                 </div>
+              </div>    
+              <div class="card_prod" id="42card" onclick="numberId(42)">
+                 <div id="42-main" class="polaroid1" style="table;">
+                    <img id="main-42"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="42-codigo" class="codigo"></p>
+                    <p id="42-descricao" class="descricao"></p>
+                    <p id="42-vista" class="pagamento"></p>
+                    <p id="42-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="43card" onclick="numberId(43)">
+                 <div id="43-main" class="polaroid1" style="table;">
+                    <img id="main-43"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" >
+                    <p id="43-codigo" class="codigo"></p>
+                    <p id="43-descricao" class="descricao"></p> 
+                    <p id="43-vista" class="pagamento"></p>
+                    <p id="43-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="44card" onclick="numberId(44)">
+                 <div id="44-main" class="polaroid1" style="table;">
+                    <img id="main-44"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="44-codigo" class="codigo"></p>
+                    <p id="44-descricao" class="descricao"></p>
+                    <p id="44-vista" class="pagamento"></p>
+                    <p id="44-prazo" class="pagamento"></p>
+                 </div>
+              </div> 
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod" id="51card" onclick="numberId(51)">
+                 <div id="51-main" class="polaroid1" style="table;">
+                    <img id="main-51"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2">
+                    <p id="51-codigo" class="codigo"></p>
+                    <p id="51-descricao" class="descricao"></p>
+                    <p id="51-vista" class="pagamento"></p>
+                    <p id="51-prazo" class="pagamento"></p>
+                 </div>
+              </div>    
+              <div class="card_prod" id="52card" onclick="numberId(52)" >
+                 <div id="52-main" class="polaroid1" style="table;" >
+                    <img id="main-52"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" >
+                    <p id="52-codigo" class="codigo"></p>
+                    <p id="52-descricao" class="descricao"></p>
+                    <p id="52-vista" class="pagamento"></p>
+                    <p id="52-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="53card" onclick="numberId(53)">
+                 <div id="53-main" class="polaroid1" style="table;">
+                    <img id="main-53"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2">
+                    <p id="53-codigo" class="codigo"></p>
+                    <p id="53-descricao"  class="descricao" ></p>
+                    <p id="53-vista" class="pagamento"></p>
+                    <p id="53-prazo" class="pagamento"></p>
+                 </div>
+              </div>     
+              <div class="card_prod" id="54card" onclick="numberId(54)">
+                 <div id="54-main" class="polaroid1" style="table;">
+                    <img id="main-54"  src="" alt="" class="img-fluid" style="width: 100%;"/>
+                 </div>
+                 <div class="polaroid2" style="">
+                    <p id="54-codigo" class="codigo"></p>
+                    <p id="54-descricao" class="descricao"></p>
+                    <p id="54-vista" class="pagamento"></p>
+                    <p id="54-prazo" class="pagamento"></p>
+                 </div>
+              </div> 
+          </div>   
+            <div style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                <h3 style="color:#ffffff;font-size:small;font-weight:300;margin-top: 15px;">Topo</h3>
+          </div>
+          <div class="grid-container" style="height: 12vh;margin-left: 10px;">
+                    
+          </div>
+      </div>
+      <div id="lojavazia" style="width: 100%;height: 80vh;margin: auto;background-color: #ffffff;display: none;">
+            <h1 style="margin-top: 20vh;vertical-align: middle;color:#1781ec;text-align: center;font-size: 3.6vw;font-weight: 300;">Essa loja não é assinante !</h1>
+            <h6 style="margin-top: 20vh;vertical-align: middle;color:#1781ec;text-align: center;font-weight: lighter;font-size: 1.6vw;">wattsapp: 27 99945-0987</h6>
+      </div>
+</div>
+
+<script>
+ ////////////////////////////////////////////////////
+ function mylong(){
+      console.log('largura',screen.height)
+       console.log('altura',screen.width)
+ }
+
+ // após carregar a page essa function pela o ObjectId do cliente e vai buscar a fotos
+ console.log(' page : /site/roupa/roupaLoja.handlebars => [ 302 ]')
+ //imgLoad()
+ function imgLoad(){
+        // ..............................
+        console.log(' [ 450 ] busca elemtos para page : home')
+        let r=document.getElementById('idLoja');
+        //console.log('vr do idLoja',r)
+        let localizadorLoja=r.value;
+        r=localizadorLoja.length;
+        let nomePage="home" + "&&:" + localizadorLoja;
+        console.log(nomePage)
+        if(r=24){
+            //....................................................   
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                    baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }   
+            //////////////////////////////////////////////////////////////////
+            try{
+                    fetch(`${baseApiUrl}` + `/site/artigos-page_home/${nomePage}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response =>{
+                        if( response.ok ){
+                            return response.json()
+                          }  
+                          throw response;
+                    })
+                    .then((json)=>{
+                        console.log('5000');
+                        //console.log('_______________________________________________');
+                        //console.log('valor da resposta : ');
+                        console.log(json);
+                       // return
+                        console.log('');
+                        console.log('_______________________________________________');
+                        loadImagens(json)
+                    })
+                    .catch((err)=>{
+                        console.log(err)
+                    })
+            }catch(e){
+                console.log(e)
+            }
+        }
+   } 
+
+ // Aqui temos a response da Space-Digital sobre os arquivos de imagens,  
+ function loadImagens(n){
+    //............................................
+    limpacaixas()
+    const objectblock=n;
+    console.log('valor do produto [ 5711 ]: ',objectblock)
+    let len1=objectblock.length;
+    console.log("");
+    console.log("______________________________________________");
+     //..............................................
+    let col=1;
+    let x=1;
+    let pos;
+    let cor ;
+    let codigo;
+    let descricao;
+    let vista;
+    let prazo;
+    let urlPath;
+    let posicao;
+    //..............................................
+    for (i=0;i<len1;i++){
+            //........................................
+            urlPath=objectblock[i].cores[0].urlfront;
+            //................................................
+            codigo=objectblock[i].codigo;
+            descricao=objectblock[i].descricao;
+            posicao=objectblock[i].posicao;
+            vista=objectblock[i].vista;
+            prazo=objectblock[i].prazo;
+            transforma(codigo,descricao,posicao,urlPath,vista,prazo)
+            col++;
+            if(col=4){
+                col=1;
+            };
+    }
+
+    function transforma(codigo,descricao,posicao,urlPath,vista,prazo){
+        //.........................................
+        console.log('===> :  ',codigo,descricao,posicao)
+        console.log('===> :  ',urlPath)
+        let imgDone=urlPath;
+        //.....................................
+        let trilha='main-' + posicao;
+        trilha=trilha.trim();
+        var str = trilha.replace(/\s/g, '');
+        console.log('');
+        console.log('__________________________________')
+        console.log('');
+        console.log('valor da trilha => : ',trilha)
+        console.log('__________________________________')
+        console.log('path da imagen { urlmain } :',imgDone)
+        console.log('');
+        var str = trilha.replace(/\s/g, '');
+        //..................................
+        let imgStr=document.getElementById(`${str}`);
+        console.log(' [ 647 ]',imgDone)
+        imgStr.src=imgDone
+        console.log('trilha sem espaço',str);
+        //.......................................................
+        // formata o id do doc.getId 
+        let docCodigo=posicao + '-codigo';
+        let elementoCodigo=document.getElementById(`${docCodigo}`);
+        elementoCodigo.innerHTML=codigo;
+        //.........................................
+        let docDescricao=posicao + '-descricao';
+        let elementoDescricao=document.getElementById(`${docDescricao}`);
+        console.log(elementoCodigo);
+        elementoDescricao.innerHTML=descricao;
+        //..............................................
+        let docpagVista=posicao + '-vista';
+        let elemPagVista=document.getElementById(`${docpagVista}`);
+        elemPagVista.innerHTML='à vista : ' + vista;
+        //...............................................
+        let docpagPrazo=posicao + '-prazo';
+        let elemPagPrazo=document.getElementById(`${docpagPrazo}`);
+        elemPagPrazo.innerHTML=' 10 vezes de : ' + prazo;
+        //...................................................
+    }
+ }
+
+ function  limpacaixas(){
+    // número máximo de caixas
+    let numberCardMax=54;
+    // o number do card começa por 11 devido a composição do número;
+    // O primeiro elemento é a linha.
+    // O segundo elemento representa a coluna
+    let numberCard=11;
+    //...............................................
+    let main;
+    main="main-";
+    let cardSrc;
+    let lin=1;
+    for (let i=0;i<numberCardMax;i++){
+        // quando se conclui a linha [ 4 colunas ] soma-se mais 6 para ter acesso a 2ª linha. 
+        if(lin>4){
+            numberCard=numberCard + 6
+            lin=1
+        }  
+
+        if(numberCard<=numberCardMax){
+            cardSrc= main + numberCard;
+            // aqui pega-se o number do card => 'main' + posicao
+            //............................
+            document.getElementById("" + cardSrc + "").src="";
+            //............................
+            document.getElementById("" + numberCard + '-descricao' + "").innerHTML="";
+            document.getElementById("" + numberCard + '-vista' + "").innerHTML="";
+            document.getElementById("" + numberCard + '-prazo' + "").innerHTML="";
+            numberCard++
+            lin++
+         }   
+    }
+}
+</script>
+<script>
+// buscarArtigo()   
+// busca os nome dos artigos relacionados aos produtos cadastrado pelo lojista referenciado.
+// Fica no menu lateral sob titulod de "Artigos" 
+function buscarArtigo(n){
+    console.log(n)
+    //...........................................................
+    let assinante=document.getElementById("assinante").value;
+    if (assinante==0){
+        document.getElementById("nucleo").style.display="none";
+        document.getElementById("sidebar").style.display="none";
+        document.getElementById("2").style.height="80vh";
+        document.getElementById("lojavazia").style.display="block";
+        document.getElementById("lojavazia").style.marginTop="0vh";
+        document.getElementById("myTopnav").style.display="none";
+    }else{
+        let idloja;
+        var r=document.getElementById("idLoja");
+        logo();
+        r.style.backgroundColor="yellow"
+        idloja=r.value;
+        //.........................................................
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/site/buscar-artigosLojista/${idloja}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response =>{
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                const X=json;
+                let l=X.length;
+                //:::::::::::::::::::::::::::::::::::::::::
+                // Preenche o menu lateral
+                for (let r=0;r<l;r++){
+                    if(r==0){
+                       let A='home';
+                       const node0=document.createElement("li");
+                       const textnode = document.createTextNode(A);
+                       node0.appendChild(textnode)
+                       node0.setAttribute("id",'linha' + r);
+                       node0.setAttribute("onclick","imgLoadArtigo('"+ A + "')");
+                       node0.setAttribute("class","linhaArtigo")
+                       document.getElementById('goArtigo').appendChild(node0)
+                    }
+                    let A=X[r];
+                    if(A!='anotar'){
+                    const node0=document.createElement("li");
+                    const textnode = document.createTextNode(A);
+                    node0.appendChild(textnode)
+                    node0.setAttribute("id",'linha' + r);
+                    node0.setAttribute("onclick","imgLoadArtigo('"+ A + "')");
+                    node0.setAttribute("class","linhaArtigo")
+                    document.getElementById('goArtigo').appendChild(node0)
+                    }
+                }
+                // Vai busca as imagens da página principal
+                imgLoad()
+            })
+            .catch((err)=>{
+                console.log(err)
+        })  
+        }catch(e){
+            console.log(e);
+        }    
+    }    
+}
+
+
+// Clicando no menu lateral dos artigos busca-se as fotos correspondentes aos produtos publicados 
+function imgLoadArtigo(n){
+    // buscando as fotos
+    // Limpa a tabela .......................................
+    // Limpar a tela para receber uma nova page correspondente ao artigo selecionado
+    //...................................................................
+    limpacaixas();
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    let r=document.getElementById('idLoja');
+    r=r.value;
+    let artigo=n;
+    let chave;
+    chave=r + "&&&" + artigo;
+    let objectChave=chave;
+    r=r.length;
+        //....................................................   
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+                fetch(`${baseApiUrl}` + `/site/busca_imagem_artigo/${objectChave}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    //...................................................
+                    console.log(json)
+                    loadImagensArtigo(json)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }catch(e){
+            console.log(e)
+        }
+} 
+
+ // Aqui temos a response da Space-Digital sobre os arquivos de imagens,  
+ function loadImagensArtigo(n){
+    console.log('')
+    //console.log('[ 150 ] dentro de loadImagensArtigo => ',n.length)
+
+    const ObjectBlock=n;
+    let len1=ObjectBlock.length;
+    
+    let pos;
+    let col=1;
+    let x=1;
+    //..................................
+    let cod;
+    let descricao;
+    let pag;
+    let urlPath;
+    //..................................
+    let posicao;
+    //.................................
+    for (i=0;i<len1;i++){
+            console.log('[ 164 ]-buscando os elements -> palavra' ,ObjectBlock[i])
+            //................................................................
+             cod=ObjectBlock[i].produto.codigo;
+             descricao=ObjectBlock[i].produto.descricao;
+             pag=ObjectBlock[i].produto.precoprazo;
+             urlPath=ObjectBlock[i].produto.pageurl;
+             posicao=ObjectBlock[i].produto.pageposicao;
+             console.log('');
+             console.log('valor do código  : ');
+             console.log(cod);
+             console.log('');
+             console.log('valor da descrição  : ');
+             console.log(descricao);
+             console.log('');
+             console.log('forma de pag.  : ');
+             console.log( pag);
+             console.log('');
+             console.log('url da imagem  : ');
+             console.log( urlPath);
+             //..............................
+             transformaArtigo(col,cod,descricao,pag,urlPath,posicao)
+             col++;
+             if(col=4){
+                 col=1;
+             };
+    }
+
+    function transformaArtigo(col,cod,descricao,pag,urlPath,posicao){
+        //.........................................
+        console.log('===> :  ',cod,descricao,pag)
+        let imgDone=urlPath;
+        console.log('url da image : ',imgDone)
+        //............................................
+        let trilha='main-' + posicao;
+        console.log('valor da trilha ',trilha)
+        trilha=trilha.trim();
+        var str = trilha.replace(/\s/g, '');
+        console.log('valor do id que receberá a img STR',str)
+        let imgStr=document.getElementById(`${str}`);
+        imgStr.src=imgDone
+        //...............................................
+        let docCodigo=posicao + '-descricao';
+        console.log('----------- : ', docCodigo);
+        console.log('______________________________________________');
+        console.log('');
+        let elementoCodigo=document.getElementById(`${docCodigo}`);
+        console.log(' valor do documento : ',elementoCodigo)
+        console.log('');
+        console.log('______________________________________________');
+        console.log('');
+        console.log(' valor de c : ', cod);
+        elementoCodigo.innerHTML=cod + ' - ' + descricao;
+        let docVista=posicao + '-vista'
+        let elemVista=document.getElementById(`${docVista}`);
+        elemVista.innerHTML=' pagamento à vista : ' + pag
+
+        let docPrazo=posicao + '-prazo'
+        let elemPrazo=document.getElementById(`${docPrazo}`);
+        elemPrazo.innerHTML=' pagamento em 10 vezes : ' + pag
+        console.log('');
+    }
+}
+
+
+    
+function logo(){
+        var r=document.getElementById("idLoja");
+        r=r.value;
+        console.log(r)
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/site/buscalogo/${r}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response =>{
+                if( response.ok ){
+                    return response.json();
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                   console.log('valor de json Logo :',json)
+                   let f1=document.getElementById("imgXY");
+                   f1.src=json.urllogomarca;
+                   let f2=document.getElementById("tituloPageXY");
+                   
+                   f2.src=json.urltitulopage;
+                   let f3=document.getElementById("idFone");
+                   
+                   f3.innerHTML=' fone : ' + json.telefone;
+                   let f4=document.getElementById("idCidade");
+                   f4.innerHTML='cidade : ' + json.cidade;
+                   let f5=document.getElementById("idBairro");
+                   f5.innerHTML='bairro : ' + json.bairro;
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
+        }catch(e){
+            console.log(e);
+        }
+}
+
+
+  
+
+buscarArtigo(1000)   
+//logo()
+</script>

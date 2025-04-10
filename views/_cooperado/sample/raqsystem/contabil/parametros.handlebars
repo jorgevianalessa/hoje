@@ -1,0 +1,884 @@
+<style>
+.corpo{
+        width: 100vw;height: 100vh;margin: auto;
+        margin-top:0.2rem;
+        display: flex;flex-direction: column;justify-content: space-around;
+        background-color: #fffcff;
+    }
+
+    
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.titulopage{
+    width: 100vw;height: 4vh;margin: auto;
+    display: flex;flex-direction: row;justify-content: space-between;
+    background-color:#f431f4;text-align: center;margin-top: 1vh;color: #fffcff;
+}
+
+.tituloSubpage{
+    width: 98vw;height: 3.5vh;margin: auto;background-color:transparent;text-align: center;;margin-top: 1.5vh;
+    display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.tituloSubpage_ div{
+    width: 20vw;
+    height: 3.5vh;
+    background-color:transparent;
+    display: flex;flex-direction: row;justify-items: auto;
+}
+
+.tituloSubpage_ label{
+   width: 8vw;
+   height: 3.4vh;
+   background-color:transparent; 
+   color: #033e8c;font-size: 1vw;font-weight: 100;
+}
+
+.tituloSubpage_ input{
+   width: 8vw; 
+   height: 3.4vh;
+   background-color: transparent;
+   color: #033e8c;font-size: 0.vw;font-weight: 100;text-align: center;
+}
+
+.tablefluxo{
+    width: 98vw;height: 83vh;margin: auto;
+    background-color:transparent;margin-top: 1vh;
+}
+
+.tablefluxo div{
+    width: 97vw;height: 82.5vh;margin:auto;
+    display: flex;flex-direction: column;padding-top:.5vh;
+    background-color:transparent;margin-top: .12vh;
+}
+
+.optionList{
+    margin-top:3px;
+    color: red;
+}
+
+.linha{
+   width: 40vw;height: 6vh;margin: auto;background-color: #da1a1a;display: flex;flex-direction: row;justify-content: space-around;color: #ffffff;
+}
+
+.linhaAClaro{
+   background-color: #0764b5; 
+}
+
+.linhaAzul{
+   background-color: #0324a7; 
+}
+
+.centra{
+   text-align: center;
+   padding-left: ,5vw; 
+   color:red;
+}
+
+.btndelete{
+   width: 4vw; 
+   background-color: #b50707;
+   color:#ffffff;
+   font-size: .8vw;
+}
+
+.btnedite{
+   width: 4vw; 
+   background-color: #067ded;
+   color:#ffffff;
+   font-size: .8vw;
+}
+</style>
+
+<div class="d-fl corpo " style="background-color:#ffffff;">
+    <div class="titulopage">
+       <h1 style="color: #03306b;font-size: 1.5vw;font-weight: 200;border-bottom: 1px solid white;padding-bottom: 0.5vh;">Parâmetros</h1>
+        <label id="IdcodigoEmpresa" style="display: block;background-color: #0c0404;color: #b50707;width: 10vw;height: 2vh;margin-right: 2vw;">{{id_cooperado}}</label>
+    </div>
+    <div class="tituloSubpage" >
+       <div class="tituloSubpage_" >
+          <div>
+              <label >data:</label>
+              <input value="04/11/2024">
+          </div> 
+       </div>
+       <div class="tituloSubpage_" style="display:block;">
+            <div>
+              <label >razões:</label>
+              <select id="SelectedRazoes" value="" style="width: 6vw;">
+                <option></option>
+                <option class="optionList">fluxo</option>
+                <option class="optionList">bancos</option>
+                <option class="optionList">ativo</option>
+                <option class="optionList">passivo</option>
+                <option class="optionList">despesas</option>
+                <option class="optionList">receita</option>
+                <option class="optionList" value="{{id_cooperado}}">plano contas</option>
+                <option class="optionList" value="{{id_cooperado}}">
+                      <a href="/raqvendas/voltaHome/{{id_cooperado}}">home</a>
+                </option>
+              </select>
+          </div> 
+       </div>
+       <div class="tituloSubpage_" style="display:block;">
+            <div>
+              <label >operações:</label>
+              <select value="Caixa Econômica" style="width: 6vw;">
+                <option>pesquisa</option>
+                <option>adicionar</option>
+                <option>sintetizar</option>
+                <option>-</option>
+                <option>-</option>
+              </select>
+          </div> 
+       </div>
+       <div class="tituloSubpage_">
+           <div>
+              <label >ano:</label>
+              <input value="2024" >
+          </div> 
+       </div>
+    </div>
+    <div id="Paneil_base" class="tablefluxo" style="background-color:#ffffff;">
+          <div id="painel_base_"  style="background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-between;">
+              <div id="lista_params" style="width: 45vw;height: 70vh;margin: auto;background-color: #ffffff;">
+                    <div style="width: 34vw;height: 5vh;margin: auto;background-color:#0324a7;display: flex;flex-direction: row;justify-content: flex-start;padding-top: 0.5vh;">
+                        <div style="width: 40%;height:4vh;margin-left: 15px;background-color:transparent;display: flex;flex-direction: row;padding-left: .6vw;">
+                            <label style="color: #0c0404;font-size: o.7vw;font-weight: 200;margin-right: .5vw;">Digite :</label>
+                            <input id="Id_digiteLetras" type="text" class="digite-letras" maxlength="3" >
+                        </div> 
+                    </div>
+                    <div id="tableClient" style="width: 34vw;height: 60vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                        <table id="table" style="width: 100%;height: 69.5vh;margin: auto;background-color: #0324a7;margin-top: 0.6px;">
+                            <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                <td style="color:#ffffff;padding-left: 0.1vw;width: 0.5vw;background-color: #0764b5;text-align: center;">itens</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 1%;background-color: #0764b5;display: none;">id</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 8vw;background-color: #0764b5;text-align: center;">parâmetros</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 12w;background-color: #0764b5;text-align: center;">conta</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 4w;background-color: #0764b5;text-align: center;">edita</td>
+                                <td style="color:#ffffff;padding-left: 1vw;width: 4w;background-color: #0764b5;text-align: center;">delete</td>
+                            </thead>
+                            <tbody id="X10">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+              </div>
+              <div id="add_params" style="width: 45vw;height:70vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-items: center;">
+                    <div id="div_selects" style="width: 40vw;height: 20vh;margin: auto;display: flex;flex-direction: column;justify-items: flex-start;background-color: #025763;">
+                        <div id="Select_vetores" class="" style="background-color: #615f61;width: 40vw;height: 6vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;color: #ffffff;">
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;text-align: right;padding-right: 1vw;">
+                            <label> vetores :</label>
+                            </div>
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;">
+                                <select id="idVetores" style="width: 15vw;height: 3vh;margin: auto;background-color:#ffffff;color:#0324a7;">
+                                    <option></option>
+                                    <option>ativo</option>
+                                    <option>passivo</option>
+                                    <option>despesas</option>
+                                    <option>receitas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="Select_titulos" style="width: 40vw;height: 6vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;color: #ffffff;">
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;text-align: right;padding-right: 1vw;">
+                            <label> títulos :</label>
+                            </div>
+                            <div id="SelectSub" style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;">
+                                <select id="idSelectTitulos" style="width: 15vw;height: 3vh;margin: auto;background-color:#ffffff;color:#0324a7;">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="Select_sub-titulos" style="width: 40vw;height: 6vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;color: #ffffff;">
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;text-align: right;padding-right: 1vw;">
+                            <label> sub-títulos :</label>
+                            </div>
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;">
+                                <select id="idSelectSub" style="width: 15vw;height: 3vh;margin: auto;background-color:#ffffff;color:#0324a7;">
+                                   
+                                </select>
+                            </div>
+                        </div>
+                        <div id="Select_contas" style="width: 40vw;height: 6vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;justify-content: space-around;color: #ffffff;">
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;text-align: right;padding-right: 1vw;">
+                            <label> contas :</label>
+                            </div>
+                            <div style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;">
+                                <select id="idSelectCta" style="width: 15vw;height: 3vh;margin: auto;background-color:#ffffff;color:#0324a7;">
+                                   
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="add_params" style="width: 40vw;height: 40vh;margin: auto;display: flex;flex-direction: column;justify-items: center;background-color:transparent;">
+                        <div style="width: 30vw;height: 5vh;margin: auto;background-color:transparent;">
+
+                        </div>
+                        <div style="width: 30vw;height: 11vh;margin: auto;display: flex;flex-direction: column;justify-items: flex-start;background-color:transparent;">
+                            <div style="width: 29vw;height:4vh ;margin: auto;background-color:transparent;display: flex;flex-direction: row;justify-content: space-between;">
+                                  <div style="width: 15vw;height: 3.5vh;margin: auto;background-color: #ffffff;color: #025763;text-align: center">
+                                    <label>número conta</label>
+                                </div>  
+                                <div style="width: 12vw;height: 3.5vh;margin: auto;background-color: #ffffff;color: #025763;text-align:center;">
+                                    <label>parâmentro</label>
+                                </div>
+                            </div>
+                            <div style="width: 29vw;height: 7vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;">
+                                <input id="IpNumeroSubCta" style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;color:#ffffff">
+                                <input id="IpParametroSubCta" style="width: 12vw;height: 4vh;margin: auto;background-color: #ffffff;color:#b50707">
+                            </div>  
+                        </div>  
+                          <div style="width: 30vw;height: 11vh;margin: auto;display: flex;flex-direction: column;justify-items: flex-start;background-color:transparent;">
+                            <div style="width: 29vw;height:4vh ;margin: auto;background-color:transparent;display: flex;flex-direction: row;justify-content: space-between;">
+                                  <div style="width: 15vw;height: 3.5vh;margin: auto;background-color: #ffffff;color: #025763;text-align: center">
+                                    <label>número conta</label>
+                                </div>  
+                                <div style="width: 12vw;height: 3.5vh;margin: auto;background-color: #ffffff;color: #025763;text-align:center;">
+                                    <label>parâmentro</label>
+                                </div>
+                            </div>
+                            <div style="width: 29vw;height: 7vh;margin: auto;display: flex;flex-direction: row;justify-content: space-between;">
+                                <input id="IpNumeroConta" style="width: 18vw;height: 4vh;margin: auto;background-color: #025763;color:#ffffff">
+                                <input id="IpParametroConta" style="width: 12vw;height: 4vh;margin: auto;background-color: #ffffff;color:#b50707">
+                            </div>  
+                        </div>     
+                        <div style="width: 30vw;height: 16vh;margin: auto;background-color:transparent;">
+
+                        </div>
+                    </div>
+              </div>  
+        </div>
+        
+    </div>
+    <div style="width: 100%;height: 14vh;margin: auto;background-color: #025763;;margin-top: 1vh;text-align: center;padding-bottom: 1vh;">
+         <h6 style="font-size: 2vw;color: #023137;font-weight: 200;color: #fffcff;">rodapé</h6>
+    </div>
+    <form action="/raqcontabil/buscrazoes" id="idrazoes" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="background-color: #b1aeae;display: none;">
+         <input id="passarazao" name="passaRazao" value="">
+         <input id="codigoClient" name="id_cooperado" value="{{id_cooperado}}">
+         <button id="btnbuscRazao" type="submit">close</button>
+    </form>
+</div>
+<script>
+
+// Ao clicar selecionado o FORM passa-se o nome do form e o código do cliente para disparar 
+let a1=document.getElementById("SelectedRazoes");
+a1.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=a1.selectedIndex;
+   let y=a1.options;
+   let raz=a1[z].text;
+   if(raz===""){
+       console.log('fora')
+   }else{
+     if(raz=="orçamento"){
+       ' deixa passa' 
+     }else if(raz=="home"){
+       ' deixa passa' 
+     }else{
+        a1.selectedIndex=-1;
+        let w=document.getElementById('passarazao').value=raz;
+        document.getElementById("btnbuscRazao").click();
+     }
+   }
+})    
+
+let b_vetor=document.getElementById("idVetores");
+b_vetor.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=b_vetor.selectedIndex;
+   let y=b_vetor.options;
+   let raz=b_vetor[z].text;
+   console.log('[287]')
+   if(raz===""){
+       console.log('fora')
+   }else{
+     if(raz=="orçamento"){
+       ' deixa passa' 
+     }else{
+        buscTitulo(raz);
+     }
+   }
+})
+
+function buscTitulo(n){
+   limpasubSelect();
+
+   function limpasubSelect(){
+        const select=document.getElementById("idSelectTitulos");
+        let w=select.childElementCount;
+        if(w>0){
+            /////////////////////////////////
+            for (i=0;i<w;i++){
+                let d=select.children[i];
+                select.remove(select.selectedIndex);
+            }
+        }
+    } 
+
+   let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/titulo_params/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json)
+                let l=json.length;
+                for (let i=0;i<l;i++){
+                     let N1=json[i].titulo;
+                     console.log('[334]',N1);
+                     console.log('_____________________________________')
+                     //let titulo=N1[0].titulo_numero;
+                     let numero=N1[0].titulo_numero
+                     console.log('[338]',numero.titulo_numero)
+                     let nome=N1[0].titulo_nome
+                     let linha=numero + '-' + nome;
+                     if(i==0){
+                            const node10 = document.createElement("option");
+                            node10.setAttribute("id",'op' + -1);
+                            document.getElementById("idSelectTitulos").appendChild(node10);
+                     }
+                     const node0 = document.createElement("option");
+                     node0.setAttribute("id",'op' + i);
+                     const textNode0=document.createTextNode(linha);
+                     node0.appendChild(textNode0);
+                     node0.setAttribute("class","");
+                     document.getElementById("idSelectTitulos").appendChild(node0);
+                }                        
+            })
+            .catch((er)=>{
+               console.log(er);
+            })
+    }catch(e){
+        console.log(e);
+    }
+}
+
+let b_titulo=document.getElementById("idSelectTitulos");
+b_titulo.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=b_titulo.selectedIndex;
+   let y=b_titulo.options;
+   let raz=b_titulo[z].text;
+   if(raz===""){
+       console.log('fora')
+   }else{
+     if(raz=="orçamento"){
+       ' deixa passa' 
+     }else{
+        buscSub(raz);
+     }
+   }
+})
+
+function buscSub(n){
+     
+   limpaSelectCta();
+
+   function limpaSelectCta(){
+        const select=document.getElementById("idSelectSub");
+        let w=select.childElementCount;
+        if(w>0){
+            ////////////////////////////////
+            for (i=0;i<w;i++){
+                let d=select.children[i];
+                select.remove(select.selectedIndex);
+            }
+        }
+    } 
+
+   let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/sub_params/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                let l=json.length;
+                for (let i=0;i<l;i++){
+                     let N1=json[i].subtitulo;
+                     console.log('[414]',N1)
+                    // let B=Object.values(N1)
+                     let numero=N1[0].subtitulo_numero;
+                     let nome=N1[0].subtitulo_nome;
+                     console.log(numero)
+                     let linha=numero + '-' + nome;
+                     console.log('=>' + i + '-' + linha)
+                     if(i==0){
+                        const node21 = document.createElement("option");
+                        node21.setAttribute("id",'opt' + -1);
+                        const textNode21=document.createTextNode("");
+                        node21.appendChild(textNode21);
+                        document.getElementById("idSelectSub").appendChild(node21);
+                     }
+                     let p=i;
+                     p++;
+                     const node0 = document.createElement("option");
+                     node0.setAttribute("id",'opt' + p);
+                     const textNode0=document.createTextNode(linha);
+                     node0.appendChild(textNode0);
+                     node0.setAttribute("class","");
+                     document.getElementById("idSelectSub").appendChild(node0);
+                }                        
+            })
+            .catch((er)=>{
+               console.log(er);
+            })
+    }catch(e){
+        console.log(e);
+    }
+}
+
+let b_cta=document.getElementById("idSelectSub");
+b_cta.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=b_cta.selectedIndex;
+   let y=b_cta.options;
+   let raz=b_cta[z].text;
+   console.log("bravo!",raz) 
+   //event.defaultPrevented();
+   console.log('raz',raz)
+   if(raz===""){
+       console.log('fora')
+   }else{
+     if(raz=="orçamento"){
+        console.log(raz);
+       ' deixa passa' 
+     }else{
+        console.log('426',raz)
+        document.getElementById("IpNumeroSubCta").value=raz;
+        document.getElementById("IpParametroSubCta").style.backgroundColor="yellow"
+        document.getElementById("IpParametroSubCta").focus();
+        buscCta(raz);
+     }
+   }
+})
+
+function buscCta(n){
+   limpaSelectCta();
+
+   function limpaSelectCta(){
+        const select=document.getElementById("idSelectCta");
+        let w=select.childElementCount;
+        if(w>0){
+            ////////////////////////////////
+            for (i=0;i<w;i++){
+                let d=select.children[i];
+                select.remove(select.selectedIndex);
+            }
+        }
+    } 
+
+   let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/cta_params/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                let l=json.length;
+                console.log('[504]',json)
+                for (let i=0;i<l;i++){
+                     let N1=json[i];
+                     //let B=Object.values(N1);
+                     console.log('[508]',N1)
+                     let contas=N1.contas;
+                     console.log(contas)
+                     let numero=contas[0].conta_numero;
+                     console.log('33',numero)
+                     let nome=contas[0].conta_nome;
+                     let linha=numero + '-' + nome;
+                     if(i==0){
+                        const node21 = document.createElement("option");
+                        node21.setAttribute("id",'opt' + -1);
+                        const textNode21=document.createTextNode("");
+                        node21.appendChild(textNode21);
+                        document.getElementById("idSelectCta").appendChild(node21);
+                     }
+                     let p=i;
+                     p++;
+                     const node0 = document.createElement("option");
+                     node0.setAttribute("id",'opt' + p);
+                     const textNode0=document.createTextNode(linha);
+                     node0.appendChild(textNode0);
+                     node0.setAttribute("class","");
+                     document.getElementById("idSelectCta").appendChild(node0);
+                }                        
+            })
+            .catch((er)=>{
+               console.log(er);
+            })
+    }catch(e){
+        console.log(e);
+    }
+}
+
+let b_conta=document.getElementById("idSelectCta");
+b_conta.addEventListener("click",function(event){
+   event.stopPropagation();
+   let z=b_conta.selectedIndex;
+   let y=b_conta.options;
+   let raz=b_conta[z].text;
+   console.log("bravo!") 
+   if(raz===""){
+       console.log('fora')
+   }else{
+        if(raz=="orçamento"){
+        ' deixa passa' 
+        }else{
+            console.log('426',raz)
+            document.getElementById("IpNumeroConta").value=raz;
+            document.getElementById("IpNumeroConta").style.backgroundColor="crimson";
+            document.getElementById("IpNumeroConta").focus();
+        }
+   }
+})
+
+let numero_cta=document.getElementById("IpNumeroConta");
+numero_cta.addEventListener("keydown",function(event){
+   event.stopPropagation();
+   let key=event.key;
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+            document.getElementById("IpParametroConta").style.backgroundColor="yellow";
+            document.getElementById("IpParametroConta").focus();
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+let nome_cta=document.getElementById("IpParametroConta");
+nome_cta.addEventListener("keydown",function(event){
+    console.log('SETA')
+   event.stopPropagation();
+   let key=event.key;
+   console.log('[610]',key)
+    if(isNaN(key)){
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+           grava_params(2);
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       console.log(2000) 
+       if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+   }
+})
+
+let subnome_cta=document.getElementById("IpParametroSubCta");
+subnome_cta.addEventListener("keydown",function(event){
+   console.log('[628]') 
+   event.stopPropagation();
+   let key=event.key;
+   console.log('[630]',key)
+    if(isNaN(key)){
+        console.log('AAAAAAQQQQUUUII')
+        if(key=='Backspace'){
+          'deixa passar'  
+        }else if(key=='Enter'){
+           grava_params(1);
+        }else{
+           if(key=='.'){
+             'deixa passar'
+           }
+        } 
+    }else{
+       console.log(3000) 
+       if(event.code=='Space'){  
+        event.code="";
+        event.preventDefault();
+       }else{
+         'deixa passar'
+       }
+    }
+})
+
+function grava_params(n){
+   console.log('é o bicho!',n) 
+   let numero;
+   let params;
+   if(n==1){
+      numero=document.getElementById("IpNumeroSubCta").value;
+      params=document.getElementById("IpParametroSubCta").value;
+   }else if(n==2){
+      console.log('Espertão')
+      numero=document.getElementById("IpNumeroConta").value;
+      params=document.getElementById("IpParametroConta").value;
+   }
+   let palavra=numero + ':::' + params;
+   console.log(' 10000 => ',palavra);
+   let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/grava_params/${palavra}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                let l=json.length;
+                console.log('586',json);
+                document.getElementById("IpNumeroSubCta").value="";
+                document.getElementById("IpParametroSubCta").value="";
+                buscParams();
+            })
+            .catch((er)=>{
+               console.log(er);
+            })
+    }catch(e){
+        console.log(e);
+    }
+}
+
+function buscParams(){
+   let numero=document.getElementById("IpNumeroSubCta").value;
+   let params=document.getElementById("IpParametroSubCta").value;
+   let idLoja=document.getElementById("IdcodigoEmpresa").value;
+   params=idLoja + numero + ':::'; 
+   limpaTable();
+   function limpaTable(){
+    let corpos;
+    corpos=document.getElementById("X10").children;
+    let c=corpos.length;
+    for (i=c-1;i>-1;i--){
+      corpos[i].remove();
+    }
+  
+   }
+   let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    /////////////////////////////////////////////////////////
+    console.log('passando aqui')
+    try{
+        fetch(`${baseApiUrl}` + `/raqcontabil/pega_params`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response => {
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log(json);
+                montaTable(json);
+            })    
+            .catch((er)=>{
+                console.log(er)
+            }) 
+       }catch(e){
+         console.log(e)
+       }           
+}
+
+function montaTable(n){
+    console.log('==>',n);
+    let l=n.length;
+    let color;
+    let p=0;
+       for(i=0;i<10;i++){
+            if(i<l){
+                    let linha=Object.values(n[i]);
+                    //console.log('648 =>',linha);
+                    let params=linha[0].params_parametro;
+                    let conta=linha[0].params_numeroconta;
+                    let nmconta=linha[0].params_nomeconta;
+                    
+                    console.log(params)
+                    if (p==1){
+                       color='linhaAClaro'
+                    }else if(p==0){
+                       color='linhaAzul';  
+                       //console.log(color)
+                    }
+                    const node=document.createElement('tr');
+                    node.setAttribute("id","linha" + '-' + i);
+                    node.setAttribute("class","linhaCheia");
+                    document.getElementById('X10').appendChild(node)
+
+                    // Ordem
+                    const node0=document.createElement('td');
+                    const textNode0=document.createTextNode(i+1);
+                    node0.appendChild(textNode0);
+                    node0.setAttribute("class","centra");
+                    node0.setAttribute("class", color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                    // Ordem
+                    const node1=document.createElement('td');
+                    const textNode1=document.createTextNode(params);
+                    node1.appendChild(textNode1);
+                    node1.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                    // Ordem
+                    const node2=document.createElement('td');
+                    const textNode2=document.createTextNode( conta + " - " + nmconta);
+                    node2.appendChild(textNode2);
+                    node2.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node2);
+
+                    // Edite
+                    const node3=document.createElement('td');
+                    const textNode3=document.createTextNode( "");
+                    node3.setAttribute("id","linha1" + '-' + i);
+                    node3.appendChild(textNode3);
+                    node3.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                    // Edite
+                    const node4=document.createElement('button');
+                    const textNode4=document.createTextNode( "edite");
+                    node4.appendChild(textNode4);
+                    node4.setAttribute("class",'btnedite');
+                    document.getElementById('linha1' + '-' + i ).appendChild(node4);
+
+                    // delete
+                    const node5=document.createElement('td');
+                    const textNode5=document.createTextNode( "");
+                    node5.appendChild(textNode5);
+                    node5.setAttribute("id","linha2" + '-' + i);
+                    node5.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node5);
+
+                      // Edite
+                    const node6=document.createElement('button');
+                    const textNode6=document.createTextNode( "delete");
+                    node6.appendChild(textNode6);
+                    node6.setAttribute("class",'btndelete');
+                    document.getElementById('linha2' + '-' + i ).appendChild(node6);
+                    if(p==0){
+                       p=1; 
+                    }else if(p==1){
+                       p=0;  
+                    }
+            }else{
+                  if (p==1){
+                       color='linhaAClaro'
+                    }else if(p==0){
+                       color='linhaAzul';  
+                    }
+                    console.log('[819]')
+                    const node=document.createElement('tr');
+                    node.setAttribute("id","linha" + '-' + i);
+                    node.setAttribute("class","linhaCheia");
+                    document.getElementById('X10').appendChild(node)
+                    // Ordem
+                    const node0=document.createElement('td');
+                    const textNode0=document.createTextNode(i+1);
+                    node0.appendChild(textNode0);
+                    node0.setAttribute("class","centra");
+                    node0.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                    // Ordem
+                    const node1=document.createElement('td');
+                    const textNode1=document.createTextNode('');
+                    node1.appendChild(textNode1);
+                    node1.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                    // Ordem
+                    const node2=document.createElement('td');
+                    const textNode2=document.createTextNode('');
+                    node2.appendChild(textNode2);
+                    node2.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node2);
+                    // Edit
+                    const node3=document.createElement('td');
+                    const textNode3=document.createTextNode( "");
+                    node3.appendChild(textNode3);
+                    node3.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                    // Delete
+                    const node4=document.createElement('td');
+                    const textNode4=document.createTextNode( "");
+                    node4.appendChild(textNode4);
+                    node4.setAttribute("class",color);
+                    document.getElementById('linha' + '-' + i ).appendChild(node4);
+
+                    if(p==0){
+                       p=1; 
+                    }else if(p==1){
+                       p=0;  
+                    }
+            }        
+       }      
+}
+
+buscParams();
+</script>

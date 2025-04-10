@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "62601e3f3df62b34907168a4"
+  },
+  "nome": "25",
+  "email": "25@gmail.com",
+  "senha": "$2a$10$2aMjellLupVtFbnC6BQsl.G4K14pypFcRBDi8U9iJkJEvk0hgPibC",
+  "admin": "1",
+  "createAt": {
+    "$date": {
+      "$numberLong": "1650466233239"
+    }
+  },
+  "__v": 0
+}]

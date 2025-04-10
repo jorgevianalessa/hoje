@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<style>
+div {
+  box-sizing: border-box;
+  padding: 16px;
+  width: 100%;
+  background-color: red;
+  color: #fff;
+  font-size: 30px;
+}
+.closebtn {
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
+}
+.closebtn:hover {
+  color: #000;
+}
+</style>
+
+<body>
+
+<div>
+<span onclick="this.parentNode.style.display='none';" class="closebtn">X</span>
+<p>click X to close.</p>
+</div>
+
+</body>
+</html>

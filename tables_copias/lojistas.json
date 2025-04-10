@@ -1,0 +1,419 @@
+[{
+  "_id": {
+    "$oid": "630a11b6159d2af47fd04161"
+  },
+  "razao": "Look Belle",
+  "responsavelHum": "Maria Eduarda",
+  "cpfHum": "8",
+  "cnpj": "8",
+  "inscricao": "8",
+  "site": "wwwmariaeducombr",
+  "marca": "madu",
+  "celular": "8",
+  "telefone": "8",
+  "email": "madu@terracombr",
+  "senha": "$2a$10$SJ59LWskdAdobV5JxydBBe0BMtrVTXMVmGmHV3GHpm/Q7lLK6HQeS",
+  "cep": "29010-002",
+  "logradouro": "Avenida Jerônimo Monteiro",
+  "numero": "90",
+  "cidade": "Vitória",
+  "bairro": "Centro",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Roupas Festas"
+      ],
+      "_id": {
+        "$oid": "630a11b6159d2af47fd04162"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661603760619"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630a125267f6d058b6bb7485"
+  },
+  "razao": "Kazzar Noivas Trajes Finos",
+  "responsavelHum": "Karla",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwkazzarcombr",
+  "marca": "Kazzar",
+  "celular": "9",
+  "telefone": "9",
+  "email": "kazzar@kazzarcombr",
+  "senha": "$2a$10$n/fNAMBjaYqJCu.n6Xnl.eVK2dg0G68zE0SGC/Tf8gUK3nHWYJ2ye",
+  "cep": "29165-170",
+  "logradouro": "Rua Pitágoras",
+  "numero": "31",
+  "cidade": "Serra",
+  "bairro": "Parque Residencial Laranjeiras",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Roupas Festas"
+      ],
+      "_id": {
+        "$oid": "630a125267f6d058b6bb7486"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661604333457"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630a1349d3088a8cc8fe4844"
+  },
+  "razao": "House Of Brides",
+  "responsavelHum": "Pedro Pauli",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwipcombr",
+  "marca": "preed",
+  "celular": "3",
+  "telefone": "3",
+  "email": "house@terracombr",
+  "senha": "$2a$10$NoO4vmg4Xhq4xpd32rqg6eYkw6P.E7ni5O/p/cH0Hc7v7mOJpi7mS",
+  "cep": "29165-130",
+  "logradouro": "Avenida Central",
+  "numero": "1172",
+  "cidade": "Serra",
+  "bairro": "Parque Residencial Laranjeiras",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Roupas Festas"
+      ],
+      "_id": {
+        "$oid": "630a1349d3088a8cc8fe4845"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661604568904"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630a7d48f08954b60fd36bb8"
+  },
+  "razao": "Coimbra Virtual Computer",
+  "responsavelHum": "André Vieira",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwvirtualcomputercombr",
+  "marca": "Coimbra Virtual",
+  "celular": "9",
+  "telefone": "3062-3864",
+  "email": "abdre@virtualcomputercombr",
+  "senha": "$2a$10$7NbX8MQnD9yAUlctjVtpjeEBTk5siiVXbuB66xYX9fFXErBc.ILRq",
+  "cep": "29101-701",
+  "logradouro": "Rua Doutor Jair Andrade",
+  "numero": "90",
+  "cidade": "Vila Velha",
+  "bairro": "Itapuã",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Informática",
+      "sub_titulo": [
+        "conserto e manutenção"
+      ],
+      "_id": {
+        "$oid": "630a7d48f08954b60fd36bb9"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661631532928"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d35aceaea572fdc7a6fa9"
+  },
+  "razao": "Dress",
+  "responsavelHum": "Karla",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwdresscombr",
+  "marca": "dress",
+  "celular": "9",
+  "telefone": "9",
+  "email": "dress@dresscombr",
+  "senha": "$2a$10$9tMQ0bZFFlKDrYT6jO49xOScvQSM3TS7SF5NlF9rrdeCjBEM9L4La",
+  "cep": "29111-400",
+  "logradouro": "Rua Papa João XXIII",
+  "numero": "sn",
+  "cidade": "Vila Velha",
+  "bairro": "Cobilândia",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Feminina"
+      ],
+      "_id": {
+        "$oid": "630d35aceaea572fdc7a6faa"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d3695eaea572fdc7a6fbe"
+  },
+  "razao": "Libertá",
+  "responsavelHum": "Angela",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "99",
+  "site": "wwwlibertacombr",
+  "marca": "libertá",
+  "celular": "9",
+  "telefone": "9",
+  "email": "liberta@terracombr",
+  "senha": "$2a$10$5gtyvOLv7Hio6BNZ9r8Cq.l7YBCQejITqsfwB2fZWUXHa1/EupKFK",
+  "cep": "29055-410",
+  "logradouro": "Rua Chapot Presvot",
+  "numero": "sn",
+  "cidade": "Vitória",
+  "bairro": "Praia do Canto",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Feminina"
+      ],
+      "_id": {
+        "$oid": "630d3695eaea572fdc7a6fbf"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d372ceaea572fdc7a6fd6"
+  },
+  "razao": "Camissaria Colombo",
+  "responsavelHum": "Pedrão",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwcolombocom",
+  "marca": "colombo",
+  "celular": "9",
+  "telefone": "40629813",
+  "email": "camissariacolombo@gmailcom",
+  "senha": "$2a$10$t/Pryr/b3OzmsqRsWCQqSOHd8tLocbsdbd2wc4IH.KpkfVnY3XfM2",
+  "cep": "29145910",
+  "logradouro": "Avenida Mário Gurgel",
+  "numero": "sn",
+  "cidade": "Cariacica",
+  "bairro": "São Francisco",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Masculina"
+      ],
+      "_id": {
+        "$oid": "630d372ceaea572fdc7a6fd7"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d37cfeaea572fdc7a6fee"
+  },
+  "razao": "Original Moda Masculina",
+  "responsavelHum": "João Olívio",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwworiginalmasculinocom",
+  "marca": "original",
+  "celular": "9",
+  "telefone": "3063-1834",
+  "email": "origina@yahoocom",
+  "senha": "$2a$10$paGQvarenUVVr4o9A8N43OalhpuhKmJM8wUVDrDbR5rnB8wEKEZ5G",
+  "cep": "29122-280",
+  "logradouro": "Rua Aurora",
+  "numero": "sn",
+  "cidade": "Vila Velha",
+  "bairro": "Glória",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Masculina"
+      ],
+      "_id": {
+        "$oid": "630d37cfeaea572fdc7a6fef"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d3861eaea572fdc7a700d"
+  },
+  "razao": "Costume Tropical",
+  "responsavelHum": "Paulo",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwcostumetropicalcombr",
+  "marca": "costumetropical",
+  "celular": "99939-1003",
+  "telefone": "0",
+  "email": "paulo@terracombr",
+  "senha": "$2a$10$f0HPZwAwzyQ.mOyTglk3kOsGj6z0KK0SRsgHXLWOhApbHvY/M6fru",
+  "cep": "29122-300",
+  "logradouro": "Rua Dom Pedro II",
+  "numero": "sn",
+  "cidade": "Vila Velha",
+  "bairro": "Glória",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Masculina"
+      ],
+      "_id": {
+        "$oid": "630d3861eaea572fdc7a700e"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d38daeaea572fdc7a7021"
+  },
+  "razao": "Morena Tropical",
+  "responsavelHum": "Marília",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwmorenatropicalcombr",
+  "marca": "morena tropical",
+  "celular": "9",
+  "telefone": "3441-6800",
+  "email": "morenatropical@uolcombr",
+  "senha": "$2a$10$KtP2esFdQsB/LBMpMhC4e.w5dPuPEjAYbkCKITrxslvsAm0B7xYAa",
+  "cep": "29122-290",
+  "logradouro": "Rua Santa Rosa",
+  "numero": "sn",
+  "cidade": "Vila Velha",
+  "bairro": "Glória",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Feminina"
+      ],
+      "_id": {
+        "$oid": "630d38daeaea572fdc7a7022"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630d395feaea572fdc7a7035"
+  },
+  "razao": "Teen Up Modas",
+  "responsavelHum": "Hélia",
+  "cpfHum": "9",
+  "cnpj": "9",
+  "inscricao": "9",
+  "site": "wwwteenupcombr",
+  "marca": "teen up",
+  "celular": "99299-0785",
+  "telefone": "9",
+  "email": "teenup@terracombr",
+  "senha": "$2a$10$tehlsa1Gw7xNnprCNbPS2eoiSH57sUfAfqNGxHlLHls6qrBbF0yFC",
+  "cep": "29055-410",
+  "logradouro": "Rua Chapot Presvot",
+  "numero": "1017",
+  "cidade": "Vitória",
+  "bairro": "Praia do Canto",
+  "estado": "ES",
+  "segmento": [
+    {
+      "titulo": "Roupas",
+      "sub_titulo": [
+        "Moda Infantil"
+      ],
+      "_id": {
+        "$oid": "630d395feaea572fdc7a7036"
+      }
+    }
+  ],
+  "createAt": {
+    "$date": {
+      "$numberLong": "1661808719921"
+    }
+  },
+  "__v": 0
+}]

@@ -1,0 +1,1080 @@
+<style>
+ .forma{
+    width: 98%;height: 90vh;margin: auto;
+    background-color:#ffffff;padding: 6px;
+    display: flex;flex-direction: column;
+}
+
+.forme_{
+    width: 20%;height: 60vh;
+    position:absolute;top:100;right: 100;
+    display: flex;flex-direction: column;z-index: 300;
+    background-color: #ffffff;
+    border:1px solid #908e8e;
+}
+
+.mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #000000;
+      background-position: center;
+      z-index: 1000;
+      display: flex;
+      flex-direction: row;
+  }
+
+  .barra{
+      width: 100%;height: 3.5vh;margin: auto;background-color: #090909
+  }
+
+  .barra button{
+    float: right;background-color: #188e1f;color: #ffffff;width: 40px;height: 3.5vh;
+  }
+
+  .form_action{
+     width: 80%;height: 42vh;margin: auto;
+     margin-top: 2vh;
+     background-color: transparent;
+     padding: 1vw;
+  }
+
+  .rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color: #008b8b;
+  }
+
+  .rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color:  #05d639;
+  }
+
+  .rowPar label{
+     color:#ffffff;
+  }
+
+.rowImpar label{
+   color:#ffffff;
+}
+
+.inputLine{
+   width: 15vw;
+   height: 3vh;
+   margin-bottom: .5vh;
+}
+
+.origem_{
+   width: 28%;height: 61vh;margin: auto;
+   display: flex;flex-direction: row;
+   background-color:transparent;
+   border:1px solid #908e8e;
+}
+
+.labelOrigem{
+  width: 35%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column; 
+  
+}
+
+.labelLineOrigem{
+    width: 8vw;
+    height: 3vh;
+    padding-left: 1.5vw;
+    background-color: #8d0cb1;
+    color:#ffffff;
+    font-size: small;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-left: 18px;
+}
+
+.inputLineOrigem{
+    width: 15vw;
+    height: 3vh;
+    margin-bottom: .5vh;
+    padding-top: 12px;
+}
+
+.labelLineAlterado{
+    width: 8vw;
+    height: 3vh;
+    padding-left: 1.5vw;
+    background-color: #8d0cb1;
+    color:#ffffff;
+    font-size: small;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-left: 18px;
+}
+
+.inputLineAlterado{
+    width: 15vw;
+    height: 3vh;
+    margin-bottom: .5vh;
+}
+
+.inputOrigem{
+   width: 65%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;
+}
+
+.alterado_{
+   width: 30%;height: 61vh;margin: auto;
+   display: flex;flex-direction: row;
+   background-color:transparent;
+   border:1px solid #908e8e;
+}
+
+.labelAlterado_{
+     width: 35%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column; 
+}
+
+.inputAlterado_{
+     width: 75%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;
+}
+
+.fotoproduto_{
+   width: 30%;height: 61vh;margin: auto;
+   display: flex;flex-direction: row;
+   background-color:transparent;
+   border:1px solid #908e8e;
+}
+
+.putDisabled{
+    width: 15vw;
+    height: 3vh;
+    font-size: medium;
+    margin-bottom: 5px;
+    background-color:#999898 ;color:#ffffff;
+}
+</style>
+<style>
+@media only screen and (max-width: 1800px) {
+  .inputAlterado_{
+     width: 69%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;
+  }
+
+.labelLineOrigem{
+    width: 8vw;
+    height: 3vh;
+    padding-left: 1.5vw;
+    background-color: #0db3d4;
+    color:#ffffff;
+    font-size: small;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-left: 18px;
+}
+
+.inputLineOrigem{
+   width: 15vw;
+   height: 3vh;
+   background-color:#ffffff;
+   font-size: small;
+   margin-bottom: 5px;
+   padding-top: 5px;
+}
+
+.labelLineAlterado{
+    width: 8vw;
+    height: 3vh;
+    padding-left: 1.5vw;
+    background-color: #0db3d4;
+    color:#ffffff;
+    font-size: small;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-left: 18px;
+}
+
+.inputLineAlterado{
+    width: 15vw;
+    height: 3vh;
+    font-size: medium;
+    margin-bottom: 5px;
+    background-color:#ffffff;
+    color:  chocolate;
+    padding-bottom: .5vh;
+}
+
+.putDisabled{
+    width: 15vw;
+    height: 3vh;
+    font-size: medium;
+    margin-bottom: 5px;
+    background-color:#908e8e ;color:#ffffff;
+}
+
+}
+
+@media only screen and (max-width: 1500px) {
+.inputAlterado_{
+    width: 65%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;
+}
+
+.putDisabled{
+    width: 15vw;
+    height: 3vh;
+    font-size: medium;
+    margin-bottom: 5px;
+    background-color:#6c6e6d ;color:#ffffff;
+}
+}
+
+@media only screen and (max-width: 1400px) {
+  .inputAlterado_{
+     width: 65%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .inputAlterado_{
+     width: 65%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;
+  }
+}
+
+.formInput{
+    width: 95%;height: 3vh;margin: auto;
+    display: flex;flex-direction: row;
+    margin-bottom: 3px;
+    background-color: #ffffff;
+    
+}
+
+.formInput label{
+    width: 35%;background-color: #05d639;height: 3vh;padding-left: 2px;
+}
+</style>
+
+<div class="d-flex forma" style="background-color: #060606;height: 90vh;">
+   <div id="div-formulario" style="display:block;background-color: #188e1f;">
+            <div id="Idforme" class="forme_" style="background-color: #4d06c0;display: none;">
+                <form action="/raq/grava_edicao" id="idfile" method="post" enctype="application/x-www-form-urlencoded"  style="width: 90%;height: 40vh;margin: auto;background-color:transparent;display:flex ;flex-direction: column;justify-content: space-between;justify-items: center;">
+                    <div style="display: flex;flex-direction: column;padding-top: 15px">
+                        <div class="formInput">
+                           <label>_id Produto :</label> 
+                           <input id="produto_Id" name="nameProdutoId" type="text" value="{{produto.id}}" >
+                        </div>
+                        <div class="formInput">
+                           <label>_id Loja :</label> 
+                           <input id="loja_Id" name="nameLojaid" type="text" value="{{produto.loja_id}}" >
+                        </div>
+                        <div class="formInput">
+                            <label>fornecedor :</label> 
+                            <input id="fornecedor_Id" name="nameFornec" type="text" value="{{produto.fornecedor}}" placeholder="fornecedor">
+                        </div>
+                        <div class="formInput">
+                            <label>código :</label> 
+                            <input id="codigo_Id" name="nameCodigo" type="text" value="{{produto.codigo}}" placeholder="código">
+                        </div>
+                        <div class="formInput" >
+                            <label>descrição :</label> 
+                            <input id="descricao_Id" name="nameDescricao" type="text" value="{{produto.descricao}}" placeholder="descrição">
+                        </div>
+                        <div class="formInput" >
+                            <label>complemento :</label> 
+                            <input id="complete_Id" name="nameComplete" type="text" value="{{produto.complete}}" placeholder="complemento">
+                        </div>
+                        <div class="formInput" >
+                            <label >material :</label> 
+                            <input id="material_Id" name="nameMaterial" type="text" value="{{produto.referencia}}" placeholder="material"> 
+                        </div>
+                        <div class="formInput">
+                            <label>custo :</label> 
+                            <input id="pcusto_Id" name="namePcusto" type="text" value="{{produto.pcusto}}" placeholder="preço de custo">
+                        </div>
+                        <div class="formInput">
+                            <label>vista :</label> 
+                            <input id="pvista_Id" name="namePvista" type="text" value="{{produto.pvista}}" placeholder="preço a vista">
+                        </div>
+                        <div class="formInput">
+                            <label>prazo :</label> 
+                            <input id="pprazo_Id" name="namePprazo" type="text" value="{{produto.pprazo}}" placeholder="preço a prazo">
+                        </div>
+                        <div class="formInput">
+                            <label>segmento :</label> 
+                            <input id="segmento_Id" name="nameSegmento" type="text" value="{{produto.segmento}}" placeholder="segmento">
+                        </div>
+                        <div class="formInput">
+                            <label>setor :</label> 
+                            <input id="setor_Id" name="nameSetor" type="text" value="{{produto.setor}}" placeholder="setor">
+                        </div>
+                        <div class="formInput">
+                            <label>seção :</label> 
+                            <input id="secao_Id" name="nameSecao" type="text" value="{{produto.setor}}" placeholder="seção">
+                        </div>
+                         <div class="formInput" style="margin-top: 30px;">
+                            <button id="btnDispara" type="submit" style="background-color: #101f65;color:#ffffff;width: 50%;height: 3vh;margin: auto;border-radius: 5px;">gravar a edição</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+   </div>
+   <div style="display: flex;flex-direction: column;justify-content:center;padding-top: 4vh;">
+        <div style="width: 90%;height: 70vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: row;">
+            <div id="fotoproduto" class="fotoproduto_">
+                    <div style="padding-top: 12px;width: 100%;height: 60vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: column;justify-items: center;justify-content: center;">
+                        <div style="margin: auto;width: 80%;height: 45vh;margin: auto;background-color:#ffffff;">
+                           <img src="{{produto.pageurl}}" width="100%" height="auto">
+                        </div>
+                    </div>
+            </div>
+            <div id="origem" class="origem_" >
+                    <div id="labelOrigem" class="labelOrigem" style="padding-top: 12px;">
+                        <label class="labelLineOrigem">_id</label>
+                        <label class="labelLineOrigem">Loja_id</label>
+                        <label class="labelLineOrigem">Marca</label>
+                        <label class="labelLineOrigem">Cidade</label>
+                        <label class="labelLineOrigem">Bairro</label>
+                        <label class="labelLineOrigem">Fornecedor</label>
+                        <label class="labelLineOrigem">Código</label>
+                        <label class="labelLineOrigem">Descrição</label>
+                        <label class="labelLineOrigem">Complemento</label>
+                        <label class="labelLineOrigem">Material</label>
+                        <label class="labelLineOrigem">Custo</label>
+                        <label class="labelLineOrigem">Vista</label>
+                        <label class="labelLineOrigem">Prazo</label>
+                        <label class="labelLineOrigem">Segmento</label>
+                        <label class="labelLineOrigem">Setor</label>
+                        <label class="labelLineOrigem">Seção</label>
+                    </div>
+                    
+                    <div id="inputOrigem" class="inputOrigem" style="padding-top: 12px;">
+                        <input class="inputLineOrigem" value="{{produto.id}}" disabled>
+                        <input class="inputLineOrigem" value="{{produto.loja_id}}" disabled>
+                        <input class="inputLineOrigem" value="{{produto.marcaloja}}" disabled>
+                        <input class="inputLineOrigem" value="{{produto.cidade}}" disabled>
+                        <input class="inputLineOrigem" value="{{produto.bairro}}" disabled>
+                        <input id="inputOrigemFornec" class="inputLineOrigem" value="{{produto.fornecedor}}" disabled>
+                        <input id="inputOrigemCodigo" class="inputLineOrigem" value="{{produto.codigo}}" disabled>
+                        <input id="inputOrigemDescricao" class="inputLineOrigem" value="{{produto.descricao}}" disabled>
+                        <input id="inputOrigemComplete" class="inputLineOrigem" value="{{produto.complete}}" disabled>
+                        <input id="inputOrigemReferencia" class="inputLineOrigem" value="{{produto.referencia}}" disabled>
+                        <input id="inputOrigemCusto" class="inputLineOrigem" value="{{produto.custo}}" disabled>
+                        <input id="inputOrigemPvista" class="inputLineOrigem" value="{{produto.pvista}}" disabled>
+                        <input id="inputOrigemPprazo" class="inputLineOrigem" value="{{produto.pprazo}}" disabled>
+                        <input id="inputOrigemSegmento" class="inputLineOrigem" value="{{produto.segmento}}" disabled>
+                        <input id="inputOrigemSetor" class="inputLineOrigem" value="{{produto.setor}}" disabled>
+                        <input id="inputOrigemSecao" class="inputLineOrigem" value="{{produto.secao.nameSecao}}" disabled>
+                    </div>
+            </div>
+            <div id="alterado" class="alterado_">
+                    <div id='labelAlterado' class="labelAlterado_" style="padding-top: 12px;">
+                        <label class="labelLineAlterado" style="background-color: #550795;">_id</label>
+                        <label class="labelLineAlterado">Loja_id</label>
+                        <label class="labelLineAlterado">Marca</label>
+                        <label class="labelLineAlterado">Cidade</label>
+                        <label class="labelLineAlterado">Bairro</label>
+                        <label class="labelLineAlterado">Fornecedor</label>
+                        <label class="labelLineAlterado">Código</label>
+                        <label class="labelLineAlterado">Descrição</label>
+                        <label class="labelLineAlterado">Complemento</label>
+                        <label class="labelLineAlterado">Material</label>
+                        <label class="labelLineAlterado">Custo</label>
+                        <label class="labelLineAlterado">Vista</label>
+                        <label class="labelLineAlterado">Prazo</label>
+                        <label class="labelLineAlterado">Segmento</label>
+                        <label class="labelLineAlterado">Setor</label>
+                        <label class="labelLineAlterado">Seção</label>
+                    </div>
+                    
+                    <div id="inputAlterado" class="inputAlterado_" style="padding-top: 12px;">
+                        <input id="numberProduct" class="putDisabled"  value="{{produto.id}}" disabled style="background-color: #008b8b;">
+                        <input id="number" class="putDisabled"  value="{{produto.loja_id}}" disabled>
+                        <input class="putDisabled"  value="{{produto.marcaloja}}" disabled>
+                        <input id="cidadeId" class="putDisabled" value="{{produto.cidade}}" disabled>
+                        <input id="bairroId" class="putDisabled" value="{{produto.bairro}}" disabled>
+                        <div style="display: flex;flex-direction: row;justify-content:flex-start;background-color:transparent;">
+                            <input id="fornecId" class="inputLineAlterado" value="{{produto.fornecedor}}" >
+                            <select id="selectFornec" class="inputLineAlterado" style="background-color: #1316d2;width: 76%;color:white;height: 3vh;display: none;">
+                                <option style="background-color: #6bf913;">{{produto.fornecedor}}</option>
+                            </select>
+                            <button id="btnFornec" style="width: 100px;width: 16%;height: 2.9vh;border-radius: 5px;background-color: #0cb161;color:#ffffff;font-size: 0.8vw;margin-left: 2px;" onclick="EditarFornec()">Editar</button>
+                        </div>
+                        <input id="codigoId" class="inputLineAlterado" value="{{produto.codigo}}" >
+                        <input id="descricaoId" class="inputLineAlterado" value="{{produto.descricao}}">
+                        <input id="completeId" class="inputLineAlterado" value="{{produto.complete}}">
+                        <input id="referenciaId" class="inputLineAlterado" value="{{produto.referencia}}">
+                        <input id="pcustoId" class="inputLineAlterado" value="{{produto.pcusto}}">
+                        <input id="pvistaId" class="inputLineAlterado" value="{{produto.pvista}}">
+                        <input id="pprazoId" class="inputLineAlterado" value="{{produto.pprazo}}">
+                        {{!-- Segmento --}}
+                        <div style="display: flex;flex-direction: row;justify-content:flex-start;background-color:transparent;">
+                            <input id="inputSegmento" class="inputLineAlterado" style="background-color: #ed0cfd;color: #ffffff;width: 76%;height: 3vh;"  value="{{produto.segmento}}" disabled >  
+                            <select id="selectSegmento" class="inputLineAlterado" style="background-color: #1316d2;width: 76%;color:white;height: 3vh;display: none;">
+                                <option style="background-color: #6bf913;">{{produto.segmento}}</option>
+                            </select>
+                            <button id="btnSegmento" style="width: 100px;width: 16%;height: 2.9vh;border-radius: 5px;background-color: #0cb161;color:#ffffff;font-size: 0.8vw;margin-left: 2px;" onclick="EditarSegmento()">Editar</button>
+                        </div>
+                        {{!-- Setor --}}
+                        <div style="display: flex;flex-direction: row;justify-content:flex-start;background-color:transparent;">
+                            <input id="inputSetor" class="inputLineAlterado" style="background-color: #ed0cfd;color: #ffffff;width: 76%;height: 3vh;"  value="{{produto.setor}}" disabled >  
+                            <select id="selectSetor" class="inputLineAlterado" style="background-color: #8d0cb1;width: 76%;color:white;height: 3vh;display: none;">
+                                <option style="background-color: #550795;">{{produto.setor}}</option>
+                            </select>
+                            <button id="btnSetor" style="width: 100px;width: 16%;height: 2.9vh;border-radius: 5px;background-color: #0cb161;color:#ffffff;font-size: 0.8vw;margin-left: 2px;" onclick="EditarSetor()">Editar</button>
+                        </div>
+                        <div style="display: flex;flex-direction: row;justify-content:flex-start;background-color:transparent;">
+                            <input id="inputSecao" class="inputLineAlterado" style="background-color: #ed0cfd;color: #ffffff;width: 76%;height: 3vh;"  value="{{produto.secao.nameSecao}}" disabled >  
+                            <select id="selectSecao" class="inputLineAlterado" style="background-color: #8d0cb1;width: 76%;color:white;height: 3vh;display: none;">
+                                <option style="background-color: #550795;">{{produto.secao.nameSecao}}</option>
+                            </select>
+                            <button id="btnSecao" style="width: 100px;width: 16%;height: 2.9vh;border-radius: 5px;background-color: #0cb161;color:#ffffff;font-size: 0.8vw;margin-left: 2px;" onclick="EditarSecao()">Editar</button>
+                        </div>
+                        <div style="display: flex;flex-direction: row;justify-content: space-between;background-color:transparent;">
+                            <button id="btnUpdate" style="width: 80%;height: 2.9vh;margin: auto;border-radius: 5px;background-color: #054426;color:#ffffff;font-size: 0.8vw;margin-top: 2vh;display: none;" onclick="gravandoAlteracao()">Update</button>
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+        <div style="width: 90%;height: 6vh;margin: auto;background-color: #05d639;text-align: center;padding-top: 1.5vh;">
+                <button style="width: 6vw;height: 4vh;border-radius: 6px;background-color: #101f65;color: #ffffff;">Voltar</button>
+            </div>
+   </div> 
+</div>
+
+
+<script>
+ let SelectFornec1=document.getElementById('selectFornec');
+ let codigo1=document.getElementById("codigoId");
+ let descricao1=document.getElementById("descricaoId");
+ let complete1=document.getElementById("completeId");
+ let referencia1=document.getElementById("referenciaId");
+ let pcusto1=document.getElementById("pcustoId");
+ let pvista1=document.getElementById("pvistaId");
+ let pprazo1=document.getElementById("pprazoId");
+ let templete1=document.getElementById("templeteId");
+
+ // abaixo input pra receber o valor selsetor1
+ let selectSegmento1=document.getElementById("selectSegmento");
+ let selectSetor1=document.getElementById("selectSetor");
+ let selectSecao1= document.getElementById('selectSecao');
+
+ SelectFornec1.addEventListener("click",function(event){
+      event.stopPropagation();
+      let key=event.which;
+      ///////////////////////////////////////
+      let h=SelectFornec1.selectedIndex;
+      let y=SelectFornec1.options;
+      let palavra=y[h].text;
+      console.log('1000',palavra)
+      if (palavra==""){
+          console.log('vazio') 
+      }else{
+          document.getElementById("fornecedor_Id").value=palavra;
+          document.getElementById("fornecedor_Id").style.backgroundColor="red";
+          document.getElementById("fornecedor_Id").style.color="white";
+        //  document.getElementById("fornecId").value=palavra;
+        //  document.getElementById("fornecId").style.backgroundColor="red";
+        //  document.getElementById("fornecId").style.color="black";
+
+         // codigo1.focus();
+      }
+})
+
+codigo1.addEventListener("keypress",function(event){
+        let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(codigo1.value==""){
+             codigo1.focus();
+          }else{
+             codigo1.style.backgroundColor="red";
+             codigo1.style.color="white";
+             descricao1.style.backgroundColor="yellow";
+           //  document.getElementById("inputOrigemCodigo").value=codigo1.value;
+           //  document.getElementById("inputOrigemCodigo").style.backgroundColor="black";
+           //  document.getElementById("inputOrigemCodigo").style.color="red";
+             descricao1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+descricao1.addEventListener("keypress",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(descricao1.value==""){
+             descricao1.focus();
+          }else{
+             descricao1.style.backgroundColor="red";
+             descricao1.style.color="white";
+             complete1.style.backgroundColor="yellow";
+            // document.getElementById("inputOrigemDescricao").value=descricao1.value;
+            // document.getElementById("inputOrigemDescricao").style.backgroundColor="black";
+            // document.getElementById("inputOrigemDescricao").style.color="red";
+             complete1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+complete1.addEventListener("keypress",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(complete1.value==""){
+             complete1.focus();
+          }else{
+             complete1.style.backgroundColor="red";
+             complete1.style.color="white";
+             referencia1.style.backgroundColor="yellow";
+           //  document.getElementById("inputOrigemComplete").value=complete1.value;
+           //  document.getElementById("inputOrigemComplete").style.backgroundColor="black";
+           //  document.getElementById("inputOrigemComplete").style.color="red";
+             referencia1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+referencia1.addEventListener("keypress",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(referencia1.value==""){
+             referencia1.focus();
+          }else{
+             referencia1.style.backgroundColor="red";
+             referencia1.style.color="white";
+             pvista1.style.backgroundColor="yellow";
+            // document.getElementById("inputOrigemReferencia").value=referencia1.value;
+            // document.getElementById("inputOrigemReferencia").style.backgroundColor="black";
+             pcusto1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+pcusto1.addEventListener("keypress",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(pcusto1.value==""){
+             pcusto1.focus();
+          }else{
+             pcusto1.style.backgroundColor="red";
+             pcusto1.style.color="black";
+             pvista1.style.backgroundColor="yellow";
+             document.getElementById("pcusto_Id").value=pcusto1.value;
+             document.getElementById("pcusto_Id").style.backgroundColor="red";
+             document.getElementById("pcusto_Id").style.color="white";
+             pvista1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+pvista1.addEventListener("keypress",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(pvista1.value==""){
+             pvista1.focus();
+          }else{
+             pvista1.style.backgroundColor="red";
+             pvista1.style.color="white";
+             pprazo1.style.backgroundColor="yellow";
+           //  document.getElementById("inputOrigemPvista").value=pvista1.value;
+           //  document.getElementById("inputOrigemPvista").style.backgroundColor="black";
+             pprazo1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+pprazo1.addEventListener("keypress",function(event){
+      let key=event.which;
+      ///////////////////////////////////////
+      if(key==13){
+          if(pprazo1.value==""){
+             pprazo1.focus();
+          }else{
+             pprazo1.style.backgroundColor="red";
+             pprazo1.style.color="white";
+             setor1.style.backgroundColor="yellow";
+           //  document.getElementById("inputOrigemPprazo").value=pprazo1.value;
+           //  document.getElementById("inputOrigemPprazo").style.backgroundColor="black";
+             selectSegmento1.focus();
+          }
+      } else if(key==8){
+
+      }   
+ })
+
+selectSegmento1.addEventListener("click",function(event){
+      event.stopPropagation();
+      let key=event.which;
+      ///////////////////////////////////////
+      let h=selectSegmento1.selectedIndex;
+      let y=selectSegmento1.options;
+      let palavra=y[h].text;
+      console.log('1000',palavra)
+      if (palavra==""){
+          console.log('vazio') 
+      }else{
+          colaFocusSetor(palavra);
+          document.getElementById("inputSegmento").value=palavra;
+      }
+})
+
+function colaFocusSetor(palavra){
+    selectSetor1.focus();
+}
+
+selectSetor1.addEventListener("click",function(event){
+    event.stopPropagation();
+    let key=event.which;
+    ///////////////////////////////////////
+    let h=selectSetor1.selectedIndex;
+    let y=selectSetor1.options;
+    let palavra=y[h].text;
+    console.log('2000',palavra)
+    
+    if(palavra==""){
+      console.log('vazio') 
+    }else{
+      selectSetor1.value=palavra;  
+      document.getElementById("inputSetor").value=palavra;
+      document.getElementById("inputSetor").style.backgroundColor="red";
+      //document.getElementById("inputSetor")
+    }
+})
+
+selectSecao1.addEventListener("click",function(event){
+    event.stopPropagation();
+    let key=event.which;
+    ///////////////////////////////////////
+    let h=selectSecao1.selectedIndex;
+    let y=selectSecao1.options;
+    let palavra=y[h].text;
+    console.log('2000',palavra)
+    
+    if(palavra==""){
+      console.log('vazio') 
+    }else{
+      selectSecao1.value=palavra;  
+      //document.getElementById('btnUpdate').style.display="block";
+      document.getElementById("inputSecao").value=palavra;
+      verificaField()   
+    }
+})
+
+function verificaField(){
+  // alert('Só falta gravar!');
+   document.getElementById("div-formulario").style.display="block";
+   document.getElementById("Idforme").style.display="block";
+   console.log('_______________________________________')
+   document.getElementById('codigo_Id').value=codigo1.value;
+   document.getElementById('codigo_Id').style.backgroundColor="yellow";
+   document.getElementById('descricao_Id').value=descricao1.value;
+   document.getElementById('complete_Id').value=complete1.value;
+   document.getElementById('material_Id').value=referencia1.value;
+   document.getElementById('pvista_Id').value=pvista1.value;
+   document.getElementById('pprazo_Id').value=pprazo1.value;
+  // document.getElementById('templete_Id').value=templete1.value;
+   document.getElementById('segmento_Id').value=document.getElementById("inputSegmento").value;
+   document.getElementById('setor_Id').value=document.getElementById("inputSetor").value;
+   document.getElementById('setor_Id').style.backgroundColor="red";
+   document.getElementById('setor_Id').style.color="white";
+   document.getElementById('secao_Id').value=document.getElementById("inputSecao").value;
+   document.getElementById('secao_Id').style.backgroundColor="red";
+   document.getElementById('secao_Id').style.color="white";
+ }
+
+// Essa funcão ativa a busca por segemento do produto
+function colocafoco(){
+    //buscasetores()
+    document.getElementById("codigoId").focus();
+    document.getElementById("codigoId").style.backgroundColor="yellow";
+
+ }
+
+function buscaSetor(){
+      
+            let n=document.getElementById("inputSegmento");
+            n=n.value;
+           // console.log(n.innerHTML)
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+            console.log('valores :88888 ',n)
+            //......................................
+                    try{
+                        fetch(`${baseApiUrl}` + `/raq/Setor-EditaProduct/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                            .then(response => {
+                                if( response.ok ){
+                                    return response.json()
+                                    }  
+                                    throw response;
+                            })
+                            .then((json)=>{
+                                console.log('');
+                                console.log('_______________________________________');
+                                console.log('[609]',json)
+                                console.log('');
+                                console.log('_______________________________________');
+                                const  ListaSetor=json;
+                               // console.log(oblist[0].titulo);
+                            
+                                let l=ListaSetor.length;
+                                console.log(l)
+                                for(let i=0;i<l;i++){
+                                      console.log('2')
+                                      let titulo=ListaSetor[i];
+                                      colaSetor(titulo,i)    
+                                }
+
+                                function colaSetor(n,h){
+                                    console.log(n,h)
+                                    const node0 = document.createElement("option");
+                                    node0.setAttribute("id",'op' + h);
+                                    const textNode0=document.createTextNode(n);
+                                    node0.appendChild(textNode0);
+                                    node0.setAttribute("class","container_msg");
+                                    document.getElementById("selectSetor").appendChild(node0);
+                                }
+                            })
+                            .catch((e)=>{
+                                console.log(e);
+                            })
+                    }catch(e){
+                        console.log(e);
+                    }        
+    }
+
+function buscarSegmento(){
+    ////////////////////////////////////////////////////////////////////////
+    console.log(888)
+    limpaCaixa();
+    function limpaCaixa(){
+        let corpos;
+        corpos=document.getElementById("selectSegmento").children;
+        let c=corpos.length;
+        for (i=c-1;i>-1;i--){
+           corpos[i].remove();
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    segmento()
+    function segmento(){
+            let t=document.getElementById("number");
+            t=t.value;
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+            console.log('valores : 99999',t)
+            //......................................
+            try{
+                fetch(`${baseApiUrl}` + `/raq/Segmento-EdicaoProduct_/${t}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('');
+                        console.log('_______________________________________');
+                        console.log(json)
+                        console.log('');
+                        console.log('_______________________________________');
+                        const  ArraySegmento=json
+                      //  console.log('10',Sub)
+                        console.log('');
+                        
+                        let l=ArraySegmento.length;
+                        for(let i=0;i<l;i++){
+                            let titulo=ArraySegmento[i];
+                            if( i==0){
+                                let vazio=""
+                                colaSetor(vazio,i) ;
+                               // colaSetor(titulo,i) 
+
+                            }
+                            colaSetor(titulo,i)    
+                        }
+
+                        function colaSetor(n,h){
+                            console.log('[345]',n,h)
+                            const node0 = document.createElement("option");
+                            node0.setAttribute("id",'opartigo' + h);
+                            const textNode0=document.createTextNode(n);
+                            node0.appendChild(textNode0);
+                            node0.setAttribute("class","containerMsg");
+                            document.getElementById("selectSegmento").appendChild(node0);
+                        }
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            }catch(e){
+                console.log(e);
+            }        
+    }
+}   
+
+ colocafoco()
+
+function EditarFornec(){
+   let b=document.getElementById("fornecId");
+   let c=document.getElementById("selectFornec");
+   b.style.display='none';
+   c.style.display='block';
+   //console.log(77777)
+   buscarFornec()
+}
+
+function EditarSegmento(){
+   let b=document.getElementById("inputSegmento");
+   let c=document.getElementById("selectSegmento");
+   b.style.display='none';
+   c.style.display='block';
+   console.log(77777)
+   buscarSegmento()
+}
+
+function EditarSetor(){
+   let b=document.getElementById("inputSetor");
+   let c=document.getElementById("selectSetor");
+   b.style.display='none';
+   c.style.display='block';
+   console.log(4545)
+   buscaSetor()
+}
+
+function EditarSecao(){
+   let b=document.getElementById("inputSecao");
+   let c=document.getElementById("selectSecao");
+   b.style.display='none';
+   c.style.display='block';
+   console.log(4545)
+   buscarSecao()
+}
+
+function buscarSecao(){
+    ////////////////////////////////////////////////////////////////////////
+    console.log(999888)
+   // limpaCaixa();
+    function limpaCaixa(){
+        let corpos;
+        corpos=document.getElementById("selectSetor").children;
+        let c=corpos.length;
+        for (i=c-1;i>-1;i--){
+           corpos[i].remove();
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////
+    secao()
+    function secao(){
+            let t=document.getElementById("selectSetor");
+            let r=selectSetor1.selectedIndex;
+            console.log(r);
+            //console.log(t)
+            let y=selectSetor1.options;
+            let palavra=y[r].text;
+            console.log('[ 787 ] ',palavra);
+           // return
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //.....................................
+            console.log('valores : 99999',palavra)
+            //......................................
+            try{
+                fetch(`${baseApiUrl}` + `/controle/Secao-EdicaoProduct/${palavra}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('');
+                        console.log('_______________________________________');
+                        console.log(json)
+                        console.log('');
+                        console.log('_______________________________________');
+                        const  ArraySegmento=json
+                      //  console.log('10',Sub)
+                        console.log('');
+                        
+                        let l=ArraySegmento.length;
+                        for(let i=0;i<l;i++){
+                            let titulo=ArraySegmento[i];
+                            if( i==0){
+                                let vazio=""
+                                colaSetor(vazio,i) ;
+                               // colaSetor(titulo,i) 
+
+                            }
+                             console.log('==========>>>',titulo)
+                            colaSetor(titulo,i)    
+                           
+                        }
+
+                        function colaSetor(n,h){
+                            console.log('[345]',n,h)
+                            console.log(h.n)
+                            let l=n.length;
+                            for (let i=0;i<l;i++){
+                                const node0 = document.createElement("option");
+                                node0.setAttribute("id",'opartigo' + h);
+                                const textNode0=document.createTextNode(n[i]);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("class","containerMsg");
+                                document.getElementById("selectSecao").appendChild(node0);
+                                if(i==(l-1)){
+                                    console.log('aqui',(l-1))
+                                   
+                                }else{
+                                    console.log('ou aqui')
+                                }
+                            }
+                        }
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            }catch(e){
+                console.log(e);
+            }        
+    }
+}   
+
+function Delfield(){
+      console.log(3434)
+       let baseApiUrl=window.location.hostname;
+       let n1=document.getElementById('numberProduct').value;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+      try{
+      fetch(`${baseApiUrl}` + `/controle/deletaCampo/${n1}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log('');
+                        console.log('_______________________________________');
+                        console.log(json)
+                        console.log('');
+                        console.log('_______________________________________');
+                        const  ArraySegmento=json
+                      //  console.log('10',Sub)
+                        console.log('');
+                        
+                       
+                     
+
+                       
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            }catch(e){
+                console.log(e);
+            } 
+            
+    
+}
+
+function buscarFornec(){
+    
+    limpaCaixa();
+    function limpaCaixa(){
+        let corpos;
+        corpos=document.getElementById("selectFornec").children;
+        let c=corpos.length;
+        for (i=c-1;i>-1;i--){
+           corpos[i].remove();
+        }
+    }
+    
+    ///////////////////////////////////////////////////////////////////////
+    fornec()
+    function fornec(){
+            let t=document.getElementById("number");
+            t=t.value;
+            //console.log('aqui',t)
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //......................................
+            try{
+                fetch(`${baseApiUrl}` + `/raq/buscarfornec-EditaProduct/${t}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log(json)
+                        console.log('_______________________________________');
+                        const  ArrayFornec=json
+                        console.log('');
+                        
+                        let l=ArrayFornec.length;
+                        for(let i=0;i<l;i++){
+                            let titulo=ArrayFornec[i].razao;
+                            //if( i==0){
+                            //    let vazio="3"
+                            //}
+                            colaFornec(titulo,i)    
+                        }
+
+                        function colaFornec(titulo,h){
+                            console.log('[ título ]',titulo)
+                            console.log('[ vr de i]',h)
+                                const node0 = document.createElement("option");
+                                node0.setAttribute("id",'opartigo' + h);
+                                const textNode0=document.createTextNode(titulo);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("class","containerMsg");
+                                document.getElementById("selectFornec").appendChild(node0);
+                        }
+                    })
+                    .catch((e)=>{
+                        console.log(e);
+                    })
+            }catch(e){
+                console.log(e);
+            }        
+    }
+}
+
+function gravandoAlteracao(){
+    document.getElementById("Idforme").display="block";
+}
+
+</script>

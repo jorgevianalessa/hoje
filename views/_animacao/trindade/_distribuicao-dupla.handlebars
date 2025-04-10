@@ -1,0 +1,688 @@
+<style>
+  body{
+    margin: 0px;
+  }
+
+  .corpo{
+    background-color: #e1ef13;width: 98vw;height: 98vh;margin: auto;display: flex;flex-direction:column;justify-content:center;margin-top: -2vh;
+  }
+
+  .mostraform{
+      width:100%;height: 121vh;margin: auto;
+      background-color: #033986;
+      background-position: center;
+      z-index: 1000;
+      position: absolute;left: 0;top: 0;
+      display: none;
+  }
+
+  .sideLeft{
+     width: 22vw;height: 85vh;margin: auto;background-color: #ffffff;float: left;
+  }
+
+  .sideMiddle{
+     width: 67vw;height: 85vh;margin: auto;background-color:#f8f8f6;float: left;display: flex;flex-direction: column;justify-content: center;
+  }
+  
+  .barraElements{
+    width: 90%;height: 5vh; display: flex;flex-direction: row;margin: auto;justify-content: space-between;background-color:transparent;
+  }
+
+  .barraElements_{
+     width: 260px;height: 4vh;padding-top: 0.5vh;background-color:transparent;text-align: center;
+  }
+
+ .sideRight{
+     width: 15vw;height: 85vh;margin: auto;background-color: #ffffff;float: left;
+  }
+
+  .btnBarraElements{
+     width: 220px;height: 3vh;margin: auto;background-color: #73036c;border-radius: 5px ;color:#faf6f6;font-size: 0.8vw;
+  }
+
+  .canvasX{
+    /* background-image: url('https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png');*/
+     /*background-image:url('https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png');*/
+     display: no-repeat;background-size: cover;margin:auto;border:gray 2px solid;background-color: aqua;
+
+  }
+</style>
+<div class="d-flex corpo" id="corpo" >
+    <div id="idPincel"  style="position: absolute;left: 600px;   top:300px;z-index: 1000;width: 40%;height: 30vh;margin: auto;background-color: #ffffff;padding: 15px;display: none;border: 1px gray solid;">
+          <div style="width: 80%;height: 25vh;margin: auto;display: flex;flex-direction:column;justify-content: space-around; margin-top: 2vh;background-color: #ffffff;text-align: center;">
+            <div style="width: 80%;height: 5vh;margin: auto;text-align: center;background-color: #ffffff;color:#0362d6;padding: 15px;">
+                <label>Escolha a cor do pincel !</label>
+            </div>
+            <div style="width: 80%;height: 18vh;display: flex;flex-direction: row;justify-content:space-around;justify-items: center;background-color: #ffffff;margin-top: 1vh;padding-top: 6vh;text-align: center;margin: auto;">
+               {{!-- <input id="mostracor" type="color" style="margin-left: 12px;height: 3vh;width: 120px;"> --}}
+               <diV>
+                  <label>água fria</label>
+                  <input id="pegaCorFria" type="button" onclick="pegacor('#0362d6')" style="width: 120px;height: 3vh;border-radius: 6px;background-color: #0362d6;"  >
+               </diV>
+               <div>
+                  <label>água quente</label>
+                  <input id="pegaCorQuente" type="button" onclick="pegacor('#f24e4e')" style="width: 120px;height: 3vh;border-radius: 6px;background-color: #f24e4e;"  >
+               </div>
+               <div>
+                  <label>retorno</label>
+                  <input id="pegaCorRetorno" type="button" onclick="pegacor('#f0b208')" style="width: 120px;height: 3vh;border-radius: 6px;background-color: #f0b208;"  >
+               </div>
+             </div>
+          </div>   
+    </div>
+     <div id="idPincelAquecedor"  style="position: absolute;left: 600px;   top:300px;z-index: 1000;width: 40%;height: 30vh;margin: auto;background-color: #ffffff;padding: 10px;display: none;border: 1px gray solid;">
+          <div style="width: 80%;height: 25vh;margin: auto;display: flex;flex-direction:column;justify-content:space-between; margin-top: .5vh;background-color: #ffffff;text-align: center;">
+            <div style="width: 80%;height: 8vh;margin: auto;text-align: center;background-color: #ffffff;color:#0362d6;padding: 15px;">
+                <label style="font-size:2vw;color:#73036c">Escolha o aquecedor!</label>
+            </div>
+            <div style="width: 80%;height: 18vh;display: flex;flex-direction: column;justify-items: center;background-color: #ffffff;margin-top: .5vh;padding-top: 3vh;text-align: center;margin: auto;">
+               <div style="margin-top: .2vh;background-color:#ffffff;margin-bottom: 1vh;display: flex;flex-direction: column;justify-items: center;">
+                  <label style="color:#73036c;font-size: medium;">1º aquecedor</label>
+                  <div>
+                  <input id="pegaCorQuente" type="button" onclick="corAquecedor('#3ff009')" style="width: 120px;height: 3vh;border-radius: 6px;background-color:#3ff009;text-align: center;"  >
+                  </div>
+               </div>
+               <div style="margin-top: .2vh;background-color:#ffffff;margin-bottom: 1vh;display: flex;flex-direction: column;justify-items: center;">
+                  <label style="color:#73036c;font-size: medium;">2º aquecedor</label>
+                  <div>
+                  <input id="pegaCorRetorno" type="button" onclick="corAquecedor('#f507f1')" style="width: 120px;height: 3vh;border-radius: 6px;background-color:#f507f1;"  >
+                  </div>
+               </div>
+               <div style="height: 10vh;background-color:transparent;visibility: hidden;">
+                    <label style="height: 4vh;visibility: hidden;"></label>
+               </div>
+             </div>
+          </div>   
+    </div>
+    <div id="barraTitulo" style="width: 100%;height: 5vh;margin: auto;background-color: #c90b57;color: #ffffff;text-align: center;margin-top:0.95vh;padding-top: 0.5vh;display: flex;flex-direction: row;justify-items: center;justify-content: space-between;">
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.4vw;margin-left: 3vw;">Inscreva-se no canal</h3>
+        
+         <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.5vw;">projeto de distribuição</h3>
+         <div style="display: flex;flex-direction: row;justify-content:space-around space-between;justify-items: center;background-color: #f24e4e;margin-bottom: 0.5vh;width: 15%;">
+            <div style="background-color: #0bc95d;width: 80%;text-align: right;">
+              <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 500;font-size: 1.4vw;margin-right:0.4vw;padding-right: 6px;">deixe seu like<span style="background-color: #f0b208;width: 10vw;height: 4vh;"></span></h3>
+            </div>
+            <div style="background-color: #0fd805;width: 20%;">
+              <img src="https://amelia.nyc3.digitaloceanspaces.com/5e79abd1bec281324aab_LikeBtn.png" width="40px" height="auto">
+           </div>
+         </div>
+    </div>
+    <div style="display: flex;flex-direction: row;justify-content: space-around;width: 98vw;background-color: #73036c;height: 99vh;">
+        {{!-- <div id="sideLeft" class="sideLeft" style="display: flex;flex-direction: column;justify-items: center;visibility:visible;">
+            <div style="width: 80%;height: 15vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-items:center ;padding: 12px;text-align: center;visibility:visible">
+                <label style="color:#25cb0c;font-size: 2vw;">RaqSystem</label><br><br>
+                <label style="color:#179304;font-size: 1vw;">email: jorgelessa@terra.com.br</label><br>
+                <label style="color:#179304;font-size: 1vw;">celular:</label>
+                <label style="color:#179304;font-size: 1vw;"> 27 99942-6272</label>
+            </div>  
+            <div style="width: 80%;height: 28vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-items:auto ;padding: 12px;text-align: center;visibility: hidden;">
+                <div style="width: 4vw;height: 7vh;margin-top: 1vh;background-color: #48f912;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/ba0449dc3a904fa116e2_setaHorizontalRed.png" width="50px" height="auto"></button>
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color:red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/341f8422fb51a1009c38_setaHorizontalOcre.png" width="50px" height="auto" ></button> 
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color: red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/15737d15ea44135373c5_setaVerticalRed.png" width="20px" height="50px" ></button> 
+                </div>
+                <div style="width:4vw;height: 7vh;margin-top:0.4vh;background-color: red;display: flex;flex-direction: column;justify-items: center;justify-content: space-around;">
+                    <button style=width="60px";height="50px"><img src="https://amelia.nyc3.digitaloceanspaces.com/b11fe805110fc5946827_setaVerticalRedBaixo.png" width="auto" height="50px" ></button> 
+                </div>
+            </div>
+        </div> --}}
+        {{!-- <div id="sideMiddle" class="sideMiddle" style="background-color: #ffffff;border: #aeb0af solid 2px;"> --}}
+          <div id="" class="sideMiddle" style="background-color: #040404;border: none;object-fit: contain;width: 96vw;height: 96vh;margin: auto;display: flex;flex-direction: column;justify-content: center;">
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png
+                https://amelia.nyc3.digitaloceanspaces.com/441204576f30d47cdd7e_doisbanheiros.png --}}
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png --}}
+                {{!-- https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png --}}
+            <div style="width: 96vw;height: 96vh;background-color:#0e1dc6;display: flex;flex-direction: row;justify-content:flex-start;">
+                    <div id="canvas-1" style="display:block;background-color: #0e1dc6;height: 90vh;margin: auto;width: 96vw;display: flex;flex-direction: column;justify-content: center;">
+                       <img id="idPlanta" src="" style="object-fit: contain;display: block;" width="100%" height="auto">
+                        <div id="canvas-1_" style="width: 95vw;height: 90vh;margin: auto;background-color: #0ada11;display: flex;flex-direction: row;justify-content: space-around;justify-items: center;padding-bottom: 1vh;object-fit: contain;overflow: auto;">
+                            <canvas id="pranchaA" width="2000" height="950" class="canvaX" style="margin:auto;border:gray 2px solid;display: no-repeat;background-size: contain;padding:6px;object-fit: contain;background-color:  #0b6502;object-fit: contain;background-image: url('https://amelia.nyc3.digitaloceanspaces.com/d633a8924967a8ccca2a_Canto_convert_B1.png');">
+                               
+                            </canvas>
+                        </div>
+                    
+                    </div> 
+                    {{!-- <div style="width: 15vw;height: 75vh;margin: auto;background-color: #ffffff;">
+                        
+                    </div>  --}}
+            </div>
+
+            
+            <div id="barraElements" class="barraElements" style="">
+                <div id="barraAquecedor" class="barraElements_">
+                    <button id="btnAquecedor" class="btnBarraElements" onclick="PushAquecedor()">local do aquecedor</button>
+                </div>
+                <div class="barraElements_">
+                    <button id="btnPontos" class="btnBarraElements" onclick="PontosAtender()">marque pontos para atender</button>
+                </div>
+                <div class="barraElements_">
+                    <button id="btnLine" class="btnBarraElements" onclick="TracaLine()">traçando as linhas</button>
+                </div>
+                <div class="barraElements_">
+                    <button class="btnBarraElements" onclick="LimparPonto()">Limpar tudo</button>
+                </div>
+            </div>    
+        </div>
+        
+    </div>
+</div>
+<script>
+// Variáveis     
+let positionDraw=0; 
+let Arr=[];
+let numberPoint=0;
+let palavra="";
+let Ative="";
+
+// figura do Mapa
+const canvas = document.getElementById('pranchaA');
+const ctx = canvas.getContext('2d')
+
+let g=document.getElementById("sideMiddle");
+//console.log(g.offsetTop)
+console.log('begin')
+
+console.log('__________________________________');
+
+// Desenhando a grade da planta
+function grade(){
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 100)
+    ctx.lineTo(1000,100)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(100,0)
+    ctx.lineTo(100,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 200)
+    ctx.lineTo(1000,200)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(200,0)
+    ctx.lineTo(200,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 300)
+    ctx.lineTo(1000,300)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(300,0)
+    ctx.lineTo(300,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 400)
+    ctx.lineTo(1000,400)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(400,0)
+    ctx.lineTo(400,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 500)
+    ctx.lineTo(1000,500)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(500,0)
+    ctx.lineTo(500,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 600)
+    ctx.lineTo(1000,600)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(600,0)
+    ctx.lineTo(600,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal
+    ctx.beginPath()
+    ctx.moveTo(0, 700)
+    ctx.lineTo(1000,700)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical
+    ctx.beginPath()
+    ctx.moveTo(700,0)
+    ctx.lineTo(700,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Horizontal [ 6 ]
+    ctx.beginPath()
+    ctx.moveTo(0, 800)
+    ctx.lineTo(1000,800)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+
+    // Vertical [ 8 ]
+    ctx.beginPath()
+    ctx.moveTo(800,0)
+    ctx.lineTo(800,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+ 
+    // Vertical [ 9 ]
+    ctx.beginPath()
+    ctx.moveTo(900,0)
+    ctx.lineTo(900,900)
+    ctx.lineWidth =1
+    ctx.strokeStyle = "#033986"
+    ctx.stroke()
+}
+
+grade();
+
+
+function loadImagen(){
+  console.log(88);
+  let XImg=document.getElementById("idPlanta").src;
+  console.log(XImg);
+  let Img=document.createElement('img');
+  Img.style.width="100vw";
+  Img.style.height="75vh";
+
+
+  //Img=new Image()
+  //Img.src="url('https://amelia.nyc3.digitaloceanspaces.com/c4fdf4a8e79409f5f92c_planta_02_3suites.png')";
+  //drawPlayer=function(player){
+       ctx.drawImage(Img,10,10)
+       //ctx.restore()
+  //} 
+ console.log(99)
+
+}
+
+loadImagen()
+
+function corAquecedor(n){
+   // console.log('============> ',n)
+   corpincel=n;
+   document.getElementById("idPincelAquecedor").style.display="none";
+   Ative=n;
+ //  console.log('vr de Ative',Ative)
+  
+   positionDraw=1
+   document.getElementById('btnAquecedor').style.backgroundColor="red";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+}
+
+// Pega a cor selecionada para traçar a linha
+function pegacor(n){
+   corpincel=n;
+   console.log( 'cor do pincel',corpincel)
+   document.getElementById("idPincel").style.display="none";
+   if (n=='#0362d6'){
+      Ative="#0362d6"
+      console.log('#0362d6',Ative)
+   }else if (n=='#f24e4e'){
+     Ative="#f24e4e"
+     console.log('#f24e4e',Ative)
+   }else if (n=='#f0b208'){
+     Ative="#f0b208"
+     console.log('#f0b208',Ative)
+   }
+   Arr.length=0;
+}
+
+let isPressed = false;
+let mouseDownPos = null
+
+canvas.addEventListener('mousedown', function(e) {
+    console.log(' ATIVE ',Ative)
+    isPressed = true
+    mouseDownPos = {
+        x: e.clientX - canvas.offsetLeft,
+        y: e.clientY - canvas.offsetTop
+    }
+    /////////////////////////////////////////////////
+    console.log('1 :',e.clientX)
+    console.log('______________________________')
+    console.log('')
+    ///////////////////////////////////////
+    const line = {
+        start: mouseDownPos,
+        end: mouseDownPos,
+    }
+
+    console.log('positionDraw --->',positionDraw)
+    if(positionDraw==1){
+       console.log('desenha o retângulo lilás que representa o aquecedor',positionDraw,Ative);
+       ctx.strokeStyle=Ative;
+       drawAquecedor(ctx,line,Ative);
+    }else if(positionDraw==2){
+       console.log('desenha os círculos vermelhos para orientação.',positionDraw,Ative)
+       drawCirculoRed(line)
+    }else if(positionDraw==3){
+       console.log('desenha a linha.',positionDraw,'<-->',Ative)
+       console.log('line ->',line)
+       drawLine(ctx, line)
+    }else{
+      alert('favor definir o desenho !')
+    }
+})
+
+canvas.addEventListener('mouseup', function() {
+   isPressed = false
+})
+
+// Desenha o retângulo lilás que representa o aquecedor
+function drawAquecedor(ctx,line,Ative){
+    console.log(Ative)
+    console.log(ctx)
+   
+    ctx.fillStyle=Ative
+    console.log(ctx.fillStyle)
+    console.log('line',line, Ative)
+    let x=line.start.x
+    let y=line.start.y
+    console.log('[392] => ',x,y)
+    ctx.fillRect(x,y,20,30)
+    return
+    const imageData = ctx.createImageData(20,30);
+    imageData.stroke=Ative;
+    for (let i = 0; i < imageData.data.length; i += 4) {
+         imageData.data[i + 0] = 19; // R value
+         imageData.data[i + 1] = 00; // G value
+         imageData.data[i + 2] = 110; // B value
+         imageData.data[i + 3] = 255; // A value
+    }
+    console.log('0-0-0-0')
+    ctx.putImageData(imageData, x,y);
+    Arr.length=0;
+    //ctx.drawCirculoRed
+    //ctx.fillStyle = "green";
+    // ctx.fillRect(x, y, 20,60);
+    //line.start.x=0;
+    //line.start.y=0;
+    //ctx.font = "20px serif";
+    //ctx.fillStyle = "red";
+    //ctx.fillText("Aquecedor", x,y+5);
+}
+
+
+
+
+function drawCirculoRed(line){
+  console.log('-----------------------')
+  console.log('Marcar os círculos vemelho para destacar o traçado da linha')
+   console.log('1',line.start.x)
+   console.log('2',line.start.y)
+
+   let x=line.start.x
+   let y=line.start.y
+
+   ctx.beginPath()
+   ctx.arc(x,y,10,0,2 * Math.PI);
+   ctx.lineWidth=4
+   ctx.strokeStyle=Ative
+   ctx.stroke();
+}
+
+function drawLine(ctx, line) {
+  console.log('Aqui desenha o ponto (drawLine) ==> ',Ative)
+  const {
+    start,
+    end,
+    lineWidth = 9,
+    lineCap = 'round', 
+    strokeStyle = Ative      // 'gray',
+  } = line
+
+  if(!start || !end) {
+    throw new Error('Start or end of line not defined.')
+  }
+
+  console.log('=============================')
+  console.log('[ 405] ',Ative)
+  ctx.beginPath()
+  ctx.moveTo(start.x, start.y)
+  ctx.lineTo(end.x, end.y)
+  ctx.lineWidth = lineWidth
+  ctx.lineCap = lineCap
+  ctx.strokeStyle =strokeStyle
+  ctx.stroke()
+
+  console.log(' linha [ 285 ] segue para montacombo',)
+  montaCombo(start.x, start.y,end.x, end.y)
+}
+
+function montaCombo(startx,starty,endx, endy){
+    console.log('---> ',Arr)
+    numberPoint++;
+    ponto={
+        startx:startx,
+        starty:starty,
+        point:numberPoint
+    }
+   
+    Arr.push(ponto)
+    if (Arr.length>1){
+       traçaLinha(Arr)
+    }
+}
+
+function traçaLinha(){
+   console.log('_________________ [ 434 ] _________________________') 
+   console.log('....',Ative)
+   console.log('x-0 -> ',Arr[0].startx)
+   let x1=Arr[0].startx;
+   console.log('y-0 -> ',Arr[0].starty)
+   let y1=Arr[0].starty;
+   console.log('')
+   console.log('x-1 -> ',Arr[1].startx)
+   let x2=Arr[1].startx;
+   console.log('y-1 -> ',Arr[1].starty)
+   let y2=Arr[1].starty;
+   console.log('__________________________________________') 
+ 
+   ctx.beginPath()
+   ctx.moveTo(x1,y1)
+   ctx.lineTo(x2,y2)
+   ctx.lineWidth = 3
+   ctx.strokeStyle =Ative  //"white"
+   ctx.stroke()
+
+   Arr.length=0;
+
+    ponto={
+        startx:x2,
+        starty:y2,
+        point:numberPoint
+    }
+   Arr.push(ponto)
+   console.log(Arr)
+}
+
+let image=new Image();
+//image.src="https://amelia.nyc3.digitaloceanspaces.com/7daeeab070ffeb581fbe_aquecedor_36lts_80.png"
+//image.src="https://amelia.nyc3.digitaloceanspaces.com/1d5303425b5235bce84c_30%20-%20PlantaLimpa.png" 
+
+
+image.src="https://amelia.nyc3.digitaloceanspaces.com/bd18cf4024f057b72f3d_Canto_convert_B.png"
+function PushAquecedor(){
+   console.log('AQUECEDOR aqui [523]')
+   document.getElementById("idPincelAquecedor").style.display="block";
+   
+}
+
+function PontosAtender(){
+   positionDraw=2
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="red";
+   document.getElementById('btnLine').style.backgroundColor="#0b0bc9";
+}
+
+function TracaLine(){
+   positionDraw=3
+   document.getElementById('btnAquecedor').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnPontos').style.backgroundColor="#0b0bc9";
+   document.getElementById('btnLine').style.backgroundColor="red";
+   document.getElementById("idPincel").style.display="block";
+   console.log('traça Line')
+}
+
+//h.addEventListener("mouseup",function(event){
+//  console.log(100000)
+//  console.log(h)
+//  h.width=100
+//  h.height=100
+///})
+
+// Imagem do 
+function imgAquecedor(){
+   console.log('aqui 1000')
+
+   //https://amelia.nyc3.digitaloceanspaces.com/161852a5f347b191b294_aquecedor_36lts.png
+   const canvas = document.getElementById('prancha1');
+   const ctx = canvas.getContext('2d')
+
+   var background=new Image();
+   background.src='https://amelia.nyc3.digitaloceanspaces.com/7daeeab070ffeb581fbe_aquecedor_36lts_80.png'
+   background.width=250;
+   background.height=350;
+   console.log('23',background)
+   let a=canvas.width
+   console.log('a',a)
+   a=a/2-125
+   let b=150
+   background.onload=function(){
+      ctx.drawImage(background,a,150)
+      let z=background.width;
+      console.log('z : ',z)
+      background.left=(a - z/2)
+      console.log(a)
+      console.log(b)
+      console.log('_______________________________________________')
+   }
+}
+
+//let f1 = document.getElementById("SelectedOption");
+
+//f1.addEventListener("click", function (event) {
+//        event.stopPropagation();
+//        palavra="";
+//        let h = f1.selectedIndex;
+//        let y = f1.options;
+//        palavra = y[h].text;
+//        console.log('valor da palavra', palavra)
+       // let c1=document.getElementById('canvas-1')
+       // let c2=document.getElementById('canvas-2')
+//        if (palavra!=""){
+//            if (palavra == "") {
+//                console.log('vazio')
+//            } else {
+//               console.log(palavra)
+//               if(palavra=="Aquecedor"){
+                 // console.log(c1)
+                 // c1.style.display='block';
+                //  c2.style.display='none'
+                  //imgAquecedor();
+///                  console.log('aqui dentro!')
+                 // passa();
+                 // function passa(){
+//                    passaAquecedor()
+                 // }
+//               }else if(palavra=="Planta baixa"){
+                 // console.log(c1)
+                 // console.log(c2)
+                 // c1.style.display='none';
+                 // c2.style.display='block';
+//               }
+//            }
+//  /      }    
+//})
+
+function passaAquecedor(){
+  console.log('aqui dentro 1000! _')
+  let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }   
+            //////////////////////////////////////////////////////////////////
+            try{
+                  fetch(`${baseApiUrl}` + `/produto/projeto-cliente`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                          .then(response =>{
+                              if( response.ok ){
+                                  return response.json()
+                                  } 
+                                  throw response;
+                          })
+                      .then((json) => {
+                          console.log('olá pessoal !')
+                      })
+                      .catch((err)=>{
+                           console.log('Error :',err)
+                      })
+   }catch(e){
+      console.log(e)
+   }                 
+}
+
+function LimparPonto(){
+   console.log('==> ???',Arr.length)
+   positionDraw=4
+   Arr.length=0;
+   console.log(Arr.length)
+}
+
+</script>

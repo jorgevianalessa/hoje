@@ -1,0 +1,751 @@
+<style>
+  .formestoque{
+    width: 80%;height: 15vh;background-color:transparent;margin:auto;margin-top:5px;padding-top: 15px;padding: 3%;
+  }  
+</style>
+<style>
+   .row-table{
+      border-bottom: #0bf02a 1px solid;
+      width: 90vw;
+      height: 12vh;
+      margin:auto;
+      background-color: #e20c9e;
+      padding-top: .2vh;
+      margin-bottom: 2px;
+      display: flex;
+      flex-direction:column;
+      border-bottom: #ffffff 3px solid;
+      padding: 3px;
+    }
+
+    .linhaMain{
+       width: 80vw;
+       height: 7vh;
+       margin-left:0;
+       background-color: #00ff55; 
+       display: flex;
+       flex-direction: row;
+       padding-right: 10px;
+       margin-bottom: 6px;
+       padding: 10px;
+    }
+
+    .linhaMainRow{
+       width: 75vw;
+       height: 4vh;
+       margin-left:0;
+       background-color: greenyellow; 
+       display: flex;
+       flex-direction: row;
+       padding-right: 10px;
+       margin-bottom: 6px;
+       padding: 10px;
+    }
+
+    .idprodutoX{
+        width: 12vw;
+        height: 2.9vh;
+        font-size:medium ;
+        margin: auto;
+        float: left;
+        display: flex;
+        flex-direction: column;
+        color:#04955b;
+        background-color: #ffffff;
+         border: 2px #7c7777 solid;
+    }
+
+    .codigoX{
+        width: 5vw;
+        background-color: #f0eded;
+        color: #b80303;
+        font-size: small; 
+        border: 2px #7c7777 solid;
+    }
+
+    .row-table100{
+      border-bottom: #0bf02a 1px solid;
+      width: 100%;
+      margin:auto;
+      background-color: rgb(7, 7, 6);
+      padding-top: .2vh;
+      margin-bottom: 10px;
+    }
+
+    .descricao{
+        width: 15vw;
+        background-color: #f0eded;
+        color: #b80303; 
+        border: 2px #7c7777 solid;
+    }
+
+    .complete{
+        width: 25vw;
+        background-color: #f0eded;
+        color: #b80303; 
+        border: 2px #7c7777 solid;
+    }
+
+    .tecido{
+        width: 10vw;
+        background-color: #f0eded;
+        color: #b80303; 
+        border: 2px #7c7777 solid;
+    }
+
+    .col-delete{
+        width: 3.5vw;
+        background-color: #0bf02a;
+    }
+
+    .bnt-delete{
+        width: 3.5vw;
+        height: 2.5vh;
+        margin: auto;
+        padding: .2vh .2vw .2vh .2vw;
+        color: #ffffff;
+        text-align: center;
+        background-color: #b80303;
+        padding-top: 0.1vh;
+        margin-top: .5vh;
+        border-radius: 6px;
+    }
+
+     .col-visual{
+        width: 3.5vw;
+        background-color: #ffffff;
+    }
+
+   .bnt-visual{
+        width: 12vw;
+        height: 3.5vh;
+        margin: auto;
+        padding: .4vh .2vw .2vh .2vw;
+        color: #ffffff;
+        text-align: left;
+        background-color: #017d01;
+        padding-top: 0.1vh;
+        margin-top: .5vh;
+        border-radius: 6px;
+    }
+
+    .rouge{
+       background-color: #ff0000;
+       color:#ffffff; 
+    }
+
+    .pagerouge{
+        width: 4vw;
+        background-color: yellow;
+        text-align: center;
+    }
+
+    .blue{
+       background-color: dodgerblue;
+       color: #fbf5f5; 
+    }
+
+    .orange{
+       background-color: #ea8e04;
+       color: #ffffff; 
+    }
+
+    
+    .divInput{
+        width: 90%;height: 3vh;margin: auto;
+        float: left;
+        margin-top: 1.5vh;
+        display: flex;
+        flex-direction: row;
+        background-color:transparent;
+    }
+
+    .formclass{
+        width: 80%;height: 38vh;margin: auto;background-color: #ea8e04;border: solid 1px white;padding: 10px;
+    }
+
+    .linhabranco{
+        height: 0.05vh;
+        background-color: #cccaca;
+    }
+</style>
+<div class="d-flex" style="margin-top:8.8vh;border-color: #e40606 1px;display:flex ;flex-direction: column;background-color: #0bf02a;width: 100%;">
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        {{!-- {{produto}} --}}
+        <div id="AvisoAlert" style="display: none;width: 50%;height: 12vh;margin: auto;position: absolute;margin-top:40vh;margin-left:25vw;z-index: 300;background-color: #ffffff;text-align: center;">
+             <h1 style="color:#0bf02a;font-size: medium;">Não há registro</h1>
+        </div>
+        <div id="AvisoFornec" style="display: none;width: 50%;height: 24vh;margin: auto;position: absolute;margin-top:40vh;margin-left:25vw;z-index: 300;background-color: #7e7878;text-align: center;padding: 15px;">
+            <div style="background-color: #d22121;height: 20vh;padding: 1.5vh;">
+                    <div style="display: flex;flex-direction: row;justify-content: center;">
+                        <label style="margin-right: 20px;">nome fornecedor</label>
+                        <h1 id="nomeFornec" style="color:#0bf02a;font-size: medium;"></h1>
+                    </div>
+                    <div style="display: flex;flex-direction: row;justify-content: center;">
+                        <label style="margin-right: 20px;">id  fornecedor</label>
+                        <h1 id="idFornec" style="color:#260bf0;font-size: medium;"></h1>
+                    </div>
+                    <div>
+             </div>
+             <button onclick="FornecOk()" style="width: 50%;height: 4vh;border-radius: 10%;background-color: #04955b;margin-top: 4vh;border:0px;color:#ffffff;">Confirmar</button>
+             </div>
+        </div>
+        <div id="painelDelete" style="width: 100%;height:92vh; position:  absolute;top:0;left:0;background-color: rgb(1, 125, 1,0.5);display:none;z-index: 1000;margin-top: 7.9vh;">
+             <div style="display: flex;flex-direction: column;width: 60%;height: 45vh;margin: auto;margin-top: 20vh;background-color: #0bf02a;">
+                {{!-- ::::::::::::: Barra Close ::::::::::::::::: --}}
+                <div id="painelClose" style="width: 100%;height: 4vh;background-color: #ffffff;">
+                         <button style="color: #b80303;font-size: larger;float: right;border: 0px;height: 4vh;width: 2vw;" onclick="closeDelete()" >X</button>
+                </div>
+                {{!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+                <div id="painelCorpo" style="width: 100%;height: 42vh;margin: auto;display:flex;flex-direction: row;">
+                    <div style="width: 50%;height: 41vh;background-color:#ea8e04 ;display: flex;flex-direction: column;justify-items:normal ;">
+                        <div id="barraespaçadora1" style="height: 2vh;">
+
+                        </div> 
+                        <form  action="/roupa/delete-produto" method="POST"  enctype="application/x-www-form-urlencoded" class="formclass" >
+                           <div style="display: flex;flex-direction: column;">
+                            <div class="divInput">
+                                <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">_id</label>
+                                <input id="idDel-id" name="nameDelid" style="width: 60%;text-align: center;cursor: none;" >
+                            </div>   
+                            <div class="divInput">
+                                <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">código</label>
+                                <input id="idDel-codigo" type="" name="nameDelcodigo" style="width: 60%;text-align: left;padding-left: 10px;cursor: none;" >
+                            </div>   
+                            <div class="divInput" >
+                                <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">descrição</label>
+                                <input id="idDel-descricao" type="" name="nameDeldescricao" style="width: 60%;text-align: left;padding-left: 10px;cursor: none;" >
+                            </div>   
+                            <div class="divInput" >
+                                <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">complemento</label>
+                                <input id="idDel-complete" type="" name="nameDelcomplete" style="width: 60%;text-align: left;padding-left: 10px;cursor: none;" >  
+                            </div>   
+                            <div class="divInput" >
+                                <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">tecido</label>
+                                <input id="idDel-tecido" type="text" name="nameDeltecido" style="width: 60%;text-align:left;padding-left: 10px;cursor: none;" > 
+                            </div>   
+                            <div class="divInput" >
+                                <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">artigo</label>
+                                <input id="idDel-artigo" type="" name="nameDelartigo" style="width: 60%;text-align: left;padding-left: 10px;cursor: none;" >
+                            </div>   
+                            <div id="barraespaçadora2" class="divInput" style="height: 2vh;width: 100%;margin: auto;visibility: hidden;">
+                                <input id="operacao" type="" name="nameDeloperacao" style="display: block;width: 50%;height: 2vh;margin: auto; " >
+                            </div> 
+                            <div style="height: 4vh;text-align: center;">
+                                <input type="button" style="width: 50%;height: 3.5vh;background-color: #b80303;color:#ffffff;border: 0px;border-radius: 5px;visibility: hidden;" onclick="disparaDelete(0)" value="suspender">
+                            </div> 
+                            <div style="height: 4vh;text-align: center;">
+                                <input type="button" style="width: 50%;height: 3.5vh;background-color: #b80303;color:#ffffff;border: 0px;border-radius: 5px;" onclick="disparaDelete(1)" value="excluir">
+                            </div>
+                            <button id="btnSubmit" style="display: none;" type="submit"></button>
+                           </div>  
+                        </form>   
+                    </div>
+                    <div style="width: 50%;height: 41vh;background-color:#ea8e04 ;margin-left: .5vh;">
+                        <div style="width: 80%;height: 36vh;margin: auto;background-color: #ffffff;margin-top: 2vh;">
+                             <img src="" width="100%">
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        {{!-- ::::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div id="header" class="list-group-item" style="width: 100%;">
+            <div class="" style="background-color: #ffffff;">
+                <div style="display: flex;flex-direction: row;justify-content:space-between;padding-top: 2vh;width: 100%;">
+                    <div class="" style="width: 50%;float: left;background-color:transparent;padding-top: 10px;display: flex;flex-direction: row;">
+                        <h2 id="idxLoja" class="" style="font-size: large;">Lojista :<span style="color: #ec0d0d;font-weight: lighter;font-size: medium;margin-left: 20px;">{{razao.razao}}</span></h2>
+                        <input id="idLoja" value="{{razao._id}}" style="display: none;height: 2vh;margin-left: 10px;color: #0bf02a;">
+                    </div>
+                    <div class="" style="width: 50%;float: left;background-color:transparent;padding-top: 10px;display: flex;flex-direction: row;">
+                        <h2 id="idxLoja" class="" style="font-size: large;" >Fornecedor :<span id="titulo_fornec" style="color: #ec0d0d;font-weight: lighter;font-size: medium;margin-left: 20px;"></span></h2>
+                        <input id="idFornec" value="{{fonec}}" style="display: block;height: 2vh;margin-left: 10px;">
+                    </div>
+                </div>
+
+            </div><hr>
+            <h6 style="font-size: xx-small;color: #000000;margin-top: -10px;">views/_cooperado/lojista/roupas/roupas_listar-temporario.handlebars{'layout:roupaLista'}</h6>
+            <div style="width: 100%;height: 2.5vh;background-color: #cccccc;display: flex;flex-direction: row;justify-content:center;padding-top: 0.5vh;">
+               <h6 style="color:#ffffff;">Estamos trabalhando !!!</h6>
+            </div>
+            {{!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////// --}}
+        </div>
+        <div id="corpo" class="" style="display: flex;flex-direction: row;justify-content: space-between;width: 100%;">
+            {{!-- <div id="menu-lateral" style="width: 8%;margin: auto;background-color: chartreuse;height: 100vh;float: left;">
+                <div style="display: flex;flex-direction: column;justify-content: space-around;justify-items: center;">
+                    <div style="width:100%;height: 50vh;margin: auto;background-color: #000000;display: flex;flex-direction: column;padding-bottom: 10vh;">
+                        <div id="SelectFornec" style="width: 80%;height: 10vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-content: center;">
+                            <label style="color: #ffffff;margin-top: 3vh;margin: auto;">Selecione um fornecedor</label>
+                            <select id="select_fornec" style="width: 100%;margin: auto;background-color: #ffffff;font-size: medium;height: 3vh;">
+                                {{#fornec}}
+                                    <option></option>
+                                    <option value={{this._id}}{{razao._id}}>{{this.marca}}</option>
+                                {{/fornec}}
+                            </select>
+                        </div>  
+                    </div>
+                    <div style="width:100%;height: 50vh;margin: auto;background-color: #000000;">
+                                                        <div style="width: 80%;height: 10vh;margin: auto;background-color:transparent;display: flex;flex-direction: column;justify-content: center;">
+                            <label style="color: #ffffff;margin-top: 3vh;margin: auto;">Escolha o artigo :</label>
+                            
+                            <select style="width: 100%;margin: auto;background-color: #ffffff;font-size: medium;height: 3vh;">
+                                <option value=""></option>
+                            </select>
+                        </div>  
+                    </div>
+                </div>
+
+            </div> --}}
+            <div id="table-produtos" class="table-responsive" style="width: 100%;margin: auto;background-color: #cccccc;height: 100vh;float: left;">
+                <table class="table table-striped table-hover table-bordered" style="background-color: #fbf5f5;">
+                    <thead>
+                        <tr>
+                            <th style="display: none;">ID</th>
+                            <th class="d-none d-sm-table-cell" >código</th>
+                            <th class="d-none d-sm-table-cell">descritivo</th>
+                            <th class="d-none d-sm-table-cell">detalhe</th>
+                            <th class="d-none d-lg-table-cell">tecido</th>
+                            <th class="d-none d-lg-table-cell">artigo</th>
+                            <th class="d-none d-sm-table-cell">cor</th>
+                            <th class="d-none d-lg-table-cell">tamanho</th>
+                            <th class="d-none d-lg-table-cell">qte</th>
+                            <th class="d-none d-lg-table-cell">custo</th>
+                            <th class="d-none d-lg-table-cell">vista</th>
+                            <th class="d-none d-lg-table-cell">prazo</th>
+                            <th class="d-none d-lg-table-cell">home</th>
+                            <th class="d-none d-lg-table-cell">page</th>
+                            <th class="d-none d-lg-table-cell">Delete</th>
+                            <th class="d-none d-lg-table-cell">Visualizar</th>
+                        </tr>
+                    </thead>
+                    {{!-- --------------------------------------------------- --}}
+                    <tbody id="x-9">
+                        {{!-- {{#each vitrine}}
+                            <tr style="font-size: small;color: #2bf332;font-weight: 100;">
+                                    <td style="width: 12%;">{{_id}}</td>
+                                    <td style="width: 12%;">{{this.produto.artigo}}</td>
+                            </tr> --}}
+                            {{!-- //<tr style="font-size: small;color: #000000;font-weight: 100;">
+                                    
+                            </tr> --}}
+                         {{!-- {{/each}}          --}}
+                    </tbody>
+                </table>
+                
+                {{!-- <div id="x-9" style="display: flex;flex-direction: column;margin-top: .3vh;background-color: #ffffff;width: 89vw;height: 80vh;overflow: auto;justify-items: center;">
+
+                </div>     --}}
+                <nav aria-label="paginacao">
+                    <ul class="pagination pagination-sm justify-content-center">
+                        {{#if contatos.hasPrevPage}}
+                                <li class="page-item">
+                                <a class="page-link" href="/contato/list-contato" tabindex="-1">Primeira</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.prevPage}}">{{contatos.prevPage}}</a></li>
+                        {{else}}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Primeira</a>
+                            </li>
+                        {{/if}}
+                                                        
+                        <li class="page-item active">
+                            <a class="page-link" href="#">{{contatos.page}}</a>
+                        </li>
+                        {{#if contatos.hasNextPage}}
+                            <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.nextPage}}">{{contatos.nextPage}}</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="/contato/list-contato?page={{contatos.totalPages}}" tabindex="-1">Última</a>
+                            </li>
+
+                        {{else}}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">Última</a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                </nav>
+            </div>      
+        </div>
+        {{!-- {{fornec}} --}}
+        <form  action="/roupa/busca-produto" method="POST"  enctype="application/x-www-form-urlencoded" class="formclass" style="display: block;">
+            <div style="display: flex;flex-direction: column;">
+                <div class="divInput">
+                    {{!-- <label style="width: 39%;background-color: dodgerblue;color:#f0eded;text-align: center;height:2.9vh;">_id</label> --}}
+                    <input id="idfornecSelected" name="nameidfornec" style="width: 60%;text-align: center;cursor: none;" >
+                </div>
+                <button id="disparaQuery" type="submit"></button>   
+            </div>                    
+        </form>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+</div>
+<script>
+function buscaLinha(){
+    var linha=document.getElementById("linhaIndex");
+    linha.addEventListener("click",function(event){
+         //...................................
+    })
+}
+
+function transferTemp(){
+    //let objetoId=document.getElementById("idxLoja");
+    //objetoId=objetoId.innerHTML 
+    //console.log('vr do objectoId',objetoId)
+    //let baseApiUrl=window.location.hostname;
+    //if (baseApiUrl=='localhost'){
+    //    baseApiUrl='http://localhost:3000'
+    //}else{
+    //    baseApiUrl='https://www.rotaes.com.br'
+    //}   
+    //////////////////////////////////////////////////////////////////
+    //try{
+    //    fetch(`${baseApiUrl}` + `/lojista/transfer-temp/${objetoId}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+    //    .then(response =>{
+    //        if( response.ok ){
+    //            return response.json()
+    //            }  
+    //            throw response;
+    //    })
+    //    .then((json)=>{
+    //        loadImagens(json)
+    //    })
+    //    .catch((err)=>{
+    //        console.log(err)
+    //    })
+    //}catch(e){
+    //    console.log(e)
+    //}
+}
+
+let r2=document.getElementById("select_fornec");
+r2.addEventListener("click",function(event){
+    event.stopPropagation();
+    limpaEspelho()
+    // Essa rotina limpa a lista de para buscar novos produtos de acordo com o nome do fornec selected    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    async function limpaEspelho(){
+                //.............................................
+                let t=0
+                let content=document.getElementById("x-9");
+                //.............................................
+                while (content.firstChild) {
+                   content.removeChild(content.firstChild);
+                   console.log('valor de t',t)
+                   t++;
+                }
+            }
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    console.log('');
+    //console.log("[ 332 ] addEvent")
+    document.getElementById("AvisoAlert").style.display="none";
+    // busca a razao do fornecedor para colocar no título
+    ////////////////////////////////////////////////////////////
+    let h=r2.selectedIndex;
+    let y=r2.options;
+    console.log('');
+    //let palavra=y[h].text;
+    palavra="Jóia!!"
+    console.log('valor da palavra',palavra) 
+    document.getElementById("titulo_fornec").innerText=palavra
+    //////////////////////////////////////////////////////////////
+    console.log('');
+    let r1=y[h].value;
+    document.getElementById("idFornec").value=r1;
+    console.log('value de r1',r1)
+    //////////////////////////////////////////////////////////////
+    if( r1==null || r1=='' || r1==undefined){
+        console.log('valor de obj=>dentro ',r1)  
+    }else{
+        //console.log('buscafornecedores')  
+      //palavra=r1
+      buscafornecedores(r1)              
+    }  
+})
+
+function FornecOk(){
+   document.getElementById("disparaQuery").click();
+}
+
+function  buscafornecedores(n){    
+    //.................................
+    let R1= document.getElementById("idfornecSelected");
+    R1.value=n;
+    ///////////////////////////////////////////////////////////////////////////
+    let palavra=n;
+    console.log("_________________________");
+    if (n==""){
+        console.log('number nulo !')
+    }else{
+        let nome=n;
+        nome=nome
+        let p=document.getElementById("idLoja");
+        p=p.value;
+        palavra=palavra + ":=" + p;
+        if (palavra!=""){
+            //............................................
+            //................................................
+            let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }
+            //......................................
+            console.log('valores : ',palavra)
+           // return
+            try{
+                fetch(`${baseApiUrl}` + `/roupa/buscar_produtos_fornecSelect/${palavra}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                                    const  oblist=Object.values(json)
+                                    console.log('valor de oblist',oblist)
+                                    console.log(oblist.length)
+                                    let h=oblist.length;
+                                    let p=0;
+                                    if(!h==0){ 
+                                        let x=1;
+                                        // h=> é o número de itens para listar
+                                        for(i=0;i<h;i++){
+                                            if(i>0){
+                                                p=p+1;
+                                                x=x+1;
+                                            }
+
+                                            let n1=oblist[i]._id;
+                                            // LINHA CONTAINER 
+                                            linhaContainer(n1,p,i);
+                                            primeLine(n1,p,i)
+                                            async function primeLine(n1,p,i){
+                                                const node15 = document.createElement("div");
+                                                node15.setAttribute('id','number' + '-' + p)
+                                                node15.setAttribute("class","idprodutoX");
+                                                document.getElementById('row_main' + '-' + p).appendChild(node15);
+                                                   
+                                                const node170 = document.createElement("a");
+                                                const textnode170 = document.createTextNode(n1);
+                                                node170.setAttribute("id","visualizar-" + p);
+                                                node170.setAttribute("class","bnt-visual");
+                                                node170.setAttribute("href","/roupa/visualizar-vitrine/" + n1 );
+                                                node170.appendChild(textnode170);
+                                                document.getElementById('number' + '-' + p).appendChild(node170);
+                                                                    
+                                                let A = oblist[i].codigo
+                                        
+                                                const node = document.createElement("div");
+                                                const textnode = document.createTextNode(A);
+                                                node.setAttribute("id","codigo" + '-' + p)
+                                                node.setAttribute("class","codigoX")
+                                                node.appendChild(textnode);
+                                                document.getElementById('row_main' + '-' + p).appendChild(node);
+                                                     
+                                                ////////////////////////////////////////////////////////
+                                                let B = oblist[i].descricao
+                                                const node1 = document.createElement("div");
+                                                const textnode1 = document.createTextNode(B);
+                                                node1.setAttribute("id","descricao" + '-' + p)
+                                                node1.setAttribute("class","descricao")
+                                                //node1.setAttribute("id","mycol" + p)
+                                                node1.appendChild(textnode1);
+                                                document.getElementById('row_main' + '-' + p).appendChild(node1);
+                                    
+                                                ////////////////////////////////////////////////////////
+                                                let C = oblist[i].complete;
+                                                const node2 = document.createElement("div");
+                                                const textnode2 = document.createTextNode(C);
+                                                node2.setAttribute("id","complete" +'-' +  p);
+                                                node2.setAttribute("class","complete");
+                                                //node2.setAttribute("id","mycol" + p)
+                                                node2.appendChild(textnode2);
+                                                document.getElementById('row_main' + '-' + p).appendChild(node2);
+                                
+                                                ////////////////////////////////////////////////////////////////////////
+                                                ////////////////////////////////////////////////////////////////////////
+                                                let F = oblist[i].tecido;
+                                                const node4 = document.createElement("div");
+                                                const textnode4 = document.createTextNode(F);
+                                                node4.setAttribute("id","tecido" + '-' + p);
+                                                node4.setAttribute("class","tecido");
+                                                // node4.setAttribute("id","mycol" + p)
+                                                node4.appendChild(textnode4);
+                                                document.getElementById('row_main' + '-' + p).appendChild(node4);
+
+                                                let D = oblist[i].artigo
+                                                const node3 = document.createElement("td");
+                                                const textnode3 = document.createTextNode(D);
+                                                node3.setAttribute("id","artigo" + '-' + p);
+                                                node3.setAttribute("class","blue");
+                                                node3.appendChild(textnode3);
+                                                document.getElementById('row_main' + '-' + p).appendChild(node3);
+                                                   
+                                                }             
+                                            //console.log('-------------------------------------------')
+                                            }
+                                       console.log('-[ 585 ]--buscaCores----------------------------------------')        
+                                       buscarCores(n)
+                                    }else{
+                                        console.log("tenha fé!")
+                                        document.getElementById("AvisoAlert").style.display="block";
+                                    }
+                              
+
+                     })
+                    .catch((error)=>{
+                       console.log(error)
+                    })
+                }catch(e){
+                    console.log(e)
+                } 
+
+                function linhaContainer(n,p,i){
+                    //Essa linha conterá uma linha de produto
+                    const node102 = document.createElement("div");
+                    const textnode102 = document.createTextNode(n);
+                    node102.setAttribute('id','row_main' + '-' + p)
+                    node102.setAttribute("class","linhaMain");
+                    node102.setAttribute("onclick","visualiza(" + "'" + n + "'" + ")");
+                    document.getElementById('x-9').appendChild(node102);
+
+                   // const node103 = document.createElement("div");
+                   // const textnode103 = document.createTextNode(n);
+                   // node103.setAttribute('id','row_mainX' + '-' + p)
+                   // node103.setAttribute("class","linhaMainRow")
+                   // document.getElementById('row_main' + '-' + p).appendChild(node103);
+                }
+
+
+               async function buscarCores(n){
+                             ///////////////////////////////////
+                             console.log('590')
+                             let content=document.getElementById("x-9");
+                             //.............................................
+                             let n2=content.childElementCount;
+                             //while (content.firstChild) {
+                             console.log(' valor de n2 ',n2)
+                             let idx;
+                             for (let i=0;i<n2;i++){
+                                   let n3=document.getElementById('number-' + i);
+                                   console.log('number-' + i)
+                                   console.log('.................>',n3);
+                                   //idx=n3.id;
+                                  // console.log('[603]',n3.innerText)
+                                   let passaValor;
+                                   console.log('');
+                                   //console.log(' linha [ 601 ] ',n3.value);
+                                   passaValor=n3.innerText
+                                   console.log('passaValor : ',passaValor)
+                                   buscaCores(passaValor)
+                             }
+                             //return
+                             //')
+                             function buscaCores(n){
+                                    console.log('[ 643 ]',n);
+                                    let baseApiUrl=window.location.hostname;
+                                    if (baseApiUrl=='localhost'){
+                                        baseApiUrl='http://localhost:3000'
+                                    }else{
+                                        baseApiUrl='https://www.rotaes.com.br'
+                                    }
+                                    //......................................
+                                    try{
+                                        fetch(`${baseApiUrl}` + `/roupa/pega-as-cores/${n}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                                                    .then(response => {
+                                                        if( response.ok ){
+                                                    return response.json()
+                                                            }  
+                                                            throw response;
+                                                    })
+                                                    .then((json)=>{
+                                                        console.log('[727] json retorno : ',json)
+
+                                                        const node155 = document.createElement("div");
+                                                        let cor_back=json.corback;
+                                                        console.log('_______________________________________')
+                                                        console.log('[485?]valor de _id do produto',cor_back);
+                                                        //console.log('id',idx)
+                                                        console.log('_______________________________________')
+                                                      //  const textnode155 = document.createTextNode(cor_back);
+                                                        node155.setAttribute('id','corback' + '-' + 0)
+                                                        node155.setAttribute("class","linhaMainRow");
+                                                       // node155.setAttribute('value',cor_back);
+                                                       // node155.appendChild(textnode155);
+                                                        document.getElementById('row_main-0').appendChild(node155);
+
+                                                         const node156 = document.createElement("input");
+                                                         node156.setAttribute('id','input-corback' + '-' + 0)
+                                                         node156.setAttribute("class","inputcor");
+                                                         node156.setAttribute('value',cor_back);
+                                                         document.getElementById('corback' + '-' + 0).appendChild(node156);
+                                                         console.log('[ 649 ]')
+                                                        //let ob1=json;
+                                                        //return ob1
+                                                        //buscaCores(n) 
+                                                    })
+                                                    .catch((err)=>{
+                                                        console.log(err)
+                                                    });
+                                    }catch(e){
+                                        console.log(e)
+                                    }
+                             }         
+                      }
+
+                //console.log('');
+        }        
+  }
+}
+
+function closeDelete(){
+    document.getElementById("painelDelete").style.display="none";
+}
+
+function deleteprod(n){
+    let n1=n;
+    document.getElementById("painelDelete").style.display="block";
+    //....................................................
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    //......................................
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/busca_produto_delete/${n1}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response => {
+            if( response.ok ){
+                    return response.json()
+                }  
+                throw response;
+        })
+        .then((json)=>{
+            console.log(' [ 642 ]')
+            console.log(json);
+            //.....................................................
+            document.getElementById("idDel-id").value=json._id;
+            document.getElementById("idDel-codigo").value=json.produto.codigo;
+            document.getElementById("idDel-descricao").value=json.produto.descricao;
+            document.getElementById("idDel-complete").value=json.produto.complete;
+            document.getElementById("idDel-tecido").value=json.produto.tecido;
+            document.getElementById("idDel-artigo").value=json.produto.artigo;
+        })
+        .catch((err)=>{
+            console.log(' O correu um erro na  [ 649 ]', err)
+        })
+    }catch(e){
+        console.log(e)
+    }
+}
+
+function disparaDelete(n){
+    document.getElementById("operacao").value=n;
+    document.getElementById("btnSubmit").click();
+}
+
+function visualiza(n){
+
+
+}
+</script>

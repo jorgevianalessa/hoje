@@ -1,0 +1,461 @@
+<style>
+.principal{
+   width: 100%;height: 100vh;margin: auto;margin-top: 6vh;background-color: #ffffff;padding: 3px;
+}
+
+.divCentral{
+    width: 90%;height:99vh;margin-left:5%;float: left;background-color: transparent ;color:#ffffff;padding:0.5px;
+    padding-top: 1.5vh;
+}
+
+/*.dright{
+    width: 50%;height:99vh;margin: auto;float: left;background-color:#7df21d ;color: #ffffff;
+}*/
+
+.linhaBranca{
+    width: 100%;height: .5vh;margin: auto;margin-top: 2px;margin-bottom: 2px;background-color: #ffffff;
+}
+
+.tituloLoja{
+    width: 100%;height: 4vh;margin: auto;background-color: #31312c;padding: 3px;text-align: center;text-align: center;
+}
+
+.tituloright{
+   width: 100%;height: 4vh;margin: auto;background-color: dimgray;padding: 3px;text-align: center;border-right: 2px solid #ffffff;text-align: center;
+}
+
+.row-fornec{
+    width:100%;height: 4vh;margin:auto;background-color:  transparent;display: flex;flex-direction: row;margin-bottom: 5px;
+}
+
+.row-fornec-label{
+    width: 30%;height: 3vh;margin-top: 0.5vh;background-color:transparent;align-items: center;
+}
+
+.row-fornec-input{
+   width:68%;height:3vh;background-color:transparent;margin-top: 2px;display: flex;flex-direction: column;
+                                                justify-content: center;align-items: start;
+}
+
+.selectfornec{
+    width: 90%;height: 20vh;margin: auto;margin-top: 1vh;background-color: transparent;border-radius: 5px;z-index: 1000;padding: 2vh;border:2px solid #ffffff;
+}
+
+/*.cadfornec{
+    width: 50%;height: 30vh;margin: auto;margin-top: 1vh;background-color: #190481;border-radius: 5px;z-index: 1000;padding:0.6vh;display: none;
+}*/
+
+.linha-form{
+    width: 100%;height: 3.5vh;margin: auto;background-color: violet;margin-bottom: 4px;display: flex;flex-direction:row;
+    justify-content: center;align-content: space-between;padding: 0.2vh;margin-top: 0.2px;
+}
+
+.linha-form-label{
+    width: 30%;height: 3vh;background-color: transparent;text-align: center;color: #ffffff;
+    border-bottom: 2px solid #ffffff;font-size: small;
+}
+
+.linha-form-input{
+    width: 60%;height: 2.5vh;background-color: #ffffff;border: none;margin-top:-4.5px;"
+}
+
+.linha-form-button{
+    width: 60%;height: 3vh;background-color: #ffffff;border: none;margin-top:-4.5px;"
+}
+
+.button-form{
+    width: 60%;height: 3.2vh;font-size: small;background-color: dodgerblue;border-radius:4px ;border: 1px solid #ffffff;color:#ffffff;
+}
+
+</style>
+<script>
+    function myFunction(){
+
+    }
+</script>
+<div class="principal">
+    <div id="corpo" class="divCentral" style="background-color: #de09f1;">
+        <h6 style="font-size: xx-small;color: #000000;margin-top: 10px;color:#ffffff;margin-left: 20px;">views/_cooperado/lojista/roupas/roupa_importando-lista</h6>
+        <div id="SelectFornec"  class="selectfornec">
+              <div id="divFornec-ListaFornecs" class="tituloLoja">
+                    <h5 style="color:#ffffff;">Selecione o fornecedor</h5>
+              </div>
+              <div style="width: 100%;height: 12vh;margin: auto;background-color: #cccccc;display: flex;flex-direction: row;justify-content: center;padding-top:0.2vh;align-items: start;">
+                    <table style="width:100%;height: 4vh;margin: auto;background-color: #93037b;margin-top: 0px;">
+                        <thead id="seteoito" style="background-color: #e0d90a;width: 100%;">
+                            <tr style="font-size:smaller;background-color: #7c0537;width: 100%;">
+                                <th style="background-color:black;border-bottom: 1px solid #0450dd;width:40%;;">Razão</th>
+                                <th style="background-color:black;border-bottom: 1px solid #0450dd;width:40%;">Cnpj</th>
+                                <th style="background-color:black;border-bottom: 1px solid #0450dd;width: 20%;">Marca</th>
+                            </tr>
+                        </thead> 
+                        {{!-- ///////////////////////////////////////////////////////////////// --}}
+                         <tbody id="linhaIndex" style="overflow: auto;color:#ffffff">
+                            {{#each fornecedor}}
+                              <tr id="numlin">
+                                  {{!-- <td style="text-align: left;color: #06e320;" onclick="buscLinha('{{this.razao}}' + '-' + '{{this.cnpj}}')">{{this.marca}}</td> --}}
+                                    <td  onclick="dadofornec('{{this.razao}}' + '<->' + '{{this.cnpj}}' + '<->'  +  '{{this.marca}}' + '<->'  + '{{this._id}}')">{{this.razao}}</td>
+                                    <td>{{this.cnpj}}</td>
+                                    <td>{{this.marca}}</td>
+                              </tr>
+                            {{/each}}
+                         </tbody>
+                    </table>
+              </div>
+              {{!-- .......................................................... --}}
+        </div>
+        
+        <div class="linhaBranca"></div>
+        <div id="divLoja" style="width: 90%;height: 20vh;margin: auto;border:2px solid #d7d4d4;display: flex;flex-direction: column;justify-content: center;align-items: center;margin-bottom: 20px;">
+                <div id="divLoja-tituloLojista" class="tituloLoja">
+                    <h5 style="color:#ffffff;">lojista</h5>
+                </div>
+                <div id="divLoja-dados" style="width: 100%;height: 25vh;margin:auto;background-color: transparent;display: flex;flex-direction: column;
+                                        align-content:space-between;padding: 0.1vh;padding-left: 0.5vw">
+                        <div id="divLoja-razao" style="width:99.5%;height:5vh;background-color:transparent;margin-top: 2px;padding:4px;display: flex;
+                                    flex-direction: row;align-items: center;">
+                            <div  style="width: 15%;height: 3vh;margin-top: 0.5vh;background-color: transparent;">
+                                <label style="margin-right:0.9vw;color:#ffffff;float: right">razão loja</label>
+                                {{!-- // {{fornecedor.razao}} --}}
+                            </div> 
+                            <div style="width:100%;height:4vh;background-color:transparent;margin-top: 2px ;padding:4px;">
+                               <input style="margin-left:1vw;border-radius:6px;" type="text" id="" value="{{client.razao}}">
+                            </div>
+                        </div>
+                        <div id="divLoja-cnpj" style="width:99.5%;height:5vh;background-color:transparent;margin-top: 2px;padding:4px;display: flex;
+                                    flex-direction: row;align-items: center;">
+                            <div style="width: 15%;height: 3vh;margin-top: 0.5vh;background-color:  transparent;">
+                               <label style="margin-right:0.9vw;color:#ffffff;float: right">cnpj:</label>
+                            </div>     
+                            <div style="width:100%;height:4vh;background-color:transparent;margin-top: 2px ;padding:4px;">
+                               <input style="margin-left:1vw;border-radius:6px;" type="text" id="" value="{{client.cnpj}}">
+                            </div>
+                        </div>
+                        <div id="divLoja-marca" style="width:99.5%;height:5vh;background-color:transparent;margin-top: 2px;padding:4px;display: flex;
+                                    flex-direction: row;align-items: center;">
+                            <div style="width: 15%;height: 3vh;margin-top: 0.5vh;background-color:transparent;">
+                                <label style="margin-right:0.9vw;color:#ffffff;background-color: transparent;float: right;">marca</label>
+                            </div>
+                            <div style="width:100%;height:4vh;background-color:transparent;margin-top: 2px ;padding:4px;">
+                                <input style="margin-left:1vw;border-radius:6px;" type="text" id="" value="{{client.marca}}">
+                            </div>
+                            <div>
+                                <input  id="ident" name="ident" style="display: none;"           value="{{client.idd}}">
+                            </div>
+                        </div>
+                </div>   
+        </div> 
+        <div style="clear: both;margin-top: 10px;margin-bottom: 10px;background-color: #7df21d;"></div>  
+        <div id="divFornecedor" style="width: 90%;height: 24vh;margin: auto;border:2px solid #d7d4d4;display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top: 10px;">
+                <div id="divFornecedor-tituloLojista" class="tituloLoja">
+                    <h5 style="color:#ffffff;">fornecedor</h5>
+                </div>
+                {{!-- /////////////////////////////////////////////////////////// --}}
+                <div id="divFornecedor-dados" style="width: 100%;height: 25vh;margin:auto;background-color: transparent;display: flex;flex-direction: column;
+                                    align-content:space-between;padding: 0.1vh;padding-left: 0.5vw"> 
+                        <div id="divFornecedor-central" style="width:99.5%;height:20vh;background-color:transparent;margin-top: 2px;padding:4px;display: flex;
+                                    flex-direction: row;align-items: center;">
+                            <div id="divFornecedor-dados-left"  style="width: 45%;height: 18vh;margin: auto;float: left;  background-color: transpareente;display: flex;flex-direction: column;justify-items: center;">
+                                    <div id="divFornecedor-razao" class="row-fornec">
+                                        <div id="divFornecedor-razao-label" class="row-fornec-label" >
+                                            <label style="width: 100%;color: #ffffff;padding-left: 20px;">razão </label>
+                                        </div>  
+                                        <div id="divFornecedor-razao-input" class="row-fornec-input" >
+                                        <input id="fornecrazao" type="text" style="border-radius:6px;"  value="">
+                                        </div>
+                                    </div>
+                                    <div id="divFornecedor-cnpj" class="row-fornec" >
+                                        <div id="divFornecedor-cnpj-label" class="row-fornec-label" >
+                                            <label style="width: 100%;color: #ffffff;padding-left: 20px;">cnpj:</label>
+                                        </div>
+                                        <div id="divFornecedor-cnpj-input" class="row-fornec-input">
+                                            <input id="forneccnpj" type="text"  style="border-radius:6px;" value="">
+                                        </div>
+                                    </div>
+                                    <div id="divFornecedor-marca" class="row-fornec">
+                                        <div id="divFornecedor-marca-label" class="row-fornec-label" >
+                                            <label style="width: 100%;color: #ffffff;padding-left: 20px;">marca</label>
+                                        </div>
+                                        <div id="divFornecedor-marca-input" class="row-fornec-input" >
+                                            <input id="fornecmarca" type="text" style="border-radius:6px;"  value="">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div id="divFornecedor-dados-right" style="width: 45%;height: 18vh;margin: auto;float: left;  background-color: transparent;display: flex;flex-direction: column;justify-items: center;">
+                                   <div style="width: 60%;height: 5vh;margin: auto;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                                       
+                                   </div>
+                                   
+                                   <div style="width: 60%;height: 5vh;margin: auto;background-color:transparent;display: flex;flex-direction: row;justify-content: center;">
+                                        <button type="button" style="border-radius: 4px;border:1px solid #ffffff;background-color: #b80003;color: #ffffff;width: 60%;margin: auto;
+                                                                       border-bottom: 2.5px solid #ffffff;border-right: 3px solid #ffffff;" onclick="limpafornec()">Limpar tudo</button>
+                                   </div>
+                            </div>               
+                        </div>
+                </div>
+        </div>  
+        <div id="divImport" style="width:90%;height:30vh;margin-left:4.5vw ;background-color:yellow;float:left;color:darkgreen;text-align: left;z-index: 300;">
+               <div style="width:100%;height:15vh;background-color:transparent ;margin-top: 2px;">
+                          <div class="div-upload">
+                                <hr>
+                                <label style="color:#ffffff;">{{client.idd}}</label>   
+                                <div style="display:flex;flex-direction:column;justify-content:center;justify-items:baseline;margin-top: -20px;">
+                                     <form action="/roupa/gravaimportacao-stok/" style="width: 80%;height: 15vh;background-color:transparent;margin:auto;margin-top:5px;padding-top: 15px;padding: 3%;" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                       <div style="display: flex;flex-direction:column;align-content: center;align-content: center;background-color: transparent;padding-left: 50px;">
+                                            {{!-- .................................................................................... --}}
+                                            <div style="background-color: transparent;width: 50%;margin: auto;margin-bottom: 20px;">
+                                                <input type="file" id="myFile" name="myfile" class="uploadInput" style="margin:left:50px;background-color:#7df21d;border-radius: 6px;width: 70%;margin-right:20px ;">
+                                            </div>
+                                            {{!-- ///////////////////////////////////////////////////////////////////////////                                             --}}
+                                            <div style="background-color: transparent;width: 50%;margin: auto;display: flex;flex-direction: row;align-content: end;align-items: center;">
+                                                <button type="submit" style="background-color: #7df21d;border-radius: 6px;width: 70%;;" 
+                                                        class="botao">Importar</button>
+                                            </div>        
+                                            {{!-- .................................................................................... --}}
+                                            <input id="idLoja" name="idloja"    type="text" style="display: none;" value="{{client.id}}">
+                                            <input id="rzloja" name="rzloja"    type="text" style="display: none;" value="{{client.razao}}">
+                                            <input id="cnpjloja" name="cnpjloja"    type="text" style="display: none;" value="{{client.cnpj}}">
+                                            <input id="razaofornec" name="razaofornec"    type="text" style="display: none;" value="">
+                                            <input id="cnpjfornec" name="cnpjfornec"    type="text" style="display: none;" value="">
+                                            <input id="id_fornec" name="nameid_fornec"    type="text" style="display: none;" value="">
+                                            <input id="marcafornec" name="marcafornec"    type="text" style="display:none;" value="">
+                                            {{!-- .................................................................................... --}}
+                                       </div>        
+                                    </form>
+                                </div> 
+                          </div>
+                  </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function limpaCxLoja(){
+    console.log(1)
+}
+
+let g;
+let r;
+function buscaArq(){
+    var x = document.getElementById("myFile");
+    r=x.files[0];
+    g=r.name;
+    let n=r.files
+    let p=document.getElementById("inputPasta").value;
+   // console.log('vr da pasta',p)
+    g=r.name //+ ';' + p;
+    console.log('vr de g',g)
+    let G=[
+        arquivo1=g,
+    ]
+
+    let N={};
+    console.log('vr de G',G)
+    //::::::::::::::::::::::::::::::::::::::::::::::
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+       baseApiUrl='https://www.rotaes.com.br'
+    }
+    //////////////////////////////////////////////////////////////
+    fetch(`${baseApiUrl}` + `/mnfornec/gravaprodvisorio/${g}`,{method: "GET",
+                                headers: {'Content-type': 'application/json',
+                                Accept:'application/json;charset=UTF-8'},
+                                mode:'cors',
+                                cache:'default'})
+                                .then(response => {
+                                    if( response.ok ){
+                                        console.log(response.status())
+                                        return response.json()
+                                    }  
+                                    console.log(response.status)
+                                    throw response;
+                                })
+                                .then((json) => {
+                                    console.log(json)
+                                    let w=json.length;
+                                    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::                                                                                                  
+                                    for(i=0;i<w;i++){
+                                    //::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                    const node = document.createElement("tr");
+                                    let att=node.setAttribute("class","row-table")
+                                    document.getElementById("arqtemp").appendChild(node);
+
+                                    const node1 = document.createElement("td");
+                                    const textnode1 = document.createTextNode(i+1);
+                                    let att1=node1.setAttribute("class","col-linha")
+                                    node1.appendChild(textnode1);
+                                    document.getElementById("arqtemp").appendChild(node1);
+
+                                    const node2 = document.createElement("td");
+                                    const textnode2 = document.createTextNode(json[i].codigo);
+                                    let att2=node2.setAttribute("class","col-codigo")
+                                    node2.appendChild(textnode2);
+                                    document.getElementById("arqtemp").appendChild(node2);
+
+                                    const node3 = document.createElement("td");
+                                    const textnode3 = document.createTextNode(json[i].descritivo);
+                                    let att3=node3.setAttribute("class","col-descritivo")
+                                    node3.appendChild(textnode3);
+                                    document.getElementById("arqtemp").appendChild(node3);
+                                    }
+                                    /////////////////////////////////////////////////////////
+                                })
+                                .catch((e)=>{
+                                   console.log(e)
+                                })
+}      
+
+//function buscFornec(n){
+     //return
+    //console.log(888)
+//    document.getElementById("SelectFornec").style.display="block";
+//    var x=document.getElementById("selectedfornec")
+    //console.log(x)
+    //  return
+    //////////////////////////////////////////////////////
+    //let N={};
+   // console.log('vr de G',G)
+    //::::::::::::::::::::::::::::::::::::::::::::::
+//    let baseApiUrl=window.location.hostname;
+//  /  if (baseApiUrl=='localhost'){
+//            baseApiUrl='http://localhost:3000'
+//    }else{
+//       baseApiUrl='https://www.rotaes.com.br'
+//    }
+    //////////////////////////////////////////////////////////////
+//    let path=`${baseApiUrl}` + '/mnfornec/listfornec'
+//    console.log(path)
+//    try{
+//         fetch(`${path}`,{method: "GET",
+//                                headers: {'Content-type': 'application/json',
+//                                Accept:'application/json;charset=UTF-8'},
+//                                mode:'cors',
+//                                cache:'default'})
+//                                .then(response => {
+//                                        if( response.ok ){
+                                          // console.log('--',response.status)
+//                                            return response.json()
+//                                        }  
+                                        //console.log(response.status)
+//                                        throw response;
+//                                })
+//                                .then((json) => {
+//                                    console.log(json)
+//                                })
+//                                .catch((err)=>{
+//                                       console.log('linha 379',err)
+//                                })
+//    }catch(e){
+//        console.log('linha 382',e)
+//    }                         
+//}
+
+function dadofornec(a){
+    console.log(a)
+    let palavra=a;
+    let c=a.length;
+    //--------------------------------------------
+    let p=palavra.search('<->')
+    let razao=palavra.slice(0,p);
+    console.log('razão : ',razao)
+    document.getElementById("fornecrazao").value=razao;
+    //.......................................................
+    console.log('');
+    let restantepalavra=palavra.substring((p+3),c)
+    //-------------------------------------------------------
+    p=restantepalavra.search("<->")
+    let cnpjfornec=restantepalavra.slice(0,p)
+    console.log('vr de cnpj',cnpjfornec);
+    document.getElementById("forneccnpj").value=cnpjfornec;
+    //-------------------------------------------------------
+    console.log('');
+    c=restantepalavra.length;
+    restantepalavra=restantepalavra.slice(21,c)
+    //.......................................................
+    p=restantepalavra.search("<->");
+    let marca=restantepalavra.slice(0,p);
+    console.log('marca : ',marca);
+    //.......................................................
+    c=restantepalavra.length;
+    let fornec_id=restantepalavra.slice((p+3),c);
+    console.log('ifornec_id',fornec_id)
+    //.......................................................
+    document.getElementById("fornecmarca").value=marca;
+    document.getElementById("marcafornec").value=marca;
+    document.getElementById("razaofornec").value=razao;
+    document.getElementById("cnpjfornec").value=cnpjfornec;
+    document.getElementById("id_fornec").value=fornec_id;
+}
+
+function limpafornec(){
+   document.getElementById("fornecrazao").value="";
+   document.getElementById("forneccnpj").value="";
+   document.getElementById("fornecmarca").value="";
+}
+  
+</script>
+
+{{!-- <div id="cadFornec"  class="cadfornec">
+              <div style="width: 100;height: 23vh;margin: auto;background-color: transparent;display: flex;flex-direction: row;justify-content: center;padding-top: 0.5vh;">
+                   <form style="width: 100%;height: 22vh;margin: auto;background-color: cornflowerblue;">
+                        <div id="linha-form" class="linha-form"  >
+                            <div class="linha-form-label">
+                                <label>Razao social :</label>
+                            </div>
+                            <div style="width: 68%;height: 3vh;background-color: transparent;">
+                                <input class="linha-form-input">
+                            </div>
+                        </div>
+                         <div id="linha-form"  class="linha-form">
+                            <div class="linha-form-label">
+                                <label>Cnpj :</label>
+                            </div>
+                            <div style="width: 68%;height: 3vh;background-color: transparent;">
+                                <input class="linha-form-input">
+                            </div>
+                        </div>
+                        <div id="linha-form"  class="linha-form">
+                            <div class="linha-form-label" >
+                                <label>Inscrição :</label>
+                            </div>
+                            <div style="width: 68%;height: 3vh;background-color: transparent;">
+                                <input class="linha-form-input">
+                            </div>
+                        </div>
+                         <div id="linha-form"  class="linha-form">
+                            <div class="linha-form-label" >
+                                <label>E-mail :</label>
+                            </div>
+                            <div style="width: 68%;height: 3vh;background-color: transparent;">
+                                <input class="linha-form-input">
+                            </div>
+                        </div>
+                         <div id="linha-form"  class="linha-form">
+                            <div class="linha-form-label" >
+                                <label>Whatsapp :</label>
+                            </div>
+                            <div style="width: 68%;height: 3vh;background-color: transparent;">
+                                <input class="linha-form-input">
+                            </div>
+                        </div>
+                         <div id="linha-form"  class="linha-form">
+                            <div class="linha-form-label" >
+                                <label>Contato :</label>
+                            </div>
+                            <div style="width: 68%;height: 3vh;background-color: transparent;">
+                                <input class="linha-form-input" >
+                            </div>
+                        </div>
+                         <div id="linha-form"  class="linha-form " >
+                            <div style="width: 100%;height:3vh;margin: auto;display: flex;flex-direction: row;justify-content:space-around;">
+                               <button class="button-form">gravar</button>
+                          
+                           
+                               <button class="button-form">limpar</button>
+                            </div>
+                         </div>
+                   </form>
+              </div>
+        </div> --}}

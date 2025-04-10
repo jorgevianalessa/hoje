@@ -1,0 +1,1152 @@
+<style>
+
+  .titulo_page{
+      width: 100%;height: 2vh;margin: auto;
+      background-color: transparent;text-align: center;
+      padding: 0.1vh;margin-top: 2vh;
+      display: flex;flex-direction: row;"
+  }
+
+  .label_control{
+     color:#cccccc;font-size: larger;font-weight: bold;padding: 0px 10px 0px 10px;visibility: hidden;
+  } 
+
+  .handlebars{
+    color:#ffffff;font-size: xx-small;font-weight: bold;
+  }
+
+  .form_modal{
+      width: 20%;height: 50vh;margin: auto;
+      position:absolute;
+      top: 100px;;
+      right:100px;
+      z-index: 100;
+      background-color: rgba(114, 3, 92, 0.5);
+      display: none;
+  }
+
+  .form_action{
+     width: 80%;height: 49.5vh;margin: auto;
+     padding: 2em;margin-top: 2vh;
+     background-color: rgb(0, 0, 255,0.3);
+  }
+
+  .rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color: #008b8b;
+  }
+
+  .rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color:  #05d639;
+  }
+
+  .btn_gravar{
+    width: 6vw;
+    height: 3vh;
+    border-radius: 6px;
+    background-color: #035384;color:#ffffff;
+    margin-top:0.3vh;
+  }
+
+  .linha-produto{
+     width: 80%;height: 3vh;margin: auto;
+     margin-top: .5vh;
+     display: flex;flex-direction: row;
+     margin-top: 3px;
+     background-color:transparent;
+  }
+
+  .linha-produto_div{
+    width: 90%;
+    height: 3vh;margin: auto;
+    display: flex;flex-direction: row;justify-content:center;
+    background-color:#b20787;
+  }
+
+  .linha-produto_label{
+    width: 20%;
+    text-align: center;
+    background-color: #008000;
+    color: #ffffff;
+    padding: 0.5vh;
+  }
+
+  .linha-label{
+    width: 20%;
+    text-align: center;
+    background-color:red;
+    color: #ffffff;
+    padding: 0.15vh;
+    border-bottom: 2px solid #ffffff;
+  }
+
+  .div-linha{
+     width: 100%;height: 3vh;margin: auto;background-color:#ffffff;
+  }
+
+  .X10{
+    color:#ffffff;
+  }
+
+  .linha-produto_input{
+    width: 80%;
+    background-color: #06eb1d;
+  }
+
+
+
+  .btnInput{
+    width: 100%;height:3vh;
+    color:#c11414;
+    border:2px solid #cccccc;
+  }
+
+  .linha-produto_input input{
+    width: 100%;height:3vh;
+    background-color: #ffffff;
+    color:#0000ff;
+    border: 2px solid #cccccc;
+  }
+
+  .btn_label{
+    width: 6vw;
+    margin-left: 6px;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .btn_button{
+    width: 5vw;
+    margin:auto;
+    text-align:left;
+    border-radius: 5px;
+    border:0px;
+    background-color: #87ce87;color:#ffffff;
+  }
+
+  .btn_input{
+    width: 6vw;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .formataImg{
+    max-width: 50vw;
+    max-height: 30vh;
+    width: auto;
+    height: auto;
+    background-color: #959292;
+    padding: 3px;
+  }
+  
+  .dados_produto{
+     width: 85%;height: 85vh;margin: auto;
+     display: flex;flex-direction:column;
+     background-color: #ffffff;
+     padding: 2px 5px 2px 5px;
+  }
+
+  .dados_itens{
+    width: 50%;height: 80vh;margin: auto;
+    background-color: #ffffff;
+  }
+
+  .dados_imagens{
+    width: 50%;height: 80vh;margin: auto;
+    background-color: #ffffff;"
+  }
+
+</style>
+
+
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<style>
+    .avisoAlerta_{
+        width: 80%;
+        font-size: larger;
+        font-weight: 100;
+        margin-top: 14px;
+        border:1px solid cornsilk;
+        text-align: center;margin-top: 6px;
+        text-align: center;
+        margin-left: 10%;
+    }
+
+    .ativaModalResposta_{
+        width: 80%;height: 7vh;margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 1.5vh;
+    }
+    .buttonAlerta_{
+        width: 10vw;
+        border-radius: 6px;
+        background-color: #04bb32;
+        color:#ffffff;margin: auto;
+    }
+</style>
+
+<div id="nucleo" style="width: 98%;height: 90vh;margin: auto;margin-top:9.1vh;background-color:#ffffff;color:#000000;">
+    {{!-- ...................Box Dialogo Sim/Não.................................. --}}
+    <div  id="msgSpan1" style="width: 50%;height: 15vh;margin: auto;background-color: #bcb7b7;text-align: center;display: none;z-index: 1000;position: absolute;
+                               left:25%;top: 50;border: #035384 2px solid;padding-top: 0.5vh;">
+        {{!-- <input id="avisoAlerta" class="avisoAlerta_"  value="">  --}}
+        <h3 style="color:#ffffff;">Confirma o valor ? <span id="idspan1" style="color:#ffffff;font-weight: 100;margin:0px 10px 0px 10px;"></span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="ativaModalResposta_" >
+            <input id="avisoAlerta" class="avisoAlerta_"  value="" style="color:green;font-size:larger ;display: none;">
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+            <button class="buttonAlerta_" onclick="vinculaFornecedor()">SIM</button> 
+            <button class="buttonAlerta_" onclick="limpaFornecedor()" style="background-color: #ff0000;">Não</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- ...........Form para gravar as modificações............................. --}}
+    <div id="formEdita"  class="form_modal">
+          <form action="/roupa/editando-extensao" method="POST"  enctype="application/x-www-form-urlencoded" class="form_action">
+              <div class="rowImpar">
+                 <input id="identId" name="nameIdentidade" value="{{vitrine._id}}">
+              </div>
+              <div class="rowImpar">
+                 <input id="corId" name="nameIdentidade" value="{{extensao._id}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="tamanhoId" name="nameTamanho" value="tamanho">
+              </div>
+              <div class="rowImpar" >
+                 <input id="qteId" name="nameQte" value="qte">
+              </div>
+              <div class="rowPar" >
+                 <input id="custoId" name="nameCusto" value="custo">
+              </div>
+              <div class="rowImpar" >
+                 <input id="vistaId" name="nameVista" value="vista">
+              </div>
+              <div class="rowPar" >
+                 <input id="prazoId" name="namePrazo" value="prazo">
+              </div>
+              <div class="rowImpar" >
+                 <input id="pageId" name="namePage" value="page">
+              </div>
+              <div class="rowPar" >
+                 <button class="btn_verificacao" type="text" id="btnId" onclick="verifica()" >Gravar</button>
+                 <button class="btn_gravar" type="submit" id="btnId" style="display: none;" ></button>
+              </div>
+          </form>
+    </div>
+    {{!-- ...................Título da page........................................ --}}
+    <div id="tituloPage" class="titulo_page">
+            <label id="labelControl" class="label_control" >1</label>
+            <label id="titulo_Handlebars" class="handlebars" style="color:#000000;">Descrição do produto :"roupa_insere-finalizando,{ layout:'roupa-edita-temp.handlebars',produto:Produto}"</label>
+    </div>
+    <div id="escolheFicheiro" style="width: 30%;height: 55vh;margin: auto;display:none;float: left;position: absolute;top:2vh;right: 10px; z-index: 2000;background-color: #ffffff;">
+            <form action="/roupa/upload" id="idfile" method="post" enctype="multipart/form-data" class="escolheficheiro_">
+                <div style="display: flex;flex-direction: row;justify-content: center;">
+                    <div style="width: 90%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+                    <div style="width: 10%;height: 4vh;margin: auto;background-color: #008000;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;color: #ffffff;">
+                         <button type="button" style="background-color: #008000;color:#ffffff;font-size: larger;font-weight: 200;border: 0px;" onclick="EscondeImg()">X</button>
+                    </div>
+                </div>     
+                <div >
+                    <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                    <input type="text" id="idProdutoDefault" name="idProduto" value="{{vitrine._id}}" style="display:none;background-color: #06eb1d;color:#ffffff;">
+                    <input type="text" id="idCorFoto" name="idCorFoto" style="display:none;background-color: #f35906;color:#ffffff;font-weight: 100;" value="{{extensao._id}}">
+                    <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="">
+                    <input type="text" id="idPosicaoImg" name="PosicaoImg" style="display:none;color:red;background-color: #ffffff;" value="">
+                </div>
+                <div style="display: flex;flex-direction: column;background-color: #ffffff;width: 90%;height:42vh;margin: auto;align-items: center ;z-index: 10;margin-top: 15px;padding: 10px;">
+                   
+                        <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color: #ffffff;padding: 10px;">
+                           <img id="imgPreviewA" src="" alt="" class="" width="100%" height="auto" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;height: 37vh;"/>
+                        </div>
+                        <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                           <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                        </div>
+                </div> 
+            </form>
+     </div>
+    {{!-- ...................Dados do produto...................................... --}}
+    {{!-- {{vitrine}} --}}
+    <div style="width: 100%;height: 2px;background-color: #ff0066;"></div>
+    {{!-- {{extensao}} --}}
+    <div id="DadosProduto" class="dados_produto" >
+        <div id="faixaS" style="width: 100%;height: 4vh;margin: auto;background-color: #00ff40;color:#ffffff;font-size: larger;font-weight: 300;margin-top: 0.2vh;padding: .8vh;">
+            <h6 style="text-align: center;color: #ffffff;font-size: larger;">Finalizado a inserção da nova cor !</h6>
+        </div>
+        <div style="width: 100%;height: 76vh;margin: auto;display: flex;flex-direction: row;justify-items:auto;margin-top: .5vh;background-color: #035384;">
+           <div id="DadosProduto_Itens" class="dados_itens" style="background-color: #ffffff;" >
+                {{!-- [[ Divisão que contém os dados principais do produto ]] --}}
+                <div class="idFromProdut_div_" style="margin-bottom: 1vh;text-align: center;color: #028a24;" >
+                    <h6 style="font-size: medium;">dados do produto</h6>
+                </div>
+                {{!-- ___________________________________________________________________ --}}
+                <div id="id_id" class="linha-produto" >
+                    <div class="linha-produto_div">
+                        <div class="linha-produto_label" >
+                            <label class="btn_label" >_Id :</label>
+                        </div>
+                        <div class="linha-produto_input" >
+                            <input id="idprodut_id" value="{{vitrine._id}}" >
+                        </div>
+                    </div>  
+                </div>
+                <div id="codigo" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">Código :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_codigo" value="{{vitrine.codigo}}" >
+                        </div>
+                    </div>  
+                </div>
+                <div id="id_descricao" class="linha-produto" >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">descrição :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_descricao" value="{{vitrine.descricao}}" >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_detalhe" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">detalhe :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_detalhe" value="{{vitrine.complete}}" >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_tecido" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">tecido :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_tecido" value="{{vitrine.tecido}}" >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_artigo" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">artigo :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_artigo" value="{{vitrine.artigo}}" >
+                        </div>
+                    </div>       
+                </div>
+                <div style="width: 72%;height: 6px;margin: auto;background-color: #696969;margin-top: .5vh;margin-bottom: 0.5vh;"></div>
+                <div id="urlfront" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <button  class="btn_button" onclick="ficheiro('front')" >img front</button>
+                        </div>
+                        <div class="linha-produto_input" >
+                            <input id="idproduto_urlfront" value="{{cores.urlfront}}" >
+                        </div>
+                    </div>       
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="urlleft" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label">
+                            <button  class="btn_button" onclick="ficheiro('left')" >img left</button>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_urlleft" value="{{cores.urlleft}}">
+                        </div>
+                    </div>       
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="urlback" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <button  class="btn_button" onclick="ficheiro('back')" >img back</button>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_urlback"  value="{{cores.urlback}}">
+                        </div>
+                    </div>       
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="urlright" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label">
+                            <button class="btn_button" onclick="ficheiro('right')" >img right</button>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_urlright" value="{{cores.urlright}}" >
+                        </div> 
+                    </div>       
+                </div>
+                <div style="width: 72%;height: 6px;margin: auto;background-color: #dfdfe2;"></div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="divisaoEditavel" style="width:72%;height:32vh;margin: auto;       margin-top: 1vh;padding: 5px;display: flex;flex-direction: column;background-color:#ffffff;">
+                    <div class="div-linha">
+                        <label style="width: 20%;background-color: #0000ff;text-align: center;color:#ffffff;">elemetos</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align: center;color:#ffffff;">quatidades</label>
+                        {{!-- <label style="width: 39%;background-color: #0000ff;text-align: center;">atual</label> --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color:#0000ff;padding-left: 8px;" class="X10">cor back</label>
+                        <label style="width: 39%;background-color:{{cores.corback}};padding-left: 8px;">{{cores.corback}}</label>
+                        {{!-- <label id="idproduto_corback" style="width: 39%;color: #ffffff;background-color:{{extensao.corback}};text-align:center;" >{{extensao.corback}}</label> --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">cor input</label>
+                        <label style="width: 39%;background-color:{{cores.corinput}};padding-left: 8px;">{{cores.corinput}}</label>
+                        {{!-- <label id="idproduto_corinput" style="width: 39%;background-color:{{extensao.corinput}};color: #ffffff;text-align:center;" >{{extensao.corinput}}</label> --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">tamanho</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align:center;color:#ffffff;">{{especificacao.tamanho}}</label>
+                        {{!-- <input id="idproduto_tamanho" style="width: 39%;background-color: #0000ff;color: #ffffff;text-align:center;" value="{{extensao.especificacao.[0].tamanho}}" > --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">qte</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align:center;color:#ffffff;">{{especificacao.qte}}</label>
+                        {{!-- <input id="idproduto_qte" style="width: 39%;background-color: #0000ff;color: #ffffff;text-align:center;" value="{{extensao.especificacao.[0].qte}}" > --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">custo</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align:center;color:#ffffff;">{{especificacao.precocusto}}</label>
+                        {{!-- <input id="idproduto_custo" style="width: 39%;background-color: #0000ff;color: #ffffff;text-align:center;" value="{{extensao.precocusto}}" > --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">vista</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align:center;color:#ffffff;">{{especificacao.precovista}}</label>
+                        {{!-- <input id="idproduto_vista" style="width: 39%;background-color: #0000ff;color: #ffffff;text-align:center;" value="{{extensao.precovista}}" > --}}
+                    </div>
+                    <div class="div-linha" >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">prazo</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align:center;color:#ffffff;">{{especificacao.precoprazo}}</label>
+                        {{!-- <input id="idproduto_prazo" style="width: 39%;background-color: #0000ff;color: #ffffff;text-align:center;" value="{{extensao.precoprazo}}" > --}}
+                    </div>
+                    <div class="div-linha"  >
+                        <label style="width: 20%;background-color: #0000ff;padding-left: 8px;color:#ffffff;">page</label>
+                        <label style="width: 39%;background-color: #0000ff;text-align:center;color:#ffffff;">'default'</label>
+                        {{!-- <input id="idproduto_page" style="width: 39%;background-color: #0000ff;color: #ffffff;text-align:center;" value="{{extensao.page}}" > --}}
+                    </div>
+                </div>
+           </div>
+           <div id="DadosProduto_Imagens" class="dados_imagens" style="background-color:#ffffff ;">
+            <div class="idFromProdut_div_" style="margin-bottom: 1.5vh;text-align: center;color: #00ff40;margin-bottom: 5vh;" >
+                <h6 style="font-size: medium;color: #028a24;">imagens do produto</h6>
+            </div>
+            <div id="imgsuperior" style="width: 100%;height: 35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;">
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;">
+                      <img  id="imgfront" class="formataImg" src="{{cores.urlfront}}">
+                 </div>
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;">
+                     <img id="imgleft" class="formataImg" src="{{cores.urlleft}}">
+                 </div>
+            </div>
+            <div id="separador" style="width: 75%;height: 6px;margin: auto;background-color: #c4c4c7;"></div>
+            <div id="imginferior" style="width: 100%;height: 35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;">
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;">
+                    <img id="imgback" class="formataImg" src="{{cores.urlback}}">
+                 </div>
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;">
+                    <img id="imgright" class="formataImg" src="{{cores.urlright}}">
+                 </div>
+            </div>
+           </div>
+        </div>
+        <div id="faixaI" style="width: 100%;height: 4vh;margin: auto;background-color: #00ff40;color:#ffffff;font-size: larger;font-weight: 300;margin-top: 0.2vh;padding: 1vh;">
+            <h6 style="text-align: center;color: #ffffff;font-size: larger;">Editar a nova  cor !</h6>
+        </div>
+    </div> 
+    
+</div>
+
+<script>
+ let var_tamanho=document.getElementById("tamanhoId").value;
+ let var_qte=document.getElementById("qteId").value;
+ let var_custo=document.getElementById("custoId").value;
+ let var_vista=document.getElementById("vistaId").value;
+ let var_prazo=document.getElementById("prazoId").value;
+ let var_page=document.getElementById("pageId").value;
+
+ let size=document.getElementById("idproduto_tamanho");    
+ let count=document.getElementById("idproduto_qte");
+ let pcusto=document.getElementById("idproduto_custo");
+ let pvista=document.getElementById("idproduto_vista");
+ let pprazo=document.getElementById("idproduto_prazo");
+ let page=document.getElementById("idproduto_page");
+ 
+// Tamanho
+size.addEventListener("keydown",function(event){
+      //.............................................
+      //console.log(7000)
+      let key=event.which;
+      console.log(key)
+          console.log(key)
+       if(key==13){
+           //......................................
+           let a1=size.value;
+           let a2=var_tamanho;
+           console.log('a1 : ',a1);
+           console.log('a2 : ',a2);
+           if(a1==a2){
+             size.style.backgroundColor="#1805c0";
+             size.style.color="yellow";
+             document.getElementById("tamanhoId").value=a1;
+           }else{ 
+             size.style.backgroundColor="yellow";
+             size.style.color="black";
+             document.getElementById("tamanhoId").value=a1;
+             document.getElementById("tamanhoId").style.backgroundColor='pink';
+           }
+           //................................
+           count.focus()
+       }else if(key==8){
+           size.value="";
+           size.style.backgroundColor="violet"
+       }
+})
+
+//Essa função captura a cor do backgroundColor do input em RGB e
+// convert em hex
+function procuraBase16(cor){
+        let nomeCor;
+        console.log('1235555')
+                    cor=cor.trim();
+                    console.log('palavra',cor); //Ok
+                    cor=cor.substr(4);
+                    cor=cor.trim()
+                    //.................................... 
+                    let pos=cor.search(",");
+                    let r=cor.substring(0,pos);
+                    //....................................
+                    cor=cor.trim();
+                    cor=cor.substr(pos+1);
+                    //........................................
+                    pos=cor.search(',');
+                    let g=cor.substring(0,pos);
+                    //.......................................
+                    cor=cor.substr(pos+1);
+                    let l=cor.length;
+                    let b=cor.substring(0,(l-1));
+                    cor=cor.search('')
+                    
+                    let N=parseInt(r.toString(16))
+                    let M=parseInt(g.toString(16))
+                    let P=parseInt(b.toString(16))
+                    nomeCor="#" + N.toString(16) + M.toString(16) + P.toString(16)
+                        return nomeCor  
+}
+
+// Quantidade
+count.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=count.value;
+           let a2=var_qte;
+           if(a1==a2){
+             count.style.backgroundColor="#1805c0";
+             count.style.color="yellow";
+             document.getElementById("qteId").value=a1;
+           }else{ 
+             count.style.backgroundColor="yellow";
+             count.style.color="black";
+             document.getElementById("qteId").value=a1;
+             document.getElementById("qteId").style.backgroundColor='pink';
+           }
+           //......................................
+           pcusto.focus()
+       }else if(key==8){
+           count.value="";
+           count.style.backgroundColor="violet"
+       }
+})
+
+// Preço de Custo
+pcusto.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=pcusto.value;
+           let a2=var_custo;
+           if(a1==a2){
+             pcusto.style.backgroundColor="#1805c0";
+             pcusto.style.color="yellow";
+             document.getElementById("custoId").value=a1;
+           }else{ 
+             pcusto.style.backgroundColor="yellow";
+             pcusto.style.color="black";
+             document.getElementById("custoId").value=a1;
+             document.getElementById("custoId").style.backgroundColor='pink';
+           }
+           //......................................
+           pvista.focus()
+       }else if(key==8){
+           pcusto.value="";
+           pcusto.style.backgroundColor="violet"
+       }
+})
+
+// Preço Vista
+pvista.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=pvista.value;
+           let a2=var_vista;
+           if(a1==a2){
+             pvista.style.backgroundColor="#1805c0";
+             pvista.style.color="yellow";
+             document.getElementById("vistaId").value=a1;
+           }else{ 
+             pvista.style.backgroundColor="yellow";
+             pvista.style.color="black";
+             document.getElementById("vistaId").value=a1;
+             document.getElementById("vistaId").style.backgroundColor='pink';
+           }
+           //......................................
+           pprazo.focus()
+       }else if(key==8){
+           pvista.value="";
+           pvista.style.backgroundColor="violet"
+       }
+})
+
+// preço Prazo
+pprazo.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=pprazo.value;
+           let a2=var_prazo;
+           if(a1==a2){
+             pprazo.style.backgroundColor="#1805c0";
+             pprazo.style.color="yellow";
+             document.getElementById("prazoId").value=a1;
+           }else{ 
+             pprazo.style.backgroundColor="yellow";
+             pprazo.style.color="black";
+             document.getElementById("prazoId").value=a1;
+             document.getElementById("prazoId").style.backgroundColor='pink';
+           }
+           //......................................
+           page.focus()
+       }else if(key==8){
+           pprazo.value="";
+           pprazo.style.backgroundColor="violet"
+       }
+})
+
+// preço Prazo
+page.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=page.value;
+           let a2=var_page;
+           if(a1==a2){
+             page.style.backgroundColor="#1805c0";
+             page.style.color="yellow";
+             document.getElementById("pageId").value=a1;
+           }else{ 
+             page.style.backgroundColor="yellow";
+             page.style.color="black";
+             document.getElementById("pageId").value=a1;
+             document.getElementById("pageId").style.backgroundColor='pink';
+           }
+           //......................................
+           let R=document.getElementById("formEdita").style.display="block";
+           let R2=document.getElementById("btnId");
+           console.log(R2);
+           R2.click();
+       }else if(key==8){
+           page.value="";
+           page.style.backgroundColor="violet"
+       }
+})
+
+// Torna o field descrição com fundo roxo e focado   
+function primefoco(){
+    console.log('[664] - primefoco')
+    console.log('');
+    let fr=document.getElementById("idproduto_urlfront");
+    fr=fr.value;
+    let le=document.getElementById("idproduto_urlleft");
+    le=le.value;
+    let ba=document.getElementById("idproduto_urlback");
+    ba=ba.value;
+    let ri=document.getElementById("idproduto_urlright");
+    ri=ri.value;
+    let palavra="https://";
+    palavra=palavra.length;
+    //console.log('675',palavra)
+    console.log('');
+    if(fr.length>8){
+        //console.log(fr.length)
+        if(le.length>8){
+            if(ba.length>8){
+                if(ri.length>8){
+                   let p1=document.getElementById("idproduto_tamanho");
+                   p1.style.backgroundColor='yellow';
+                   p1.style.color="#000000";
+                   p1.focus();
+                }
+            }
+        }
+    }
+    //a.;
+    //a.focus();
+    
+}
+</script>
+
+<script>
+function gaveta(){
+     fetch(`${baseApiUrl}` + `/roupa/checkcor/${passe}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+            }  
+            throw response;
+        }) 
+        .then((json)=>{
+                console.log(json)
+                let r=json.r1;
+                console.log(' [ 1680] valor de r',r)
+                console.log('Se a resposta=0 então não há cor regsitrada');
+                console.log('Então através de nocaCor() cria a gavetaCor');
+                if (r==0){
+                    novaCor(n);
+                }else if (r==1){
+                    console.log('Se r=1 entõa mostre a cor')
+                    let botao=document.getElementById('CorCadastrada');
+                    document.getElementById("idInputCorCadastrada").style.backgroundColor=n;
+                    botao.click();
+                }else{
+                    console.log('Alguma coisa está errada [1947] ')
+                } 
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+}  
+
+function criarDetalhe(n){
+    // Essa rotina vem da tabela de cores para criar uma nova cor
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    //..............................
+    let idProduto=document.getElementById('Produt_id').value;
+    console.log(' [ 1652 ]')
+    //----------------------------------------------------------------
+    let num=n;
+    console.log(num)
+    let numero=num.substring(1,num.length);
+    numero=numero.trim();
+    console.log(numero)
+    let passe=numero + '=:' + idProduto 
+    //---------------------------------------------------------------
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+        baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //////////////////////////////////////////////////////////////////
+    try{
+       // console.log(' [ 1665 ] Verifica se já existe essa cor cadastrada ')
+        fetch(`${baseApiUrl}` + `/roupa/checkcor/${passe}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+            }  
+            throw response;
+        }) 
+        .then((json)=>{
+                console.log(json)
+                let r=json.r1;
+                console.log(' [ 1680] valor de r',r)
+                console.log('Se a resposta=0 então não há cor regsitrada');
+                console.log('Então através de nocaCor() cria a gavetaCor');
+                if (r==0){
+                    novaCor(n);
+                }else if (r==1){
+                    console.log('Se r=1 entõa mostre a cor')
+                    let botao=document.getElementById('CorCadastrada');
+                    document.getElementById("idInputCorCadastrada").style.backgroundColor=n;
+                    botao.click();
+                }else{
+                    console.log('Alguma coisa está errada [1947] ')
+                } 
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }catch(e){
+      //  console.log(e);
+    }
+ }
+//........................................................
+function ficheiro(n){
+    //......................................................
+    //document.getElementById('idSpan').innerHTML=side;
+    //........................................
+    // idLocalImagem indica se a foto é principal ou complemento
+    document.getElementById("idLocalImagem").value=3;
+    // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+    document.getElementById("idPosicaoImg").value=n;
+    document.getElementById("escolheFicheiro").style.display="block";
+    document.getElementById("idSpan").innerHTML=n;
+}
+//Essa função captura a cor do backgroundColor do input em RGB e
+// convert em hex
+function procuraBase16(cor){
+        let nomeCor;
+        console.log('1235555')
+                    cor=cor.trim();
+                    console.log('palavra',cor); //Ok
+                    cor=cor.substr(4);
+                    cor=cor.trim()
+                    //.................................... 
+                    let pos=cor.search(",");
+                    let r=cor.substring(0,pos);
+                    //....................................
+                    cor=cor.trim();
+                    cor=cor.substr(pos+1);
+                    //........................................
+                    pos=cor.search(',');
+                    let g=cor.substring(0,pos);
+                    //.......................................
+                    cor=cor.substr(pos+1);
+                    let l=cor.length;
+                    let b=cor.substring(0,(l-1));
+                    cor=cor.search('')
+                    
+                    let N=parseInt(r.toString(16))
+                    let M=parseInt(g.toString(16))
+                    let P=parseInt(b.toString(16))
+                    nomeCor="#" + N.toString(16) + M.toString(16) + P.toString(16)
+                        return nomeCor  
+          }
+//.................... Campo do  Detalhe ....................................................
+function dispara(){
+   document.getElementById("idConfirmProduto").style.display="block";
+}
+ 
+function buscImg(n){
+    //..............................................
+    console.log('vr de paramentro',n)
+    
+    // Essa rotina abre o Ficheiro para gravar uma imagem do produto ou do detalhes do produto
+    let pos=n.search(",")
+    let side=n.substring(0,pos);
+    //....................................
+    let c=n.lenght;
+    let path=n.substring((pos+1),c)
+    //......................................................
+     document.getElementById('idSpan').innerHTML=side;
+    //........................................
+    // idLocalImagem indica se a foto é principal ou complemento
+    document.getElementById("idLocalImagem").value=1;
+    // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+    document.getElementById("idPosicaoImg").value=side;
+    //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+    document.getElementById("escolheFicheiro").style.display="block";
+    //................................................................
+    //...............................................................
+ }
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+let fileImgA=document.querySelector('#fileA');
+//.............................................
+const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        console.log('linha 398')
+        document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+            console.log('linha 405')
+            document.getElementById("ladoLoadImage").style.display="block";
+            document.getElementById("menu-modal").style.display="block";
+            document.getElementById("Up01").style.visibility="visible";
+        }
+          reader.readAsDataURL(selecledFile);
+    });
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+  
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+
+function colaImg(n){
+    //Essa function trabalha com mousedown para mostrar a img
+    let palavra=n;
+    document.getElementById("MostraImageDetalheProduto").style.display="block";
+    document.getElementById("ImgDone").src=n;
+}
+
+function descolaImg(){
+    //Essa função trabalha com mouse_uo para limpar a img
+    console.log("1840")
+    document.getElementById("MostraImageDetalheProduto").style.display="none";
+    document.getElementById("ImgDone").src="";
+}
+
+// Essa rotina mostra a tabela de cores para corrigir a cor do DETALHE DO PRODUTO
+function MostraTabelaCores(){
+   document.getElementById("idTabelaCores").style.display="block";
+}
+
+//Essa rotina
+function GravaImagem(n){
+    // Essa rotina grava imagem do detalhes
+    console.log('vr de N',n)  
+    let id_detalhe=document.getElementById("idNvSizeIdDetalhe").value;
+    console.log('vr de : ??', id_detalhe)
+    let b=id_detalhe;
+    let q=document.getElementById("idDetalheFoto");
+    console.log ('vr de q',q)
+    q.value=b;
+    let x=document.getElementById("modalContent");
+    console.log(x)
+    let z=x.style; 
+    console.log('vr de z',z)
+    let r=400;
+     document.getElementById('idSpan').innerHTML=n;
+    document.getElementById("idLocalImagem").value=2;
+    document.getElementById("idPosicaoImg").value=n;
+    document.getElementById("modalContent").style.width=2*r;
+    document.getElementById("escolheFicheiro").style.display="block" ;       
+ }
+
+// Essa rotina esconde a FORM " Selecione a fotografia " que contém o FILEA
+function EscondeImg(){
+    document.getElementById("escolheFicheiro").style.display="none" ;
+ }
+
+function ConfirmEdicao(){
+    //Essa rotina abre o MODAL para edição do produto
+    console.log('ConfirmEditaVitrine')
+    document.getElementById("EditaVitrine").style.display="block";
+    let btn=document.getElementById('btnconfirmarEdicao');
+    btn.click()
+ }
+
+function ocultaEditaVitrine(){
+    //Essa rotina oculta o MODAL para edição do produto
+    document.getElementById("EditaVitrine").style.display="none";
+ }
+</script>
+
+<script >
+
+function  carregar(){
+    //..............................
+    console.log(' [ 2225 ] passando carregar() route:lojista/buscacores/:id')
+    let num=document.getElementById("Produt_id").value;
+    console.log('valor de num',num)
+    console.log(typeof(num))
+    if(num==Object){
+
+    }else{
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/roupa/buscacores/${num}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response =>{
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            }) 
+            .then((json)=>{
+                    const myArray=json;
+                    console.log('++++++++++++++++++',myArray);
+                    //.........................
+                    let l=json.length;
+                    //...................................................................................   
+                    let n=0;
+                    for (let j of myArray){
+                            //.......................
+                            let cor=j
+                            painelCores(cor,n,j)
+                            n++       
+                    }   
+                    //............................................
+                })
+                .catch((e)=>{
+                    console.log('[2258]',e)
+                })
+        }catch(er){
+            console.log(er)
+        }        
+    }    
+}
+
+async  function  painelCores(cor,idex,nObjeto){
+     // Cria a divisão principal baseada na cor
+     let cores=cor;
+     let C=cores;
+     //..............................................................
+     const elemento=document.getElementById("agora");
+     try{
+       // Divisão principal LINHA-CORES DA COR
+        const node0 = document.createElement("div");
+        node0.setAttribute("id",cores);
+        node0.setAttribute("class","rowCor_01");
+        node0.setAttribute("value",cores)
+        document.getElementById("agora").appendChild(node0);
+        // Depois da divisão ser identificada acima [ 2629 ] muda-se o backgroundColor
+        document.getElementById(C).style.backgroundColor=cores;
+        document.getElementById(C).style.padding='10px';
+        document.getElementById(C).style.border='solid #ffffff 2px';
+        //...............................................................
+     }catch(e){
+        console.log('catch 2284',e)
+     }
+}
+
+//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+function pegaImage(n){
+    //Essa rotina open o divisão para fazer o Upload da Image
+    let palavra=n;
+    let pos=palavra.search('=:');
+    let numero;
+    numero=palavra.substring(0,pos);
+    //..............................................
+    palavra=palavra.substr((pos+2));
+    palavra=palavra.substr(4);
+    pos=palavra.search("=:");
+    let url=palavra.substring(0,pos)
+    //.......................................................
+    palavra=palavra.substring((pos+2),palavra.lenght);
+    let id=palavra.substring(0,7);
+    palavra=id + '-label0-0'
+    let id_detalhe=document.getElementById(palavra);
+    id_detalhe=id_detalhe.value;
+    console.log('--- : ',id_detalhe)
+    let r=document.getElementById('idDetalheFoto');
+    console.log(r)
+    r.value=id_detalhe
+    //......................................................
+    document.getElementById('idSpan').innerHTML=url;
+    //........................................
+    // idLocalImagem indica se a foto é principal ou complemento
+    document.getElementById("idLocalImagem").value=2;
+    document.getElementById("idLocalImagem").style.backgroundColor='white';
+    // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+    document.getElementById("idPosicaoImg").value=url;
+    //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+    document.getElementById("escolheFicheiro").style.display="block";
+    //................................................................
+}
+
+function grvaEdicaoDetalheProduto(){
+    console.log('[2938]') 
+    let a=aCorback.value;
+    //console.log(a)
+    let b=aCorinput.value;
+    //console.log(b)
+    let c=aTamanho.value;
+    let d=aQte.value;
+    let e=aPcusto.value;
+    let g=aPvista.value;
+    let h=aPprazo.value;
+    let i=aPosicao.value;
+    
+    let p0=document.getElementById("Produt_id");
+    console.log('vr de p0',p0)
+    const p1=document.getElementById("idDetalheProdFormIdProduto");
+    p1.value=p0.value;
+    const j=document.getElementById("idDetalheProdFormCorBack");
+    const k=document.getElementById("idDetalheProdFormCorInput");
+    let r=document.getElementById("idDetalheProdFormTamanho").value=aTamanho.value;
+    let s=document.getElementById("idDetalheProdFormQte").value=aQte.value;
+    let t=document.getElementById("idDetalheProdFormPcusto").value=aPcusto.value;
+    let w=document.getElementById("idDetalheProdFormPvista").value=aPvista.value;
+    let x=document.getElementById("idDetalheProdFormPprazo").value=aPprazo.value;
+    let z=document.getElementById("idDetalheProdFormPosicao").value=aPosicao.value; 
+    let letra=a;
+    let q1=document.getElementById("ZeroBack");
+    let q2=document.getElementById("ZeroInput");
+    q1.value="'" + letra + "'";
+    //.......................................
+    //let letra1=b
+   // console.log('b : ',b)
+    q2.value="'" + b + "'";
+    //.........................
+    r.value=c.value;
+    s.value=d.value;
+    t.value=e.value;
+    w.value=g.value;
+    x.value=h.value;
+    z.value=i.value;
+    let bt=document.getElementById("BtnDetalheProduto");
+    bt.click()
+}
+
+function final(){
+    console.log('_________________________________________')
+}
+
+function verifica(){
+    console.log('falta terminar a verificação !')
+}
+
+primefoco()
+</script>
+
+
+
+
+
+
+
+
+     
+

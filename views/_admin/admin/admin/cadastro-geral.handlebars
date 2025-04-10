@@ -1,0 +1,1322 @@
+<style>
+
+ /* The Modal (background) */
+    .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    /*z-index: 1;  Sit on top */
+    left: 40%;
+    top: 0;
+    width: 40%; /* Full width */
+    height: 25%; /* Full height */
+    /* overflow: auto; Enable scroll if needed */
+    background-color: #064fec;
+    padding-top: 5px;
+    }
+
+/* Modal Content/Box */
+    .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    }
+    /* Style the horizontal ruler */
+hr {
+  border: 1px solid #dc0e0e;
+  margin-bottom: 25px;
+}
+ 
+/* The Modal Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+     width: 100%;
+  }
+}
+
+</style>
+<style>
+    * {
+       box-sizing: border-box;
+    }
+
+    /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+   
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+       padding: 6px 6px 6px 0;
+       font-size: smaller;
+       font-weight: 100;
+       display: inline-block;
+    }
+
+    .container {
+       border-radius: 5px;
+       background-color: #f2f2f2;
+       padding: 20px;
+    }
+    
+    .row{
+        height: 4vh;
+        font-size: medium;
+        background-color: transparent;
+        border-bottom: solid #ffffff 2px;
+        margin-top: 2px;
+        width: 95%;
+        margin: auto;
+    }
+
+    .col-0{
+       float: left;
+       width: 0%;
+       margin-top: 6px;
+    }
+
+    .col-15{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-20{
+       float: left;
+       width: 20%;
+       margin-top: 6px;
+       margin-left:2px;
+       color: #000;
+    }
+
+    .col-25{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: #ffffff;
+       color: #000;
+    }
+
+    .col-26{
+       float: left;
+       width: 25%;
+       margin-top: 6px;
+       margin-left:2px;
+       text-align: right;
+       background-color: transpareente;
+       color:#ffffff;
+    }
+
+    .col-30{
+       float: left;
+       width: 30%;
+       margin-top: 6px;
+    }
+
+    .col-45{
+       float: left;
+       width: 45%;
+       margin-top: 6px;
+    }
+
+    .col-70{
+       float: left;
+       width: 70%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    .col-75{
+       float: left;
+       width: 75%;
+       margin-top: 6px;
+       padding-right: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    @media screen and (max-width: 600px) {
+        .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .main{
+        width: 100%;background-color:#ffffff;margin:auto;padding:3px;height: 90vh;margin-top:10.3vh;border-top: #b8b9b8 2px solid;
+    }
+
+    .main-grid{
+        width: 100%;height: 85vh;margin:auto;display: grid;grid-auto-columns:1fr 4fr;background-color:#fffff;text-align: center;
+    }
+
+    .ul-setor{
+        width:100%;height:25vh;background-color: #ffffff;list-style:none;margin-left:0px;overflow-x:auto;padding-top: 24px;
+    }
+
+    .ul-setor-linha{
+        width: 95%;
+        height: 3vh;
+        margin-left: -10px;
+        margin-top: 12px;
+        font-weight: 100;
+        color:#000000;
+        border-bottom:#ccc 1px solid;
+        text-align: left;
+        padding-left: 6px;  
+        box-shadow: 2px 2px #ffffff;
+        border-top: none;
+        border-left: none;
+    }
+
+    .conter{
+        width: 80%;
+        height: 80vh;
+        margin: auto;
+        border-radius: 6px;
+        background-color: #8c1515;
+        padding:0px  10px;
+    }
+
+    .loja{
+        width: 90%;height:82vh;margin:auto;background-color: #ffffff;
+        margin-top:0px;padding: 0px 15px 0px 15px;border:solid 2px white;display: none;
+        display: flex;;
+        flex-direction: row;
+    }
+
+    /*.label-loja{
+        background-color: transparent;color:#ffffff;width:50%;text-align: right ; font-size: small;
+    }*/
+
+    .tecnica{
+        width: 90%;height:82vh;margin:auto;background-color: #ced504;margin-top:10px;padding: 30px 15px 15px 15px;border:solid 2px black;display: none;
+    }
+
+    .industria{
+        width: 90%;height:82vh;margin:auto;background-color: #057c17;margin-top:10px;padding: 30px 15px 15px 15px;border:solid 2px black;display: none;
+    }
+
+    .trabalhar{
+        width: 90%;height:82vh;margin:auto;background-color: #cccccc;margin-top:10px;padding: 30px 15px 15px 15px;border:solid 2px black;display: none;
+    }
+
+    .profissionais{
+        width: 90%;height:82vh;margin:auto;background-color: #cccccc;margin-top:10px;padding: 30px 15px 15px 15px;border:solid 2px black;display: none;
+    }
+
+    .form-div{
+        width:90%;height:75vh;margin:auto;background-color:#ffffff;padding: 20px;
+    }
+
+    .form-linha-top{
+        width:80%;height:6vh;margin: auto;background-color: #ffffff;margin-top: 25px;
+    }
+    
+    .form-titulo{
+         width:90%;height:6vh;margin: auto;background-color: #033061;margin-top:20px;color: #00ff11;border-radius: 6px;
+    }
+
+    .form-linha{
+        width:90%;height:5vh;margin: auto;background-color: #033061;margin-top:10px;display: flex;
+        flex-direction: row;padding-right:15px ;border-radius: 6px;
+    }
+
+    .form-linha-cep{
+        width:90%;height:6vh;margin:auto;background-color: #888d92;margin-top:10px;display: flex;flex-direction: row;padding: 8px;justify-content: flex-start;border-radius: 6px;
+    }
+
+    .form-label{
+        width:30%;height:4vh;margin: auto;background-color: #033061;padding: 4px;float: left;margin-left: 5px;padding-left: 0px;
+    }
+
+    .form-input{
+        width:70%;height:4vh;margin: auto;background-color: #033061;padding: 4px;float: left;margin-left: 2px;
+    }
+
+    .form-inputCep{
+        width:40%;height:4vh;margin: auto;background-color: #033061;padding: 4px;float: left;margin-left:-10px;padding-right: 5px;
+    }
+
+    .form-inputLinha{
+        width: 90%;
+        height: 3vh;
+        font-size: medium;
+        color: #033061;
+        text-align: left;
+        margin-left: 2px;
+        padding: 1px;
+        background-color: #ffffff;
+    }
+
+    .form-labelLinha{
+        font-size: medium;
+        color: #f2f2f2;
+        text-align: left;
+        margin-left: 2px; 
+        padding: 1px;
+    }
+
+    /*-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->*/
+    .lateral-left-S{
+        grid-column:1/span 1;grid-row:1;background-color: #ffffff;height: 42vh;padding:20px;color:#057c17;
+    }
+
+    .lateral-left-I{
+        grid-column:1/span1;grid-row:2;background-color: #ffffff;height: 42vh;padding:20px;
+    }
+
+    .centro-div{
+        grid-column:2;grid-row:0/span 1;background-color:#ffffff;padding:0px 15px  0px 15px;
+    }
+
+    .col-15 input{
+        background-color: #ffffff;
+        height:3.5vh;
+        margin-top:.2vh;
+    }
+
+    .col-20 input{
+        background-color: #ffffff;
+        height:3.5vh;
+        margin-top:.2vh;
+    }
+
+    .col-25 input{
+        background-color: pink;
+        height:3.5vh;
+    }
+
+    .col-26 input{  
+        background-color: #ffffff;
+        height:3.5vh;
+        margin-top:.2vh;
+    }
+     .col-45 input{
+        background-color: transparent;
+        height:3.5vh;
+    }
+
+    .col-60 input{
+        background-color: transparent;
+        height:3.5vh;
+    }
+
+    .col-70 input{
+        background-color: #ffffff;
+        height:3.5vh;
+        margin-top:.2vh ;
+    }
+   
+    .rowGrava{
+        width: 40vw;
+        height: 12vh;
+        margin: auto;
+        position: absolute;left:450px;top: 60px;z-index: 300;
+        background-color:#aaa7a7;
+    }
+
+    .btnGrava{
+        width:100% ;
+        height:4.5vh;
+        margin: auto;
+        background-color:#4c0289;
+        color:#ffffff;
+        border-radius:5px;
+        border:2px solid #00ff11 ;
+        display:block ;"
+    }
+</style>
+<script>
+  function limpaCxLoja(){
+        let n=1;
+        let x=1;
+        if(x==n){
+          //function limpaTudoX()
+        }
+  }
+
+  function limpaTudoX(){
+            console.log(590)
+            document.getElementById("inputSenha").value="555";
+            var vazio=document.getElementById("boxEmail").value='122';
+            console.log('vr de vazio',vazio)
+            document.getElementById("confirmeSenha").value="345";
+        }
+</script>
+<script>
+  /*--> Page para cadastrar lojistas/professionais/assistências técnicas/preciso trabalher  --- */
+  /* Origem Menu lateral admin-central   */
+</script>
+<div class="main" onload="limpaCxLoja()" >
+    
+    <div id="barra_views" style="background-color:#ffffff;width:80%;height:3vh;margin: auto;margin-bottom:3px ;padding: .2%;margin-top:.4vh;">
+        <label style="font-size:0.8vw;text-align: center;margin: auto;margin-left:42%;margin-top: -10px;color:#ffffff;">Cadastro Geral</label>
+        <h6 style="font-size:x-small;margin-top: -20px;color:#ffffff;">views/_admin/admin/admin/cadastro-geral.handlebars</h6>
+    </div>
+    {{!-- ///////   MODAL DE CONFIRMAÇÃO DOS DADOS ///////////// --}}
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+        <form class="modal-content" action="">
+            <div class="container">
+                    <h1 style="color:transparent;margin-top:-15px ;">Atenção!</h1>
+                    <p>Confirma os dados do lojista</p>
+                    
+                    <div class="clearfix" style="text-align:center;margin-top:-15px ;">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" style="width:100px ;" class="">Cancel</button>
+                        <button type="button" onclick="document.getElementById('OkGravar').click()" style="width:100px ;" class="">Ok</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+     {{!-- <div> --}}
+        
+     {{!-- </div> --}}
+    <div class="main-grid" style="background-color: #ffffff;" >
+       
+            {{!Essa divisão mantém os link para os itens de cadastro}}
+            <div class="lateral-left-S"  style="background-color: #ffffff;">
+               <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;background-color: #ffffff;height: 38vh;">
+                    <div style="width: 100%;height: 3.5vh;margin: auto;background-color: #08500c;text-align: center;padding: 0.4vh;">
+                        <h5 style="color:#00ff11;font-style:italic;font-size:larger ;">setores</h5>          
+                    </div>
+                    <ul class="ul-setor" style="background-color: #ffffff;">
+                        <a>
+                           <li class="ul-setor-linha" onclick="tecnica()">assistência técnica</li>
+                        </a>
+                        <a>
+                           <li class="ul-setor-linha" onclick="loja(77)">loja</li>
+                        </a>
+                        <a>
+                           <li class="ul-setor-linha" onclick="trabalhar()">preciso trabalhar</li>
+                        </a>
+                          <a>
+                           <li class="ul-setor-linha" onclick="profissionais()">profissionais</li>
+                        </a>
+                        <a href="/central/">
+                           <li class="ul-setor-linha" onclick="">volta</li>
+                        </a>
+                    </ul>
+               </div>  
+               <div class="lateral-left-I" >
+                 <div style="display: flex;flex-direction: collumn;justify-content: center;align-items: center;background-color:#ffffff;height: 38vh;">
+                     <h6>Publicidade</h6>
+                 </div>
+               </div>
+            </div>
+            {{!Essa divisão lateral esquerda inferior está limpa}}
+            {{!-- espelho com os dados do lojista --}}
+            <div class="centro-div" style="background-color: #efeded;margin-top:1px">
+                    <div id="tituloForm" style="background-color:transparent;width: 30vw;height: 1.8vh;margin: auto;margin-top: -10px;">
+                       <h6 style="font-size: 0.8vw;">_admin/admin/admin/admin-central.handlebas</h6>
+                    </div>
+                    {{!Essa divisão trata do cadastro da Assistência Técnica}}
+                    <div id="tecnica" class="tecnica" >
+                        <div class="conter" style="height:80vh;">
+                            <form class="form-div" style="height:100vh;background-color: #aeafb4;">
+                                <div class="form-titulo" style="background-color:#05477c ;">
+                                      <h1>Assistência Técnica</h1>
+                                </div>
+                                <div class="form-linha" style="padding:6px;">
+                                      <div style="background-color:#00ff11;width:25%;border-radius: 6px;height:4vh;padding:6px;">
+                                            <label>Razão Social:</label>
+                                      </div>
+                                      <div style="background-color:#08500c;width:75%;padding:6px;">
+                                            <input type="text" id="RzTecnica" name="RzTecnica" value="" style="height:4vh;" >
+                                      </div>
+                                </div>
+                                <div class="form-linha" style="padding:6px;">
+                                      <div style="background-color:#00ff11;width:25%;border-radius: 6px;height:4vh;;padding:6px;">
+                                            <label>Responsável técnico:</label>
+                                      </div>
+                                      <div style="background-color:#08500c;width:75%;padding:6px;">
+                                          <input type="text" id="rptecTecnica" name="rptecTecnica" value="" style="height:4vh;" >
+                                      </div>
+                                </div>
+                                <div class="form-linha" style="padding:0px;" >
+                                    <div style="width:50%;float:left;background-color: #888d92;color:#ffffff;padding:6px;">
+                                        <div style="background-color:#00ff11;width:25%;float: left;height:4vh;border-radius:4px ;">
+                                            <label>CNPJ :</label>
+                                        </div>
+                                        <div style="background-color:#50081c;width:65%;float:left;margin-left:10px ;">
+                                            <input type="text" id="cnpjTecnica" name="cnpjTecnica" value="27.987.098/0001-98" style="height:4vh;">
+                                        </div>
+                                     </div>
+                                     <div style="width:50%;float:left;background-color: #043b66;color:#ffffff;padding:6px;">
+                                        <div style="background-color:#00ff11;width:25%;float: left;height:4vh;border-radius:4px ;">
+                                            <label>Inscrição :</label>
+                                        </div>
+                                        <div style="background-color:#08500c;width:65%;float:left;margin-left:10px ;">
+                                             <input type="text" id="inscrTecnica" name="inscrTecnica" value="08.098.765-9" style="height:4vh;">
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="form-linha" style="padding:0px;" >
+                                    <div style="width:50%;float:left;background-color: #888d92;color:#ffffff;padding:6px;">
+                                        <div style="background-color:#00ff11;width:25%;float: left;height:4vh;border-radius:4px ;">
+                                            <label>Municipal :</label>
+                                        </div>
+                                        <div style="background-color:#50081c;width:65%;float:left;margin-left:10px ;">
+                                            <input type="text" id="imunTecnica" name="imunTecnica"    value="08-876-098-2" style="height:4vh;">
+                                        </div>
+                                     </div>
+                                     <div style="width:50%;float:left;background-color: #043b66;color:#ffffff;padding:6px;">
+                                        <div style="background-color:#00ff11;width:25%;float: left;height:4vh;border-radius:4px ;">
+                                            <label>Cep :</label>
+                                        </div>
+                                        <div style="background-color:#08500c;width:65%;float:left;margin-left:10px ;">
+                                             <input type="text" id="cepTecnica" value="cepTecnica" style="height:4vh;background-color: #05477c;color:#ffffff;">
+                                        </div>
+                                     </div>
+                                </div>
+                                 <div class="form-linha" style="padding:0px;" >
+                                    <div style="width:50%;float:left;background-color: #888d92;color:#ffffff;padding:6px;">
+                                        <div style="background-color:#00ff11;width:25%;float: left;height:4vh;padding:6px;border-radius:4px ;">
+                                            <label>Celular:</label>
+                                        </div>
+                                        <div style="background-color:#50081c;width:65%;float:left;margin-left:10px ;">
+                                            <input type="text" id="celTecnica" name="celTecnica"   value="(27) 99867-8765" style="height:4vh;">
+                                        </div>
+                                     </div>
+                                     <div style="width:50%;float:left;background-color: #043b66;color:#ffffff;padding:6px;">
+                                        <div style="background-color:#00ff11;width:25%;float: left;height:4vh;border-radius:4px ;">
+                                            <label>Fixo :</label>
+                                        </div>
+                                        <div style="background-color:#08500c;width:65%;float:left;margin-left:10px ;">
+                                             <input type="text" id="fixoTecnica" name="fixoTecnica"  value="(27) 3242-1971" style="height:4vh;">
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="form-linha" style="padding:6px;">
+                                     <div style="background-color:#00ff11;width:25%;border-radius: 6px;height:4vh;">
+                                            <label>E-mail:</label>
+                                     </div>
+                                     <div style="background-color:#08500c;width:75%;height:4vh;">
+                                            <input type="text" id="emailTecnica" name="emailTecnica" value="" style="height:4vh;width:90%;border-radius: 6px;" >
+                                     </div>
+                                </div>
+                                <div class="form-linha" style="padding:6px;">
+                                     <div style="background-color:#00ff11;width:35%;float: left;height:4vh;border-radius:4px ;">
+                                            <label>Endereço:</label>
+                                      </div>
+                                      <div style="background-color:#08500c;width:75%;">
+                                            <input type="text" id="endTecnica" name="endTecnica"   value="" style="height:4vh;width:90%;border-radius: 6px;" >
+                                      </div>
+                                </div>
+                                 <div class="form-linha" style="padding:6px;">
+                                     <div style="width:33%;height:4vh;margin: auto;background-color: #057c17;float: left;">
+                                              <div style="background-color:#00ff11;width:35%;float: left;height:4vh;border-radius:4px ;">
+                                                <label style="width:100%;">Cidade:</label>
+                                            </div>
+                                           <div style="background-color:#08500c;width:100%;">
+                                                {{!-- <input type="email" id="" value="" style="height:4vh;width:60%;border-radius: 6px;" > --}}
+                                                <select class="form-inputLinha" id="cidTecnica" name="cidTecnica" style="width:60%;height:4vh;color:#033061;">
+                                                    <option>Cariacica</option>
+                                                    <option>Serra</option>
+                                                    <option>Vila Velha</option>
+                                                    <option>Vitória</option>
+                                                </select>
+                                           </div>
+                                     </div>
+                                     <div style="width:33%;height:4vh;margin: auto;background-color: #0d0e0d;float: left;">
+                                              <div style="background-color:#00ff11;width:25%;float: left;height:4vh;border-radius:4px ;">
+                                                <label style="width:100%;">Bairro:</label>
+                                            </div>
+                                           <div style="background-color:#08500c;width:100%;">
+                                                {{!-- <input type="email" id="" value="Jardim da Penha" style="height:4vh;width:70%;border-radius: 6px;" > --}}
+                                                <select class="form-inputLinha"  id="baiTecnica" name="baiTecnica"   style="width:70% ;height:4vh;color:#033061;">
+                                                    <option>Mata da Praia</option>
+                                                    <option>Camburi</option>
+                                                    <option>Praia do Canto</option>
+                                                    <option>Bento ferreira</option>
+                                                    <option>Goiabeira</option>
+                                                    <option>Santa Helena</option>
+                                                    <option>Jardim da Penha</option>
+                                                </select>
+                                           </div>
+                                     </div>
+                                      <div style="width:33%;height:4vh;margin: auto;background-color: #ca0c65;float: left;">
+                                             <div style="background-color:#00ff11;width:35%;float: left;height:4vh;border-radius:4px ;">
+                                                <label style="width:100%;">Estado:</label>
+                                            </div>
+                                           <div style="background-color:#08500c;width:100%;">
+                                            <input type="text" id="estTecnica" name="estTecnica"   value="Espírito Santo" style="height:4vh;width:60%;border-radius: 6px;" >
+                                           </div>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    {{!Essa divisão trata do cadastro da Indútria}}
+                    <div id="industria" class="industria" >
+                        <div class="conter">
+                            <form class="form-div">
+                                <div class="form-linha-top" >
+                                    <h1>linha 1</h1>
+                                </div>
+                                 <div class="form-linha" >
+                                    <h1>linha 2</h1>
+                                </div>
+                                <div class="form-linha" >
+                                    <h1>linha 3</h1>
+                                </div>
+                                <div class="form-linha" >
+                                    <h1>linha 4</h1>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    {{!Essa divisão trata do cadastro do lojista}}
+                    <div id="loja" class="loja"  style="background-color: #b2b5b2;">
+                            {{>_msg}}  
+                            <div id="div-formBtn" class="rowGrava" >
+                                <div style="text-align: center;display: flex;flex-direction:row;justify-content: center;background-color:transparent;height: 5vh">
+                                    <input  id="confirmacao" onchange="gravar()" name="NameSetor" style="display:block;height: 3vh;margin-top: 1vh;" tabindex="24" >
+                                </div>
+                                <div  style="width: 15vw;height:4vh;margin: auto;text-align: center;background-color: #827e7f;margin-top: 0.5vh;">
+                                    <button  id="gravando" value="Gravando lojista" class="btnGrava"
+                                        onclick="document.getElementById('id01').style.display='block'">Gravando</button>
+                                </div>
+                            </div> 
+                            <div id="containerloja" class="conter" style="height:80vh;background-color: #ffffff;overflow: auto;margin-top:5px">
+                                <form action="/centrallj/grava-cadastro-lojista" style="width: 80%;background-color:#ffffff;margin:auto;margin-top:5px" method="POST" enctype="application/x-www-form-urlencoded" autocomplete="off">
+                                        {{!-- ------------------------------------------------------------ --}}
+                                        <div id="Rwrazao" class="row">
+                                            <div class="col-25">
+                                                <label for="rzsocial">Razão Social :</label>
+                                            </div>
+                                            <div class="col-70">
+                                                <input type="text" id="rzsocial" name="rzsocial" placeholder="razão ..." tabindex="0" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="Rwrespd" class="row">
+                                            <div class="col-25">
+                                                <label for="resp1">Responsável :</label>
+                                            </div>
+                                            <div class="col-70">
+                                                <input type="text" id="resp1" name="resp1" placeholder="" tabindex="1" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="Rwcpf" class="row">
+                                            <div class="col-25">
+                                                <label class="" for="cpf1">CPF :</label>
+                                            </div>
+                                            <div class="col-70">
+                                                <input type="text" id="cpf1" name="cpf1" placeholder="" tabindex="2" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="Rwcnpj" class="row">
+                                            <div class="col-25">
+                                                <label class="" for="cnpj">CNPJ :</label>
+                                            </div>
+                                            <div class="col-70">
+                                                <input type="text" id="cnpj" name="cnpj" placeholder="" tabindex="3" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="Rwinscricao" class="row">
+                                            <div class="col-25">
+                                                <label  for="inscricao">INSCRIÇÃO :</label>
+                                            </div>
+                                            <div class="col-70">
+                                                <input type="text" id="inscricao" name="inscricao" placeholder="" tabindex="4" required>
+                                            </div>
+                                        </div>
+                                        <div id="Rwsite" class="row" >
+                                            <div class="col-25">
+                                                <label class="" for="nomeSite" >Site :</label>
+                                            </div>
+                                            <div class="col-70">
+                                                <input type="text" id="nomeSite" name="nomeSite" placeholder=""  tabindex="5" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="Rwmarca" class="row" >
+                                            <div class="col-25" >
+                                                <label class="" for="marca">Marca :</label>
+                                            </div>
+                                            <div class="col-26">
+                                                <input type="text" id="marca" name="marca" placeholder="" tabindex="7" required>
+                                            </div>
+                                        </div>    
+                                        <div id="Rwfone" class="row" style="margin-top:3px ;">
+                                            <div class="col-25" >
+                                                <label class="" for="celular" style="text-align:center;">Celular :</label>
+                                            </div>
+                                            <div class="col-26" >
+                                                <input type="text" id="celular" name="celular" placeholder="" tabindex="8" required>
+                                            </div>
+                                            {{!-- ----------------------------------------------------------- --}}
+                                            <div class="col-25" style="background-color:transparent;width:18%;">
+                                                <label class="" for="telefixo">Tel Fixo :</label>
+                                            </div>
+                                            <div class="col-26" style="margin-left:.3% ;">
+                                                <input type="text" id="telefixo" name="telefixo" placeholder="" tabindex="9" required>
+                                            </div>
+                                        </div>        
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="Rwemail" class="row" >
+                                            <div class="col-25" >
+                                                <label class="" for="">E-mail :</label>
+                                            </div>
+                                             <div class="col-70" > 
+                                                <input type="text" style="height:3.2vh;" id="boxEmail" name="boxEmail"   tabindex="10" autocomplete="on" value="" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="RwSenha" class="row" >
+                                             <div class="col-25">
+                                                <label  for="inputSenha">Senha :</label>
+                                             </div>
+                                             <div class="col-70">
+                                                <input  type="password" style="height: 3.2vh;margin-top:0.6vh;" id="inputSenha"  name="inputSenha"  autocomplete="off||on" tabindex="13" required>
+                                             </div>
+                                        </div>
+                                        <div id="RwComfirmSenha" class="row">
+                                             <div class="col-25" >
+                                                <label class=""   for="confirmeCodigo">Confirma senha:</label>
+                                             </div>
+                                             <div class="col-70"  >
+                                                <input type="password" style="height: 3.2vh;margin-top:0.6vh;" id="confirmeSenha" name="confirmeSenha" placeholder="" autocomplete="off||on" tabindex="14" required>
+                                             </div> 
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="RwCep" class="row" >
+                                            <div class="col-25" >
+                                                <label class="" for="labelcep" >Cep :</label>
+                                            </div>
+                                            <div class="col-26" >
+                                                <input type="text" id="inputCep" name="inputCep"  tabindex="15" required style="background-color: #05477c;color:#ffffff;">
+                                            </div>
+                                        </div>         
+                                        <div id="RwAvenida"  class="row" style="margin-top:3px;background-color:  transparent;padding:2px ;">
+                                            <div class="col-25" >
+                                                <label class="" for="inputAvenida">Avenida/rua :</label>
+                                            </div>
+                                            <div class="col-45" >
+                                                <input  id="inputAvenida" name="inputAvenida" type="text" tabindex="16" required>
+                                            </div>
+                                            <div class="col-20" style="width:12%;height: 4vh;">
+                                                <label class="" for="inputNumero">Nº :</label>
+                                            </div>
+                                            <div class="col-15" style="float:left;background-color:#ffffff;width:15%;margin-top:5px;">
+                                                <input id="inputNumero" name="inputNumero" type="text" style="width:55%;" tabindex="17"  required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="RwComplemento" class="row" >
+                                             <div class="col-25" >
+                                                <label class="" for="Complemento">Complemento ?:</label>
+                                            </div>
+                                            <div class="col-45" >
+                                                <input type="text" id="inputComplemento" name="inputComplemento"  tabindex="18" required>
+                                            </div> 
+                                        </div>
+                                        <div id="RwCidade" class="row" >
+                                            <div class="col-25" >
+                                                <label  for="inputAvenida">Cidade :</label>
+                                            </div>
+                                            <div class="col-45" >
+                                                 <input type="text"  id="inputCidade" name="inputCidade" value="" tabindex="19" required>
+                                            </div>
+                                         </div>
+                                        <div id="RwBairro" class="row">
+                                            <div class="col-25" >
+                                                <label  for="inputBairro">Bairro:</label>
+                                            </div>
+                                            <div class="col-15" >
+                                                <input type="text"  id="inputBairro" name="inputBairro" value="" tabindex="20" required>
+                                            </div>
+                                        </div>
+                                        <div id="RwEstado" class="row">
+                                             <div class="col-25"  >
+                                                <label class=""  for="inputEstado">Estado :</label>
+                                            </div>
+                                            <div class="col-20" >
+                                                <input type="text"   id="inputEstado" name="inputEstado" value="ES" tabindex="21" required>
+                                            </div>
+                                        </div>
+                                        {{!-- ----------------------------------------------------------- --}}
+                                        <div id="RwSegmento" class="row" >
+                                            <div class="col-25" >
+                                                <label for="inputAvenida" >Segmento:</label>
+                                            </div>
+                                            <div class="col-45"  >
+                                                <div style="display: flex;flex-direction: row;">
+                                                    <select name="NameSelectSeg" id="SelectSegmento" class=""  value="" tabindex="22" required style="background-color: #00ff11;">
+                                                         <option></option>
+                                                         {{#each segmento}}
+                                                               <option >{{this.s}}</option>
+                                                         {{/each}}
+                                                    </select>
+                                                    <input id="guardaSegmento" name="NameSegmento" style="width: 150px;height: 3vh;margin: auto;background-color: yellow;color: #000;" type="text">
+                                                </div>    
+                                            </div>
+                                        </div>
+                                        <div id="RwSetor" class="row">
+                                             <div class="col-25">
+                                                <label for="inputAvenida">Setor:</label>
+                                            </div>
+                                            <div class="col-45" >
+                                                <select name="NameSelectSetor" id="SelectSetor" onchange="myFunctionB()" class=""   value="" tabindex="23" required>
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="grid-column: 4;grid-row:1/span 10;background-color:#4e04b6;">
+                                          <input type="submit" id="OkGravar" style="display:none ;" tabindex="25">  
+                                       </div>
+                                </form>
+                            </div>            
+                    </div>
+                    {{!Essa divisão trata do cadastro de 'Preciso Trabalhar'}}
+                    <div id="trabalhar" class="trabalhar" >
+                        <div class="conter">
+                            <form class="form-div" >
+                                <div class="form-titulo" >
+                                     <h1>Preciso trabalhar</h1>
+                                </div>
+                                <div class="form-linha" >
+                                     <div class="form-label" >
+                                        <label class="form-labelLinha">nome</label>
+                                     </div>
+                                     <div class="form-input">
+                                        <input type="text" class="form-inputLinha" id="nomeTrabalhar" name="nomeTrabalhar">
+                                     </div>
+                                </div>
+                                <div class="form-linha">
+                                        <div class="form-label">
+                                            <label class="form-labelLinha">cpf:</label>
+                                        </div>
+                                        <div class="form-input">
+                                            <input type="text" class="form-inputLinha" id="cpfTrabalhar" name="cpfTrabalhar">
+                                        </div>
+                                </div>
+                               
+                                <div  class="form-linha-cep" >
+                                     <div style="width:40%;height:4vh;margin-left:10px;background-color:transparent;">
+                                        <div class="form-label" style="background-color:transparent;width:35% ;">
+                                            <label class="form-labelLinha">Cep</label>
+                                        </div>
+                                        <div class="form-inputCep" style="background-color:transparent;width:60%;height:4vh ;">
+                                            <input type="text" class="form-inputLinha" id="cepTrabalhar" name="cepTrabalhar">
+                                        </div>
+                                     </div>
+                                    
+                                </div>
+                                 <div  class="form-linha" >
+                                     <div class="form-label">
+                                        <label class="form-labelLinha">nome da rua/avenida</label>
+                                     </div>
+                                     <div class="form-input">
+                                        <input type="text" id="ruaTrabalhar" name="ruaTrabalhar"   class="form-inputLinha">
+                                     </div>
+                                </div>
+                                <div  class="form-linha" style="padding-right:8px;" >
+                                     <div class="form-label">
+                                        <label class="form-labelLinha" style="width:100% ;margin-left:3px;background-color:transpareente;">cidade</label>
+                                     </div>
+                                     <div class="form-input">
+                                        <select class="form-inputLinha" id="cidTrabalhar" name="cidTrabalhar" style="color:#033061 ;">
+                                            <option>Cariacica</option>
+                                            <option>Serra</option>
+                                            <option>Vila Velha</option>
+                                            <option>Vitória</option>
+                                        </select>
+                                        
+                                     </div>
+                                      <div class="form-label">
+                                        <label class="form-labelLinha" style="width:100% ;margin-left:3px ;">bairro</label>
+                                     </div>
+                                     <div class="form-input">
+                                          <select class="form-inputLinha" id="baiTrabalhar" name="baiTrabalhar" style="width:100% ;color:#033061;">
+                                            <option>Mata da Praia</option>
+                                            <option>Camburi</option>
+                                            <option>Praia do Canto</option>
+                                            <option>Bento ferreira</option>
+                                        </select>
+                                     </div>
+                                     <div class="form-label">
+                                        <label class="form-labelLinha" style="width:100% ;margin-left:3px ;color:#033061">estado</label>
+                                     </div>
+                                     <div class="form-input">
+                                        <input type="text" class="form-inputLinha" id="estTrabalhar" name="estTrabalhar" value="Espírito Santo" style="margin-left:2px;">
+                                     </div>
+                                </div>
+                                <div  class="form-linha" >
+                                     <div style="width:40%;height:4vh;margin:auto;background-color:#033061;text-align: left;">
+                                        <div class="form-label" style="background-color:transparent;width:25%;margin-left:1px ;">
+                                            <label class="form-labelLinha" style="background-color:transparent;width:100%;">idade</label>
+                                        </div>
+                                        <div class="form-input"  style="background-color:#033061;width:70%;height:4vh ;">
+                                            <input type="text" class="form-inputLinha" id="idaTrabalhar" name="idaTrabalhar"  style="width:95%;">
+                                        </div>
+                                     </div>
+                                     <div style="width:55%;height:4vh;margin:auto;background-color: #033061;text-align: right;">
+                                        <div class="form-label" style="width:35%;text-align: right;margin-left:4px;background-color: #033061;text-align: right;">
+                                            <label class="form-labelLinha" style="background-color:transparent;width:100%;padding-left:35% ;">Instrução</label>
+                                        </div>
+                                        <div class="form-inputCep" style="width:60% ;margin-left:5px ;background-colortransparent">
+                                            <select class="form-inputLinha" id="instTrabalhar" name="instTrabalhar" style="width:90%;margin-left:10px ;float:left;color:#033061;">
+                                                <option>ler +-</option>
+                                                <option>1º grau</option>
+                                                <option>2º grau</option>
+                                                <option>técnico</option>
+                                                <option>superior</option>
+                                            </select>
+                                        </div>
+                                     </div>
+                                </div>
+                                 <div  class="form-linha" >
+                                     <div class="form-label">
+                                        <label class="form-labelLinha">Profissional em:</label>
+                                     </div>
+                                     <div class="form-input">
+                                        <input type="text" class="form-inputLinha" id="profemTrabalhar" name="profemTrabalhar">
+                                     </div>
+                                </div>
+                                <div  class="form-linha" >
+                                    <div class="form-label">
+                                        <label class="form-labelLinha">deseja trabalhar em:</label>
+                                     </div>
+                                     <div class="form-input">
+                                        <input type="text" class="form-inputLinha" id="desejTrabalhar" name="desejTrabalhar">
+                                     </div>
+                                </div>
+                            </form>  
+                        </div>
+                    </div>
+                    {{!Essa divisão trata do cadastro de 'Profissionais}}
+                    <div id="profissionais" class="profissionais" >
+                        <div class="conter">
+                            <form class="form-div" >
+                                <div class="form-linha-top" >
+                                    <h1>linha 1</h1>  
+                                </div>
+                                <div class="form-linha" >
+                                    <h1>linha 2</h1>  
+                                </div>
+                                <div class="form-linha" >
+                                    <h1>linha 3</h1>  
+                                </div>
+                                 <div class="form-linha" >
+                                    <h1>linha 4</h1>  
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+           </div>
+    </div>   
+</div>    
+<script>
+document.getElementById("boxEmail").value="";
+function myFunction() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var text = document.getElementById("text");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+}
+
+var ms=document.getElementById("telefixo")
+ms.addEventListener("keydown",function(event){
+    console.log(6)
+    console.log(event.keyCode)
+    if(event.keyCode === '13'){
+        getFocus()
+    }
+})
+
+function loja(val){
+    document.getElementById("loja").style.display="block";
+    document.getElementById("industria").style.display="none";
+    document.getElementById("tecnica").style.display="none";
+    document.getElementById("trabalhar").style.display="none";
+    document.getElementById("profissionais").style.display="none";
+}
+
+function tecnica(){
+    document.getElementById("tecnica").style.display="block";
+    document.getElementById("industria").style.display="none";
+    document.getElementById("loja").style.display="none";
+    document.getElementById("trabalhar").style.display="none";
+    document.getElementById("profissionais").style.display="none";
+}
+
+function industria(){
+    document.getElementById("industria").style.display="block";
+    document.getElementById("loja").style.display="none";
+    document.getElementById("tecnica").style.display="none";
+    document.getElementById("trabalhar").style.display="none";
+    document.getElementById("profissionais").style.display="none";
+}
+
+function trabalhar(){
+    document.getElementById("trabalhar").style.display="block";
+    document.getElementById("loja").style.display="none";
+    document.getElementById("tecnica").style.display="none";
+    document.getElementById("industria").style.display="none";
+    document.getElementById("profissionais").style.display="none";
+}
+
+function profissionais(val){
+
+    console.log(5555)
+    document.getElementById("profissionais").style.display="block";
+    document.getElementById("trabalhar").style.display="none";
+    document.getElementById("loja").style.display="none";
+    document.getElementById("tecnica").style.display="none";
+    document.getElementById("industria").style.display="none";
+}
+
+document.getElementById("rzsocial").addEventListener("keydown", function(event) {
+    console.log(' [ 987 ] ')
+    document.getElementById("rzsocial").style.background="#c8d1d9";
+})
+
+</script>
+<script>
+    const $campoCep=document.querySelector('[name="inputCep"]');
+    const $campoComplemento=document.querySelector('[name="inputNumero"]');
+    const $campoEstado=document.querySelector('[name="inputEstado"]');
+    const $campoCidade=document.querySelector('[name="inputCidade"]');
+    const $campoBairro=document.querySelector('[name="inputBairro"]');
+    const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+
+    var inputCep = document.getElementById("inputCep");
+    inputCep.addEventListener("keydown", function(event) {
+        console.log(56)
+        // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+              //  console.log("alô 13!")
+                // Cancel the default action, if needed
+                document.getElementById("inputNumero").value="";
+                document.getElementById("inputEstado").value="";
+                document.getElementById("inputCidade").value="";
+                document.getElementById("inputBairro").value="";
+                document.getElementById("inputAvenida").value="";
+                event.preventDefault();
+                buscOsregistros()
+            }
+    });
+// Busca dados do CEP
+function buscOsregistros(){
+        const $campoCep=document.querySelector('[name="inputCep"]');
+        const $campoComplemento=document.querySelector('[name="inputNumero"]');
+        const $campoEstado=document.querySelector('[name="inputEstado"]');
+        const $campoCidade=document.querySelector('[name="inputCidade"]');
+        const $campoBairro=document.querySelector('[name="inputBairro"]');
+        const $campoRua=document.querySelector('[name="inputAvenida"]');
+
+        console.log($campoBairro.value)
+        const E=$campoEstado.value;
+        const C=$campoCidade.value;
+        const R=$campoRua.value;
+        
+        if (E){
+            return;
+        }
+        const cep=document.getElementById("inputCep").value;     
+            if (cep==null || cep==""){
+                return false
+            }
+            console.log(cep);
+            
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(respostaDoServer=>{
+                return respostaDoServer.json();
+            })
+            .then(dadosDoCep => {
+                
+                console.log(' [ 1047 ] ',dadosDoCep);
+                //$campoComplemento.value=dadosDoCep.complemento;
+                    if (dadosDoCep!=[]){
+                        $campoEstado.value=dadosDoCep.uf;
+                        $campoCidade.value=dadosDoCep.localidade;
+                        $campoBairro.value=dadosDoCep.bairro;
+                        $campoRua.value=dadosDoCep.logradouro;
+
+                        console.log($campoBairro.value)
+                        document.getElementById("inputAvenida").style.background="white";
+                        document.getElementById("inputNumero").style.background="white";
+                        document.getElementById("inputCidade").style.background="white";
+                        document.getElementById("inputBairro").style.background="yellow";
+                        document.getElementById("inputEstado").style.background="white";
+                        document.getElementById("inputNumero").style.focus;
+                    }else{
+                        console.log("FORA!")
+                    }
+            })
+            .catch((e)=>{
+               console.log(e)
+            })
+        
+        }
+      
+    var c=document.getElementById("SelectSegmento");
+    c.addEventListener("click", function(event){
+         // Clicou ,então vai buscar os setores de acordo com segmento selecionado
+         let Q=c.value;
+         console.log(' [ 1108 ] palavra selecionada',c.value)
+         document.getElementById('guardaSegmento').value=c.value
+         if(Q==""){
+            return;
+         }
+         const list = document.getElementById("SelectSetor");
+         b=list.length;
+         if(b>0){
+                for(j=0;j<b;j++){
+                    list.removeChild(list.firstElementChild);
+                }
+         }      
+                 
+         let G=window.location.hostname;
+         if (G=='localhost'){
+            G='http://localhost:3000'
+         }else{
+            G='https://www.rotaes.com.br'
+         }
+         //////////////////////////////////////////////////////////////
+         console.log('[ 1125 ]',Q)
+         let caminho =`${G}` + '/centralseg/busca-setores/' + `${Q}`
+         console.log(caminho)
+         try{
+            fetch(`${caminho}`,
+                    {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                    })
+                    .then(response =>{
+                       if(response.ok){
+                         return response.json()
+                       }   
+                       throw error
+                    })
+                    .then((json) => {
+                        console.log(' [ 1139 ]  => result da pesquisa',json)
+                        let r=Object.values(json).length
+                        console.log(' qte de registro',r)
+
+                        for (i=0;i<r;i++){
+                           let A;
+                           if(i==0){
+                              A=""
+                              const node=document.createElement("option")
+                              const textnode = document.createTextNode(A);
+                              node.appendChild(textnode)
+                              document.getElementById("SelectSetor").appendChild(node)
+                           }
+                           A=json[i]
+                           const node=document.createElement("option")
+                           const textnode = document.createTextNode(A);
+                           node.appendChild(textnode)
+                           document.getElementById("SelectSetor").appendChild(node)
+                        }
+                       // console.log('linha 1127', i , r)
+                       // if(i==r){
+                          ////////////////////////////// 
+                       // } 
+                    })
+         }catch(err){
+            console.log(err)
+         };                 
+
+    })
+
+//Pega o subSegmento selecionado
+var SubSegSelected=document.getElementById("SelectSetor");
+
+SubSegSelected.addEventListener("click", function(event){
+        console.log(document.getElementById('SelectSegmento').value)    
+        if (SubSegSelected.value!=''){
+            console.log(6)
+            console.log('vr de.segSub..',SubSegSelected.value)
+            document.getElementById("confirmacao").style.backgroundColor='red';
+            document.getElementById("confirmacao").value=SubSegSelected.value;
+            document.getElementById('SelectSetor').value=SubSegSelected.value;
+            //let e=cxSeg01.value;
+           myFunctionB();
+        }
+         document.getElementById("confirmacao").value=SubSegSelected.value;
+         document.getElementById('SelectSetor').value=SubSegSelected.value;
+    })      
+
+function myFunctionB() {
+    console.log('bingo"""""') 
+    document.getElementById("confirmacao").value=SubSegSelected.value;
+    document.getElementById("gravando").style.display='block';
+}         
+
+function gravar(){
+    console.log(7)
+    //document.getElementById("gravando").style.display='block'
+}
+    
+</script>
+<script>
+
+let b1=document.getElementById("inputCep");
+let b2=document.getElementById("inputAvenida");
+let b3=document.getElementById("inputNumero");
+let b4=document.getElementById("inputComplemento");
+let b5=document.getElementById("inputCidade");
+let b6=document.getElementById("inputBairro");
+let b7=document.getElementById("inputEstado");
+let b8=document.getElementById("SelectSegmento");
+
+// CEP
+b1.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b1.value;
+         if(m1==''){
+            alert('Preencha o campo do CEP')
+         }else{
+            b1.style.backgroundColor="green";
+            b1.style.color="#ffffff";
+            b2.focus();
+         }
+     }
+})
+
+// Avenida
+b2.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b2.value;
+         if(m1==''){
+            alert('Preencha o campo do Avenida')
+         }else{
+            b2.style.backgroundColor="green";
+            b2.style.color="#ffffff";
+            b3.focus();
+         }
+     }
+})
+
+// Número
+b3.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b3.value;
+         if(m1==''){
+            alert('Preencha o campo do Número')
+         }else{
+            b3.style.backgroundColor="green";
+            b3.style.color="#ffffff";
+            b4.focus();
+         }
+     }
+})
+
+// Complemento
+b4.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b4.value;
+         if(m1==''){
+            alert('Preencha o campo do Complemento')
+         }else{
+            b4.style.backgroundColor="black";
+            b4.style.color="#ffffff";
+            document.getElementById("inputCidade").focus();
+            //b5.focus();
+         }
+     }
+})
+
+// cidade
+b5.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b5.value;
+         if(m1==''){
+            alert('Preencha o campo do Cidade')
+         }else{
+            b5.style.backgroundColor="green";
+            b5.style.color="#ffffff";
+            document.getElementById("inputBairro").focus();
+            //b6.focus();
+         }
+     }
+})
+
+// Bairro
+b6.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b6.value;
+         if(m1==''){
+            alert('Preencha o campo do Bairro')
+         }else{
+            b6.style.backgroundColor="brown";
+            b6.style.color="#ffffff";
+            document.getElementById("inputEstado").focus();
+            b7.focus();
+         }
+     }
+})
+
+// Estado
+b7.addEventListener("keydown",function(e){
+     if (e.keyCode === 13) {   
+         console.log("Viva!")
+         let m1=b7.value;
+         if(m1==''){
+            alert('Preencha o campo do Estado')
+         }else{
+            b7.style.backgroundColor="green";
+            b7.style.color="#ffffff";
+         }
+     }else{
+        console.log("fuii....")
+     }
+})
+
+</script>

@@ -1,0 +1,957 @@
+<style>
+  * {box-sizing: border-box}
+  body {font-family: Verdana, sans-serif; margin:0}
+
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    background: #ffffff;
+  }
+
+  /* Slides => Primeira Painel */
+  .SlidesPainelH {
+    display: none;
+    padding: 50px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .nextHum {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prevHum, .nextHum {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: #888;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  .dotHum{
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: rgb(9, 135, 194);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+  }
+
+  /* Next & previous buttons */
+  .SlidesPainelD{
+    display: none;
+    padding: 50px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .prevDois, .nextDois {
+      cursor: pointer;
+      position: absolute;
+      top:50%;
+      width: auto;
+      margin-top: -30px;
+      padding: 16px;
+      color: #888;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .nextDois{
+    position: absolute; 
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+ 
+  .dotDois{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #c4c4c1;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+
+  .prev1:hover, .next1:hover {
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+  }
+
+  /* The dot/bullet/indicator container */
+ .dot-container{
+    text-align: center;
+    padding: 10px;
+    background: #ddd;
+  }
+
+  .dot-container1{
+    text-align: center;
+    padding: 5px;
+    background: #f3f1f1;
+  }
+
+  /* The dots/bullets/indicators */
+  .seta1{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: rgb(9, 135, 194);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  /* Add a background color to the active dot/circle */
+  .active, .dot:hover {
+    background-color: #ffffff;
+  }
+
+  /* Add an italic font style to all quotes */
+  q {font-style: italic;}
+
+  /* Add a blue color to the author */
+  .author {color: cornflowerblue;}
+  /*PAINEL 2 - MEIO/LADO ESQUERDO::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+  .painel-2-1{
+    width:7%;height:50vh;float:right;background-color: #ffffff;display:flex;flex-direction: column;justify-items: center;justify-content: center;
+  }
+
+  /*PAINEL 2 - MEIO/LADO DIREITO::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+  .painel-2-0{
+    width:7%;height:50vh;float:left;background-color: #ffffff;display:flex;flex-direction: column;justify-items: center;justify-content: center;
+  }
+
+  .base1{
+    width:100%;height:10vh;background-color: #ffffff;clear: both;overflow: auto;text-align:center;padding:2.5vh ;
+  }
+
+  .Slides10 {
+    display: none;
+    padding: 80px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  .menuForm-a{
+    color:#ffffff;margin-left:10px;background-color: transparente;margin-top: -5px;text-decoration: none;
+  }
+
+  .linhaMenu{
+     height:3vh;margin-top:2px;font-size: smaller;
+  }
+
+</style>
+{{!-- Controla a acordeon do menu lateral  --}}
+<style>
+    /* Style the buttons that are used to open and close the accordion panel */
+    .accordion {
+        background-color: #022c81;
+        color: #fbfafa;
+        cursor: pointer;
+        padding: 12px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: 0.4s;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .accordion:hover {
+       /* background-color: rgb(4, 214, 25);*/
+       background-color: #022c81;
+       color: #c4c4c1;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+        padding: 0 18px;
+        background-color: white;
+        display: none;
+        overflow: hidden;
+    }
+
+    .panel p{
+        color:#022c81;
+    }
+
+    .linhahum{
+       margin-top:10px;
+    }
+
+    a{
+       text-decoration: none;
+    }
+</style>
+{{!--Controla o movimentação dos link*/ --}}
+<style>
+      a:link {
+      text-decoration: none;
+    }
+
+    a:visited {
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration:  none;
+      color: #ffffff;
+    }
+
+    a:active {
+      text-decoration: none;
+    }
+
+    .linhasub{
+      border-bottom: 1px solid #767674;
+      margin-bottom: 3px;
+    }
+
+    .btnLista{
+      width: 10vw;height: 3.5vh;margin: auto;background-color: #9a047c;color:#ffffff;padding:0.3vh;font-size: x-small;text-align: left;margin-left: 5px;
+    }
+
+    .divline{
+      display: flex;flex-direction: row;justify-content: space-between;width: 12vw;height: 3vh;margin: auto;margin-top: 10px;background-color:transparent;
+    }
+
+    .divicone{
+      background-color: #ffffff;width: 5vw;height: 3.5vh ;margin: auto;padding-top: 0.3vh;text-align: center;
+    }
+</style>
+{{!Esse form é o corpo da HOME}}
+<div class="d-flex" >
+     
+    {{!-- <a  class="menuForm-a" style="color: #ff0000;display: none;" href="/site/segmentomenu/roupas">
+          <button id="hrefroupas" style="display:block;"></button>Roupas ???
+    </a>  --}}
+     
+     {{!--  Menu de compras --}}
+     <div id="subMenu" style="width: 20%;height: 32vh;margin: auto;position:absolute;margin-left:250px;top:200px;background-color:transparent;display: none;z-index: 1000;padding-top: 12vh;padding-left: 0.10vw;">
+           <ul id="subMenulista" style="width: 100%;height: 30vh;margin: auto;background-color: #008b8b;list-style: none;color: #ffffff;padding-top: 20px;overflow: auto;">
+             
+           </ul>
+     </div>
+     <div id="formsegemnto" style="width: 30%;height: 20vh;margin: auto;position: absolute;right: 200px;top:10vh;background-color: #022c81;z-index: 1000;display: none;">
+         <div style="width: 80%;height: 15vh;margin: auto;display: flex;flex-direction: column;justify-items: center;">
+           <form action="/site/buscaSegmento" id="id" method="post" enctype="application/x-www-form-urlencoded" >
+               <div style="width: 80%;height: 15vh;margin: auto;display: flex;flex-direction: column;justify-items: center;">
+               
+                <input id="nomeSegmentoId"  name="nomeSegmento" class="testId" >
+                <input id="nomeSub-tituloId"  name="nomeSubtitulo" class="testId" >
+                <button id="btnEnviar" type="submit">enviar</button>
+
+              </div>  
+           </form>
+         </div>  
+     </div>
+     <div id="menuSeg" class="menu-compras"  style="display:block;">
+                <div id="menuSegVolta" class="menu-comprasback">
+                    <a href="">
+                       <h1 ><i class="fa fa-caret-left iStyle" onclick="fclose()"></i>volta</h1>
+                     </a>
+                </div>
+                <div id="menuSegClose" style="width:100%;height:2.5vh;margin:auto;background-color:#054ee0;margin-top:2px;text-align: center;margin-bottom: 6px;">
+                        <a onclick="fclose()">
+                            <i class="fas fa-times" style="float: right;margin-right: 15px;margin-top:10px;color:#f2f2f2"></i>
+                        </a>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-carrot" style="background-color: #ffffff;" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Agricultura')" disabled style="background-color: #888;">Agricultura</button> 
+                          </div>
+                </div> 
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-pepper-hot" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Alimentação')"  >Alimentação</button> 
+                          </div>
+                </div> 
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-car-side" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Automóvel')" disabled style="background-color: #888;"> Automóvel</button> 
+                          </div>
+                </div> 
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-globe" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Comércio Exterior')" disabled style="background-color: #888;">Comércio Exterior</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-bullhorn" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Comunicação')" disabled style="background-color: #888;">Comunicação</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-hammer" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Construção')" disabled style="background-color: #888;">Construção Civil</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-user-graduate" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Educação')" disabled style="background-color: #888;">Educação</button> 
+                          </div>
+                </div>
+                 <div class="divline">
+                          <div style="background-color: #ffffff;width: 5vw;height: 3.5vh ;margin: auto;padding-top: 0.3vh;text-align: center;">
+                             <i class="fas fa-cut" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Estética')" disabled style="background-color: #888;">Estética</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-desktop" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Eletrônicos')" disabled style="background-color: #888;">Eletrônicos,Fotografica</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-desktop" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Informática')" disabled style="background-color: #888;">Informática</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-paint-roller" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Material de Construção')" >Material de Construção</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-couch" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Móveis Decoração')" disabled style="background-color: #888;">Móveis Decoração</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-cat" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Pets')" disabled style="background-color: #888;">Pets</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-tshirt" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Roupas')" disabled style="background-color: #888;">Roupas</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-ambulance" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Saúde')" disabled style="background-color: #888;">Saúde</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fa fa-fw fa-wrench" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu(' Serviços')" disabled style="background-color: #888;"> Serviços</button> 
+                          </div>
+                </div>
+                <div class="divline">
+                          <div class="divicone">
+                             <i class="fas fa-bed" ></i>
+                          </div>
+                          <div style="background-color: #000000;">
+                             <button id="" type="button" class="btnLista"  onclick="mostra_submenu('Turismo')" disabled style="background-color: #888;">Turismo</button> 
+                          </div>
+                </div> 
+     </div>
+     {{!-- painel de lateral esquerdo para setor de atividades diversas ? --}}
+     <div id="paineis-left" class="lateralLeft" >
+          <div style="width:100% ;height:5vh;margin:auto;text-align:center; background-color:transparent;color:#ffffff;padding: 5px;
+                       border-bottom: 2px solid #ffffff;">
+                <h1 style="font-size:larger;margin:auto;font-weight:400;">Assuntos</h1>
+          </div>
+          <div style="width:100%;height:50vh;overflow:auto;margin:auto ;display: none;">
+             <button class="accordion">Agrícultura</button>
+              <div class="panel">
+                <p class="linhahum">Café</p>
+                <p>Cacau</p>
+                <p>Mamão</p>
+              </div>  
+            <button class="accordion">Corridas</button>
+              <div class="panel">
+                <p class="linhahum"  >Corrida de bicicletas</p>
+                <p>Corrida de Garoto</p>
+                <p>Corrida Unimed</p>
+              </div>
+            <button class="accordion">Cinemas e Teatro</button>
+              <div class="panel">
+                <p class="linhahum">Cine Teatro Glória</p>
+                <p>Cine Metrópolis UFES</p>
+              </div>  
+            <button class="accordion">Educação</button>
+              <div class="panel">
+                <p class="linhahum">Pista de Skates</p>
+                <p>Pista de Patins</p>
+              </div>  
+            <button class="accordion">Esporte</button>
+              <div class="panel">
+                <p class="linhahum">Pista de Skates</p>
+                <a href="#"  style="color:red;background-color:#03569a">Pista de Patins</a>
+              </div>
+            <button class="accordion" style="background-color:#ffffff;color:#ff0000 ;">Fast Food</button>
+              <div class="panel">
+                <p class="linhahum">Jardim da Penha</p>
+                <p>Gurigica</p>
+                <p>Santa Lúcia</p>
+              </div>
+            <button class="accordion">Feiras de Negócios</button>
+              <div class="panel">
+                <p class="linhahum">Feira do Artezanato</p>
+                <p>Feira do Granito</p>
+                <p>Feira das Noivas</p>
+                <p>Feira do Empreendedor</p>
+              </div>
+            <button class="accordion">Feriados Importantes</button>
+              <div class="panel">
+                <p class="linhahum">Cidade de Vitória</p>
+                <p>Colonização do E.Santo</p>
+                <p>Festa da Penha</p>
+              </div>
+            <button class="accordion">Festas Religiosas</button>
+              <div class="panel">
+                <p class="linhahum">Festa da Penha</p>
+                <p>Corpus Cristi</p>
+                <p>Festa de São Petro</p>
+                <p>Festa de São João</p>
+                <p>Festa de Santo Antônio</p>
+              </div>
+            <button class="accordion">Parques Recreação</button>
+              <div class="panel">
+                <p class="linhahum">Parque Moscoso</p>
+                <p>Pedra da Cebola</p>
+                <p>Curva da Jurema</p>
+                <p>Morro da Pescaria</p>
+              </div>  
+            <button class="accordion">História</button>
+              <div class="panel">
+                <p class="linhahum">Volta pela Baía de Vitória</p>
+                <p>Tour das Baleias Jubartes</p>
+                <p>Tour Buenos Ayres</p>
+              </div>  
+            <button class="accordion">Meio Ambiente</button>
+              <div class="panel">
+                <p class="linhahum">Progrma Educacional</p>
+                <p>Recuperação Mata Atlântica</p>
+                <p>Tour Buenos Ayres</p>
+              </div>  
+            <button class="accordion">Passeios</button>
+              <div class="panel">
+                <p class="linhahum">Volta pela Baía de Vitória</p>
+                <p>Tour das Baleias Jubartes</p>
+                <p>Tour Buenos Ayres</p>
+              </div>
+            <button class="accordion">Mercado Exterior</button>
+              <div class="panel">
+                <p class="linhahum">Porto de Vitória</p>
+                <p>Porto de Capuaba</p>
+                <p>Porto Tubarão</p>
+              </div>  
+            <button class="accordion">Rotas Turismo</button>
+              <div class="panel">
+                <p class="linhahum">Rota Lagarto<span style="font-size:small;">- Pedra Azul</span></p>
+                <p>Rota do Imigrante</p>
+                <p>Rota Buenos Ayres<span style="font-size:small;">- Guarapari</span></p>
+              </div>  
+            <button class="accordion">Shows</button>
+              <div class="panel">
+                <p class="linhahum">Paralamas do Sucesso</p>
+                <p>Pagode</p>
+              </div>
+          </div>    
+          <div style="width:100% ;height:5vh;margin:auto;text-align:center; background-color:transparent;color:black;padding: 10px;">
+          {{!-- <div style="padding:10% ;">
+            <a href="#">
+            <img src="./img_menulateralHome/festasReligiosa.png" width="100%">
+            </a>
+          </div> --}}
+          <div style="padding:10% ;">
+            <a href="/views/_site/home/paineis-tour">
+            <img src="./img_menulateralHome/esporte.png" width="100%">
+            </a>
+          </div>
+          <div style="padding:10% ;">
+            <a href="#">
+            <img src="./img_menulateralHome/feiras.png" width="100%">
+            </a>
+          </div>
+          <div style="padding:10% ;">
+            <a href="#">
+            <img src="./img_menulateralHome/historia.png" width="100%">
+            </a>
+          </div>
+           <div style="padding:10% ;">
+            <a href="#">
+                <img src="./img_menulateralHome/parques.png" width="100%">
+            </a>
+          </div>
+          <div style="padding: 10%;">
+              <div style="width: 90%;height: 25vh;margin: auto;background-color: #000000;color: #ffffff;text-align: center;padding: 2vh;">
+                   <h2 style="font-size: 1vw;">Material construção</h2>
+              </div>
+          </div>
+          
+          </div>
+     </div>
+     {{!-- Painel Central de slidesShow --}}
+     <div id="painel-central" class="central" >
+           {{!-- <div id="abas"  class="teclado">
+               <div style="perspective:150px;perspective-origin:left;display:flex;flex-direction:row;background-color:transparente;width:200px;height:5vh;margin-left:1px;margin-top: -9px;">
+                      <div style="width:170px;height:7vh;background-color:#9c9c04; transform-style: preserve-3d;transform: rotateX(45deg);justify-items: center;margin-left:-1px ;">
+                              <h6 style="margin-top:3vh;margin-left:6px;color:#ffffff;">turismo</h6>
+                      </div>
+               </div>
+                <div style="perspective:150px;perspective-origin:left;display:flex;flex-direction:row;background-color:transparente;width:200px;height:5vh;margin-left:1px;margin-top: -7px;">
+                      <div style="width:170px;height:6.6vh;background-color:#02642e; transform-style: preserve-3d;transform: rotateX(45deg);">
+                              <h6 style="margin-top:3vh;margin-left:6px;color:#ffffff;">Ofertas</h6>
+                      </div>
+               </div>
+               <div style="perspective:150px;perspective-origin:left;display:flex;flex-direction:row;background-color:transparente;width:200px;height:5vh;margin-left:1px;margin-top: -7px;">
+                      <div style="width:170px;height:6.6vh;background-color:#767674; transform-style: preserve-3d;transform: rotateX(45deg);margin-left:-1px ">
+                               <h6 style="margin-top:3vh;margin-left:6px;color:yellow;">final de semana</h6>
+                      </div>
+               </div>
+                <div style="perspective:150px;perspective-origin:left;display:flex;flex-direction:row;background-color:transparente;width:200px;height:5vh;margin-left:1px;margin-top: -7px;">
+                      <div style="width:170px;height:6.6vh;background-color:#022d7c; transform-style: preserve-3d;transform: rotateX(45deg);margin-left:-1px ">
+                            <h6 style="margin-top:3vh;margin-left:6px;color:#ffffff;">imóveis</h6>
+                      </div>
+               </div>
+                  <div style="perspective:150px;perspective-origin:left;display:flex;flex-direction:row;background-color:transparente;width:200px;height:5vh;margin-left:1px;margin-top: -7px;">
+                      <div style="width:170px;height:6.6vh;background-color:#9a047c; transform-style: preserve-3d;transform: rotateX(45deg);margin-left:-1px ">
+                            <h6 style="margin-top:3vh;margin-left:6px;color:#ffffff;">seu carro novo</h6>
+                      </div>
+               </div>
+           </div> --}}
+           <div id="painel-1" style="width:100%;height:66vh;margin:auto;display:flex ;flex-direction: column;background-color:white;margin-top: 10px;">
+                 <div id="painel-1-container" class="slideshow-container" style="background-color:white;height:70vh;margin-top: 2px;width:100%;display: flex;flex-direction: row;justify-content: space-around; ">
+                   <div style="float:left ;width:5%;">
+                      <a class="prevHum" onclick="buscSlidePHum(-1)">❮</a>
+                   </div>
+                   <div class="slideshow-container" style="background-color: #03569a;height:60vh;margin-top: 2px;float:left ;width:90%;">
+                            <div class="SlidesPainelHum" style="background-color:#ffffff;height: 60vh;">
+                                <img src="./img_publicidade/sipolatti1.png" alt="hidrofer" width="100%" height="100%">
+                            </div>
+
+                            <div class="SlidesPainelHum" style="background-color:#ffffff;height: 60vh;">
+                                <img src="./img_publicidade/politintas1.png" alt="hidrofer" width="100%" height="100%">
+                            </div>
+
+                            <div class="SlidesPainelHum" style="background-color:#ffffff;height: 60vh;">
+                               <img src="./img_publicidade/dalaHome.png" alt="tinbol" width="100%">
+                            </div>
+                   </div>
+                   <div style="float:left;width:5%;">
+                      <a class="nextHum" onclick="buscSlidePHum(1)">❯</a>
+                   </div> 
+                </div>     
+                {{!-- //::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+                <div class="dot-container">
+                            <span class="dotHum" onclick="currentSlide(1)"></span> 
+                            <span class="dotHum" onclick="currentSlide(2)"></span> 
+                            <span class="dotHum" onclick="currentSlide(3)"></span> 
+                </div>
+            </div>      
+           {{!-- Painel lateral direito de publicidade ::::::::::::::::::::::::   --}}
+           <div id="painel-2" style="width:100%;height:66vh;margin:auto;display:flex ;flex-direction: column;background-color:black;">
+                    <div id="painel-2-container" class="slideshow-container" style="background-color:white;height:70vh;margin-top: 2px;width:100%;display: flex;flex-direction: row;justify-content: space-around; ">
+                         <div  style="float:left;width:5%;" >
+                             <a class="prevDois" onclick="buscSlidePDois(1)">❮</a>
+                         </div>
+                         <div id="painel-2-slides" style="background-color: white;height:60vh;margin-top: 20px;float:left;width:90%;padding-top: 15px;">
+                                  <div class="SlidesPainelDois" style="background-color:#ffffff;height: 50vh;width:100%;margin: auto;">
+                                          <img src="./img_publicidade/nazca01.png" alt="hidrofer" width="100%" height="100%">
+                                  </div>
+                                  <div class="SlidesPainelDois" style="background-color:#ffffff;height:50vh;width:100%;margin: auto;">
+                                          <img src="./img_publicidade/nazca02.png" alt="hidrofer" width="100%"height="100%">
+                                  </div>
+                                  <div class="SlidesPainelDois" style="background-color:#ffffff;height: 50vh;width:100%;margin: auto;">
+                                        <img src="./img_publicidade/nazca03.png" alt="tinbol" width="100%" height="100%">
+                                  </div>
+                          </div>
+                          <div  style="float:left;width:5%;background-color: white;">
+                              <a id="painel-2-0-setaRight"  class="nextDois"  onclick="buscSlidePDois(1)">❯</a>
+                          </div>
+                    </div>
+                   <div class="dot-container" >
+                            <span class="dotDois" onclick="currentSlide(1)"></span> 
+                            <span class="dotDois" onclick="currentSlide(2)"></span> 
+                            <span class="dotDois" onclick="currentSlide(3)"></span> 
+                   </div>
+           </div> 
+           {{!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+           <div id="painel-3" style="width:100%;height:60vh;margin:auto;display:flex ;flex-direction:column;
+                                     background-color: #9a047c;margin-top:10px ;justify-content: space-around;border:solid 1px #ffffff;padding: 10px;display: none;">
+                 <div id="painel-3-container" class="slideshow-container" style="background-color:green;height:70vh;margin-top: 2px;width: 100%;">
+                      <div class="" style="float:left;width:5%;">
+                          <a class="PrevTres" onclick="BuscSlideTres(-1)">❮</a>
+                      </div>
+                      <div style="width:86%;height:50vh;float:left;background-color: transparent;float:left;width:90%;">
+                          <div class="SlidesPainelTres" style="background-color:#ffffff;height:50vh;width:100%;margin: auto;">
+                                <img src="./img_publicidade/galwan/galwan_Pignaton.png" alt="galwan" width="100%" height="100%">
+                          </div>
+                          <div class="SlidesPainelTres" style="background-color:#ffffff;height:50vh;width:100%;margin: auto;">
+                                <img src="./img_publicidade/galwan/galwan_marCaribe.png" alt="galwan" width="100%" height="100%">
+                          </div>
+                              <div class="SlidesPainelTres" style="background-color:#ffffff;height:50vh;width:100%;margin: auto;">
+                              <img src="./img_publicidade/galwan/galwan_Ocean.png" alt="galwan" width="100%" height="100%">
+                          </div>  
+                      </div>
+                      <div class="NextTres" style="float:left;width:5%;">
+                          <a class="" style="" onclick="BuscSlideTres(1)">❯</a>
+                      </div>
+                      <div class="base1">
+                                <span class="seta1" onclick="moveSlides-painel-3(1)"></span> 
+                                <span class="seta1" onclick="moveSlides-painel-3(2)"></span> 
+                                <span class="seta1" onclick="moveSlides-painel-3(3)"></span> 
+                      </div>
+                 </div>
+           </div> 
+         
+     </div>
+      {{!-- ===== Painel lateral Esquerdo de publicidade===   --}}
+     <div id="lateralRight" class="lateralRight" >
+         <div id="paineis-right-titulo" class="lateralRightTitulo" >
+              <h1 style="color:#000000;font-size: medium;">Patrocinados</h1>
+         </div>
+         <div id="paineis-right-box-1" class="painelPubli">
+               <div>
+                  <img   src="./img_publicidade/anuncios/fritadeira.png" width="100%" alt="fritadeira">
+               </div>  
+         </div>
+          <div id="paineis-right-box-2" class="painelPubli" >
+                <div>
+                  <img   src="./img_publicidade/anuncios/chuveiro.png" width="100%" alt="chuveiro">
+                </div>  
+         </div>
+         <div id="paineis-right-box-3" class="painelPubli" >
+                 <div>
+                  <img   src="./img_publicidade/anuncios/airfryer.png" width="100%" alt="airfryer.png">
+                </div>  
+         </div>
+          <div id="paineis-right-box-4" class="painelPubli longA" >
+                 <div>
+                  <img   src="./img_publicidade/anuncios/automovel.png" width="100%" alt="automovel">
+                </div>     
+         </div>
+          <div id="paineis-right-box-5" class="painelPubli longB" >
+                 <div style="border-top:1px solid #ffffff;margin-top:4px;">
+                  <img   src="./img_publicidade/anuncios/ingles.png" width="100%" alt="fritadeira">
+                </div>     
+         </div>
+     </div>
+</div>
+
+<script>
+
+
+var slideIndexTres=1;
+
+
+
+/*Primeiro Painel*/
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+var slideIndexHum = 1;
+
+showSlidesHum(slideIndexHum);
+
+function buscSlidePHum(n) {
+  console.log('[659]' ,n)
+  showSlidesHum(slideIndexHum += n);
+}
+
+function showSlidesHum(n) {
+  var i;
+  var slides = document.getElementsByClassName("SlidesPainelHum");
+  var dots = document.getElementsByClassName("dotHum");
+  if (n > slides.length) {slideIndexHum = 1}    
+  if (n < 1) {slideIndexHum= slides.length}
+    //:::::::::::::::::::::::::::::::::::::
+    console.log('[670]',slides.length)
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    //::::::::::::::::::::::::::::::::::::::
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    //::::::::::::::::::::::::::::::::::::::
+    slides[slideIndexHum-1].style.display = "block";  
+    dots[slideIndexHum-1].className += " active";
+  }
+
+
+
+
+/*Segundo Painel*/
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+var slideIndexDois=1;
+
+showSlidesDois(slideIndexDois);
+
+function currentSlideDois(n) {
+  showSlidesDois(slideIndexDois = n);
+}
+
+function buscSlidePDois(n) {
+  showSlidesDois(slideIndexDois += n);
+}
+
+
+
+function showSlidesDois(x) {
+    var i;
+    var slides1 = document.getElementsByClassName("SlidesPainelDois");
+    var dots1 = document.getElementsByClassName("dotDois");
+    if (x > slides1.length) {slideIndexDois = 1}    
+    if (x < 1) {slideIndexDois = slides1.length}
+    //::::::::::::::::::::::::::::::::::::::
+    for (i = 0; i < slides1.length; i++) {
+        slides1[i].style.display = "none";  
+    }
+    //:::::::::::::::::::::::::::::::::::::
+    for (i = 0; i < dots1.length; i++) {
+        dots1[i].className = dots1[i].className.replace(" active", "");
+    }
+    //:::::::::::::::::::::::::::::::::::::
+    slides1[slideIndexDois-1].style.display = "block";  
+    dots1[slideIndexDois-1].className += " active";
+}
+
+
+
+/*Terceiro Painel*/
+/* ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+
+     
+  
+</script>
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      /* Toggle between adding and removing the "active" class,
+      to highlight the button that controls the panel */
+      this.classList.toggle("active");
+
+      /* Toggle between hiding and showing the active panel */
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<script>
+      // Menu de compras
+      var b=document.getElementById("menuSeg").style.display="none";
+      // Click no nome segmento e mostre o menu
+      document.getElementById("zero-compras").addEventListener("click", function(event){
+            console.log('[756]','olé!')
+            let r5=document.getElementById("menuSeg").style.display;
+            console.log('')
+            console.log('[759]',r5)
+            console.log('_________________________________________')
+            console.log('')
+            if(r5=='none'){
+                document.getElementById("menuSeg").style.display='block'
+                document.getElementById("menuSeg").style.zIndex=100;
+                console.log(100);
+            }else{
+              // if(document.getElementById("menuSeg").style.display='none'){
+              //       document.getElementById("menuSeg").addEventListener("mouseleave", function(){
+              //          console.log(7888)
+              //          document.getElementById("menuSeg").style.display='block';
+              //       })
+              // } 
+            }
+      })
+
+      
+      function fclose(){
+        document.getElementById("menuSeg").style.zIndex=-1;
+      }
+
+
+      function mostra_submenu(n){
+           //////////////////////////////////
+           document.getElementById("nomeSegmentoId").value=n;
+           document.getElementById("btnEnviar").click();
+
+           return
+           limpaCaixa();
+           function limpaCaixa(){
+             console.log(333);
+             let corpos;
+             corpos=document.getElementById("subMenulista").children;
+             let c=corpos.length;
+
+                for (i=c-1;i>-1;i--){
+                    console.log(corpos[i])
+                    corpos[i].remove();
+                }
+              if(c>0){  
+                document.getElementById("subMenu").style.display="none";   
+              }  
+           }
+           
+           ///////////////////////////////////////////////
+
+           let baseApiUrl=window.location.hostname;
+            if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+            }else{
+                baseApiUrl='https://www.rotaes.com.br'
+            }   
+            //////////////////////////////////////////////////////////////////
+            try{
+                  fetch(`${baseApiUrl}` + `/site/buscaSegmento/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                          .then(response =>{
+                              if( response.ok ){
+                                  return response.json()
+                                  }  
+                                  throw response;
+                          })
+                          .then((json)=>{
+                                let palavra='subMenulista';
+                                let l=json.length;
+                                
+                                //////////////////////////////////////////////////////
+                                for (let i=0;i<l;i++){
+                                     let field=json[i];
+                                    
+
+                                     const node2 = document.createElement("li");
+                                     node2.setAttribute("id",'li-' + i);
+                                     node2.setAttribute("onclick",'busca_Segmento("' + field + '")');
+                                     node2.setAttribute("class",'linhasub');
+                                     const textNode2=document.createTextNode(field);
+                                     node2.appendChild(textNode2);
+                                     document.getElementById(palavra).appendChild(node2); 
+                                }
+                                /////////////////////////////////////////////////////////////////
+                                console.log(20)
+                                if(l>0){
+                                   document.getElementById("subMenu").style.display="block";
+                                   //document.getElementById("nomeSegmentoId").value=0
+                                 
+                                }
+                          })
+                          .catch((e)=>{
+                             console.log(e)
+                          })
+            }catch(e){
+               console.log(e)
+            }          
+      }
+
+        
+
+     
+        
+        
+       // return
+      //  let baseApiUrl=window.location.hostname;
+      //      if (baseApiUrl=='localhost'){
+      //          baseApiUrl='http://localhost:3000'
+      //      }else{
+      //          baseApiUrl='https://www.rotaes.com.br'
+      //      }   
+      //      //////////////////////////////////////////////////////////////////
+      //      try{
+      //            fetch(`${baseApiUrl}` + `/site/buscaSegmento/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+      //                    .then(response =>{
+      //                        if( response.ok ){
+      // /                           return response.json()
+      //                            }  
+      //                            throw response;
+      //                    })
+      // /                   .then((json)=>{
+      //
+      //                    })
+      //                    .catch((er)=>{
+      //                       console.log(er)
+      //                    })
+      //      }catch(e){
+      //          console.log(e)
+      //      }          
+      //     
+     
+</script>
+<script>
+  function busca_Segmento(n){
+           let n1=n
+           console.log(n)
+           document.getElementById("subMenu").style.display="block";
+           document.getElementById("nomeSub-tituloId").value=n1;
+        }
+</script>
+
+        
+
+        

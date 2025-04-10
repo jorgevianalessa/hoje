@@ -1,0 +1,49 @@
+<nav class="sidebar" style="background-color: #f9f6f8;margin-top: 5.4vh;height:94vh;padding:2px;">
+        <ul class="list-unstyled" style="background-color: transparent;height:60vh;width:100% ;">
+            <li>
+                <a href="#submenu1" data-toggle="collapse" style="color:#f1ebeb;background-color: #1dda3a;margin-bottom: 2px;">
+                    <i class="fas fa-user" ></i> Cadastro produto
+                </a>
+                <ul id="submenu1" class="list-unstyled collapse" >
+                    <li><a href="#/{{razao}}"><i class="fas fa-key"></i> padrão</a></li>
+                    <li><a href="/lojista/cadastro_produtoname/{{razao}}"><i class="fas fa-users"></i>Vinculando produto</a></li>
+                    <li><a href="/lojista/cadastro_produtocodigo/{{razao}}"><i class="fas fa-key"></i>Vinculando fornecedor e produto</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#submenu2" data-toggle="collapse" style="color:#f1ebeb;background-color: #68756a;margin-bottom: 2px;">
+                    <i class="fas fa-user" ></i> Pesquisa
+                </a>
+                <ul id="submenu2" class="list-unstyled collapse" >
+                    <li><a href="#"><i class="far fa-image" style="background-color:#68756a;"></i>Fornecedores</a></li>
+                    <li><a href="/fornec/fornec/{{razao}}"><i class="fas fa-briefcase"></i>Lojista</a></li>
+                    {{!-- <li><a href="#"><i class="fas fa-film"></i>--</a></li>
+                    <li><a href="#"><i class="fas fa-network-wired"></i>--</a></li> --}}
+                </ul>
+            </li>
+             <li>
+                <a href="#submenu3" data-toggle="collapse" style="color:#f1ebeb;background-color: #68756a;margin-bottom: 2px;">
+                    <i class="fas fa-user" ></i> Editar
+                </a> 
+                <ul id="submenu3" class="list-unstyled collapse">
+                    <li><a href="#"><i class="far fa-image"></i>Produto - name</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i>Produto - lojista</a></li>
+                    <li><a href="#"><i class="fas fa-film"></i>Produto - c:barra</a></li>
+                </ul>    
+            </li>    
+             <li>
+                <a href="#submenu4" data-toggle="collapse" style="color:#f1ebeb;background-color: #68756a;margin-bottom: 2px;">
+                    <i class="fas fa-user" ></i> Delete
+                </a> 
+                <ul id="submenu4" class="list-unstyled collapse">
+                    <li><a href="/fornec/delete-fornec/{{razao}}"><i class="far fa-image"></i><span style="margin-left:12px;"></span>delete produto/fornecedor</a></li>
+                    {{!-- <li><a href="#"><i class="fas fa-briefcase"></i>Produto - lojista</a></li> --}}
+                    {{!-- <li><a href="#"><i class="fas fa-film"></i>Produto - c:barra</a></li> --}}
+                    <form>
+                        <input id="passaDelete" value="">
+                    </form>
+                </ul>    
+            </li>  
+            <li><a href="/" style="color:#000000"><i class="fas fa-tachometer-alt" ></i> Site</a></li>
+        </ul>
+</nav>

@@ -1,0 +1,44 @@
+<nav class="sidebar" style="background-color:#ffffff;" >
+      <div id="listaSegmentosServiço" class="SegmentoLoja" >
+         {{!-- ---------------------------------------------------}}
+         <div id="listaSegmentos" class="SegmentoLoja" >
+               <div class="lateral-left-tituloSecao" style="background-color:#023fc4;height: 6vh;padding-top: 1vh;">
+                     <h6 style="color: #ffffff;font-size: larger;text-align: center;">secções</h6>
+               </div>
+               <div style="padding-top: 1vh;background-color:transparent;height: 52vh;">
+                     <ul style="width: 100%;background-color: #efe8ed;font-size: larger;list-style-type: none;
+                                overflow-y:scroll;margin: 0;padding: 0;height: 48vh;margin: auto;">
+                        {{#each seg}}
+                        <li id="numlin" style="margin: 6px;text-align: left;color:#025625" onclick="buscaSecao('{{this.seg}}')" >
+                           {{this.seg}}
+                        <li> 
+                        {{/each}}
+                     </ul>
+               </div>
+         </div> 
+         {{!-- esquerda inferior  - Lista de serviços correlatos --}}
+         <div id="listaServiços" class="SegmentoServico">
+               <div class="lateral-left-tituloSecao" style="background-color:#023fc4;text-align: center;height: 6vh;padding-top: 1vh;">
+                     <h6 style="color: #ffffff;font-size: larger;">Serviços</h6>
+               </div>
+               <div class="" >
+                  <ul style="background-color:#efe8ed;width:90%;margin: auto;padding-top:2vh;text-align:start;overflow-y:scroll;height:34vh ;font-size: larger;">
+                     <li style="margin-left:6px;list-style: none;color:#03491d">Costureiras</li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d">Alfaiate</li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d"></li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d"></li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d"></li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d"></li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d"></li>
+                     <li style="margin-left:6px;list-style: none;color:#03491d"></li>
+                  </ul>
+               </div>
+         </div>
+      </div>
+</nav>
+<script>
+      //function buscaSecao(n){
+      //      console.log('vr de n',n)
+
+      //}
+</script>

@@ -1,0 +1,304 @@
+body {
+    margin: 0;
+    padding: 0px 15px;
+    background-color: #cccccc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-header{
+    color: #FFF !important;
+}
+/* .menu-per{
+    background-color: #65bd77 !important;
+} */
+
+.painelFixo{
+    display: block;
+    z-index: 1000;
+    background-color: #033c87;
+ }
+ 
+.titulo-main{
+    width:98.5%;
+    height:10.5vh;
+    margin:auto ;
+    background-color:#288703;
+    float:left ;
+    text-align: center;
+    padding:2px 0px 12px;
+    position: fixed;
+    margin-top:0px;
+    margin-bottom: 10px;
+    top:0;
+ }
+
+ .barraHome{
+    width:98wv;
+    height:4.8vh;
+    display:flex;
+    flex-direction:row;
+    margin-top: 1.5px;
+    background-color:#0653e3;
+ }
+
+ .barraHomeLogo{
+    width: 10%;
+    height: 4.8;
+    float:left;
+    background-color:transparent;
+    padding:2px 3px;
+}
+
+ 
+ .barraHomeBuscar{
+    width: 50%;
+    height:2.8rem;
+    display: flex;
+    flex-direction: row;
+    background-color:#033c87;
+    border-radius: 6px;
+    margin-right: 2px;
+    justify-items:right;
+    padding: 3px;
+    justify-content: flex-end;
+ }
+
+ .barraMenu{
+    width:100%;
+    height:4.9vh;
+    margin:0.3vh;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    border-top: #dad2d2 2px solid;
+    background-color:transparent;
+ }
+
+ 
+ .escolha{
+    width: 95%;
+    height: 3.8vh;
+    margin: auto;
+    font-size:1vw;
+    background-color: transparent;
+ }
+
+ .topnav {
+    overflow: hidden;
+    height: 6.2vh;
+    float: left;
+    background-color: transparent;
+    /* padding: 2px; */
+    padding: 3px;
+    margin-left: 6px;
+    border-right: #ffffff solid 2px;
+    border-radius: 5px;
+  }
+
+  /* style="width:19.8%;float:left ;background-color: aqua;" */
+
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #b1adad;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1vw;
+  }
+  
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #083c67;
+    color: white;
+    padding: 3px;
+    margin-left: 6px;
+    border-radius: 6px;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.menu-compras{
+    position:absolute;
+    z-index: -1;
+    background-color: #0653e3;
+    margin-left:0px;
+    height: 92vh;
+    width: 260px;
+    float:right;
+    /* display:none; */
+    padding-left: 2px;
+    margin-top:10vh;
+    z-index:-1;
+    border: 4px solid #ffffff;
+    border-radius: 6px;
+    /*background-color: #910253;*/
+    overflow: auto;
+    display:none;
+}
+
+.menu-comprasback{
+    width:100%;height:2.9vh;margin:auto;background-color:#ffffff ;
+    margin-top:-8px;text-align: center;
+}
+
+.menu-comprasback h1{
+   font-size: medium;
+}
+
+.iStyle{
+    font-size:18px;margin-right:10px;margin-top: 5px;color: #083c67;
+}
+
+.lateralLeft{
+    width:15%;
+    float:left;
+    height: 154vh;
+    background-color:#cbc7c7;
+    padding: 5px;
+    position: relative;
+    z-index:10;
+    margin-top:10.5vh;
+}
+
+.central{
+    width: 65%;
+    float: left;
+    height: 154vh;
+    margin: auto;
+    background-color: #ffffff;
+    margin-top: 10.5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.lateralRight{
+    width:20%;
+    float: right;
+    height: 154vh;
+    background-color:#cccccc;
+    padding: 5px;
+    position:relative;
+    z-index:10;
+    margin-top:10.5vh;
+}
+
+.lateralRightTitulo{
+    width:100%;
+    height:6vh;
+    margin:auto;
+    background-color:#ffffff;
+    color: #070808;
+    font-size: larger;
+    font-weight:bold ;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    justify-items: center;
+    text-align: center;
+    border-top:#cccccc solid 1.5px ;
+    border-left:#cccccc solid 1.5px ;
+    -webkit-box-shadow: 10px 10px 15px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 15px -4px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 15px -4px rgba(0,0,0,0.75);
+    margin-top: 2px;
+    margin-bottom: 12px;
+}
+
+.painelPubli{
+    width:100%;
+    height:auto;
+    margin:auto;
+    background-color:#4ddc1d;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 2px;
+    background-size: cover;
+}
+
+.longA{
+   height: 42vh; 
+}
+
+.longB{
+    height: 26vh; 
+ }
+
+.teclado{
+    width:100%;height: 5vh;background-color:#ffffff;margin-top:4px;display:flex;flex-direction: row;
+    left:0;
+    border-top: .2vh solid #ffffff;padding-left:8% ;
+}
+
+.titulo{
+    font-size: 2.0rem !important;
+}
+
+.d-flex{
+    height: 165vh;
+    background-color: #ffffff;
+    z-index:10;
+    margin-top:0px;
+}
+
+@media (max-width: 1600px){
+    .titulo-main{
+        background-color: #01030b;
+        height: 9.5vh;
+        margin-top:-2px;
+        padding-left: 10px;
+    }
+
+    .titulo-main {
+        font-size: smaller;
+        font-weight: 200;
+    }
+
+    .barraHomeBuscar{
+        height:2.2rem;
+     }
+
+     .barraMenu div{
+       width: 97%;
+       height: 4.4vh;
+       margin-top: 1px;
+       font-size: medium;
+       font-weight: 200;
+       background-color: #0a0102;
+       padding-top: 0.125;
+    }
+
+    .topnav{
+        /*width:19.8%;
+        margin-left:20px;
+        float:left ;*/
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    .topnav a.active {
+        color: rgb(200, 15, 15);
+        font-size:1vw;
+        font-weight: 300;
+      }
+
+    .escolha{
+        width: 95%;
+        height: 3.2vh;
+        margin: auto;
+        background-color: #d4051a;
+     }
+
+
+}

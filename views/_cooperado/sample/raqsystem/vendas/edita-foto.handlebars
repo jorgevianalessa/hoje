@@ -1,0 +1,185 @@
+<style>
+    .forma{
+    width: 98%;height: 90vh;margin: auto;background-color:#ffffff;padding: 6px;
+    display: flex;flex-direction: column;
+}
+
+.linha{
+    display: flex;flex-direction: row;background-color: #ffffff;height: 3vh;padding-top: 5px;margin-bottom: 1.5vh;
+}
+
+.linha label{
+    width: 100%;padding-left: 20px;font-size: small;background-color: #c410e0;height: 3vh;padding-top: 5px;margin-bottom: 1.5vh;
+}
+
+.linha input{
+    width: 100%;padding-left: 20px;font-size: small;background-color: #c410e0;height: 3vh;padding-top: 5px;margin-bottom: 1.5vh;color:#ffffff;border: none;
+}
+</style>
+<div class="d-flex forma">
+    {{setor.segmento}}
+    <div style="width: 90%;height: 80vh;margin: auto;background-color: #dbd7d7;display:flex;flex-direction: row;justify-content: center;justify-items: center;">
+        {{!-- lado esquerdo onde contém a image ataual --}}
+        <div id="fotoProduto" style="width: 32%;height: 55vh;margin: auto;justify-content: center;color:#ffffff;background-color:#ffffff;">
+              <div style="width: 100%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;margin-left: 24px;">Foto atual <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+             <div style="display: flex;flex-direction: column;justify-items: center;background-color: #fffff;height: 50Vh;">
+                <div style="width: 50%;height: 30vh;margin: auto;background-color: #ffffff;display: flex;flex-direction: column;justify-items:center ;justify-content: space-around;">
+                    <div style="background-color: #ffffff;display: flex;flex-direction: row;justify-content: center;">
+                        {{!-- Publica a imagem atual --}}
+                        <img src="{{result.pageurl}}" width="400vw" height="auto">
+                  </div>
+                </div>
+             </div>
+             
+        </div>
+        {{!-- contém os dados relativos ao produto --}}
+        <div id="formulario" style="width: 32%;height: 55vh;margin: auto;justify-content: center;color:#ffffff;background-color:#ffffff;">
+            <div id="barra" style="display: flex;flex-direction: row;justify-content: center;">
+                    <div style="width: 90%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;margin-left: 24px;">Dados do produto <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+                    <div style="width: 10%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;color: #ffffff;">
+                         <button type="button" style="background-color: #008b8b;color:#ffffff;font-size: larger;font-weight: 200;border: 0px;" onclick="EscondeImg()"></button>
+                    </div>
+            </div>
+            <div id="nucleo_formulario" style="width:90%;height: 50vh;margin: auto;background-color:#ffffff;display: flex;flex-direction:row;justify-content: center;">
+                    <div id="nucleoCentral" style="width: 95%;height: 50vh;margin: auto;background-color:#ffffff;overflow-y: auto;padding-bottom: 1.5vh;">
+                            <div style="width: 100%;height: 48vh;margin: auto;background-color:transparent;display: flex;flex-direction: row;">
+                                    <div style="width: 10%;height: 45vh;margin: auto;background-color:transparent;"></div>
+                                    <div id="ladoLabel" style="width: 40%;height: 47vh;margin: auto;background-color:#ffffff;">
+                                        <div class="linha">
+                                            <label>Código  :</label>
+                                        </div>        
+                                        <div class="linha">
+                                            <label>Descrição :</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label>Complemento</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label>Material</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label style="font-size: small;">Venda vista</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label style="">Venda Prazo</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label>Page</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label>Posicao</label>
+                                        </div>  
+                                        <div class="linha">
+                                            <label>Url</label>
+                                        </div> 
+                                         <div class="linha">
+                                            <label>Segmento</label>
+                                        </div> 
+                                         <div class="linha">
+                                            <label>Setor</label>
+                                        </div>  
+                                    </div> 
+                                    <div id="ladoInput" style="width: 60%;height: 47vh;margin: auto;background-color: #ffffff;">
+                                        <div class="linha">
+                                            <input id="codigoId" type="text" placeholder="código" tabindex="0" value="{{result.codigo}}">
+                                        </div>         
+                                        <div class="linha">
+                                            <input id="descricaoId" type="text" placeholder="descrição" value="{{result.descricao}}">
+                                        </div>  
+                                        <div class="linha">
+                                            <input id="complementoId" type="text" placeholder="complemento" value="{{result.complete}}">
+                                        </div>  
+                                        <div class="linha">
+                                            <input id="materialId" type="text" placeholder="material" value="{{result.referencia}}">
+                                        </div>  
+                                        <div class="linha">
+                                            <input id="pvistaId" type="text" placeholder="preço  a vista" value="{{result.precovista}}">
+                                        </div>  
+                                        <div class="linha">
+                                            <input id="pprazoId" type="text" placeholder="preço  a prazo" value="{{result.precoprazo}}">
+                                        </div> 
+                                        <div class="linha">
+                                            <input id="pageId" type="text" placeholder="page" value="{{result.page}}">
+                                        </div> 
+                                        <div class="linha">
+                                            <input id="posicaoId" type="text" placeholder="posição" value="{{result.pageposicao}}">
+                                        </div> 
+                                        <div class="linha" style="width:100%;">
+                                            <input id="urlId" type="text" placeholder="url" value="{{result.pageurl}}" style="width: 400px;color:#ffffff;">
+                                        </div> 
+                                         {{!-- <div class="linha">
+                                            <input id="posicaoId" type="text" placeholder="posição" value="{{setor.segmento}}"> --}}
+                                        {{!-- </div>   --}}
+                                         <div class="linha">
+                                            <input id="segmentoId" type="text" placeholder="posição" value="{{setor.segmento}}">
+                                        </div> 
+                                          <div class="linha">
+                                            <input id="secaoId" type="text" placeholder="posição" value="{{setor.setor}}">
+                                        </div> 
+                                    </div> 
+                                    <div style="width: 10%;height: 45vh;margin: auto;background-color:transparent;">
+                                            {{!-- espaço --}}
+                                    </div> 
+                                    
+                            </div>               
+                    </div>
+            </div>
+       </div>
+       {{!-- lado direito onde será feito o upload  da nova imagem --}}
+       <div id="escolheFicheiro" style="width: 32%;height: 55vh;margin: auto;display:block;float: left;background-color: #ffffff;">
+            <form action="/raqvendas/upload_edita" id="idfile" method="post" enctype="multipart/form-data" class="">
+                <div style="display: flex;flex-direction: row;justify-content: center;">
+                    <div style="width: 90%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;margin-left: 24px;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+                    <div style="width: 10%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;color: #ffffff;">
+                         <button type="button" style="background-color: #008b8b;color:#ffffff;font-size: larger;font-weight: 200;border: 0px;" onclick="EscondeImg()"></button>
+                    </div>
+                </div>     
+                <div >
+                    <input type="file" name="upload" id="fileA" style="margin-left: 24px;">
+                    <input type="text" id="idProduto" name="idProduto" value="{{result._id}}" style="display:none;background-color: #06eb1d;color:#ffffff;">
+                    <input type="text" id="idLojaido" name="nameLoja_id" style="display:none;background-color: #f35906;color:#ffffff;font-weight: 100;" value="{{result.loja_id}}">
+                    <input type="text" id="idPosicaoImg" name="nameSetor" style="display:none;color:red;background-color: #0b0bc9;" value="{{setor.setor}}">
+                </div>
+                <div style="display: flex;flex-direction: column;background-color: #ffffff;width: 90%;height:42vh;margin: auto;align-items: center ;z-index: 10;margin-top: 15px;padding: 10px;">
+                   
+                        <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color: #ffffff;padding: 10px;">
+                           <img id="imgPreviewA" src="" alt="" class="" width="100%" height="" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;height: 37vh;"/>
+                        </div>
+                        <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                           <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                        </div>
+                </div> 
+            </form>
+       </div>
+      
+    </div>
+</div>
+<script>
+        let fileImgA=document.querySelector('#fileA');
+//.............................................
+const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        console.log('linha 398')
+        document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+            console.log('linha 405')
+            document.getElementById("ladoLoadImage").style.display="block";
+            document.getElementById("menu-modal").style.display="block";
+            document.getElementById("Up01").style.visibility="visible";
+          }
+          reader.readAsDataURL(selecledFile);
+    });
+
+
+</script>

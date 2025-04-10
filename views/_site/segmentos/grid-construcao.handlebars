@@ -1,0 +1,1352 @@
+<style>
+html,body {
+    min-height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-main {
+    background: #f0f1f2;
+    width: 99%;
+    height: 109vh;
+    margin: auto;
+    padding 0px 0px;
+    border: 2px solid #ecefec;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: flex-start;
+}
+
+.d-flex{
+    width: 100%;height: 111vh;margin: auto;background-color: #ffffff;margin-top:0.3vh;
+}   
+
+.formpass_{
+    width: 80%;height: 5vh;margin: auto;background-color:#2b66e7;margin-top: 5px;display: none;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               BARRA PRETA
+////////////////////////////////////////////////////////////////////////////////////////*/
+.inputPesquisa {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    height: 6vh;
+    margin: auto;
+    margin: 3px;
+    padding: 10px 20px 20px 20px;
+    background-color: transparent;
+    color: #df0606;
+}
+
+.barraInfo {
+    width: 100%;
+    height: 6vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -9px;
+    background-color: black;
+}
+
+.SelectSetor_ {
+    width: 12%;
+    margin: auto;
+    padding-top: 0.25vh;
+    padding-left: 10px;
+    background-color: transparent;
+}
+
+.SelectSetor_ h6 {
+    color: #ffffff;
+    font-size: large;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.SelectProduto_ {
+    width: 62%;
+    height: 5.5vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: black;
+}
+
+.SelectProduto_label {
+    width: 40%;
+    height: 6vh;
+    margin: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-items: auto;
+    justify-content: right;
+}
+
+.SelectProduto_label label {
+    width: 60%;
+    height: 3.4vh;
+    margin: auto;
+    margin-left: 6px;
+    background-color: transparent;
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: larger;
+    font-weight: 400;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.SelectProduto_input {
+    width: 60%;
+    height: 6vh;
+    margin: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-items: auto;
+}
+
+.SelectProduto_input input {
+    width: 60%;
+    height: 3.4vh;
+    margin: auto;
+    margin-left: 6px;
+}
+
+.SelectWhere_ {
+    width: 25%;
+    margin: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.SelectWhere_ h6 {
+    color: #ffffff;
+    font-size: larger;
+    font-weight: 400;
+    background-color: transparent;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               TERMINA BARRA PRETA
+////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               DIVISÃO TRÊS PARTES DA PAGE
+////////////////////////////////////////////////////////////////////////////////////////*/
+.partes_{
+    width: 100%;height: 99.8vh;margin:auto;display: grid;grid-auto-columns:1fr 5fr 1fr;background-color:#ffffff;text-align: center;margin-top: -8px;
+}
+  
+.Segmento_ {
+    grid-column:1;height: 98vh;background-color: #0040c9;padding:20px;color:#057c17;padding-left: 6px;overflow-y: auto;
+ }
+
+
+.CentralLista_{
+   grid-column:2;height: 98vh;background-color:#ffffff;padding:0px 2px  0px 2px;overflow-y: auto;
+}
+
+.Pesquisa_{
+   grid-column:3;height: 98vh;background-color: #14e163;color:#057c17;overflow-y: auto;
+ }
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///            TERMINA A DIVISÃO TRÊS PARTES DA PAGE
+////////////////////////////////////////////////////////////////////////////////////////*/
+.Xlist-produto{
+ width: 100%;height: 99.8vh;margin:auto;display: grid;grid-auto-columns:1fr 1fr 3fr 1fr 1fr 1fr 1fr;background-color:#8007cc;text-align: center;
+}
+
+.linhaProd{
+    width: 100%;height: 10vh;margin:auto;display: grid;grid-auto-columns:1fr 1fr 3fr 1fr 1fr 1fr 1fr;background-color:#ffffff;
+    margin-bottom: 1vh;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///            CONTROLA PARTE SEGMENTOS
+////////////////////////////////////////////////////////////////////////////////////////*/
+.segmento {
+    width: 98%;
+    height: 6.5vh;
+    margin: auto;
+    margin-top: 10px;
+    border-bottom: 2px solid #f6f5f6;
+    border-radius: 5px;
+}
+
+.seg-div-foto {
+    width: 25%;
+    height: 6vh;
+    float: left;
+    padding: 3px 6px;
+}
+
+.seg-div-titulo {
+    width: 70%;
+    height: 6vh;
+    float: left;
+    margin-left: 3%;
+    padding:10px;
+}
+
+.span_{
+   font-size: 0.7vw;
+   color:#ffffff; 
+   margin-right: 4px;
+   font-size: 0.8vw;
+   font-weight: 200;
+}
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               TERMINA MENU SETORES
+////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               COMEÇA PARTE CENTRAL LIST_PRODUTO TOPO
+////////////////////////////////////////////////////////////////////////////////////////*/
+.prod-foto {
+    width: 100%;
+    height: 8vh;
+    margin: auto;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    background-size: cover;
+    color: navajowhite;
+    grid-column:1;height: 9vh;background-color: #ffffff;color:#057c17;text-align: center;
+}
+
+.container-img {
+    max-width: 106px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    background-size: cover;
+    background-color: #ffffff;
+    margin-top: -3px;
+}
+
+.prod-codigo {
+    width: 100%;
+    margin: auto;
+    margin-bottom:1px solid #ffffff;
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 0.8vw;
+    text-align: center;
+    grid-column:2;height: 9vh;background-color: #ffffff;color:#000000;
+}
+
+.prod-descricao {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1px solid #ffffff;
+    margin-left: 5px;
+    font-size: 0.8vw;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    border: 0px;
+    padding-top: 0px;
+    padding-bottom: 5vh;
+    grid-column:3;height: 9vh;background-color: #ffffff;color:#000000;
+}
+
+.prod-refer{
+    width: 100%;
+    height: 8vh;
+    margin: auto;
+    margin-bottom: 1px solid #ffffff;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    color: #0e0808;
+    font-size: 0.8vw;
+    text-align: left;
+    padding-bottom: 5vh;
+    grid-column:4;height: 9vh;background-color: #ffffff;color:#000000;
+}
+
+.prod-vista {
+    width: 100%;
+    height: 8vh;
+    margin: auto;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    color: #0e0808;
+    font-size: 0.8vw;
+    float: left;
+    text-align: left;
+    text-align: right;
+    grid-column:5;height: 9vh;background-color: #ffffff;color:#000000;
+}
+
+.prod-cidade {
+    width: 100%;
+    height: 8vh;
+    margin: auto;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    color: #0e0808;
+    font-size: 0.8vw;
+    text-align: left;
+    padding-right: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    grid-column:6;height: 9vh;background-color: #ffffff;color:#000000;
+}
+
+.btn-cidade{
+   width: 98%;
+   height: 7.9vh;
+   margin: auto;
+   background-color: #ffffff;
+   color:#000000; 
+   border: 0px;
+}
+
+.btn-bairro{
+   width: 98%;
+   height: 7.9vh;
+   margin: auto;
+   background-color: #ffffff;
+   color: #000; 
+   border: 0px;
+}
+
+.btn-marca{
+    width: 100%;
+    height: 8vh;
+    margin: auto;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: .8vw;
+    text-align: center;
+    border:0px;
+    padding-right: 4px;
+    grid-column:7;height: 9vh;background-color: #2b66e7;color:#ffffff;
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               TERMINA PARTE CENTRAL LIST_PRODUTO
+////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///            ORDEM   ELEMENTOS DA PARTE PESQUISA 
+////////////////////////////////////////////////////////////////////////////////////////*/
+.btnOrdemPesquisa_ {
+    background-color: #033986;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    height: 6.5vh;
+    padding-top: 1.25vh;
+    
+}
+
+.btnOrdemPesquisa_ button {
+    width: 90%;
+    height: 3.5vh;
+    margin: auto;
+    border-radius: 6px;
+    background-color: #033986;
+    color: #ffffff;
+    font-size: small;
+}
+
+.SelectDefault_ {
+    display: flex;
+    flex-direction: column;
+    margin-top: -4px;
+    background-color: #def517;
+    padding-left: 10px;
+    height: 10vh;
+    justify-items: flex-start;
+}
+
+.SelectDefaultCidade_ {
+    width: 100%;
+    height: 3vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.SelectDefaultCidadeDivLabel_ {
+    width: 40%;
+    height: 3vh;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    background-color:#0e0808 transparent;
+    color: #ffffff;
+}
+
+.SelectDefaultCidadeDivLabel_ label {
+    width: 98%;
+    margin: auto;
+    font-size: small;
+    color: #ffffff;
+    background-color: #c50ee9;
+}
+
+.SelectDefaultCidadeDivInput_ {
+    width: 60%;
+    background-color: #9d9da2;
+}
+
+.h1Cidade_ {
+    font-size: medium;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.h1Bairro_ {
+    font-size: medium;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.divpesquisa {
+    width: 98%;
+    height: 40vh;
+    margin: auto;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    overflow: auto;
+    background-color: #ea1717;
+}
+
+.divpartes {
+    width: 11vw;
+    height: 9vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #033986;
+    text-align: center;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///            TERMINA ELEMENTOS DA PARTE PESQUISA 
+////////////////////////////////////////////////////////////////////////////////////////*/
+/*control min =1600a*/
+@media only screen and (max-width: 1700px) and (min-width:1600px) {
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               COMEÇA PARTE CENTRAL LIST_PRODUTO    1600
+////////////////////////////////////////////////////////////////////////////////////////*/
+/*
+
+
+}*/
+/*/////////////////////////////////////////////////////////////////////////////////////////
+///               TERMINA PARTE CENTRAL LIST_PRODUTO
+////////////////////////////////////////////////////////////////////////////////////////*/
+        
+}
+
+/*control=1500a*/
+@media only screen and (max-width: 1599px) and (min-width:1501px) {
+    body {
+        background-color: rgb(2, 79, 104);
+    }
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///   CONTROLA A BARRA PRETA
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    .SelectSetor_ h6 {
+        font-size: small;
+    }
+
+    .SelectProduto_label label {
+        font-size: small
+    }
+
+    .SelectWhere_ h6 {
+        font-size: small;
+    }
+
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///     CONTROLA O TAMANHO DOS BLOCOS PARTE CENTRAL     1500
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    /*
+    }*/
+
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///    (max-width: 1500px) and (min-width:1401px)
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+
+}
+/*control=1500a*/
+@media only screen and (max-width: 1500px) and (min-width:1401px) {
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///   CONTROLA A BARRA PRETA
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    .SelectSetor_ h6 {
+        font-size: small;
+    }
+
+    .SelectProduto_label label {
+        font-size: small;
+    }
+
+    .SelectWhere_ h6 {
+        font-size: small;
+    }
+       
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///     CONTROLA O TAMANHO DOS BLOCOS PARTE CENTRAL  (max-width: 1500px) and (min-width:1401px)
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    .srcImg {
+        max-width: 35px;
+        max-height: 35px;
+        width: auto;
+        height: auto;
+        background-size: cover;
+    }
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///     CONTROLA A LATERAL DIREITA PESQUISA (max-width: 1500px) and (min-width:1401px)
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    .btnOrdemPesquisa_ button {
+        font-size: .8em;
+        color: #ffffff;
+        font-weight: 200;
+    }
+
+    .SelectDefaultCidadeDivLabel_ label {
+        font-weight: 200;
+        color: #ffffff;
+        background-color: #c50ee9;
+    }
+
+    .h1Cidade_ {
+        font-size: medium;
+        color: #ffffff;
+        font-weight: 400;
+    }
+
+    .h1Bairro_ {
+        font-size: medium;
+        color: #ffffff;
+        font-weight: 400;
+    }
+}
+
+/*control=1400a*/
+@media only screen and (max-width: 1400px) and (min-width:1301px) {
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///   CONTROLA A BARRA PRETA
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    .SelectSetor_ h6 {
+    font-size: x-small;
+    }
+
+    .SelectProduto_label label {
+    font-size: x-small;
+    }
+
+    .SelectWhere_ h6 {
+    font-size: x-small;
+    }
+
+}
+
+/*control=1300a*/
+@media only screen and (max-width: 1300px) and (min-width:680px) {
+    /*/////////////////////////////////////////////////////////////////////////////////////////
+    ///   CONTROLA A BARRA PRETA
+    ////////////////////////////////////////////////////////////////////////////////////////*/
+    .SelectSetor_ h6 {
+        font-size: x-small;
+    }
+
+    .SelectProduto_label label {
+        font-size:0.7vw;
+    }
+
+    .SelectWhere_ h6 {
+        font-size: x-small;
+    }
+}
+</style>
+
+<div id="test" class="d-flex" >
+    <div class="body-main">
+        <div id="barraInfo" class="barraInfo">
+            <div id="SelectSetor" class="SelectSetor_">
+                <h6>Selecione setor abaixo: </h6>
+            </div>
+            <div id="SelectProduto" class="SelectProduto_">
+                <div class="SelectProduto_label">
+                    <label>Pesquisa por nome</label>
+                </div>
+                <div class="SelectProduto_input">
+                    <input id="inputPesquisa">
+                </div>
+            </div>
+            <div id="SelectWhere" class="SelectWhere_">
+                <h6>Onde quer a consulta ?</h6>
+            </div>
+        </div>
+            {{!-- vai para a loja selecionada no click() --}}
+            <form method="post" action="/site/publicados" class="formpass_" enctype="application/x-www-form-urlencoded">
+                <input id="passaId" name="namepassaId">
+                <button id="btndisparaForm" type="submit"></button>
+            </form>
+        <div id="partes" class="partes_" >
+            <div id="sub-segmento" class="Segmento_">
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/aquecedores.png" alt="materiais hidráulicos" class="srcImg"  height="40" width="40">
+                    </div>
+                    <div class="seg-div-titulo" style="margin-right: 1px;">
+                        <a class="notebok" href="#" style="text-decoration:none;">
+                            <span id="aquecedor" onclick="myDepto('Aquecedores')" class="span_">Aquecedores</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/banheira.jpg" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="notebok" href="#" style="text-decoration:none ;">
+                            <span id="banheiro" onclick="myDepto('Cozinhas & Banheiros')" class="span_">Banheiro</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/hidraulica.jpg" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok" href="#" style="text-decoration:none ;">
+                            <span id="cozinha" onclick="myDepto('Cozinhas & Banheiros')" class="span_">Cozinhas</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/elétrica.jpg" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok" href="#" style="text-decoration:none ;">
+                            <span id="eletrica" onclick="myDepto('Elétrica')" class="span_">Elétrica</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/maqjardim.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok" href="#" style="text-decoration:none ;">
+                            <span id="ferramenta" onclick="myDepto('Ferramentas')" class="span_">Ferramentas</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/forro.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="forro" onclick="myDepto('Forro & Telhado')" class="span_">Forro Telhado</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/piscina.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="jardim" onclick="myDepto('Jardim & Piscina')" class="span_">Jardim Piscina</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/hidraulico.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok" href="#">
+                            <span id="hidro" onclick="myDepto('Hidráulica')" class="span_">Hidráulica</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/loucasanitaria.png" alt="materiais hidráulicos" class="srcImg"
+                            width="40" height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#">
+                            <span id="louca" onclick="myDepto('Louças Sanitárias')" class="span_">Louça Sanitár..</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/bruto.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="bruto" onclick="myDepto('Material Bruto')" class="span_">Material Bruto</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/poltronas.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="moveis" onclick="myDepto('Móveis & Decoração')" class="span_">Móveis Decor</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/esquadrias-madeiras.jpg" alt="materiais hidráulicos" class="srcImg"
+                            width="40" height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="porta" onclick="myDepto('Portas & Janelas')" class="span_">Portas Janelas</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/porcelanato.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="piso" onclick="myDepto('Acabamento')" class="span_">Piso Revest</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/tinta.png" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok" href="#" style="text-decoration:none ;">
+                            <span id="tinta" onclick="myDepto('Tintas')" class="span_">Tintas</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+                <div class="segmento">
+                    <div class="seg-div-foto">
+                        <img src="../../img-home/mão-obra.jpg" alt="materiais hidráulicos" class="srcImg" width="40"
+                            height="40" style="100%">
+                    </div>
+                    <div class="seg-div-titulo">
+                        <a class="menu-color notebok_" href="#" style="text-decoration:none ;">
+                            <span id="mao" onclick="myDepto('Mão de Obra')" class="span_">Mão de Obra</span>
+                        </a>
+                    </div>
+                </div>
+                {{!-- ---------------------------------------------------------------------- --}}
+            </div>
+            <div id="centralLista" class="CentralLista_">
+                <div id="div-list-produto" style="overflow: auto;">
+                    <div id="list-produto" class="list-produto_">
+
+                    </div>
+                </div>
+            </div>
+            <div id="LateralLeft" class="Pesquisa_">
+               <div style="width: 100%;margin: auto;">
+                    <div id="BtnOrdemPesquisa" class="btnOrdemPesquisa_" style="height: 5.5vh;padding-top: 0.5vh;">
+                        <button>Ordem da pesquisa :</button>
+                    </div>
+                    <div id="SelecDefault" class="SelectDefault_"
+                        style="margin-top: -8px;background-color: #1480eb;height: 15vh;padding-bottom: 1vh;padding-top: 1vh;display: flex;flex-direction: row;">
+                        <div style="width: 40%;height: 12vh;margin: auto;background-color: #1480eb;">
+                            <div>
+                            <div id="SelectDefaultCidadeDiv" class="" style="background-color:transparent;text-align: right;height: 3vh;">
+                                <label style="font-size: 0.7vw;background-color:transparent;width: 90%;padding-right: 8px;color:#ffffff;">Pesquisa : </label>
+                            </div>
+                            <div id="SelectDefaultCidadeDiv" class="" style="background-color:transparent;text-align: right;height: 3vh;">
+                                <label style="font-size: 0.7vw;background-color:transparent;width: 90%;padding-right: 8px;color:#ffffff;">Cidade : </label>
+                            </div>
+                            <div id="SelectDefaultBairroDiv" class="" style="background-color:transparent;text-align: right;height: 3vh;">
+                                <label style="font-size: 0.7vw;background-color:transparent;width: 90%;padding-right: 8px;color:#ffffff;">Bairro :</label>
+                            </div>
+                            </div>
+                        </div>
+                        <div style="width: 60%;height: 12vh;margin: auto;background-color: #1480eb;">
+                            <div>
+                                <div id="SelecDefaultPesquisaDiv" class="SelectDefaultCidadeDivInput_" style="background-color:transparent;text-align:left;">
+                                    <input id="PesquisadoPor" value="default" style="width: 80%;font-size: 0.7vw;">
+                                </div>
+                                <div class="SelectDefaultCidadeDivInput_" style="text-align:left;background-color:transparent; ">
+                                    <input value="Grande Vitória" style="width: 80%;font-size: 0.7vw;">
+                                </div>
+                                    <div class="SelectDefaultCidadeDivInput_" style="text-align:left;background-color:transparent;">
+                                    <input value="todos os bairros" style="width: 80%;font-size:0.7vw;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="CboPesqCidade" style="background-color: #1480eb;height: 84vh;overflow: auto;">
+                        <div id="painelFiltro" class="divpesquisa" style="background-color:#1480eb;height: 26vh;display: flex;flex-direction: column;justify-items: auto;">
+                            <div id="tituloFiltro" class="divpartes"
+                                style="background-color:transparent;width: 90%;margin: auto;height: 3vh;margin-top: 2vh;">
+                                <div style="text-align: center;border-bottom: 1px solid #ffffff;">
+                                    <h1 style="color:#ffffff;font-size:.8vw;font-weight: 200;">filtro</h1>
+                                </div>
+                            </div>
+                            <div id="cboCidade" class="divpartes"
+                                style="width: 90%;height: 8vh;background-color:transparent;padding:3%;margin-top: 1vh;margin: auto;">
+                                <div style="width: 90%;height: 7vh;margin: auto;display:flex ;flex-direction: column;">
+                                    <h1 class="h1Cidade_" style="font-size: 1vw;color:#ffffff;font-weight: 200;">cidade :</h1>
+                                    <div>
+                                        <select id="SelectCidadeId" style="width: 80%;font-size: .9vw;">
+                                            <option></option>
+                                            <option>Cariacica</option>
+                                            <option>Guarapari</option>
+                                            <option>Serra</option>
+                                            <option>Vila Velha</option>
+                                            <option>Vitória</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="cboBairros" class="divpartes"
+                                style="width: 90%;height: 9vh;margin: auto;background-color:transparent;padding:3%;margin-top: 1.5vh;">
+                                <div style="width: 90%;height: 7vh;margin: auto;display:flex ;flex-direction: column;">
+                                    <h1 class="h1Bairro_" style="font-size:1vw;color:#ffffff;font-weight: 200;">bairros :</h1>
+                                    <div style="font-size:0.7vw;">
+                                        <select id="SelectBairroId" style="width:80%;font-size: 0.9vw;">
+                                            <option>todos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="height: 4vh;background-color:transparent;">
+
+                            </div>
+                        </div>
+                        <div
+                            style="width: 90%;height: 25vh;margin: auto;background-color: #1480eb;text-align: center;padding-top:3vh;margin-top: 1vh;">
+                            <div>
+                                <h6 style="font-size: 1vw;color:#ffffff;font-weight: 200;">segmentos</h6>
+                                <select>
+                                    <option>acabamentos</option>
+                                    <option>conexões</option>
+                                    <option>tubos</option>
+                                    <option>registros</option>
+                                    <option>torneiras</option>
+                                    <option>chuveiros</option>
+                                    <option>duchas</option>
+                                    <option>reparos</option>
+                                    <option>mangueiras</option>
+                                    <option>pressurizadores</option>
+                                    <option>engates</option>
+                                    <option>outros</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div
+                            style="width: 90%;height: 25vh;margin: auto;background-color: #d1d8d4;text-align: center;padding-top:3vh;margin-top: 1vh;">
+                            <div>
+                                <h1 style="font-size: 1vw;">Publicidade</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  //busca a largura e altura da page para ajustar a tela  
+  function larguraAltura(){
+   // var x=document.getElementById("test").clientHeight;
+   // console.log('height : ',x)
+   /// var d=document.getElementById('pegaHeight');
+   // d.innerHTML='h :' + x;
+   // d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+   //var x1=document.getElementById("test").clientWidth;
+   // console.log('width : ',x1)
+   // var d1=document.getElementById('pegaWidth');
+   // d1.innerHTML='w :' + x1;
+   // d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+   //x.innerHTML=(x1/1.77)
+
+   // var q=document.getElementById('test');
+   //  q.addEventListener("resize",function(){
+   //     console.log('alô!')
+   //  })
+
+    }
+
+    larguraAltura();
+</script>
+<script>
+    let baseApiUrl;
+    
+    function myDepto(value) {
+        document.getElementById("PesquisadoPor").style.backgroundColor = "yellow";
+        document.getElementById("PesquisadoPor").style.color = '#013286';
+        document.getElementById("PesquisadoPor").value = value;
+        buscProduto(value)
+    }
+
+    function PreencheLinhas(Produto, index) {
+        criaLinha()
+        function criaLinha() {
+            const node = document.createElement("div");
+            node.setAttribute('id', "idrow" + i);
+            node.setAttribute('class', "linhaProd");
+            document.getElementById("list-produto").appendChild(node);
+        }
+
+        let idfoto = "idfoto" + i;
+        let caminho = Produto.pageurl;
+        let codigo = Produto.codigo;
+        criaContainerImg(idfoto);
+
+        function criaContainerImg(idfoto) {
+            const node1 = document.createElement("div");
+            node1.setAttribute('id', idfoto);
+            node1.setAttribute('class', "prod-foto");
+            document.getElementById("idrow" + i).appendChild(node1);
+
+            const node100 = document.createElement("img");
+            node100.setAttribute('src', caminho);
+            node100.setAttribute('class', "container-img");
+            node100.setAttribute('onclick',"ampliaFoto(" + "'" + idfoto + "'" + ")")
+            document.getElementById(idfoto).appendChild(node100);
+        }
+
+        
+        let idcodigo = "idcod" + i;
+        criaContainerCodigo(idcodigo)
+
+        function criaContainerCodigo() {
+            const node2 = document.createElement("div");
+            const textnode2 = document.createTextNode(codigo);
+            node2.appendChild(textnode2);
+            node2.setAttribute('id', idcodigo);
+            node2.setAttribute('class', "prod-codigo")
+            node2.setAttribute('value', codigo);
+            document.getElementById("idrow" + i).appendChild(node2);
+        }
+
+        let descritivo = Produto.descricao;
+        let iddescr = "iddescr" + i;
+
+        criaContainerDescritivo()
+
+        function criaContainerDescritivo() {
+            const node3 = document.createElement("button");
+            const textnode3 = document.createTextNode(descritivo);
+
+            node3.appendChild(textnode3);
+            node3.setAttribute('id', iddescr);
+            node3.setAttribute('class', "prod-descricao");
+            node3.setAttribute('value', descritivo);
+
+            document.getElementById(index).appendChild(node3);
+        }
+
+        let referencia = Produto.referencia;
+        let idrefer = "idrefer" + i;
+        criaContaneinerReferencia();
+
+        function criaContaneinerReferencia() {
+            const node3 = document.createElement("div");
+            const textnode3 = document.createTextNode(referencia);
+
+            node3.appendChild(textnode3);
+            node3.setAttribute('id', idrefer);
+            node3.setAttribute('class', "prod-refer");
+            node3.setAttribute('value', referencia);
+
+            document.getElementById(index).appendChild(node3);
+        }
+
+        let pvista = Produto.precovista;
+        let idpvista = "idpvista" + i;
+
+        criaContaneinerVista();
+
+        function criaContaneinerVista() {
+            const node3 = document.createElement("div");
+            const textnode3 = document.createTextNode(pvista);
+
+            node3.appendChild(textnode3);
+            node3.setAttribute('id', idpvista);
+            node3.setAttribute('class', "prod-vista");
+            node3.setAttribute('value', pvista);
+
+            document.getElementById(index).appendChild(node3);
+        }
+
+        let cidade = Produto.cidade;
+        let bairro = Produto.bairro;
+        let idcidade = "idcidade" + i;
+        let idbairro = "idbairro" + i;
+
+        criaContaneinerCidade();
+
+        function criaContaneinerCidade() {
+            const node3 = document.createElement("div");
+            const textnode3 = document.createTextNode(cidade);
+            node3.setAttribute('id', idcidade);
+            node3.setAttribute('class', "prod-cidade");
+            document.getElementById(index).appendChild(node3);
+
+            const node4 = document.createElement("button");
+            const textnode4 = document.createTextNode(cidade);
+            node4.appendChild(textnode4);
+            node4.setAttribute('id', idcidade);
+            node4.setAttribute('class', "btn-cidade");
+            node4.setAttribute('value', cidade);
+            document.getElementById(idcidade).appendChild(node4);
+
+            const node5 = document.createElement("button");
+            const textnode5 = document.createTextNode(bairro);
+            node5.appendChild(textnode5);
+            node5.setAttribute('id', idbairro);
+            node5.setAttribute('class', "btn-bairro");
+            node5.setAttribute('value', bairro);
+            document.getElementById(idcidade).appendChild(node5);
+        }
+
+        let marca = Produto.marcaloja;
+        let idmarca = "idmarca" + i;
+
+        let IdCooperado=Produto.loja_id;
+        console.log(IdCooperado);
+        
+        criaContaneinerMarca();
+        
+        function criaContaneinerMarca() {
+            const node3 = document.createElement("button");
+            const textnode3 = document.createTextNode(marca);
+
+            node3.appendChild(textnode3);
+            node3.setAttribute('id', idmarca);
+            node3.setAttribute('class', "btn-marca");
+            node3.setAttribute('value', marca);
+
+            node3.setAttribute("onclick", "buscLojista(" + "'" + IdCooperado + "'" + ")");
+            document.getElementById(index).appendChild(node3);
+        }
+    };
+
+    // busca o produto por seção do setor
+    function buscProduto(val) {
+        console.log('valor de val', val)
+        limpaCaixa();
+        function limpaCaixa() {
+            let corpos;
+            corpos = document.getElementById("list-produto").children;
+            let c = corpos.length;
+            /////////////////////////////////////////////////
+            for (i = c - 1; i > -1; i--) {
+                //console.log(corpos[i])
+                corpos[i].remove();
+            }
+        }
+        /////////////////////////////////////////////////////////////////////
+       // let l = document.getElementsByName("panel").childElementCount;
+       // console.log(' [ 456 ]- buscProduto(panel)', l);
+        let baseApiUrl = window.location.hostname;
+        if (baseApiUrl == 'localhost') {
+            baseApiUrl = 'http://localhost:3000'
+        } else {
+            baseApiUrl = 'https://www.rotaes.com.br'
+        }
+        //////////////////////////////////////////////////////////////
+        try {
+            fetch(`${baseApiUrl}` + `/site/busca-segmentos_02/${val}`, {
+                method: "GET",
+                headers: { "Content-type": "application/json; charset=UTF-8" }
+            })
+                .then(response => response.json())
+                .then((json) => {
+                    const Object = json;
+                    let f = Object.length
+                    for (i = 0; i < f; i++) {
+                        let Produto = Object[i];
+                        let index = "idrow" + i;
+                        PreencheLinhas(Produto, index);
+                        //..........................................................
+                    }
+                })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // Busca a loja que teve o botão clocado
+    function buscLojista(n) {
+        //disparaForm
+        document.getElementById("passaId").value=n;  
+        document.getElementById("btndisparaForm").click();
+        //return
+        console.log(n)
+        let baseApiUrl = window.location.hostname;
+        if (baseApiUrl == 'localhost') {
+            baseApiUrl = 'http://localhost:3000'
+        } else {
+            baseApiUrl = 'https://www.rotaes.com.br'
+        }
+        try {
+            //////////////////////////////////////////////////////
+            fetch(`${baseApiUrl}` + `/site/buscaLoja/${n}`, {
+                method: "POST",
+                headers: { "Content-type": "application/json; charset=UTF-8" }
+            })
+            //    .then(response => response.json())
+            //    .then((json) => {
+
+             //   })
+             //   .catch((e)=>{
+             //       console.log(e);  
+             //   })
+        }catch(e){
+            console.log(' [1162] ',e)  
+        }
+    }
+
+    function buscaRegex() {
+        ///////////////////////////////////////////////////////
+        let q = document.getElementById("inputPesquisa").value;
+        let l = q.length;
+        document.getElementById("PesquisadoPor").value = 'Por produto';
+        document.getElementById("PesquisadoPor").style.backgroundColor = "green";
+        document.getElementById("PesquisadoPor").style.color = "white";
+        //////////////////////////////////////////////////////////
+        limpaCaixa();
+        ///////////////////////////////////////////////////////////
+        function limpaCaixa() {
+            let corpos;
+            corpos = document.getElementById("list-produto").children;
+            let c = corpos.length;
+            /////////////////////////////////////////////////
+            console.log('valor c',c)
+            if(c>0){
+                for (i = c - 1; i > -1; i--) {
+                    //console.log(corpos[i])
+                    corpos[i].remove();
+                }
+            }
+        }
+        ////////////////////////////////////////////////////////////////
+        if (l > 0) {
+            console.log('valor de l :', l)
+            pesquisar(q);
+        }
+
+        function pesquisar(n) {
+            console.log(n)
+            let baseApiUrl = window.location.hostname;
+            if (baseApiUrl == 'localhost') {
+                baseApiUrl = 'http://localhost:3000'
+            } else {
+                baseApiUrl = 'https://www.rotaes.com.br'
+            }
+            try {
+                //////////////////////////////////////////////////////
+                fetch(`${baseApiUrl}` + `/site/busca-rapida/${n}`, {
+                    method: "GET",
+                    headers: { "Content-type": "application/json; charset=UTF-8" }
+                })
+                    .then(response => response.json())
+                    .then((json) => {
+                        const Object = json;
+                        let f = Object.length
+                        for (i = 0; i < f; i++) {
+                            let Produto = Object[i];
+                            let index = "idrow" + i;
+                            PreencheLinhas(Produto, index);
+                            //..........................................................
+                        }
+                    })
+                    .catch((e) => {
+                        console.log('1000 :', e)
+                    })
+            } catch (e) {
+                console.log('error 100', e)
+            }
+
+        }
+    }
+
+    function focoStart() {
+        let q = document.getElementById("inputPesquisa");
+        q.style.backgroundColor = "yellow";
+        q.focus();
+    }
+
+    let r1 = document.getElementById('inputPesquisa');
+
+    r1.addEventListener("keydown", function (event) {
+
+        let k = event.which;
+        //event.preventDefault();
+        console.log('k =>', k)
+        let l = document.getElementById("inputPesquisa").value;
+
+        console.log('______________________________________');
+        console.log(l);
+        console.log('______________________________________');
+        l = l.length;
+        console.log('valor do comprimento :', l)
+        if (k == 8) {
+            let c = r1.value;
+            if (c == "" | l == 1) {
+                limpaCaixa();
+            } else {
+                // let e1=r1.value
+                console.log(e1)
+                if (l > 1) {
+                    buscaRegex();
+                } else {
+                    limpaCaixa();
+                }
+            }
+        } else {
+            console.log('k5 : ', k)
+            console.log('vr de l : ', l)
+            if (l > 1) {
+                buscaRegex();
+            }
+        }
+    })
+
+
+    let f1 = document.getElementById("SelectCidadeId");
+
+    f1.addEventListener("click", function (event) {
+        event.stopPropagation();
+        let h = f1.selectedIndex;
+        let y = f1.options;
+        //console.log('');
+        let palavra = y[h].text;
+        console.log('valor da palavra', palavra)
+        if (palavra == "") {
+            console.log('vazio')
+        } else {
+            buscaBairros(palavra);
+        }
+    })
+
+    function buscaBairros(n) {
+        console.log('[1306]', n)
+        limpaCaixa();
+        ///////////////////////////////////////////////////////////
+        function limpaCaixa() {
+            let corpos;
+            corpos = document.getElementById("list-produto").children;
+            let c = corpos.length;
+            /////////////////////////////////////////////////
+            for (i = c - 1; i > -1; i--) {
+                //console.log(corpos[i])
+                corpos[i].remove();
+            }
+        }
+        ////////////////////////////////////////////////////////////////
+        let v2 = document.getElementById("PesquisadoPor").value;
+        let opcao;
+        if (v2 == "Por produto") {
+            opcao = 0
+        } else {
+            opcao = 1
+        }
+
+        n = n + ':' + opcao + ':=:' + v2;
+        console.log(n)
+        let baseApiUrl = window.location.hostname;
+        if (baseApiUrl == 'localhost') {
+            baseApiUrl = 'http://localhost:3000'
+        } else {
+            baseApiUrl = 'https://www.rotaes.com.br'
+        }
+        try {
+            //////////////////////////////////////////////////////
+            fetch(`${baseApiUrl}` + `/site/pega_bairros/${n}`, {
+                method: "GET",
+                headers: { "Content-type": "application/json; charset=UTF-8" }
+            })
+                .then(response => response.json())
+                .then((json) => {
+                    const Object = json;
+                    let f = Object.length
+                    console.log('12000')
+                    for (i = 0; i < f; i++) {
+                        let Produto = Object[i];
+                        let index = "idrow" + i;
+                        PreencheLinhas(Produto, index);
+                        //..........................................................
+                    }
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+            //////////////////////////////////////////////////////////////
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
+function ampliaFoto(n){
+    alert(''+ n)
+    console.log(' valor .....',n)
+}
+    focoStart()
+</script>

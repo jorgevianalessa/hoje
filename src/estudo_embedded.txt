@@ -1,0 +1,24 @@
+buscar todos do yearly
+db.customer.find({"subscription.type":"yearly})
+
+Atualizando um campo embedded
+db.customer.updateOne({name:"Rashid"},{$set:{"subscription.type":"yearly"}});
+
+db.customer.updateOne({name:"Rashid"},{$set:{"subscription.renewalDate.year":"2024"}});
+
+db.custer.findOne({name:"Rashid}).subscription
+
+db.custer.findOne({name:"Rashid}).subscription.renewalDate.month;
+
+db.customer.updateOne({
+                        name:"Steve",
+                       },
+                       {$set:{
+                              age:30,
+                              gender:"female
+                              }
+                       }
+                       )
+
+db.customer.find().toArray();
+db.customer.find().forEach(function(){print:"customer name:" + cust.name });

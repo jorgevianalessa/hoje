@@ -1,0 +1,11 @@
+// Quais são filmes que foram adicionados até 2010?
+db.netflix.aggregate([
+    {
+        $match: {
+            date_added: {
+                $lte: ISODate("2010-12-31"),
+                $gte: ISODate("2009-01-01")
+            }
+        }
+    }
+])

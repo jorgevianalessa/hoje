@@ -1,0 +1,642 @@
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #03640b;
+  color:#ffffff;
+}
+
+.bnt-acoes{
+    background-color: #057c15;
+    border-radius: 5px;
+    width: 50px;
+    height: 3px;
+    color:#ffffff;
+    text-decoration: none;
+    font-style: normal;
+    list-style: none;
+}
+
+.row-menu{
+  box-shadow:3px 3px white;margin-bottom: 5px;margin-right:4px ;border-top:1px solid #ffffff ;border-left:1px solid #ffffff;
+  width: 15%;
+}
+
+.linha-left{
+  float: left;
+  margin-left: 5%;
+}
+
+.linha-right{
+  float: right;
+  margin-right: 5%;
+}
+
+.div-input{
+  background-color: #090909;height: 2vh;margin-top: 1vh;
+}
+
+.sign-input{
+    background-color:#dd04bd;font-size: xx-small; color:#ffffff;border:none;height: 1vh;   
+}
+
+.linha1{
+    width:100%;height:25px;background-color: #ed097b;font-size: small;margin-left:3px;border-bottom: 1px solid #0450dd;margin-bottom:1.5px;
+}
+
+.linhaBotton{
+    /*width:100%;height:25px;background-color: #ebe8e5;font-size: small;margin-left:3px;border-bottom: 1px solid #04dd5e;margin-bottom:1.5px;*/
+}
+
+.col1{
+   /*height:25px;background-color: transparent;font-size: small;margin-left:2px;*/
+   text-align: left;color: #06e320;
+}
+
+.col2{
+   /*height:25px;background-color:transparent;font-size: small;margin-left:3px;*/
+   text-align: left;color: #06e320;
+}
+
+.col3{
+  /*height:25px;background-color:transparent;font-size:small;margin-left:3px;*/
+  text-align: right;color: #06e320;
+}
+
+.col4{
+  /*height:25px;background-color:transparent;font-size: small;margin-left:3px;*/
+  text-align: right;color: #06e320;
+}
+
+.aga{
+  margin-top: 12px;background-color: #e5dde1;display: flex;flex-direction: column;justify-items:flex-end;
+  text-decoration: none;
+}
+</style>
+<style>
+  .close {
+ /* position: absolute;
+  right: 35px;
+  top: 15px;*/
+  
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+  background-color: transparent;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1;
+    padding-top: 100px;
+    /*z-index: 1;  Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /* overflow: auto; Enable scroll if needed */
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 5px;
+    }
+
+/* Modal Content/Box */
+    .modal-content {
+    background-color: #8f8b8b;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    height: 90%;
+    padding: 5%;
+    }
+
+    .corpoMain{
+         background-color:#06f306;width:99%;height:90vh;margin: auto;margin-top:5.4vh ;text-align: center;
+    }
+</style>
+<div id="corpo" class="corpoMain" style="background-color: #ffffff;" >
+      {{!-- determina o caminho da consulta ok 12-09-23 --}}
+      <div class="div-input">
+        <label class="sign-input">></label>
+        <input class="sign-input" type="text" value="" id="nmtitulo" name="nmtitulo">
+        <label class="sign-input">></label>
+        <input class="sign-input" type="text" value="" id="nmsubtitulo" name="nmsubtitulo">
+        <label class="sign-input" >></label>
+        <input class="sign-input" type="text" value="" id="nmcidade" name="nmcidade">
+         <label class="sign-input" >></label>
+        <input class="sign-input" type="text" value="" id="nmbairro" name="nmbairro">
+      </div>
+      {{!-- //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+      <div id="id01" class="modal">
+        
+        <div  id="ModalMenu" class="modal-content" action="" style="background-color: transparent;height: 60vh;">
+            <div style="background-color: #04dd5e;width: 100%;height: 4.5vh;text-align: right;padding-right: 2px;border-right: solid 2px #ccc;">
+                <span style="width: 30px;text-align: center;" onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+            </div>
+            <div   class="container" style="display: flex;flex-direction: column;background-color: #04dd5e;height: 60vh;padding: 2%;border-right: solid 2px #ccc;border-bottom: solid 3px #ccc;">
+                    
+                        <div style="margin-bottom: 6px;background-color: #333333;padding: 6px;">
+                            <label style="float: left;color:#ffffff">nome da empresa:</label>
+                            <input style="float: left;margin-left: 20px;" id="NomeRazao">
+                        </div>
+                        
+                        <div class="clearfix" style="text-align:center;margin-top:5px;background-color: transparent;padding: 4px;height: 70%;
+                                                        display: flex;flex-direction: column;">
+                            <p style="margin-top: 2px;color:white;font-size: larger;">Selecione ....</p>
+                            <form method="post" action="/centrallj/edicao-lojista" style="width: 80%;height: 5vh;margin: auto;background-color: transparent;margin-top: 5px;" enctype="application/x-www-form-urlencoded">
+                                <div style="background-color: transparent;display: flex;flex-direction: column;text-justify: ;">
+                                    <input id="id-cliente" name="id-cliente" style="display:none;text-align: center;width: 40%;">
+                                    <input id="edicao-cliente" name="edicao-cliente" style="display:none;text-align: center;width: 40%;">
+                                    <button type="submit"  style="width:200px; margin:auto;margin-top: 10px;border-radius: 6px;" class="">Edição</button>
+                                </div>
+                            </form>
+                            <form method="post" action="/centrallj/import-estoque-lojista" style="width: 80%;height: 5vh;margin: auto;background-color:transparent;margin-top: 5px;" enctype="application/x-www-form-urlencoded">
+                                <div style="background-color: transparent;display: flex;flex-direction: column;text-justify:auto ;">  
+                                    <input id="id-estoq" name="id-estoq" style="display:none;text-align: center;width: 40%;">
+                                     <input id="import-estoq" name="import-estoq" style="display:none;text-align: center;width: 40%;">
+                                    <button type="submit"  style="width:200px;margin:auto;margin-top: 10px;border-radius: 6px;" class="">Importar estoque</button>
+                                </div>
+                            </form>    
+                        </div>
+                        
+            </div>
+        </div>
+      </div>
+      {{!-- //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::; --}}
+      <div id="linha-divisoria" style="background-color:#ffffff;height:3px;width:100%;margin-top:4px ;"></div>
+      <div style="display: flex;flex-direction: row;justify-content:space-between ;">
+        <div id="sidebar" style="width: 12%;height: 90vh;margin: auto;background-color: #057c15;margin-top:2px;">
+              <div style="width: 80%;height: 5vh;margin: auto;background-color: #0450dd;margin-top: 4vh;">
+                {{!-- <select style="width: 50%;height: 3vh;background-color: #333333;margin-top: 10vh;">
+                     <option>Selecione..</option>
+                </select> --}}
+                  <select style="width:50%;height:3vh;border:1px  gray solid" id="SelTitulo">
+                    <option></option>
+                    {{#each setor}}
+                        <option onclick="buscabairro({{this}})">{{this.segmento}}</option>
+                    {{/each}}
+                  </select>
+              </div>
+              <div style="width: 80%;height: 5vh;margin: auto;background-color: #0450dd;margin-top: 4vh;">
+                <label>Selecione o sub-título ...</label>
+                <div style="background-color:transparente;margin-top:-5px ;">
+                  <select style="width:50%;height:3vh;border:1px gray solid" id="SelsubTitulo">
+                  </select>  
+                </div>
+              </div>
+              <div style="width: 80%;height: 5vh;margin: auto;background-color: #0450dd;margin-top: 4vh;">
+                    <div >
+                      <select style="width:50%;height:3vh;border:1px gray solid" id="SelCidade">
+                            <option value="todos">todos</option>
+                            <option value="Cariacica">Cariacica</option>
+                            <option value="Guarapari">Guarapari</option>
+                            <option value="Serra">Serra</option>
+                            <option value="Viana">Viana</option>
+                            <option value="Vila Velha">Vila Velha</option>
+                            <option value="Vitória">Vitória</option>
+                      </select>
+                    </div>
+              </div>
+              <div style="width: 80%;height: 5vh;margin: auto;background-color: #0450dd;margin-top: 4vh;">
+                    <div style="background-color:transparente;margin-top:-5px ;">
+                        <label>Selecione o bairro ...</label>
+                        <div style="background-color:transparente;margin-top:-5px ;">
+                          <select style="width:50%;height:3vh;border:1px gray solid" id="SelBairro">
+                                <option value="todos">todos</option>
+                          </select>
+                        </div>
+                    </div>
+              </div>
+              <div style="width: 80%;height: 5vh;margin: auto;background-color: #0450dd;margin-top: 4vh;">
+                    <div style="width:20%;height:8vh;margin:auto;float: left;border-left: 1px solid black;color:#03640b;">
+                    <label></label>
+                    <div style="background-color:transparente;margin-top:-5px ;">
+                      <button type="button" value="" onclick="PesquisaAll()" style="border-radius:6px;background-color:greenyellow;width:50%;border-color:#aae94c ;">Buscar</button>
+                    </div>
+                   </div>
+              </div>
+        </div>
+        <div id="tabelaCentral" style="width:88%;height:80vh;margin: auto;background-color:#870b0b;margin-top:2px;padding: 2px;margin-right: 5px;">
+            <table class="table" style="background-color:#ffffff ;" id="myTable" style="overflow: auto;">
+                  <thead id="seteoito" style="background-color: #e0d90a;width: 100%;">
+                      <tr style="font-size:smaller;background-color: #7c0537;width: 100%;">
+                          <th style="background-color:#e0d90a;border-bottom: 1px solid #0450dd;width:30%;">Razão</th>
+                          <th style="background-color:#e0d90a;border-bottom: 1px solid #0450dd;width: 10%;">Cidade</th>
+                          <th style="background-color:#e0d90a;border-bottom: 1px solid #0450dd;width: 20%;">Bairro</th>
+                          <th style="background-color:#e0d90a;border-bottom: 1px solid #0450dd;width: 10%;">segmento</th>
+                          <th style="background-color:#e0d90a;border-bottom: 1px solid #0450dd;width: 60%;">título</th>
+                      </tr>
+                  </thead id="xx">
+                  <tbody id="linhaIndex" style="overflow: auto;">
+                    <div style="background-color: #070707;color:#ffffff;height: 5vh;width: 100%;">
+                       {{seg.cidade}}
+                    </div>
+                      {{#each seg}}
+                        <tr id="numlin" >
+                          <td style="text-align: left;color: #070707;" onclick="buscLinha('{{this.razao}}' + '-' + '{{this._id}}')">{{this.razao}}</td>
+                          <td style="text-align: left;color: #008819;">{{this.cidade}}</td>
+                          <td style="text-align: right;color: #008819;">{{this.bairro}}</td>
+                          <td style="text-align: right;color: #008819;width: 20%;margin-left: 20px;font-weight: bold;">{{this.segmento}}</td>
+                          <td style="text-align: right;color: #008819;">{{this.abc}}</td>
+                        </tr>
+                      {{/each}}
+                  </tbody>
+            </table>
+        </div>
+      </div>
+</div>
+
+<script>
+ function limpaCxLoja(){
+
+}
+var boxtitulo=document.getElementById("SelTitulo")
+
+boxtitulo.addEventListener("click",function(event){
+    let r=boxtitulo.value;
+   //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    var H=document.getElementById("SelsubTitulo");
+    var M=document.createElement("option");
+    M.text="tod"
+    H.add(M)
+   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    let b;
+    //............................................................
+    if(r==""){
+      return;
+    }
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    
+    const list = document.getElementById("SelsubTitulo");
+
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+       baseApiUrl='https://www.rotaes.com.br'
+    }
+    
+    b=list.length;
+    if(b>0){
+      document.getElementById("nmtitulo").value="";
+      document.getElementById("nmsubtitulo").value="";
+      for(j=0;j<b;j++){
+        list.removeChild(list.firstElementChild);
+      }
+    }  
+    //.............................................................
+    if (r!=''){
+          document.getElementById("nmtitulo").value=r;
+          try{
+             fetch(`${baseApiUrl}` + `/centralseg/buscar-segmentosSub/${r}`,
+                      {method: "GET",
+                       headers: {"Content-type": "application/json; charset=UTF-8"}
+                      })
+                      .then((response) => {
+                        if( response.ok ){
+                            return response.json()
+                        }        
+                        throw response;
+                      })  
+                      .then((json) => {
+                          //console.log(json)
+                          let l=Object.values(json).length
+                          for(i=0;i<l;i++){
+                              if(i==0){
+                                const node=document.createElement("option")
+                                const textnode = document.createTextNode('todos');
+                                node.appendChild(textnode)
+                                document.getElementById("SelsubTitulo").appendChild(node)
+                              }
+                              let A;
+                              A=json[i];
+                              const node=document.createElement("option")
+                              const textnode = document.createTextNode(A);
+                              node.appendChild(textnode)
+                              document.getElementById("SelsubTitulo").appendChild(node)
+                          }
+                      })
+                      .catch((err)=>{
+                         console.log(err)
+                      })
+          }catch(e){
+              req.flash("success_msg","Pagamento apagado com sucesso!")
+          }  
+    }      
+})
+
+
+var boxsubtitulo=document.getElementById("SelsubTitulo")
+
+boxsubtitulo.addEventListener("click",function(event){
+    let x=boxsubtitulo.value;
+    let b;
+    //............................................................
+    if(x==""){
+      return;
+    }
+    document.getElementById("nmsubtitulo").value=x;
+    document.getElementById("nmcidade").value='todos';
+    document.getElementById("nmbairro").value='todos';
+})
+
+var boxcidade=document.getElementById("SelCidade")
+    if (boxcidade.value=""){
+      console.log('vazio')
+     }
+   
+    boxcidade.addEventListener("click",function(event){
+    console.log('nome da cidade selecionada',boxcidade.value)
+    let x=boxcidade.value;
+    let b;
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    const ListB=document.getElementById("SelBairro")
+    b=ListB.length;
+    if(b>0){
+      //document.getElementById("nmtitulo").value="";
+      //document.getElementById("nmsubtitulo").value="";
+      for(j=1;j<b;j++){
+        ListB.removeChild(ListB.firstElementChild);
+      }
+    }  
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    //............................................................
+    if(x==""){
+      return;
+    }
+    document.getElementById("nmcidade").value=x;
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+       baseApiUrl='https://www.rotaes.com.br'
+    }
+    //<><><><><><><><><><><><><><><><><><><><><><><><><><>
+    try{
+          fetch(`${baseApiUrl}` + `/centrallj/busca-bairro/${x}`,
+               {method: "GET",
+                headers: {"Content-type": "application/json;charset=UTF-8"},
+               })
+               .then((response)=>{
+                  if(response.ok){
+                    return response.json()
+                 }
+                  throw response;
+               })
+               .then((json)=>{
+                  console.log(json);
+                  let r=Object.values(json).length;
+                 // console.log('linha289',r)
+                  let l=Object.values(json).length
+                          for(i=0;i<l;i++){
+                               if(i==0){
+                              //  const node=document.createElement("option")
+                              //  const textnode = document.createTextNode('todos');
+                              //  node.appendChild(textnode)
+                              //  document.getElementById("SelBairro").appendChild(node)
+                              }
+                              let A;
+                              A=json[i];
+                            //  console.log(A)
+                              const node=document.createElement("option")
+                              const textnode = document.createTextNode(A);
+                              node.appendChild(textnode)
+                              document.getElementById("SelBairro").appendChild(node)
+                          }
+               })
+               .catch((err)=>{
+                   console.log('oi',err)
+               })
+             
+    }catch(err){
+         console.log(err)
+    };
+})
+
+ let nmBairro=document.getElementById("SelBairro");
+      nmBairro.addEventListener("click",function(event){
+      document.getElementById('nmbairro').value =nmBairro.value;
+      console.log(document.getElementById('nmbairro').value)
+ })
+
+function PesquisaAll(){
+   let t=document.getElementById("nmtitulo").value;
+   let st=document.getElementById('nmsubtitulo').value;
+   let cd=document.getElementById('nmcidade').value;
+   let br=document.getElementById('nmbairro').value;;
+  // console.log(br)
+   //.........................................................
+   if (t==''){
+      return
+   }
+
+   if(st==''){
+     st='todos'
+   }
+   if (cd==''){
+     cd='todos'
+   }
+   if(br==''){
+     br='todos'
+   }
+   //.............................................................................
+   let W= t + ';' + st + ";" + cd + ";" + br
+   console.log('vr dw W',W)
+    //.............................................
+   const myNodelist = document.querySelectorAll("tr");
+   let reta=myNodelist.length;
+  
+   console.log('valor da reta',reta)
+   h=reta;
+   if(reta>1){ 
+      for(j=h;j>0;j--){
+        console.log('valor de j',j)
+        if(j>1){
+          console.log('vr de J',j)
+          document.getElementById("tr").deleteRow(j-1);
+          console.log('deletou a de nº',j)
+        }
+      }
+   }
+   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::   
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+       baseApiUrl='https://www.rotaes.com.br'
+    }
+   //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   try{
+              fetch(`${baseApiUrl}` + `/centrallj/allPesquisa/${W}`,
+                      {method: "GET",headers: {"Content-type": "application/json; charset=UTF-8"}
+                      })
+                      .then(response => {
+                        if(response.ok){
+                            //console.log(8);
+                            return response.json()
+                        }
+                        throw response;
+                      })
+                      .then((json) => {
+                          console.log(json)
+                          let l=Object.values(json).length
+                          //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                           console.log(l)
+                          //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                          for(i=0;i<l;i++){
+                                // Cria outra linha
+                                const node9=document.createElement("tr")
+                                node9.setAttribute("id", i)
+                                node9.setAttribute("class","linhaBotton")
+                                document.getElementById("").appendChild(node9)
+                                // Cria uma coluna razão
+                                let R1;
+                                R1=json[i].razao;
+                                console.log(i,'..',R1)
+                                const node5=document.createElement("td")
+                                const textnode5 = document.createTextNode(R1);
+                                node5.setAttribute("id","col-linha" + i + 1)
+                                node5.setAttribute("class","col1")
+                                node5.appendChild(textnode5)
+                                document.getElementById(i).appendChild(node5)
+                                //::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                // Cria uma coluna cidade
+                                let C1;
+                                C1=json[i].cidade;
+                                const node6=document.createElement("td")
+                                const textnode6 = document.createTextNode(C1);
+                                node6.setAttribute("id","col-linha" + i + 2)
+                                node6.setAttribute("class","col1")
+                                node6.appendChild(textnode6)
+                                document.getElementById( i ).appendChild(node6)
+                                //::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                // Cria uma coluna bairro
+                                let B1;
+                                B1=json[i].bairro;
+                                const node7=document.createElement("td")
+                                const textnode7 = document.createTextNode(B1);
+                                node7.setAttribute("id","col-linha" + i + 3)
+                                node7.setAttribute("class","col3")
+                                node7.appendChild(textnode7)
+                                document.getElementById(i).appendChild(node7)
+                              //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                // Cria uma coluna segmento
+                                CE=json[i].titulo;
+                                const node8=document.createElement("td")
+                                const textnode8 = document.createTextNode(CE);
+                                node8.setAttribute("id","col-linha" + i + 4)
+                                node8.setAttribute("class","col4")
+                                node8.appendChild(textnode8)
+                                document.getElementById( i).appendChild(node8)
+                                //::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                // Cria uma coluna sub-titulo
+                                let CE1;
+                                CE1=json[i].subtitulo;
+                                const node10=document.createElement("td")
+                                const textnode10 = document.createTextNode(CE1);
+                                node10.setAttribute("id","col-linha" + i + 4)
+                                node10.setAttribute("class","col4")
+                                node10.appendChild(textnode10)
+                                let lin=i
+                                console.log(lin)
+                                document.getElementById(i).appendChild(node10)
+                                //::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                //node16.setAttribute('href',CRz)
+                            //}
+                          }
+                      })
+                      .catch((err)=>{
+                          console.log('oi',err)
+                      })
+             
+          }catch(e){
+
+          }  
+}
+
+
+function buscLinha(value){
+  const  nome=value;
+  let q=nome.search("-")
+  let c=nome.length;
+  let f=nome.substr(0,q)
+  let idex=nome.substr((q+1),c);
+  //...................................................
+  f=f.trim();
+  var linha=document.getElementById("linhaIndex");
+  var n=document.getElementById("myTable").rows.length;
+ 
+  //........................................................
+  var coluna=document.getElementById('');
+  console.log(coluna)
+  addEventListener("keydown",function(event){
+           console.log(' [ 620 ]')
+           let r= event.key;
+           console.log('valor de key',r)
+  }) 
+
+  linha.addEventListener("click",function(event){
+      console.log('[ 626 ]')    ;
+      //........................................................
+      document.getElementById("NomeRazao").value=f;
+      document.getElementById('id01').style.display='block'; // torna o modal visível
+      var celula;
+      // corre a tabela de cima para baixo para achar a linha tocada
+      for (i=1;i<n;i++){
+          //-- mostra a linha que foi selcionada pintando de cor diferente
+          celula=document.getElementById("myTable").rows[i].cells[0].innerHTML;
+          console.log('valor da célula',celula);
+          document.getElementById("edicao-cliente").value=f;
+          document.getElementById("import-estoq").value=f;
+          document.getElementById("id-cliente").value=idex;
+          document.getElementById("id-estoq").value=idex;
+          let a=celula.trim();
+          if(a===f){
+              document.getElementById("myTable").rows[i].cells[0].style.backgroundColor="red";
+              document.getElementById("myTable").rows[i].cells[0].style.color="white";
+              document.getElementById("myTable").rows[i].cells[1].style.backgroundColor="red";
+              document.getElementById("myTable").rows[i].cells[1].style.color="white";
+              document.getElementById("myTable").rows[i].cells[2].style.backgroundColor="black";
+              document.getElementById("myTable").rows[i].cells[2].style.color="white";
+              document.getElementById("myTable").rows[i].cells[3].style.backgroundColor="red";
+              document.getElementById("myTable").rows[i].cells[3].style.color="white";
+              document.getElementById("myTable").rows[i].cells[4].style.backgroundColor="red";
+              document.getElementById("myTable").rows[i].cells[4].style.color="white";
+          }
+      }
+                   
+  })
+        
+}
+
+//function myfunctio(x){
+ //console.log(x.rowIndex)
+//}
+</script>

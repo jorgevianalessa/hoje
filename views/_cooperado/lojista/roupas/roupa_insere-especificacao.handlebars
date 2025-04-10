@@ -1,0 +1,1341 @@
+<style>
+
+  .titulo_page{
+      width: 100%;height: 2vh;margin: auto;
+      background-color: transparent;text-align: center;
+      padding: 0.1vh;margin-top: 2vh;
+      display: flex;flex-direction: row;"
+  }
+
+  .label_control{
+     color:#cccccc;font-size: larger;font-weight: bold;padding: 0px 10px 0px 10px;visibility: hidden;
+  } 
+
+  .handlebars{
+    color:#969699;font-size: xx-small;font-weight: bold;
+  }
+
+  .form_modal{
+      width: 20%;height: 50vh;margin: auto;
+      position:absolute;
+      top: 100px;;
+      right:100px;
+      z-index: 100;
+      background-color: rgba(114, 3, 92, 0.5);
+      display: none;
+  }
+
+  .form_action{
+     width: 80%;height: 49.5vh;margin: auto;
+     padding: 2em;margin-top: 2vh;
+     background-color: rgb(0, 0, 255,0.3);
+  }
+
+  .rowImpar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color: #008b8b;
+  }
+
+  .rowPar{
+     width: 100%;height: 3.5vh;margin: auto;
+     margin-bottom: 2px;
+     text-align: center;
+     background-color:  #05d639;
+  }
+
+  .btn_gravar{
+    width: 6vw;
+    height: 3vh;
+    border-radius: 6px;
+    background-color: #035384;color:#ffffff;
+    margin-top:0.3vh;
+  }
+
+  .linha-produto{
+     width: 80%;height: 3.5vh;margin: auto;
+     margin-top: .5vh;
+     display: flex;flex-direction: row;
+     margin-top: 3px;
+     background-color:transparent;
+  }
+
+  .linha-produto_div{
+    width: 90%;
+    height: 3.5vh;margin: auto;
+    display: flex;flex-direction: row;justify-content:center;
+    background-color:#b20787;
+  }
+
+  .linha-produto_label{
+    width: 20%;
+    text-align: center;
+    background-color: #008000;
+    color: #ffffff;
+    padding: 0.5vh;
+  }
+
+  .linha-produto_input{
+    width: 80%;
+  }
+
+  .linha-produto_input input{
+    width: 100%;height:3.5vh;
+    background-color: #ffffff;color:#0000ff;
+  }
+
+  .btn_label{
+    width: 6vw;
+    margin-left: 6px;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .btn_input{
+    width: 6vw;
+    text-align:left;
+    background-color: #008000;color:#ffffff;
+  }
+
+  .formataImg{
+    max-width: 50vw;
+    max-height: 30vh;
+    width: auto;
+    height: auto;
+    background-color: #959292;
+    padding: 3px;
+  }
+  
+  .dados_produto{
+     width: 85%;height: 86vh;margin: auto;
+     display: flex;flex-direction:row;
+     background-color: #ffffff;
+     padding: 0px 5px 2px 5px;
+  }
+
+  .dados_itens{
+    width: 50%;height: 85.5vh;margin: auto;
+    background-color: #ffffff;
+  }
+
+  .dados_imagens{
+    width: 50%;height: 85.5vh;margin: auto;
+    background-color: #ffffff;"
+  }
+
+</style>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+<style>
+    .ativaModalResposta_{
+        width: 80%;height: 7vh;margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 1.5vh;
+    }
+    .buttonAlerta_{
+        width: 10vw;
+        border-radius: 6px;
+        background-color: #04bb32;
+        color:#ffffff;margin: auto;
+    }
+</style>
+<style>
+     /*TABELA DE CORES */    
+   .tabelaEdit{
+        position:absolute;
+        right:10px;
+        margin-top: 1vh;
+        width: 20%;
+        height: 85vh;
+        border:solid #cccccc 2px;display: none;
+        background-color: #f20404;
+        padding: 6px;
+    }
+
+    .CoresRow{
+       width: 80%;height: 3vh;margin: auto;background-color: #ffffff;padding: 1px;
+       margin-top: 5px;display: flex;flex-direction: row;
+    }
+
+    .rowCoresCodigo{
+      width: 30%;height: 2.8vh;margin: auto;background-color: #045ba7;text-align: center;
+    }
+
+    /* atualizado 24-07-2003 */
+    .row_CoresCor{
+       width: 69%;height: 2.8vh;margin: auto;background-color: #045ba7;
+    }
+
+    /* atualizado 24-07-2003 */
+    .row_CoresCor button {
+        width: 100%;height: 2.8vh;margin: auto;background-color: transparent;
+    }
+
+    /* atualizado 24-07-2003 */
+    .rowCores input{
+       text-align: center;width: 100%;height:2.8vh;
+    }
+
+    .msgSpan{
+        width: 50%;height: 15vh;margin: auto;
+        position: absolute;
+        z-index: 1000;
+        top: 50;
+        left:25%;
+        display: none;
+        text-align: center;
+        padding-top: 0.5vh;
+        border: #035384 2px solid;
+        background-color: #bcb7b7;
+    }
+
+    .msgCorExiste{
+        width: 50%;height: 15vh;margin: auto;
+        position: absolute;
+        z-index: 1000;
+        top: 50;
+        left:25%;
+        display: none;
+        text-align: center;
+        padding-top: 0.5vh;
+        border: #ccc 2px solid;
+        border-radius: 6px;
+        background-color: #e60808;
+    }
+
+    .msgCorExiste div{
+        width: 80%;height: 7vh;margin: auto;
+        background-color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 1.5vh;
+    }
+
+    .id_span{
+        color:#ffffff;font-weight: 100;margin:10px 0px 0px 20px;padding: 10px;font-size: medium;
+    }
+    
+</style>
+
+<div id="nucleo" style="width: 98%;height: 90vh;margin: auto;margin-top:9.1vh;background-color: #ffffff;color:#a39d9d">
+    {{!-- :::::::::::::::::::Box Dialogo Cor registrada:::::::::::::::::::::::::::::::::::::::: --}}
+    <div  id="msgCorExist" class="msgCorExiste" >
+        <h3 id="idH3CorExist" ><span id="idspanCorExist" class="id_span" style="color:#ffffff;font-size:larger ;font-weight: bolder;">Cor já cadastrada !</span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="" style="background-color: #ffffff;" >
+            <div style="display: flex;flex-direction: row;text-align:center;justify-content:center;padding: 0.8vh;margin-top: 15px;background-color: #ffffff;">
+                 <button id="btnCorExist" class="" onclick="retornafoco()" style="border: 0px;border-radius: 6px;padding: 5px;width: 60px;" onc  >Ok</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- /////////////////////////////////////////////////////////////////////// --}}
+    <div  id="msgTamanho" class="msgSpan" style="display: none;">
+        <h3 id="idH3Tamanho" style="color:#960404;"> <span id="idspanAnotarSize" class="id_span"></span></h3>
+        
+        <div class="ativaModalResposta_" style="background-color: #959292;" >
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 15px;">
+                <button class="buttonAlerta_" onclick="closeTamanho()">Ok</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- /////////////////////////////////////////////////////////////////////// --}}
+    <div  id="msgQte" class="msgSpan" style="display: none;">
+        <h3 id="idH3Qte" style="color:#960404;">  <span id="idspanAnotarQte" class="id_span"></span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="ativaModalResposta_" style="background-color: #959292;" >
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 15px;">
+              <button class="buttonAlerta_" onclick="closeQte()">Ok</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- :::::::::::::::::::::::[ box Msg ] O valor está certo ? [ PREÇO DE CUSTO ]:::::::::::::::::::::::::::: --}}
+    <div  id="msgSpanPcusto" class="msgSpan" >
+        <h3 style="color:#ffffff;">O valor está certo ?<span id="idspan1" class="id_span" ></span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="ativaModalResposta_" >
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+                <button id="btn-custo-sim" class="buttonAlerta_" onclick="digoSimCusto()">SIM</button> 
+                <button id="btn-custo-no" class="buttonAlerta_" onclick="digoNaoCusto()" style="background-color: #ff0000;">Não</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- ::::::::::::::::::::::: [ box Msg ]  O valor está certo ? [ PREÇO DE VISTA ] ::::::::::::::::::::::::::::: --}}
+    <div  id="msgSpanPvista" class="msgSpan" >
+        <h3 style="color:#ffffff;">O valor está certo ?<span id="idspan2" class="id_span"></span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="ativaModalResposta_" >
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+                <button id="btn-vista-sim" class="buttonAlerta_" onclick="digoSimVista()">SIM</button> 
+                <button id="btn-vista-no"  class="buttonAlerta_" onclick="digoNaoVista()" style="background-color: #ff0000;">Não</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- ::::::::::::::::::::::: [ box Msg ]  O valor está certo ? [ PREÇO DE PRAZO ] ::::::::::::::::::::::::::::: --}}
+    <div  id="msgSpanPprazo" class="msgSpan" >
+        <h3 style="color:#ffffff;">O valor está certo ?<span id="idspan3" class="id_span"></span></h3>
+        {{!-- :::::::::::::::::::::::::::::::::::::::::::::: --}}
+        <div class="ativaModalResposta_" >
+            <div style="display: flex;flex-direction: row;justify-content: space-between;padding: 0.8vh;margin-top: 10px;">
+               <button id="btn-prazo-sim" class="buttonAlerta_" onclick="digoSimPrazo()">SIM</button> 
+               <button id="btn-prazo-no" class="buttonAlerta_" onclick="digoNaoPrazo()" style="background-color: #ff0000;">Não</button> 
+            </div>
+        </div>
+    </div>
+    {{!-- ...........Form para gravar as modificações............................. --}}
+    <div id="insere_especificacao"  class="form_modal" style="display:none;background-color: #e40f88;">
+          <form action="/roupa/insere_especificacao" method="POST"  enctype="application/x-www-form-urlencoded" class="form_action">
+              <div class="rowImpar">
+                 <input id="idProduto" name="nameIdProduto" value="{{vitrine._id}}">
+              </div>
+              <div class="rowPar">
+                 <input id="lojaid" name="nameIdCor" value="{{cores._id}}">
+              </div>
+              <div class="rowImpar">
+                 <input id="descricaoId" name="" value="{{vitrine.descricao}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="corbackId" name="" value="{{cores.corback}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="corfrontId" name="" value="{{cores.corfront}}">
+              </div>
+              <div class="rowImpar" >
+                 <input id="corinputId" name="" value="{{cores.corinput}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="tamanhoId" name="nameTamanho" value="{{dados.tamanho}}">
+              </div>
+              <div class="rowImpar" >
+                 <input id="qteId" name="nameQte" value="{{dados.qte}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="custoId" name="nameCusto" value="{{dados.precocusto}}">
+              </div>
+              <div class="rowImpar" >
+                 <input id="vistaId" name="nameVista" value="{{dados.precovista}}">
+              </div>
+              <div class="rowPar" >
+                 <input id="prazoId" name="namePrazo" value="{{dados.precoprazo}}">
+              </div>
+              <div class="rowImpar" >
+                 <input id="pageId" name="namePage" value="{{dados.page}}">
+              </div>
+              <div class="rowPar" >
+                 <button class="btn_gravar" type="text" id="btnId"  >Gravar</button>
+              </div>
+          </form>
+    </div>
+    {{!-- ...................Título da page........................................ --}}
+    <div id="tituloPage" class="titulo_page">
+            <label id="labelControl" class="label_control" >1</label>
+            <label id="titulo_Handlebars" class="handlebars" >Descrição do produto :"roupa_insere-especificacao,{ layout:'roupa-coloca-foto.handlebars',produto:Produto}"</label>
+    </div>
+    {{!-- :::::::::::::::::::::::::: [ FICHEIRO ] :::::::::::::::::::::::::::::::::: --}}
+    <div id="escolheFicheiro" style="width: 30%;height: 52vh;margin: auto;display:none;float: left;position: absolute;top:2vh;right: 10px; z-index: 2000;background-color: #a49f9f;">
+            <form action="/roupa/upload" id="idfile" method="post" enctype="multipart/form-data" class="escolheficheiro_">
+                <div style="display: flex;flex-direction: row;justify-content: center;">
+                    <div style="width: 90%;height: 4vh;margin: auto;background-color: #008b8b;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;">
+                        <label style="color: #ffffff;">Selecione a fotografia <span><label id="idSpan" style="font-size: x-large;color: #ef520f;margin-left: 30px;font-weight: 100;"></label></span></label>
+                    </div>
+                    <div style="width: 10%;height: 4vh;margin: auto;background-color: #008000;text-align: center;padding-top: 0.7vh;margin-bottom: 5px;color: #ffffff;">
+                         <button type="button" style="background-color: #008000;color:#ffffff;font-size: larger;font-weight: 200;border: 0px;" onclick="EscondeImg()">X</button>
+                    </div>
+                </div>     
+                <div >
+                    <input type="file" name="upload" id="fileA" style="margin-left: 25px;">
+                    <input type="text" id="idProdutoDefault" name="idProduto" value="{{vitrine._id}}" style="display:none;background-color: #06eb1d;color:#ffffff;">
+                    <input type="text" id="idCorFoto" name="idCorFoto" style="display:none;background-color: #e1da19;color:#ffffff;font-weight: 100;" value="{{extensao._id}}">
+                    <input type="text" id="idLocalImagem" name="LocalImagem" style="display:none;color:#0000ff;background-color: #ffffff;" value="2">
+                    <input type="text" id="idPosicaoImg" name="PosicaoImg" style="display:none;color:red;background-color: #0b0bc9;" value="">
+                </div>
+                <div style="display: flex;flex-direction: column;background-color: #ffffff;width: 90%;height:42vh;margin: auto;align-items: center ;z-index: 10;margin-top: 15px;padding: 10px;">
+                   
+                        <div style="width: 100%;height: 38vh;margin: auto;text-align: center;vertical-align:auto;background-color: #ffffff;padding: 10px;">
+                           <img id="imgPreviewA" src="" alt="" class="" width="100%" height="auto" style="background-color: #67676b;width: auto;margin: auto; background-size: cover;"/>
+                        </div>
+                        <div style="width: 100%;height: 4vh;margin: auto;background-color: #80868b;text-align: center;padding-top: 0.5vh;">
+                           <button id="btnUpload" style="border-radius: 6px;background-color: coral;font-weight: 100;color:#ffffff;border:opx;display: none;">Upload</button>
+                        </div>
+                </div> 
+            </form>
+     </div>
+    {{!-- ...................Dados do produto...................................... --}}
+    <div id="DadosProduto" class="dados_produto" style="background-color: #ffffff;margin-top: 0vh;padding-top: 0px;" >
+        <div id="DadosProduto_Itens" class="dados_itens" style="background-color: #ffffff;" >
+                {{!-- {{vitrine._id}} --}}
+                {{!-- [[ Divisão que contém os dados principais do produto ]] --}}
+                <div class="" style="width: 72%;height: 2.8vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                    <h6 style="font-size: medium;">produto </h6>
+                </div>
+                {{!-- ___________________________________________________________________ --}}
+                <div id="id_id" class="linha-produto" >
+                    <div class="linha-produto_div">
+                        <div class="linha-produto_label" >
+                            <label class="btn_label" >_Id :</label>
+                        </div>
+                        <div class="linha-produto_input" >
+                            <input id="idprodut_id" value="{{vitrine._id}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>  
+                </div>
+                <div id="codigo" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">Código :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_codigo" value="{{vitrine.codigo}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>  
+                </div>
+                <div id="id_descricao" class="linha-produto" >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">descrição :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_descricao" value="{{vitrine.descricao}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_detalhe" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">detalhe :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_detalhe" value="{{vitrine.complete}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_tecido" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">tecido :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_tecido" value="{{vitrine.tecido}}" style="background-color: #b20787;color:#ffffff;"  disabled >
+                        </div>
+                    </div>       
+                </div>
+                <div id="id_artigo" class="linha-produto"  >
+                    <div class="linha-produto_div"  >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label">artigo :</label>
+                        </div>
+                        <div class="linha-produto_input">
+                            <input id="idproduto_artigo" value="{{vitrine.artigo}}" style="background-color: #b20787;color:#ffffff;"  disabled>
+                        </div>
+                    </div>       
+                </div>
+                <div id="separador_1" style="width: 72%;height: 3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                          <h6>imagens do produto</h6>
+                </div>
+                <div id="idImgMain" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <button  class="btn_label" onclick="loadImage('front')" >img front</button>
+                        </div>
+                        <div class="linha-produto_input" >
+                            <input id="idproduto_urlmain" value="{{cores.urlfront}}" style="background-color: #b20787;color:#ffffff;">
+                        </div>
+                    </div>       
+                </div>
+                <div id="urlleft" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <button  class="btn_label" onclick="loadImage('left')" >img left</button>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_urlleft" value="{{cores.urlleft}}" style="background-color: #b20787;color:#ffffff;">
+                            </div>
+                        </div>       
+                    </div>
+                <div id="urlback" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label" >
+                                <button  class="btn_label" onclick="loadImage('back')" >img back</button>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_urlback"  value="{{cores.urlback}}" style="background-color: #b20787;color:#ffffff;">
+                            </div>
+                        </div>       
+                    </div>
+                    {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                    <div id="urlright" class="linha-produto" style="" >
+                        <div class="linha-produto_div" style="" >
+                            <div class="linha-produto_label">
+                                <button class="btn_label" onclick="loadImage('right')" >img right</button>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_urlright" value="{{cores.urlright}}" style="background-color: #b20787;color:#ffffff;" >
+                            </div> 
+                        </div>       
+                    </div>    
+                <div id="separador_2" style="width: 72%;height: 3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                    <h6>cores do produto</h6>
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="corFront" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <label  class="btn_label">cor front</label>
+                        </div>
+                        <div id="dividCores" class="linha-produto_input" >
+                            {{!-- <input id="idproduto_homenumbercor" value="{{vitrine.produto.homenumbercor}}" style="display: none;"> --}}
+                            <input id="idproduto_corfront" value=""  style="background-color:{{cores.corfront}};">
+                        </div>
+                    </div>       
+                </div>
+                <div id="corBack" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <label  class="btn_label">cor back</label>
+                        </div>
+                        <div id="dividCores" class="linha-produto_input" >
+                            <input id="idproduto_homenumbercor" value="{{vitrine._id}}" style="display: none;">
+                            <input id="idproduto_corback" value="" style="background-color:{{cores.corback}};" >
+                        </div>
+                    </div>       
+                </div>
+                {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                <div id="corInput" class="linha-produto" >
+                    <div class="linha-produto_div" >
+                        <div class="linha-produto_label" >
+                            <label class="btn_label" >cor input</label>
+                        </div>
+                        <div id="dividCores" class="linha-produto_input" >
+                            <input id="idproduto_corinput" value="{{cores.corinput}}" >
+                        </div>
+                    </div>       
+                </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                 <div id="separador_2" style="width: 72%;height:3vh;margin: auto;background-color: #ffffff;color:#b20787;text-align: center;padding: .5vh;">
+                          <h6>dados complementares</h6>
+                 </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                 <div id="tamanho" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <label class="btn_label" >tamanho</label>
+                            </div>
+                            <div class="linha-produto_input" >
+                                <input id="idproduto_tamanho" value="{{especificacao.tamanho}}" >
+                            </div>
+                        </div>       
+                 </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                 <div id="qte" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="" >
+                            <div class="linha-produto_label" >
+                                <label class="btn_label" >qte</label>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_qte" value="{{especificacao.qte}}" >
+                            </div>
+                        </div>       
+                 </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                 <div id="precocusto" class="linha-produto" style="" >
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <label class="btn_label" >p custo</label>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_custo" value="{{especificacao.precocusto}}" >
+                            </div>
+                        </div>       
+                 </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                 <div id="precovenda" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <label class="btn_label" >p  vista</label>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_vista" value="{{especificacao.precovista}}" >
+                            </div>
+                        </div>       
+                 </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+                 <div id="precoprazo" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <label class="btn_label" >p prazo</label>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_prazo" value="{{especificacao.precoprazo}}" >
+                            </div>
+                        </div>       
+                 </div>
+                 <div id="page" class="linha-produto" style="">
+                        <div class="linha-produto_div" style="">
+                            <div class="linha-produto_label">
+                                <label class="btn_label"  >page</label>
+                            </div>
+                            <div class="linha-produto_input">
+                                <input id="idproduto_page" value="{{especificacao.page}}"  style="background-color: yellow;">
+                            </div>
+                        </div>       
+                 </div>
+                 {{!-- ////////////////////////////////////////////////////////////////////////////////// --}}
+        </div>
+        <div id="DadosProduto_Imagens" class="dados_imagens" >
+            <div class="idFromProdut_div_" style="margin-bottom: 1.5vh;text-align: center;color: #00ff40;margin-bottom: 5vh;" >
+                <h6 style="font-size: medium;color: #03681c;">imagens do produto</h6>
+            </div>
+            
+            <div style="width: 100%;height: 35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;">
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;border: 2px solid #cccccc;">
+                      <img  id="imgfront" class="formataImg" src="{{cores.urlfront}}">
+                 </div>
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;border: 2px solid #cccccc;">
+                     <img id="imgleft" class="formataImg" src="{{cores.urlleft}}">
+                 </div>
+            </div>
+            <div style="width: 75%;height: 6px;margin: auto;background-color: #c4c4c7;margin-top: 1px;margin-bottom: 1px;"></div>
+            <div style="width: 100%;height: 35vh;margin: auto;background-color: #ffffff;display:flex;flex-direction: row;justify-content: center;">
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color: #ffffff;padding: 3vh;text-align: center;border: 2px solid #cccccc;">
+                    <img id="imgback" class="formataImg" src="{{cores.urlback}}">
+                 </div>
+                 <div style="width: 48%;height: 35vh;margin: auto;background-color:#ffffff;padding: 3vh;text-align: center;border: 2px solid #cccccc;">
+                    <img id="imgright" class="formataImg" src="{{cores.urlright}}">
+                 </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<script>
+
+let var_tamanho=document.getElementById("tamanhoId").value;
+let var_qte=document.getElementById("qteId").value;
+let var_custo=document.getElementById("custoId").value;
+let var_vista=document.getElementById("vistaId").value;
+let var_prazo=document.getElementById("prazoId").value;
+let var_page=document.getElementById("pageId").value;
+
+//Essa função captura a cor do backgroundColor do input em RGB e convert em hex
+function procuraBase16(cor){
+        let nomeCor;
+        console.log('procuraBase16(cor)')
+        cor=cor.trim();
+        console.log('palavra',cor); //Ok
+        cor=cor.substr(4);
+        cor=cor.trim()
+        //.................................... 
+        let pos=cor.search(",");
+        let r=cor.substring(0,pos);
+        //....................................
+        cor=cor.trim();
+        cor=cor.substr(pos+1);
+        //........................................
+        pos=cor.search(',');
+        let g=cor.substring(0,pos);
+        //.......................................
+        cor=cor.substr(pos+1);
+        let l=cor.length;
+        let b=cor.substring(0,(l-1));
+        cor=cor.search('')
+        
+        let N=parseInt(r.toString(16))
+        let M=parseInt(g.toString(16))
+        let P=parseInt(b.toString(16))
+        nomeCor="#" + N.toString(16) + M.toString(16) + P.toString(16)
+        return nomeCor  
+}
+
+// Torna o field descrição com fundo roxo e focado   
+function primefoco(){
+    console.log('prime foco não está atuante!')
+    //return
+    //////////////////////////////////////////////////////////////
+    let f1=document.getElementById("idproduto_urlleft");
+    f1=f1.value;
+    let f2=document.getElementById("idproduto_urlback");
+    f2=f2.value;
+    let f3=document.getElementById("idproduto_urlright");
+    f3=f3.value;
+    if (f1=="https://"){
+        f1.focus();
+        return
+    }else if(f2=='https://'){
+        f2.focus();
+        return
+    }else if(f3=='https://'){
+        f3.focus();
+        return
+    }else{
+        let f4=document.getElementById("idproduto_tamanho");
+        f4.style.backgroundColor="yellow";
+        //alert("Vamos editar o tamanho !")
+        f4.focus();
+    }
+    
+    console.log(f1.value);
+    let numberCor=f1.value;
+
+}
+</script>
+
+<script>
+
+function buscImg(n){
+    //..............................................
+    console.log('vr de paramentro',n)
+    
+    // Essa rotina abre o Ficheiro para gravar uma imagem do produto ou do detalhes do produto
+    let pos=n.search(",")
+    let side=n.substring(0,pos);
+    //....................................
+    let c=n.lenght;
+    let path=n.substring((pos+1),c)
+    //......................................................
+     document.getElementById('idSpan').innerHTML=side;
+    //........................................
+    // idLocalImagem indica se a foto é principal ou complemento
+    document.getElementById("idLocalImagem").value=1;
+    // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+    document.getElementById("idPosicaoImg").value=side;
+    //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+    document.getElementById("escolheFicheiro").style.display="block";
+    //................................................................
+    //...............................................................
+ }
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>//<><><><><><><><><><><><><><>  
+
+function colaImg(n){
+    //Essa function trabalha com mousedown para mostrar a img
+    let palavra=n;
+    document.getElementById("MostraImageDetalheProduto").style.display="block";
+
+    document.getElementById("ImgDone").src=n;
+}
+
+function descolaImg(){
+    //Essa função trabalha com mouse_uo para limpar a img
+    console.log("1840")
+    //document.getElementById("UpDownImage").style.display="none";
+    document.getElementById("MostraImageDetalheProduto").style.display="none";
+    document.getElementById("ImgDone").src="";
+}
+
+//Essa rotina
+// Essa rotina esconde a FORM " Selecione a fotografia " que contém o FILEA
+function EscondeImg(){
+    document.getElementById("escolheFicheiro").style.display="none" ;
+ }
+
+</script>
+
+<script >
+//<><><><><><><><><><><><><><><><><><><><><><><><><><>
+function pegaImage(n){
+    //Essa rotina open o divisão para fazer o Upload da Image
+    console.log(66666)
+    let palavra=n;
+   // let pos=palavra.search('=:');
+    let pos;
+    let numero;
+    numero=palavra.substring(0,pos);
+    //..............................................
+    palavra=palavra.substr((pos+2));
+    palavra=palavra.substr(4);
+    pos=palavra.search("=:");
+    let url=palavra.substring(0,pos)
+    //.......................................................
+    palavra=palavra.substring((pos+2),palavra.lenght);
+    let id=palavra.substring(0,7);
+    palavra=id + '-label0-0'
+    let id_detalhe=document.getElementById(palavra);
+    id_detalhe=id_detalhe.value;
+    console.log('--- : ',id_detalhe)
+    let r=document.getElementById('idCorFoto');
+    console.log(r)
+    r.value=id_detalhe
+    //......................................................
+    document.getElementById('idSpan').innerHTML=url;
+    //........................................
+    // idLocalImagem indica se a foto é principal ou complemento
+    document.getElementById("idLocalImagem").value=2;
+    document.getElementById("idLocalImagem").style.backgroundColor='white';
+    // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+    document.getElementById("idPosicaoImg").value=url;
+    //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+    document.getElementById("escolheFicheiro").style.display="block";
+    //................................................................
+}
+
+function final(){
+    console.log('_________________________________________')
+}
+
+function pegaImageX(n){
+    //Essa rotina open o divisão para fazer o Upload da Image
+    let palavra=n;
+    let pos=palavra.search('=:');
+    let numero;
+    numero=palavra.substring(0,pos);
+    //..............................................
+    palavra=palavra.substr((pos+2));
+    palavra=palavra.substr(4);
+    pos=palavra.search("=:");
+    let url=palavra.substring(0,pos)
+    //.......................................................
+    palavra=palavra.substring((pos+2),palavra.lenght);
+    let id=palavra.substring(0,7);
+    palavra=id + '-label0-0'
+    let id_detalhe=document.getElementById(palavra);
+    id_detalhe=id_detalhe.value;
+    console.log('--- : ',id_detalhe)
+    let r=document.getElementById('idCorFoto');
+    console.log(r)
+    r.value=id_detalhe
+    //......................................................
+    document.getElementById('idSpan').innerHTML=url;
+    //........................................
+    // idLocalImagem indica se a foto é principal ou complemento
+    document.getElementById("idLocalImagem").value=2;
+    document.getElementById("idLocalImagem").style.backgroundColor='white';
+    // idPosicaoImg indica a posição da foto,se é front,left,back ou right
+    document.getElementById("idPosicaoImg").value=url;
+    //document.getElementById("idPosicaoImg").style.backgroundColor="yellow";
+    document.getElementById("escolheFicheiro").style.display="block";
+    //................................................................
+}
+
+//function OcultaImg(){
+//    document.getElementById("MostraImageDetalheProduto").style.display="none"
+//}
+
+// atualizado=> 23-12-23
+let fileImgA=document.querySelector('#fileA');
+//.............................................
+const imgPreviewA = document.querySelector('#imgPreviewA');
+    fileImgA.addEventListener("change",(event)=>{
+        console.log('linha 398')
+        document.getElementById("btnUpload").style.display="block";
+        const selecledFile=event.target.files[0];
+        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+        console.log(1814)
+        reader.onloadend=()=>{
+            imgPreviewA.src=reader.result;
+            console.log('linha 405')
+            document.getElementById("ladoLoadImage").style.display="block";
+            document.getElementById("menu-modal").style.display="block";
+            document.getElementById("Up01").style.visibility="visible";
+          }
+          reader.readAsDataURL(selecledFile);
+    });
+
+// atualizado=> 23-12-23
+function loadImage(n){
+    document.getElementById("escolheFicheiro").style.display="block";
+    document.getElementById("idPosicaoImg").value=n;
+    document.getElementById("idSpan").innerHTML=n;
+}
+
+// buscar os campos que serão editados
+let x1=document.getElementById("idproduto_corback");
+x1.addEventListener("keydown",function(event){
+    console.log(event.key)
+    document.getElementById("idTabelaCores").style.display="block";
+})
+///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+let e1=document.getElementById("idproduto_tamanho");
+
+let f1=document.getElementById("idproduto_qte");
+let g1=document.getElementById("idproduto_custo");
+let h1=document.getElementById("idproduto_vista");
+let i1=document.getElementById("idproduto_prazo");
+let j1=document.getElementById("idproduto_page");
+
+// Tamanho
+e1.addEventListener("keydown",function(event){
+      let key=event.which;
+      //...........................
+      if(key==13){
+           //....................................
+           let a1=e1.value;
+           let a2=var_tamanho;
+           //....................................
+           //....................................
+           if(a1==a2){
+             e1.style.backgroundColor="#1805c0";
+             e1.style.color="yellow";
+             document.getElementById("tamanhoId").value=a1;
+           }else{ 
+             e1.style.backgroundColor="green";
+             e1.style.color="white";
+             document.getElementById("tamanhoId").value=a1;
+             document.getElementById("tamanhoId").style.backgroundColor='pink';
+           }
+           //......................................
+           // Qte = f1
+           f1.focus();
+       }else if(key==8){
+           e1.value="";
+           e1.style.backgroundColor="violet"
+       }
+})
+
+// Qte
+f1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=f1.value;
+           let a2=var_qte;
+           //...................................
+           if(a1==a2){
+             f1.style.backgroundColor="#1805c0";
+             f1.style.color="yellow";
+             document.getElementById("qteId").value=a1;
+           }else{ 
+             f1.style.backgroundColor="yellow";
+             f1.style.color="black";
+             document.getElementById("qteId").value=a1;
+             document.getElementById("qteId").style.backgroundColor='pink';
+           }
+           //......................................
+           g1.focus()
+       }else if(key==8){
+           f1.value="";
+           f1.style.backgroundColor="violet"
+       }
+})
+
+// field de Custo
+g1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=g1.value;
+           let a2=var_custo;
+           //........................
+           if(a1==a2){
+             g1.style.backgroundColor="#1805c0";
+             g1.style.color="yellow";
+             //.................................
+           }else{ 
+             // houve mudança de valor
+             g1.style.backgroundColor="yellow";
+             g1.style.color="black";
+             //.................................
+             document.getElementById("custoId").style.backgroundColor='pink';
+           }
+           //......................................
+           let num=g1.value.toString();
+           console.log('num : ',num)
+           let x=formataValor(num)
+           console.log(' vr de x ',x)
+           //.......................................................
+           document.getElementById("msgSpanPcusto").style.display="block";
+           document.getElementById("idspan1").innerHTML=x;
+           document.getElementById("idspan1").style.backgroundColor="black";
+           let p=document.getElementById("btn-custo-sim");
+           p.focus();
+           //...................................................... 
+       }else if(key==8){
+           g1.value="";
+           g1.style.backgroundColor="violet"
+       }
+})
+
+// Custo
+g1.addEventListener("focusin",function(event){
+      console.log('valor de foco ',g1.value);
+      if (g1.value==0){
+         g1.value="";
+         g1.style.backgroundColor="red";
+         g1.style.color="white";
+         g1.focus()
+      }
+})
+
+// Vista
+h1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=h1.value;
+           let a2=var_vista;
+           if(a1==a2){
+             h1.style.backgroundColor="#1805c0";
+             h1.style.color="yellow";
+             //document.getElementById("vistaId").value=a1;
+           }else{ 
+             h1.style.backgroundColor="yellow";
+             h1.style.color="black";
+             //document.getElementById("vistaId").value=a1;
+             document.getElementById("vistaId").style.backgroundColor='pink';
+           }
+           //......................................
+           let num=h1.value.toString();
+           let x=formataValor(num)
+           //.......................................................
+           document.getElementById("msgSpanPvista").style.display="block";
+           document.getElementById("idspan2").innerHTML=x;
+           document.getElementById("idspan2").style.backgroundColor="black";
+           document.getElementById("btn-vista-sim").focus();
+           //.........................................
+       }else if(key==8){
+           h1.value="";
+           h1.style.backgroundColor="violet"
+       }
+})
+
+// Vista
+h1.addEventListener("focusin",function(event){
+      console.log('valor de foco vista',h1.value);
+      if (h1.value==0){
+         h1.value="";
+         h1.style.backgroundColor="red";
+         h1.style.color="white";
+         h1.focus()
+      }
+})
+
+// Prazo
+i1.addEventListener("keydown",function(event){
+      let key=event.which;
+      if(key==13){
+           //....................................
+           let a1=i1.value;
+           let a2=var_prazo;
+           if(a1==a2){
+             i1.style.backgroundColor="#1805c0";
+             i1.style.color="yellow";
+             //..................................................
+           }else{ 
+             i1.style.backgroundColor="yellow";
+             i1.style.color="black";
+             document.getElementById("prazoId").style.backgroundColor='pink';
+           }
+           //......................................
+           let num=i1.value.toString();
+           let x=formataValor(num)
+           if(x==='1n1'){
+             alert("corrija o valor !")
+             return
+           }
+           //.......................................................
+           document.getElementById("msgSpanPprazo").style.display="block";
+           document.getElementById("idspan3").innerHTML=x;
+           document.getElementById("idspan3").style.backgroundColor="black";
+           document.getElementById("btn-prazo-sim").focus()
+           //.............................................................
+       }else if(key==8){
+           i1.value="";
+           i1.style.backgroundColor="violet"
+       }
+})
+
+// Prazo
+i1.addEventListener("focusin",function(event){
+      console.log(i1.value);
+      if (i1.value==0){
+        i1.value="";
+        i1.style.backgroundColor="red";
+        i1.style.color="white";
+        i1.focus()
+      }
+})
+
+// Page
+j1.addEventListener("keydown",function(event){
+    let key=event.which;
+    //console.log(11)
+    if(key==13){
+        //....................................
+        console.log(12)
+        let n=0
+        validacao(n);
+        if (n==1){
+            return
+        }
+        let a1=j1.value;
+        let a2=var_page;
+        if(a1==a2){
+            j1.style.backgroundColor="#1805c0";
+            j1.style.color="yellow";
+            document.getElementById("pageId").value=a1;
+        }else{ 
+            j1.style.backgroundColor="yellow";
+            j1.style.color="black";
+            document.getElementById("pageId").value=a1;
+            document.getElementById("pageId").style.backgroundColor='pink';
+        }
+        //......................................
+        let btn=document.getElementById("btnId");
+        btn.click()
+    }else if(key==8){
+        j1.value="";
+        j1.style.backgroundColor="violet"
+    }
+})
+
+// atualizado=> 23-12-23
+function formataValor(r1){
+    console.log('');
+    console.log('_____________________________________');
+    console.log('');
+   let n=r1;
+   console.log('valor de r1',r1)
+   console.log('');
+   let f=n.length;
+  
+   if (f<4){
+     // (,00) não passa
+     console.log('menor que 4',r1)
+     return 1 + 'n' + 1;
+   }else if(f>3 && f<7){
+     // (00)=,00 <=> (000000)=0,000.00
+     console.log('maior que 3 e menor que 7 ',r1)
+     ///////////////////////////////////////////////////
+     let centavos=r1.substring(f-2,f)
+     console.log('vr da centavos : ', "." + centavos)
+     let vrfinal="." + centavos
+     console.log('vr final', vrfinal)
+     ///////////////////////////////////////////
+     let restante=r1.substr(0,(f-3))
+     console.log('restante ',restante)
+     let e=restante.length;
+     let centena=restante.substring((e-3),e);
+     console.log(' result : ', centena + "." + centavos );
+     vrfinal=centena + vrfinal
+
+     restante=restante.substring(0,e-3)
+     console.log( 'resta : ',restante)
+     if (restante<4){
+        let milha=restante
+        let d=milha.length;
+        if(d > 0 ){ 
+           console.log(" final ", milha + "," + vrfinal)
+           vrfinal=milha + "," + vrfinal;
+        }  
+        return vrfinal
+     }else{
+       alert("Não está formatado ainda esse número")    
+     }
+
+    // return 2
+   }else if(f>6 && f<12){
+     console.log('maior que 6 e menor que 12 : ',r1)
+     let r2=r1.replace(".","=")
+     let ponto=r2.search("=");
+     let virgula=r2.search(",")
+     console.log( virgula,"------7---------",ponto)
+     //////////////////////////////////
+     let unidade=r2.substring(5,f)
+     //console.log('vr da unidade 1',unidade)
+     unidade=unidade.substring(0,3); 
+     console.log('vr da unidade 2 : ',"." + unidade)
+     ///////////////////////////////////////////
+     let palavra=r1.substr(0,(f-2))
+     console.log('restante ',palavra)
+     let e=palavra.length;
+     let milha=palavra.substring((e-3),e);
+     console.log('milhar : ',milha + "." + unidade );
+
+     palavra=palavra.substring(0,e-3)
+     console.log( 'resta ',palavra)
+     if (palavra<4){
+        console.log(" final ", palavra + "," + milha + "." + unidade)
+     }
+     
+     //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+     return
+     if (f=8){
+        r1=r1.replace(".","=");
+        console.log(r1)
+        // ............................................................
+        // tratar a unidade decimal
+        let unidade=r1.substr(f-3,f);
+        if (unidade.length>3){
+           unidade=unidade.substr(0,3)
+           //unidade1=unidade;
+           unidade=unidade.replace("=",".")
+           console.log(' unidade : ',unidade)
+        }else if(unidade.length=3){
+           unidade=unidade.replace("=",".")
+           //unidade1=unidade
+           console.log(' unidade : ',unidade)
+        }
+        // ............................................................. 
+        // tratar a centena
+        let centena=r1.substr(f-7,f)
+        let pos=r1.search("=");
+        console.log('');
+        console.log(' pos centena ',pos)
+        console.log(' valor centena : ',centena)
+        centena=centena.substring(0,(pos-1)) + unidade
+        console.log('');
+        centena=centena.replace("=",".")
+        console.log('centena formatada',centena)
+        // ...........................................................
+        // trata a milhar
+        let milhar=r1.substr(f-8,f)
+        console.log('');
+        //console.log(' centena : ',centena)
+        console.log(' milhar : ',milhar)
+    }
+    let pos;
+    let milhar;
+    pos=milhar.search(",")
+    console.log('pos "," " ',pos)
+
+     let m1=r1.toString();
+     m1=m1.replace(".",":");
+     console.log(' pos/m1 ',pos)
+     console.log('');
+
+     let pos1;
+     pos1=m1.search(":");
+     console.log(' pos1 ',pos1)
+     console.log('');
+     return 3 
+   }else if(f>11){
+       alert('favor conferir o valor !!!')
+     
+   }else{
+     return 0
+   } 
+
+}
+
+// atualizado=> 23-12-23
+function digoSimCusto(n){
+     console.log("ordem 1" )
+     // pega o valor de SIM
+     let valor =document.getElementById("idspan1").innerHTML;
+     document.getElementById("idspan1").value="";
+     // repassa para custo, muda a cor e avança para preco a vista
+     document.getElementById("idproduto_custo").value=valor;
+     document.getElementById("custoId").value=valor;
+     //....................................................................
+     document.getElementById("idproduto_custo").style.backgroundColor='#1805c0';
+     document.getElementById("idproduto_custo").style.color="white";
+     document.getElementById("msgSpanPcusto").style.display="none";
+     
+     document.getElementById("idproduto_vista").focus();
+}
+
+// atualizado=> 23-12-23
+function digoNaoCusto(){
+    document.getElementById("msgSpanPcusto").style.display='none';
+}
+
+// atualizado=> 23-12-23
+function digoSimVista(n){
+     // pega o valor de SIM
+     let valor =document.getElementById("idspan2").innerHTML;
+     document.getElementById("idspan2").value="";
+     // repassa para custo, muda a cor e avança para preco a vista
+     document.getElementById("idproduto_vista").value=valor;
+     document.getElementById("vistaId").value=valor;
+     document.getElementById("idproduto_vista").style.backgroundColor='#1805c0';
+     document.getElementById("idproduto_vista").style.color="white";
+     document.getElementById("msgSpanPvista").style.display="none";
+     document.getElementById("idproduto_prazo").focus();
+}
+
+// atualizado=> 23-12-23
+function digoNaoVista(){
+    document.getElementById("msgSpanPvista").style.display='none';
+}
+
+// atualizado=> 23-12-23
+function digoSimPrazo(n){
+     // pega o valor de SIM
+     console.log(88)
+     let valor =document.getElementById("idspan3").innerHTML;
+     document.getElementById("idspan3").value="";
+     // repassa para custo, muda a cor e avança para preco a vista
+     document.getElementById("idproduto_prazo").value=valor;
+     document.getElementById("prazoId").value=valor;
+     document.getElementById("idproduto_prazo").style.backgroundColor='#1805c0';
+     document.getElementById("idproduto_prazo").style.color="white";
+     document.getElementById("msgSpanPprazo").style.display="none";
+     document.getElementById("idproduto_page").value="default";
+     document.getElementById("idproduto_page").focus();
+}
+
+// atualizado=> 23-12-23
+function digoNaoPrazo(){
+    document.getElementById("msgSpanPprazo").style.display='none';
+}
+
+// atualizado=> 23-12-23
+function closeTamanho(){
+   document.getElementById("msgTamanho").style.display="none";
+   document.getElementById("idproduto_tamanho").style.backgroundColor="red";
+   document.getElementById("idproduto_tamanho").style.color='white';
+   document.getElementById("idproduto_tamanho").value="";
+   document.getElementById("idproduto_tamanho").focus();
+}
+
+// atualizado=> 23-12-23
+function closeQte(){
+   document.getElementById("msgQte").style.display="none";
+   document.getElementById("idproduto_qte").style.backgroundColor="red";
+   document.getElementById("idproduto_qte").style.color='white';
+   document.getElementById("idproduto_qte").value="";
+   document.getElementById("idproduto_qte").focus();
+}
+
+// atualizado=> 23-12-23
+function retornafoco(){
+    document.getElementById("msgCorExist").style.display="none";
+    document.getElementById("idproduto_corback").focus();
+}
+
+function validacao(n){
+   console.log('1',e1.value)
+   let A=e1.value;
+   if (A=='default'){
+      e1.focus();
+      n=1
+      return n
+   }
+}
+
+// atualizado=> 23-12-23
+primefoco()
+</script>
+
+

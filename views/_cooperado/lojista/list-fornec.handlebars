@@ -1,0 +1,202 @@
+<!-- The Modal -->
+  <div class="modal" id="myModal8" style="background: #0f3882;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Cadastre o fornecedor</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="form-signin" id="formProduto" method="POST" action="" enctype="application/x-www-form-urlencoded"
+                style="background-color: slategray;color:#ffffff;padding: 15px;font-size: small;border-radius: 8px;">
+                 <div>
+                <label>CNPJ</label>
+                  <input type="text" id="cnpj1" name="cnpj" style="border-radius: 5px;margin-left: 14px;">
+                </div> 
+                <hr>
+                <div class="modal-footer">
+                <button type="button" onclick="myFunction()">Verificar se já existe?</button>
+                </div>
+          </div>
+          <hr>
+          <br>
+          <form class="form-signin" id="formProduto" method="POST" action="/produto/fabricante/" enctype="application/x-www-form-urlencoded"
+                style="background-color: slategray;color:#ffffff;padding: 15px;font-size: small;border-radius: 8px;display: none;" >
+                <div>
+                <label>Razão Social</label>
+                  <input type="text" id="razaosocial" name="razaosocial" style="border-radius: 5px;margin-left: 14px;">
+                </div> 
+                <hr>
+                <div>
+                <label >Marca</label>
+                  <input type="text" id="marca" name="marca" style="border-radius: 5px;margin-left: 24px;">
+                  <p id="Lmarca"></p>
+                </div> 
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<div class="content p-1" style="margin-top:3.2rem;border-color: #bcb8b8 1px;">
+    <div class="list-group-item" style="background-color: #f1f0f0;">
+                    <div class="d-flex">
+                        <div class="mr-auto p-2">
+                            <h2 class="display-4 titulo"> Lista de fornecedores : <span  style="color:#ff0000;font-size: larger;">{{razao}}</span></h2>
+                        </div>
+                       
+                    </div>
+                    {{razao.razao}}
+                    <hr style="margin-bottom: 1px;background: #ff0000;">
+                    <div style="width: 100%;height: 5vh;margin:auto;background:  transparent;display: flex;flex-direction: row;justify-content: space-between;justify-items: center;padding-bottom: 3px;">
+                        <div>
+                            <p style="color:blue">loja/list-fornec</p>
+                        </div>
+                        <div style="background: #0141b6;padding: 1px;padding-top: 2px;border-radius: 7px;">
+                            {{!-- <form method="post" action="/loja/cadastro-fornec/{{razao}}"> --}}
+                                {{!-- <button id="cadFornec" style="height: 3.8vh;background: #0141b6;border-radius: 6px;
+                                            margin-right: 100px;justify-items:center;color:#f1f0f0" >cadastrar fornecedor
+                                </button> --}}
+                                 <button class="btn" id="cadFornec"
+                                          data-toggle="modal" data-target="#myModal8"  
+                                          style="border:1px #ffffff solid;background-color: #0f3882;color:#ffffff;border-radius: 7px;">Cadastrar fornecedor</button>
+                            {{!-- </form> --}}
+                        </div>   
+                    </div>
+                    <div class="table-responsive">
+                        {{!-- <p>loja/list-fornec</p> --}}
+                        <table class="table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Razão Social</th>
+                                    <th class="d-none d-sm-table-cell">CNPJ</th>
+                                    <th class="d-none d-lg-table-cell">Marca</th>
+                                    <th class="">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 {{#each fornec}}
+                                <tr>
+                                    <th>{{_id}}</th>
+                                    <td>{{fabricante}}</td>
+                                    <td class="d-none d-sm-table-cell">{{cnpj}}</td>
+                                    <td class="d-none d-lg-table-cell">{{marca}}</td>
+                                    <td class="text-center">
+                                          <span class="d-none d-md-block">
+                                            {{!-- <a href="/contato/vis-contato/{{_id}}" class="btn btn-outline-primary">Produtos</a> --}}
+                                        </span>
+                                        <span class="d-none d-md-block">
+                                            <a href="/loja/vis-fornec/{{razao}}" class="btn btn-outline-primary">Visualizar</a>
+                                        </span>
+                                    </td>        
+                                        <div class="dropdown d-block d-md-none">
+                                            <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Ações
+                                            </button>
+                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                                                <a class="dropdown-item" href="/contato/vis-contato/{{_id}}">Cadastrar Produtos</a>
+                                            </div>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                                                <a class="dropdown-item" href="/contato/vis-contato/{{_id}}">Visualizar</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                             </tbody>   
+                        </table>    
+                          <nav aria-label="paginacao">
+                            <ul class="pagination pagination-sm justify-content-center">
+                                {{#if contatos.hasPrevPage}}
+                                     <li class="page-item">
+                                        <a class="page-link" href="/contato/list-contato" tabindex="-1">Primeira</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.prevPage}}">{{contatos.prevPage}}</a></li>
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Primeira</a>
+                                    </li>
+                                {{/if}}
+                                                               
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">{{contatos.page}}</a>
+                                </li>
+                                {{#if contatos.hasNextPage}}
+                                    <li class="page-item"><a class="page-link" href="/contato/list-contato?page={{contatos.nextPage}}">{{contatos.nextPage}}</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="/contato/list-contato?page={{contatos.totalPages}}" tabindex="-1">Última</a>
+                                    </li>
+
+                                {{else}}
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Última</a>
+                                    </li>
+                                {{/if}}
+
+
+                                
+                            </ul>
+                        </nav>
+                    </div>    
+    </div>
+</div>
+<script>
+    function myFunction() {
+      console.log(656)
+      let x=document.getElementById("cnpj1");
+      document.getElementById('cnpj1').style.backgroundColor=='red';
+      let cnpj=document.getElementById("cnpj1").value;
+      
+
+      console.log('valor cnpj',cnpj)
+    
+        
+      let data = {
+        cnpj: cnpj
+      } 
+      
+      console.log('linha 202',data)
+      //body: JSON.stringify(_data)
+      try{
+
+        //fetch('http://localhost:8085/produto/busca_cnpj/:'`${cnpj}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        fetch('http://localhost:8085/produto/busca_cnpj/:', {method: "POST",
+                                                                                body: JSON.stringify(data),
+                                                                                headers: {"Content-type": "application/json; charset=UTF-8"}
+                                                                            })
+                 .then(response => response.json())
+                 .then((json) => {
+                        if(json=='null'){
+                          console.log(666666)
+                        }else{
+                          console.log(json)                            
+                          let B=json
+                          //console.log('valor de B',B[1])
+                          let Q=[]
+                          Q=Object.values(B)
+                          const result =Q[0]
+                          console.log(result)
+                          document.getElementById("formProduto").style.display='block';
+                          
+                        }  
+                 })  
+                .catch((err)=>{
+                  console.log(err)
+                }); 
+        }catch(err){
+          console.log(err)
+        }  
+
+    }
+</script>

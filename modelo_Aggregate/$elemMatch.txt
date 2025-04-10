@@ -1,0 +1,21 @@
+// :::::::::::::::::::::::::::::::::::::::::::::::::::
+// Busca na matriz um elemento que satisfaça  os critérios da consulta
+.........................................................................
+db.products.find({
+    storage: {
+                $elemMatch: {
+                               $lt: 128   hum elemento menor que 1
+                             }
+             }
+    },
+     {name: 1,storage: 1   // busca o nome e o storage
+});
+
+Saída:
+
+[
+  { _id: 1, name: 'xPhone', storage: [ 64, 128, 256 ] },
+  { _id: 3, name: 'SmartTablet', storage: [ 16, 64, 128 ] }
+]
+
+.............................................................

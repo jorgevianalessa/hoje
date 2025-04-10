@@ -1,0 +1,877 @@
+<style>
+.corpo{
+        width: 100vw;height: 100vh;margin: auto;
+        margin-top:0.2rem;
+        display: flex;flex-direction: column;justify-content: space-around;
+        background-color: #06039b;
+    }
+
+    
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #080707;
+}
+
+.titulopage{
+    width: 100vw;height: 4vh;margin: auto;background-color:transparent;text-align: center;margin-top: 1vh;
+}
+
+.tituloSubpage{
+    width: 98vw;height: 3.5vh;margin: auto;background-color:transparent;text-align: center;;margin-top: 1.5vh;
+    display: flex;flex-direction: row;justify-content: space-between;
+}
+
+.tituloSubpage_ div{
+    width: 20vw;
+    height: 3.5vh;
+    background-color:transparent;
+    display: flex;flex-direction: row;justify-items: auto;
+}
+
+.tituloSubpage_ label{
+   width: 8vw;
+   height: 3vh;
+   background-color:transparent; 
+   font-size: 1vw;
+   color: #ffffff;font-size: 1.0vw;font-weight: 100;
+}
+
+.tituloSubpage_ input{
+   width: 8vw; 
+   height: 3vh;
+   background-color: #ffffff;
+   color: #01077d;font-size: 0.8vw;font-weight: 100;text-align: center;
+}
+
+.tablefluxo{
+    width: 98vw;height: 83vh;margin: auto;
+    background-color:transparent;margin-top: 1vh;
+}
+
+.tablefluxo div{
+    width: 97vw;height: 82.5vh;margin:auto;
+    display: flex;flex-direction: column;padding-top:.5vh;
+    background-color:transparent;margin-top: .12vh;
+}
+
+.linhaWhite{
+   background-color: #ffffff;
+   color:#020498; 
+}
+
+.alignR{
+  text-align: right;
+  padding-right: 5px;  
+}
+
+.alignC{
+  text-align:center;
+}
+
+.ocultaLin{
+  display: none;  
+}
+
+.linhaFluxoId{
+    color:#ffffff;padding-left: 1vw;width: 1%;background-color: #ee17ee;display: none;
+}
+
+.linhaFluxo{
+   width: 1%;
+   padding-left: 1vw;
+   background-color: #ef51b0;
+   color:#ffffff;
+}
+
+.linhaWhite{
+   width: 1%;
+   padding-left: 1vw;
+   background-color: #ffffff;
+   color:#0226b5e8;
+}
+
+.linhaWhite_{
+   width: 1%;
+   padding-left: 1vw;
+   background-color: #ffffff;
+   color:#0c04a7f7;
+   font-weight: 300;
+}
+
+.linha_div{
+    color: #0037ffd2;
+    background-color: #171616;
+    margin-top: .5vh;
+}
+
+.linha_itens{
+    color: #0037ffd2;
+    background-color: #ffffff;
+    width: 3vw;
+}
+
+.linha_chave{
+    color: #0037ffd2;
+    background-color: #ffffff;
+    width: 5vw;
+}
+
+.linha_data{
+    color: #0037ffd2;
+    background-color: #0aff48;
+    width: 5vw;
+}
+
+.linha_hist{
+    color: #0037ffd2;
+    background-color: #ffffff;
+    width: 12vw;
+}
+
+.linha_valor{
+    color: #ffffff;
+    background-color: #370abe;
+    width: 6vw;
+    margin-left: 1vw;
+    text-align: right;
+    padding-right: 1vw;
+}
+
+.linha_branca{
+   background-color: #ffffff;
+   color:#01077d;
+}
+</style>
+
+<div class="d-fl corpo " >
+    <div id="pagamentoId" style="width: 100vw;height: 100vh;margin: auto;background-color: #f44207;opacity: 95%;position: absolute;top: 0;left: 0;display: none;">
+        <div id="pagamentoId_L" style="width: 94%;height: 98vh;margin: auto;background-color: #017d37;display: flex;flex-direction: column;justify-items: flex-start;margin-top: 1.5vh;">
+            <div id="divisao1" style="display: flex;flex-direction: row;justify-content: space-between;padding-top: 1vh;padding-top: 5vh;">
+                    <div id="ladoLeft" style="width: 50%;height: 80vh;margin: auto;background-color: #f5f0f0;overflow: auto;">
+                        <div>
+                                <table style="width: 100%;height: 75vh;margin: auto;background-color: #c91785f6;margin-top: 0.6px;padding: 12px;">
+                                    <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                        <tr>
+                                           <th class="linhaFluxo" style="width:0.1%;text-align: center;">itens</th>
+                                           <th class="linhaFluxoId" style="width: 0.5%;background-color: #615f61;display: none;">id</th>
+                                           <th class="linhaFluxo" style="width:1.3%;text-align: center;">chave</th>
+                                           <th class="linhaFluxo" style="width: 1.5%;text-align: center;">data</th>
+                                           <th class="linhaFluxo" style="width: 10%;text-align: center">histórico</th>
+                                           <th class="linhaFluxo" style="width: 1.5%;text-align: center">conta</th>
+                                           <td class="linhaFluxo" style="width: 0.6%;text-align: center">vectº</td>
+                                           <th class="linhaFluxo" style="width: 5%;text-align:center;">crédito</th>
+                                           <th class="linhaFluxo" style="width: 2%;text-align:center;">saldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="X_paga" style="">
+                                       
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                    <div id="ladoRight" style="width: 50%;height: 80vh;margin: auto;background-color: #050404;padding: 30px;">
+                          <div style="width: 90%;height: 78vh;margin:auto;background-color:#ebcd08;">
+
+                          </div>
+                    </div>
+             </div>
+             <div id="divisao2" style="width: 100%;height: 5vh;margin: auto;background-color: #056c1f;text-align: center;padding-top: .5vh;">
+                 <button onclick='esconde(1)' style="width: 30%;margin: auto;height: 4vh;background-color: #020498;color: #ffffff;border-radius: 5px;">Voltar</button>
+             </div>
+        </div>
+        <div id="pagamentoId_R" style="width: 10%;background-color: #ed64c8;">
+
+        </div> 
+    </div>
+    <div id="recebimentoId" style="width: 100vw;height: 100vh;margin: auto;background-color: #ebcd08;opacity: 95%;position: absolute;top: 0;left: 0;display: none;">
+        <div style="width: 94%;height: 98vh;margin: auto;background-color: #01077d;display: flex;flex-direction: column;justify-items: flex-start;margin-top: 1.5vh;">
+            <div id="divisao" style="display: flex;flex-direction: row;justify-content: space-between;padding-top: 1vh;padding-top: 5vh;">
+                    <div id="ladoLeft" style="width: 50%;height: 83vh;margin: auto;background-color: #f5f0f0;overflow: auto;">
+                        <table style="width: 100%;height: 69.5vh;margin: auto;background-color: #174fc9f6;margin-top: 0.6px;padding: 2px;">
+                            <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                                <td class="linhaFluxo">itens</td>
+                                <td class="linhaFluxoId" style="width: 0.5%;background-color: #615f61;display: none;">id</td>
+                                <td class="linhaFluxo" style="width:1.3%;text-align: center;">chave</td>
+                                <td class="linhaFluxo" style="width: 1.5%;text-align: center;">data</td>
+                                <td class="linhaFluxo" style="width: 10%;text-align: center">histórico</td>
+                                <td class="linhaFluxo" style="width: 1.5%;text-align: center">conta</td>
+                                <td class="linhaFluxo" style="width: 0.6%;text-align: center">posição</td>
+                                <td class="linhaFluxo" style="width: 0.6%;text-align: center">vectº</td>
+                                <td class="linhaFluxo" style="width: 2%;text-align:center;">débito</td>
+                                <td class="linhaFluxo" style="width: 2%;text-align:center;">saldo</td>
+                            </thead>
+                            <tbody id="X_receber">
+
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <div id="ladoRight" style="width: 50%;height: 83vh;margin: auto;background-color: #050404;padding: 30px;">
+                          <div style="width: 90%;height: 80vh;margin:auto;background-color:#ebcd08;">
+
+                          </div>
+                    </div>
+             </div>
+             <div style="width: 100%;height: 5vh;margin: auto;background-color: #056c1f;text-align: center;padding-top: .5vh;">
+                 <button onclick='esconde(2)' style="width: 30%;margin: auto;height: 4vh;background-color: #020498;color: #ffffff;border-radius: 5px;">Voltar</button>
+             </div>
+        </div>
+        <div>
+
+        </div> 
+    </div>
+    <div class="titulopage">
+       <h1 style="color: #ffffff;font-size: 1vw;font-weight: 200;border-bottom: 1px solid white;padding-bottom: 0.5vh;">Fluxo d?e Caixa{{id_cooperado}}</h1>
+        <label id="IdcodigoEmpresa" style="display: block;color: #ffffff;background-color:transparent;">{{id_cooperado}}</label>
+    </div>
+    <div class="tituloSubpage" >
+        <div class="tituloSubpage_" >
+            <div style="height: 2.5vh;">
+              <label >data:</label>
+              <input value="13/12/2024" style="height: 2.5vh;background-color:#ffffff;margin-top: 0.8vh;">
+          </div> 
+        </div>
+        <div class="tituloSubpage_" style="display:block;">
+            <div>
+              <label >razões:</label>
+              <select id="SelectedRazoes" style="width: 6vw;height: 2.5vh;background-color: #ffffff;margin-top: .8vh;">
+                <option></option>
+                <option>bancos</option>
+                <option>ativo</option>
+                <option>passivo</option>
+                <option>despesas</option>
+                <option>receita</option>
+                <option>orçamento</option>
+                <option>plano contas</option>
+                <option style="color:#020498;margin-top: 3px;">
+                    <a href="/raqvendas/voltaHome/{{id_cooperado}}">home</a>
+                </option> 
+                {{!-- código do loja --}}
+              </select>
+          </div> 
+        </div>
+        <div class="tituloSubpage_" style="display:block;">
+           <div>
+              <label >operações:</label>
+              <select id="SelectOperacao" value="" style="width: 6vw;height: 2.5vh;background-color: #ffffff;margin-top: .8vh;">
+                <option></option>
+                <option value="cartões">cartões</option>
+                <option value="lançamento">lançamento</option>
+                <option value="pagamento">pagamento</option>
+                <option value="pesquisaconta">pesquisa conta</option>
+                <option value="recebimento">recebimento</option>
+                <option value="sintetizar">sintetizar</option>
+              </select>
+          </div> 
+        </div>
+       <div class="tituloSubpage_">
+           <div style="height: 2.5vh;">
+              <label >ano:</label>
+              <input value="2024" style="height: 2.5vh;margin-top: .8vh;">
+          </div> 
+       </div>
+    </div>
+    <div class="tablefluxo">
+          <div id="ListaCliente_" >
+                <div style="width: 96vw;height: 5vh;margin: auto;background-color:#ffffff;display: flex;flex-direction: row;justify-content: flex-start;padding-top: 0.5vh;">
+                    <div style="width: 40%;height:4vh;margin-left: 15px;background-color:transparent;display: flex;flex-direction: row;padding-left: .6vw;">
+                        <label style="color: #0c0404;font-size: o.7vw;font-weight: 200;margin-right: .5vw;">Digite :</label>
+                        <input id="Id_digiteLetras" type="text" class="digite-letras" maxlength="3" >
+                    </div> 
+                </div>
+                <div id="tableClient" style="width: 96vw;height: 77vh;margin: auto;background-color: #ffffff;color: #ffffff;overflow: auto;">
+                    <table id="table" style="width: 100%;height: 69.5vh;margin: auto;background-color: #c91717;margin-top: 0.6px;padding: 2px;">
+                        <thead style="width: 100%;height: 3vh;margin: auto;background-color: #06899a;color:#ffffff">
+                            <td style="color:#ffffff;padding-left: 0.1vw;width: 1%;background-color:transparent;text-align: center;">itens</td>
+                            <td class="linhaFluxoId">id</td>
+                            <td class="linhaFluxo" style="width: 5%;">chave</td>
+                            <td class="linhaFluxo" style="width: 5%;" >data</td>
+                            <td class="linhaFluxo" style="width: 15%;" >histórico</td>
+                            <td class="linhaFluxo" style="width: 8%;">conta</td>
+                            <td class="linhaFluxo" style="width: 2%;" >posição</td>
+                            <td class="linhaFluxo" style="width: 4%;text-align: center">vectº</td>
+                            <td class="linhaFluxo" style="width: 5%;" >débito</td>
+                            <td class="linhaFluxo" style="width: 5%;">crédito</td>
+                            <td class="linhaFluxo" style="width: 5%;" >saldo</td>
+                        </thead>
+                        <tbody id="X_fluxo">
+                           
+                        </tbody>
+                    </table>
+                </div>
+          </div>
+    </div>
+    <div id="rodape" style="width: 100%;height: 14vh;margin: auto;background-color:transparent;;margin-top: 1vh;text-align: center;">
+         <h6 style="font-size: 1vw;color: #023137;font-weight: 200;">rodapé</h6>
+    </div>
+    <form action="/raqcontabil/voltaHome" id="idrazoes" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="background-color: #b1aeae;display: none;">
+        <input id="passarazao" name="passaRazao" value="">
+        <input id="codigoClient" name="id_cooperado" value="{{id_cooperado}}">
+        <button id="btnClose" type="submit">close</button>
+    </form>
+    <form action="/raqcontabil/buscrazoes" id="idrazoes" method="post" enctype="application/x-www-form-urlencoded" autocomplete="off" class="" style="background-color: #b1aeae;display: none;">
+        <input id="passarazao" name="passaRazao" value="">
+        <input id="codigoClient" name="id_cooperado" value="{{id_cooperado}}">
+        <button id="btnrazoes" type="submit">close</button>
+    </form>
+</div>
+
+<script>
+    // Ao clicar selecionado o FORM passa-se o nome do form e o código do cliente para disparar 
+let a1=document.getElementById("SelectedRazoes");
+a1.addEventListener("click",function(event){
+   event.stopPropagation();
+ 
+   let z=a1.selectedIndex;
+   let y=a1.options;
+   let raz=a1[z].text;
+   if(raz===""){
+       console.log('fora')
+   }else{
+     if(raz=="fluxo"){
+       ' deixa passa' 
+     }else if(raz=='home'){
+        a1.selectedIndex=-1;
+        console.log(a1.selectedIndex)
+        document.getElementById('passarazao').value=raz;
+        document.getElementById("btnClose").click();
+     }else{
+        a1.selectedIndex=-1;
+        console.log(a1.selectedIndex)
+        document.getElementById('passarazao').value=raz;
+        document.getElementById("btnrazoes").click();
+     }
+   }
+   
+   })
+
+function buscFluxo(){
+        baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        ///////////////////////////////////////////////////////////////////
+        let n=document.getElementById("IdcodigoEmpresa").innerText;
+        console.log(n);
+        /////////////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/raqcontabil/busca_fluxo/${n}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log(json);
+                        
+                        let l=json.length;
+                       // console.log(' l :',l);
+                        console.log('__________________________________')
+                        console.log('');
+                        let saldo=0;
+                        for (let i=0;i<40;i++){
+                            if(i<l){
+                                /////////////////////////////////////////////////////////////
+                                let registro=json[i].fluxo;
+                                console.log(registro);
+                                //let corpo=Object.values(nomeCta);
+                                              
+                                const node=document.createElement('tr');
+                                node.setAttribute("id","linha" + '-' + i);
+                                node.setAttribute("class","linhaCheia");
+                                document.getElementById('X_fluxo').appendChild(node)
+                        
+                                // Itens
+                                const node0=document.createElement('td');
+                                const textNode0=document.createTextNode(i+1);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("class","linhaWhite alignC");
+                                document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                                // _id 
+                                const node1=document.createElement('td');
+                                const textNode1=document.createTextNode(registro._id)
+                                node1.appendChild(textNode1);
+                                node1.setAttribute("class","ocultaLin");
+                                document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                                // Chave 
+                                const node2=document.createElement('td');
+                                const textNode2=document.createTextNode(registro.chave);
+                                node2.appendChild(textNode2);
+                                node2.setAttribute("class","linhaWhite alignC");
+                                document.getElementById('linha' + '-' + i ).appendChild(node2);
+
+                                // Data
+                                let dt=registro.data;
+                                console.log(registro.data)
+                                let dia=dt.substring(8,10);
+                                let mes=dt.substring(5,7);
+                                let ano=dt.substring(0,4);
+                                dt=dia + "-" + mes + "-" + ano;
+                                // console.log('55 =>',json[i].data)
+                                const node3=document.createElement('td');
+                                const textNode3=document.createTextNode(dt);
+                                node3.appendChild(textNode3);
+                                node3.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                                // Histórico 
+                                const node4=document.createElement('td');
+                                const textNode4=document.createTextNode(registro.nome_conta);
+                                node4.appendChild(textNode4);
+                                node4.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node4);
+
+                                // Número Conta
+                                let N=registro.numero_conta
+                                const node5=document.createElement('td');
+                                const textNode5=document.createTextNode(registro.numero_conta);
+                                node5.appendChild(textNode5);
+                                node5.setAttribute("onclick","mostraCta(" + "'" + N + "'" + ")");
+                                node5.setAttribute("class","linhaWhite alignC");
+                                document.getElementById('linha' + '-' + i ).appendChild(node5);
+
+                                // Posição
+                                const node6=document.createElement('td');
+                                const textNode6=document.createTextNode("");
+                                node6.appendChild(textNode6);
+                                node6.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node6);
+
+                                // Vectº
+                                let vc=registro.vencimento;
+                               // console.log(vc)
+                                vc=vc.substring(0,10);
+                                let dia1=vc.substring(8,10);
+                                let mes1=vc.substring(5,7);
+                                let ano1=vc.substring(0,4);
+                                vc=dia1 + "/" + mes1 + "/" + ano1;
+                                const node7=document.createElement('td');
+                                const textNode7=document.createTextNode(vc);
+                                node7.appendChild(textNode7);
+                                node7.setAttribute("class","linhaWhite alignC");
+                                document.getElementById('linha' + '-' + i ).appendChild(node7);
+
+                                // Débito
+                                let vr=registro.valor;
+                                console.log(vr);
+                                const node8=document.createElement('td');
+                                const textNode8=document.createTextNode(vr);
+                                node8.appendChild(textNode8);
+                                node8.setAttribute("class","linhaWhite alignR");
+                                document.getElementById('linha' + '-' + i ).appendChild(node8);
+
+                                // Crédito
+                                const node9=document.createElement('td');
+                                const textNode9=document.createTextNode("");
+                                node9.appendChild(textNode9);
+                                node9.setAttribute("class","linhaWhite alignR");
+                                document.getElementById('linha' + '-' + i ).appendChild(node9);
+
+                                // Saldo
+                                let vr1=parseFloat(vr).toFixed(2);
+                                
+                                saldo=parseFloat(saldo) + parseFloat(vr1);
+                                console.log(saldo)
+                                saldo=parseFloat(saldo).toFixed(2);
+                                console.log('[492 ]',saldo);
+                                let l=saldo.length;
+                                let centena;
+                                let saldoResult;
+                                if(saldo.length>6){
+                                  for(j=0;j<l;j++){
+                                    let pos=l-5;
+                                    console.log(pos);
+                                    console.log('++++++++++++++ pos',pos)
+                                    centena=saldo.substring((pos-1),l);
+                                    let milhar=saldo.substring(0,(pos-1));
+                                    console.log('[502] centena ',centena);
+                                    console.log('milhar',milhar);
+                                    console.log('______________________________________________________')
+                                    saldoResult=milhar + "." + centena;
+                                    console.log(saldoResult)
+                                  }
+                               }else{
+                                  saldoResult=saldo;
+                               }
+                                saldo=saldo.toLocaleString('pt-Br')
+                                const node10=document.createElement('td');
+                                const textNode10=document.createTextNode(saldoResult);
+                                node10.appendChild(textNode10);
+                                node10.setAttribute("class","linhaWhite alignR");
+                                document.getElementById('linha' + '-' + i ).appendChild(node10);
+                            }else{
+                                const node=document.createElement('tr');
+                                node.setAttribute("id","linha" + '-' + i);
+                                node.setAttribute("class","linhaCheia");
+                                document.getElementById('X_fluxo').appendChild(node)
+                        
+                                // Itens
+                                const node0=document.createElement('td');
+                                const textNode0=document.createTextNode(i+1);
+                                node0.appendChild(textNode0);
+                                node0.setAttribute("class","linhaWhite alignC");
+                                document.getElementById('linha' + '-' + i ).appendChild(node0);
+
+                                // _id 
+                                const node1=document.createElement('td');
+                                const textNode1=document.createTextNode("merda")
+                                node1.appendChild(textNode1);
+                                node1.setAttribute("class","ocultaLin");
+                                document.getElementById('linha' + '-' + i ).appendChild(node1);
+
+                                // Chave 
+                                const node2=document.createElement('td');
+                                const textNode2=document.createTextNode("");
+                                node2.appendChild(textNode2);
+                                node2.setAttribute("class","linhaWhite gol1");
+                                document.getElementById('linha' + '-' + i ).appendChild(node2);
+
+                                // Data
+                                const node3=document.createElement('td');
+                                const textNode3=document.createTextNode("");
+                                node3.appendChild(textNode3);
+                                //node2.setAttribute("onclick","transfer(" + "'" + N + "'" + ")");
+                                node3.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node3);
+
+                                // Histórico 
+                                const node4=document.createElement('td');
+                                const textNode4=document.createTextNode("");
+                                node4.appendChild(textNode4);
+                                node4.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node4);
+
+                                // Numero Conta
+                                const node5=document.createElement('td');
+                                const textNode5=document.createTextNode("");
+                                node5.appendChild(textNode5);
+                                node5.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node5);
+
+                                // Posição
+                                const node6=document.createElement('td');
+                                const textNode6=document.createTextNode("");
+                                node6.appendChild(textNode6);
+                                node6.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node6);
+
+                                // vectº
+                                const node7=document.createElement('td');
+                                const textNode7=document.createTextNode("");
+                                node7.appendChild(textNode7);
+                                node7.setAttribute("class","linhaWhite");
+                                document.getElementById('linha' + '-' + i ).appendChild(node7);
+
+                                // Débito
+                                const node8=document.createElement('td');
+                                const textNode8=document.createTextNode("");
+                                node8.appendChild(textNode8);
+                                node8.setAttribute("class","linhaWhite alignR");
+                                document.getElementById('linha' + '-' + i ).appendChild(node8);
+
+                                // Crédito
+                                const node9=document.createElement('td');
+                                const textNode9=document.createTextNode("");
+                                node9.appendChild(textNode9);
+                                node9.setAttribute("class","linhaWhite alignR");
+                                document.getElementById('linha' + '-' + i ).appendChild(node9);
+
+                                // Saldo
+                                const node10=document.createElement('td');
+                                const textNode10=document.createTextNode("");
+                                node10.appendChild(textNode10);
+                                node10.setAttribute("class","linhaWhite alignR");
+                                document.getElementById('linha' + '-' + i ).appendChild(node10);
+                            }
+                        }
+                    })
+                    .catch((er)=>{
+                        console.log(er)  
+                    })
+        }catch(e){
+             console.log(e)
+        }        
+   }
+
+function mostraCta(n){
+     let r=' a conta é ' + n;
+     alert(r)
+}
+
+let a5=document.getElementById("SelectOperacao");
+a5.addEventListener("click",function(event){
+        event.stopPropagation();
+        let z=a5.selectedIndex;
+        let y=a5.options;
+        let raz=a5[z].text;
+        if(raz===""){
+            'deixa passar'
+        }else{
+            if(raz==""){
+              'deixa passa' 
+            }else{
+                a5.selectedIndex=-1;
+                /////////////////////////////////////////////////////////
+               // console.log(raz)
+                if(raz=="pagamento"){
+                   document.getElementById("pagamentoId").style.display="block";
+                   buscApagar();
+                }else if(raz=="recebimento"){
+                   document.getElementById("recebimentoId").style.display="block"; 
+                   tableFull();
+                }   
+            }
+        }
+})
+
+function buscApagar(){
+        baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }
+        ///////////////////////////////////////////////////////////////////
+        let n=document.getElementById("IdcodigoEmpresa").innerText;
+        console.log(n);
+        /////////////////////////////////////////////////////////////////
+        try{
+            fetch(`${baseApiUrl}` + `/raqcontabil/busca_Apagra`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                    .then(response => {
+                        if( response.ok ){
+                            return response.json()
+                            }  
+                            throw response;
+                    })
+                    .then((json)=>{
+                        console.log(json)
+                        let l=json.length;
+                        for (let i=0;i<20;i++){
+                            if(i<l){
+                                console.log('[ 580 ]')
+                                const node30=document.createElement('tr');
+                                node30.setAttribute("id","linha" + '-' + i);
+                                node30.setAttribute("class","linha_div");
+                                document.getElementById('X_paga').appendChild(node30);
+
+                                const node31=document.createElement('td');
+                                const textNode31=document.createTextNode(i + 1);
+                                node31.appendChild(textNode31);
+                                node31.setAttribute("id","linha" + '-' + i);
+                            //  node31.setAttribute("type",'checkbox');
+                                node31.setAttribute("class","linha_itens");
+                                document.getElementById("linha" + '-' + i).appendChild(node31)
+
+                                let chv=json[i].fluxo[0];
+                                chv=chv.numero_conta;
+
+                                const node32=document.createElement('td');
+                                const textNode32=document.createTextNode(chv);
+                                node32.appendChild(textNode32);
+                                node32.setAttribute("id","linha" + '-' + i);
+                                //node32.setAttribute("type",'checkbox');
+                                node32.setAttribute("class","linha_chave");
+                                document.getElementById("linha" + '-' + i).appendChild(node32)
+
+                                const node33=document.createElement('td');
+                                const textNode33=document.createTextNode("data");
+                                node33.appendChild(textNode33);
+                                node33.setAttribute("id","linha" + '-' + i);
+                            // node2.setAttribute("type",'checkbox');
+                                node33.setAttribute("class","linha_data");
+                                document.getElementById("linha" + '-' + i).appendChild(node33);
+
+                                let hist=json[i].fluxo[0];
+                                hist=hist.nome_conta; 
+                                const node34=document.createElement('td');
+                                const textNode34=document.createTextNode(hist);
+                                node34.appendChild(textNode34);
+                                node34.setAttribute("id","linha" + '-' + i);
+                            //  node33.setAttribute("type",'checkbox');
+                                node34.setAttribute("class","linha_hist");
+                                document.getElementById("linha" + '-' + i).appendChild(node34)
+
+                                const node35=document.createElement('td');
+                                node35.setAttribute("id","linha" + '-' + i);
+                                const textNode35=document.createTextNode("55.00");
+                                node35.appendChild(textNode35);
+                            // node34.setAttribute("type",'checkbox');
+                                node35.setAttribute("class","linha_valor");
+                                document.getElementById("linha" + '-' + i).appendChild(node35)
+                            }else{
+                                console.log('[ 580 ]')
+                                const node30=document.createElement('tr');
+                                node30.setAttribute("id","linha" + '-' + i);
+                                node30.setAttribute("class","linha_branca");
+                                document.getElementById('X_paga').appendChild(node30);
+
+                                const node31=document.createElement('td');
+                                const textNode31=document.createTextNode(i + 1);
+                                node31.appendChild(textNode31);
+                                node31.setAttribute("id","linha" + '-' + i);
+                            //  node31.setAttribute("type",'checkbox');
+                                node31.setAttribute("class","linha_itens");
+                                document.getElementById("linha" + '-' + i).appendChild(node31)
+
+                                const node32=document.createElement('td');
+                                const textNode32=document.createTextNode("");
+                                node32.appendChild(textNode32);
+                                node32.setAttribute("id","linha" + '-' + i);
+                                //node32.setAttribute("type",'checkbox');
+                                node32.setAttribute("class","linha_chave");
+                                document.getElementById("linha" + '-' + i).appendChild(node32)
+
+                                const node33=document.createElement('td');
+                                const textNode33=document.createTextNode("");
+                                node33.appendChild(textNode33);
+                                node33.setAttribute("id","linha" + '-' + i);
+                            // node2.setAttribute("type",'checkbox');
+                                node33.setAttribute("class","linha_data");
+                                document.getElementById("linha" + '-' + i).appendChild(node33);
+
+                                const node34=document.createElement('td');
+                                const textNode34=document.createTextNode("");
+                                node34.appendChild(textNode34);
+                                node34.setAttribute("id","linha" + '-' + i);
+                            //  node33.setAttribute("type",'checkbox');
+                                node34.setAttribute("class","linha_branca");
+                                document.getElementById("linha" + '-' + i).appendChild(node34)
+
+                                const node35=document.createElement('td');
+                                node35.setAttribute("id","linha" + '-' + i);
+                                const textNode35=document.createTextNode("");
+                                node35.appendChild(textNode35);
+                            // node34.setAttribute("type",'checkbox');
+                                node35.setAttribute("class","linha_branca");
+                                document.getElementById("linha" + '-' + i).appendChild(node35)
+
+                                const node36=document.createElement('td');
+                                node36.setAttribute("id","linha" + '-' + i);
+                                const textNode36=document.createTextNode("");
+                                node36.appendChild(textNode36);
+                            // node34.setAttribute("type",'checkbox');
+                                node36.setAttribute("class","linha_branca");
+                                document.getElementById("linha" + '-' + i).appendChild(node36)
+
+                            }
+                          //  const node5=document.createElement('dt');
+                          //  node5.setAttribute("id","linha" + '-' + i);
+                          //  node5.setAttribute("type",'checkbox');
+                          //  node5.setAttribute("class","linha_paga");
+                          //  document.getElementById("linha" + '-' + i).appendChild(node5)
+                        }
+                    })
+                    .catch((err)=>{
+                        console.log(err) 
+                    }) 
+        }catch(e){
+           console.log(e) 
+        }           
+}
+
+function esconde(n){
+   ////////////////////////////////////////////////////////
+   if (n==1){ 
+      document.getElementById("pagamentoId").style.display="none";
+   } else if(n==2){
+      document.getElementById("recebimentoId").style.display="none";
+   }   
+}
+
+function tableFull(){
+    for(let i=0;i<30;i++){
+        const node40=document.createElement('tr');
+        node40.setAttribute("id","linha" + '-' + i);
+        node40.setAttribute("class","linhaCheia");
+        document.getElementById('X11').appendChild(node40)
+
+        // Itens
+        const node41=document.createElement('td');
+        const textNode41=document.createTextNode(i+1);
+        node41.appendChild(textNode41);
+        node41.setAttribute("class","linhaWhite_ alignC");
+        document.getElementById('linha' + '-' + i ).appendChild(node41);
+
+        // _id 
+        const node42=document.createElement('td');
+        const textNode42=document.createTextNode("")
+        node42.appendChild(textNode42);
+        node42.setAttribute("class","linhaFluxoId");
+        document.getElementById('linha' + '-' + i ).appendChild(node42);
+
+        // Chave 
+        const node43=document.createElement('td');
+        const textNode43=document.createTextNode("");
+        node43.appendChild(textNode43);
+        node43.setAttribute("class","linhaWhite_ gol1");
+        document.getElementById('linha' + '-' + i ).appendChild(node43);
+
+        // Data
+        const node44=document.createElement('td');
+        const textNode44=document.createTextNode("");
+        node44.appendChild(textNode44);
+        //node2.setAttribute("onclick","transfer(" + "'" + N + "'" + ")");
+        node44.setAttribute("class","linhaWhite");
+        document.getElementById('linha' + '-' + i ).appendChild(node44);
+
+        // Histórico 
+        const node45=document.createElement('td');
+        const textNode45=document.createTextNode("");
+        node45.appendChild(textNode45);
+        node45.setAttribute("class","linhaWhite_");
+        document.getElementById('linha' + '-' + i ).appendChild(node45);
+
+        // Numero Conta
+        const node46=document.createElement('td');
+        const textNode46=document.createTextNode("");
+        node46.appendChild(textNode46);
+        node46.setAttribute("class","linhaWhite_");
+        document.getElementById('linha' + '-' + i ).appendChild(node46);
+
+        // Posição
+        const node47=document.createElement('td');
+        const textNode47=document.createTextNode("");
+        node47.appendChild(textNode47);
+        node47.setAttribute("class","linhaWhite_");
+        document.getElementById('linha' + '-' + i ).appendChild(node47);
+
+        // Débito
+        const node48=document.createElement('td');
+        const textNode48=document.createTextNode("");
+        node48.appendChild(textNode48);
+        node48.setAttribute("class","linhaWhite_ alignR");
+        document.getElementById('linha' + '-' + i ).appendChild(node48);
+
+        // Crédito
+        const node49=document.createElement('td');
+        const textNode49=document.createTextNode("");
+        node49.appendChild(textNode49);
+        node49.setAttribute("class","linhaWhite_ alignR");
+        document.getElementById('linha' + '-' + i ).appendChild(node49);
+
+        // Saldo
+        const node50=document.createElement('td');
+        const textNode50=document.createTextNode("");
+        node50.appendChild(textNode50);
+        node50.setAttribute("class","linhaWhite_ alignR");
+        document.getElementById('linha' + '-' + i ).appendChild(node50);
+    }    
+}
+buscFluxo();
+</script>

@@ -1,0 +1,250 @@
+* {
+   box-sizing: border-box;
+ }
+
+/*Título Fixo*/
+.titulo-main{
+    width:97.4%;
+    height:15vh;
+    margin:auto ;
+    background-color:#01427e ;
+    float:left ;
+    text-align: center;
+    padding:12px 0px 12px;
+    position: fixed;
+    margin-top:-3px;
+    margin-bottom: 10px;
+ }
+
+
+.titulo-seccao{
+   width: 100%;
+   height: 4.5vh;
+   background-color:#ffffff;
+   border-bottom: #ccc solid;
+   margin-top:.7vh;
+   border-right: #cccccc 2px solid;
+   /* margin-bottom: 10px; */
+}
+
+.titulo-seccao h1{
+   color:#031475;
+   font-size:1.5rem;
+   font-weight: 300;
+}
+
+.painelFixo{
+   width: 100%;height: 14.5vh;background-color: #ccd2cd;display: block;
+   margin-bottom: 5px;
+}
+
+.tituloSeccao{
+   display: flex;flex-direction: row;align-items: center;background-color:#ffffff;align-content:space-around;
+}
+
+.buscarLojas{
+   width: 100%;
+   height: 4.5vh;
+   background-color: #10c85d;
+   border-radius: 6px;
+   border-top: none;
+   border-left: none;
+   display: block;
+   color:#ffffff;
+   /* background-color: transparent; */
+}
+
+/*Controla as divisões   */
+.dflex{
+    width: 90%;height:360vh;padding:0px 0px;
+    margin-top:1.5vh;background-color:#ffffff;
+    display: flex;flex-direction: row;align-items: start;align-content:center;
+    margin-left: 2px;
+    /* padding: .5%; */
+}
+
+.Loja{
+   width:100%;height:230vh;background-color:red;margin-top:1vh;display: inline;color:#ffffff;
+   overflow: auto;margin-bottom:2vh ;
+}
+
+.sidebar{
+    width: 60%;
+    margin-top: 1.5vh;height:359.5vh;padding:2px;background-color: #10ec4a;color:#bd4e04;
+    display: flex;flex-direction: column;justify-items: center;align-content: center;
+}
+
+.SegmentoLoja{
+    width: 100%;height: 60vh;background-color: #ffffff;padding: 6px;padding-bottom: 10px 2px;
+}
+
+.SegmentoServico{
+    width: 100%;height: 82vh;background-color:#ffffff;display:flex;
+    flex-direction: column;overflow-y:auto ;padding-left: 4px;margin-top: 1vh;padding-top: 10px;
+}
+
+.idBody{
+    width: 96%;height: 357vh;margin: auto;margin-top:.6vh;background-color: #ffffff;
+    display: flex;flex-direction: row;align-items: start;padding: .5vh;align-content:center;overflow: auto;
+ }
+
+ .idPesquisa{
+    width: 100%;
+    height:5vh;
+    margin:auto;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction:row;
+    align-content: center;
+    align-items: center;
+ }
+
+ .idSetore{
+    width:90%;height:5vh;margin: auto;
+    display: flex;flex-direction: row;align-content:center;align-items:center;
+    background-color: #ffffff;
+ }
+
+ .selectedsecao{
+   width:25%;height:5vh;margin: auto;float:left;
+   text-align: center;padding:6px ;color: #ffffff;display: flex;flex-direction: row;justify-content: center;
+   justify-items:center;padding-top:5px;
+   background-color: #cccccc;
+ }
+
+ .selectcidade{
+    width:25%;
+    height:5vh;
+    margin: auto;
+    float:left;
+    background-color: #ffffff;
+    text-align: center;
+    padding:6px ;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items:center;
+ }
+
+ .selectbairro{
+    width:25%;height:5vh;margin: auto;float:left;background-color: #ffffff;
+    text-align: center;padding:6px ;color: #0b399e;
+    display: flex;flex-direction: row;justify-content: center;
+    justify-items:center;
+ }
+ 
+ .buttonBuscar{
+   width:25%;height:5vh;margin: auto;
+   background-color: #cccccc;
+   margin-top: 0px;
+ }
+ 
+ .idSetor{
+    height: 3vh;
+    background-color: #00ff11;
+    border-radius: 6px;border-top: none;
+    border-left: none;
+    font-size: larger;
+    color:#04308f;
+    text-align: center;
+    justify-items: center;
+ }
+
+ .boxLojaLeft {
+    width: 100%;height:15vh;background-color:#ffffff;display: flex;flex-direction:column;justify-items:start;
+    margin-bottom: 10px;color:#ffffff;padding: 5px;border: solid #ccc 2px;
+ }
+
+ .boxLojaRight {
+    width: 100%;height:15vh;background-color:#ffffff;display: flex;flex-direction:column;justify-items:start;
+    margin-bottom: 10px;color:#ffffff;padding: 5px;border: solid #ccc 2px;
+ }
+
+ .divLojaFundo{
+   width:100%;
+   background-color: #cccccc;
+   border: #e8e2e2 .5px solid;
+   font-size: 1w;
+   text-align: center;
+   color: #084071;
+   border-bottom: #050505 solid 2px;
+   margin-bottom: 10px;
+}
+
+ .divLoja{
+    width:100%;
+    background-color: #191970;
+    border: #e8e2e2 .5px solid;
+    font-size: 1w;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: #494a49 solid 2px;
+ }
+
+ 
+ .celularNumber{
+    width:100%;height:3vh;float: left;
+    background-color:#ffffff ;font-size:small;
+    border-bottom:2px;margin-top:2px;line-height: 1.6;color:#325b20;font-weight:500;
+    padding: 3px;
+    text-align:center;
+ }
+ 
+ .cidadeName{
+    width:100%;height:3vh;float: left;
+    background-color:#cccccc ;font-size:small ;
+    border-bottom:2px;margin-top:-3px;line-height: 1.6;color:#325b80;font-weight:500;
+    padding: 3px;
+    margin-top:-12px;
+    text-align: center;
+ }
+
+ .bairroName{
+    width:100%;height:2vh;float: left;
+    background-color:#cccccc;font-size:small ;
+    border-bottom:2px;margin-top:-10px;line-height: 1.6;color:blue;font-weight: 500;
+    border-right: solid #cccccc 2px;
+    text-align: center;
+ }
+
+ .idPublicidade{
+    width: 21%;height: 99.5vh;background-color: #ffffff;
+    display: flex;flex-direction: column;overflow-y:auto ;
+    padding-left: 4px;margin-top: .5vh;
+ }
+
+ .idPublicidadeGomo{
+    width:100%;height:30vh;margin:auto;background-color:#ffffff;margin-top: 3px;
+    display: flex;flex-direction: column;align-items: center;justify-content: center;
+    font-size: larger;
+    border: #8a8c8b solid 1px;
+ }
+
+/*monitor maior*/
+ @media screen and (max-width:1800px) {
+   .dflex{
+      background-color: #084071;
+   }
+}
+
+/*monotor latrela*/
+@media screen and (max-width:1600px) {
+   .dflex{
+      background-color: #ffffff
+   }
+
+   .painelFixo{
+      width: 100%;height: 14.5vh;background-color: #ffffff;display: block;
+   }
+
+}
+
+@media screen and (max-width:1500px) {
+   .dflex{
+     background-color: #0d1010;
+   }
+}
+
+
+

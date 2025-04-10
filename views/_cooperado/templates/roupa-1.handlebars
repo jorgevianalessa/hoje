@@ -1,0 +1,1647 @@
+<style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+
+#header {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#cards {
+  top: 140px;
+  background-color: #06c76d;
+}
+
+#rodape{
+  top: 200px;
+  background-color: #555
+}
+
+#volta{
+  top: 260px;
+  background-color: #AA594E;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  background-color:#ffffff;
+  padding: 10px;
+  width: 98.5%;
+  height: 42.5vh;
+  -ms-flex: 1;  /* IE 10 */  
+  flex: 1;
+  margin-bottom:10px solid red; 
+}
+
+.card_prod{
+        display: grid;
+        grid-template-rows: auto auto;
+        gap: 2px;
+        align-content:flex-start;
+        background-color: red;
+        width: 18.6vw;
+        height: 32.1vh;
+        border: .5px #cccccc solid;
+}
+
+.polaroid1{
+    table;
+    background-color: #ffffff;text-align: center;display: flex;
+    flex-direction: column;align-items:center;align-content:space-between center;padding-top: 4vh;"
+}
+
+.posicao-page{
+    margin-top: 5px;
+}
+
+.descr-produto{
+    margin-top: -15px;
+    color:#0656eb;
+    font-weight: bold;
+}
+
+.formUp{
+    background-color: #ffffff;
+    height: 25vh;
+}
+
+.butt{
+    color:white;font-size: smaller;border-radius: 5px;background-color: #dba905;
+}
+
+.rowcodigo{
+      background-color: #e5213e;  
+      color:#690e0e;
+ }
+
+ .rowImg{
+      background-color: #ffffff;  
+      color:#1c11c3;
+      height: 10vh;
+      width: auto;
+      text-align: center;
+ }
+
+ .linFoto{
+    height: 4vh;
+   
+ }
+
+ .imgCenter{
+    text-align: center;
+ }
+
+ .redFoto{
+    background-color: red;
+ }
+ 
+</style>
+<style>
+    .rowtable{
+        background-color:white;
+        width: 100px;
+        height: 4vh;
+        color:#21e552;
+        font-size: smaller;
+        border-bottom: 2px solid #690e0e;*/
+    }
+
+    .rowtable1{
+        background-color:#bcb9ba;
+        width: 100px;
+        height: 4vh;
+        color:#21e552;
+        font-size: smaller;
+        border-bottom: 2px solid #690e0e;*/
+    }
+
+    
+    .rowtableCor{
+        background-color:black;
+        width: 100px;
+        height: 4vh;
+        color:#21e552;
+        font-size: smaller;
+        border-bottom: 2px solid #690e0e;*/
+    }
+
+    .rowtableSel{
+        background-color:#f00e0e;
+        width: 100px;
+        height: 4vh;
+        color:#21e552;
+        font-size: smaller;
+        border-bottom: 2px solid #690e0e;*/
+    }
+
+    .rowtableDh{
+        background-color:green;
+        width: 100px;
+        height: 4vh;
+        color:#21e552;
+        font-size: smaller;
+        border-bottom: 2px solid #690e0e;*/
+    }
+
+    .formFix{
+        height:28vh ;
+        display:block;background-color: #03d3d3;padding: 12px;margin-top: 3px;
+    }
+
+    .faixaposicaocss{
+        width: 100%;height: 6vh;margin: auto;display: flex;flex-direction: row;background-color: yellow;margin-top: 12px;
+    }
+
+    .elementImagecss{
+       /*width: 66vw;height: 50.8vh;margin: auto;*/
+       position: absolute;left:200;top:100;z-index: 100;
+       display: flex;flex-direction:column;
+       justify-content: center;justify-items:center;
+       background-color: #07b1e4;
+       padding-top: 0.5vh;
+       margin-top: 20px;
+       margin-left:200px;
+       padding: 10px;
+    }
+
+    .containerImgcss{
+       width: 66vw;height: 40vh;margin: auto;
+       display: flex;flex-direction: row;
+       justify-content: center;justify-items: center;
+       background-color: #ffffff;
+    }
+
+    .containerImgcss div{
+        width: 22vw;height: 40vh;display: flex;
+        vertical-align: middle;
+        justify-content: center;
+        padding: 6px;
+        background-color: #ffffff;
+        border: 1px solid  #05477c;"
+    }
+
+    .gravaImagem_{
+        width: 20%;height: 25vh;margin: auto;
+        display:none;
+        background-color: #e6e3e6;color:#ffffff;
+        position: absolute;let:50;top:100;z-index: 100;
+        padding: 10px;border: 2px #555 solid;"
+    }
+        
+    .gravaImagemHeader_{
+        width: 80%;margin: auto;display: flex;flex-direction: column;justify-content:center ;margin-top: 10px;
+    }    
+
+    .gravaImagemUrl{
+        display: flex;flex-direction: row;height:3vh;
+    }
+
+    .escolheficheiro_{
+        width:80%;
+        margin:auto;
+        display:flex;flex-direction:column;justify-content:center;
+        margin-top: 10px;background-color: #05477c;padding-bottom: 10px;
+    }
+
+    .containerImagem_{
+        display: block;
+    }
+
+    .btnArtigo{
+        width: 6vw;height: 3vh;margin: auto;margin-top:0.8vh;text-align: center;border-radius: 6px;
+        background-color: #ffffff;color: #5ab302;font-weight: bold;border: 0px;border-bottom: 1.5px solid #a4a1a1;
+    }
+
+    .esconde{
+       display: none; 
+    }
+</style>
+
+<script>
+  //busca a largura e altura da page para ajustar a tela  
+  function larguraAltura(){
+    var x=document.getElementById("dflex").clientHeight;
+    console.log('height : ',x)
+    var d=document.getElementById('pegaHeight');
+    d.innerHTML='h :' + x;
+    d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+    var x1=document.getElementById("myHeader").clientWidth;
+    console.log('width : ',x1)
+    var d1=document.getElementById('pegaWidth');
+    d1.innerHTML='w :' + x1;
+    d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+    x.innerHTML=(x1/1.77)
+
+    var q=document.getElementById('dflex');
+     q.addEventListener("resize",function(){
+        console.log('alô!')
+     })
+
+    }
+</script>
+<div id="dflex"  class="d-flex" class="d-flex dflex" style="width:97.7vw;height: 340vh;margin: auto;padding-top: 2px;background-color: #ffffff;margin-left: 5px;margin-top:1vh;">
+      {{!-- {{ revisada em 16nov2023}} --}}
+      {{!-- Frame => a tabela embutida tem relação de produtos para selecionar as fotos  --}}
+      {{!-- Seleciona as fotos para fixar posição --}}
+      
+      <div id="modal-modela" class="" style="width: 100%;padding-top: 10px;margin: auto;display: none;z-index: 1000;position: absolute;top:0;left:0;background-color: rgba(166, 169, 169, 0.5);" >
+            <div id="corpoo_modaç-modela" style="width: 90%;height: 4vh;margin: auto;background-color: #ffffff;border-bottom: 2px solid #ccc;display: flex;flex-direction: row;">
+                    <div  style="width: 100%;background-color: #ffffff;height: 3.9vh;">
+
+                    </div>
+                    <button type="button" style="height: 3.9vh;width: 3vw;color:#ffffff;font-size:medium ;background-color: #048d02;border-bottom:0px;" data-dismiss="modal"  onclick="closeform()">X</button>
+            </div>
+            <div class="" id="X12" style="width: 90%;height: 95vh;margin: auto;display: flex;flex-direction: column;background-color:#ffffff;">
+                
+                <div id="modal-modela-a" class="" style="width: 100%;height: 110vh;margin: auto;background-color:#015c12;padding-top: .4vh;display: flex;flex-direction: column;padding: 20px;">
+                        
+                        <div  id="mostraUp" style="width: 100%;height: 98vh;margin: auto;background-color:#060202;display:flex ;
+                                                   flex-direction:column;justify-content: center;padding:10px;margin-top:0.4vh;">
+                            <div id="tablus" style="width: 100%;height:80vh;margin: auto;background-color: #cccccc;display: flex;flex-direction: row;padding: 5px;">
+                                    {{!-- :Mostra a tabela de produtos  --}}
+                                    <div id="MostraRelProduto" style="width: 49%;height: 75vh;margin: auto;background-color:#ccc;display: flex;flex-direction: column;border-right: 2px solid #7f7e7e;">
+                                        <div id="linha-titulotable1" style="width: 95%;height: 5vh;margin: auto;background-color: #02378d;margin-top: 10px;padding: 5px;margin-bottom: 10px;">
+                                            <div style="width: 100%;height:3vh; margin: auto;background-color:#02378d;display: flex;flex-direction: row;justify-content: space-between;">
+                                                <div style="background-color: #02378d;width: 50%;margin: auto;">
+                                                    <div style="width: 100%;background-color:transparent;height: 25px;display: flex;flex-direction: row;justify-items: center;">
+                                                        <label style="color:#ffffff;font-size: medium;width: 50%;margin-left: 10px;">Nome da page :</label>
+                                                        <input id="idNomePageInput" type="text" style="width:50%;height: 25px;background-color: #c80bed;color: #ffffff;border-radius: 6px;margin-top:0px;" >
+                                                    </div>
+                                                </div>
+                                                <div style="background-color: #02378d;width: 50%;margin: auto;">
+                                                    <select id="SelectFornec" style="width: 60%;margin: auto;height: 25px;margin-left: 25%;">
+                                                        {{#fornec}}
+                                                        <option value="{{this._id}}">{{this.razao}}</option>
+                                                        {{/fornec}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>     
+                                        <div id="tableProdVinculados" style="overflow: auto;">
+                                                 {{!-- Essa table lista os produto conforme o artigo selecionado --}}
+                                                <div id="tabelaProduto" style="width: 100%;height: 70vh;margin: auto;background-color: #f3f0f0;display: flex;flex-direction: column;display: block;">
+                                                    <table id="test1" class="table table-bordered" style="background-color: #f3f0f0;color:#ffffff;overflow: auto;height: 37vh;" >
+                                                        <thead style="color:#ffffff;background-color: #02378d;">
+                                                            <tr>
+                                                                <th style="width: 10%;text-align:center;">código</th>
+                                                                <th style="width: 40%;text-align:center;">descrição</th>
+                                                                <th style="width: 20%;text-align:center;">tecido</th>
+                                                                <th style="width: 2%;text-align:center;display: none;">id</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tableProdut" style="color:#008000;overflow: auto;height: 37vh;">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                        </div>                           
+                                    </div>
+                                    {{!-- :Mostra a tablea de Detalhes --}}
+                                    <div id="MostraImagens" style="width: 49%;height: 75vh;margin: auto;background-color: #050409;overflow-y: auto;">
+                                          <div>
+                                            <label style="color:#d61c1c;text-align: center;margin-left: 20px;">produto</label>
+                                          </div>
+                                          <table id="tabela_Fotos" class="table table-bordered" style="background-color:transparent;color:#ffffff;overflow: auto;" >
+                                                        <thead style="color:#ffffff;background-color: #02378d;">
+                                                            <tr>
+                                                                <th style="width: 25%;text-align:center;">front</th>
+                                                                <th style="width: 25%;text-align:center;">left</th>
+                                                                <th style="width: 25%;text-align:center;">back</th>
+                                                                <th style="width: 25%;text-align:center;">right</th>
+                                                                <th style="width: 20%;text-align:center;">cor</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="tableCoresfoto" style="color:#db0707;height: 5vh;background-color: #06c76d;">
+                                                        </tbody>
+                                          </table>        
+                                    </div>
+                            </div> 
+                            {{!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+                            <div id="faixaposicao" class="faixaposicaocss">
+                                <div style="width: 50%;height: 4vh;margin: auto;padding: 1vh;text-align: center;">
+                                    <label style="margin-right: 20px;">local posição site</label>
+                                     {{!-- Se já houver alguma posição registrada então mostre --}}
+                                    <input id="localposicao">
+                                </div>
+                                    <div style="width: 50%;height: 4vh;margin: auto;padding: 1vh;text-align: center;">
+                                    <label style="margin-right: 20px;">nome da page site</label>
+                                     {{!-- Se já houver uma page registrada,então mostre  --}}
+                                    <input id="nomepage" value="calça">
+                                </div>
+                            </div>       
+                            {{!-- ......................................................................... --}}
+                            <div  id="elementImage" class="elementImagecss" style="display:none;">
+                                <div id="ContainerImg" class="containerImgcss" >
+                                    <div id="id_elementImageFront"  >
+                                        <img id="iDfrontImg" src="" width="100%" height="auto" style="background-color: #ffffff;" onclick="ImgLoad_painel('front')" >
+                                    </div>
+                                    <div id="id_elementImageLeft" style="width: 22vw;height: 40vh;display: flex;background-color: #ffffff;vertical-align: middle;justify-content: center;padding: 6px;"  >
+                                        <img id="iDleftImg" src="" width="100%" height="auto" style="background-color: #ffffff;" onclick="ImgLoad_painel('left')">
+                                    </div>
+                                    <div id="id_elementImageBack" style="width: 22vw;height: 40vh;display: flex;background-color: #ffffff;vertical-align: middle;justify-content: center;padding: 6px;" >
+                                        <img id="iDbackImg" src="" width="100%" height="auto" style="background-color: #ffffff;" onclick="ImgLoad_painel('back')">
+                                    </div>
+                                    <div id="id_elementImageRight" style="width: 22vw;height: 40vh;display: flex;background-color: #ffffff;vertical-align: middle;justify-content: center;padding: 6px;"  >
+                                        <img id="iDrightImg" src="" width="100%" height="auto" style="background-color: #ffffff;" onclick="ImgLoad_painel('right')">
+                                    </div>
+                                </div>
+                                {{!-- .................................................. --}}
+                                <div id="barraVerde" style="width: 100%;height: 4vh;margin: auto;background-color: #21e552;text-align: center;margin-top: 10px;padding-top: 0.5vh;">
+                                    <button id="gravaPosicao" type="button" style="font-size: medium;border-radius: 4px;background-color: #05477c;color:#ffffff;" onclick="disparafixaImg()">gravar posição</button>
+                                </div>
+                            </div>   
+                        </div>
+                </div>
+            </div>
+            <div id="formGrava" style="width: 25vw;height: 30vh;  z-index: 5000;position: absolute;top:2vh;right:-10px;background-color: greenyellow;display: none;flex-direction: column;z-index: 1000;">
+                <div id="gravaArouba" style="display: block;background-color: #008000;">
+                    <form id="fixaImg" action="/roupa/fixaposicaoimg"  method="post" enctype="application/x-www-form-urlencoded" class="formUp formFix" style="display:flex;flex-direction: column;background-color: #ff00c8;" >
+                            <div style="display: flex;flex-direction: column;width: 90%;height: 16vh;margin: auto;background-color: #05477c;text-align: center;color: #ffffff;padding: 5px;">
+                                <div style="display: flex;flex-direction: row;height: 5vh;background-color:#02378d ;margin-bottom: 3px;">
+                                    <label style="width: 150px;float: right;">código produto :</label>
+                                    <input id="id-produto" name="idProduto" style="width: 240px;background-color: #050409;color:red" value="{{vitrine._id}}">
+                                </div>
+                                <div style="display: flex;flex-direction: row;height: 5vh;background-color:#02378d ;margin-bottom: 3px;">
+                                    <label style="width: 150px;float: right;">id cor :</label>
+                                    <input type="text" id="idnumber-cor" name="numberCor" style="width: 240px;" >
+                                </div>
+                                <div style="display: flex;flex-direction: row;height: 5vh;background-color:#02378d ;margin-bottom: 3px;">
+                                    <label style="width: 150px;float: right;">posição do card :</label>
+                                    <input type="text" id="posicao-Imagem" name="posicaoImagem" style="width: 240px;">
+                                </div>
+                                <div style="display: flex;flex-direction: row;height: 5vh;background-color:#02378d ;margin-bottom: 3px;">
+                                    <label style="width: 150px;float: right;">url imagem :</label>
+                                    <input type="text" id="url-imagem" name="urlImagem" style="width: 240px;">
+                                </div>
+                                <div style="display: flex;flex-direction: row;height: 5vh;background-color:#02378d ;margin-bottom: 3px;">
+                                    <label style="width: 150px;float: right;">nome a page :</label>
+                                    <input id="id_nomepage" name="namepage" style="width: 240px;background-color: #050409;color:red">
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: row;">
+                                <button id="fixaImage" type="submit" style="height: 3vh;width: 150px;margin: auto;border-radius: 4px;">grava@@</button>
+                            </div>  
+                    </form>
+                </div>    
+            </div>
+      </div>
+      {{!-- {{ revisada em 16nov2023}} --}}
+      {{!-- Cria um form para gravar as posições das imgs e titulo da page --}}
+      {{!-- Frame Central onde são colocados oas cards --}}
+      <div id="corpoRowCol-cards" style="width:96.5vw;height: 100vh;margin: auto;background-color:#ffffff;padding: 4px;display: flex;flex-direction:row ;margin-top: 0.2vh; margin-left: 5px;">
+            <div class="sidebar" style="width: 10vw;height: 85vh;margin-top: 14.1vh;display: flex;flex-direction: column;padding: 10px; background-color: #ffffff;" >
+                    <div id="idArtigos" class="lateral" style="width: 10vw;height: 60vh;display: flex;flex-direction: column;margin-left: auto;  background-color:#05477c;padding: 10px;">
+                       
+                        <div id="ediçãoLogo" style="width:7vw;height: 3vh;margin:auto;background-color:transparent;text-align: center;margin-top: 5vh;">
+                            <h1 style="font-size: larger;color: #ffffff;font-weight: 300;" >Edição logo</h1>
+                        </div>                       
+                        <div id="idArtigo"  style="width: 7vw;height: 25vh;margin:auto;background-color: transparent;text-align: center;margin-top: 0.02vh;padding: 3px;">
+                            <input type="button" style="width: 6vw;height: 3vh;margin: auto;border-radius: 6px;visibility: visible;margin-bottom: 0.2vh;" value="home">
+                        </div>
+                     </div>
+                    <div id="idPublicidade" class="lateral" style="width: 10vw;height: 25vh;margin: auto;background-color: #e61616;padding-top: 10px;">
+                        <div style="width: 10vw;height: 20vh;margin: auto;margin-top: 10px;background-color: #0e0909;display: flex;flex-direction: column;justify-items: end;text-align: center;">
+                            <h1 style="font-size: larger;color: #e60707;">Publicidade</h1>
+                        </div>
+                    </div>
+            </div>
+      
+            <div id="corpoCards"  style="width: 90%;height: 200vh;margin-left:5px;background-color:transparent;margin-top: 0.01vh;display: block;">
+                <label style="font-size: xx-small;color:#e70909;">views/_cooperado/templates/roupa-1.handlebars-layout:loja-formata</label>
+                <div id="tituloArtigo" style="width: 98%;height: 2.5vh;margin: auto;background-color: transparent;display: flex;flex-direction: row;justify-content: center;padding: 0.2vh;">
+                    <button id="idArtigoSelected"   style="width: 10vw;height: 2vh;background-color: #620457;color:#ffffff;text-align: center;border-radius: 7px;font-size: smaller;border: 0px;" onclick="" ></button>
+                </div>
+                <input id="idLojista" style="width: 220px;display: none;background-color: #0b0808;color:#ffffff;border:0px;padding: 0px 5px 0px 5px;" value="{{container.id}}">
+                <div class="grid-container" style="margin-left: 10px;margin-bottom: 10px;">
+                    <div class="card_prod" id="11card" onclick="numberId(11)" >
+                        <div id="11-main" class="polaroid1" style="table">
+                            <img id="main-11"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2">
+                            <p class="posicao-page" >11</p>
+                            <p class="descr-produto">pink </p>
+                        </div>
+                    </div>    
+                    <div class="card_prod" id="12card" onclick="numberId(12)" >
+                        <div id="12-main" class="polaroid1" style="table" >
+                            <img id="main-12"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">12</p>
+                            <p class="descr-produto">preto</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="13card" onclick="numberId(13)">
+                        <div id="13-main" class="polaroid1" style="table;" >
+                            <img id="main-13"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">13</p>
+                            <p class="descr-produto">preto</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="14card" onclick="numberId(14)">
+                        <div id="14-main" class="polaroid1" style="table" >
+                            <img id="main-14"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">14</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="grid-container" style="margin-left: 10px;">
+                    <div class="card_prod" id="21card" onclick="numberId(21)">
+                        <div id="21-main" class="polaroid1" style="table">
+                            <img id="main-21"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>  
+                        </div>
+                        <div class="polaroid2">
+                            <p class="posicao-page">21</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div>    
+                    <div class="card_prod" id="22card" onclick="numberId(22)">
+                        <div id="22-main" class="polaroid1" style="table" >
+                            <img id="main-22"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/> 
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">22</p>
+                            <p class="descr-produto">preto</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="23card" onclick="numberId(23)">
+                        <div id="23-main" class="polaroid1" style="table">
+                            <img id="main-23"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/> 
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">23</p>
+                            <p class="descr-produto">amarelo</p> 
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="24card" onclick="numberId(24)">
+                        <div id="24-main" class="polaroid1" style="table" >
+                            <img id="main-24"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/> 
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">24</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div> 
+                </div>
+                <div id="idAncoraTopo1" style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                        <h3 style="color:#ffffff;font-size: medium;font-weight:300;margin-top: 15px;">Topo</h3>
+                </div>
+                <div class="grid-container"   style="margin-left: 10px;">
+                    <div class="card_prod" id="31card" onclick="numberId(31)" >
+                        <div id="31-main" class="polaroid1" style="table">
+                            <img id="main-31"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2">
+                            <p class="posicao-page">31</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div>    
+                    <div class="card_prod" id="32card" onclick="numberId(32)" >
+                        <div id="32-main" class="polaroid1" style="table" >
+                            <img id="main-32"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div id="" class="polaroid2" style="">
+                            <p class="posicao-page">32</p>
+                            <p class="descr-produto">preto</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="33card" onclick="numberId(33)">
+                        <div id="33-main" class="polaroid1" style="table" >
+                            <img id="main-33"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">33</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="34card" onclick="numberId(34)">
+                        <div id="34-main" class="polaroid1" style="table" >
+                            <img id="main-34"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">34</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div> 
+                </div>
+                <div id="idAncoraTopo2" style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                        <h3 style="color:#ffffff;font-size: medium;font-weight:300;margin-top: 15px;">Topo</h3>
+                </div>
+                <div class="grid-container" style="margin-left: 10px;">
+                    <div class="card_prod" id="41card" onclick="numberId(41)">
+                        <div id="41-main" class="polaroid1" style="table">
+                            <img id="main-41"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2">
+                            <p class="posicao-page">41</p>
+                            <p class="descr-produto">41</p>
+                        </div>
+                    </div>    
+                    <div class="card_prod" id="42card" onclick="numberId(42)">
+                        <div id="42-main" class="polaroid1" style="table">
+                            <img id="main-42"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">42</p>
+                            <p class="descr-produto">red</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="43card" onclick="numberId(43)">
+                        <div id="43-main" class="polaroid1" style="table">
+                            <img id="main-43"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">43</p> 
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="44card" onclick="numberId(44)">
+                        <div id="44-main" class="polaroid1" style="table">
+                            <img id="main-44"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">44</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div> 
+                </div>
+                <div class="grid-container" style="margin-left: 10px;display: none;">
+                    <div class="card_prod" id="51card" onclick="numberId(51)">
+                        <div id="51-main" class="polaroid1" style="table">
+                            <img id="main-51"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2">
+                            <p class="posicao-page">51</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div>    
+                    <div class="card_prod" id="52card" onclick="numberId(52)" >
+                        <div id="52-main" class="polaroid1" style="table" >
+                            <img id="main-52"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" >
+                            <p class="posicao-page">52</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="53card" onclick="numberId(53)">
+                        <div id="53-main" class="polaroid1" style="table">
+                            <img id="main-53"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2">
+                            <p class="posicao-page" style="color:red;bac">53</p>
+                            <p class="descr-produto">preto</p>
+                        </div>
+                    </div>     
+                    <div class="card_prod" id="54card" onclick="numberId(54)">
+                        <div id="54-main" class="polaroid1" style="table">
+                            <img id="main-54"  src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                        </div>
+                        <div class="polaroid2" style="">
+                            <p class="posicao-page">54</p>
+                            <p class="descr-produto">amarelo</p>
+                        </div>
+                    </div> 
+                </div>   
+                <div id="idAncoraTopo3" style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                        <h3 style="color:#ffffff;font-size:small;font-weight:300;margin-top: 15px;">Topo</h3>
+                </div>
+            </div>
+      </div>
+</div>
+<script>
+// Essa função fecha o modal/menu: Upload Image/Editar detalhes
+function closeModal(){
+    //................................................................
+    let alfa=document.getElementById("mostraUp");
+    alfa.style.display="none";
+    //...............................................
+    let divModalmenu=document.getElementById("modal-menu");
+    divModalmenu.style.display="none";
+}
+
+// close o modal-modela
+function closeform(){
+    //................................................................
+     document.getElementById("modal-modela").style.display="none";
+    //////////////////////////////////////////////////////
+}
+
+// Essa rotina fixa o produto na posição selecionada
+// atualizada em : 16/11/23
+function disparafixaImg(){
+   //...........................................................
+   document.getElementById("modal-modela").style.display="block";
+   let btn=document.getElementById('fixaImage');
+   console.log(' [ 703 => disparafixaImg ]')
+   btn.click();
+}
+
+function limpaTela(){
+    //..............................................................
+    let numberCardMax=54;
+    let numberCard=11
+    let main;
+    main="main-";
+    let cardSrc;
+    let lin=1;
+    for (let i=0;i<numberCardMax;i++){
+        if(lin>4){
+            numberCard=numberCard + 6
+            lin=1
+         }  
+         if(numberCard<=numberCardMax){
+            cardSrc=main + numberCard;
+            document.getElementById("" + cardSrc + "").src="";
+            numberCard++
+            lin++
+         }   
+    }
+ }
+//const imgPreview = document.querySelector('#imgPreview')
+
+// Quando a página é carrega chama essa rotina para buscar os artigos
+// que farão parte do menu lateral da página.Esses artigos são os artigos 
+// cadastrado na loja referenciada.
+// Fica no menu lateral sob titulo de "Artigos" 
+// /roupa/buscar-artigo [ 1406 ] atualizada: 07/08/2023
+function  buscar_Artigo_Menu(){
+    //return
+    //...........................................................
+    console.log(' [ 660 ] ')
+    let q=document.getElementById("idLojista");
+    let num;
+    num=q.value;
+    console.log('vr de num',num)
+    //..............................................
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //console.log('--------------',3456)
+    //////////////////////////////////////////////////////////////////
+    try{
+      //  console.log(num)
+        fetch(`${baseApiUrl}` + `/roupa/buscar-artigo/${num}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+                }  
+                throw response;
+        })
+        .then((json)=>{
+            //console.log(json)
+            const X=json;
+            //console.log('buscarArtigo para montar o menu',json)
+            let l=X.length;
+            document.getElementById("idNomePageInput").value=json[0];
+            //:::::::::::::::::::::::::::::::::::::::::
+            for (let r=0;r<l;r++){
+                  let A=X[r];
+                  const node0=document.createElement("input");
+                  node0.setAttribute("id",'linha' + r);
+                  node0.setAttribute("class","btnArtigo")
+                  node0.setAttribute("value",A)
+                  node0.setAttribute("onclick","pageArtigo('"+ A + "')");
+                  document.getElementById('idArtigo').appendChild(node0)
+            }
+            buscar_HomePublicado('home');
+        })
+        .catch((err)=>{
+            console.log(err)
+        })  
+    }catch(e){
+        console.log(e);
+    }    
+ } 
+
+ // Após carregar o menu lateral essa rotina irá buscar os produtos vinculado a page HOME.
+ // Farão parte da HOME PAGE.
+ // Vai buscar em lojista/home_publicado [ 1647 ]
+function buscar_HomePublicado(n){
+    console.log('');
+    console.log('___________________________________________________________');
+    console.log('vem de : buscar_ArtigoMenu()');
+    console.log('___________________________________________________________');
+    console.log('Vai buscar elemento home publicado');
+    console.log('___________________________________________________________');
+    //...................................................................
+    let r=document.getElementById('idLojista');
+    r=r.value;
+    document.getElementById("idArtigoSelected").innerHTML='home';
+        //....................................................   
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+                fetch(`${baseApiUrl}` + `/roupa/home_publicado/${r}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    //console.log('home_publicado [ 740 ] :',json)
+                    let c=json.length;
+                    //console.log('vr de c : ',c)
+                    if (c==0){
+                        console.log("não há nada publicado em : 'Home' ")
+                    }else{
+                      console.log('vr de Home publicado',json)  
+                      let Q=json;
+                      //return
+                      HomeloadImagens(Q)
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }catch(e){
+            console.log(e)
+        }
+}
+
+// após buscar os produtos vinculado na PAGE HOME vamos então lança-los em sua poisções na page.
+// atualizado em 07-08-23
+function HomeloadImagens(Q){
+    // Agora que temos as imagens relacionadas ao artigo vamos carrega-la
+    console.log('valor de QX : ',Q);
+    const blok=Q;
+    let b=blok.length;
+    console.log('');
+    console.log('',b);
+    console.log('____________________________________________');
+    //return
+    let col=1;
+    let x=1;
+    let cod;
+    let urlPath;
+    let posicao;
+    let pos;
+    for (i=0;i<b;i++){
+            cod=blok[i].codigo
+            console.log(cod);
+            console.log('___________________________');
+            urlPath=blok[i].cores[0].urlfront;
+            console.log(urlPath);
+           // console.log(urlPath[0].urlfront)
+            console.log('___________________________');
+            posicao=blok[i].posicao;
+           // return
+            console.log(cod,urlPath,posicao)
+            //..................................................
+            transformaArtigo(cod,urlPath,posicao)
+            col++;
+            if(col=4){
+                col=1;
+            };
+    }
+
+    function transformaArtigo(cod,urlPath,posicao){
+        //.........................................
+        console.log('10000',cod);
+        //console.log(urlPath)
+        //console.log(posicao)
+        let imgDone=urlPath;
+        let trilha='main-' + posicao
+        trilha=trilha.trim();
+        var str = trilha.replace(/\s/g, '');
+        let imgStr=document.getElementById(`${str}`);
+        imgStr.src=imgDone
+    }
+}
+
+// ATÉ AQUI ESTÁ CORRIGIDO E BEM MONTADO = 01/08/2023
+// Essa rotina é acionada quando o menu lateral é clicado para buscar os artigos 
+function  pageArtigo(artigo){
+    // Porém antes de seguir em frente precisamos buscar a página correspondente ao artigo referenciado.
+    // console.log(' passando por pageArtigo()',artigo);
+    console.log('nome do artigo : ',artigo)
+    let sel=document.getElementById("idArtigoSelected");
+    // ..............................................................
+    // o idNomePageInput recebe o nome do artigo que se quer conhecer
+    document.getElementById("idNomePageInput").value=artigo;
+    sel=sel.innerHTML=artigo;
+     //........................................................
+    if(sel==""){
+        alert('selecione um artigo!')
+    }
+    //........................................................... 
+    //Agora que temos a página referenciada na tela podemos pegar os artigos relacionado. 
+    //..........................................
+    // nome_Artigo 
+    let f=document.getElementById("idNomePageInput");
+    f.value=artigo;
+    let g=document.getElementById("idArtigoSelected");
+    g.innerHTML=artigo;
+    //..............................................................
+    // Limpar a tela para receber uma nova page correspondente ao artigo selecionado
+    //...................................................................
+    limpaTela()
+    console.log('')
+    //...............................................................
+    //busca os registros conforme o artigo selecionado
+    produto_publicado(artigo)
+ }
+
+// Essa rotina busca os produto selecionado a partir de um determinado artigo
+// Em seguida publica na tabela para que se escolha o codigo do produto
+// /roupa/buscar-registros [ 1866 ] atualizada: 01/08/2023
+ function produto_publicado(n){
+    //....................................................
+    console.log('vem pageArtigo(artigo)',n);
+    let artigoName=n;
+    console.log("____________________________________________________")
+    let codigoId=document.getElementById("idLojista").value;
+    console.log('')
+    
+    let passa=n.trim();
+    passa=passa + '=:' + codigoId
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //////////////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/buscar-artigos_publicados/${passa}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+                }  
+                throw response;
+        })
+        .then((json)=>{
+            //:::::::::::::::::::::::::::::::::::::::::
+            console.log('resultado de pageArtigo');
+            console.log(json)
+            console.log('');
+            console.log("trás todos os registros vinculado ao artigo selecionado :",artigoName)
+            console.log('____________________________________________________________')
+            let g1=json.length;
+            //.........................................................
+            console.log('valor de g1',g1)
+            let local;
+            if (g1==0){
+                console.log("não há produtos publicados : ",artigoName)
+                local=0
+            }else{
+                console.log('coloque na página X: ',artigoName)
+                local=1;
+                loadImagens(json)
+                console.log('passaou')
+            }
+            console.log('_______________________________________________');
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        
+    }
+    catch(e){
+        console.log(e);
+    }
+ 
+}
+
+// Aqui temos a response da Space-Digital sobre os arquivos de imagens,  
+function loadImagens(n){
+    console.log('dentro de loadImagens')
+    const blok=n;
+    let b=blok.length;
+    let col=1;
+    //let x=1;
+    let cod;
+    let pos;
+    let urlPath;
+    for (i=0;i<b;i++){
+            //let j= blok[i]
+            console.log(blok[i])
+            cod=blok[i].produto.codigo
+            urlPath=blok[i].produto.pageurl;
+            col=blok[i].produto.pageposicao
+            transforma(cod,urlPath,col)
+            col++;
+            if(col=4){
+                col=1;
+            };
+    }
+    // dentro de loadImage
+    function transforma(a,b,c){
+         //.........................................
+        let imgDone=b;
+        console.log(b)
+        let trilha='main-' + c
+        trilha=trilha.trim();
+        var str = trilha.replace(/\s/g, '');
+        let docImg=document.getElementById(`${str}`);
+        docImg.src=imgDone
+    }
+}
+
+function imgLoad_painel(n){
+    // Vai buscar aimagens que estão contidas na page HOME
+    console.log('vr de n dentro de imgLoad_painel() : ')
+    let r=document.getElementById('idLojista');
+    
+    r=r.value;
+    console.log('valor de r [ 597 ]',r)
+    let artigo='home';
+    document.getElementById("idArtigoSelected").innerHTML='home';
+    let chave;
+    chave=r + ":=" + 'home';
+    let obsize=chave;
+    //r=obsize.length;
+    //if(r=24){
+        console.log('vr da chave',chave)
+        console.log('vr da chave',obsize)
+        //....................................................   
+        let baseApiUrl=window.location.hostname;
+        if (baseApiUrl=='localhost'){
+                baseApiUrl='http://localhost:3000'
+        }else{
+            baseApiUrl='https://www.rotaes.com.br'
+        }   
+        //////////////////////////////////////////////////////////////////
+        try{
+                fetch(`${baseApiUrl}` + `/roupa/img_painel/${obsize}`, { method: "GET",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+                .then(response =>{
+                    if( response.ok ){
+                        return response.json()
+                        }  
+                        throw response;
+                })
+                .then((json)=>{
+                    loadImagens(json)
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }catch(e){
+            console.log(e)
+        }
+    //}
+}
+
+// Busca os produtos vinculados ao artigo selecionado para preencher  a tabela de "código,descrição,tecido,...".
+// Começa no click do botão de 'idartigoSelected'
+function busca_tabela_artigos(){
+    //...............................................................  
+    let artigo=document.getElementById("idArtigoSelected").innerHTML;
+    let f_namepage=document.getElementById("id_nomepage");
+    f_namepage.value=artigo;
+    console.log('----------------------------',f_namepage.value)
+    //.............................................          
+    let r=document.getElementById('idLojista');
+    //console.log(r)
+    r=r.value;
+    let passe=artigo + ':=' + r
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    console.log('')
+    console.log('escolhe o card >> numberId() >> busca_tabela_artigo() >> fetch/busk-produto_vinculados/:id 000')
+    console.log('vai preencher a tabela com os produtos vinculados ao produto e o nome do artigo')
+    console.log('_____________________________________________________________________')
+    //////////////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/buscar_produto-vinculados/${passe}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+                }  
+                throw response;
+        })
+        .then((json)=>{
+            console.log('preenche a tabela com produto vinculado ao artigo : ');
+            console.log(' nome do artigo 1000 >:Vem da tabela de artigos ',artigo);
+            console.log('______________________________________________________')
+            //........................................
+            const X=json;
+            console.log('valor de X',X)
+            let l=X.length;
+            let p=0;
+            let x=0;
+            //:::::::::::::::::::::::::::::::::::::::::
+            const node0=document.createElement("tr");
+            node0.setAttribute("id",'lin' + p);
+            node0.setAttribute("class","rowtable");
+            document.getElementById('tableProdut').appendChild(node0);
+            let n=0;
+            //......................................................................
+            for (let i=0;i<l;i++){
+                    if(i>0){
+                        p=p+1;
+                        x=x+1;
+                    }
+                    //......................................................
+                    let A;
+                    //   CÓDIGO                    
+                    A=X[i].codigo;
+                    let nCor=X[i]._id;
+                    // Coloca o código do produto;
+                    const node = document.createElement("td");
+                    const textnode = document.createTextNode(A + '12');
+                    //.......................................
+                    node.setAttribute("class","rowcodigo");
+                    node.setAttribute("id","mycollum-" + i + n);
+                    node.setAttribute("onclick","busk_detalhe_Produt(" + "'" +  nCor + "'" + ")");
+                    node.appendChild(textnode);
+                    // p= localiza o doc a ser anexado                    
+                    document.getElementById("lin" + p).appendChild(node);
+                    n++;
+
+                    let B;
+                    // DESCRIÇÃO
+                    B=X[i].descricao;
+                    //
+                    const node1 = document.createElement("td");
+                    const textnode1 = document.createTextNode(B);
+                    node1.setAttribute("class","");
+                    node1.setAttribute("id","mycollum-" + i + n);
+                    node1.appendChild(textnode1);
+                    document.getElementById("lin" + p).appendChild(node1);
+                    n++;
+
+                    let C;
+                    //  TECIDO
+                    C=X[i].tecido;
+                    //
+                    const node2 = document.createElement("td");
+                    const textnode2 = document.createTextNode(C);
+                    node2.setAttribute("class","");
+                    node2.setAttribute("id","mycollum-" + i + n);
+                    node2.appendChild(textnode2);
+                    document.getElementById("lin" + p).appendChild(node2);
+                    n++;
+
+                    let D;
+                    //   _ID
+                    D=X[i]._id;
+                    let numbercor;
+                    numbercor=X[i].cores._id;
+                    //console.log('vr de D',D)
+                    const node12 = document.createElement("td");
+                    const textnode12 = document.createTextNode(D);
+                    node12.setAttribute("class","esconde");
+                    node12.setAttribute("id","mycollum-" + i + n);
+                    node12.appendChild(textnode12);
+                    document.getElementById("lin" + p).appendChild(node12);
+                    n++;
+
+                   // let numbercor;
+                   // numbercor=X[i].cores;
+                   // console.log('');
+                   // console.log('____________________________________________');
+                   // console.log(' [ 1212 ]',numbercor)
+                   // console.log('_____________________________________________');
+                  //  console.log('');
+                  // if(numbercor=='def'){
+                  //     numbercor="falta configurar" 
+                  //  }
+                  //  const node13 = document.createElement("td");
+                  //  const textnode13 = document.createTextNode(numbercor);
+                  //  node13.setAttribute("class","");
+                  //  node13.setAttribute("id","mycollum-" + i + n);
+                  //  node13.appendChild(textnode13);
+                  //  document.getElementById("lin" + p).appendChild(node13);
+
+                    let z=i;
+                    z++;
+                    
+                    if (z<l){
+                       const node10=document.createElement("tr");
+                       node10.setAttribute("id",'lin' + (p+1));
+                       node10.setAttribute("class","rowtable");
+                       document.getElementById("tableProdut").appendChild(node10);
+                    }
+                    //..........................................................
+                    x++;
+                    n=0;
+                }
+                document.getElementById("modal-modela").style.display="block";
+                buscaFornec()
+        })
+        .catch((er)=>{
+            console.log(er);
+        })
+    }catch(e){
+        console.log(e);
+    }    
+
+  //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  function  buscaFornec(){
+    return
+    let r=document.getElementById('idLojista');
+    r=r.value;
+    let baseApiUrl=window.location.hostname;  
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/busc-fornec-lojista/${r}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+                }  
+                throw response;
+        })
+        .then((json)=>{
+           // console.log('preenche a tabela com produto vinculado ao artigo : ');
+           // console.log('nome do artigo? 1000: ',artigo);
+           // console.log(json)
+           // let l=json.length;
+          //  for (let i=0;i<l;i++){
+          //      console.log(json[i].marca)
+          //  }
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }catch(e){
+        console.log(e);
+    }
+  }
+
+}
+
+ // Essa rotina vem do click sobre o numero do código da tabela 'Código/Descrição/Tecido'.
+ // Essa tabela aparece quando se clica no card vazio ou já preenchido con objetivo de buscar os produtos que poderão
+ // ser selecionado para a pagína em questão. 
+ // Essa rotina vai buscar todas as fotos pertencentes ao itens clicado. 
+ function busk_detalhe_Produt(n){
+    // Acha o código clicado
+    //#####################################################################
+    console.log('clica sobre código do produto >> busk_detalhe_produto >> fecht:busk_itensfotos/:id');
+    console.log('vai buscar as fotos relativa o produto relacionado ')
+    console.log('número do produto escolhido ');
+    console.log('número :',n );
+    let r4=document.getElementById("id-produto");
+    //r4.value=n;
+    console.log(r4.value);
+    console.log('________________________________________________________');
+    //document.getElementById("formGrava").style.display="none";
+    let numberProduto;
+    numberProduto=n;
+    document.getElementById("id-produto").value=numberProduto;
+    palavra=n;
+    let pos=palavra.search("-");
+    n=palavra.substring(0,pos);
+    let b=palavra.length;
+    let codigo=palavra.substring((pos+1),b)
+    //.................................................
+    //console.log('');
+    //.........................................................
+    // Seleciona a linha  e muda a cor 
+    let tabela=document.getElementById("tableProdut");
+    let rows=tabela.getElementsByTagName("tr");
+    let k=rows.length
+    for(h=0;h<k;h++){
+        let currentRow=tabela.rows[h];
+        currentRow.onclick=function(){
+         //  Array.from(this.parentElement.children).forEach(function(el){
+         //    el.classList.remove('selected-row');
+         //  });
+           // using spread operator
+           [...this.parentElement.children].forEach((el)=> el.classList.remove('rowtable'));
+           this.classList.add('rowtable')
+        }
+    } 
+    // Vai buscar o registros correspondente.
+    //.....................................................
+    //......................................................
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //////////////////////////////////////////////////////////////////
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/busca_itensfotos/${numberProduto}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+                }  
+                throw response;
+        })
+        .then((json)=>{
+            //:::::::::::::::::::::::::::::::::::::::::
+            limpaEspelho()
+            //.................................................
+            if (json!=0){
+                  PreencherTableFoto(json);
+            }else{
+                alert("Favor adicionar a fotografia!")
+            }
+
+            async function limpaEspelho(){
+                //.............................................
+                let content=document.getElementById("tableCoresfoto");
+                //.............................................
+                while (content.firstChild) {
+                   content.removeChild(content.firstChild);
+                }
+            }
+            async function PreencherTableFoto(json){
+                let n=0;
+                let X=json;
+                console.log('');
+                console.log('');
+                console.log('PreencherTableFoto',X.cores);
+                console.log('___________________________________________');
+                
+                let cores=X.cores;
+                console.log(' ', cores)
+                let l=cores.length;
+                console.log(' [ 1289 ]',l)
+               // return
+                let p=0;
+                let x=0;
+                let t=0;
+                //l=1;
+                console.log('__________________________________________________________')                
+                const node0=document.createElement("tr");
+                node0.setAttribute("id",'lin - ' + t + t);
+                node0.setAttribute("class","linFoto","redFoto");
+                document.getElementById('tableCoresfoto').appendChild(node0);
+                console.log('');
+                console.log('número de cores referente ao produto escolhido :',l);
+                console.log('__________________________________________________')
+                
+                //......................................................................
+                for (let i=0;i<l;i++){
+                    console.log('dentro de for =>',i)
+                    console.log(X.cores[i])
+                    if(i>0){
+                        p=p+1;
+                        x=x+1;
+                    }
+                    //......................................................
+                    //  Determina a 1º Coluna
+                
+                    console.log('');
+                    //document.getElementById("lin - ' + t + t").style.backgroundColor=X.cores[i].corinput;                   
+
+                    let N2=X.cores[i]._id;
+                     console.log('nº da cor ',N2)
+                    const node31 = document.createElement("td");
+                    node31.setAttribute("id","mycolFoto-" + i + n);
+                    node31.setAttribute("class","imgCenter","redFoto");
+                    node31.setAttribute("onclick","pegaFoto(" + "'" + N2 + "'" + ")");
+                    document.getElementById('lin - ' + i + p).appendChild(node31);
+                    document.getElementById("mycolFoto-" + i + n).style.backgroundColor=X.cores[i].corinput;
+                                         
+                    // Coloca a img dentro da 1º coluna;
+                    let Urlfront;
+                    Urlfront=X.cores[i].urlfront;
+                     console.log('=========================================================');
+                    console.log('300',Urlfront)
+                    console.log('');
+
+                    const node = document.createElement("img");
+                    node.setAttribute("class","rowImg");
+                    node.setAttribute("src",Urlfront)
+                    //.......................................
+                    node.setAttribute("id","mycollum-" + i + n);
+                    document.getElementById("mycolFoto-" + i + n).appendChild(node);
+                    n++;
+               
+                    //  Determina a 2º Coluna
+                    let Urlleft;
+                    Urlleft=X.cores[i].urlleft;
+                    
+                    const node1 = document.createElement("td");
+                    node1.setAttribute("id","mycolFoto-" + i + n);
+                    node1.setAttribute("class","imgCenter");
+                    document.getElementById('lin - ' + i + p).appendChild(node1);
+                    document.getElementById("mycolFoto-" + i + n).style.backgroundColor=X.cores[i].corinput;
+                                       
+                    const node80 = document.createElement("img");
+                    node80.setAttribute("class","rowImg");
+                    node80.setAttribute("src",Urlleft)
+                    //.......................................
+                    node80.setAttribute("id","mycollum-" + i + n);
+                    document.getElementById("mycolFoto-" + i + n).appendChild(node80);
+                    n++;
+
+                    //  Determina a 3º Coluna
+                    let Urlback;
+                    Urlback=X.cores[i].urlback;
+                    const node3 = document.createElement("td");
+                    node3.setAttribute("id","mycolFoto-" + i + n);
+                    node3.setAttribute("class","imgCenter");
+                    document.getElementById('lin - ' + i + p).appendChild(node3);
+                    document.getElementById("mycolFoto-" + i + n).style.backgroundColor=X.cores[i].corinput;                     
+
+                    const node81 = document.createElement("img");
+                    node81.setAttribute("class","rowImg");
+                    node81.setAttribute("src",Urlback)
+                    //.......................................
+                    node81.setAttribute("id","mycollum-" + i + n);
+                    document.getElementById("mycolFoto-" + i + n).appendChild(node81);
+                    n++;
+
+                    //  Determina a 4º Coluna
+                    let Urlright;
+                    Urlright=X.cores[i].urlright;
+                    
+                    const node53 = document.createElement("td");
+                    node53.setAttribute("id","mycolFoto-" + i + n);
+                    node53.setAttribute("class","imgCenter");
+                    document.getElementById('lin - ' + p + p).appendChild(node53);
+                    document.getElementById("mycolFoto-" + i + n).style.backgroundColor=X.cores[i].corinput;
+                                         
+                    const node82 = document.createElement("img");
+                    node82.setAttribute("class","rowImg");
+                   // console.log('');
+                    node82.setAttribute("src",Urlright)
+                    //.......................................
+                    node82.setAttribute("id","mycollum-" + i + n);
+                    
+                    document.getElementById("mycolFoto-" + i + n).appendChild(node82);
+                    n++;
+
+                    //  Determina a 5º Coluna
+                    CorInput=X.cores[i].corinput;
+                    console.log('[ 1397 ] ..',CorInput)
+                    const node12 = document.createElement("td");
+                    node12.setAttribute("class","");
+                    node12.setAttribute("id","mycolFoto-" + i + n);
+                    node12.setAttribute("style",'background-color' + ":" + CorInput )
+                    document.getElementById('lin - ' + i + p).appendChild(node12);
+                    n++;
+
+                    let numbercor;
+                    numbercor=X.cores[i]._id;
+                    const node13 = document.createElement("td");
+                    const textnode13 = document.createTextNode(numbercor);
+                    node13.setAttribute("class","");
+                    node13.setAttribute("id","mycolFoto-" + i + n);
+                    node13.setAttribute("style",'display' + ":" + "none")
+                    node13.appendChild(textnode13);
+                    document.getElementById('lin - ' + p + p).appendChild(node13);
+
+                    let z=i;
+                    z++;
+                   // console.log(z)
+                    if (z<l){
+                        t++;
+                     //   console.log('');
+                        const node10=document.createElement("tr");
+                        node10.setAttribute("id","lin - " + t + t);
+                        node10.setAttribute("class","rowtable1","linFoto");
+                        document.getElementById("tableCoresfoto").appendChild(node10);
+                       // document.getElementById('lin - " + t + t)').style.backgroundColor=
+                    }
+                    //..........................................................
+                    x++;
+                    n=0;
+                }
+                document.getElementById("modal-modela").style.display="block";
+            };
+        })
+        .catch((err)=>{
+            alert("Verifique se todos os requisitos foram atendidos para publicação do produto!")
+            console.log('tentou alguma coisa e deu errado!',err)
+        })
+    }
+    catch(e){
+        console.log('try',e);
+    }
+ 
+
+}
+
+//Essa rotina capta o numero do card clicado para carregar o modal de upload Imagem
+function numberId(n){
+    document.getElementById("posicao-Imagem").value=n;
+    //.........................................................
+    // Constrói o number ID da divisão/url da imagem do produto
+    let letra="main-" + n;
+    console.log('[ 1321 ] card valor',letra)
+    document.getElementById("localposicao").value=letra;
+    let W=document.getElementById("idArtigoSelected");
+    let nome=W.value;
+    console.log(nome)
+    busca_tabela_artigos(nome)
+    return
+    //........................................................
+    // Identifica o doc que recebe a image
+    let usrString=document.getElementById(`${letra}`);
+    let recImg=document.getElementById("recImg");
+    recImg.value=usrString.src;
+    // passa para input o valor da imagem e url
+    let src=usrString.src;
+
+    let marte=document.getElementById("modal-modela");
+    marte.style.paddingTop='20';
+    marte.style.z_index='1000'
+    marte.style.display="block";
+   /////////////////////////////////////////////////////////////////////
+   
+}
+
+// Essa rotina aciona a form para ir para 'page-roupa-detalhe'
+// faz parte do Menu Modal/Central
+function editaDetalhes(){
+    //........................................................
+    document.getElementById("modal-menu").style.display="none"
+    document.getElementById("bnt-roupadetalhe").click();
+ }
+
+// Essa function busca as images correspondente a cor do produto seleciona
+// Vem da tabela cor/tamanho,qte do modal
+function busImg(n){
+    console.log('buscImg(n)',n)
+    let w=n;
+    let z=w.length;
+    let pos=w.search(":")
+    let n1=w.substring(0,pos);
+    //..................................
+    let palavra=w.substring((pos+1),z)
+    //..........................................
+    document.getElementById("id_detalhe").value=n;
+    //..........................................
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //................................................................
+    try{
+            fetch(`${baseApiUrl}` + `/roupa/buscarimage_page/${n1}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+            .then(response =>{
+                if( response.ok ){
+                    return response.json()
+                    }  
+                    throw response;
+            })
+            .then((json)=>{
+                console.log('vr de json',json);
+                let r=json.length;
+                for (let i=0;i<r;i++){
+                       let pos=json[0];
+                       let page=json[1];
+                       let uf=json[2];
+                       let ul=json[3];
+                       let ub=json[4];
+                       let ur=json[5];
+                  console.log('vr de pos',pos.pos)
+                  document.getElementById('localposicao').value=pos.pos;
+                  document.getElementById('nomepage').value=page.page;
+                  document.getElementById('frontImg').src=uf.urlfront;
+                  document.getElementById('leftImg').src=ul.urlleft;
+                  document.getElementById('backImg').src=ub.urlback;
+                  document.getElementById('rightImg').src=ur.urlright;
+                }
+            })
+            .catch((er)=>{
+                console.log(er)
+            })
+            //..................................................................
+        }catch(e){
+           console.log(e)
+       }
+}
+
+function busque_Imagem(n){
+    //...........................
+    let c='75vh';
+    let p=document.getElementById("gravaImagem");
+    p.style.height=c;
+    p.style.display='block';
+    //..................................
+    let q1=document.getElementById("containerImagem");
+    q1.style.display='block';
+    //.................................
+    document.getElementById("idPosicaoImg").value=n;
+}
+ 
+
+function pegaFoto(n){
+    //........................................................
+    console.log('');
+    console.log('clica sobre a foto que se quer vincular na posição da page');
+    console.log('número da cor escolhida : ',n);
+    let p1=document.getElementById('idnumber-cor');
+    p1.value=n;
+    console.log('____________________________________');
+    let n1=n; 
+    let baseApiUrl=window.location.hostname;
+    if (baseApiUrl=='localhost'){
+            baseApiUrl='http://localhost:3000'
+    }else{
+        baseApiUrl='https://www.rotaes.com.br'
+    }   
+    //................................................................
+    try{
+        fetch(`${baseApiUrl}` + `/roupa/pega_foto/${n1}`, { method: "POST",  headers: {"Content-type": "application/json; charset=UTF-8"}})
+        .then(response =>{
+            if( response.ok ){
+                return response.json()
+            }  
+                throw response;
+        })
+        .then((json)=>{
+            document.getElementById("elementImage").style.display="block";
+            console.log('a fotos que foram selecionadas para  a page',json);
+            console.log('-------------',json.cores[0].urlfront);
+            let a=document.getElementById("iDfrontImg");
+            a.src="";
+            a.src=json.cores[0].urlfront;
+            ///////////////////////////////////////////////////////////////
+            document.getElementById("url-imagem").value=json.cores[0].urlfront;
+
+            let b=document.getElementById("iDleftImg");
+            b.src="";
+            b.src=json.cores[0].urlleft;
+          
+
+            let c=document.getElementById("iDbackImg");
+            c.src="";
+            c.src=json.cores[0].urlback;
+            //c.src=json.urlback;
+
+            let d=document.getElementById("iDrightImg");
+            d.src="";
+            d.src=json.cores[0].urlright;
+
+            document.getElementById("barraVerde").style.backgroundColor=json.cores[0].corback;
+            
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }catch(e){
+    //     console.log("Error : ",e)
+    }
+}
+//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+//Vai buscar no views/partials/_sidebar-page.handlebars os nome dos artigos
+// cadastrados pelo lojista
+// atualizado em : 01/08/23
+
+buscar_Artigo_Menu()
+
+//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+//let fileImgA=document.querySelector('#fileA');
+//.............................................
+//const imgPreviewA = document.querySelector('#imgPreviewA');
+//    fileImgA.addEventListener("change",(event)=>{
+//        console.log('linha 398')
+//        document.getElementById("btnUpload").style.display="block";
+//        const selecledFile=event.target.files[0];
+//        const reader = new FileReader;
+        //:::::::::::::::::::::::::::::::::
+//        console.log(1814)
+//        reader.onloadend=()=>{
+//            imgPreviewA.src=reader.result;
+//            console.log('linha 405')
+//            document.getElementById("ladoLoadImage").style.display="block";
+//            document.getElementById("menu-modal").style.display="block";
+//            document.getElementById("Up01").style.visibility="visible";
+//          }
+//          reader.readAsDataURL(selecledFile);
+//    });
+ 
+</script>
+
+

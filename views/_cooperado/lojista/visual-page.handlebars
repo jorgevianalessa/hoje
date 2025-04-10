@@ -1,0 +1,402 @@
+<style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+
+#header {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#cards {
+  top: 140px;
+  background-color: #06c76d;
+}
+
+#rodape{
+  top: 200px;
+  background-color: #555
+}
+
+#volta{
+  top: 260px;
+  background-color: #AA594E;
+}
+
+.polaroid1{
+    table;
+    background-color: #ffffff;text-align: center;display: flex;
+    flex-direction: column;align-items:center;align-content:space-between center;padding-top: 8vh;"
+}
+
+.formUp{
+    background-color: #ffffff;height: 25vh;
+}
+</style>
+<script>
+  function larguraAltura(){
+    var x=document.getElementById("dflex").clientHeight;
+    console.log('vr de x',x)
+    var d=document.getElementById('pegaHeight');
+    d.innerHTML='h :' + x;
+    d.style.fontSize="20px";
+    ///////////////////////////////////////////////////
+    var x1=document.getElementById("myHeader").clientWidth;
+    console.log('vr de x1',x1)
+    var d1=document.getElementById('pegaWidth');
+    d1.innerHTML='w :' + x1;
+    d1.style.fontSize="20px";
+    //////////////////////////////////////////////////
+    x.innerHTML=(x1/1.77)
+
+    var q=document.getElementById('dflex');
+     q.addEventListener("resize",function(){
+        console.log('alô!')
+     })
+
+    }
+</script>
+<div id="dflex"  class="d-flex" class="d-flex dflex" style="width: 100%;height: 350vh;margin: auto;padding-top: 2px;background-color: #ffffff;margin-left: 10px;">
+      <div id="mySidenav" class="sidenav" style="margin-top: 12vh;z-index:1000">
+                <a href="#" id="header" onclick="tornaVisivelHeader()">Header</a>
+                <a href="#" id="cards" onclick='tornaVisivelCards()'>Cards</a>
+                <a href="#" id="rodape">Rodapé</a>
+                <a href="" id="volta" onclick="history.back()">Volta</a>
+      </div>
+      {{!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+       {{!-- <div style="display: none;z-index: 100;" id="modal"> --}}
+        <div id="id01" class="w3-modal">
+              <div class="w3-modal-content" >
+                    <div class="w3-container" style="height: 85vh;background-color: #ffffff;">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" >&times;</span>
+                        <form action="/lojista/upload" id="vintedois" method="post" enctype="multipart/form-data" class="formUp">
+                            <h3 style="background-color: #af03ca;color:#ffffff;text-align: center;">Selecione a foto</h3>
+                            <div style="display: flex;flex-direction: column;align-items:center;align-content: center;">
+                            <input type="file" name="upload" id="fileA" style="color:#0b0a0a;background-color: yellow;padding: 2px;">
+                            <input type="text" name="goiaba" id="goiaba" style="background-color:#690e0e;color:white;margin-top: 4px;" value="{{caminho}}">
+                            <input type="text" name="amora" id="amora" style="background-color:#690e0e;color:white;margin-top: 4px;" value="{{container.razao}}">
+                            <input type="text" name="caju" id="caju" style="background-color:#690e0e;color:white;margin-top: 4px;" value="{{container.id}}">
+                            <input type="text" name="pera" id="pera" style="background-color:#690e0e;color:white;margin-top: 4px;" value="78">
+                            
+                            </div>
+                       
+                        <div style="display: flex;flex-direction: row;background-color: #ffffff;width: 30%;height: 40vh;margin: auto;align-content:space-around;align-items:center ;">
+                            <div style="background-color: #ffffff;width:99% ;height: 30vh;display: flex;flex-direction: column;align-items: center;">
+                               <img id="imgPreview" src="" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                            </div>
+                        </div> 
+                        <div id="text01" style="width: 90%;height: 12vh;margin: auto;background-color:#d2d2d6;padding: 10px;display: none;border-radius: 5px; ">
+                                <div class="row" style="display: flex;flex-direction: row;align-items: center;background-color: #d2d2d6;align-content: space-around;">
+                                    <div style="background-color: #d2d2d6;width: 50%;">
+                                        <label class="" for="email" style="float: right;color:#090808;font-weight: 400;">nome do produto:</label>
+                                    </div>
+                                    <div class="" style="background-color: #d2d2d6;width: 50%;">
+                                       <input type="text" class="" id="produto" placeholder="Enter nome do produto">
+                                    </div>
+                                </div>
+                                <div class="row" style="display: flex;flex-direction: row;align-items: center;background-color: #d2d2d6;">
+                                    <div style="background-color: #d2d2d6;width: 50%;">
+                                    <label class="" for="pwd" style="float: right;color:#070606;font-weight: 200;">pagamento:</label>
+                                    </div>
+                                    <div class="" style="background-color: #d2d2d6;width: 50%;">
+                                        <input type="text" class="" id="pagamento" placeholder="Enter com pagamento">
+                                    </div>
+                                </div>
+                                                   
+                        </div>
+                        <div id="Up01" style="background-color: #dbdfde;width: 50%;height: 5vh;margin: auto;padding: .5vh;display: flex;flex-direction: column;
+                                    align-items: center;text-align: center;border-radius: 6px;visibility: hidden;">
+                           <input type="submit" value="Upload Image" name="submit" style="margin-top: .2vh;border-radius: 6px;background-color: #05477c;color:#ffffff;">
+                        </div>   
+                         </form>
+                    </div>
+                    {{!-- <div>
+                       
+                    </div> --}}
+               </div>
+       </div>
+      {{!-- </div> --}}
+      {{!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: --}}
+      <div id="plataforma-site" style="width: 100%;height: 348vh;margin-left:20px;background-color: #ffffff;">
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod" id="11" onclick="numberId(11)">
+                  <div class="polaroid1" style="table">
+                        <img  src="https://amelia.nyc3.digitaloceanspaces.com/be69e60d041ca0cea656_vestido-creppe-saiadupla.png" alt="" class="img-fluid" style="background-color: #67676b;height: 30vh;"/>
+                  </div>
+                  <div class="polaroid2">
+                      <p>Conjunto com alçinha</p>
+                      <p>preto</p>
+                  </div>
+              </div>    
+              <div class="card_prod" id="21" onclick="numberId(21)" >
+                  <div class="polaroid1" style="table" >
+                     <img src="https://amelia.nyc3.digitaloceanspaces.com/fd41602a09bca0adfdd2_camisacrepe-mangalacinho.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                      <p>Vestido tubinho</p>
+                      <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod" id="31" onclick="numberId(31)">
+                  <div class="polaroid1" style="table;" >
+                        <img src="https://amelia.nyc3.digitaloceanspaces.com/9b1a3f0b401bfe0421bc_blazerlinho-comlapela.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                      <p>Blusa </p>
+                      <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod" id="41" onclick="numberId(41)">
+                  <div class="polaroid1" style="table" >
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                        <p>Conjuntinho manga longa</p>
+                        <p>amarelo</p>
+                  </div>
+              </div> 
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod" id="12" onclick="numberId(12)">
+                  <div class="polaroid1" style="table">
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2">
+                      <p>1</p>
+                  </div>
+              </div>    
+              <div class="card_prod" id="22" onclick="numberId(22)">
+                  <div class="polaroid1" style="table" >
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                      <p>Vestido tubinho</p>
+                      <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod" id="32" onclick="numberId(32)">
+                  <div class="polaroid1" style="table">
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                      <p>3</p> 
+                  </div>
+              </div>     
+              <div class="card_prod" id="42" onclick="numberId(42)">
+                  <div class="polaroid1" style="table" >
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                          <p>4</p>
+                  </div>
+              </div> 
+          </div>
+          <div style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                <h3 style="color:#ffffff;font-size: medium;font-weight:300;margin-top: 15px;">Topo</h3>
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod">
+                  <div class="polaroid1" style="table">
+                      <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2">
+                      <p>1</p>
+                  </div>
+              </div>    
+              <div class="card_prod" >
+                  <div class="polaroid1" style="table" >
+                      <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                          <p>Vestido tubinho</p>
+                          <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod">
+                  <div class="polaroid1" style="table" >
+                     <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                          <p>Vestido tubinho</p>
+                          <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod">
+                  <div class="polaroid1" >
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                          <p>4</p>
+                  </div>
+              </div> 
+          </div>
+            <div style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                <h3 style="color:#ffffff;font-size: medium;font-weight:300;margin-top: 15px;">Topo</h3>
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod">
+                  <div class="polaroid1" style="table">
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2">
+                      <p>1</p>
+                  </div>
+              </div>    
+              <div class="card_prod" >
+                  <div class="polaroid1" style="table">
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" style="">
+                      <p>Vestido tubinho</p>
+                      <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod">
+                   <div class="polaroid1" style="table">
+                         <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">  
+                   </div>
+                  <div class="polaroid2" style="">
+                      <p>3</p> 
+                  </div>
+              </div>     
+              <div class="card_prod">
+                  <div class="polaroid1" style="table">
+                        <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%"> 
+                  </div>
+                  <div class="polaroid2" style="">
+                      <p>4</p>
+                  </div>
+              </div> 
+          </div>
+          <div class="grid-container" style="margin-left: 10px;">
+              <div class="card_prod">
+                  <div class="polaroid1" style="table">
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2">
+                          <p>1</p>
+                  </div>
+              </div>    
+              <div class="card_prod" >
+                  <div class="polaroid1" style="table" >
+                        <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2" >
+                        <p>Vestido tubinho</p>
+                        <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod">
+                  <div class="polaroid1" style="table">
+                       <img src="https://amelia.nyc3.digitaloceanspaces.com/3dd22815cda3f24a119a_vestido-creppe-saiadupla.png" alt="" style="100%">
+                  </div>
+                  <div class="polaroid2">
+                        <p style="color:red;bac">Vestido tubinho</p>
+                        <p>preto</p>
+                  </div>
+              </div>     
+              <div class="card_prod">
+                  <div class="polaroid1" style="table">
+                        <img src="https://amelia.nyc3.digitaloceanspaces.com/47c6ae1ea9e4d9ea2deb_camisacrepe-mangalacinho.png" alt="" style="100%">  
+                  </div>
+                  <div class="polaroid2" style="">
+                        <p>4</p>
+                  </div>
+              </div> 
+          </div>   
+            <div style="width:99.3%;height:2vh;margin:auto;background-color:#6b6d6b;text-align:center;margin-left:10px;">
+                <h3 style="color:#ffffff;font-size:small;font-weight:300;margin-top: 15px;">Topo</h3>
+          </div>
+          <div class="grid-container" style="height: 12vh;margin-left: 10px;">
+                    
+          </div>
+      </div>
+</div>
+<script>
+    ////////////////////////////////////////////////////
+    function mylong(){
+      console.log('largura',screen.height)
+       console.log('altura',screen.width)
+  }
+</script>
+<script>
+
+function tornaVisivelHeader(){
+    if (document.getElementById("diviHeader").style.visibility=='visible'){
+        console.log(1)
+        document.getElementById("diviHeader").style.visibility='hidden';   
+    }else if(document.getElementById("diviHeader").style.visibility=='hidden'){
+        console.log(2)
+       document.getElementById("diviHeader").style.visibility='visible';
+       document.getElementById("divCards").style.visibility='hidden';
+    }
+}
+
+function tornaVisivelCards(){
+    if (document.getElementById("divCards").style.visibility=='visible'){
+        console.log('509',1)
+        document.getElementById("divCards").style.visibility='hidden';   
+    }else if(document.getElementById("divCards").style.visibility=='hidden'){
+        console.log('512',2)
+       document.getElementById("divCards").style.visibility='visible';
+       document.getElementById("diviHeader").style.visibility='hidden';   
+    }
+}
+
+let fileImg=document.querySelector('#fileA');
+const imgPreview = document.querySelector('#imgPreview')
+const vinte = document.querySelector('#vintedois')
+console.log('521 :',fileImg)
+console.log('522 :',vinte)
+
+fileImg.addEventListener("change",(event)=>{
+    console.log(888888)
+    const selecledFile=event.target.files[0];
+    const reader = new FileReader;
+   // console.log('123'.reader)
+    //:::::::::::::::::::::::::::::::::
+    reader.onloadend=()=>{
+        imgPreview.src=reader.result;
+        document.getElementById("text01").style.display="block";
+        document.getElementById("Up01").style.visibility="visible";
+    }
+    reader.readAsDataURL(selecledFile);
+    //vinte.style.display='none';
+});
+
+function numberId(n){
+    console.log('valor de n',n)
+    //{{!-- let r=document.getElementById('envia');
+    //r.style.display="block"; --}}
+
+    let pera=document.getElementById('pera');
+    pera.value=n;
+    console.log('vr de p',pera)
+
+    console.log('valor de pera',pera.value)
+
+    let q=document.getElementById("id01").style.display="block";
+    
+
+}
+
+let box=document.getElementsByClassName('card_prod');
+
+let l=box.length;
+
+console.log(l)
+
+</script>
